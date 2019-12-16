@@ -1,4 +1,4 @@
-const {SkyWars, BedWars} = require('./MiniGames')
+const {SkyWars, BedWars} = require('./MGs')
 
 class Player {
     /**
