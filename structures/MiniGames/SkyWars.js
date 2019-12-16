@@ -1,6 +1,4 @@
-const moment = require('moment')
 const inRange = require('../../utils/inRange')
-require('moment-duration-format')
 class SkyWars {
     constructor (data) {
         //General
@@ -18,7 +16,8 @@ class SkyWars {
         this.openedLootChests = data.SkyWars_openedChests
         this.level = getSkyWarsLevel(data.skywars_experience)
         this.prestige = getSkyWarsPrestige(this.level)
-        //this.level = Math.floor(data.levelFormatted.substring(2, data.levelFormatted.length-1))
+        this.playedTotal = (data.games_solo + data.games_team + data.games_ranked + data.games_mega + data.games_mega_doubles + data.games_lab)
+        //Modes
         this.solo = {
             played: data.games_solo || 0,
             kills: data.kills_solo || 0,
@@ -101,7 +100,4 @@ function getSkyWarsLevel(xp) {
         }
     }
     return Math.floor(exactLevel);
-}
-function getPlayedTime(playedTime) {
-    //
 }
