@@ -1,11 +1,11 @@
-const {SkyWars, BedWars} = require('./MGs')
+const { SkyWars, BedWars } = require('./MGs')
 
 class Player {
     /**
      * 
      * @param {object} data 
      */
-    constructor (data) {
+    constructor(data) {
         //General
         this.name = data.player.displayname;
         this.uuid = data.player.uuid;
@@ -31,9 +31,9 @@ function getPlayerLevel(exp) {
     let GROWTH = 2500
     let REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH
     let REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX
-	let GROWTH_DIVIDES_2 = 2 / GROWTH;
-	let num = 1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
+    let GROWTH_DIVIDES_2 = 2 / GROWTH;
+    let num = 1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
     let level = Math.round(num * 100) / 100;
-	return level
+    return level
 }
 module.exports = Player;
