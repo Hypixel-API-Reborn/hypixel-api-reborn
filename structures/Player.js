@@ -21,7 +21,8 @@ class Player {
         //Stats
         this.stats = {
             skywars: new SkyWars(data.player.stats.SkyWars),
-            bedwars: new BedWars(data.player.stats.Bedwars)
+            bedwars: new BedWars(data.player.stats.Bedwars),
+            uhc: new UHC(data.player.stats.UHC)
         }
 
     }
