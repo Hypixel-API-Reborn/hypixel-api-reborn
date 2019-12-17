@@ -6,18 +6,18 @@ class BedWars {
 
         //Stats
         this.winstreak = data.winstreak;
-        this.kills = data.kills_bedwars + data.final_kills_bedwars;
-        this.finalKills = data.final_kills_bedwars;
-        this.losses = data.losses_bedwars;
-        this.playedTotal = data.games_played_bedwars;
+        this.kills = (data.kills_bedwars || 0) + (data.final_kills_bedwars || 0);
+        this.finalKills = data.final_kills_bedwars || 0;
+        this.losses = data.losses_bedwars || 0;
+        this.playedTotal = data.games_played_bedwars || 0;
         this.level = getLevelForExp(data.Experience)
         this.prestige = getBedWarsPrestige(this.level)
-        this.deaths = data.deaths_bedwars + data.final_deaths_bedwars;
+        this.deaths = data.deaths_bedwars + data.final_deaths_bedwars || 0;
         this.collectedItemsTotal = {
-            iron: data.iron_resources_collected_bedwars,
-            gold: data.gold_resources_collected_bedwars,
-            diamond: data.diamond_resources_collected_bedwars,
-            emerald: data.emerald_resources_collected_bedwars
+            iron: data.iron_resources_collected_bedwars || 0,
+            gold: data.gold_resources_collected_bedwars || 0,
+            diamond: data.diamond_resources_collected_bedwars || 0,
+            emerald: data.emerald_resources_collected_bedwars || 0
         }
         //Modes
         this.solo = {

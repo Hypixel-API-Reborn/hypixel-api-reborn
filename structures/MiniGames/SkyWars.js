@@ -12,11 +12,11 @@ class SkyWars {
         this.losses = data.losses || 0;
         this.deaths = data.deaths || 0;
         this.wins = data.wins || 0;
-        this.lootChests = data.skywars_chests;
-        this.openedLootChests = data.SkyWars_openedChests
-        this.level = getSkyWarsLevel(data.skywars_experience)
-        this.prestige = getSkyWarsPrestige(this.level)
-        this.playedTotal = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0)
+        this.lootChests = data.skywars_chests || 0;
+        this.openedLootChests = data.SkyWars_openedChests || 0;
+        this.level = getSkyWarsLevel(data.skywars_experience);
+        this.prestige = getSkyWarsPrestige(this.level);
+        this.playedTotal = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
         //Modes
         this.solo = {
             played: data.games_solo || 0,
@@ -41,10 +41,10 @@ class SkyWars {
         };
         this.mega = {
             played: data.games_mega || 0,
-            kills: data.kills_mega + data.kills_mega_doubles,
+            kills: (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
             wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
-            losses: data.losses_mega + data.losses_mega_doubles,
-            deaths: data.deaths_mega + data.deaths_mega_doubles
+            losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
+            deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0)
         };
         this.lab = {
             played: data.games_lab || 0,
