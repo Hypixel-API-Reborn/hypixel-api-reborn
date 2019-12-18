@@ -40,7 +40,7 @@ class Client {
             if(this.isUUID(uuid) == false) {
                 let uid = await getUuid(uuid)
                 if(uid == 'Player does not exist') {
-                    reject({
+                    return reject({
                         player: null,
                         error: 'Player does not exist'
                     })
@@ -48,17 +48,20 @@ class Client {
                 uuid = uid;
             }
             fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json()).then(res => {
+                if(res.success == false && res.cause == 'Invalid API key!') {
+                    return reject({error: res.cause})
+                }
                 if(!res.player || res.cause == 'Malformed UUID!') {
-                    reject({
+                    return reject({
                         player: null,
                         error: 'Player does not exist'
                     })
                 }
                 
                 if(this.compacted == true) {
-                    resolve(new Player(res))
+                    return resolve(new Player(res))
                 } else {
-                    resolve(res)
+                    return resolve(res)
                 }
             })
         })
