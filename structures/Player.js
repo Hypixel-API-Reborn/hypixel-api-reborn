@@ -1,4 +1,4 @@
-const { SkyWars, BedWars, UHC } = require('./MGs')
+const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels } = require('./MGs')
 
 class Player {
     /**
@@ -22,7 +22,10 @@ class Player {
         this.stats = {
             skywars: new SkyWars(data.player.stats.SkyWars),
             bedwars: new BedWars(data.player.stats.Bedwars),
-            uhc: new UHC(data.player.stats.UHC)
+            uhc: new UHC(data.player.stats.UHC),
+            speedUHC: new SpeedUHC(data.player.stats.SpeedUHC),
+            murdermystery: new MurderMystery(data.player.stats.MurderMystery),
+            duels: new Duels(data.player.stats.Duels)
         }
 
     }
