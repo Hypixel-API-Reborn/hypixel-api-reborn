@@ -1,17 +1,15 @@
 {
   "name": "hypixel-api-reborn",
   "version": "1.0.0",
-  "description": "Hypixel API Wrapper []",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Hypixel API Wrapper [Reborn]",
+  "keywords": ["hypixel", "api", "hypixel-api"],
+  "author": "StavZ",
   "dependencies": {
-    "moment": "^2.24.0",
-    "moment-duration-format": "^2.3.2",
     "node-fetch": "^2.6.0"
-  }
+  },
+  "repository": {
+    "url": "https://github.com/StavZ/hypixel-api-reborn"
+  },
+  "publisher": "StavZ",
+  "homepage": "https://github.com/StavZ/hypixel-api-reborn"
 }
