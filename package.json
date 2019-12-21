@@ -2,7 +2,11 @@
   "name": "hypixel-api-reborn",
   "version": "1.0.0",
   "description": "Hypixel API Wrapper [Reborn]",
-  "keywords": ["hypixel", "api", "hypixel-api"],
+  "keywords": [
+    "hypixel",
+    "api",
+    "hypixel-api"
+  ],
   "author": "StavZ",
   "dependencies": {
     "node-fetch": "^2.6.0"
