@@ -19,6 +19,8 @@ class BedWars {
             diamond: data.diamond_resources_collected_bedwars || 0,
             emerald: data.emerald_resources_collected_bedwars || 0
         }
+        this.KDRatio = Math.round((this.kills / this.deaths) * 100) / 100;
+        this.WLRatio = Math.round((this.wins / this.losses) * 100) / 100;
         //Modes
         this.solo = {
             winstreak: data.eight_one_winstreak || 0,
@@ -60,7 +62,7 @@ class BedWars {
 }
 function getBedWarsPrestige(level) {
     let prestige;
-    if(inRange(level, 1, 99)) {
+    if (inRange(level, 1, 99)) {
         prestige = 'Stone'
     } else if (inRange(level, 100, 199)) {
         prestige = 'Iron'
@@ -91,15 +93,15 @@ const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
 
-function getExpForLevel(level){
-    if(level == 0) return 0;
+function getExpForLevel(level) {
+    if (level == 0) return 0;
 
     var respectedLevel = getLevelRespectingPrestige(level);
-    if(respectedLevel > EASY_LEVELS){
+    if (respectedLevel > EASY_LEVELS) {
         return 5000;
     }
 
-    switch(respectedLevel){
+    switch (respectedLevel) {
         case 1:
             return 500;
         case 2:
@@ -112,8 +114,8 @@ function getExpForLevel(level){
     return 5000;
 }
 
-function getLevelRespectingPrestige(level){
-    if(level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE){
+function getLevelRespectingPrestige(level) {
+    if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
         return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
     }
     else {
@@ -121,20 +123,20 @@ function getLevelRespectingPrestige(level){
     }
 }
 
-function getLevelForExp(exp){
+function getLevelForExp(exp) {
     var prestiges = Math.floor(exp / XP_PER_PRESTIGE);
     var level = prestiges * LEVELS_PER_PRESTIGE;
     var expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE);
 
-    for(let i = 1; i <= EASY_LEVELS; ++i){
+    for (let i = 1; i <= EASY_LEVELS; ++i) {
         var expForEasyLevel = getExpForLevel(i);
-        if(expWithoutPrestiges < expForEasyLevel){
+        if (expWithoutPrestiges < expForEasyLevel) {
             break;
         }
         level++;
         expWithoutPrestiges -= expForEasyLevel;
     }
-    return level + Math.floor(expWithoutPrestiges / 5000); 
+    return level + Math.floor(expWithoutPrestiges / 5000);
 }
 
 module.exports = BedWars

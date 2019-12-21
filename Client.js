@@ -49,7 +49,7 @@ class Client {
 
     /**
      * @async
-     * @returns {Promise} Hypixel player Object or Error
+     * @returns {Object} Hypixel player Object or Error
      * 
      * @param {String} uuid 
      */
@@ -65,14 +65,15 @@ class Client {
             };
             uuid = uid;
         };
+
         let validKey = await this.validateApiKey(this.key);
-        console.log(validKey)
         if (validKey == false) {
             return {
                 success: false,
                 error: 'Invalid API key!'
             };
         };
+
         let res = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
         if (!res.player || res.cause == 'Malformed UUID!') {
             return {
@@ -84,9 +85,10 @@ class Client {
         if (this.compacted == true) {
             return {
                 success: true,
-                player: await new Player(res)
+                player: new Player(res)
             };
         };
+
         return {
             success: true,
             player: res

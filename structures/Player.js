@@ -9,12 +9,13 @@ class Player {
         //General
         this.name = data.player.displayname;
         this.uuid = data.player.uuid;
-        this.nicknameHistory = data.player.knownAliases;
+        this.history = data.player.knownAliases;
         this.lastLogin = data.player.lastLogin;
         this.firstLogin = data.player.firstLogin;
         this.karma = data.player.karma
         this.totalExperience = data.player.networkExp;
         this.level = getPlayerLevel(this.totalExperience);
+        this.socialmedia = getSocialMedia(data.player.socialMedia)
         this.isOnline = () => {
             return this.lastLogin > data.player.lastLogout ? true : false;
         }
@@ -39,5 +40,36 @@ function getPlayerLevel(exp) {
     let num = 1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp)
     let level = Math.round(num * 100) / 100;
     return level
+}
+function getSocialMedia(data) {
+    if (!data) return null;
+
+    let links = data.links;
+
+    if (!links) return null;
+    let media = [];
+    if (!links) return;
+
+    if (links) {
+        if (links.TWITTER !== undefined) {
+            media.push({ name: `Twitter`, link: links.TWITTER })
+        }
+        if (links.YOUTUBE !== undefined) {
+            media.push({ name: `YouTube`, link: links.YOUTUBE })
+        }
+        if (links.INSTAGRAM !== undefined) {
+            media.push({name: `Instagram`, link: links.INSTAGRAM })
+        }
+        if (links.TWITCH !== undefined) {
+            media.push({name: `Twitch`, link: links.TWITCH })
+        }
+        if (links.MIXER !== undefined) {
+            media.push({name: `Mixer`, link: links.MIXER })
+        }
+        if (links.HYPIXEL !== undefined) {
+            media.push({name: `Hypixel`, link: links.HYPIXEL })
+        }
+    }
+    return media
 }
 module.exports = Player;

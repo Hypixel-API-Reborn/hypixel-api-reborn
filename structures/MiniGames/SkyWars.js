@@ -1,11 +1,11 @@
 const inRange = require('../../utils/inRange')
 class SkyWars {
-    constructor (data) {
+    constructor(data) {
         //General
         this.coins = data.coins || 0;
         this.souls = data.souls || 0;
         this.tokens = data.cosmetic_tokens || 0;
-        
+
         //Stats
         this.winStreak = data.win_streak || 0;
         this.kills = data.kills || 0;
@@ -17,6 +17,8 @@ class SkyWars {
         this.level = getSkyWarsLevel(data.skywars_experience);
         this.prestige = getSkyWarsPrestige(this.level);
         this.playedTotal = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
+        this.KDRatio = Math.round((this.kills / this.deaths) * 100) / 100;
+        this.WLRatio = Math.round((this.wins / this.losses) * 100) / 100;
         //Modes
         this.solo = {
             played: data.games_solo || 0,
@@ -58,7 +60,7 @@ class SkyWars {
 module.exports = SkyWars
 function getSkyWarsPrestige(level) {
     let prestige;
-    if(inRange(level, 1, 9)) {
+    if (inRange(level, 1, 9)) {
         prestige = 'Iron';
     } else if (inRange(level, 10, 14)) {
         prestige = 'Gold';
@@ -84,13 +86,13 @@ function getSkyWarsPrestige(level) {
 function getSkyWarsLevel(xp) {
     var totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
     var exactLevel = 0;
-    if(xp >= 15000) {
-        exactLevel =  (xp - 15000) / 10000 + 12;
+    if (xp >= 15000) {
+        exactLevel = (xp - 15000) / 10000 + 12;
     }
     else {
         var c = 0;
-        while(xp >= 0) {
-            if(xp - totalXp[c] >= 0) {
+        while (xp >= 0) {
+            if (xp - totalXp[c] >= 0) {
                 c++;
             }
             else {

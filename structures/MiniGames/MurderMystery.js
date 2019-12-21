@@ -3,9 +3,11 @@ class MurderMystery {
         this.coins = data.coins;
         this.playedGames = data.games;
         this.kills = data.kills;
+        this.deaths = data.deaths;
         this.winsAsMurderer = data.murderer_wins;
         this.winsAsDetective = data.detective_wins;
         this.wins = data.wins;
+
         this.assassins = {
             wins: data.games_MURDER_ASSASSINS,
             kills: data.kills_MURDER_ASSASSINS,

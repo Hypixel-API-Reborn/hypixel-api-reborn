@@ -13,7 +13,7 @@ class UHC {
             deaths: data.deaths_solo || 0,
             headsEaten: data.heads_eaten_solo || 0,
         }
-        
+
         this.team = {
             wins: data.wins || 0,
             kills: data.kills || 0,
