@@ -19,8 +19,8 @@ class BedWars {
             diamond: data.diamond_resources_collected_bedwars || 0,
             emerald: data.emerald_resources_collected_bedwars || 0
         }
-        this.KDRatio = Math.round((this.kills / this.deaths) * 100) / 100;
-        this.WLRatio = Math.round((this.wins / this.losses) * 100) / 100;
+        this.KDRatio = Math.round(((this.kills || 0) / (this.deaths || 0)) * 100) / 100;
+        this.WLRatio = Math.round(((this.wins || 0) / (this.losses || 0)) * 100) / 100;
         //Modes
         this.solo = {
             winstreak: data.eight_one_winstreak || 0,

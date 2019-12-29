@@ -1,4 +1,5 @@
-const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels } = require('./MGs')
+const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, CrazyWalls } = require('./MiniGames-Import')
+const fetch = require('node-fetch')
 
 class Player {
     /**
@@ -7,15 +8,19 @@ class Player {
      */
     constructor(data) {
         //General
-        this.name = data.player.displayname;
+        this.nickname = data.player.displayname;
         this.uuid = data.player.uuid;
         this.history = data.player.knownAliases;
+
         this.lastLogin = data.player.lastLogin;
         this.firstLogin = data.player.firstLogin;
-        this.karma = data.player.karma
+
+        this.karma = data.player.karma;
+        this.achievementPoints = data.player.achievementPoints;
         this.totalExperience = data.player.networkExp;
         this.level = getPlayerLevel(this.totalExperience);
         this.socialmedia = getSocialMedia(data.player.socialMedia)
+
         this.isOnline = () => {
             return this.lastLogin > data.player.lastLogout ? true : false;
         }
@@ -26,11 +31,17 @@ class Player {
             uhc: new UHC(data.player.stats.UHC),
             speedUHC: new SpeedUHC(data.player.stats.SpeedUHC),
             murdermystery: new MurderMystery(data.player.stats.MurderMystery),
-            duels: new Duels(data.player.stats.Duels)
+            duels: new Duels(data.player.stats.Duels),
+            crazywalls: new CrazyWalls(data.player.stats.TrueCombat),
+            skyblock: `https://sky.lea.moe/stats/` + this.nickname
         }
 
     }
 }
+/**
+ * 
+ * @param {number} exp 
+ */
 function getPlayerLevel(exp) {
     let BASE = 10000
     let GROWTH = 2500
@@ -41,6 +52,11 @@ function getPlayerLevel(exp) {
     let level = Math.round(num * 100) / 100;
     return level
 }
+
+/**
+ * 
+ * @param {object} data 
+ */
 function getSocialMedia(data) {
     if (!data) return null;
 

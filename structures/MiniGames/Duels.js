@@ -8,7 +8,7 @@ class Duels {
 
         this.wins = data.wins || 0;
         this.losses = data.losses || 0;
-        this.WLRatio = Math.round((data.wins / data.losses) * 100) / 100;
+        this.WLRatio = Math.round(((data.wins || 0) / (data.losses || 0)) * 100) / 100;
         this.playedGames = data.games_played_duels || 0;
         //Modes
         this.UHC = {

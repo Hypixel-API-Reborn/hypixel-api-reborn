@@ -17,8 +17,8 @@ class SkyWars {
         this.level = getSkyWarsLevel(data.skywars_experience);
         this.prestige = getSkyWarsPrestige(this.level);
         this.playedTotal = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
-        this.KDRatio = Math.round((this.kills / this.deaths) * 100) / 100;
-        this.WLRatio = Math.round((this.wins / this.losses) * 100) / 100;
+        this.KDRatio = Math.round(((this.kills || 0) / (this.deaths || 0)) * 100) / 100;
+        this.WLRatio = Math.round(((this.wins || 0) / (this.losses || 0)) * 100) / 100;
         //Modes
         this.solo = {
             played: data.games_solo || 0,

@@ -4,6 +4,7 @@ const UHC = require('./MiniGames/UHC')
 const SpeedUHC = require('./MiniGames/SpeedUHC')
 const MurderMystery = require('./MiniGames/MurderMystery');
 const Duels = require('./MiniGames/Duels')
+const CrazyWalls = require('./MiniGames/CrazyWalls')
 
 module.exports = {
     SkyWars: SkyWars,
@@ -11,5 +12,6 @@ module.exports = {
     UHC: UHC,
     SpeedUHC: SpeedUHC,
     MurderMystery: MurderMystery,
-    Duels: Duels
+    Duels: Duels,
+    CrazyWalls: CrazyWalls
 }
