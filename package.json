@@ -1,8 +1,11 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "1.0.0",
-  "description": "Hypixel API Wrapper [Reborn]",
+  "version": "1.0-alpha",
+  "description": "Hypixel API [Reborn]",
+  "main": "Client.js",
   "keywords": [
+    "node",
+    "client",
     "hypixel",
     "api",
     "hypixel-api"
