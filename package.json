@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "1.0-alpha",
+  "version": "1.0",
   "description": "Hypixel API [Reborn]",
   "main": "Client.js",
   "keywords": [
@@ -14,6 +14,7 @@
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
+  "readme": "./README.md",
   "repository": {
     "url": "https://github.com/StavZ/hypixel-api-reborn"
   },
