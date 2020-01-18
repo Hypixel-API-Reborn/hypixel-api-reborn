@@ -1,4 +1,4 @@
-const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, CrazyWalls } = require('./MiniGames-Import')
+const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, CrazyWalls } = require('./MiniGames/Import')
 const fetch = require('node-fetch')
 
 class Player {
@@ -8,31 +8,31 @@ class Player {
      */
     constructor(data) {
         //General
-        this.nickname = data.player.displayname;
-        this.uuid = data.player.uuid;
-        this.history = data.player.knownAliases;
+        this.nickname = data.displayname;
+        this.uuid = data.uuid;
+        this.history = data.knownAliases;
 
-        this.lastLogin = data.player.lastLogin;
-        this.firstLogin = data.player.firstLogin;
+        this.lastLogin = data.lastLogin;
+        this.firstLogin = data.firstLogin;
 
-        this.karma = data.player.karma;
-        this.achievementPoints = data.player.achievementPoints;
-        this.totalExperience = data.player.networkExp;
+        this.karma = data.karma;
+        this.achievementPoints = data.achievementPoints;
+        this.totalExperience = data.networkExp;
         this.level = getPlayerLevel(this.totalExperience);
-        this.socialmedia = getSocialMedia(data.player.socialMedia)
+        this.socialmedia = getSocialMedia(data.socialMedia)
 
         this.isOnline = () => {
-            return this.lastLogin > data.player.lastLogout ? true : false;
+            return this.lastLogin > data.lastLogout ? true : false;
         }
         //Stats
         this.stats = {
-            skywars: new SkyWars(data.player.stats.SkyWars),
-            bedwars: new BedWars(data.player.stats.Bedwars),
-            uhc: new UHC(data.player.stats.UHC),
-            speedUHC: new SpeedUHC(data.player.stats.SpeedUHC),
-            murdermystery: new MurderMystery(data.player.stats.MurderMystery),
-            duels: new Duels(data.player.stats.Duels),
-            crazywalls: new CrazyWalls(data.player.stats.TrueCombat),
+            skywars: new SkyWars(data.stats.SkyWars),
+            bedwars: new BedWars(data.stats.Bedwars),
+            uhc: new UHC(data.stats.UHC),
+            speedUHC: new SpeedUHC(data.stats.SpeedUHC),
+            murdermystery: new MurderMystery(data.stats.MurderMystery),
+            duels: new Duels(data.stats.Duels),
+            crazywalls: new CrazyWalls(data.stats.TrueCombat),
             skyblock: `https://sky.lea.moe/stats/` + this.nickname
         }
 
