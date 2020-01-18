@@ -15,8 +15,8 @@ class Guild {
         this.joinable = data.joinable ? data.joinable : false;
         this.publiclyListed = data.publiclyListed;
 
-        this.members = data.members.map(m => new GuildMember(m));
-        this.ranks = data.ranks.map(r => new GuildRank(r))
+        this.members = data.members ? data.members.map(m => new GuildMember(m)) : null;
+        this.ranks = data.ranks ? data.ranks.map(r => new GuildRank(r)) : null;
 
         this.tag = {
             string: data.tag ? data.tag : null,
@@ -26,11 +26,11 @@ class Guild {
 
         this.legacyRank = parseInt(data.legacyRanking)+1;
         this.achievements = {
-            winners: data.achievements.WINNERS || 0,
-            experienceKings: data.achievements.EXPERIENCE_KINGS || 0,
-            onlinePlayers: data.achievements.ONLINE_PLAYERS || 0
+            winners: data.achievements ? data.achievements.WINNERS : 0,
+            experienceKings: data.achievements ? data.achievements.EXPERIENCE_KINGS : 0,
+            onlinePlayers: data.achievements ? data.achievements.ONLINE_PLAYERS : 0
         }
-        this.preferredGames = data.preferredGames.map(g => Games[g]);
+        this.preferredGames = data.preferredGames ? data.preferredGames.map(g => Games[g]) : 0;
 
 
     }
