@@ -5,6 +5,8 @@ const BASE_URL = 'https://api.hypixel.net';
 
 const Player = require('./structures/Player');
 const Guild = require('./structures/Guild/Guild')
+const WatchdogStats = require('./structures/Watchdog/Stats')
+const Friend = require('./structures/Friend')
 
 
 const getUuid = require('./utils/getUuid');
@@ -23,161 +25,164 @@ class Client {
 
     /**
      * @async
-     * @returns {Object} Hypixel player Object or Error
      * 
      * @param {String} uuid 
+     * 
+     * @returns {Object} Hypixel player Object or Error
      */
     async getPlayer(uuid) {
-        // let checkUUID = await isUUID(uuid);
-        // if (checkUUID == false) {
-        //     let uid = await getUuid(uuid)
-        //     if (uid == 'Player does not exist') {
-        //         return {
-        //             success: false,
-        //             error: 'Player does not exist'
-        //         };
-        //     };
-        //     uuid = uid;
-        // };
-
-        // let validKey = await validateApiKey(this.key);
-        // if (validKey == false) {
-        //     return {
-        //         success: false,
-        //         error: 'Invalid API key!'
-        //     };
-        // };
-        let valid = await validateAll(this.key, uuid)
-        if (valid.key == false) {
-            return {
-                success: false,
-                error: 'Invalid API key!'
-            };
-        }
-        if (valid.uuid == false) {
-            let getUuid = await getUuid(uuid);
-            if (getUuid == 'Player does not exist') {
-                return {
-                    success: false,
-                    error: 'Player does not exist'
+        return new Promise(async (res, rej) => {
+            //Validation
+            let valid = await validateAll(this.key, uuid)
+            if (!valid.key) rej('Invalid API key!');
+            if (!valid.uuid) {
+                uuid = await getUuid(uuid);
+                if (uuid == 'Player does not exist') {
+                    return rej('Player does not exist');
                 }
             }
-        }
 
-        let res = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
-        if (!res.player || res.cause == 'Malformed UUID!') {
-            return {
-                success: false,
-                error: 'Player does not exist'
+            //Fetching
+            let response = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
+            if (!response.player || response.cause == 'Malformed UUID!') {
+                return rej('Player does not exist');
             };
-        };
 
-        if (this.compacted == true) {
-            return {
-                success: true,
-                player: new Player(res)
+            if (this.compacted) {
+                res((new Player(response.player)));
+            } else {
+                res(response.player);
             };
-        };
-
-        return {
-            success: true,
-            player: res.player
-        };
+        })
     }
 
     /**
      * @async
      * 
      * @param {string} nameOrUUID
-     * @param {'player'|'name'} searchParameter
+     * @param {'player'|'name'|'id'} searchParameter
      * 
      * @returns {object} Hypixel Guild
      */
-    async getGuild(nameOrUUID, searchParameter) {
-        let validKey = await validateApiKey(this.key);
-        if (validKey == false) {
-            return {
-                success: false,
-                error: 'Invalid API key!'
-            };
-        };
-        switch (searchParameter) {
-            case 'name': {
+    async getGuild(query, searchParameter) {
+        return new Promise(async (res, rej) => {
+            let validKey = await validateApiKey(this.key);
+            if (!validKey) return rej('Invalid API key!');
 
+            var RESPONSE;
+            var URL;
+            switch (searchParameter) {
+                case 'name': {
 
-                let url = BASE_URL + `/guild` + `?key=${this.key}&name=${nameOrUUID}`;
-                let res = await fetch(url).then(r => r.json());
-
-                if (res.guild == null) {
-                    return {
-                        success: false,
-                        error: 'Guild does not exist'
-                    }
+                    URL = BASE_URL + `/guild` + `?key=${this.key}&name=${query}`;
+                    RESPONSE = await fetch(URL).then(r => r.json());
                 }
+                    break;
+                case 'player': {
 
-                if (this.compacted == true) {
-                    return {
-                        success: true,
-                        guild: new Guild(res.guild)
-                    }
-                } else {
-                    return {
-                        success: true,
-                        guild: res.guild
-                    }
-                }
-
-
-            }
-
-            case 'player': {
-                let validUuid = await isUUID(nameOrUUID);
-                if (validUuid == false) {
-                    let uuid = await getUuid(nameOrUUID)
-                    if (uuid == 'Player does not exist') {
-                        return {
-                            success: false,
-                            error: 'Player does not exist'
+                    let validUuid = await isUUID(query);
+                    if (validUuid == false) {
+                        let uuid = await getUuid(query)
+                        if (uuid == 'Player does not exist') {
+                            return rej('Player does not exist')
                         };
+                        query = uuid;
                     };
-                    nameOrUUID = uuid;
+
+                    URL = BASE_URL + `/guild` + `?key=${this.key}&player=${query}`;
+                    RESPONSE = await fetch(URL).then(r => r.json());
+
+                }
+                    break;
+                case 'id': {
+                    if (!(await isGuildID(query))) return rej('Invalid Guild ID');
+                    URL = BASE_URL + `/guild` + `?key=${this.key}&id=${query}`;
+                    RESPONSE = await fetch(URL).then(r => r.json());
+                }
+                    break;
+                default: {
+                    return rej('Define guild search parameter')
+                }
+            }
+            console.log(RESPONSE)
+            if (RESPONSE.guild._id == undefined) return rej('Guild does not exist');
+
+            if (this.compacted) {
+                res((new Guild(RESPONSE.guild)))
+            } else {
+                res(RESPONSE.guild)
+            }
+        })
+    }
+
+    /**
+     * @async
+     * 
+     * @param {string} uuid
+     * 
+     * @returns {Map} 
+     */
+    async getFriends(query) {
+        return new Promise(async (res, rej) => {
+            let validKey = await validateApiKey(this.key);
+            if (!validKey) return rej('Invalid API key!');
+
+            let validUuid = await isUUID(query);
+            if (validUuid == false) {
+                let uuid = await getUuid(query)
+                if (uuid == 'Player does not exist') {
+                    return rej('Player does not exist')
                 };
-                let url = BASE_URL + `/guild` + `?key=${this.key}&player=${nameOrUUID}`;
-                let res = await fetch(url).then(r => r.json());
+                query = uuid;
+            };
 
-                if (res.guild == null) {
-                    return {
-                        success: false,
-                        error: 'Player does not have a guild'
-                    }
-                }
+            let response = await fetch(BASE_URL + `/friends` + `?key=${this.key}` + `&uuid=${query}`).then(r => r.json());
+            if(!response.records.length || response.records.lenght == 0) return res('Player does not have any friends');
 
-                if (this.compacted == true) {
-                    return {
-                        success: true,
-                        guild: new Guild(res.guild)
-                    }
-                } else {
-                    return {
-                        success: true,
-                        guild: res.guild
-                    }
-                }
+            if(this.compacted) {
+                return res(response.records.map(r => new Friend(r)))
+            } else {
+                return res(response.records)
             }
-                break;
+        })
+    }
 
-            default: {
-                return {
-                    success: false,
-                    error: 'Define guild search parameter'
-                }
-            }
-        }
+
+    /**
+     * @async
+     * 
+     * @returns {Object}
+     */
+    async getWatchdogStats() {
+        return new Promise(async (res, rej) => {
+            let validKey = await validateApiKey(this.key);
+            if (!validKey) return rej('Invalid API key!');
+
+            let response = await fetch(BASE_URL + '/watchdogstats' + `?key=${this.key}`).then(r => r.json());
+            return res((new WatchdogStats(response)))
+        })
+    }
+
+
+    /**
+     * @async
+     * 
+     * @returns {number}
+     */
+    async getOnline() {
+        return new Promise(async (res, rej) => {
+            let validKey = await validateApiKey(this.key);
+            if (!validKey) return rej('Invalid API key!');
+
+            let response = await fetch(BASE_URL + '/playerCount' + `?key=${this.key}`).then(r => r.json());
+
+            return res(response.playerCount || 0)
+        })
     }
 }
 
 /**
- * @description Checks key validity
+ * @description Checks specidied API-KEY
  * @async
  * @returns {Boolean}
  * @param {String} key 
@@ -193,7 +198,7 @@ async function validateApiKey(key) {
 }
 
 /**
- * @description Checks input on UUID or on player name
+ * @description Checks specified UUID
  * @async
  * @returns {Boolean} 
  * 
@@ -226,5 +231,15 @@ async function validateAll(key, uuid) {
     }
 }
 
+/**
+ * @async
+ * 
+ * @param {string} id
+ * 
+ * @returns {boolean} 
+ */
+async function isGuildID(id) {
+    return id.length == 24 ? true : false
+}
 
 module.exports = Client;
