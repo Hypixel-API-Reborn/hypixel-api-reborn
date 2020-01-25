@@ -104,8 +104,8 @@ class Client {
                     return rej('Define guild search parameter')
                 }
             }
-            console.log(RESPONSE)
-            if (RESPONSE.guild._id == undefined) return rej('Guild does not exist');
+
+            if (RESPONSE.guild == null) return rej('Guild does not exist');
 
             if (this.compacted) {
                 res((new Guild(RESPONSE.guild)))
@@ -146,7 +146,7 @@ class Client {
             }
         })
     }
-
+    
 
     /**
      * @async
