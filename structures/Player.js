@@ -8,31 +8,31 @@ class Player {
      */
     constructor(data) {
         //General
-        this.nickname = data.displayname;
-        this.uuid = data.uuid;
-        this.history = data.knownAliases;
+        this.nickname = data['displayname'];
+        this.uuid = data['uuid'];
+        this.history = data['knownAliases'];
 
-        this.lastLogin = data.lastLogin;
-        this.firstLogin = data.firstLogin;
+        this.lastLogin = data['lastLogin'];
+        this.firstLogin = data['firstLogin'];
 
-        this.karma = data.karma;
-        this.achievementPoints = data.achievementPoints;
-        this.totalExperience = data.networkExp;
+        this.karma = data['karma'];
+        this.achievementPoints = data['achievementPoints'];
+        this.totalExperience = data['networkExp'];
         this.level = getPlayerLevel(this.totalExperience);
-        this.socialmedia = getSocialMedia(data.socialMedia)
+        this.socialmedia = getSocialMedia(data['socialMedia'])
 
         this.isOnline = () => {
-            return this.lastLogin > data.lastLogout ? true : false;
+            return this.lastLogin > data['lastLogout'] ? true : false;
         }
         //Stats
         this.stats = {
-            skywars: new SkyWars(data.stats.SkyWars),
-            bedwars: new BedWars(data.stats.Bedwars),
-            uhc: new UHC(data.stats.UHC),
-            speedUHC: new SpeedUHC(data.stats.SpeedUHC),
-            murdermystery: new MurderMystery(data.stats.MurderMystery),
-            duels: new Duels(data.stats.Duels),
-            crazywalls: new CrazyWalls(data.stats.TrueCombat),
+            skywars: new SkyWars(data['stats']['SkyWars']),
+            bedwars: new BedWars(data['stats']['Bedwars']),
+            uhc: new UHC(data['stats']['UHC']),
+            speedUHC: new SpeedUHC(data['stats']['SpeedUHC']),
+            murdermystery: new MurderMystery(data['stats']['MurderMystery']),
+            duels: new Duels(data['stats']['Duels']),
+            crazywalls: new CrazyWalls(data['stats']['TrueCombat']),
             skyblock: `https://sky.lea.moe/stats/` + this.nickname
         }
 
