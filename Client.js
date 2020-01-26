@@ -1,14 +1,10 @@
-const fetch = require('node-fetch');
-
 const BASE_URL = 'https://api.hypixel.net';
 
-
+const fetch = require('node-fetch');
 const Player = require('./structures/Player');
 const Guild = require('./structures/Guild/Guild')
 const WatchdogStats = require('./structures/Watchdog/Stats')
 const Friend = require('./structures/Friend')
-
-
 const getUuid = require('./utils/getUuid');
 
 
