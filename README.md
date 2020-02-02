@@ -124,7 +124,3 @@ hypixel.getOnline().then(async (online) => {
     console.log(online) // -> 34327
 })
 ```
----
-# License
-
-## [LICENSE.md](https://github.com/StavZ/hypixel-api-reborn/blob/master/LICENSE.md)
