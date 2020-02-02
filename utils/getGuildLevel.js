@@ -19,7 +19,7 @@ module.exports = (exp) => {
     } else if (exp < 7500000) {
         level = 8;
     } else if (exp >= 7500000) {
-        if(exp < 15000000) { // 198658484
+        if(exp < 15000000) {
             level = Math.floor((exp - 7500000) / 2500000) + 9;
         } else {
             level = Math.floor((exp - 15000000) / 3000000) + 12;
