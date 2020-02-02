@@ -10,9 +10,7 @@
 
 ---
 
-• **Easy for use**
-• Compact Mode
-• [Discord Support](https://discord.gg/NSEBNMM)
+• **Easy for use** <br>• Compact Mode<br>• [Discord Support](https://discord.gg/NSEBNMM)
 
 ---
 
@@ -26,7 +24,7 @@
 | getWatchdogStats | | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) | 
 | getOnline | | [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) |
 
-                       *Soon will be more functions*
+*Soon will be more functions*
 
 ---
 
@@ -44,7 +42,6 @@ const hypixel = new Hypixel('API-KEY', true);
 ---
 
 # Examples
-
 ### getPlayer
 
 ``` js
