@@ -50,6 +50,7 @@ const hypixel = new Hypixel('API-KEY', true);
 hypixel.getPlayer('GravitonSurge').then(async (player) => {
     console.log(player.uuid) // -> 52d9a36f66ce4cdf9a56ad9724ae9fb4
     console.log(player.karma) // -> 4570876
+    
     // if compact mode is ON
     console.log(player.level) // -> 138.01 
     console.log(player.isOnline()) // -> false
