@@ -2,6 +2,7 @@ const GuildMember = require('./GuildMember');
 const GuildRank = require('./GuildRank');
 const Color = require('../../utils/Color')
 const Games = require('../../utils/MiniGames')
+const getGuildLevel = require('../../utils/getGuildLevel')
 
 class Guild {
     constructor(data) {
@@ -10,6 +11,8 @@ class Guild {
         this.description = data['description'] ? data['description'] : null;
 
         this.coins = data['coinsEver'];
+        this.experience = data['exp'] || 0;
+        this.level = getGuildLevel(this.experience)
 
         this.createdAt = data['created'];
         this.joinable = data['joinable'] ? data['joinable'] : false;
