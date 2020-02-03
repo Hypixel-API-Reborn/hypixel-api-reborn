@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Hypixel API [Reborn]",
   "main": "Client.js",
   "keywords": [
