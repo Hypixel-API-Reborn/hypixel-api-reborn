@@ -1,12 +1,10 @@
-# ![](https://i.imgur.com/cDFoQZU.png?1) 
-
+# ![](https://i.imgur.com/cDFoQZU.png?1)
 # Hypixel API • Reborn
-
 ---
 
 ![](https://nodei.co/npm/hypixel-api-reborn.png?downloads=true&downloadRank=true&stars=true)
 
-**Reborned Hypixel API Client for Node.js with more new features**
+**Reborn Hypixel API Client for Node.js with more new features**
 
 ---
 
@@ -45,7 +43,7 @@ const hypixel = new Hypixel('API-KEY', true);
 ### getPlayer
 
 ``` js
-// Arhuments:
+// Arguments:
 // UUID / Player Nickname
 hypixel.getPlayer('GravitonSurge').then(async (player) => {
     console.log(player.uuid) // -> 52d9a36f66ce4cdf9a56ad9724ae9fb4
