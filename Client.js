@@ -5,6 +5,8 @@ const Player = require('./structures/Player');
 const Guild = require('./structures/Guild/Guild')
 const WatchdogStats = require('./structures/Watchdog/Stats')
 const Friend = require('./structures/Friend')
+const Booster = require('./structures/Boosters/Booster')
+
 const getUuid = require('./utils/getUuid');
 
 
@@ -175,6 +177,25 @@ class Client {
             let response = await fetch(BASE_URL + '/playerCount' + `?key=${this.key}`).then(r => r.json());
 
             return res(response.playerCount || 0)
+        })
+    }
+
+    /**
+     * @async
+     * 
+     * @returns {Map}
+     */
+    getBoosters() {
+        return new Promise(async (res, rej) => {
+            if(!(await validateApiKey(this.key))) return rej('Invalid API key!');
+
+            let response = await fetch(BASE_URL + '/boosters' + `?key=${this.key}`).then(r => r.json());
+
+            if(this.compacted) {
+                return res(response.boosters.map(b => new Booster(b))) || [];
+            } else {
+                return response.boosters;
+            }
         })
     }
 }
