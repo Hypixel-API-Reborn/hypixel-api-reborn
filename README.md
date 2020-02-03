@@ -4,7 +4,7 @@
 
 ---
 
-![](https://nodei.co/npm/hypixel-api-reborn.png?downloads=true&downloadRank=true&stars=true)
+[![](https://nodei.co/npm/hypixel-api-reborn.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/hypixel-api-reborn)
 
 **Reborned Hypixel API Client for Node.js with more new features**
 
