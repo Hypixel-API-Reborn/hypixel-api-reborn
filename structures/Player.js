@@ -44,7 +44,7 @@ class Player {
      * @description Get player's rank 
      * @param {object} player 
      */
-async function getRank(player) {
+function getRank(player) {
         let rank;
         if (player.prefix) {
             rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, "")
