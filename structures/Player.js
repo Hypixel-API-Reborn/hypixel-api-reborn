@@ -11,6 +11,7 @@ class Player {
         this.nickname = data['displayname'];
         this.uuid = data['uuid'];
         this.history = data['knownAliases'];
+        this.rank = getRank(data)
 
         this.lastLogin = data['lastLogin'];
         this.firstLogin = data['firstLogin'];
@@ -38,6 +39,52 @@ class Player {
 
     }
 }
+/**
+     * @async
+     * @description Get player's rank 
+     * @param {object} player 
+     */
+async function getRank(player) {
+        let rank;
+        if (player.prefix) {
+            rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, "")
+        }
+
+        else if (player.rank && player.rank != 'NORMAL') {
+            switch (player.rank) {
+                case 'MODERATOR':
+                    rank = "[Moder]";
+                    break;
+                case 'YOUTUBER':
+                    rank = "[YouTube]";
+                    break;
+                case 'HELPER':
+                    rank = "[Helper]";
+                    break;
+                case 'ADMIN':
+                    rank = "[Admin]";
+                    break;
+            }
+        }
+
+        else switch (player.newPackageRank) {
+            case 'MVP_PLUS':
+                rank = player.monthlyPackageRank && player.monthlyPackageRank == 'SUPERSTAR' ? "[MVP++]" : "[MVP+]";
+                break;
+            case 'MVP':
+                rank = "[MVP]";
+                break;
+            case 'VIP_PLUS':
+                rank = "[VIP+]";
+                break;
+            case 'VIP':
+                rank = "[VIP]";
+                break;
+            default:
+                rank = "Default";
+        }
+        return rank
+    }
 /**
  * 
  * @param {number} exp 
