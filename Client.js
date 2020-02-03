@@ -41,7 +41,9 @@ class Client {
             //Fetching
             let response = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
             if (!response.player || response.cause == 'Malformed UUID!') {
-                return rej('Player does not exist');
+                rej('Player does not exist');
+            } else {
+                rej(response.cause)
             };
 
             if (this.compacted) {
@@ -102,7 +104,7 @@ class Client {
             }
 
             if (RESPONSE.guild == null) return rej('Guild does not exist');
-
+            
             if (this.compacted) {
                 res((new Guild(RESPONSE.guild)))
             } else {
