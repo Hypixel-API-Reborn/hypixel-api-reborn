@@ -53,32 +53,32 @@ function getRank(player) {
         else if (player.rank && player.rank != 'NORMAL') {
             switch (player.rank) {
                 case 'MODERATOR':
-                    rank = "[Moder]";
+                    rank = "Moder";
                     break;
                 case 'YOUTUBER':
-                    rank = "[YouTube]";
+                    rank = "YouTube";
                     break;
                 case 'HELPER':
-                    rank = "[Helper]";
+                    rank = "Helper";
                     break;
                 case 'ADMIN':
-                    rank = "[Admin]";
+                    rank = "Admin";
                     break;
             }
         }
 
         else switch (player.newPackageRank) {
             case 'MVP_PLUS':
-                rank = player.monthlyPackageRank && player.monthlyPackageRank == 'SUPERSTAR' ? "[MVP++]" : "[MVP+]";
+                rank = player.monthlyPackageRank && player.monthlyPackageRank == 'SUPERSTAR' ? "MVP++" : "MVP+";
                 break;
             case 'MVP':
-                rank = "[MVP]";
+                rank = "MVP";
                 break;
             case 'VIP_PLUS':
-                rank = "[VIP+]";
+                rank = "VIP+";
                 break;
             case 'VIP':
-                rank = "[VIP]";
+                rank = "VIP";
                 break;
             default:
                 rank = "Default";
