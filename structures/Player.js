@@ -131,6 +131,9 @@ function getSocialMedia(data) {
         }
         if (links.HYPIXEL !== undefined) {
             media.push({name: `Hypixel`, link: links.HYPIXEL })
+        } 
+        if(links.DISCORD !== undefined) {
+            media.push({name: 'Discord', link: links.DISCORD})
         }
     }
     return media
