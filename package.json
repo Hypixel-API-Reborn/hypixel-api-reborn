@@ -1,7 +1,7 @@
 {
   "name": "hypixel-api-reborn",
   "version": "1.0.7",
-  "description": "Hypixel API [Reborn]",
+  "description": "Public Hypixel API Client for Node.js ",
   "main": "Client.js",
   "keywords": [
     "node",
