@@ -29,11 +29,11 @@ class Guild {
 
         this.legacyRank = parseInt(data.legacyRanking)+1;
         this.achievements = {
-            winners: data['achievements'] ? data['achievements'].WINNERS : 0,
-            experienceKings: data['achievements'] ? data['achievements'].EXPERIENCE_KINGS : 0,
-            onlinePlayers: data['achievements'] ? data['achievements'].ONLINE_PLAYERS : 0
+            winners: data['achievements'] !== undefined ? data['achievements'].WINNERS : 0,
+            experienceKings: data['achievements'] !== undefined ? data['achievements'].EXPERIENCE_KINGS : 0,
+            onlinePlayers: data['achievements'] !== undefined ? data['achievements'].ONLINE_PLAYERS : 0
         }
-        this.preferredGames = data.preferredGames ? data.preferredGames.map(g => Games[g]) : 0;
+        this.preferredGames = data.preferredGames ? data.preferredGames.map(g => Games[g]) : null;
 
 
     }
