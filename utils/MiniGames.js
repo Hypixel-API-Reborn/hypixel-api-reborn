@@ -20,7 +20,7 @@ const MiniGamesString = {
     SKYCLASH : "SkyClash",
     LEGACY : "Classic Games",
     PROTOTYPE : "Prototype",
-    BEDWARS : "Bed Wars",
+    BEDWARS : "BedWars",
     MURDER_MYSTERY : "Murder Mystery",
     BUILD_BATTLE : "Build Battle",
     DUELS : "Duels",
