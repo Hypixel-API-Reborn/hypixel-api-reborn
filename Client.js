@@ -6,7 +6,7 @@ const Guild = require('./structures/Guild/Guild')
 const WatchdogStats = require('./structures/Watchdog/Stats')
 const Friend = require('./structures/Friend')
 const Booster = require('./structures/Boosters/Booster')
-const SBProfile = require('./structures/SkyBlock/Profiles')
+const SBProfile = require('./structures/SkyBlock/Profile')
 
 const getUuid = require('./utils/getUuid');
 Array.prototype.removeOne = function (i) {
@@ -64,19 +64,19 @@ class Client {
      * @returns {object} - Skyblock statictic
      */
     async getSkyblockStats(uuid) {
-        return new Promise((res, rej) => {
+        return new Promise(async (res, rej) => {
             if (!(await isUUID(uuid))) return rej('Malformed UUID');
 
             if (!(await validateApiKey(this.key))) return rej('Invalid API key!');
 
             let sb_profile = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
-            sb_profile = sb_profile['stats']['SkyBlock']['profiles'];
+            sb_profile = sb_profile['player']['stats']['SkyBlock']['profiles'];
             if (sb_profile.length == 0) return rej('Player does not have Skyblock profiles')
             if (sb_profile.length > 1) {
 
                 let profiles;
                 for (i in sb_profile) {
-                    let profile = await fetch(BASE_URL + `/skyblock/profiles` + `&profile=${i['profile_id']}`).then(r => r.json())
+                    let profile = await fetch(BASE_URL + `/skyblock/profile` + `&profile=${i['profile_id']}`).then(r => r.json())
                     profiles.push({
                         profile_name: i['cute_name'],
                         profile
@@ -89,14 +89,20 @@ class Client {
                 }
 
             } else {
-
-                let profile = await fetch(BASE_URL + `/skyblock/profiles` + `&profile=${sb_profile[0]['profile_id']}`).then(r => r.json())
+                let id = Object.keys(sb_profile)
+                console.log(id)
+                let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${id[0]}`).then(r => r.json())
+                let pr = profile.profile;
                 profile = {
-                    profile_name: sb_profile[0]['cute_name'],
-                    profile
+                    profile_name: sb_profile[id[0]]['cute_name'],
+                    requestUuid: uuid,
+                    profile_id: pr.profile_id,
+                    members: pr.members
                 }
 
                 if (this.compacted) {
+                    console.log('prof')
+                    console.log(profile)
                     return res(new SBProfile(profile))
                 } else {
                     return profile
@@ -267,12 +273,11 @@ async function validateApiKey(key) {
 
 /**
  * @description Checks specified UUID
- * @async
  * @returns {Boolean} 
  * 
  * @param {String} uuid - valid Minecraft Player UUID
  */
-async function isUUID(uuid) {
+function isUUID(uuid) {
     let f = new RegExp(`[0-9a-fA-F]{8}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{4}[0-9a-fA-F]{12}`);
     let s = new RegExp(`[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}`);
 
