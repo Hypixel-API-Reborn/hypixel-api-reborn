@@ -6,9 +6,12 @@ const Guild = require('./structures/Guild/Guild')
 const WatchdogStats = require('./structures/Watchdog/Stats')
 const Friend = require('./structures/Friend')
 const Booster = require('./structures/Boosters/Booster')
+const SBProfile = require('./structures/SkyBlock/Profiles')
 
 const getUuid = require('./utils/getUuid');
-
+Array.prototype.removeOne = function (i) {
+    return this.filter(t => t !== i);
+}
 
 class Client {
     /**
@@ -51,6 +54,54 @@ class Client {
             } else {
                 res(response.player);
             };
+        })
+    }
+    /**
+     * @async 
+     * 
+     * @param {string} uuid - Player UUID
+     * 
+     * @returns {object} - Skyblock statictic
+     */
+    async getSkyblockStats(uuid) {
+        return new Promise((res, rej) => {
+            if (!(await isUUID(uuid))) return rej('Malformed UUID');
+
+            if (!(await validateApiKey(this.key))) return rej('Invalid API key!');
+
+            let sb_profile = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
+            sb_profile = sb_profile['stats']['SkyBlock']['profiles'];
+            if (sb_profile.length == 0) return rej('Player does not have Skyblock profiles')
+            if (sb_profile.length > 1) {
+
+                let profiles;
+                for (i in sb_profile) {
+                    let profile = await fetch(BASE_URL + `/skyblock/profiles` + `&profile=${i['profile_id']}`).then(r => r.json())
+                    profiles.push({
+                        profile_name: i['cute_name'],
+                        profile
+                    })
+                }
+                if (this.compacted) {
+                    return res(profiles.map(p => new SBProfile(p)))
+                } else {
+                    return profiles;
+                }
+
+            } else {
+
+                let profile = await fetch(BASE_URL + `/skyblock/profiles` + `&profile=${sb_profile[0]['profile_id']}`).then(r => r.json())
+                profile = {
+                    profile_name: sb_profile[0]['cute_name'],
+                    profile
+                }
+
+                if (this.compacted) {
+                    return res(new SBProfile(profile))
+                } else {
+                    return profile
+                }
+            }
         })
     }
 
@@ -104,7 +155,7 @@ class Client {
             }
 
             if (RESPONSE.guild == null) return rej('Guild does not exist');
-            
+
             if (this.compacted) {
                 res((new Guild(RESPONSE.guild)))
             } else {
@@ -135,16 +186,16 @@ class Client {
             };
 
             let response = await fetch(BASE_URL + `/friends` + `?key=${this.key}` + `&uuid=${query}`).then(r => r.json());
-            if(!response.records.length || response.records.lenght == 0) return res('Player does not have any friends');
+            if (!response.records.length || response.records.lenght == 0) return res('Player does not have any friends');
 
-            if(this.compacted) {
+            if (this.compacted) {
                 return res(response.records.map(r => new Friend(r)))
             } else {
                 return res(response.records)
             }
         })
     }
-    
+
 
     /**
      * @async
@@ -185,11 +236,11 @@ class Client {
      */
     getBoosters() {
         return new Promise(async (res, rej) => {
-            if(!(await validateApiKey(this.key))) return rej('Invalid API key!');
+            if (!(await validateApiKey(this.key))) return rej('Invalid API key!');
 
             let response = await fetch(BASE_URL + '/boosters' + `?key=${this.key}`).then(r => r.json());
 
-            if(this.compacted) {
+            if (this.compacted) {
                 return res(response.boosters.map(b => new Booster(b))) || [];
             } else {
                 return response.boosters;
@@ -260,3 +311,4 @@ async function isGuildID(id) {
 }
 
 module.exports = Client;
+

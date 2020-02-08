@@ -34,7 +34,6 @@ class Player {
             murdermystery: new MurderMystery(data['stats']['MurderMystery']),
             duels: new Duels(data['stats']['Duels']),
             crazywalls: new CrazyWalls(data['stats']['TrueCombat']),
-            skyblock: `https://sky.lea.moe/stats/` + this.nickname
         }
 
     }
