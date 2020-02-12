@@ -71,17 +71,26 @@ class Client {
 
             let sb_profile = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
             sb_profile = sb_profile['player']['stats']['SkyBlock']['profiles'];
-            if (sb_profile.length == 0) return rej('Player does not have Skyblock profiles')
-            if (sb_profile.length > 1) {
+            
+            let sb_profiles = await objectToArray(sb_profile);
 
-                let profiles;
-                for (i in sb_profile) {
-                    let profile = await fetch(BASE_URL + `/skyblock/profile` + `&profile=${i['profile_id']}`).then(r => r.json())
+            let profiles_amount = sb_profiles.length;
+
+            if (profiles_amount == 0) return rej('Player does not have Skyblock profiles')
+
+            if (profiles_amount > 1) {
+
+                let profiles = [];
+                for (let i = 0; i < profiles_amount; i++) {
+                    let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${sb_profiles[i]}`).then(r => r.json())
+                    profile = profile.profile
                     profiles.push({
-                        profile_name: i['cute_name'],
-                        profile
+                        profile_name: sb_profile[sb_profiles[i]]['cute_name'],
+                        profile_id: profile.profile_id,
+                        members: profile.members
                     })
                 }
+
                 if (this.compacted) {
                     return res(profiles.map(p => new SBProfile(p)))
                 } else {
@@ -89,24 +98,22 @@ class Client {
                 }
 
             } else {
-                let id = Object.keys(sb_profile)
-                console.log(id)
-                let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${id[0]}`).then(r => r.json())
+
+                let id = Object.keys(sb_profile)[0]
+                let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${id}`).then(r => r.json())
                 let pr = profile.profile;
                 profile = {
-                    profile_name: sb_profile[id[0]]['cute_name'],
-                    requestUuid: uuid,
+                    profile_name: sb_profile[id]['cute_name'],
                     profile_id: pr.profile_id,
                     members: pr.members
                 }
 
                 if (this.compacted) {
-                    console.log('prof')
-                    console.log(profile)
                     return res(new SBProfile(profile))
                 } else {
                     return profile
                 }
+
             }
         })
     }
@@ -253,6 +260,23 @@ class Client {
             }
         })
     }
+}
+
+/**
+ * @async
+ * 
+ * @param {object} object
+ * 
+ * @returns {Array} Array
+ */
+async function objectToArray(object) {
+    let array = [];
+
+    let object_length = Object.keys(object).length
+    for (let i = 0; i < object_length; i++) {
+        array.push(Object.keys(object)[i])
+    }
+    return array;
 }
 
 /**
