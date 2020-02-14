@@ -84,6 +84,7 @@ class Client {
                 for (let i = 0; i < profiles_amount; i++) {
                     let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${sb_profiles[i]}`).then(r => r.json())
                     profile = profile.profile
+                    if(!profile) return rej('Something went wrong!')
                     profiles.push({
                         profile_name: sb_profile[sb_profiles[i]]['cute_name'],
                         profile_id: profile.profile_id,
@@ -102,6 +103,7 @@ class Client {
                 let id = Object.keys(sb_profile)[0]
                 let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${id}`).then(r => r.json())
                 let pr = profile.profile;
+                if(!pr) return rej('Something went wrong!')
                 profile = {
                     profile_name: sb_profile[id]['cute_name'],
                     profile_id: pr.profile_id,

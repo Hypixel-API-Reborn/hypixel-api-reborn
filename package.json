@@ -12,7 +12,9 @@
   ],
   "author": "StavZ",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "object-path": "^0.11.4",
+    "prismarine-nbt": "^1.2.1"
   },
   "license": "./LICENSE.md",
   "readme": "./README.md",
