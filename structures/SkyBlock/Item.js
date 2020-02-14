@@ -1,4 +1,4 @@
-class Armor {
+class Item {
 
     constructor(data) {
 
@@ -23,4 +23,4 @@ class Armor {
 
 }
 
-module.exports = Armor;
+module.exports = Item;

@@ -34,7 +34,11 @@ module.exports = {
         //         return data
         //     }
         // }
-        return data.i;
+        let newdata = [];
+        for (let i = 0; i < data.i.length; i++) {
+            newdata.push(data.i[i])
+        }
+        return newdata;
     },
     getLevelByXp(xp, runecrafting) {
         let xp_table = runecrafting ? constants.runecrafting_xp : constants.leveling_xp;

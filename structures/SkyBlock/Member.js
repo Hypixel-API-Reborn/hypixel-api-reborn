@@ -1,5 +1,6 @@
 const { decode, getLevelByXp } = require('../../utils/SkyblockUtils')
 const Armor = require('./Armor')
+const Item = require('./Item')
 const objectPath = require('object-path')
 
 class SkyblockMember {
@@ -10,16 +11,16 @@ class SkyblockMember {
         this.first_join = data.m.first_join;
         this.last_save = data.m.last_save;
 
-        this.getArmor = async() => {
+        this.getArmor = async () => {
             return new Promise(async (res, rej) => {
-                let base64 = data.m.inv_armor;
 
-                let decode = await decode(base64);
+                let base64 = data.m.inv_armor;
+                let decoded = await decode(base64.data);
                 let armor = {
-                    helmet: decode[3] != {} ? new Armor(decode[3]) : null,
-                    chestplate: decode[2] != {} ? new Armor(decode[2]) : null,
-                    leggings: decode[1] != {} ? new Armor(decode[1]) : null,
-                    boots: decode[0] != {} ? new Armor(decode[0]) : null
+                    helmet: decoded[3] != {} ? new Armor(decoded[3]) : null,
+                    chestplate: decoded[2] != {} ? new Armor(decoded[2]) : null,
+                    leggings: decoded[1] != {} ? new Armor(decoded[1]) : null,
+                    boots: decoded[0] != {} ? new Armor(decoded[0]) : null
                 }
                 res(armor)
             })
@@ -31,12 +32,21 @@ class SkyblockMember {
         this.collections = data.m.collection ? data.m.collection : null;
         this.getEnderChest = async () => {
             return new Promise(async (res, rej) => {
-                let enderChest = data.m.ender_chest_contents;
-                if (!enderChest) return res(null);
+                let chest = data.m.ender_chest_contents;
+                if (!chest) return res(null);
 
                 try {
-                    enderChest = await decode(enderChest.data);
-                    return res(enderChest)
+                    let enderChest = await decode(chest.data);
+
+                    let edited = [];
+                    for (let i = 0; i < enderChest.length; i++) {
+                        if(!enderChest[i].id) {
+                            edited.push({})
+                        } else {
+                            edited.push(new Item(enderChest[i]))
+                        }
+                    }
+                    return res(edited)
                 } catch (e) {
                     rej(e);
                 }
@@ -49,7 +59,15 @@ class SkyblockMember {
 
                 try {
                     inventory = await decode(inventory.data);
-                    return res(inventory)
+                    let edited = [];
+                    for (let i = 0; i < inventory.length; i++) {
+                        if(!inventory[i].id) {
+                            edited.push({})
+                        } else {
+                            edited.push(new Item(inventory[i]))
+                        }
+                    }
+                    return res(edited)
                 } catch (e) {
                     rej(e);
                 }
