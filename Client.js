@@ -76,7 +76,10 @@ class Client {
 
             let profiles_amount = sb_profiles.length;
 
-            if (profiles_amount == 0) return rej('Player does not have Skyblock profiles')
+            if (profiles_amount == 0) {
+                res(null)
+                return rej('Player does not have Skyblock profiles')
+            }
 
             if (profiles_amount > 1) {
 
