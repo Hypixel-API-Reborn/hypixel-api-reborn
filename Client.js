@@ -46,7 +46,9 @@ class Client {
             //Fetching
             let response = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
             if (!response.player || response.cause == 'Malformed UUID!') {
+                res(null);
                 rej('Player does not exist');
+                return;
             }
 
             if (this.compacted) {
