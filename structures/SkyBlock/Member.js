@@ -17,10 +17,10 @@ class SkyblockMember {
                 let base64 = data.m.inv_armor;
                 let decoded = await decode(base64.data);
                 let armor = {
-                    helmet: decoded[3] != {} ? new Armor(decoded[3]) : null,
-                    chestplate: decoded[2] != {} ? new Armor(decoded[2]) : null,
-                    leggings: decoded[1] != {} ? new Armor(decoded[1]) : null,
-                    boots: decoded[0] != {} ? new Armor(decoded[0]) : null
+                    helmet: decoded[3].id != undefined ? new Armor(decoded[3]) : null,
+                    chestplate: decoded[2].id != undefined ? new Armor(decoded[2]) : null,
+                    leggings: decoded[1].id != undefined ? new Armor(decoded[1]) : null,
+                    boots: decoded[0].id != undefined ? new Armor(decoded[0]) : null
                 }
                 res(armor)
             })
