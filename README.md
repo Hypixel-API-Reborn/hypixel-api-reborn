@@ -4,6 +4,7 @@
 
 [![](https://nodei.co/npm/hypixel-api-reborn.png?mini=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
 [![Build Status](https://travis-ci.org/StavZ/hypixel-api-reborn.svg?branch=master)](https://travis-ci.org/StavZ/hypixel-api-reborn)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FStavZ%2Fhypixel-api-reborn.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FStavZ%2Fhypixel-api-reborn?ref=badge_shield)
 
 **Reborn Hypixel API Client for Node.js with many new features**
 
@@ -181,3 +182,7 @@ hypixel.getOnline().then(async (online) => {
 })
 ```
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FStavZ%2Fhypixel-api-reborn.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FStavZ%2Fhypixel-api-reborn?ref=badge_large)
