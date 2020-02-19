@@ -1,6 +1,7 @@
 class SpeedUHC {
     constructor(data) {
-        this.coins = data.coins ? data.coins : 0;
+        this.data = data
+        //this.coins = data.coins ? data.coins : 0;
         this.wins = data.wins || 0;
         this.kills = data.kills || 0;
         this.playedGames = data.games || 0;

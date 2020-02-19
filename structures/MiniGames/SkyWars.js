@@ -80,6 +80,8 @@ function getSkyWarsPrestige(level) {
         prestige = 'Amethyst';
     } else if (inRange(level, 50, 59)) {
         prestige = 'Rainbow';
+    } else {
+        prestige = null
     }
     return prestige;
 }

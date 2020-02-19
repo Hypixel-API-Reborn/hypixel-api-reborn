@@ -27,13 +27,13 @@ class Player {
         }
         //Stats
         this.stats = {
-            skywars: new SkyWars(data['stats']['SkyWars']),
-            bedwars: new BedWars(data['stats']['Bedwars']),
-            uhc: new UHC(data['stats']['UHC']),
-            speedUHC: new SpeedUHC(data['stats']['SpeedUHC']),
-            murdermystery: new MurderMystery(data['stats']['MurderMystery']),
-            duels: new Duels(data['stats']['Duels']),
-            crazywalls: new CrazyWalls(data['stats']['TrueCombat']),
+            skywars: (data['stats']['SkyWars'] ? new SkyWars(data['stats']['SkyWars']) : null),
+            bedwars: (data['stats']['Bedwars'] ? new BedWars(data['stats']['Bedwars']) : null),
+            uhc: (data['stats']['UHC'] ? new UHC(data['stats']['UHC']) : null),
+            speedUHC: (data['stats']['SpeedUHC'] ? new SpeedUHC(data['stats']['SpeedUHC']) : null),
+            murdermystery: (data['stats']['MurderMystery'] ? new MurderMystery(data['stats']['MurderMystery']) : null),
+            duels: (data['stats']['Duels'] ? new Duels(data['stats']['Duels']) : null),
+            crazywalls: (data['stats']['TrueCombat'] ? new CrazyWalls(data['stats']['TrueCombat']) : null),
         }
 
     }
