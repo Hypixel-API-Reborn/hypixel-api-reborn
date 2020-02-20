@@ -22,7 +22,7 @@ class Player {
         this.level = getPlayerLevel(this.totalExperience);
         this.socialmedia = getSocialMedia(data['socialMedia'])
 
-        this.isOnline = async () => {
+        this.isOnline = () => {
             return this.lastLogin > data['lastLogout'] ? true : false;
         }
         
