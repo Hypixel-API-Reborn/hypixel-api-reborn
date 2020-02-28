@@ -16,6 +16,7 @@ class SkyWars {
         this.openedLootChests = data.SkyWars_openedChests || 0;
         this.heads = data.heads || 0;
         
+        this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§([a-f]|[1-9])/gm, '')) : null;
         this.level = getSkyWarsLevel(data.skywars_experience);
         this.prestige = getSkyWarsPrestige(this.level);
         
