@@ -8,6 +8,7 @@ class BedWars {
         this.winstreak = data.winstreak;
         this.kills = (data.kills_bedwars || 0) + (data.final_kills_bedwars || 0);
         this.finalKills = data.final_kills_bedwars || 0;
+        this.wins = data.wins_bedwars || 0;
         this.losses = data.losses_bedwars || 0;
         this.playedTotal = data.games_played_bedwars || 0;
         this.level = getLevelForExp(data.Experience)
