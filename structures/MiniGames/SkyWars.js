@@ -1,4 +1,5 @@
 const inRange = require('../../utils/inRange')
+const SkyWarsPrestigeIcons = require('../../utils/SkyWarsPrestigeIcons')
 class SkyWars {
     constructor(data) {
         //General
@@ -16,9 +17,10 @@ class SkyWars {
         this.openedLootChests = data.SkyWars_openedChests || 0;
         this.heads = data.heads || 0;
         
-        this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§([a-f]|[1-9])/gm, '')) : null;
         this.level = getSkyWarsLevel(data.skywars_experience);
+        this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§([a-f]|[1-9])/gm, '')) : null;
         this.prestige = getSkyWarsPrestige(this.level);
+        this.prestigeIcon = data.selected_prestige_icon ? SkyWarsPrestigeIcons[data.selected_prestige_icon] : null
         
         this.playedTotal = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
         
