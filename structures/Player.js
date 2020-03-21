@@ -1,5 +1,4 @@
 const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, CrazyWalls } = require('./MiniGames/Import')
-const fetch = require('node-fetch')
 
 class Player {
     /**
@@ -35,6 +34,9 @@ class Player {
             murdermystery: (data['stats']['MurderMystery'] ? new MurderMystery(data['stats']['MurderMystery']) : null),
             duels: (data['stats']['Duels'] ? new Duels(data['stats']['Duels']) : null),
             crazywalls: (data['stats']['TrueCombat'] ? new CrazyWalls(data['stats']['TrueCombat']) : null),
+            // prototype: {
+            //     thepit: (data['stats']['Pit'] ? new ThePit(data['stats']['Pit']) : null)
+            // }
         } : null)
 
     }

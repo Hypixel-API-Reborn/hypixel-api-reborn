@@ -9,6 +9,7 @@ const Booster = require('./structures/Boosters/Booster')
 const SBProfile = require('./structures/SkyBlock/Profile')
 
 const getUuid = require('./utils/getUuid');
+
 Array.prototype.removeOne = function (i) {
     return this.filter(t => t !== i);
 }
@@ -34,9 +35,9 @@ class Client {
     async getPlayer(uuid) {
         return new Promise(async (res, rej) => {
             //Validation
-            let valid = await validateAll(this.key, uuid)
-            if (!valid.key) rej('Invalid API key!');
-            if (!valid.uuid) {
+            await validateApiKey(this.key)
+
+            if (!(await isUUID(uuid))) {
                 uuid = await getUuid(uuid);
                 if (uuid == 'Player does not exist') {
                     return rej('Player does not exist');
@@ -67,13 +68,14 @@ class Client {
      */
     async getSkyblockStats(uuid) {
         return new Promise(async (res, rej) => {
-            if (!(await isUUID(uuid))) return rej('Malformed UUID');
 
-            if (!(await validateApiKey(this.key))) return rej('Invalid API key!');
+            await validateApiKey(this.key)
+
+            if (!(await isUUID(uuid))) return rej('Malformed UUID');
 
             let sb_profile = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
             sb_profile = sb_profile['player']['stats']['SkyBlock']['profiles'];
-            
+
             let sb_profiles = await objectToArray(sb_profile);
 
             let profiles_amount = sb_profiles.length;
@@ -89,7 +91,7 @@ class Client {
                 for (let i = 0; i < profiles_amount; i++) {
                     let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${sb_profiles[i]}`).then(r => r.json())
                     profile = profile.profile
-                    if(!profile) return rej('Something went wrong!')
+                    if (!profile) return rej('Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM')
                     profiles.push({
                         profile_name: sb_profile[sb_profiles[i]]['cute_name'],
                         profile_id: profile.profile_id,
@@ -108,7 +110,7 @@ class Client {
                 let id = Object.keys(sb_profile)[0]
                 let profile = await fetch(BASE_URL + `/skyblock/profile` + `?key=${this.key}` + `&profile=${id}`).then(r => r.json())
                 let pr = profile.profile;
-                if(!pr) return rej('Something went wrong!')
+                if (!pr) return rej('Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM')
                 profile = {
                     profile_name: sb_profile[id]['cute_name'],
                     profile_id: pr.profile_id,
@@ -135,8 +137,7 @@ class Client {
      */
     async getGuild(query, searchParameter) {
         return new Promise(async (res, rej) => {
-            let validKey = await validateApiKey(this.key);
-            if (!validKey) return rej('Invalid API key!');
+            await validateApiKey(this.key);
 
             var RESPONSE;
             var URL;
@@ -170,7 +171,7 @@ class Client {
                 }
                     break;
                 default: {
-                    return rej('Define guild search parameter')
+                    return rej('Define guild search parameter. For help join our Discord Server https://discord.gg/NSEBNMM')
                 }
             }
 
@@ -193,8 +194,7 @@ class Client {
      */
     async getFriends(query) {
         return new Promise(async (res, rej) => {
-            let validKey = await validateApiKey(this.key);
-            if (!validKey) return rej('Invalid API key!');
+            await validateApiKey(this.key);
 
             let validUuid = await isUUID(query);
             if (validUuid == false) {
@@ -224,8 +224,7 @@ class Client {
      */
     async getWatchdogStats() {
         return new Promise(async (res, rej) => {
-            let validKey = await validateApiKey(this.key);
-            if (!validKey) return rej('Invalid API key!');
+            await validateApiKey(this.key);
 
             let response = await fetch(BASE_URL + '/watchdogstats' + `?key=${this.key}`).then(r => r.json());
             return res((new WatchdogStats(response)))
@@ -240,8 +239,7 @@ class Client {
      */
     async getOnline() {
         return new Promise(async (res, rej) => {
-            let validKey = await validateApiKey(this.key);
-            if (!validKey) return rej('Invalid API key!');
+            await validateApiKey(this.key);
 
             let response = await fetch(BASE_URL + '/playerCount' + `?key=${this.key}`).then(r => r.json());
 
@@ -256,7 +254,7 @@ class Client {
      */
     getBoosters() {
         return new Promise(async (res, rej) => {
-            if (!(await validateApiKey(this.key))) return rej('Invalid API key!');
+            await validateApiKey(this.key)
 
             let response = await fetch(BASE_URL + '/boosters' + `?key=${this.key}`).then(r => r.json());
 
@@ -293,10 +291,11 @@ async function objectToArray(object) {
  * @param {String} key 
  */
 async function validateApiKey(key) {
+    if (typeof key !== 'string') throw new Error('[hypixel-api-reborn] Specified API Key must be a string For help join our Discord Server https://discord.gg/NSEBNMM')
     let check = await fetch(BASE_URL + '/key' + `?key=${key}`).then(r => r.json());
 
     if (check.success == false && check.cause == 'Invalid API key!') {
-        return false;
+        throw new Error('[hypixel-api-reborn] Specified API Key is invalid. For help join our Discord Server https://discord.gg/NSEBNMM')
     } else {
         return true;
     };

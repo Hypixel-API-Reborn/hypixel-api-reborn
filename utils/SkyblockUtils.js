@@ -6,34 +6,6 @@ module.exports = {
         let buffer = Buffer.from(base64, 'base64');
         let data = await parseNbt(buffer)
         data = nbt.simplify(data);
-        // let items = data.i;
-        // for (let [index, item] of items.entries()) {
-        //     if (objectPath.has(item, 'tag.display.Name') && (item.tag.display.Name.endsWith('Backpack') || item.tag.display.Name.endsWith('Itchy New Year Cake Bag'))) {
-
-        //         let keys = Object.keys(item.tag.ExtraAttributes);
-
-        //         let backpackData;
-
-        //         keys.forEach(key => {
-        //             if (key.endsWith('backpack_data') || key == 'new_year_cake_bag_data')
-        //                 backpackData = item.tag.ExtraAttributes[key];
-        //         });
-
-        //         if (!Array.isArray(backpackData))
-        //             continue;
-
-        //         let backpackContents = await getBackpackContents(backpackData);
-
-        //         backpackContents.forEach(backpackItem => {
-        //             backpackItem.backpackIndex = index;
-        //         });
-
-        //         item.containsItems = [];
-
-        //         items.push(...backpackContents);
-        //         return data
-        //     }
-        // }
         let newdata = [];
         for (let i = 0; i < data.i.length; i++) {
             newdata.push(data.i[i])

@@ -5,7 +5,6 @@ const SpeedUHC = require('./SpeedUHC')
 const MurderMystery = require('./MurderMystery');
 const Duels = require('./Duels')
 const CrazyWalls = require('./CrazyWalls')
-const SBProfile = require('../SkyBlock/Profile')
 
 module.exports = {
     SkyWars: SkyWars,

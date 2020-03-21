@@ -7,7 +7,6 @@ module.exports = async (name) => {
     if (info.status == 204) {
         uuid = 'Player does not exist';
     } else {
-        info = await info.json();
         uuid = info.id;
     }
 
