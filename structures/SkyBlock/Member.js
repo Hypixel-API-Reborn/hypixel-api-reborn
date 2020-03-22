@@ -74,7 +74,7 @@ class SkyblockMember {
             })
         }
 
-        this.stats = {
+        this.stats = (data.m.stats ? {
             purse: Math.floor(data.m.coin_purse) || 0,
             kills: data.m.stats.kills || 0,
             deaths: data.m.stats.deaths || 0,
@@ -83,7 +83,7 @@ class SkyblockMember {
 
             gifts_given: data.m.stats.gifts_given || 0,
             gifts_received: data.m.stats.gifts_received || 0
-        }
+        } : null)
     }
 }
 
