@@ -49,7 +49,9 @@ const hypixel = new Hypixel('API-KEY', true);
 ``` js
 // Arguments:
 // UUID / Player Nickname
-hypixel.getPlayer('GravitonSurge').then(async (player) => {
+hypixel.getPlayer('StavZDev').then(async (player) => {
+    if(!player) return;
+
     console.log(player.uuid) // -> 52d9a36f66ce4cdf9a56ad9724ae9fb4
     console.log(player.karma) // -> 4570876
 
@@ -60,6 +62,8 @@ hypixel.getPlayer('GravitonSurge').then(async (player) => {
 })
 
 hypixel.getPlayer('abcde1234').then(async (player) => {
+    if(!player) return;
+
     console.log(player) // -> null
 }).catch(e => {
     console.log(e) // -> Player does not exist
@@ -72,6 +76,8 @@ hypixel.getPlayer('abcde1234').then(async (player) => {
 // Arguments:
 // UUID
 hypixel.getSkyblockStats('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profile) => {
+    if(!profile) return;
+
     //if does not have skyblock profiles -> null
 
     //if player has 1 skyblock profile
@@ -125,6 +131,8 @@ hypixel.getSkyblockStats('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profile
 // Guild ID / Guild Name / Player Nickname
 // id / name / player
 hypixel.getGuild('The Foundation', 'name').then(async (guild) => {
+    if(!guild) return;
+
     console.log(guild.name) // -> The Foundation
     console.log(guild.description) // -> Foundation ❤ AYS
 
@@ -134,6 +142,8 @@ hypixel.getGuild('The Foundation', 'name').then(async (guild) => {
 })
 
 hypixel.getGuild('abcde1234', 'name').then(async (guild) => {
+    if(!guild) return;
+
     console.log(guild) // -> null
 }).catch(e => {
     console.log(e) // -> Guild does not exist
@@ -145,11 +155,13 @@ hypixel.getGuild('abcde1234', 'name').then(async (guild) => {
 ``` js
 // Arguments:
 // UUID / Player Nickname
-hypixel.getFriends('GravitonSurge').then(async (friends) => {
+hypixel.getFriends('StavZDev').then(async (friends) => {
     console.log(friends.length) // -> 12
 })
 
 hypixel.getFriends('abcde1234').then(async (friends) => {
+
+    if(!friends) return;
 
 }).catch(e => {
     console.log(e) // -> Player does not exist

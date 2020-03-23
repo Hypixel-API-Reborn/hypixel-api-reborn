@@ -40,13 +40,13 @@ class Client {
             if (!(await isUUID(uuid))) {
                 uuid = await getUuid(uuid);
                 if (uuid == 'Player does not exist') {
-                    return rej('Player does not exist');
+                    rej('Player does not exist');
+                    return;
                 }
             }
             //Fetching
             let response = await fetch(BASE_URL + `/player` + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
             if (!response.player || response.cause == 'Malformed UUID!') {
-                res(null);
                 rej('Player does not exist');
                 return;
             }
@@ -80,7 +80,6 @@ class Client {
             let profiles_amount = sb_profiles.length;
 
             if (profiles_amount == 0) {
-                res(null)
                 return rej('Player does not have Skyblock profiles')
             }
 
@@ -290,11 +289,11 @@ async function objectToArray(object) {
  * @param {String} key 
  */
 async function validateApiKey(key) {
-    if (typeof key !== 'string') throw new Error('[hypixel-api-reborn] Specified API Key must be a string For help join our Discord Server https://discord.gg/NSEBNMM')
+    if (typeof key !== 'string') throw new TypeError('[hypixel-api-reborn] Specified API Key must be a string. For help join our Discord Server https://discord.gg/NSEBNMM')
     let check = await fetch(BASE_URL + '/key' + `?key=${key}`).then(r => r.json());
 
-    if (check.success == false && check.cause == 'Invalid API key!') {
-        throw new Error('[hypixel-api-reborn] Specified API Key is invalid. For help join our Discord Server https://discord.gg/NSEBNMM')
+    if (!check.success && check.cause) {
+        throw new ReferenceError('[hypixel-api-reborn] Specified API Key is invalid. For help join our Discord Server https://discord.gg/NSEBNMM')
     } else {
         return true;
     };
