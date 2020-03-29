@@ -1,11 +1,11 @@
 const Member = require('./Member');
 class SkyblockProfile {
 
-    constructor(data) {
-        this.profile_id = data['profile_id'];
-        this.profile_name = data['profile_name'];
-        this.members = edit(data.members).map(m => new Member(m));
-    }
+	constructor(data) {
+		this.profile_id = data['profile_id'];
+		this.profile_name = data['profile_name'];
+		this.members = edit(data.members).map(m => new Member(m));
+	}
 
 }
 
@@ -14,12 +14,12 @@ class SkyblockProfile {
  * @param {object} members 
  */
 function edit(members) {
-    let edited = [];
-    Object.keys(members).forEach((k) => {
-        let m = members[k]
-        edited.push({uuid: k, m})
-    })
-    return edited
+	let edited = [];
+	Object.keys(members).forEach((k) => {
+		let m = members[k];
+		edited.push({uuid: k, m});
+	});
+	return edited;
 }
 
 module.exports = SkyblockProfile;

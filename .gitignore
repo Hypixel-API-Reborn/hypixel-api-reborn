@@ -104,4 +104,4 @@ package-lock.json
 .tern-port
 test/
 global-test/
-bot/
+typings/
