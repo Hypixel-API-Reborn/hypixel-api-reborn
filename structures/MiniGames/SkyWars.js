@@ -65,6 +65,12 @@ class SkyWars {
 	}
 }
 module.exports = SkyWars;
+/**
+ * 
+ * @param {number} level
+ * 
+ * @returns {string} 
+ */
 function getSkyWarsPrestige(level) {
 	let prestige;
 	if (inRange(level, 1, 9)) {

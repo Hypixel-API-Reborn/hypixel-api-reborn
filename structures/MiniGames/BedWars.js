@@ -93,7 +93,12 @@ const EASY_LEVELS_XP = 7000;
 const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
-
+/**
+ * 
+ * @param {number} level
+ * 
+ * @returns {number} 
+ */
 function getExpForLevel(level) {
 	if (level == 0) return 0;
 
@@ -115,6 +120,12 @@ function getExpForLevel(level) {
 	return 5000;
 }
 
+/**
+ * 
+ * @param {number} level
+ * 
+ * @returns {number} 
+ */
 function getLevelRespectingPrestige(level) {
 	if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
 		return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
@@ -124,6 +135,12 @@ function getLevelRespectingPrestige(level) {
 	}
 }
 
+/**
+ * 
+ * @param {number} level
+ * 
+ * @returns {number} 
+ */
 function getLevelForExp(exp) {
 	var prestiges = Math.floor(exp / XP_PER_PRESTIGE);
 	var level = prestiges * LEVELS_PER_PRESTIGE;

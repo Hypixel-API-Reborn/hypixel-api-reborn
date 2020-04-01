@@ -91,8 +91,9 @@ class SkyblockMember {
 	}
 }
 /**
- * 
  * @param {object} data 
+ * 
+ * @return {object}
  */
 function getSkills(data) {
 	let skills = {};

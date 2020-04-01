@@ -1,6 +1,7 @@
 const BASE_URL = 'https://api.hypixel.net';
 
 const fetch = require('node-fetch');
+
 const Player = require('./structures/Player');
 const Guild = require('./structures/Guild/Guild');
 const WatchdogStats = require('./structures/Watchdog/Stats');
@@ -18,7 +19,6 @@ Array.prototype.removeOne = function (i) {
 
 class Client {
 	/**
-     * 
      * @param {String} key 
      * @param {Boolean} compacted 
      */
@@ -36,7 +36,6 @@ class Client {
      */
 	async getPlayer(uuid) {
 		return new Promise(async (res, rej) => {
-			//Validation
 			await validateApiKey(this.key);
 
 			if (!(await isUUID(uuid))) {
@@ -46,7 +45,7 @@ class Client {
 					return;
 				}
 			}
-			//Fetching
+
 			let response = await fetch(BASE_URL + '/player' + `?key=${this.key}` + `&uuid=${uuid}`).then(r => r.json());
 			if (!response.player || response.cause == 'Malformed UUID!') {
 				rej('Player does not exist');
@@ -64,6 +63,8 @@ class Client {
      * @async 
      * 
      * @param {string} uuid - Player UUID
+	 * 
+	 * @description Hypixel Skyblock statistic
      * 
      * @returns {SBProfile} - Returns SkyBlockProfile 
      */
@@ -142,37 +143,37 @@ class Client {
 			var RESPONSE;
 			var URL;
 			switch (searchParameter) {
-			case 'name': {
+				case 'name': {
 
-				URL = BASE_URL + '/guild' + `?key=${this.key}&name=${query}`;
-				RESPONSE = await fetch(URL).then(r => r.json());
-			}
-				break;
-			case 'player': {
-
-				let validUuid = await isUUID(query);
-				if (validUuid == false) {
-					let uuid = await getUuid(query);
-					if (uuid == 'Player does not exist') {
-						return rej('Player does not exist');
-					}
-					query = uuid;
+					URL = BASE_URL + '/guild' + `?key=${this.key}&name=${query}`;
+					RESPONSE = await fetch(URL).then(r => r.json());
 				}
+					break;
+				case 'player': {
 
-				URL = BASE_URL + '/guild' + `?key=${this.key}&player=${query}`;
-				RESPONSE = await fetch(URL).then(r => r.json());
+					let validUuid = await isUUID(query);
+					if (validUuid == false) {
+						let uuid = await getUuid(query);
+						if (uuid == 'Player does not exist') {
+							return rej('Player does not exist');
+						}
+						query = uuid;
+					}
 
-			}
-				break;
-			case 'id': {
-				if (!(await isGuildID(query))) return rej('Invalid Guild ID');
-				URL = BASE_URL + '/guild' + `?key=${this.key}&id=${query}`;
-				RESPONSE = await fetch(URL).then(r => r.json());
-			}
-				break;
-			default: {
-				return rej('Define guild search parameter. For help join our Discord Server https://discord.gg/NSEBNMM');
-			}
+					URL = BASE_URL + '/guild' + `?key=${this.key}&player=${query}`;
+					RESPONSE = await fetch(URL).then(r => r.json());
+
+				}
+					break;
+				case 'id': {
+					if (!(await isGuildID(query))) return rej('Invalid Guild ID');
+					URL = BASE_URL + '/guild' + `?key=${this.key}&id=${query}`;
+					RESPONSE = await fetch(URL).then(r => r.json());
+				}
+					break;
+				default: {
+					return rej('Define guild search parameter. For help join our Discord Server https://discord.gg/NSEBNMM');
+				}
 			}
 
 			if (RESPONSE.guild == null) return rej('Guild does not exist');
@@ -248,7 +249,7 @@ class Client {
 			await validateApiKey(this.key);
 
 			let response = await fetch(BASE_URL + '/playerCount' + `?key=${this.key}`).then(r => r.json());
-            
+
 			if (response.cause) {
 				rej(response.cause);
 				return;
@@ -268,7 +269,7 @@ class Client {
 			await validateApiKey(this.key);
 
 			let response = await fetch(BASE_URL + '/boosters' + `?key=${this.key}`).then(r => r.json());
-            
+
 			if (response.cause) {
 				rej(response.cause);
 				return;

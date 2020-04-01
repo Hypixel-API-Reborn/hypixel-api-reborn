@@ -15,9 +15,9 @@ class Player {
 		this.lastLogin = data['lastLogin'];
 		this.firstLogin = data['firstLogin'];
 
-		this.karma = data['karma'];
-		this.achievementPoints = data['achievementPoints'];
-		this.totalExperience = data['networkExp'];
+		this.karma = data['karma'] || 0;
+		this.achievementPoints = data['achievementPoints'] || 0;
+		this.totalExperience = data['networkExp'] || 0;
 		this.level = getPlayerLevel(this.totalExperience);
 		this.socialmedia = getSocialMedia(data['socialMedia']);
 
@@ -43,8 +43,12 @@ class Player {
 }
 /**
      * @async
+	 * 
      * @description Get player's rank 
+	 * 
      * @param {object} player 
+	 * 
+	 * @returns {string}
      */
 function getRank(player) {
 	let rank;
@@ -90,6 +94,8 @@ function getRank(player) {
 /**
  * 
  * @param {number} exp 
+ * 
+ * @returns {number}
  */
 function getPlayerLevel(exp) {
 	let BASE = 10000;
@@ -105,6 +111,8 @@ function getPlayerLevel(exp) {
 /**
  * 
  * @param {object} data 
+ * 
+ * @returns {Array}
  */
 function getSocialMedia(data) {
 	if (!data) return null;

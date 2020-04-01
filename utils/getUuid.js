@@ -3,6 +3,9 @@ const fetch = require('node-fetch');
 /**
  * @async 
  * 
+ * @param {string} name
+ * 
+ * @returns {string}
  */
 
 module.exports = async (name) => {

@@ -12,6 +12,8 @@ class SkyblockProfile {
 /**
  * 
  * @param {object} members 
+ * 
+ * @returns {Array}
  */
 function edit(members) {
 	let edited = [];
