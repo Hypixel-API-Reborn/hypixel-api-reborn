@@ -20,9 +20,13 @@ Array.prototype.removeOne = function (i) {
 class Client {
 	/**
      * @param {String} key 
-     * @param {Boolean} compacted 
+     * @param {compacted=false} compacted 
      */
 	constructor(key, compacted) {
+		if (!key) {
+			throw new Error('[hypixel-api-reborn] No API key specified. For help join our Discord Server https://discord.gg/NSEBNMM');
+		}
+
 		this.key = key;
 		this.compacted = compacted;
 	}
