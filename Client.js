@@ -14,7 +14,9 @@ const getUuid = require('./utils/getUuid');
 Array.prototype.removeOne = function (i) {
 	let index = this.indexOf(i);
 
-	return index == -1 ? this : this.slice(index);
+	if (index == -1) return this;
+
+	return this.splice(index);
 };
 
 class Client {

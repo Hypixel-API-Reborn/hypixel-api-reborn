@@ -1,4 +1,11 @@
-const { SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, CrazyWalls } = require('./MiniGames/Import');
+const SkyWars = require('./MiniGames/SkyWars');
+const BedWars = require('./MiniGames/BedWars');
+const UHC = require('./MiniGames/UHC');
+const SpeedUHC = require('./MiniGames/SpeedUHC');
+const MurderMystery = require('./MiniGames/MurderMystery');
+const Duels = require('./MiniGames/Duels');
+const CrazyWalls = require('./MiniGames/CrazyWalls');
+const BuildBattle = require('./MiniGames/BuildBattle')
 
 class Player {
 	/**
@@ -34,9 +41,7 @@ class Player {
 			murdermystery: (data['stats']['MurderMystery'] ? new MurderMystery(data['stats']['MurderMystery']) : null),
 			duels: (data['stats']['Duels'] ? new Duels(data['stats']['Duels']) : null),
 			crazywalls: (data['stats']['TrueCombat'] ? new CrazyWalls(data['stats']['TrueCombat']) : null),
-			// prototype: {
-			//     thepit: (data['stats']['Pit'] ? new ThePit(data['stats']['Pit']) : null)
-			// }
+			buildbattle: (data['stats']['BuildBattle'] ? new BuildBattle(data['stats']['BuildBattle']) : null)
 		} : null);
 
 	}
