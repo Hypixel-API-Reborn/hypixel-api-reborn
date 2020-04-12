@@ -6,6 +6,7 @@ const MurderMystery = require('./MiniGames/MurderMystery');
 const Duels = require('./MiniGames/Duels');
 const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle')
+const MegaWalls = require('./MiniGames/MegaWalls')
 
 class Player {
 	/**
@@ -41,7 +42,8 @@ class Player {
 			murdermystery: (data['stats']['MurderMystery'] ? new MurderMystery(data['stats']['MurderMystery']) : null),
 			duels: (data['stats']['Duels'] ? new Duels(data['stats']['Duels']) : null),
 			crazywalls: (data['stats']['TrueCombat'] ? new CrazyWalls(data['stats']['TrueCombat']) : null),
-			buildbattle: (data['stats']['BuildBattle'] ? new BuildBattle(data['stats']['BuildBattle']) : null)
+			buildbattle: (data['stats']['BuildBattle'] ? new BuildBattle(data['stats']['BuildBattle']) : null),
+			megawalls: (data['stats']['Walls3'] ? new MegaWalls(data['stats']['Walls3']) : null)
 		} : null);
 
 	}
