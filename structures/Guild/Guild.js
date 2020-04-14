@@ -16,7 +16,7 @@ class Guild {
 
 		this.createdAt = data.created;
 		this.joinable = data.joinable ? data.joinable : false;
-		this.publiclyListed = data.publiclyListed;
+		this.publiclyListed = data.publiclyListed ? true : false;
 
 		this.members = data.members ? data.members.map(m => new GuildMember(m)) : null;
 		this.ranks = data.ranks ? data.ranks.map(r => new GuildRank(r)) : null;
@@ -27,7 +27,7 @@ class Guild {
 			hexColor: data.tagColor ? Color.ColorHex[data.tagColor] : null
 		};
 
-		this.legacyRank = parseInt(data.legacyRanking)+1;
+		this.legacyRank = data.legacyRanking ? parseInt(data.legacyRanking) + 1 : null;
 		this.achievements = {
 			winners: data.achievements ? data.achievements.WINNERS : 0,
 			experienceKings: data.achievements ? data.achievements.EXPERIENCE_KINGS : 0,
