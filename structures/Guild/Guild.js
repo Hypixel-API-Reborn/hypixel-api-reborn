@@ -19,7 +19,7 @@ class Guild {
 		this.publiclyListed = data.publiclyListed ? true : false;
 
 		this.members = data.members ? data.members.map(m => new GuildMember(m)) : null;
-		this.ranks = data.ranks ? data.ranks.map(r => new GuildRank(r)) : null;
+		this.ranks = data.ranks ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : null;
 
 		this.tag = {
 			string: data.tag ? data.tag : null,
