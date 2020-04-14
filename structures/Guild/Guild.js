@@ -10,7 +10,6 @@ class Guild {
 		this.name = data.name;
 		this.description = data.description ? data.description : null;
 
-		this.coins = data.coinsEver;
 		this.experience = data.exp || 0;
 		this.level = getGuildLevel(this.experience);
 
