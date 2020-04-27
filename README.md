@@ -17,12 +17,12 @@
 
 | Functions | Arguments | Returns |
 | :---: | :---: | :---: |
-| getPlayer | UUID / Nickname | Player |
-| getGuild | GID / Name / Nickname | Guild |
-| getFriends | UUID / Nickname | [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) |
-| getWatchdogStats | | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) | 
-| getOnline | | [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) |
-| getSkyblockStats | UUID | SkyblockProfile |
+| getPlayer | UUID / Nickname | [Promise<Player>](./structures/Player.js) |
+| getGuild | GID / Name / Nickname | [Promise<Guild>](./structures/Guild/Guild.js) |
+| getFriends | UUID / Nickname | Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)> |
+| getWatchdogStats | | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> | 
+| getOnline | | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
+| getSkyblockStats | UUID | [Promise<SkyblockProfile>](./structures/SkyBlock/Profile.js) |
 
 *Soon will be more functions*
 

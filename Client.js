@@ -26,7 +26,7 @@ class Client {
      */
 	constructor(key, compacted) {
 		if (!key) {
-			throw new Error('[hypixel-api-reborn] No API key specified. For help join our Discord Server https://discord.gg/NSEBNMM');
+			throw new Error('vNo API key specified. For help join our Discord Server https://discord.gg/NSEBNMM');
 		}
 
 		this.key = key;
@@ -98,7 +98,7 @@ class Client {
 				for (let i = 0; i < profiles_amount; i++) {
 					let profile = await fetch(BASE_URL + '/skyblock/profile' + `?key=${this.key}` + `&profile=${sb_profiles[i]}`).then(r => r.json());
 					profile = profile.profile;
-					if (!profile) return rej('Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM');
+					if (!profile) return rej('[hypixel-api-reborn] Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM');
 					profiles.push({
 						profile_name: sb_profile[sb_profiles[i]]['cute_name'],
 						profile_id: profile.profile_id,
@@ -117,7 +117,7 @@ class Client {
 				let id = Object.keys(sb_profile)[0];
 				let profile = await fetch(BASE_URL + '/skyblock/profile' + `?key=${this.key}` + `&profile=${id}`).then(r => r.json());
 				let pr = profile.profile;
-				if (!pr) return rej('Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM');
+				if (!pr) return rej('[hypixel-api-reborn] Something went wrong! For help join our Discord Server https://discord.gg/NSEBNMM');
 				profile = {
 					profile_name: sb_profile[id]['cute_name'],
 					profile_id: pr.profile_id,
@@ -178,7 +178,7 @@ class Client {
 				}
 					break;
 				default: {
-					return rej('Define guild search parameter. For help join our Discord Server https://discord.gg/NSEBNMM');
+					return rej('[hypixel-api-reborn] Define guild search parameter. For help join our Discord Server https://discord.gg/NSEBNMM');
 				}
 			}
 
@@ -213,7 +213,7 @@ class Client {
 			}
 
 			let response = await fetch(BASE_URL + '/friends' + `?key=${this.key}` + `&uuid=${query}`).then(r => r.json());
-			if (!response.records.length || response.records.lenght == 0) return res('Player does not have any friends');
+			if (!response.records.length || response.records.length == 0) return res('Player does not have any friends');
 
 			if (this.compacted) {
 				return res(response.records.map(r => new Friend(r)));
