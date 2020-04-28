@@ -29,11 +29,13 @@ class Player {
 		this.level = getPlayerLevel(this.totalExperience);
 		this.socialmedia = getSocialMedia(data['socialMedia']);
 
+		this.giftsSent = data['giftingMeta'] ? data['giftingMeta']['realBundlesGiven'] || 0 : null;
+		this.giftsReceived = data['giftingMeta'] ? data['giftingMeta']['realBundlesReceived'] || 0 : null;
+
 		this.isOnline = () => {
 			return this.lastLogin > data['lastLogout'] ? true : false;
 		};
         
-		//Stats
 		this.stats = (data['stats'] ? {
 			skywars: (data['stats']['SkyWars'] ? new SkyWars(data['stats']['SkyWars']) : null),
 			bedwars: (data['stats']['Bedwars'] ? new BedWars(data['stats']['Bedwars']) : null),
