@@ -15,14 +15,14 @@
 
 # Documentation
 
-| Functions | Arguments | Returns |
-| :---: | :---: | :---: |
-| getPlayer | UUID / Nickname | Promise<[Player](./structures/Player.js)> |
-| getGuild | GID / Name / Nickname | Promise<[Guild](./structures/Guild/Guild.js)> |
-| getFriends | UUID / Nickname | Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)> |
-| getWatchdogStats | | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> | 
-| getOnline | | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
-| getSkyblockStats | UUID | Promise<[SkyblockProfile](./structures/SkyBlock/Profile.js)> |
+|    Functions     |       Arguments       |                                                  Returns                                                   |
+| :--------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
+|    getPlayer     |    UUID / Nickname    |                                 Promise<[Player](./structures/Player.js)>                                  |
+|     getGuild     | GID / Name / Nickname |                               Promise<[Guild](./structures/Guild/Guild.js)>                                |
+|    getFriends    |    UUID / Nickname    |    Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)>    |
+| getWatchdogStats |                       | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> |
+|    getOnline     |                       | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
+| getSkyblockStats |         UUID          |                        Promise<[SkyblockProfile](./structures/SkyBlock/Profile.js)>                        |
 
 *Soon will be more functions*
 
@@ -78,49 +78,59 @@ hypixel.getPlayer('abcde1234').then(async (player) => {
 hypixel.getSkyblockStats('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profile) => {
     if(!profile) return;
 
-    //if does not have skyblock profiles -> null
+    //if player does not have any skyblock profiles -> null
 
-    //if player has 1 skyblock profile
-    //profile - object
-    //else 
-    //profile array of objects
+    /* 
+        if player has 1 skyblock profile
+        profile - object
+        else 
+        profile - array of objects
+    */
 
     //if compact mode if ON
-    console.log(profile); // -> 
-    // [
-    //   SkyblockProfile {
-    //     profile_id: '65feab38f8434631b77d616bb40e1987',
-    //     profile_name: 'Lime',
-    //     members: [ [SkyblockMember] ]
-    //   },
-    //   SkyblockProfile {
-    //     profile_id: '1e585237439b4eb78d53e33c65c8edaf',
-    //     profile_name: 'Cucumber',
-    //     members: [ [SkyblockMember] ]
-    //   }
-    // ]
+    console.log(profile); 
+    // -> 
+
+    [
+      SkyblockProfile {
+        profile_id: '65feab38f8434631b77d616bb40e1987',
+        profile_name: 'Lime',
+        members: [ [SkyblockMember] ]
+      },
+      SkyblockProfile {
+        profile_id: '1e585237439b4eb78d53e33c65c8edaf',
+        profile_name: 'Cucumber',
+        members: [ [SkyblockMember] ]
+      }
+    ]
 
     console.log(profile[0])
-    //     SkyblockProfile {
-    //   profile_id: '65feab38f8434631b77d616bb40e1987',
-    //   profile_name: 'Lime',
-    //   members: [
-    //     SkyblockMember {
-    //       uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
-    //       first_join: 1560352500017,
-    //       last_save: 1581701036662,
-    //       getArmor: [AsyncFunction],
-    //       fairy_souls: 14,
-    //       skills: [Object], (if API:Skills setting is OFF will be null)
-    //       collections: [Object], (if API:Collection setting is OFF will be null)
-    //       getEnderChest: [AsyncFunction], (if API:Inventory setting is OFF will be null)
-    //       getInventory: [AsyncFunction], (if API:Inventory setting is OFF will be null)
-    //       stats: [Object] 
-    //     }
-    //   ]
-    // }
+    // ->
+        SkyblockProfile {
+            profile_id: '65feab38f8434631b77d616bb40e1987',
+            profile_name: 'Lime',
+            members: [
+        SkyblockMember {
+          uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
+          first_join: 1560352500017,
+          last_save: 1581701036662,
+          getArmor: [AsyncFunction],
+          fairy_souls: 14,
+          skills: [Object], /*(if API:Skills setting is turned OFF will be null)*/
+          collections: [Object], /*(if API:Collection setting is turned OFF will be null)*/
+          getEnderChest: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
+          getInventory: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
+          stats: [Object] 
+        }
+      ]
+    }
+
 }).catch(e => {
-    console.log(e) // Player does not have Skyblock profiles
+    console.log(e)
+    /*
+    if player does not have skyblock profiles -> Player does not have Skyblock profiles
+    if specified UUID is not valid -> Malformed UUID
+    */
 })
 ```
 
@@ -173,7 +183,7 @@ hypixel.getFriends('abcde1234').then(async (friends) => {
 ``` js
 hypixel.getWatchdogStats().then(async (stats) => {
     console.log(stats)
-    /* -> 
+    // -> 
     WatchdogStats {
         ByWatchdogTotal: 4112671,
         ByWatchDogLastMinute: 1,
@@ -181,7 +191,6 @@ hypixel.getWatchdogStats().then(async (stats) => {
         ByStaffTotal: 1471159,
         ByStaffRollingDay: 1353
     }
-    */
 })
 ```
 
@@ -189,7 +198,9 @@ hypixel.getWatchdogStats().then(async (stats) => {
 
 ``` js
 hypixel.getOnline().then(async (online) => {
-    console.log(online) // -> 34327
+    console.log(online) 
+    // ->
+    34327
 })
 ```
 
