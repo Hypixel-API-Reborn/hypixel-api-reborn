@@ -35,7 +35,7 @@ const Hypixel = require('hypixel-api-reborn');
 
 // Parameters:
 // API Key (String)
-// Compart Mode (Boolean)
+// Compaсt Mode (Boolean)
 
 const hypixel = new Hypixel('API-KEY', true);
 ```
