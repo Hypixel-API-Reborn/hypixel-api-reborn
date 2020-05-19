@@ -72,7 +72,7 @@ class Client {
 	 * 
 	 * @description Hypixel Skyblock statistic
      * 
-     * @returns {SBProfile} - Returns SkyBlockProfile 
+     * @returns {SBProfile|Array<SBProfile>} - Returns SkyBlockProfile 
      */
 	async getSkyblockStats(uuid) {
 		return new Promise(async (res, rej) => {
@@ -140,7 +140,7 @@ class Client {
      * @param {string} nameOrUUID
      * @param {'player'|'name'|'id'} searchParameter
      * 
-     * @returns {object} Hypixel Guild
+     * @returns {Guild} Hypixel Guild
      */
 	async getGuild(query, searchParameter) {
 		return new Promise(async (res, rej) => {
@@ -197,7 +197,7 @@ class Client {
      * 
      * @param {string} uuid
      * 
-     * @returns {Map} 
+     * @returns {Map<Friend>} 
      */
 	async getFriends(query) {
 		return new Promise(async (res, rej) => {
@@ -227,7 +227,7 @@ class Client {
 	/**
      * @async
      * 
-     * @returns {Object}
+     * @returns {WatchdogStats}
      */
 	async getWatchdogStats() {
 		return new Promise(async (res, rej) => {
@@ -268,7 +268,7 @@ class Client {
 	/**
      * @async
      * 
-     * @returns {Map}
+     * @returns {Map<Booster>}
      */
 	getBoosters() {
 		return new Promise(async (res, rej) => {
