@@ -22,7 +22,7 @@ Array.prototype.removeOne = function (i) {
 class Client {
 	/**
      * @param {String} key 
-     * @param {compacted=false} compacted 
+     * @param {boolean} compacted 
      */
 	constructor(key, compacted) {
 		if (!key) {
