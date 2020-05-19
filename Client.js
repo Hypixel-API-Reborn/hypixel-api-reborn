@@ -26,7 +26,7 @@ class Client {
      */
 	constructor(key, compacted) {
 		if (!key) {
-			throw new Error('vNo API key specified. For help join our Discord Server https://discord.gg/NSEBNMM');
+			throw new Error('No API key specified. For help join our Discord Server https://discord.gg/NSEBNMM');
 		}
 
 		this.key = key;
