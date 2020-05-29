@@ -37,7 +37,7 @@ const Hypixel = require('hypixel-api-reborn');
 // API Key (String)
 // Compaсt Mode (Boolean)
 
-const hypixel = new Hypixel('API-KEY', true);
+const hypixel = new Hypixel.Client('API-KEY');
 ```
 
 ---
@@ -58,7 +58,7 @@ hypixel.getPlayer('StavZDev').then(async (player) => {
     // if compact mode is ON
     console.log(player.rank) // -> [MVP+]
     console.log(player.level) // -> 138.01 
-    console.log(player.isOnline()) // -> false
+    console.log(player.isOnline) // -> false
 })
 
 hypixel.getPlayer('abcde1234').then(async (player) => {
@@ -70,77 +70,13 @@ hypixel.getPlayer('abcde1234').then(async (player) => {
 })
 ```
 
-### getSkyblockStats
-
-``` js
-// Arguments:
-// UUID
-hypixel.getSkyblockStats('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profile) => {
-    if(!profile) return;
-
-    //if player does not have any skyblock profiles -> null
-
-    /* 
-        if player has 1 skyblock profile
-        profile - object
-        else 
-        profile - array of objects
-    */
-
-    //if compact mode if ON
-    console.log(profile); 
-    // -> 
-
-    [
-      SkyblockProfile {
-        profile_id: '65feab38f8434631b77d616bb40e1987',
-        profile_name: 'Lime',
-        members: [ [SkyblockMember] ]
-      },
-      SkyblockProfile {
-        profile_id: '1e585237439b4eb78d53e33c65c8edaf',
-        profile_name: 'Cucumber',
-        members: [ [SkyblockMember] ]
-      }
-    ]
-
-    console.log(profile[0])
-    // ->
-        SkyblockProfile {
-            profile_id: '65feab38f8434631b77d616bb40e1987',
-            profile_name: 'Lime',
-            members: [
-        SkyblockMember {
-          uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
-          first_join: 1560352500017,
-          last_save: 1581701036662,
-          getArmor: [AsyncFunction],
-          fairy_souls: 14,
-          skills: [Object], /*(if API:Skills setting is turned OFF will be null)*/
-          collections: [Object], /*(if API:Collection setting is turned OFF will be null)*/
-          getEnderChest: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
-          getInventory: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
-          stats: [Object] 
-        }
-      ]
-    }
-
-}).catch(e => {
-    console.log(e)
-    /*
-    if player does not have skyblock profiles -> Player does not have Skyblock profiles
-    if specified UUID is not valid -> Malformed UUID
-    */
-})
-```
-
 ### getGuild
 
 ``` js
 // Arguments:
-// Guild ID / Guild Name / Player Nickname
 // id / name / player
-hypixel.getGuild('The Foundation', 'name').then(async (guild) => {
+// Guild ID / Guild Name / Player Nickname
+hypixel.getGuild('name', 'The Foundation').then(async (guild) => {
     if(!guild) return;
 
     console.log(guild.name) // -> The Foundation
@@ -204,3 +140,155 @@ hypixel.getOnline().then(async (online) => {
 })
 ```
 
+### getSkyblockProfiles
+
+``` js
+// Arguments:
+// UUID
+hypixel.getSkyblockProfiles('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profiles) => {
+    if(!profiles) return;
+    console.log(profiles); 
+    // -> 
+
+    [
+      SkyblockProfile {
+        profileId: '65feab38f8434631b77d616bb40e1987',
+        profileName: 'Lime',
+        members: [ [SkyblockMember] ]
+      },
+      SkyblockProfile {
+        profileId: '1e585237439b4eb78d53e33c65c8edaf',
+        profileName: 'Cucumber',
+        members: [ [SkyblockMember] ]
+      }
+    ]
+
+    console.log(profile[0])
+    // ->
+        SkyblockProfile {
+            profileId: '65feab38f8434631b77d616bb40e1987',
+            profileName: 'Lime',
+            members: [
+        SkyblockMember {
+          uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
+          firstJoin: 1560352500017,
+          lastSave: 1581701036662,
+          getArmor: [AsyncFunction],
+          fairySouls: 14,
+          skills: [Object], /*(if API:Skills setting is turned OFF will be null)*/
+          collections: [Object], /*(if API:Collection setting is turned OFF will be null)*/
+          getEnderChest: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
+          getInventory: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
+          stats: [Object] 
+        }
+      ]
+    }
+
+}).catch(e => {
+    console.log(e)
+    /*
+    if player does not have skyblock profiles -> Player does not have Skyblock profiles
+    if specified UUID is not valid -> Malformed UUID
+    */
+})
+```
+
+#### getSkyblockAuctions()
+```js
+// Argument:
+// Number / null
+hypixel.getSkyblockAuctions().then((auctions) => {
+    console.log(auctions);
+    all auctions from all pages
+    [
+        Auction {
+            auctionId: '319f8f9459724d7fad4899f6d48e35dd',
+            auctioneerUuid: 'ec0e13e723e941a3822facc80f602c14',
+            coop: [
+                'ec0e13e723e941a3822facc80f602c14',
+                'ac240c4fdbbd4819ac29a372ff1f5d7d',
+                '2699009e36cd4028a7bb82d4c90c3506',
+                '2a19e4c8e13048598fd6ddf4af08b84c'
+            ],
+            auctionStart: 1590730690258,
+            auctionEnd: 1590773890258,
+            item: 'Enchanted Book',
+            itemLore: 'Life Steal III\nHeals for 0.3% of the damage\nyou deal to mobs.\n\nUse this on an item in an Anvil\nto apply it!\n\nCOMMON',
+            startingBid: 70000,
+            highestBid: 0,
+            bids: [],
+            claimed: false,
+            claimedBidders: [],
+            bin: true
+        },
+        ... 27984 more items
+    ]
+})
+hypixel.getSkyblockAuctions(3).then((auctions) => {
+    console.log(auctions);
+    all auctions from 3rd page
+})
+```
+
+#### getSkyblockAuctionsByPlayer()
+```js
+// Argument
+// Player UUID
+hypixel.getSkyblockAuctionsByPlayer('ec0e13e723e941a3822facc80f602c14').then((auctions) => {
+    console.log(auctions);
+    [
+        Auction {
+            auctionId: 'c70a5447b5844e3c832cab716452db68',
+            auctioneerUuid: 'ec0e13e723e941a3822facc80f602c14',
+            coop: [
+                'ec0e13e723e941a3822facc80f602c14',
+                'ac240c4fdbbd4819ac29a372ff1f5d7d',
+                '2699009e36cd4028a7bb82d4c90c3506',
+                '2a19e4c8e13048598fd6ddf4af08b84c'
+            ],
+            auctionStart: 1590730661275,
+            auctionEnd: 1590773861275,
+            item: 'Enchanted Book',
+            itemLore: 'Life Steal III\nHeals for 0.3% of the damage\nyou deal to mobs.\n\nUse this on an item in an Anvil\nto apply it!\n\nCOMMON',
+            startingBid: 70000,
+            highestBid: 0,
+            bids: [],
+            claimed: false,
+            claimedBidders: [],
+            bin: true
+        },
+            ... 4 more items
+    ]
+})
+```
+
+#### getSkyblockBazaar()
+```js
+hypixel.getSkyblockBazaar().then((products) => {
+    console.log(products);
+    [
+        Product {
+            productId: 'INK_SACK:3',
+            sellSummary: [
+                Order { amount: 1413, pricePerUnit: 4.5, orders: 1 },
+                ... 6 more items
+            ],
+            buySummary: [
+                Order { amount: 18032, pricePerUnit: 5.6, orders: 1 },
+                ... 30 more items
+            ],
+            status: {
+                sellPrice: 4.4,
+                buyPrice: 5.67,
+                sellVolume: 336864,
+                buyVolume: 1148638,
+                sellMovingWeek: 8338523,
+                buyMovingWeek: 5820842,
+                sellOrders: 11,
+                buyOrders: 70
+            }
+        },
+        ... 197 more items
+    ]
+})
+```
