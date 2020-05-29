@@ -38,7 +38,6 @@ const Hypixel = require('hypixel-api-reborn');
 
 // Parameters:
 // API Key (String)
-// Compaсt Mode (Boolean)
 
 const hypixel = new Hypixel.Client('API-KEY');
 ```
@@ -90,7 +89,7 @@ hypixel.getGuild('name', 'The Foundation').then(async (guild) => {
     console.log(guild.legacyRank) // -> 1
 })
 
-hypixel.getGuild('abcde1234', 'name').then(async (guild) => {
+hypixel.getGuild('name', 'abcde1234').then(async (guild) => {
     if(!guild) return;
 
     console.log(guild) // -> null
