@@ -16,7 +16,7 @@
     "object-path": "^0.11.4",
     "prismarine-nbt": "^1.3.0"
   },
-  "license": "./LICENSE.md",
+  "license": "MIT",
   "readme": "./README.md",
   "repository": {
     "url": "https://github.com/StavZ/hypixel-api-reborn"
