@@ -90,6 +90,7 @@ function getSkills (data) {
 		return null;
 	}
 	skills = {
+		taming: getLevelByXp(data.experience_skill_taming),
 		farming: getLevelByXp(data.experience_skill_farming),
 		mining: getLevelByXp(data.experience_skill_mining),
 		combat: getLevelByXp(data.experience_skill_combat),

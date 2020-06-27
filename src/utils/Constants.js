@@ -117,6 +117,11 @@ module.exports = {
 	},
 
 	bonus_stats: {
+		taming_skill: {
+			1: {
+				pet_luck: 1
+			}
+		},
 		fairy_souls: {
 			5: {
 				health: 3,
