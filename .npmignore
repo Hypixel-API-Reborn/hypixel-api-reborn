@@ -16,3 +16,5 @@ npm-debug.log
 .eslintrc.json
 testing/
 test/
+changelog.md
+.github

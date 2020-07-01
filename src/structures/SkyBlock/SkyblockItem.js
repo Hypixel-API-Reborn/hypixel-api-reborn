@@ -1,9 +1,9 @@
 class Item {
-	constructor (data) {
+	constructor(data) {
 		this.itemId = data.id || 0;
 		this.count = data.Count || 0;
-		this.name = data.tag.display.Name !== null ? data.tag.display.Name.replace(/§([1-9]|[a-f])|§/gm, '') : null;
-		this.lore = data.tag.display.Lore.join('<br>');
+		this.name = data.tag && data.tag.display.Name !== null ? data.tag.display.Name.replace(/§([1-9]|[a-f])|§/gm, '') : null;
+		this.lore = data.tag ? data.tag.display.Lore.join('<br>') : null;
 		this.loreToEmbed = function () {
 			return this.lore.replace(/<br>/gm, '\n');
 		};
