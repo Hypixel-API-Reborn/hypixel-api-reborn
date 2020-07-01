@@ -35,7 +35,6 @@ class Client {
 		if (!validApiKey) throw new Error('[hypixel-api-reborn] Code: 403 Forbidden - Invalid API key.');
 
 		const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
-		console.log(url + (url.match(/\?/g) ? `$key=${this.key}` : `?key=${this.key}`));
 		const parsedRes = await res.json();
 
 		if (res.status == 400) throw new Error(`[hypixel-api-reborn] Code: 400 Bad Request - ${parsedRes.cause ? parsedRes.cause : ''}. For help join our Discord Server https://discord.gg/NSEBNMM`);
