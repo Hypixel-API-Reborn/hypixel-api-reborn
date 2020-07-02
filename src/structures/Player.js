@@ -19,7 +19,11 @@ class Player {
 		this.lastLogin = data.lastLogin || null;
 		this.firstLogin = data.firstLogin || null;
 		this.recentlyPlayedGame = data.mostRecentGameType ? MiniGames[data.mostRecentGameType] : null;
-
+		if(this.rank == 'MVP+' || this.rank == 'MVP++') {
+			this.plusColor = data.rankPlusColor || null;
+		} else {
+			this.plusColor = null;
+		}
 		this.karma = data.karma || 0;
 		this.achievementPoints = data.achievementPoints || 0;
 		this.totalExperience = data.networkExp || 0;
