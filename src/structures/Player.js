@@ -8,9 +8,9 @@ const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
 const MiniGames = require('../utils/MiniGames');
-
+const Color = require('./Color');
 class Player {
-	constructor (data) {
+	constructor(data) {
 		this.nickname = data.displayname;
 		this.uuid = data.uuid;
 		this.history = data.knownAliases;
@@ -19,8 +19,8 @@ class Player {
 		this.lastLogin = data.lastLogin || null;
 		this.firstLogin = data.firstLogin || null;
 		this.recentlyPlayedGame = data.mostRecentGameType ? MiniGames[data.mostRecentGameType] : null;
-		if(this.rank == 'MVP+' || this.rank == 'MVP++') {
-			this.plusColor = data.rankPlusColor || null;
+		if (this.rank == 'MVP+' || this.rank == 'MVP++') {
+			this.plusColor = new Color(data.rankPlusColor) || null;
 		} else {
 			this.plusColor = null;
 		}
@@ -48,47 +48,49 @@ class Player {
 		} : null);
 	}
 }
+
 /**
 * @async
 * @description Get player's rank
 * @param {object} player
 * @returns {string}
 */
-function getRank (player) {
+
+function getRank(player) {
 	let rank;
 	if (player.prefix) {
 		rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '');
 	} else if (player.rank && player.rank !== 'NORMAL') {
 		switch (player.rank) {
-		case 'MODERATOR':
-			rank = 'Moderator';
-			break;
-		case 'YOUTUBER':
-			rank = 'YouTube';
-			break;
-		case 'HELPER':
-			rank = 'Helper';
-			break;
-		case 'ADMIN':
-			rank = 'Admin';
-			break;
+			case 'MODERATOR':
+				rank = 'Moderator';
+				break;
+			case 'YOUTUBER':
+				rank = 'YouTube';
+				break;
+			case 'HELPER':
+				rank = 'Helper';
+				break;
+			case 'ADMIN':
+				rank = 'Admin';
+				break;
 		}
 	} else {
 		switch (player.newPackageRank) {
-		case 'MVP_PLUS':
-			rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? 'MVP++' : 'MVP+';
-			break;
-		case 'MVP':
-			rank = 'MVP';
-			break;
-		case 'VIP_PLUS':
-			rank = 'VIP+';
-			break;
-		case 'VIP':
-			rank = 'VIP';
-			break;
-		default:
-			rank = 'Default';
+			case 'MVP_PLUS':
+				rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? 'MVP++' : 'MVP+';
+				break;
+			case 'MVP':
+				rank = 'MVP';
+				break;
+			case 'VIP_PLUS':
+				rank = 'VIP+';
+				break;
+			case 'VIP':
+				rank = 'VIP';
+				break;
+			default:
+				rank = 'Default';
 		}
 	}
 	return rank;
@@ -99,7 +101,8 @@ function getRank (player) {
  *
  * @returns {number}
  */
-function getPlayerLevel (exp) {
+
+function getPlayerLevel(exp) {
 	const BASE = 10000;
 	const GROWTH = 2500;
 	const REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH;
@@ -116,15 +119,15 @@ function getPlayerLevel (exp) {
  *
  * @returns {Array}
  */
-function getSocialMedia (data) {
+
+function getSocialMedia(data) {
+
 	if (!data) return null;
 
 	const links = data.links;
 
-	if (!links) return null;
 	const media = [];
 	if (!links) return;
-
 	if (links) {
 		if (links.TWITTER !== undefined) {
 			media.push({ name: 'Twitter', link: links.TWITTER });

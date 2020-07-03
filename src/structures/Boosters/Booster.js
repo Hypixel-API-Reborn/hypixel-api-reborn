@@ -1,4 +1,5 @@
-const GameIDs = require('./GameIDs');
+const Game = require('../Game');
+
 class Booster {
 	constructor(data) {
 		this.purchaser = data.purchaserUuid;
@@ -8,8 +9,7 @@ class Booster {
 		this.remaining = data.length;
 		this.activated = data.dateActivated;
 
-		this.gameId = data.gameType;
-		this.game = GameIDs[this.gameId];
+		this.game = data.gameType ? new Game(data.gameType) : null;
 	}
 }
 module.exports = Booster;

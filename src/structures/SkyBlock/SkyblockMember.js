@@ -65,7 +65,6 @@ class SkyblockMember {
 			deaths: data.m.stats.deaths || 0,
 			highest_crit_damage: Math.round(data.m.stats.highest_crit_damage * 100) / 100 || 0,
 			highest_critical_damage: Math.round(data.m.stats.highest_critical_damage * 100) / 100 || 0,
-
 			gifts_given: data.m.stats.gifts_given || 0,
 			gifts_received: data.m.stats.gifts_received || 0
 		} : null);

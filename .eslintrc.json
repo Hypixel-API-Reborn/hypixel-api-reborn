@@ -13,13 +13,10 @@
         "ecmaVersion": 11
     },
     "rules": {
+        "no-unused-vars": "off",
         "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
+            "off",
+            "spaces"
         ],
         "quotes": [
             "error",

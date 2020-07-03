@@ -2,8 +2,11 @@ class UHC {
 	constructor (data) {
 		this.coins = data.coins || 0;
 		this.score = data.score || 0;
+		this.kills = data.kills || 0;
 		this.deaths = data.deaths || 0;
+		this.wins = data.wins || 0;
 		this.headsEaten = data.heads_eaten || 0;
+		this.starLevel = getStarLevel(data);
 		this.solo = {
 			wins: data.wins_solo || 0,
 			kills: data.kills_solo || 0,
@@ -46,6 +49,41 @@ class UHC {
 			deaths: data['deaths_duo brawl'] || 0,
 			headsEaten: data['heads_eaten_duo brawl'] || 0
 		};
+	}
+}
+function getStarLevel(data) {
+	let kills = data.kills || 0;
+	let wins = data.wins || 0;
+	let sum = ((kills * 1) + (wins * 10));
+	let starLevel = 1;
+	if(sum >= 10) {
+		starLevel = 2;
+	} else if (sum >= 60) {
+		starLevel = 3;
+	} else if (sum >= 210) {
+		starLevel = 4;
+	} else if (sum >= 460) {
+		starLevel = 5;
+	} else if (sum >= 960) {
+		starLevel = 6;
+	} else if (sum >= 1710) {
+		starLevel = 7;
+	} else if (sum >= 2710) {
+		starLevel = 8;
+	} else if (sum >= 5210) {
+		starLevel = 9;
+	} else if (sum >= 10210) {
+		starLevel = 10;
+	} else if (sum >= 13210) {
+		starLevel = 11;
+	} else if (sum >= 16210) {
+		starLevel = 12;
+	} else if (sum >= 19210) {
+		starLevel = 13;
+	} else if (sum >= 22210) {
+		starLevel = 14;
+	} else if (sum >= 25210) {
+		starLevel = 15;
 	}
 }
 module.exports = UHC;
