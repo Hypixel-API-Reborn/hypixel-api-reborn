@@ -85,5 +85,6 @@ function getStarLevel(data) {
 	} else if (sum >= 25210) {
 		starLevel = 15;
 	}
+	return starLevel;
 }
 module.exports = UHC;
