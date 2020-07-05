@@ -5,5 +5,5 @@
  * @returns {boolean}
  */
 module.exports = (x, min, max) => {
-	return x >= min && x <= max;
+  return x >= min && x <= max;
 };
