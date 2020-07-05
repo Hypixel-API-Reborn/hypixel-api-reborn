@@ -16,7 +16,7 @@ declare module 'hypixel-api-reborn' {
         private async _makeRequest(url: string): Object;
         private async validApiKey(): boolean;
 
-        public async getPlayer(query: string): Player;
+        public async getPlayer(query: string): Promise<Player>;
         public async getGuild(searchParameter: ('name'|'player'|'id'), query: string): Promise<Guild>;
         public async getFriends(query: string): Promise<Array<Friend>>;
         public async getWatchdog(): Promise<WatchdogStats>;

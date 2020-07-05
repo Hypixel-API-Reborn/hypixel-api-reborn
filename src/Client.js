@@ -59,6 +59,11 @@ class Client {
     throw new Error(`[hypixel-api-reborn] Code: ${res.status} ${res.statusText}. ${parsedRes.cause}. For help join our Discord Server https://discord.gg/NSEBNMM`);
   }
 
+  /**
+   * @async
+   * @param {String} query
+   * @returns {Promise<Player>}
+   */
   async getPlayer (query) {
     if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
 
