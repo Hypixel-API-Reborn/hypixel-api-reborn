@@ -59,11 +59,6 @@ class Client {
     throw new Error(`[hypixel-api-reborn] Code: ${res.status} ${res.statusText}. ${parsedRes.cause}. For help join our Discord Server https://discord.gg/NSEBNMM`);
   }
 
-  /**
-   * @async
-   * @param {string} query Player Nickname or UUID
-   * @returns {Promise<Player>}
-   */
   async getPlayer (query) {
     if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
 
@@ -272,6 +267,19 @@ class Client {
     }
 
     return products;
+  }
+
+  /**
+   * @async
+   * @returns {Promise<Number>}
+   */
+  async getOnline () {
+    await this.validApiKey();
+
+    const res = await this._makeRequest('/playerCount');
+    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+
+    return res.playerCount;
   }
 }
 module.exports = Client;

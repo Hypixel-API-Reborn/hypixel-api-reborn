@@ -3,6 +3,7 @@
   "version": "2.0.7",
   "description": "Public Hypixel API Client for Node.js",
   "main": "./src/index.js",
+  "types": "./typings/index.d.ts",
   "keywords": [
     "node",
     "client",
