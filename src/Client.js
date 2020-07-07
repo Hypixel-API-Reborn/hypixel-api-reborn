@@ -6,29 +6,12 @@ const isUUID = require('./utils/isUUID');
 const isGuildID = require('./utils/isGuildID');
 const objectToArray = require('./utils/objectToArray');
 
-const Player = require('./structures/Player');
-const Guild = require('./structures/Guild/Guild');
-const Friend = require('./structures/Friend');
-const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
-const WatchdogStats = require('./structures/Watchdog/Stats');
-const Booster = require('./structures/Boosters/Booster');
-const Auction = require('./structures/SkyBlock/Auctions/Auction');
-const Product = require('./structures/SkyBlock/Bazzar/Product');
-
 class Client {
-  /**
-   * @param {string} key
-   */
   constructor (key) {
     if (!key) throw new Error('[hypixel-api-reborn] No API key specified! For help join our Discord Server https://discord.gg/NSEBNMM');
     this.key = key;
   }
 
-  /**
-   * @ignore
-   * @param {string} url
-   * @returns {Object}
-   */
   async _makeRequest (url) {
     if (!url) return;
     const validApiKey = await this.validApiKey();
@@ -43,11 +26,6 @@ class Client {
     return parsedRes;
   }
 
-  /**
-   * @async
-   * @private
-   * @returns {Boolean}
-   */
   async validApiKey () {
     if (typeof this.key !== 'string') throw new TypeError('[hypixel-api-reborn] Specified API Key must be a string. For help join our Discord Server https://discord.gg/NSEBNMM');
 
@@ -59,13 +37,9 @@ class Client {
     throw new Error(`[hypixel-api-reborn] Code: ${res.status} ${res.statusText}. ${parsedRes.cause}. For help join our Discord Server https://discord.gg/NSEBNMM`);
   }
 
-  /**
-   * @async
-   * @param {String} query
-   * @returns {Promise<Player>}
-   */
   async getPlayer (query) {
     if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
+    const Player = require('./structures/Player');
 
     await this.validApiKey();
 
@@ -81,14 +55,9 @@ class Client {
     return new Player(res.player);
   }
 
-  /**
-   * @async
-   * @param {'name'|'player'|'id'} searchParameter
-   * @param {string} query
-   * @returns {Promise<Guild>}
-   */
   async getGuild (searchParameter, query) {
     if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
+    const Guild = require('./structures/Guild/Guild');
     var res;
     switch (searchParameter) {
       case 'id': {
@@ -117,13 +86,9 @@ class Client {
     return new Guild(res.guild);
   }
 
-  /**
-   * @async
-   * @param {string} query
-   * @returns {Promise<Array<Friend>>}
-   */
   async getFriends (query) {
     if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
+    const Friend = require('./structures/Friend');
 
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
@@ -141,12 +106,9 @@ class Client {
     }
   }
 
-  /**
-   * @async
-   * @returns {Promise<WatchdogStats>}
-   */
   async getWatchdogStats () {
     await this.validApiKey();
+    const WatchdogStats = require('./structures/Watchdog/Stats');
 
     const res = await this._makeRequest('/watchdogstats');
     if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
@@ -154,12 +116,9 @@ class Client {
     return new WatchdogStats(res);
   }
 
-  /**
-     * @async
-     * @returns {Promise<Array<Booster>>}
-     */
   async getBoosters () {
     await this.validApiKey();
+    const Booster = require('./structures/Boosters/Booster');
 
     const res = await this._makeRequest('/boosters');
     if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
@@ -167,13 +126,9 @@ class Client {
     return res.boosters.length ? res.boosters.map(b => new Booster(b)) : [];
   }
 
-  /**
-     * @async
-     * @param {string} uuid - Player UUID
-     * @returns {Promise<Array<SkyblockProfile>>}
-     */
   async getSkyblockProfiles (uuid) {
     if (!uuid) throw new Error('[hypixel-api-reborn] No uuid specified');
+    const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
     await this.validApiKey();
 
     if (!isUUID(uuid)) throw new Error('Malformed UUID!');
@@ -205,13 +160,9 @@ class Client {
     return profiles.map(p => new SkyblockProfile(p));
   }
 
-  /**
-     * @async
-     * @param {number|null} page
-     * @returns {Promise<Array<Auction>>}
-     */
   async getSkyblockAuctions (page) {
     await this.validApiKey();
+    const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     const { totalPages, success } = await this._makeRequest('/skyblock/auctions');
     if (!success) throw new Error('[hypixel-api-reborn] Something went wrong');
@@ -237,13 +188,9 @@ class Client {
     return auctions;
   }
 
-  /**
-     * @async
-     * @param {string} uuid
-     * @returns {Promise<Array<Auction>>}
-     */
   async getSkyblockAuctionsByPlayer (uuid) {
     if (!uuid) throw new Error('No uuid specified');
+    const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     await this.validApiKey();
 
@@ -255,12 +202,9 @@ class Client {
     return res.auctions.length ? res.auctions.map(a => new Auction(a)) : [];
   }
 
-  /**
-     * @async
-     * @returns {Promise<Array<Product>>}
-     */
   async getSkyblockBazaar () {
     await this.validApiKey();
+    const Product = require('./structures/SkyBlock/Bazzar/Product');
 
     const res = await this._makeRequest('/skyblock/bazaar');
     if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
@@ -274,10 +218,6 @@ class Client {
     return products;
   }
 
-  /**
-   * @async
-   * @returns {Promise<Number>}
-   */
   async getOnline () {
     await this.validApiKey();
 

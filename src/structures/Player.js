@@ -7,8 +7,9 @@ const Duels = require('./MiniGames/Duels');
 const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
-const MiniGames = require('../utils/MiniGames');
 const Color = require('./Color');
+const Game = require('./Game');
+
 class Player {
   constructor (data) {
     this.nickname = data.displayname;
@@ -18,7 +19,7 @@ class Player {
     this.mcVersion = data.mcVersionRp || null;
     this.lastLogin = data.lastLogin || null;
     this.firstLogin = data.firstLogin || null;
-    this.recentlyPlayedGame = data.mostRecentGameType ? MiniGames[data.mostRecentGameType] : null;
+    this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
       this.plusColor = new Color(data.rankPlusColor) || null;
     } else {

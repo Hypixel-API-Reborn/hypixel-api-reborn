@@ -6,10 +6,7 @@ const getGuildLevel = require('../../utils/getGuildLevel');
 
 class Guild {
   constructor (data) {
-    /**
-     * @param {Array<GuildMember>} members
-     */
-    this.data = data;
+    this._data = data;
     this.id = data._id;
     this.name = data.name;
     this.description = data.description ? data.description : null;
@@ -36,14 +33,14 @@ class Guild {
    * @returns {Array<GuildMember>}
    */
   get members () {
-    return this.data.members ? this.data.members.map(m => new GuildMember(m)) : null;
+    return this._data.members ? this._data.members.map(m => new GuildMember(m)) : null;
   }
 
   /**
    * @returns {Array<GuildRank>}
    */
   get ranks () {
-    return this.data.ranks ? this.data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : null;
+    return this._data.ranks ? this._data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : null;
   }
 }
 module.exports = Guild;

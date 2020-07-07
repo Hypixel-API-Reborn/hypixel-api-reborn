@@ -8,7 +8,25 @@ class Color {
   }
 
   toString () {
-    return this.color;
+    const ColorString = {
+      BLACK: 'Black',
+      DARK_BLUE: 'Dark Blue',
+      DARK_GREEN: 'Dark Green',
+      DARK_AQUA: 'Dark Aqua',
+      DARK_RED: 'Dark Red',
+      DARK_PURPLE: 'Dark Purple',
+      GOLD: 'Gold',
+      GRAY: 'Gray',
+      DARK_GRAY: 'Dark Gray',
+      BLUE: 'Blue',
+      GREEN: 'Green',
+      AQUA: 'Aqua',
+      RED: 'Red',
+      LIGHT_PURPLE: 'Light Purple',
+      YELLOW: 'Yellow',
+      WHITE: 'White'
+    };
+    return ColorString[this.color];
   }
 
   /**
@@ -39,26 +57,8 @@ class Color {
   /**
    * @returns {String} string
    */
-  toName () {
-    const ColorString = {
-      BLACK: 'Black',
-      DARK_BLUE: 'Dark Blue',
-      DARK_GREEN: 'Dark Green',
-      DARK_AQUA: 'Dark Aqua',
-      DARK_RED: 'Dark Red',
-      DARK_PURPLE: 'Dark Purple',
-      GOLD: 'Gold',
-      GRAY: 'Gray',
-      DARK_GRAY: 'Dark Gray',
-      BLUE: 'Blue',
-      GREEN: 'Green',
-      AQUA: 'Aqua',
-      RED: 'Red',
-      LIGHT_PURPLE: 'Light Purple',
-      YELLOW: 'Yellow',
-      WHITE: 'White'
-    };
-    return ColorString[this.color];
+  toCode () {
+    return this.color;
   }
 }
 module.exports = Color;

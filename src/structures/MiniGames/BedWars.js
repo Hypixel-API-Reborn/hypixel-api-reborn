@@ -1,4 +1,3 @@
-
 const inRange = require('../../utils/inRange');
 class BedWars {
   constructor (data) {
