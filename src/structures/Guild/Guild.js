@@ -20,13 +20,13 @@ class Guild {
 
     this.tag = data.tag ? data.tag : null;
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
-    this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : null;
+    this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;
     this.achievements = {
       winners: data.achievements ? data.achievements.WINNERS : 0,
       experienceKings: data.achievements ? data.achievements.EXPERIENCE_KINGS : 0,
       onlinePlayers: data.achievements ? data.achievements.ONLINE_PLAYERS : 0
     };
-    this.preferredGames = data.preferredGames.length ? data.preferredGames.map(g => new Game(g)) : null;
+    this.preferredGames = data.preferredGames ? data.preferredGames.map(g => new Game(g)) : null;
   }
 
   /**
