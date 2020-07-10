@@ -9,6 +9,7 @@
 </div>
 
 [![](https://nodei.co/npm/hypixel-api-reborn.png?compact=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
+
 **Reborned Hypixel API Client for Node.js with many new features**
 
 ---
