@@ -32,12 +32,14 @@ class Guild {
   get members () {
     return this._data.members ? this._data.members.map(m => new GuildMember(m)) : null;
   }
+  
   /**
   * @returns {Map<GuildMember, string}
   */
   get memberUUIDMap () {
     return this._data.members ? new Map(this._data.members.map(m => [new GuildMember(m), new GuildMember(m).uuid])) : null;
   }
+  
   /**
    * @returns {Array<GuildRank>}
    */
