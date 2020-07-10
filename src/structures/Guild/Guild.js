@@ -10,14 +10,11 @@ class Guild {
     this.id = data._id;
     this.name = data.name;
     this.description = data.description ? data.description : null;
-
     this.experience = data.exp || 0;
     this.level = getGuildLevel(this.experience);
-
     this.createdAt = data.created;
     this.joinable = data.joinable ? data.joinable : false;
     this.publiclyListed = !!data.publiclyListed;
-
     this.tag = data.tag ? data.tag : null;
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;

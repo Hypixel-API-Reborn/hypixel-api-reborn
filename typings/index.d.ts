@@ -139,6 +139,7 @@ declare module 'hypixel-api-reborn' {
         public joinedAt: number;
         public questParticipation: number;
         public rank: string;
+        public weeklyExperience: number;
     }
     class GuildRank {
         constructor(data: object);
