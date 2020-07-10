@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Public Hypixel API Client for Node.js",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",
