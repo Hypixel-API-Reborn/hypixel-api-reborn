@@ -11,6 +11,14 @@
     "api",
     "hypixel-api"
   ],
+  "bugs": {
+    "url": "https://github.com/StavZ/hypixel-api-reborn/issues"
+  },
+  "scripts": {
+    "tslint": "tslint typings/index.d.ts",
+    "eslint": "eslint src",
+    "test": "npm run tslint && npm run eslint"
+  },
   "author": "StavZ",
   "dependencies": {
     "node-fetch": "^2.6.0",

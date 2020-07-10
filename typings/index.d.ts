@@ -12,25 +12,25 @@ declare module 'hypixel-api-reborn' {
         constructor(key: string);
         public readonly key: string;
 
-        private _makeRequest(url: string): Promise<Object>;
-        private validApiKey(): Promise<Boolean>;
+        private _makeRequest(url: string): Promise<object>;
+        private validApiKey(): Promise<boolean>;
 
         public getPlayer(query: string): Promise<Player>;
         public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
-        public getFriends(query: string): Promise<Array<Friend>>;
+        public getFriends(query: string): Promise<Friend[]>;
         public getWatchdogStats(): Promise<WatchdogStats>;
-        public getBoosters(): Promise<Array<Booster>>;
-        public getSkyblockProfiles(uuid: string): Promise<Array<SkyblockProfile>>;
-        public getSkyblockAuctions(page?: number): Promise<Array<Auction>>;
-        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Array<Auction>>;
-        public getSkyblockBazaar(): Promise<Array<Product>>;
-        public getOnline(): Promise<Number>;
+        public getBoosters(): Promise<Booster[]>;
+        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[]>;
+        public getSkyblockAuctions(page?: number): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[]>;
+        public getSkyblockBazaar(): Promise<Product[]>;
+        public getOnline(): Promise<number>;
     }
     class Player {
         constructor(data: object);
         public nickname: string;
         public uuid: string;
-        public history: Array<String>;
+        public history: string[];
         public rank: PLAYER_RANK;
         public mcVersion: string;
         public lastLogin: number;
@@ -41,7 +41,7 @@ declare module 'hypixel-api-reborn' {
         public achievementPoints: number;
         public totalExperience: number;
         public level: number;
-        public socialmedia: Array<{ name: string, link: string }>;
+        public socialmedia: { name: string, link: string }[];
         public giftsSent: number;
         public giftsReceived: number;
         public isOnline: boolean;
@@ -76,24 +76,24 @@ declare module 'hypixel-api-reborn' {
             experienceKings: number,
             onlinePlayers: number
         };
-        public preferredGames: Array<Game>;
-        public get members(): Array<GuildMember>;
-        public get ranks(): Array<GuildRank>;
+        public preferredGames: Game[];
+        public get members(): GuildMember[];
+        public get ranks(): GuildRank[];
     }
     class Auction {
         constructor(data: object);
         public auctionId: string;
         public auctioneerUuid: string;
-        public coop: Array<String>;
+        public coop: string[];
         public auctionStart: number;
         public auctionEnd: number;
         public item: string;
         public itemLore: string;
         public startingBid: number;
         public highestBid: number;
-        public bids: Array<Bid>;
+        public bids: Bid[];
         public claimed: boolean;
-        public claimedBidders: Array<String>;
+        public claimedBidders: string[];
         public bin: boolean;
     }
     class Bid {
@@ -106,8 +106,8 @@ declare module 'hypixel-api-reborn' {
     class Product {
         constructor(data: object);
         public productId: string;
-        public sellSummary: Array<Order>;
-        public buySummary: Array<Order>;
+        public sellSummary: Order[];
+        public buySummary: Order[];
         public status: {
             sellPrice: number,
             buyPrice: number,
@@ -168,7 +168,7 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
-        public members: Array<SkyblockMember>;
+        public members: SkyblockMember[];
     }
     class SkyblockMember {
         constructor(data: object);
@@ -268,8 +268,8 @@ declare module 'hypixel-api-reborn' {
             gifts_given: number,
             gifts_received: number
         };
-        public getInventory(): Promise<Array<Item>>;
-        public getEnderChest(): Promise<Array<Item>>;
+        public getInventory(): Promise<Item[]>;
+        public getEnderChest(): Promise<Item[]>;
         public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>
     }
     class Color {
