@@ -1,11 +1,15 @@
-# ![](https://i.imgur.com/cDFoQZU.png?1)
-# Hypixel API • Reborn
----
+<div align="center">
+<img src="https://i.imgur.com/cDFoQZU.png?1">
+<h1>Hypixel API • Reborn</h1>
+<a href="https://discord.gg/NSEBNMM"><img src="https://discordapp.com/api/guilds/660416184252104705/embed.png"></a>
+<a href="https://travis-ci.org/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/travis/StavZ/hypixel-api-reborn"></a>
+<img src="https://flat.badgen.net/npm/v/hypixel-api-reborn">
+<img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
+<a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
+</div>
 
-[![](https://nodei.co/npm/hypixel-api-reborn.png?mini=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
-[![Build Status](https://travis-ci.org/StavZ/hypixel-api-reborn.svg?branch=master)](https://travis-ci.org/StavZ/hypixel-api-reborn)
-
-**Reborn Hypixel API Client for Node.js with many new features**
+[![](https://nodei.co/npm/hypixel-api-reborn.png?compact=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
+**Reborned Hypixel API Client for Node.js with many new features**
 
 ---
 
