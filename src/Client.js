@@ -81,7 +81,7 @@ class Client {
 
     if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
 
-    if (!res.guild) throw new Error('Guild does not exist');
+    if (!res.guild) return undefined;
 
     return new Guild(res.guild);
   }
