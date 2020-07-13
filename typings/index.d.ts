@@ -24,6 +24,7 @@ declare module 'hypixel-api-reborn' {
         public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[]>;
         public getSkyblockBazaar(): Promise<Product[]>;
+        public getStatus(query: string): Promise<Status>;
         public getOnline(): Promise<number>;
     }
     class Player {
@@ -56,6 +57,13 @@ declare module 'hypixel-api-reborn' {
             buildbattle: BuildBattle,
             megawalls: MegaWalls
         }
+    }
+    class Status {
+        constructor(data: object);
+        public online: boolean;
+        public game: Game;
+        public mode?: string;
+        public map?: string
     }
     class Guild {
         constructor(data: object);

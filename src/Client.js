@@ -218,6 +218,20 @@ class Client {
     return products;
   }
 
+  async getStatus (query) {
+    await this.validApiKey();
+    const Status = require('./structures/Status');
+    if (!isUUID(query)) {
+      const uuid = await getUuid(query);
+      if (!uuid) throw new Error('Player does not exist');
+      query = uuid;
+    }
+    const res = await this._makeRequest(`/status?uuid=${query}`);
+    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+
+    return new Status(res.session);
+  }
+
   async getOnline () {
     await this.validApiKey();
 
