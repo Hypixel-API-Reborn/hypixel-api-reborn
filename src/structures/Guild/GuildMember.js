@@ -1,9 +1,12 @@
-class GuildMember {
+const Player = require('../Player');
+
+class GuildMember extends Player {
   constructor (data) {
+    super(data);
     this.uuid = data.uuid;
     this.joinedAt = data.joined;
     this.questParticipation = data.questParticipation || 0;
-    this.rank = data.rank;
+    this.guildRank = data.rank;
     var gexp = 0;
     if (data.expHistory) {
       for (const day in data.expHistory) {
