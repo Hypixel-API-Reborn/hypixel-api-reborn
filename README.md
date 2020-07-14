@@ -7,6 +7,7 @@
 <img src="https://flat.badgen.net/npm/v/hypixel-api-reborn">
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
 <a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
+<a href="https://www.patreon.com/hypixelapireborn"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" height=20></a>
 </div>
 
 [![](https://nodei.co/npm/hypixel-api-reborn.png?compact=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
