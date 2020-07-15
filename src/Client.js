@@ -45,18 +45,18 @@ class Client {
 
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
-      if (!uuid) throw new Error('Player does not exist');
+      if (!uuid) return;
       query = uuid;
     }
 
     const res = await this._makeRequest(`/player?uuid=${query}`);
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     return new Player(res.player);
   }
 
   async getGuild (searchParameter, query) {
-    if (!query) throw new Error('[hypixel-api-reborn] No nickname|uuid specified');
+    if (!query) throw new Error('[hypixel-api-reborn] No guild name specified');
     const Guild = require('./structures/Guild/Guild');
     var res;
     switch (searchParameter) {
@@ -76,12 +76,16 @@ class Client {
           query = uuid;
         }
         res = await this._makeRequest(`/guild?player=${query}`);
+        break;
+      }
+      default: {
+        throw new Error('[hypixel-api-reborn] getGuild() searchParameter must be id, guild or player');
       }
     }
 
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
-    if (!res.guild) return undefined;
+    if (!res.guild) return;
 
     return new Guild(res.guild);
   }
@@ -92,12 +96,12 @@ class Client {
 
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
-      if (!uuid) throw new Error('Player does not exist');
+      if (!uuid) return;
       query = uuid;
     }
 
     const res = await this._makeRequest(`/friends?uuid=${query}`);
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     if (res.records.length & res.records.length > 0) {
       return res.records.map(f => new Friend(f));
@@ -111,7 +115,7 @@ class Client {
     const WatchdogStats = require('./structures/Watchdog/Stats');
 
     const res = await this._makeRequest('/watchdogstats');
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     return new WatchdogStats(res);
   }
@@ -121,7 +125,7 @@ class Client {
     const Booster = require('./structures/Boosters/Booster');
 
     const res = await this._makeRequest('/boosters');
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     return res.boosters.length ? res.boosters.map(b => new Booster(b)) : [];
   }
@@ -134,22 +138,22 @@ class Client {
     if (!isUUID(uuid)) throw new Error('Malformed UUID!');
 
     let sbProfile = await this._makeRequest(`/player?uuid=${uuid}`);
-    if (!sbProfile.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${sbProfile.cause}`);
-    if (!sbProfile.player) throw new Error('Player does not exist');
-    if (!('SkyBlock' in sbProfile.player.stats)) throw new Error('Player has no skyblock profiles');
+    if (!sbProfile.success) return;
+    if (!sbProfile.player) return;
+    if (!('SkyBlock' in sbProfile.player.stats)) return [];
     sbProfile = sbProfile.player.stats.SkyBlock.profiles;
 
     const sbProfiles = objectToArray(sbProfile);
 
     const profilesAmount = sbProfiles.length;
 
-    if (profilesAmount === 0) throw new Error('Player has no skyblock profiles');
+    if (profilesAmount === 0) return [];
 
     const profiles = [];
     for (var i = 0; i < profilesAmount; i++) {
       let profile = await this._makeRequest(`/skyblock/profile?profile=${sbProfiles[i]}`);
       profile = profile.profile;
-      if (!profile) throw new Error('[hypixel-api-reborn] Something went wrong');
+      if (!profile) return;
       profiles.push({
         profile_name: sbProfile[sbProfiles[i]].cute_name,
         profile_id: profile.profile_id,
@@ -165,11 +169,11 @@ class Client {
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     const { totalPages, success } = await this._makeRequest('/skyblock/auctions');
-    if (!success) throw new Error('[hypixel-api-reborn] Something went wrong');
+    if (!success) return;
 
     const auctions = [];
 
-    if (!page) {
+    if (!page || typeof page !== 'number') {
       for (let i = 0; i < totalPages; i++) {
         const pageByi = await this._makeRequest(`/skyblock/auctions?page=${i}`);
         pageByi.auctions.forEach(auction => {
@@ -177,7 +181,7 @@ class Client {
         });
       }
     } else {
-      if (isNaN(page)) throw new TypeError('[hypixel-api-reborn] page must be a number');
+      page = Math.floor(page);
       if (page > totalPages) return [];
       const pageBySpecifiedPage = await this._makeRequest(`/skyblock/auctions?page=${page}`);
       pageBySpecifiedPage.auctions.forEach(auction => {
@@ -189,7 +193,7 @@ class Client {
   }
 
   async getSkyblockAuctionsByPlayer (uuid) {
-    if (!uuid) throw new Error('No uuid specified');
+    if (!uuid) throw new Error('[hypixel-api-reborn] No uuid specified');
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     await this.validApiKey();
@@ -197,7 +201,7 @@ class Client {
     if (!isUUID(uuid)) throw new Error('Malformed UUID!');
 
     const res = await this._makeRequest(`/skyblock/auction?player=${uuid}`);
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     return res.auctions.length ? res.auctions.map(a => new Auction(a)) : [];
   }
@@ -207,7 +211,7 @@ class Client {
     const Product = require('./structures/SkyBlock/Bazzar/Product');
 
     const res = await this._makeRequest('/skyblock/bazaar');
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
     const productsKeys = Object.keys(res.products);
     const products = [];
 
@@ -223,12 +227,11 @@ class Client {
     const Status = require('./structures/Status');
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
-      if (!uuid) throw new Error('Player does not exist');
+      if (!uuid) return;
       query = uuid;
     }
     const res = await this._makeRequest(`/status?uuid=${query}`);
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
-
+    if (!res.success) return;
     return new Status(res.session);
   }
 
@@ -236,7 +239,7 @@ class Client {
     await this.validApiKey();
 
     const res = await this._makeRequest('/playerCount');
-    if (!res.success) throw new Error(`[hypixel-api-reborn] Something went wrong. ${res.cause}`);
+    if (!res.success) return;
 
     return res.playerCount;
   }
