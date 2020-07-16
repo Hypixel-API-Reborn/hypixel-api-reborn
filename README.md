@@ -22,17 +22,18 @@
 
 # Documentation
 
-|    Functions     |       Arguments       |                                                  Returns                                                   |
-| :--------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
-|    getPlayer     |    UUID / Nickname    |                                 Promise<[Player](./src/structures/Player.js)>                                  |
-|     getGuild     | GID / Name / Nickname |                               Promise<[Guild](./src/structures/Guild/Guild.js)>                                |
-|    getFriends    |    UUID / Nickname    |    Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)>    |
-| getWatchdogStats |                       | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> |
-|    getOnline     |                       | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
-| getSkyblockProfiles |         UUID          |                        Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>                        |
-| getSkyblockAuctions |         Number / null          |                        Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>                        |
-| getSkyblockAuctionsByPlayer |         UUID          |                        Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>                        |
-| getSkyblockBazaar |                   |                        Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>                        |
+|          Functions          |       Arguments       |                                                  Returns                                                   |
+| :-------------------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
+|          getPlayer          |    UUID / Nickname    |                               Promise<[Player](./src/structures/Player.js)>                                |
+|          getGuild           | GID / Name / Nickname |                             Promise<[Guild](./src/structures/Guild/Guild.js)>                              |
+|         getFriends          |    UUID / Nickname    |    Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)>    |
+|      getWatchdogStats       |                       | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> |
+|          getOnline          |                       | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
+|     getSkyblockProfiles     |         UUID          |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
+|     getSkyblockAuctions     |     Number / null     |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
+| getSkyblockAuctionsByPlayer |         UUID          |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
+|      getSkyblockBazaar      |                       |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
+|          getStatus          |    UUID / Nickname    |                               Promise<[Status](./src/structures/Status.js)>>                               |
 
 *Soon will be more functions*
 
@@ -63,19 +64,17 @@ hypixel.getPlayer('StavZDev').then(async (player) => {
 
     console.log(player.uuid) // -> 52d9a36f66ce4cdf9a56ad9724ae9fb4
     console.log(player.karma) // -> 4570876
-
-    // if compact mode is ON
     console.log(player.rank) // -> [MVP+]
     console.log(player.level) // -> 138.01 
     console.log(player.isOnline) // -> false
 })
 
 hypixel.getPlayer('abcde1234').then(async (player) => {
-    if(!player) return;
+    if(player.error) {
+        return console.log(player.error) // [hypixel-api-reborn] Player does not exist
+    }
 
-    console.log(player) // -> null
-}).catch(e => {
-    console.log(e) // -> Player does not exist
+    console.log(player) // -> undefined
 })
 ```
 
@@ -86,22 +85,22 @@ hypixel.getPlayer('abcde1234').then(async (player) => {
 // id / name / player
 // Guild ID / Guild Name / Player Nickname
 hypixel.getGuild('name', 'The Foundation').then(async (guild) => {
-    if(!guild) return;
+    if(guild.error) {
+        return console.log(guild.error) // [hypixel-api-reborn]
+    }
 
     console.log(guild.name) // -> The Foundation
     console.log(guild.description) // -> Foundation ❤ AYS
-
-    //if compact mode is ON
     console.log(guild.level) // -> 73
     console.log(guild.legacyRank) // -> 1
 })
 
 hypixel.getGuild('name', 'abcde1234').then(async (guild) => {
-    if(!guild) return;
+    if(guild.error) {
+        return console.log(guild.error) // [hypixel-api-reborn]
+    }
 
-    console.log(guild) // -> null
-}).catch(e => {
-    console.log(e) // -> Guild does not exist
+    console.log(guild) // -> undefined
 })
 ```
 
@@ -116,10 +115,10 @@ hypixel.getFriends('StavZDev').then(async (friends) => {
 
 hypixel.getFriends('abcde1234').then(async (friends) => {
 
-    if(!friends) return;
+    if(friends.error) return;
 
-}).catch(e => {
-    console.log(e) // -> Player does not exist
+    console.log(friends) // []
+
 })
 ```
 
@@ -155,7 +154,9 @@ hypixel.getOnline().then(async (online) => {
 // Arguments:
 // UUID
 hypixel.getSkyblockProfiles('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profiles) => {
-    if(!profiles) return;
+    if(!profiles.length) {
+        return 'Player doesn\'t have skyblock profiles'
+    };
     console.log(profiles); 
     // -> 
 
@@ -193,12 +194,6 @@ hypixel.getSkyblockProfiles('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (prof
       ]
     }
 
-}).catch(e => {
-    console.log(e)
-    /*
-    if player does not have skyblock profiles -> Player does not have Skyblock profiles
-    if specified UUID is not valid -> Malformed UUID
-    */
 })
 ```
 
@@ -244,6 +239,9 @@ hypixel.getSkyblockAuctions(3).then((auctions) => {
 // Argument
 // Player UUID
 hypixel.getSkyblockAuctionsByPlayer('ec0e13e723e941a3822facc80f602c14').then((auctions) => {
+    if(auctions.error) {
+        return console.log(auctions.error) // [hypixel-api-reborn] Malformed UUID!
+    }
     console.log(auctions);
     [
         Auction {
@@ -299,5 +297,21 @@ hypixel.getSkyblockBazaar().then((products) => {
         },
         ... 197 more items
     ]
+})
+```
+
+#### getStatus()
+```js
+hypixel.getStatus('StavZDev').then((status) => {
+    if(status.error) {
+        return console.log(status.error) // [hypixel-api-reborn] Player does not exist
+    }
+    console.log(status);
+    Status {
+         online: false,
+         game: null // Game, 
+         mode: null // String, 
+         map: null // String
+    }
 })
 ```

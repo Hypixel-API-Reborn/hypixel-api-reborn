@@ -97,9 +97,17 @@ class Client {
       }
     }
 
-    if (!res.success) return;
+    if (!res.success) {
+      return {
+        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+      };
+    }
 
-    if (!res.guild) return;
+    if (!res.guild) {
+      return {
+        error: Errors.GUILD_DOES_NOT_EXIST
+      };
+    }
 
     return new Guild(res.guild);
   }
