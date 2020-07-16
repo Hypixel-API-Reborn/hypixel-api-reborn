@@ -8,9 +8,8 @@
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
 <a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
+<a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
 </div>
-
-[![](https://nodei.co/npm/hypixel-api-reborn.png?compact=true)](https://www.npmjs.com/package/hypixel-api-reborn) 
 
 **Reborned Hypixel API Client for Node.js with many new features**
 
@@ -33,7 +32,7 @@
 |     getSkyblockAuctions     |     Number / null     |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 | getSkyblockAuctionsByPlayer |         UUID          |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 |      getSkyblockBazaar      |                       |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
-|          getStatus          |    UUID / Nickname    |                               Promise<[Status](./src/structures/Status.js)>>                               |
+|          getStatus          |    UUID / Nickname    |                               Promise<[Status](./src/structures/Status.js)>                               |
 
 *Soon will be more functions*
 
