@@ -16,12 +16,12 @@ class Client {
   async _makeRequest (url) {
     if (!url) return;
     const validApiKey = await this.validApiKey();
-    if (!validApiKey) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/code/g, '403 Forbidden').replace(/cause/g, 'Invalid API key'));
+    if (!validApiKey) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/cause/g, 'Invalid API key'));
     const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
     const parsedRes = await res.json();
-    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/code/g, '400 Bad Request').replace(/cause/g, (parsedRes.cause || '')));
-    if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/code/g, '403 Forbidden').replace(/cause/g, 'Invalid API Key'));
-    if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/statustext/g, res.statusText));
+    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '400 Bad Request').replace(/{cause}/g, (parsedRes.cause || '')));
+    if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
+    if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
     return parsedRes;
   }
 
@@ -31,7 +31,7 @@ class Client {
     const parsedRes = await res.json();
     if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
     if (res.status === 200) return true;
-    throw new Error(Errors.ERROR_CODE_CAUSE.replace(/code/g, `${res.status} ${res.statusText}`).replace(/cause/g, parsedRes.cause));
+    throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, `${res.status} ${res.statusText}`).replace(/{cause}/g, parsedRes.cause));
   }
 
   async getPlayer (query) {
@@ -52,7 +52,7 @@ class Client {
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -99,7 +99,7 @@ class Client {
 
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -129,7 +129,7 @@ class Client {
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -147,7 +147,7 @@ class Client {
     const res = await this._makeRequest('/watchdogstats');
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -161,7 +161,7 @@ class Client {
     const res = await this._makeRequest('/boosters');
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -182,7 +182,7 @@ class Client {
     let sbProfile = await this._makeRequest(`/player?uuid=${uuid}`);
     if (!sbProfile.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, sbProfile.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, sbProfile.cause)
       };
     }
     if (!sbProfile.player) {
@@ -257,7 +257,7 @@ class Client {
     const res = await this._makeRequest(`/skyblock/auction?player=${uuid}`);
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
@@ -271,7 +271,7 @@ class Client {
     const res = await this._makeRequest('/skyblock/bazaar');
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
     const productsKeys = Object.keys(res.products);
@@ -299,7 +299,7 @@ class Client {
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
     return new Status(res.session);
@@ -311,7 +311,7 @@ class Client {
     const res = await this._makeRequest('/playerCount');
     if (!res.success) {
       return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/cause/g, res.cause)
+        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
       };
     }
 
