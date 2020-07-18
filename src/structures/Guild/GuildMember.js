@@ -1,3 +1,6 @@
+const Player = require('../../Player');
+const Client = require('../../../Client');
+
 class GuildMember {
   constructor (data) {
     this.uuid = data.uuid;
@@ -11,6 +14,7 @@ class GuildMember {
       }
     }
     this.weeklyExperience = gexp;
+    this.isOnline = Client.getPlayer(data.uuid).isOnline;
   }
 }
 module.exports = GuildMember;
