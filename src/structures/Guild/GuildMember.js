@@ -4,6 +4,7 @@ class GuildMember {
     this.joinedAt = data.joined;
     this.questParticipation = data.questParticipation || 0;
     this.rank = data.rank;
+    this.mutedUntil = data.mutedTill ? data.mutedTill : null;
     var gexp = 0;
     if (data.expHistory) {
       for (const day in data.expHistory) {
