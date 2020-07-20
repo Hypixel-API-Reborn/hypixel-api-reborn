@@ -105,6 +105,7 @@ declare module 'hypixel-api-reborn' {
             experienceKings: number,
             onlinePlayers: number
         };
+        public chatMuteUntil: number;
         public preferredGames: Game[];
         public get members(): GuildMember[];
         public get ranks(): GuildRank[];
@@ -170,6 +171,7 @@ declare module 'hypixel-api-reborn' {
         public questParticipation: number;
         public rank: string;
         public weeklyExperience: number;
+        public mutedUntil: number;
     }
     class GuildRank {
         constructor (data: object);
