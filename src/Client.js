@@ -11,8 +11,6 @@ class Client {
   constructor (key) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     this.key = key;
-
-    this.validApiKey();
   }
 
   async _makeRequest (url) {
@@ -23,15 +21,6 @@ class Client {
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
     return parsedRes;
-  }
-
-  async validApiKey () {
-    if (typeof this.key !== 'string') throw new TypeError(Errors.KEY_MUST_BE_A_STRING);
-    const res = await fetch(BASE_URL + '/key' + `?key=${this.key}`);
-    const parsedRes = await res.json();
-    if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
-    if (res.status === 200) return true;
-    throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, `${res.status} ${res.statusText}`).replace(/{cause}/g, parsedRes.cause));
   }
 
   async getPlayer (query) {
