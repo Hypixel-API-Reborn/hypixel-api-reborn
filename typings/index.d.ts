@@ -106,6 +106,7 @@ declare module 'hypixel-api-reborn' {
             onlinePlayers: number
         };
         public chatMuteUntil: number;
+        public banner: {Base: string, Patterns: [{Pattern: string, Color: string}]}
         public preferredGames: Game[];
         public get members(): GuildMember[];
         public get ranks(): GuildRank[];
