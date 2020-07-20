@@ -1,20 +1,22 @@
 # Guild
 ## Properties
-| Property name  |            Description             |               Type                |
-| :------------: | :--------------------------------: | :-------------------------------: |
-|       id       |              Guild ID              |              string               |
-|      name      |             Guild name             |              string               |
-|  description   |         Guild description          |              string               |
-|   experience   |          Guild experience          |              number               |
-|     level      |            Guild level             |              number               |
-|   createdAt    |  Guild creation time as timestamp  |              number               |
-|    joinable    |      If the guild is joinable      |              boolean              |
-| publiclyListed |  If the guild is listed publicly   |              boolean              |
-|      tag       |             Guild tag              |              string               |
-|    tagColor    |          Guild tag color           | Array&lt;[Color](../Color.js)&gt; |
-|   legacyRank   |      Legacy rank of the guild      |              number               |
-|  achievements  | Achievements and progress of guild |              object               |
-| preferredGames |    Preferred games of the guild    |  Array&lt;[Game](../Game.js)&gt;  |
+| Property name  |                               Description                               |               Type                |
+| :------------: | :---------------------------------------------------------------------: | :-------------------------------: |
+|       id       |                                Guild ID                                 |              string               |
+|      name      |                               Guild name                                |              string               |
+|  description   |                            Guild description                            |              string               |
+|   experience   |                            Guild experience                             |              number               |
+|     level      |                               Guild level                               |              number               |
+|   createdAt    |                    Guild creation time as timestamp                     |              number               |
+|    joinable    |                        If the guild is joinable                         |              boolean              |
+| publiclyListed |                     If the guild is listed publicly                     |              boolean              |
+|      tag       |                                Guild tag                                |              string               |
+|    tagColor    |                             Guild tag color                             | Array&lt;[Color](../Color.js)&gt; |
+|   legacyRank   |                        Legacy rank of the guild                         |              number               |
+|  achievements  |                   Achievements and progress of guild                    |              object               |
+| preferredGames |                      Preferred games of the guild                       |  Array&lt;[Game](../Game.js)&gt;  |
+|   mutedUntil   | Timestamp of when the guild will be unmuted, 0 if the guild isn't muted |              number               |
+|  forumBanner   |                    Hypixel forum banner of the guild                    |              object               |
 
 ## Getters
 |  Getter name  |                               Description                                |                   Return type                    |

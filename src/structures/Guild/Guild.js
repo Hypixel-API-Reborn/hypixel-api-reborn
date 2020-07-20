@@ -24,6 +24,8 @@ class Guild {
       onlinePlayers: data.achievements ? data.achievements.ONLINE_PLAYERS : 0
     };
     this.preferredGames = data.preferredGames ? data.preferredGames.map(g => new Game(g)) : null;
+    this.mutedUntil = data.chatMute;
+    this.forumBanner = data.banner;
   }
 
   /**
