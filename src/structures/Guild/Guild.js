@@ -15,6 +15,8 @@ class Guild {
     this.createdAt = data.created;
     this.joinable = data.joinable ? data.joinable : false;
     this.publiclyListed = !!data.publiclyListed;
+    this.chatMuteUntil = data.chatMute ? data.chatMute : null;
+    this.banner = data.banner ? data.banner : data.banner;
     this.tag = data.tag ? data.tag : null;
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;
