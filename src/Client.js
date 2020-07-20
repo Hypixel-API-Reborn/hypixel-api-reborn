@@ -38,8 +38,6 @@ class Client {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Player = require('./structures/Player');
 
-    await this.validApiKey();
-
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
       if (!uuid) {
@@ -141,7 +139,6 @@ class Client {
   }
 
   async getWatchdogStats () {
-    await this.validApiKey();
     const WatchdogStats = require('./structures/Watchdog/Stats');
 
     const res = await this._makeRequest('/watchdogstats');
@@ -155,7 +152,6 @@ class Client {
   }
 
   async getBoosters () {
-    await this.validApiKey();
     const Booster = require('./structures/Boosters/Booster');
 
     const res = await this._makeRequest('/boosters');
@@ -171,7 +167,6 @@ class Client {
   async getSkyblockProfiles (uuid) {
     if (!uuid) throw new Error(Errors.NO_UUID);
     const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
-    await this.validApiKey();
 
     if (!isUUID(uuid)) {
       return {
@@ -215,7 +210,6 @@ class Client {
   }
 
   async getSkyblockAuctions (page) {
-    await this.validApiKey();
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     const { totalPages, success } = await this._makeRequest('/skyblock/auctions');
@@ -246,8 +240,6 @@ class Client {
     if (!uuid) throw new Error('[hypixel-api-reborn] No uuid specified');
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
-    await this.validApiKey();
-
     if (!isUUID(uuid)) {
       return {
         error: Errors.MALFORMED_UUID
@@ -265,7 +257,6 @@ class Client {
   }
 
   async getSkyblockBazaar () {
-    await this.validApiKey();
     const Product = require('./structures/SkyBlock/Bazzar/Product');
 
     const res = await this._makeRequest('/skyblock/bazaar');
@@ -285,7 +276,6 @@ class Client {
   }
 
   async getStatus (query) {
-    await this.validApiKey();
     const Status = require('./structures/Status');
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
@@ -306,8 +296,6 @@ class Client {
   }
 
   async getOnline () {
-    await this.validApiKey();
-
     const res = await this._makeRequest('/playerCount');
     if (!res.success) {
       return {
