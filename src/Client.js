@@ -10,6 +10,7 @@ const Errors = require('./Errors');
 class Client {
   constructor (key) {
     if (!key) throw new Error(Errors.NO_API_KEY);
+    if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
     this.key = key;
   }
 
