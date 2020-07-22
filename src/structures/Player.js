@@ -128,28 +128,26 @@ function getSocialMedia (data) {
 
   const media = [];
   if (!links) return;
-  if (links) {
-    if (links.TWITTER !== undefined) {
-      media.push({ name: 'Twitter', link: links.TWITTER });
-    }
-    if (links.YOUTUBE !== undefined) {
-      media.push({ name: 'YouTube', link: links.YOUTUBE });
-    }
-    if (links.INSTAGRAM !== undefined) {
-      media.push({ name: 'Instagram', link: links.INSTAGRAM });
-    }
-    if (links.TWITCH !== undefined) {
-      media.push({ name: 'Twitch', link: links.TWITCH });
-    }
-    if (links.MIXER !== undefined) {
-      media.push({ name: 'Mixer', link: links.MIXER });
-    }
-    if (links.HYPIXEL !== undefined) {
-      media.push({ name: 'Hypixel', link: links.HYPIXEL });
-    }
-    if (links.DISCORD !== undefined) {
-      media.push({ name: 'Discord', link: links.DISCORD });
-    }
+  if (links.TWITTER !== undefined) {
+    media.push({ name: 'Twitter', link: links.TWITTER });
+  }
+  if (links.YOUTUBE !== undefined) {
+    media.push({ name: 'YouTube', link: links.YOUTUBE });
+  }
+  if (links.INSTAGRAM !== undefined) {
+    media.push({ name: 'Instagram', link: links.INSTAGRAM });
+  }
+  if (links.TWITCH !== undefined) {
+    media.push({ name: 'Twitch', link: links.TWITCH });
+  }
+  if (links.MIXER !== undefined) {
+    media.push({ name: 'Mixer', link: links.MIXER });
+  }
+  if (links.HYPIXEL !== undefined) {
+    media.push({ name: 'Hypixel', link: links.HYPIXEL });
+  }
+  if (links.DISCORD !== undefined) {
+    media.push({ name: 'Discord', link: links.DISCORD });
   }
   return media;
 }

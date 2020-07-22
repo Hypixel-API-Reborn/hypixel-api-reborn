@@ -140,6 +140,7 @@ function getSkyWarsPrestige (level) {
   return prestige;
 }
 function getSkyWarsLevel (xp) {
+  if (xp < 20) return 1;
   var totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
   var exactLevel = 0;
   if (xp >= 15000) {
