@@ -478,92 +478,119 @@ class BedWars {
     public WLRatio: number;
     public solo: {
         winstreak: number,
+        playedGames: number,
         kills: number,
         deaths: number,
-        finalKills: number,
         wins: number,
         losses: number,
-        played: number,
-        KDRatio: number,
-        finalKDRatio: number,
-        WLRatio: number,
-        avg: {
-            kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
+        finalKills: number,
+        finalDeaths: number,
         beds: {
-            lost: number,
-            broken: number,
-            BLRatio: number
-        }
+          broken: number,
+          lost: number,
+          BLRatio: number
+        },
+        avg: {
+          kills: number,
+          finalKills: number,
+          bedsBroken: number
+        },
+        KDRatio: number,
+        WLRatio: number,
+        finalKDRatio: number,
     };
     public doubles: {
         winstreak: number,
+        playedGames: number,
         kills: number,
         deaths: number,
-        finalKills: number,
         wins: number,
         losses: number,
-        played: number,
-        KDRatio: number,
-        finalKDRatio: number,
-        WLRatio: number,
-        avg: {
-            kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
+        finalKills: number,
+        finalDeaths: number,
         beds: {
-            lost: number,
-            broken: number,
-            BLRatio: number
-        }
+          broken: number,
+          lost: number,
+          BLRatio: number
+        },
+        avg: {
+          kills: number,
+          finalKills: number,
+          bedsBroken: number
+        },
+        KDRatio: number,
+        WLRatio: number,
+        finalKDRatio: number,
     };
     public three: {
         winstreak: number,
+        playedGames: number,
         kills: number,
         deaths: number,
-        finalKills: number,
         wins: number,
         losses: number,
-        played: number,
-        KDRatio: number,
-        finalKDRatio: number,
-        WLRatio: number,
-        avg: {
-            kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
+        finalKills: number,
+        finalDeaths: number,
         beds: {
-            lost: number,
-            broken: number,
-            BLRatio: number
-        }
+          broken: number,
+          lost: number,
+          BLRatio: number
+        },
+        avg: {
+          kills: number,
+          finalKills: number,
+          bedsBroken: number
+        },
+        KDRatio: number,
+        WLRatio: number,
+        finalKDRatio: number,
     };
     public four: {
         winstreak: number,
+        playedGames: number,
         kills: number,
         deaths: number,
-        finalKills: number,
         wins: number,
         losses: number,
-        played: number,
-        KDRatio: number,
-        finalKDRatio: number,
-        WLRatio: number,
-        avg: {
-            kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
+        finalKills: number,
+        finalDeaths: number,
         beds: {
-            lost: number,
-            broken: number,
-            BLRatio: number
-        }
+          broken: number,
+          lost: number,
+          BLRatio: number
+        },
+        avg: {
+          kills: number,
+          finalKills: number,
+          bedsBroken: number
+        },
+        KDRatio: number,
+        WLRatio: number,
+        finalKDRatio: number,
     };
+    public fourV2: {
+        winstreak: number,
+        playedGames: number,
+        kills: number,
+        deaths: number,
+        wins: number,
+        losses: number,
+        finalKills: number,
+        finalDeaths: number,
+        beds: {
+          broken: number,
+          lost: number,
+          BLRatio: number
+        },
+        avg: {
+          kills: number,
+          finalKills: number,
+          bedsBroken: number
+        },
+        KDRatio: number,
+        WLRatio: number,
+        finalKDRatio: number,
+    }
 }
 class UHC {
     constructor (data: object);
