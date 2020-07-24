@@ -128,11 +128,11 @@ hypixel.getWatchdogStats().then(async (stats) => {
     console.log(stats)
     // -> 
     WatchdogStats {
-        ByWatchdogTotal: 4112671,
-        ByWatchDogLastMinute: 1,
-        ByWatchdogRollingDay: 6538,
-        ByStaffTotal: 1471159,
-        ByStaffRollingDay: 1353
+        byWatchdogTotal: 4112671,
+        byWatchDogLastMinute: 1,
+        byWatchdogRollingDay: 6538,
+        byStaffTotal: 1471159,
+        byStaffRollingDay: 1353
     }
 })
 ```

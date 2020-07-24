@@ -1,8 +1,3 @@
-/**
- *
- * @param {object} object
- * @returns {Array}
- */
 module.exports = (object) => {
   const array = [];
 

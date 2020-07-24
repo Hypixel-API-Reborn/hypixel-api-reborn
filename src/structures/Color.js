@@ -8,7 +8,7 @@ class Color {
   }
 
   toString () {
-    const ColorString = {
+    const ColorStrings = {
       BLACK: 'Black',
       DARK_BLUE: 'Dark Blue',
       DARK_GREEN: 'Dark Green',
@@ -26,7 +26,7 @@ class Color {
       YELLOW: 'Yellow',
       WHITE: 'White'
     };
-    return ColorString[this.color];
+    return ColorStrings[this.color];
   }
 
   /**

@@ -159,11 +159,11 @@ declare module 'hypixel-api-reborn' {
     }
     class WatchdogStats {
         constructor (data: object);
-        public ByWatchdogTotal: number;
-        public ByWatchDogLastMinute: number;
-        public ByWatchdogRollingDay: number;
-        public ByStaffTotal: number;
-        public ByStaffRollingDay: number;
+        public byWatchdogTotal: number;
+        public byWatchDogLastMinute: number;
+        public byWatchdogRollingDay: number;
+        public byStaffTotal: number;
+        public byStaffRollingDay: number;
     }
     class GuildMember {
         constructor (data: object);

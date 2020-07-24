@@ -1,13 +1,6 @@
 /* eslint-disable camelcase */
 const constants = require('./Constants');
 module.exports = {
-  /**
-   * @async
-   *
-   * @param {object} base64
-   *
-   * @returns - Object decoded from base64
-   */
   async decode (base64) {
     const nbt = require('prismarine-nbt');
     const parseNbt = (require('util')).promisify(nbt.parse);
@@ -20,11 +13,7 @@ module.exports = {
     }
     return newdata;
   },
-  /**
-   *
-   * @param {number} xp
-   * @param {boolean} runecrafting
-   */
+
   getLevelByXp (xp, runecrafting) {
     const xpTable = runecrafting ? constants.runecrafting_xp : constants.leveling_xp;
 
@@ -71,10 +60,7 @@ module.exports = {
       progress
     };
   },
-  /**
-   *
-   * @param {object} slayer
-   */
+
   getSlayerLevel (slayer) {
     const { claimed_levels } = slayer;
 
@@ -88,13 +74,7 @@ module.exports = {
 
     return level;
   },
-  /**
-   *
-   * @param {number} level
-   * @param {string} skill
-   * @param {number} max
-   * @param {number} incremention
-   */
+
   getBonusStat (level, skill, max, incremention) {
     const skill_stats = constants.bonus_stats[skill];
     const steps = Object.keys(skill_stats).sort((a, b) => Number(a) - Number(b)).map(a => Number(a));

@@ -1,4 +1,38 @@
-const inRange = require('../../utils/inRange');
+const divide = require('../../utils/divide');
+
+const generateStatsForMode = (data, mode) => {
+  return {
+    winstreak: data[`${mode}_winstreak`] || 0,
+    playedGames: data[`${mode}_games_played_bedwars`] || 0,
+
+    kills: data[`${mode}_kills_bedwars`] || 0,
+    deaths: data[`${mode}_deaths_bedwars`] || 0,
+
+    wins: data[`${mode}_wins_bedwars`] || 0,
+    losses: data[`${mode}_losses_bedwars`] || 0,
+
+    finalKills: data[`${mode}_final_kills_bedwars`] || 0,
+    finalDeaths: data[`${mode}_final_deaths_bedwars`] || 0,
+
+    beds: {
+      broken: data[`${mode}_beds_broken_bedwars`] || 0,
+      lost: data[`${mode}_beds_lost_bedwars`] || 0,
+      BLRatio: divide(data[`${mode}_beds_broken_bedwars`], data[`${mode}_beds_lost_bedwars`])
+    },
+
+    avg: {
+      kills: divide(data[`${mode}_kills_bedwars`], data[`${mode}_games_played_bedwars`]),
+      finalKills: divide(data[`${mode}_final_kills_bedwars`], data[`${mode}_games_played_bedwars`]),
+      bedsBroken: divide(data[`${mode}_beds_broken_bedwars`], data[`${mode}_games_played_bedwars`])
+    },
+
+    KDRatio: divide(data[`${mode}_kills_bedwars`], data[`${mode}_deaths_bedwars`]),
+    WLRatio: divide(data[`${mode}_wins_bedwars`], data[`${mode}_losses_bedwars`]),
+    finalKDRatio: divide(data[`${mode}_final_kills_bedwars`], data[`${mode}_final_deaths_bedwars`]),
+    BBLR: divide(data[`${mode}_beds_broken_bedwars`], data[`${mode}_beds_lost_bedwars`])
+  };
+};
+
 class BedWars {
   constructor (data) {
     this.coins = data.coins || 0;
@@ -21,146 +55,57 @@ class BedWars {
     this.beds = {
       lost: data.beds_lost_bedwars || 0,
       broken: data.beds_broken_bedwars || 0,
-      BLRatio: isNaN(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0)) ? 0 : Math.round(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0))) * 100) / 100
+      BLRatio: divide(data.beds_broken_bedwars, data.beds_lost_bedwars)
     };
 
     this.avg = {
-      finalKills: isNaN(this.finalKills / this.playedGames) ? 0 : Math.round((this.finalKills / this.playedGames) * 100) / 100,
-      kills: isNaN(this.kills / this.playedGames) ? 0 : Math.round((this.kills / this.playedGames) * 100) / 100,
-      bedsBroken: isNaN(this.beds.broken / this.playedGames) ? 0 : Math.round((this.beds.broken / this.playedGames) * 100) / 100
+      kills: divide(this.kills, this.playedGames),
+      finalKills: divide(this.finalKills, this.playedGames),
+      bedsBroken: divide(this.beds.broken, this.playedGames)
     };
 
-    this.KDRatio = isNaN((this.kills / this.deaths)) ? 0 : Math.round((this.kills / this.deaths) * 100) / 100;
-    this.finalKDRatio = isNaN((this.finalKills / this.finalDeaths)) ? 0 : Math.round((this.finalKills / this.finalDeaths) * 100) / 100;
-    this.WLRatio = isNaN((this.wins / this.losses)) ? 0 : Math.round((this.wins / this.losses) * 100) / 100;
-    this.solo = {
-      winstreak: data.eight_one_winstreak || 0,
-      kills: data.eight_one_kills_bedwars || 0,
-      deaths: data.eight_one_deaths_bedwars || 0,
-      finalKills: data.eight_one_final_kills_bedwars || 0,
-      wins: data.eight_one_wins_bedwars || 0,
-      losses: data.eight_one_losses_bedwars || 0,
-      played: data.eight_one_games_played_bedwars || 0,
-      KDRatio: isNaN((data.eight_one_kills_bedwars || 0) / (data.eight_one_deaths_bedwars || 0)) ? 0 : Math.round((data.eight_one_kills_bedwars / data.eight_one_deaths_bedwars) * 100) / 100,
-      finalKDRatio: isNaN(((data.eight_one_final_kills_bedwars || 0) / (data.eight_one_final_deaths_bedwars || 0))) ? 0 : Math.round((data.eight_one_final_kills_bedwars / data.eight_one_final_deaths_bedwars) * 100) / 100,
-      WLRatio: isNaN(((data.eight_one_wins_bedwars || 0) / (data.eight_one_losses_bedwars || 0))) ? 0 : Math.round((data.eight_one_wins_bedwars / data.eight_one_losses_bedwars) * 100) / 100,
-      avg: {
-        kills: isNaN((data.eight_one_kills_bedwars || 0) / (data.eight_one_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_one_kills_bedwars / data.eight_one_games_played_bedwars) * 100) / 100,
-        finalKills: isNaN((data.eight_one_final_kills_bedwars || 0) / (data.eight_one_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_one_final_kills_bedwars / data.eight_one_games_played_bedwars) * 100) / 100,
-        bedsBroken: isNaN((data.eight_one_beds_broken_bedwars || 0) / (data.eight_one_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_one_beds_broken_bedwars / data.eight_one_games_played_bedwars) * 100) / 100
-      },
-      beds: {
-        lost: data.eight_one_beds_lost_bedwars || 0,
-        broken: data.eight_one_beds_broken_bedwars || 0,
-        BLRatio: isNaN(((data.eight_one_beds_broken_bedwars || 0) / (data.eight_one_beds_lost_bedwars || 0))) ? 0 : Math.round((data.eight_one_beds_broken_bedwars / data.eight_one_beds_lost_bedwars) * 100) / 100
-      }
-    };
-    this.doubles = {
-      winstreak: data.eight_two_winstreak || 0,
-      kills: data.eight_two_kills_bedwars || 0,
-      deaths: data.eight_two_deaths_bedwars || 0,
-      finalKills: data.eight_two_final_kills_bedwars || 0,
-      wins: data.eight_two_wins_bedwars || 0,
-      losses: data.eight_two_losses_bedwars || 0,
-      played: data.eight_two_games_played_bedwars || 0,
-      KDRatio: isNaN(((data.eight_two_kills_bedwars || 0) / (data.eight_two_deaths_bedwars || 0))) ? 0 : Math.round((data.eight_two_kills_bedwars / data.eight_two_deaths_bedwars) * 100) / 100,
-      finalKDRatio: isNaN(((data.eight_two_final_kills_bedwars || 0) / (data.eight_two_final_deaths_bedwars || 0))) ? 0 : Math.round((data.eight_two_final_kills_bedwars / data.eight_two_final_deaths_bedwars) * 100) / 100,
-      WLRatio: isNaN(((data.eight_two_wins_bedwars || 0) / (data.eight_two_losses_bedwars || 0))) ? 0 : Math.round((data.eight_two_wins_bedwars / data.eight_two_losses_bedwars) * 100) / 100,
-      avg: {
-        kills: isNaN((data.eight_two_kills_bedwars || 0) / (data.eight_two_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_two_kills_bedwars / data.eight_two_games_played_bedwars) * 100) / 100,
-        finalKills: isNaN((data.eight_two_final_kills_bedwars || 0) / (data.eight_two_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_two_final_kills_bedwars / data.eight_two_games_played_bedwars) * 100) / 100,
-        bedsBroken: isNaN((data.eight_two_beds_broken_bedwars || 0) / (data.eight_two_games_played_bedwars || 0)) ? 0 : Math.round((data.eight_two_beds_broken_bedwars / data.eight_two_games_played_bedwars) * 100) / 100
-      },
-      beds: {
-        lost: data.eight_two_beds_lost_bedwars || 0,
-        broken: data.eight_two_beds_broken_bedwars || 0,
-        BLRatio: isNaN(((data.eight_two_beds_broken_bedwars || 0) / (data.eight_two_beds_lost_bedwars || 0))) ? 0 : Math.round((data.eight_two_beds_broken_bedwars / data.eight_two_beds_lost_bedwars) * 100) / 100
-      }
-    };
-    this.three = {
-      winstreak: data.four_three_winstreak || 0,
-      kills: data.four_three_kills_bedwars || 0,
-      deaths: data.four_three_deaths_bedwars || 0,
-      finalKills: data.four_three_final_kills_bedwars || 0,
-      wins: data.four_three_wins_bedwars || 0,
-      losses: data.four_three_losses_bedwars || 0,
-      played: data.four_three_games_played_bedwars || 0,
-      KDRatio: isNaN((data.four_three_kills_bedwars / data.four_three_deaths_bedwars)) ? 0 : Math.round((data.four_three_kills_bedwars / data.four_three_deaths_bedwars) * 100) / 100,
-      finalKDRatio: isNaN((data.four_three_final_kills_bedwars / data.four_three_final_deaths_bedwars)) ? 0 : Math.round((data.four_three_final_kills_bedwars / data.four_three_final_deaths_bedwars) * 100) / 100,
-      WLRatio: isNaN((data.four_three_wins_bedwars / data.four_three_losses_bedwars)) ? 0 : Math.round((data.four_three_wins_bedwars / data.four_three_losses_bedwars) * 100) / 100,
-      avg: {
-        kills: isNaN((data.four_three_kills_bedwars || 0) / (data.four_three_games_played_bedwars || 0)) ? 0 : Math.round((data.four_three_kills_bedwars / data.four_three_games_played_bedwars) * 100) / 100,
-        finalKills: isNaN((data.four_three_final_kills_bedwars || 0) / (data.four_three_games_played_bedwars || 0)) ? 0 : Math.round((data.four_three_final_kills_bedwars / data.four_three_games_played_bedwars) * 100) / 100,
-        bedsBroken: isNaN((data.four_three_beds_broken_bedwars || 0) / (data.four_three_games_played_bedwars || 0)) ? 0 : Math.round((data.four_three_beds_broken_bedwars / data.four_three_games_played_bedwars) * 100) / 100
-      },
-      beds: {
-        lost: data.four_three_beds_lost_bedwars || 0,
-        broken: data.four_three_beds_broken_bedwars || 0,
-        BLRatio: isNaN(((data.four_three_beds_broken_bedwars || 0) / (data.four_three_beds_lost_bedwars || 0))) ? 0 : Math.round((data.four_three_beds_broken_bedwars / data.four_three_beds_lost_bedwars) * 100) / 100
-      }
-    };
-    this.four = {
-      winstreak: data.four_four_winstreak || 0,
-      kills: data.four_four_kills_bedwars || 0,
-      deaths: data.four_four_deaths_bedwars || 0,
-      finalKills: data.four_four_final_kills_bedwars || 0,
-      wins: data.four_four_wins_bedwars || 0,
-      losses: data.four_four_losses_bedwars || 0,
-      played: data.four_four_games_played_bedwars || 0,
-      KDRatio: isNaN(((data.four_four_kills_bedwars || 0) / (data.four_four_deaths_bedwars || 0))) ? 0 : Math.round((data.four_four_kills_bedwars / data.four_four_deaths_bedwars) * 100) / 100,
-      finalKDRatio: isNaN(((data.four_four_final_kills_bedwars || 0) / (data.four_four_final_deaths_bedwars || 0))) ? 0 : Math.round((data.four_four_final_kills_bedwars / data.four_four_final_deaths_bedwars) * 100) / 100,
-      WLRatio: isNaN(((data.four_four_wins_bedwars || 0) / (data.four_four_losses_bedwars || 0))) ? 0 : Math.round((data.four_four_wins_bedwars / data.four_four_losses_bedwars) * 100) / 100,
-      avg: {
-        kills: isNaN((data.four_four_kills_bedwars || 0) / (data.four_four_games_played_bedwars || 0)) ? 0 : Math.round((data.four_four_kills_bedwars / data.four_four_games_played_bedwars) * 100) / 100,
-        finalKills: isNaN((data.four_four_final_kills_bedwars || 0) / (data.four_four_games_played_bedwars || 0)) ? 0 : Math.round((data.four_four_final_kills_bedwars / data.four_four_games_played_bedwars) * 100) / 100,
-        bedsBroken: isNaN((data.four_four_beds_broken_bedwars || 0) / (data.four_four_games_played_bedwars || 0)) ? 0 : Math.round((data.four_four_beds_broken_bedwars / data.four_four_games_played_bedwars) * 100) / 100
-      },
-      beds: {
-        lost: data.four_four_beds_lost_bedwars || 0,
-        broken: data.four_four_beds_broken_bedwars || 0,
-        BLRatio: isNaN(((data.four_four_beds_broken_bedwars || 0) / (data.four_four_beds_lost_bedwars || 0))) ? 0 : Math.round((data.four_four_beds_broken_bedwars / data.four_four_beds_lost_bedwars) * 100) / 100
-      }
-    };
+    this.KDRatio = divide(this.kills, this.deaths);
+    this.finalKDRatio = divide(this.finalKills, this.finalDeaths);
+    this.WLRatio = divide(this.wins, this.losses);
+    this.BBLRatio = divide(this.beds.broken, this.beds.lost);
+    this.solo = generateStatsForMode(data, 'eight_one');
+    this.doubles = generateStatsForMode(data, 'eight_two');
+    this.three = generateStatsForMode(data, 'four_three');
+    this.four = generateStatsForMode(data, 'four_four');
+    this.fourV2 = generateStatsForMode(data, 'two_four');
   }
 }
 function getBedWarsPrestige (level) {
-  let prestige;
-  if (inRange(level, 1, 99)) {
-    prestige = 'Stone';
-  } else if (inRange(level, 100, 199)) {
-    prestige = 'Iron';
-  } else if (inRange(level, 200, 299)) {
-    prestige = 'Gold';
-  } else if (inRange(level, 300, 399)) {
-    prestige = 'Diamond';
-  } else if (inRange(level, 400, 499)) {
-    prestige = 'Emerald';
-  } else if (inRange(level, 500, 599)) {
-    prestige = 'Sapphire';
-  } else if (inRange(level, 600, 699)) {
-    prestige = 'Ruby';
-  } else if (inRange(level, 700, 799)) {
-    prestige = 'Crystal';
-  } else if (inRange(level, 800, 899)) {
-    prestige = 'Opal';
-  } else if (inRange(level, 900, 999)) {
-    prestige = 'Amethyst';
-  } else if (inRange(level, 1000, 1099)) {
-    prestige = 'Rainbow';
+  if (level < 100) {
+    return 'Stone';
+  } else if (level < 200) {
+    return 'Iron';
+  } else if (level < 300) {
+    return 'Gold';
+  } else if (level < 400) {
+    return 'Diamond';
+  } else if (level < 500) {
+    return 'Emerald';
+  } else if (level < 600) {
+    return 'Sapphire';
+  } else if (level < 700) {
+    return 'Ruby';
+  } else if (level < 800) {
+    return 'Crystal';
+  } else if (level < 900) {
+    return 'Opal';
+  } else if (level < 1000) {
+    return 'Amethyst';
   }
-  return prestige;
+
+  return 'Rainbow';
 }
 const EASY_LEVELS = 4;
 const EASY_LEVELS_XP = 7000;
 const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
-/**
- *
- * @param {number} level
- *
- * @returns {number}
- */
+
 function getExpForLevel (level) {
   if (level === 0) return 0;
 
