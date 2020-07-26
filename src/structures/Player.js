@@ -7,6 +7,9 @@ const Duels = require('./MiniGames/Duels');
 const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
+const CopsAndCrims = require('./MiniGames/CopsAndCrims');
+const TNTGames = require('./MiniGames/TNTGames');
+const SmashHeroes = require('./MiniGames/SmashHeroes');
 const Color = require('./Color');
 const Game = require('./Game');
 
@@ -45,7 +48,10 @@ class Player {
       duels: (data.stats.Duels ? new Duels(data.stats.Duels) : null),
       crazywalls: (data.stats.TrueCombat ? new CrazyWalls(data.stats.TrueCombat) : null),
       buildbattle: (data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null),
-      megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null)
+      megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null),
+      copsandcrims: (data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null),
+      tntgames: (data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null),
+      smashheroes: (data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null)
     } : null);
   }
 }

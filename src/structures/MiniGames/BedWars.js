@@ -66,7 +66,6 @@ class BedWars {
     this.KDRatio = divide(this.kills, this.deaths);
     this.finalKDRatio = divide(this.finalKills, this.finalDeaths);
     this.WLRatio = divide(this.wins, this.losses);
-    this.BBLRatio = divide(this.beds.broken, this.beds.lost);
     this.solo = generateStatsForMode(data, 'eight_one');
     this.doubles = generateStatsForMode(data, 'eight_two');
     this.three = generateStatsForMode(data, 'four_three');

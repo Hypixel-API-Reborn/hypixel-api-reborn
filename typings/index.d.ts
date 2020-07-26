@@ -9,7 +9,7 @@ type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 declare module 'hypixel-api-reborn' {
     export const version: string;
     export class Client {
-        constructor (key: string);
+        constructor(key: string);
         public readonly key: string;
 
         private _makeRequest(url: string): Promise<object>;
@@ -17,40 +17,40 @@ declare module 'hypixel-api-reborn' {
         /**
          * @param query player nickname or uuid
          */
-        public getPlayer(query: string): Promise<Player | {error?: string}>;
+        public getPlayer(query: string): Promise<Player | { error?: string }>;
         /**
          * @param searchParameter 'name', 'player' or 'id'
          * @param query guild name, player nickname or guild id
          */
-        public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild | {error?: string}>;
+        public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild | { error?: string }>;
         /**
          * @param query player nickname or uuid
          */
-        public getFriends(query: string): Promise<Friend[] | {error?: string}>;
-        public getWatchdogStats(): Promise<WatchdogStats | {error?: string}>;
-        public getBoosters(): Promise<Booster[] | {error?: string}>;
+        public getFriends(query: string): Promise<Friend[] | { error?: string }>;
+        public getWatchdogStats(): Promise<WatchdogStats | { error?: string }>;
+        public getBoosters(): Promise<Booster[] | { error?: string }>;
         /**
          * @param uuid player uuid
          */
-        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[] | {error?: string}>;
+        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[] | { error?: string }>;
         /**
          * @param page number (not required)
          */
-        public getSkyblockAuctions(page?: number): Promise<Auction[] | {error?: string}>;
+        public getSkyblockAuctions(page?: number): Promise<Auction[] | { error?: string }>;
         /**
          * @param uuid player uuid
          */
-        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[] | {error: string}>;
-        public getSkyblockBazaar(): Promise<Product[] | {error?: string}>;
+        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[] | { error: string }>;
+        public getSkyblockBazaar(): Promise<Product[] | { error?: string }>;
         /**
          * @param query player nickname or uuid
          */
-        public getStatus(query: string): Promise<Status | {error?: string}>;
-        public getOnline(): Promise<number | {error?: string}>;
+        public getStatus(query: string): Promise<Status | { error?: string }>;
+        public getOnline(): Promise<number | { error?: string }>;
     }
 }
 class Player {
-    constructor (data: object);
+    constructor(data: object);
     public nickname: string;
     public uuid: string;
     public history: string[];
@@ -69,26 +69,120 @@ class Player {
     public giftsReceived: number;
     public isOnline: boolean;
     public stats?: {
-        skywars: SkyWars,
-        bedwars: BedWars,
-        uhc: UHC,
-        speedUHC: SpeedUHC,
-        murdermystery: MurderMystery,
-        duels: Duels,
-        crazywalls: CrazyWalls,
-        buildbattle: BuildBattle,
-        megawalls: MegaWalls
+        skywars?: SkyWars,
+        bedwars?: BedWars,
+        uhc?: UHC,
+        speedUHC?: SpeedUHC,
+        murdermystery?: MurderMystery,
+        duels?: Duels,
+        crazywalls?: CrazyWalls,
+        buildbattle?: BuildBattle,
+        megawalls?: MegaWalls,
+        copsandcrims?: CopsAndCrims,
+        tntgames?: TNTGames,
+        smashheroes?: SmashHeroes
     }
 }
+class SmashHeroes {
+    constructor(data: object);
+    public coins: number;
+    public level: number;
+    public winstreak: number;
+    public games: number;
+    public kills: number;
+    public deaths: number;
+    public KDRatio: number;
+    public wins: number;
+    public losses: number;
+    public WLRatio: number;
+    public quits: number;
+    public mode: {
+        '1v1v1v1': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        },
+        '2v2': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        },
+        '2v2v2': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        }
+    };
+    public activeClass: string;
+    public heroStats: {
+        name: string,
+        level: number,
+        xp: number,
+        prestige: number,
+        games: number,
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number
+    }[]
+}
+class TNTGames {
+    constructor(data: object);
+    public coins: number;
+    public winstreak: number;
+    public wins: number;
+    public tntrun: {
+        wins: number,
+        deaths: number,
+        record: number
+    };
+    public pvprun: {
+        kills: number,
+        wins: number,
+        deaths: number,
+        KDRatio: number,
+        record: number
+    };
+    public tnttag: {
+        kills: number,
+        wins: number,
+        speed: number
+    };
+    public bowspleef: {
+        wins: number,
+        tags: number,
+        deaths: number
+    };
+    public wizards: {
+        points: number,
+        class: string,
+        kills: number,
+        assists: number,
+        wins: number,
+        deaths: number,
+        KDRatio: number
+    };
+}
 class Status {
-    constructor (data: object);
+    constructor(data: object);
     public online: boolean;
     public game: Game;
     public mode?: string;
     public map?: string
 }
 class Guild {
-    constructor (data: object);
+    constructor(data: object);
     private _data: object;
     public id: string;
     public name: string;
@@ -107,14 +201,14 @@ class Guild {
         onlinePlayers: number
     };
     public chatMuteUntil: number;
-    public banner: {Base: string, Patterns: [{Pattern: string, Color: string}]}
+    public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
     public preferredGames: Game[];
     public get members(): GuildMember[];
     public get ranks(): GuildRank[];
     public get memberUUIDMap(): Map<string, GuildMember>;
 }
 class Auction {
-    constructor (data: object);
+    constructor(data: object);
     public auctionId: string;
     public auctioneerUuid: string;
     public coop: string[];
@@ -130,14 +224,14 @@ class Auction {
     public bin: boolean;
 }
 class Bid {
-    constructor (data: object);
+    constructor(data: object);
     public auctionId: string;
     public profileId: string;
     public amount: number;
     public timestamp: number;
 }
 class Product {
-    constructor (data: object);
+    constructor(data: object);
     public productId: string;
     public sellSummary: Order[];
     public buySummary: Order[];
@@ -153,13 +247,13 @@ class Product {
     };
 }
 class Order {
-    constructor (data: object);
+    constructor(data: object);
     public amount: number;
     public pricePerUnit: number;
     public orders: number;
 }
 class WatchdogStats {
-    constructor (data: object);
+    constructor(data: object);
     public byWatchdogTotal: number;
     public byWatchDogLastMinute: number;
     public byWatchdogRollingDay: number;
@@ -167,7 +261,7 @@ class WatchdogStats {
     public byStaffRollingDay: number;
 }
 class GuildMember {
-    constructor (data: object);
+    constructor(data: object);
     public uuid: string;
     public joinedAt: number;
     public questParticipation: number;
@@ -176,7 +270,7 @@ class GuildMember {
     public mutedUntil: number;
 }
 class GuildRank {
-    constructor (data: object);
+    constructor(data: object);
     public name: string;
     public default: boolean;
     public tag: string | null;
@@ -184,13 +278,13 @@ class GuildRank {
     public priority: number;
 }
 class Friend {
-    constructor (data: object);
+    constructor(data: object);
     public sender: string;
     public receiver: string;
     public friendSince: number;
 }
 class Booster {
-    constructor (data: object);
+    constructor(data: object);
     public purchaser: string;
     public amount: number;
     public originalLength: number;
@@ -199,13 +293,13 @@ class Booster {
     public game: Game;
 }
 class SkyblockProfile {
-    constructor (data: object);
+    constructor(data: object);
     public profileId: string;
     public profileName: string;
     public members: SkyblockMember[];
 }
 class SkyblockMember {
-    constructor (data: object);
+    constructor(data: object);
     public uuid: string;
     public firstJoin: number;
     public lastSave: number;
@@ -307,13 +401,13 @@ class SkyblockMember {
     public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>
 }
 class Color {
-    constructor (color: string)
+    constructor(color: string)
     public toString(): string;
     public toHex(): string;
     public toName(): string;
 }
 class Armor {
-    constructor (data: object);
+    constructor(data: object);
     public itemId: number;
     public count: number;
     public name: string;
@@ -324,7 +418,7 @@ class Armor {
     public damage: number;
 }
 class Item {
-    constructor (data: object);
+    constructor(data: object);
     public itemId: number;
     public count: number;
     public name: string;
@@ -335,13 +429,13 @@ class Item {
     public damage: number;
 }
 class Game {
-    constructor (game: string | number);
+    constructor(game: string | number);
     public toString(): GAME_NAME;
     public get code(): GAME_CODE;
     public get id(): GAME_ID;
 }
 class SkyWars {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public souls: number;
     public tokens: number;
@@ -444,8 +538,29 @@ class SkyWars {
         WLRatio: number
     };
 }
+class CopsAndCrims {
+    constructor(data: object);
+    public coins: number;
+    public kills: number;
+    public deaths: number;
+    public KDRatio: number;
+    public wins: number;
+    public roundWins: number;
+    public shotsFired: number;
+    public headshotKills: number;
+    public bombsDefused: number;
+    public bombsPlanted: number;
+    public killsAsCrim: number;
+    public killsAsCop: number;
+    public deathmatch: {
+        kills: number,
+        deaths: number,
+        killsAsCrim: number,
+        killsAsCop: number
+    }
+}
 class BedWars {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public level: number;
     public prestige: BEDWARS_PRESTIGE;
@@ -486,14 +601,14 @@ class BedWars {
         finalKills: number,
         finalDeaths: number,
         beds: {
-          broken: number,
-          lost: number,
-          BLRatio: number
+            broken: number,
+            lost: number,
+            BLRatio: number
         },
         avg: {
-          kills: number,
-          finalKills: number,
-          bedsBroken: number
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
         },
         KDRatio: number,
         WLRatio: number,
@@ -509,14 +624,14 @@ class BedWars {
         finalKills: number,
         finalDeaths: number,
         beds: {
-          broken: number,
-          lost: number,
-          BLRatio: number
+            broken: number,
+            lost: number,
+            BLRatio: number
         },
         avg: {
-          kills: number,
-          finalKills: number,
-          bedsBroken: number
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
         },
         KDRatio: number,
         WLRatio: number,
@@ -532,14 +647,14 @@ class BedWars {
         finalKills: number,
         finalDeaths: number,
         beds: {
-          broken: number,
-          lost: number,
-          BLRatio: number
+            broken: number,
+            lost: number,
+            BLRatio: number
         },
         avg: {
-          kills: number,
-          finalKills: number,
-          bedsBroken: number
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
         },
         KDRatio: number,
         WLRatio: number,
@@ -555,14 +670,14 @@ class BedWars {
         finalKills: number,
         finalDeaths: number,
         beds: {
-          broken: number,
-          lost: number,
-          BLRatio: number
+            broken: number,
+            lost: number,
+            BLRatio: number
         },
         avg: {
-          kills: number,
-          finalKills: number,
-          bedsBroken: number
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
         },
         KDRatio: number,
         WLRatio: number,
@@ -578,14 +693,14 @@ class BedWars {
         finalKills: number,
         finalDeaths: number,
         beds: {
-          broken: number,
-          lost: number,
-          BLRatio: number
+            broken: number,
+            lost: number,
+            BLRatio: number
         },
         avg: {
-          kills: number,
-          finalKills: number,
-          bedsBroken: number
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
         },
         KDRatio: number,
         WLRatio: number,
@@ -593,7 +708,7 @@ class BedWars {
     }
 }
 class UHC {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public score: number;
     public kills: number;
@@ -645,7 +760,7 @@ class UHC {
     };
 }
 class SpeedUHC {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public kills: number;
     public deaths: number;
@@ -657,7 +772,7 @@ class SpeedUHC {
     public winstreak: number;
 }
 class MurderMystery {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public playedGames: number;
     public kills: number;
@@ -781,7 +896,7 @@ class Duels {
     };
 }
 class CrazyWalls {
-    constructor (data: object);
+    constructor(data: object);
     public coins: number;
     public winstreak: number;
     public kills: number;
@@ -828,7 +943,7 @@ class CrazyWalls {
     };
 }
 class BuildBattle {
-    constructor (data: object);
+    constructor(data: object);
     public score: number;
     public playedGames: number;
     public coins: number;
@@ -842,7 +957,7 @@ class BuildBattle {
     };
 }
 class MegaWalls {
-    constructor (data: object)
+    constructor(data: object)
     public selectedClass: string;
     public coins: number;
     public kills: number;
