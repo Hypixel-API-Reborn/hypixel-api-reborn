@@ -36,21 +36,19 @@ function generateHeroStats (data) {
   const stats = [];
   if (!data.class_stats) return;
   for (const hero in data.class_stats) {
-    if (data.classes && data.classes[hero]) {
-      stats.push({
-        name: hero,
-        level: data[`lastLevel_${hero}`] || 0,
-        xp: data[`xp_${hero}`] || 0,
-        prestige: data[`pg_${hero}`] || 0,
-        games: data.class_stats[hero].games || 0,
-        kills: data.class_stats[hero].kills || 0,
-        deaths: data.class_stats[hero].deaths || 0,
-        KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
-        wins: data.class_stats[hero].wins || 0,
-        losses: data.class_stats[hero].losses || 0,
-        WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
-      });
-    }
+    stats.push({
+      name: hero,
+      level: data[`lastLevel_${hero}`] || 0,
+      xp: data[`xp_${hero}`] || 0,
+      prestige: data[`pg_${hero}`] || 0,
+      games: data.class_stats[hero].games || 0,
+      kills: data.class_stats[hero].kills || 0,
+      deaths: data.class_stats[hero].deaths || 0,
+      KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
+      wins: data.class_stats[hero].wins || 0,
+      losses: data.class_stats[hero].losses || 0,
+      WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
+    });
   }
   return stats;
 }
