@@ -36,7 +36,7 @@ function generateHeroStats (data) {
   const stats = [];
   if (!data.class_stats) return;
   for (const hero in data.class_stats) {
-    if (hero in data.class_stats) {
+    if (data.classes && data.classes[hero]) {
       stats.push({
         name: hero,
         level: data[`lastLevel_${hero}`] || 0,
