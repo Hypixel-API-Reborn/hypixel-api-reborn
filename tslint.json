@@ -1,11 +1,18 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
+    "extends": "tslint:recommended",
+    "rulesDirectory": [],
     "rules": {
-        "max-classes-per-file": ["off"]
+        "new-parens": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false,
+        "no-console": {
+            "severity": "warning",
+            "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+        },
+        "max-classes-per-file": "off"
     },
-    "rulesDirectory": []
+    "jsRules": {
+    }
 }

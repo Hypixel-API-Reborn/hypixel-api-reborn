@@ -82,7 +82,7 @@ class Player {
         tntgames?: TNTGames,
         smashheroes?: SmashHeroes,
         vampirez?: VampireZ,
-        blitzsg?: BlitzSurvivalGames, 
+        blitzsg?: BlitzSurvivalGames,
         arena?: ArenaBrawl
     }
 }
