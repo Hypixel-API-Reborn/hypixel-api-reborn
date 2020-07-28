@@ -18,7 +18,7 @@ class SmashHeroes {
       '2v2v2': generateModeStats(data, 'teams')
     };
     this.activeClass = data.active_class ? data.active_class : null;
-    this.heroStats = generateHeroStats(data);
+    this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
 }
 function generateModeStats (data, mode) {
@@ -36,18 +36,18 @@ function generateHeroStats (data) {
   const stats = [];
   if (!data.class_stats) return;
   for (const hero in data.class_stats) {
-    if (data.classes[hero]) {
+    if (hero in data.class_stats) {
       stats.push({
         name: hero,
-        level: data[`lastLevel_${hero}`],
-        xp: data[`xp_${hero}`],
-        prestige: data[`pg_${hero}`],
-        games: data.class_stats[hero].games,
-        kills: data.class_stats[hero].kills,
-        deaths: data.class_stats[hero].deaths,
+        level: data[`lastLevel_${hero}`] || 0,
+        xp: data[`xp_${hero}`] || 0,
+        prestige: data[`pg_${hero}`] || 0,
+        games: data.class_stats[hero].games || 0,
+        kills: data.class_stats[hero].kills || 0,
+        deaths: data.class_stats[hero].deaths || 0,
         KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
-        wins: data.class_stats[hero].wins,
-        losses: data.class_stats[hero].losses,
+        wins: data.class_stats[hero].wins || 0,
+        losses: data.class_stats[hero].losses || 0,
         WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
       });
     }
