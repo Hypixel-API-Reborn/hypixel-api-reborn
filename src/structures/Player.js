@@ -10,6 +10,10 @@ const MegaWalls = require('./MiniGames/MegaWalls');
 const CopsAndCrims = require('./MiniGames/CopsAndCrims');
 const TNTGames = require('./MiniGames/TNTGames');
 const SmashHeroes = require('./MiniGames/SmashHeroes');
+const VampireZ = require('./MiniGames/VampireZ');
+const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
+const ArenaBrawl = require('./MiniGames/ArenaBrawl');
+
 const Color = require('./Color');
 const Game = require('./Game');
 
@@ -51,7 +55,10 @@ class Player {
       megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null),
       copsandcrims: (data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null),
       tntgames: (data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null),
-      smashheroes: (data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null)
+      smashheroes: (data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null),
+      vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
+      blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
+      arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null)
     } : null);
   }
 }

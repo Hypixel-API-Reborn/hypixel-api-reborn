@@ -80,8 +80,82 @@ class Player {
         megawalls?: MegaWalls,
         copsandcrims?: CopsAndCrims,
         tntgames?: TNTGames,
-        smashheroes?: SmashHeroes
+        smashheroes?: SmashHeroes,
+        vampirez?: VampireZ,
+        blitzsg?: BlitzSurvivalGames, 
+        arena?: ArenaBrawl
     }
+}
+class ArenaBrawl {
+    constructor(data: object);
+    public coins: number;
+    public mode: {
+      '1v1': {
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number
+      },
+      '2v2': {
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number
+      },
+      '4v4': {
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number
+      }
+    };
+}
+class BlitzSurvivalGames {
+    constructor(data: object);
+    public coins: number;
+    public kills: number;
+    public deaths: number;
+    public KDRatio: number;
+    public winsSolo: number;
+    public winsTeam: number
+    public kitStats: {
+        name: string,
+        games: number,
+        level: number,
+        experience: number,
+        prestige: number,
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number,
+        timePlayed: number
+    }[];
+}
+class VampireZ {
+    constructor(data: object);
+    public coins: number;
+    public human: {
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number
+    };
+    public zombie: {
+        kills: number
+    };
+    public vampire: {
+        kills: number,
+        deaths: number,
+        KDRatio: number
+    };
 }
 class SmashHeroes {
     constructor(data: object);
