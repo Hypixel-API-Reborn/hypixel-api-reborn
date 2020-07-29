@@ -19,7 +19,7 @@ class Client {
     const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
-      throw new Error('An error occurred while converting to JSON. Perhaps this is due to an update or maintenance.');
+      throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '400 Bad Request').replace(/{cause}/g, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
