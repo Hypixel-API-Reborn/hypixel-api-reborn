@@ -24,12 +24,23 @@ class SkyWars {
     this.openedLootChests = data.SkyWars_openedChests || 0;
     this.heads = data.heads || 0;
     this.level = getSkyWarsLevel(data.skywars_experience);
-    this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§([a-f]|[1-9])/gm, '')) : null;
+    this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§l/gm, '**').replace(/§([a-f]|[1-9])/gm, '').replace(/§r/gm, '')) : null;
     this.prestige = getSkyWarsPrestige(this.level);
     this.prestigeIcon = data.selected_prestige_icon ? SkyWarsPrestigeIcons[data.selected_prestige_icon] : null;
     this.playedGames = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
     this.KDRatio = divide(this.kills, this.deaths);
     this.WLRatio = divide(this.wins, this.losses);
+    this.opals = data.opals || 0;
+    this.avarice = data.avarice || 0;
+    this.tenacity = data.tenacity || 0;
+    this.shards = data.shards || 0;
+    this.shardsInMode = {
+      solo: data.shard_solo || 0,
+      team: data.shard_team || 0,
+      ranked: data.shard_ranked || 0,
+      mega: (data.shard_mega || 0) + (data.shard_mega_doubles || 0),
+      lab: data.shard_lab || 0
+    };
     this.solo = {
       total: {
         played: data.games_solo || 0,
@@ -113,7 +124,7 @@ function getSkyWarsPrestige (level) {
     return 'Opal';
   } else if (level < 50) {
     return 'Amethyst';
-  } else if (level < 60) {
+  } else if (level >= 50) {
     return 'Rainbow';
   } else {
     return null;
