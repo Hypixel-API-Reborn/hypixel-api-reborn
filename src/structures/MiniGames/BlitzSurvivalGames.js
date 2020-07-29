@@ -29,20 +29,22 @@ class BlitzSurvivalGames {
 function generateKitStats (data) {
   const stats = [];
   for (let i = 0; i < kits.length; i++) {
-    stats.push({
-      name: kits[i],
-      games: data[`games_played_${kits[i]}`] || 0,
-      level: (data[kits[i]] + 1) || 1,
-      experience: data[`exp_${kits[i]}`] || 0,
-      prestige: data[`p${kits[i]}`] || 0,
-      kills: data[`kills_${kits[i]}`] || 0,
-      deaths: data[`deaths_${kits[i]}`] || 0,
-      KDRatio: divide(data[`kills_${kits[i]}`], data[`deaths_${kits[i]}`]),
-      wins: data[`wins_${kits[i]}`] || 0,
-      losses: data[`losses_${kits[i]}`] || 0,
-      WLRatio: divide(data[`wins_${kits[i]}`], data[`losses_${kits[i]}`]),
-      timePlayed: data[`time_played_${kits[i]}`] || null
-    });
+    if (data[kits[i]]) {
+      stats.push({
+        name: kits[i],
+        games: data[`games_played_${kits[i]}`] || 0,
+        level: (data[kits[i]] + 1) || 1,
+        experience: data[`exp_${kits[i]}`] || 0,
+        prestige: data[`p${kits[i]}`] || 0,
+        kills: data[`kills_${kits[i]}`] || 0,
+        deaths: data[`deaths_${kits[i]}`] || 0,
+        KDRatio: divide(data[`kills_${kits[i]}`], data[`deaths_${kits[i]}`]),
+        wins: data[`wins_${kits[i]}`] || 0,
+        losses: data[`losses_${kits[i]}`] || 0,
+        WLRatio: divide(data[`wins_${kits[i]}`], data[`losses_${kits[i]}`]),
+        timePlayed: data[`time_played_${kits[i]}`] || null
+      });
+    }
   }
   return stats;
 }
