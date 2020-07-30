@@ -15,7 +15,7 @@
 
 ---
 
-• **Easy for use** <br>• Compact Mode<br>• [Discord Support](https://discord.gg/NSEBNMM)
+• **Easy for use** <br>• Compact Mode<br>• Intellisense Support<br>• [Discord Support](https://discord.gg/NSEBNMM)
 
 ---
 
