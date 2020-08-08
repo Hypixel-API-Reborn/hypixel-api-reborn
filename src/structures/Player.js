@@ -28,7 +28,7 @@ class Player {
     this.firstLogin = data.firstLogin || null;
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
-      this.plusColor = new Color(data.rankPlusColor) || null;
+      this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
     } else {
       this.plusColor = null;
     }

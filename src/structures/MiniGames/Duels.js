@@ -81,20 +81,20 @@ class Duels {
     this.bridge = {
 
       v1: {
-        kills: data.bridge_duel_kills || 0,
-        deaths: data.bridge_duel_deaths || 0,
+        kills: (data.bridge_duel_kills || data.bridge_duel_bridge_kills) || 0,
+        deaths: (data.bridge_duel_deaths || data.bridge_duel_bridge_deaths) || 0,
         wins: data.bridge_duel_wins || 0,
         losses: data.bridge_duel_losses || 0
       },
       v2: {
-        kills: data.bridge_doubles_kills || 0,
-        deaths: data.bridge_doubles_deaths || 0,
+        kills: (data.bridge_doubles_kills || data.bridge_doubles_bridge_kills) || 0,
+        deaths: (data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths) || 0,
         wins: data.bridge_doubles_wins || 0,
         losses: data.bridge_doubles_losses || 0
       },
       v4: {
-        kills: data.bridge_four_kills || 0,
-        deaths: data.bridge_four_deaths || 0,
+        kills: (data.bridge_four_kills || data.bridge_four_bridge_kills) || 0,
+        deaths: (data.bridge_four_deaths || data.bridge_four_bridge_deaths) || 0,
         wins: data.bridge_four_wins || 0,
         losses: data.bridge_four_losses || 0
       }
