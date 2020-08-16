@@ -90,30 +90,30 @@ class ArenaBrawl {
     constructor(data: object);
     public coins: number;
     public mode: {
-      '1v1': {
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number
-      },
-      '2v2': {
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number
-      },
-      '4v4': {
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number
-      }
+        '1v1': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        },
+        '2v2': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        },
+        '4v4': {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number
+        }
     };
 }
 class BlitzSurvivalGames {
@@ -269,6 +269,7 @@ class Guild {
     public tag: string;
     public tagColor: Color;
     public legacyRank: number;
+    public dailyExperience: { day: string, exp: number }[];
     public achievements: {
         winners: number,
         experienceKings: number,

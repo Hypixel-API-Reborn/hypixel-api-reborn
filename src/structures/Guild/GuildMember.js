@@ -6,7 +6,7 @@ class GuildMember {
     this.rank = data.rank;
     this.mutedUntil = data.mutedTill ? data.mutedTill : null;
     var gexp = 0;
-    if (data.expHistory) {
+    if (Object.keys(data.expHistory).length) {
       for (const day in data.expHistory) {
         gexp += data.expHistory[day];
       }
