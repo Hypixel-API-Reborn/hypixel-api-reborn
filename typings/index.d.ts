@@ -343,6 +343,7 @@ class GuildMember {
     public rank: string;
     public weeklyExperience: number;
     public mutedUntil: number;
+    public expHistory: {day: string, exp: number}[];
 }
 class GuildRank {
     constructor(data: object);
