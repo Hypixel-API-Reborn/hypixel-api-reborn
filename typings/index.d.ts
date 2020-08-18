@@ -304,6 +304,7 @@ class Bid {
     public profileId: string;
     public amount: number;
     public timestamp: number;
+    public bidder: string;
 }
 class Product {
     constructor(data: object);
