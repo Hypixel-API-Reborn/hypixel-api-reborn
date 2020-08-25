@@ -10,12 +10,12 @@
 <a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
-<p><strong>This is the only Hypixel API wrapper for Node.js with intellisense support</strong></p>
+<h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
 </div>
 
 # Documentation
 
-• [GitHub Wiki](https://github,com/StavZ/hypixel-api-reborn/wiki)
+<h3><a href="https://github.com/StavZ/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
 
 |          Functions          |       Arguments       |                                                  Returns                                                   |
 | :-------------------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
