@@ -1,3 +1,4 @@
+
 <div align="center">
 <img src="https://i.imgur.com/cDFoQZU.png?1">
 <h1>Hypixel API • Reborn</h1>
@@ -9,32 +10,25 @@
 <a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
+<p><strong>This is the only Hypixel API wrapper for Node.js with intellisense support</strong></p>
 </div>
 
-**Reborned Hypixel API Client for Node.js with many new features**
-
----
-
-• **Easy for use** <br>• Compact Mode<br>• Intellisense Support<br>• [Discord Support](https://discord.gg/NSEBNMM)
-
----
-
 # Documentation
+
+• [GitHub Wiki](https://github,com/StavZ/hypixel-api-reborn/wiki)
 
 |          Functions          |       Arguments       |                                                  Returns                                                   |
 | :-------------------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
 |          getPlayer          |    UUID / Nickname    |                               Promise<[Player](./src/structures/Player.js)>                                |
-|          getGuild           | GID / Name / Nickname |                             Promise<[Guild](./src/structures/Guild/Guild.js)>                              |
-|         getFriends          |    UUID / Nickname    |    Promise<[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)>    |
-|      getWatchdogStats       |                       | Promise<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)> |
+|          getGuild           | player / name / id \| Guild ID / Name / Nickname |                             Promise<[Guild](./src/structures/Guild/Guild.js)>                              |
+|         getFriends          |    UUID / Nickname    |    Promise<Array<[Friend](./src/structures/Friend.js)>>    |
+|      getWatchdogStats       |                       | Promise<[WatchdogStats](./src/structures/Watchdog/Stats.js)> |
 |          getOnline          |                       | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
 |     getSkyblockProfiles     |         UUID          |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
 |     getSkyblockAuctions     |     Number / null     |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 | getSkyblockAuctionsByPlayer |         UUID          |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 |      getSkyblockBazaar      |                       |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
 |          getStatus          |    UUID / Nickname    |                               Promise<[Status](./src/structures/Status.js)>                               |
-
-*Soon will be more functions*
 
 ---
 
@@ -47,270 +41,4 @@ const Hypixel = require('hypixel-api-reborn');
 // API Key (String)
 
 const hypixel = new Hypixel.Client('API-KEY');
-```
-
----
-
-# Examples
-
-### getPlayer
-
-``` js
-// Arguments:
-// UUID / Player Nickname
-hypixel.getPlayer('StavZDev').then(async (player) => {
-    if(!player) return;
-
-    console.log(player.uuid) // -> 52d9a36f66ce4cdf9a56ad9724ae9fb4
-    console.log(player.karma) // -> 4570876
-    console.log(player.rank) // -> [MVP+]
-    console.log(player.level) // -> 138.01 
-    console.log(player.isOnline) // -> false
-})
-
-hypixel.getPlayer('abcde1234').then(async (player) => {
-    if(player.error) {
-        return console.log(player.error) // [hypixel-api-reborn] Player does not exist
-    }
-
-    console.log(player) // -> undefined
-})
-```
-
-### getGuild
-
-``` js
-// Arguments:
-// id / name / player
-// Guild ID / Guild Name / Player Nickname
-hypixel.getGuild('name', 'The Foundation').then(async (guild) => {
-    if(guild.error) {
-        return console.log(guild.error) // [hypixel-api-reborn]
-    }
-
-    console.log(guild.name) // -> The Foundation
-    console.log(guild.description) // -> Foundation ❤ AYS
-    console.log(guild.level) // -> 73
-    console.log(guild.legacyRank) // -> 1
-})
-
-hypixel.getGuild('name', 'abcde1234').then(async (guild) => {
-    if(guild.error) {
-        return console.log(guild.error) // [hypixel-api-reborn]
-    }
-
-    console.log(guild) // -> undefined
-})
-```
-
-### getFriends
-
-``` js
-// Arguments:
-// UUID / Player Nickname
-hypixel.getFriends('StavZDev').then(async (friends) => {
-    console.log(friends.length) // -> 12
-})
-
-hypixel.getFriends('abcde1234').then(async (friends) => {
-
-    if(friends.error) return;
-
-    console.log(friends) // []
-
-})
-```
-
-### getWatchdogStats
-
-``` js
-hypixel.getWatchdogStats().then(async (stats) => {
-    console.log(stats)
-    // -> 
-    WatchdogStats {
-        byWatchdogTotal: 4112671,
-        byWatchDogLastMinute: 1,
-        byWatchdogRollingDay: 6538,
-        byStaffTotal: 1471159,
-        byStaffRollingDay: 1353
-    }
-})
-```
-
-### getOnline
-
-``` js
-hypixel.getOnline().then(async (online) => {
-    console.log(online) 
-    // ->
-    34327
-})
-```
-
-### getSkyblockProfiles
-
-``` js
-// Arguments:
-// UUID
-hypixel.getSkyblockProfiles('52d9a36f66ce4cdf9a56ad9724ae9fb4').then(async (profiles) => {
-    if(!profiles.length) {
-        return 'Player doesn\'t have skyblock profiles'
-    };
-    console.log(profiles); 
-    // -> 
-
-    [
-      SkyblockProfile {
-        profileId: '65feab38f8434631b77d616bb40e1987',
-        profileName: 'Lime',
-        members: [ [SkyblockMember] ]
-      },
-      SkyblockProfile {
-        profileId: '1e585237439b4eb78d53e33c65c8edaf',
-        profileName: 'Cucumber',
-        members: [ [SkyblockMember] ]
-      }
-    ]
-
-    console.log(profile[0])
-    // ->
-        SkyblockProfile {
-            profileId: '65feab38f8434631b77d616bb40e1987',
-            profileName: 'Lime',
-            members: [
-        SkyblockMember {
-          uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
-          firstJoin: 1560352500017,
-          lastSave: 1581701036662,
-          getArmor: [AsyncFunction],
-          fairySouls: 14,
-          skills: [Object], /*(if API:Skills setting is turned OFF will be null)*/
-          collections: [Object], /*(if API:Collection setting is turned OFF will be null)*/
-          getEnderChest: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
-          getInventory: [AsyncFunction], /*(if API:Inventory setting is turned OFF will be null)*/
-          stats: [Object] 
-        }
-      ]
-    }
-
-})
-```
-
-#### getSkyblockAuctions()
-```js
-// Argument:
-// Number / null
-hypixel.getSkyblockAuctions().then((auctions) => {
-    console.log(auctions);
-    all auctions from all pages
-    [
-        Auction {
-            auctionId: '319f8f9459724d7fad4899f6d48e35dd',
-            auctioneerUuid: 'ec0e13e723e941a3822facc80f602c14',
-            coop: [
-                'ec0e13e723e941a3822facc80f602c14',
-                'ac240c4fdbbd4819ac29a372ff1f5d7d',
-                '2699009e36cd4028a7bb82d4c90c3506',
-                '2a19e4c8e13048598fd6ddf4af08b84c'
-            ],
-            auctionStart: 1590730690258,
-            auctionEnd: 1590773890258,
-            item: 'Enchanted Book',
-            itemLore: 'Life Steal III\nHeals for 0.3% of the damage\nyou deal to mobs.\n\nUse this on an item in an Anvil\nto apply it!\n\nCOMMON',
-            startingBid: 70000,
-            highestBid: 0,
-            bids: [],
-            claimed: false,
-            claimedBidders: [],
-            bin: true
-        },
-        ... 27984 more items
-    ]
-})
-hypixel.getSkyblockAuctions(3).then((auctions) => {
-    console.log(auctions);
-    all auctions from 3rd page
-})
-```
-
-#### getSkyblockAuctionsByPlayer()
-```js
-// Argument
-// Player UUID
-hypixel.getSkyblockAuctionsByPlayer('ec0e13e723e941a3822facc80f602c14').then((auctions) => {
-    if(auctions.error) {
-        return console.log(auctions.error) // [hypixel-api-reborn] Malformed UUID!
-    }
-    console.log(auctions);
-    [
-        Auction {
-            auctionId: 'c70a5447b5844e3c832cab716452db68',
-            auctioneerUuid: 'ec0e13e723e941a3822facc80f602c14',
-            coop: [
-                'ec0e13e723e941a3822facc80f602c14',
-                'ac240c4fdbbd4819ac29a372ff1f5d7d',
-                '2699009e36cd4028a7bb82d4c90c3506',
-                '2a19e4c8e13048598fd6ddf4af08b84c'
-            ],
-            auctionStart: 1590730661275,
-            auctionEnd: 1590773861275,
-            item: 'Enchanted Book',
-            itemLore: 'Life Steal III\nHeals for 0.3% of the damage\nyou deal to mobs.\n\nUse this on an item in an Anvil\nto apply it!\n\nCOMMON',
-            startingBid: 70000,
-            highestBid: 0,
-            bids: [],
-            claimed: false,
-            claimedBidders: [],
-            bin: true
-        },
-            ... 4 more items
-    ]
-})
-```
-
-#### getSkyblockBazaar()
-```js
-hypixel.getSkyblockBazaar().then((products) => {
-    console.log(products);
-    [
-        Product {
-            productId: 'INK_SACK:3',
-            sellSummary: [
-                Order { amount: 1413, pricePerUnit: 4.5, orders: 1 },
-                ... 6 more items
-            ],
-            buySummary: [
-                Order { amount: 18032, pricePerUnit: 5.6, orders: 1 },
-                ... 30 more items
-            ],
-            status: {
-                sellPrice: 4.4,
-                buyPrice: 5.67,
-                sellVolume: 336864,
-                buyVolume: 1148638,
-                sellMovingWeek: 8338523,
-                buyMovingWeek: 5820842,
-                sellOrders: 11,
-                buyOrders: 70
-            }
-        },
-        ... 197 more items
-    ]
-})
-```
-
-#### getStatus()
-```js
-hypixel.getStatus('StavZDev').then((status) => {
-    if(status.error) {
-        return console.log(status.error) // [hypixel-api-reborn] Player does not exist
-    }
-    console.log(status);
-    Status {
-         online: false,
-         game: null // Game, 
-         mode: null // String, 
-         map: null // String
-    }
-})
 ```
