@@ -17,18 +17,19 @@
 
 <h3><a href="https://github.com/StavZ/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
 
-|          Functions          |       Arguments       |                                                  Returns                                                   |
-| :-------------------------: | :-------------------: | :--------------------------------------------------------------------------------------------------------: |
-|          getPlayer          |    UUID / Nickname    |                               Promise<[Player](./src/structures/Player.js)>                                |
+|          Functions          |                    Arguments                     |                                                  Returns                                                   |
+| :-------------------------: | :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------: |
+|          getPlayer          |                 UUID / Nickname                  |                               Promise<[Player](./src/structures/Player.js)>                                |
 |          getGuild           | player / name / id \| Guild ID / Name / Nickname |                             Promise<[Guild](./src/structures/Guild/Guild.js)>                              |
-|         getFriends          |    UUID / Nickname    |    Promise<Array<[Friend](./src/structures/Friend.js)>>    |
-|      getWatchdogStats       |                       | Promise<[WatchdogStats](./src/structures/Watchdog/Stats.js)> |
-|          getOnline          |                       | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
-|     getSkyblockProfiles     |         UUID          |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
-|     getSkyblockAuctions     |     Number / null     |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
-| getSkyblockAuctionsByPlayer |         UUID          |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
-|      getSkyblockBazaar      |                       |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
-|          getStatus          |    UUID / Nickname    |                               Promise<[Status](./src/structures/Status.js)>                               |
+|         getFriends          |                 UUID / Nickname                  |                            Promise<Array<[Friend](./src/structures/Friend.js)>>                            |
+|         getBoosters         |                                                  |                      Promise<Array<[Booster](./src/structures/Boosters/Booster.js)>>                       |
+|          getOnline          |                                                  | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
+|      getWatchdogStats       |                                                  |                        Promise<[WatchdogStats](./src/structures/Watchdog/Stats.js)>                        |
+|     getSkyblockProfiles     |                       UUID                       |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
+|     getSkyblockAuctions     |                  Number / null                   |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
+| getSkyblockAuctionsByPlayer |                       UUID                       |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
+|      getSkyblockBazaar      |                                                  |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
+|          getStatus          |                 UUID / Nickname                  |                               Promise<[Status](./src/structures/Status.js)>                                |
 
 ---
 
