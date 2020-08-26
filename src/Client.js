@@ -209,8 +209,7 @@ class Client {
     if (!success) return [];
 
     const auctions = [];
-
-    if (!page || typeof page !== 'number') {
+    if (!page || isNaN(page)) {
       for (let i = 0; i < totalPages; i++) {
         const pageByi = await this._makeRequest(`/skyblock/auctions?page=${i}`);
         pageByi.auctions.forEach(auction => {
