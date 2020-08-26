@@ -29,7 +29,7 @@ module.exports = {
 
   /* Skyblock Bazaar */
   SkyblockBazaarProduct: require('./structures/SkyBlock/Bazzar/Product'),
-  SkyblockBazaarOrder: require('./structures/Skyblock/Bazzar/Order'),
+  SkyblockBazaarOrder: require('./structures/SkyBlock/Bazzar/Order'),
 
   /* Booster */
   Booster: require('./structures/Boosters/Booster'),
