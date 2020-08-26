@@ -48,1026 +48,1026 @@ declare module 'hypixel-api-reborn' {
         public getStatus(query: string): Promise<Status | { error?: string }>;
         public getOnline(): Promise<number | { error?: string }>;
     }
-}
-class Player {
-    constructor(data: object);
-    public nickname: string;
-    public uuid: string;
-    public history: string[];
-    public rank: PLAYER_RANK;
-    public mcVersion: string;
-    public lastLogin: number;
-    public firstLogin: number;
-    public recentlyPlayedGame: Game;
-    public plusColor?: Color;
-    public karma: number;
-    public achievementPoints: number;
-    public totalExperience: number;
-    public level: number;
-    public socialmedia: { name: string, link: string }[];
-    public giftsSent: number;
-    public giftsReceived: number;
-    public isOnline: boolean;
-    public stats?: {
-        skywars?: SkyWars,
-        bedwars?: BedWars,
-        uhc?: UHC,
-        speedUHC?: SpeedUHC,
-        murdermystery?: MurderMystery,
-        duels?: Duels,
-        crazywalls?: CrazyWalls,
-        buildbattle?: BuildBattle,
-        megawalls?: MegaWalls,
-        copsandcrims?: CopsAndCrims,
-        tntgames?: TNTGames,
-        smashheroes?: SmashHeroes,
-        vampirez?: VampireZ,
-        blitzsg?: BlitzSurvivalGames,
-        arena?: ArenaBrawl
+    export class Player {
+        constructor(data: object);
+        public nickname: string;
+        public uuid: string;
+        public history: string[];
+        public rank: PLAYER_RANK;
+        public mcVersion: string;
+        public lastLogin: number;
+        public firstLogin: number;
+        public recentlyPlayedGame: Game;
+        public plusColor?: Color;
+        public karma: number;
+        public achievementPoints: number;
+        public totalExperience: number;
+        public level: number;
+        public socialmedia: { name: string, link: string }[];
+        public giftsSent: number;
+        public giftsReceived: number;
+        public isOnline: boolean;
+        public stats?: {
+            skywars?: SkyWars,
+            bedwars?: BedWars,
+            uhc?: UHC,
+            speedUHC?: SpeedUHC,
+            murdermystery?: MurderMystery,
+            duels?: Duels,
+            crazywalls?: CrazyWalls,
+            buildbattle?: BuildBattle,
+            megawalls?: MegaWalls,
+            copsandcrims?: CopsAndCrims,
+            tntgames?: TNTGames,
+            smashheroes?: SmashHeroes,
+            vampirez?: VampireZ,
+            blitzsg?: BlitzSurvivalGames,
+            arena?: ArenaBrawl
+        }
     }
-}
-class ArenaBrawl {
-    constructor(data: object);
-    public coins: number;
-    public mode: {
-        '1v1': {
+    export class ArenaBrawl {
+        constructor(data: object);
+        public coins: number;
+        public mode: {
+            '1v1': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            '2v2': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            '4v4': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            }
+        };
+    }
+    export class BlitzSurvivalGames {
+        constructor(data: object);
+        public coins: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public winsSolo: number;
+        public winsTeam: number
+        public kitStats: {
+            name: string,
+            games: number,
+            level: number,
+            experience: number,
+            prestige: number,
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number,
+            losses: number,
+            WLRatio: number,
+            timePlayed: number
+        }[];
+    }
+    export class VampireZ {
+        constructor(data: object);
+        public coins: number;
+        public human: {
+            kills: number,
+            deaths: number,
+            KDRatio: number,
+            wins: number
+        };
+        public zombie: {
+            kills: number
+        };
+        public vampire: {
+            kills: number,
+            deaths: number,
+            KDRatio: number
+        };
+    }
+    export class SmashHeroes {
+        constructor(data: object);
+        public coins: number;
+        public level: number;
+        public winstreak: number;
+        public games: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public losses: number;
+        public WLRatio: number;
+        public quits: number;
+        public mode: {
+            '1v1v1v1': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            '2v2': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            '2v2v2': {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            }
+        };
+        public activeClass: string;
+        public heroStats: {
+            name: string,
+            level: number,
+            xp: number,
+            prestige: number,
+            games: number,
             kills: number,
             deaths: number,
             KDRatio: number,
             wins: number,
             losses: number,
             WLRatio: number
-        },
-        '2v2': {
+        }[]
+    }
+    export class TNTGames {
+        constructor(data: object);
+        public coins: number;
+        public winstreak: number;
+        public wins: number;
+        public tntrun: {
+            wins: number,
+            deaths: number,
+            record: number
+        };
+        public pvprun: {
             kills: number,
+            wins: number,
             deaths: number,
             KDRatio: number,
+            record: number
+        };
+        public tnttag: {
+            kills: number,
             wins: number,
-            losses: number,
-            WLRatio: number
-        },
-        '4v4': {
+            speed: number
+        };
+        public bowspleef: {
+            wins: number,
+            tags: number,
+            deaths: number
+        };
+        public wizards: {
+            points: number,
+            class: string,
+            kills: number,
+            assists: number,
+            wins: number,
+            deaths: number,
+            KDRatio: number
+        };
+    }
+    export class Status {
+        constructor(data: object);
+        public online: boolean;
+        public game: Game;
+        public mode?: string;
+        public map?: string
+    }
+    export class Guild {
+        constructor(data: object);
+        private _data: object;
+        public id: string;
+        public name: string;
+        public description: string;
+        public experience: number;
+        public level: number;
+        public createdAt: number;
+        public joinable: boolean;
+        public publiclyListed: boolean;
+        public tag: string;
+        public tagColor: Color;
+        public legacyRank: number;
+        public dailyExperience: { day: string, exp: number }[];
+        public achievements: {
+            winners: number,
+            experienceKings: number,
+            onlinePlayers: number
+        };
+        public chatMuteUntil: number;
+        public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
+        public preferredGames: Game[];
+        public get members(): GuildMember[];
+        public get ranks(): GuildRank[];
+        public get memberUUIDMap(): Map<string, GuildMember>;
+    }
+    export class Auction {
+        constructor(data: object);
+        public auctionId: string;
+        public auctioneerUuid: string;
+        public coop: string[];
+        public auctionStart: number;
+        public auctionEnd: number;
+        public item: string;
+        public itemLore: string;
+        public startingBid: number;
+        public highestBid: number;
+        public bids: Bid[];
+        public claimed: boolean;
+        public claimedBidders: string[];
+        public bin: boolean;
+    }
+    export class Bid {
+        constructor(data: object);
+        public auctionId: string;
+        public profileId: string;
+        public amount: number;
+        public timestamp: number;
+        public bidder: string;
+    }
+    export class Product {
+        constructor(data: object);
+        public productId: string;
+        public sellSummary: Order[];
+        public buySummary: Order[];
+        public status: {
+            sellPrice: number,
+            buyPrice: number,
+            sellVolume: number,
+            buyVolume: number,
+            sellMovingWeek: number,
+            buyMovingWeek: number,
+            sellOrders: number,
+            buyOrders: number
+        };
+    }
+    export class Order {
+        constructor(data: object);
+        public amount: number;
+        public pricePerUnit: number;
+        public orders: number;
+    }
+    export class WatchdogStats {
+        constructor(data: object);
+        public byWatchdogTotal: number;
+        public byWatchDogLastMinute: number;
+        public byWatchdogRollingDay: number;
+        public byStaffTotal: number;
+        public byStaffRollingDay: number;
+    }
+    export class GuildMember {
+        constructor(data: object);
+        public uuid: string;
+        public joinedAt: number;
+        public questParticipation: number;
+        public rank: string;
+        public weeklyExperience: number;
+        public mutedUntil: number;
+        public expHistory: {day: string, exp: number}[];
+    }
+    export class GuildRank {
+        constructor(data: object);
+        public name: string;
+        public default: boolean;
+        public tag: string | null;
+        public createdAt: number;
+        public priority: number;
+    }
+    export class Friend {
+        constructor(data: object);
+        public sender: string;
+        public receiver: string;
+        public friendSince: number;
+    }
+    export class Booster {
+        constructor(data: object);
+        public purchaser: string;
+        public amount: number;
+        public originalLength: number;
+        public remaining: number;
+        public activated: boolean;
+        public game: Game;
+    }
+    export class SkyblockProfile {
+        constructor(data: object);
+        public profileId: string;
+        public profileName: string;
+        public members: SkyblockMember[];
+    }
+    export class SkyblockMember {
+        constructor(data: object);
+        public uuid: string;
+        public firstJoin: number;
+        public lastSave: number;
+        public fairySouls: number;
+        public skills: {
+            taming: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            farming: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            mining: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            combat: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            foraging: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            fishing: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            enchanting: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            alchemy: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            carpentry: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            },
+            runecrafting: {
+                xp: number,
+                level: number,
+                maxLevel: number,
+                xpCurrent: number,
+                xpForNext: number,
+                progress: number
+            }
+        };
+        public collections: object;
+        public stats: {
+            purse: number,
             kills: number,
             deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        }
-    };
-}
-class BlitzSurvivalGames {
-    constructor(data: object);
-    public coins: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public winsSolo: number;
-    public winsTeam: number
-    public kitStats: {
-        name: string,
-        games: number,
-        level: number,
-        experience: number,
-        prestige: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
-        timePlayed: number
-    }[];
-}
-class VampireZ {
-    constructor(data: object);
-    public coins: number;
-    public human: {
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number
-    };
-    public zombie: {
-        kills: number
-    };
-    public vampire: {
-        kills: number,
-        deaths: number,
-        KDRatio: number
-    };
-}
-class SmashHeroes {
-    constructor(data: object);
-    public coins: number;
-    public level: number;
-    public winstreak: number;
-    public games: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public losses: number;
-    public WLRatio: number;
-    public quits: number;
-    public mode: {
-        '1v1v1v1': {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        },
-        '2v2': {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        },
-        '2v2v2': {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        }
-    };
-    public activeClass: string;
-    public heroStats: {
-        name: string,
-        level: number,
-        xp: number,
-        prestige: number,
-        games: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number
-    }[]
-}
-class TNTGames {
-    constructor(data: object);
-    public coins: number;
-    public winstreak: number;
-    public wins: number;
-    public tntrun: {
-        wins: number,
-        deaths: number,
-        record: number
-    };
-    public pvprun: {
-        kills: number,
-        wins: number,
-        deaths: number,
-        KDRatio: number,
-        record: number
-    };
-    public tnttag: {
-        kills: number,
-        wins: number,
-        speed: number
-    };
-    public bowspleef: {
-        wins: number,
-        tags: number,
-        deaths: number
-    };
-    public wizards: {
-        points: number,
-        class: string,
-        kills: number,
-        assists: number,
-        wins: number,
-        deaths: number,
-        KDRatio: number
-    };
-}
-class Status {
-    constructor(data: object);
-    public online: boolean;
-    public game: Game;
-    public mode?: string;
-    public map?: string
-}
-class Guild {
-    constructor(data: object);
-    private _data: object;
-    public id: string;
-    public name: string;
-    public description: string;
-    public experience: number;
-    public level: number;
-    public createdAt: number;
-    public joinable: boolean;
-    public publiclyListed: boolean;
-    public tag: string;
-    public tagColor: Color;
-    public legacyRank: number;
-    public dailyExperience: { day: string, exp: number }[];
-    public achievements: {
-        winners: number,
-        experienceKings: number,
-        onlinePlayers: number
-    };
-    public chatMuteUntil: number;
-    public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
-    public preferredGames: Game[];
-    public get members(): GuildMember[];
-    public get ranks(): GuildRank[];
-    public get memberUUIDMap(): Map<string, GuildMember>;
-}
-class Auction {
-    constructor(data: object);
-    public auctionId: string;
-    public auctioneerUuid: string;
-    public coop: string[];
-    public auctionStart: number;
-    public auctionEnd: number;
-    public item: string;
-    public itemLore: string;
-    public startingBid: number;
-    public highestBid: number;
-    public bids: Bid[];
-    public claimed: boolean;
-    public claimedBidders: string[];
-    public bin: boolean;
-}
-class Bid {
-    constructor(data: object);
-    public auctionId: string;
-    public profileId: string;
-    public amount: number;
-    public timestamp: number;
-    public bidder: string;
-}
-class Product {
-    constructor(data: object);
-    public productId: string;
-    public sellSummary: Order[];
-    public buySummary: Order[];
-    public status: {
-        sellPrice: number,
-        buyPrice: number,
-        sellVolume: number,
-        buyVolume: number,
-        sellMovingWeek: number,
-        buyMovingWeek: number,
-        sellOrders: number,
-        buyOrders: number
-    };
-}
-class Order {
-    constructor(data: object);
-    public amount: number;
-    public pricePerUnit: number;
-    public orders: number;
-}
-class WatchdogStats {
-    constructor(data: object);
-    public byWatchdogTotal: number;
-    public byWatchDogLastMinute: number;
-    public byWatchdogRollingDay: number;
-    public byStaffTotal: number;
-    public byStaffRollingDay: number;
-}
-class GuildMember {
-    constructor(data: object);
-    public uuid: string;
-    public joinedAt: number;
-    public questParticipation: number;
-    public rank: string;
-    public weeklyExperience: number;
-    public mutedUntil: number;
-    public expHistory: {day: string, exp: number}[];
-}
-class GuildRank {
-    constructor(data: object);
-    public name: string;
-    public default: boolean;
-    public tag: string | null;
-    public createdAt: number;
-    public priority: number;
-}
-class Friend {
-    constructor(data: object);
-    public sender: string;
-    public receiver: string;
-    public friendSince: number;
-}
-class Booster {
-    constructor(data: object);
-    public purchaser: string;
-    public amount: number;
-    public originalLength: number;
-    public remaining: number;
-    public activated: boolean;
-    public game: Game;
-}
-class SkyblockProfile {
-    constructor(data: object);
-    public profileId: string;
-    public profileName: string;
-    public members: SkyblockMember[];
-}
-class SkyblockMember {
-    constructor(data: object);
-    public uuid: string;
-    public firstJoin: number;
-    public lastSave: number;
-    public fairySouls: number;
-    public skills: {
-        taming: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        farming: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        mining: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        combat: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        foraging: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        fishing: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        enchanting: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        alchemy: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        carpentry: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        },
-        runecrafting: {
-            xp: number,
-            level: number,
-            maxLevel: number,
-            xpCurrent: number,
-            xpForNext: number,
-            progress: number
-        }
-    };
-    public collections: object;
-    public stats: {
-        purse: number,
-        kills: number,
-        deaths: number,
-        highest_crit_damage: number,
-        highest_critical_damage: number,
-        gifts_given: number,
-        gifts_received: number
-    };
-    public getInventory(): Promise<Item[]>;
-    public getEnderChest(): Promise<Item[]>;
-    public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>
-}
-class Color {
-    constructor(color: string)
-    public toString(): string;
-    public toHex(): string;
-    public toName(): string;
-}
-class Armor {
-    constructor(data: object);
-    public itemId: number;
-    public count: number;
-    public name: string;
-    public lore: string;
-    public loreForEmbed: string;
-    public enchantments: object;
-    public anvilUses: number;
-    public damage: number;
-}
-class Item {
-    constructor(data: object);
-    public itemId: number;
-    public count: number;
-    public name: string;
-    public lore: string;
-    public loreForEmbed: string;
-    public enchantments: object;
-    public anvilUses: number;
-    public damage: number;
-}
-class Game {
-    constructor(game: string | number);
-    public toString(): GAME_NAME;
-    public get code(): GAME_CODE;
-    public get id(): GAME_ID;
-}
-class SkyWars {
-    constructor(data: object);
-    public coins: number;
-    public souls: number;
-    public tokens: number;
-    public winStreak: number;
-    public kills: number;
-    public losses: number;
-    public deaths: number;
-    public wins: number;
-    public lootChests: number;
-    public openedLootChests: number;
-    public heads: number;
-    public level: number;
-    public levelFormatted: string;
-    public prestige: SKYWARS_PRESTIGE;
-    public prestigeIcon: SKYWARS_PRESTIGE_ICON;
-    public playedGames: number;
-    public KDRatio: number;
-    public WLRatio: number;
-    public solo: {
-        total: {
+            highest_crit_damage: number,
+            highest_critical_damage: number,
+            gifts_given: number,
+            gifts_received: number
+        };
+        public getInventory(): Promise<Item[]>;
+        public getEnderChest(): Promise<Item[]>;
+        public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>
+    }
+    export class Color {
+        constructor(color: string)
+        public toString(): string;
+        public toHex(): string;
+        public toName(): string;
+    }
+    export class Armor {
+        constructor(data: object);
+        public itemId: number;
+        public count: number;
+        public name: string;
+        public lore: string;
+        public loreForEmbed: string;
+        public enchantments: object;
+        public anvilUses: number;
+        public damage: number;
+    }
+    export class Item {
+        constructor(data: object);
+        public itemId: number;
+        public count: number;
+        public name: string;
+        public lore: string;
+        public loreForEmbed: string;
+        public enchantments: object;
+        public anvilUses: number;
+        public damage: number;
+    }
+    export class Game {
+        constructor(game: string | number);
+        public toString(): GAME_NAME;
+        public get code(): GAME_CODE;
+        public get id(): GAME_ID;
+    }
+    export class SkyWars {
+        constructor(data: object);
+        public coins: number;
+        public souls: number;
+        public tokens: number;
+        public winStreak: number;
+        public kills: number;
+        public losses: number;
+        public deaths: number;
+        public wins: number;
+        public lootChests: number;
+        public openedLootChests: number;
+        public heads: number;
+        public level: number;
+        public levelFormatted: string;
+        public prestige: SKYWARS_PRESTIGE;
+        public prestigeIcon: SKYWARS_PRESTIGE_ICON;
+        public playedGames: number;
+        public KDRatio: number;
+        public WLRatio: number;
+        public solo: {
+            total: {
+                played: number,
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                winstreak: number,
+                killstreak: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            normal: {
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            insane: {
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            }
+        };
+        public team: {
+            total: {
+                played: number,
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            normal: {
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            insane: {
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            }
+        };
+        public ranked: {
             played: number,
             kills: number,
             wins: number,
             losses: number,
             deaths: number,
+            KDRatio: number,
+            WLRatio: number
+        };
+        public mega: {
+            played: number,
+            kills: number,
+            wins: number,
+            losses: number,
+            deaths: number,
+            KDRatio: number,
+            WLRatio: number
+        };
+        public lab: {
+            played: number,
+            kills: number,
+            wins: number,
+            losses: number,
+            deaths: number,
+            KDRatio: number,
+            WLRatio: number
+        };
+    }
+    export class CopsAndCrims {
+        constructor(data: object);
+        public coins: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public roundWins: number;
+        public shotsFired: number;
+        public headshotKills: number;
+        public bombsDefused: number;
+        public bombsPlanted: number;
+        public killsAsCrim: number;
+        public killsAsCop: number;
+        public deathmatch: {
+            kills: number,
+            deaths: number,
+            killsAsCrim: number,
+            killsAsCop: number
+        }
+    }
+    export class BedWars {
+        constructor(data: object);
+        public coins: number;
+        public level: number;
+        public prestige: BEDWARS_PRESTIGE;
+        public playedGames: number;
+        public wins: number;
+        public winstreak: number;
+        public kills: number;
+        public finalKills: number;
+        public losses: number;
+        public deaths: number;
+        public finalDeaths: number;
+        public collectedItemsTotal: {
+            iron: number,
+            gold: number,
+            diamond: number,
+            emerald: number
+        };
+        public beds: {
+            lost: number,
+            broken: number,
+            BLRatio: number
+        };
+        public avg: {
+            finalKills: number,
+            kills: number,
+            bedsBroken: number
+        };
+        public KDRatio: number;
+        public finalKDRatio: number;
+        public WLRatio: number;
+        public solo: {
             winstreak: number,
-            killstreak: number,
-            KDRatio: number,
-            WLRatio: number
-        },
-        normal: {
+            playedGames: number,
             kills: number,
+            deaths: number,
             wins: number,
             losses: number,
-            deaths: number,
+            finalKills: number,
+            finalDeaths: number,
+            beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+            },
+            avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+            },
             KDRatio: number,
-            WLRatio: number
-        },
-        insane: {
+            WLRatio: number,
+            finalKDRatio: number,
+        };
+        public doubles: {
+            winstreak: number,
+            playedGames: number,
             kills: number,
+            deaths: number,
             wins: number,
             losses: number,
-            deaths: number,
+            finalKills: number,
+            finalDeaths: number,
+            beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+            },
+            avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+            },
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            finalKDRatio: number,
+        };
+        public three: {
+            winstreak: number,
+            playedGames: number,
+            kills: number,
+            deaths: number,
+            wins: number,
+            losses: number,
+            finalKills: number,
+            finalDeaths: number,
+            beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+            },
+            avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+            },
+            KDRatio: number,
+            WLRatio: number,
+            finalKDRatio: number,
+        };
+        public four: {
+            winstreak: number,
+            playedGames: number,
+            kills: number,
+            deaths: number,
+            wins: number,
+            losses: number,
+            finalKills: number,
+            finalDeaths: number,
+            beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+            },
+            avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+            },
+            KDRatio: number,
+            WLRatio: number,
+            finalKDRatio: number,
+        };
+        public fourV2: {
+            winstreak: number,
+            playedGames: number,
+            kills: number,
+            deaths: number,
+            wins: number,
+            losses: number,
+            finalKills: number,
+            finalDeaths: number,
+            beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+            },
+            avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+            },
+            KDRatio: number,
+            WLRatio: number,
+            finalKDRatio: number,
         }
-    };
-    public team: {
-        total: {
-            played: number,
-            kills: number,
-            wins: number,
-            losses: number,
-            deaths: number,
-            KDRatio: number,
-            WLRatio: number
-        },
-        normal: {
-            kills: number,
-            wins: number,
-            losses: number,
-            deaths: number,
-            KDRatio: number,
-            WLRatio: number
-        },
-        insane: {
-            kills: number,
-            wins: number,
-            losses: number,
-            deaths: number,
-            KDRatio: number,
-            WLRatio: number
-        }
-    };
-    public ranked: {
-        played: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
-        WLRatio: number
-    };
-    public mega: {
-        played: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
-        WLRatio: number
-    };
-    public lab: {
-        played: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
-        WLRatio: number
-    };
-}
-class CopsAndCrims {
-    constructor(data: object);
-    public coins: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public roundWins: number;
-    public shotsFired: number;
-    public headshotKills: number;
-    public bombsDefused: number;
-    public bombsPlanted: number;
-    public killsAsCrim: number;
-    public killsAsCop: number;
-    public deathmatch: {
-        kills: number,
-        deaths: number,
-        killsAsCrim: number,
-        killsAsCop: number
     }
-}
-class BedWars {
-    constructor(data: object);
-    public coins: number;
-    public level: number;
-    public prestige: BEDWARS_PRESTIGE;
-    public playedGames: number;
-    public wins: number;
-    public winstreak: number;
-    public kills: number;
-    public finalKills: number;
-    public losses: number;
-    public deaths: number;
-    public finalDeaths: number;
-    public collectedItemsTotal: {
-        iron: number,
-        gold: number,
-        diamond: number,
-        emerald: number
-    };
-    public beds: {
-        lost: number,
-        broken: number,
-        BLRatio: number
-    };
-    public avg: {
-        finalKills: number,
-        kills: number,
-        bedsBroken: number
-    };
-    public KDRatio: number;
-    public finalKDRatio: number;
-    public WLRatio: number;
-    public solo: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
-        beds: {
-            broken: number,
-            lost: number,
-            BLRatio: number
-        },
-        avg: {
+    export class UHC {
+        constructor(data: object);
+        public coins: number;
+        public score: number;
+        public kills: number;
+        public deaths: number;
+        public wins: number;
+        public headsEaten: number;
+        public starLevel: number;
+        public solo: {
+            wins: number,
             kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
-        KDRatio: number,
-        WLRatio: number,
-        finalKDRatio: number,
-    };
-    public doubles: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
-        beds: {
-            broken: number,
-            lost: number,
-            BLRatio: number
-        },
-        avg: {
+            deaths: number,
+            headsEaten: number
+        };
+        public team: {
+            wins: number,
             kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
-        KDRatio: number,
-        WLRatio: number,
-        finalKDRatio: number,
-    };
-    public three: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
-        beds: {
-            broken: number,
-            lost: number,
-            BLRatio: number
-        },
-        avg: {
+            deaths: number,
+            headsEaten: number
+        };
+        public redVSblue: {
+            wins: number,
             kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
-        KDRatio: number,
-        WLRatio: number,
-        finalKDRatio: number,
-    };
-    public four: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
-        beds: {
-            broken: number,
-            lost: number,
-            BLRatio: number
-        },
-        avg: {
+            deaths: number,
+            headsEaten: number
+        };
+        public noDiamond: {
+            wins: number,
             kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
-        KDRatio: number,
-        WLRatio: number,
-        finalKDRatio: number,
-    };
-    public fourV2: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
-        beds: {
-            broken: number,
-            lost: number,
-            BLRatio: number
-        },
-        avg: {
+            deaths: number,
+            headsEaten: number
+        };
+        public brawl: {
+            wins: number,
             kills: number,
-            finalKills: number,
-            bedsBroken: number
-        },
-        KDRatio: number,
-        WLRatio: number,
-        finalKDRatio: number,
+            deaths: number,
+            headsEaten: number
+        };
+        public brawlSolo: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        public brawlDuo: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
     }
-}
-class UHC {
-    constructor(data: object);
-    public coins: number;
-    public score: number;
-    public kills: number;
-    public deaths: number;
-    public wins: number;
-    public headsEaten: number;
-    public starLevel: number;
-    public solo: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public team: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public redVSblue: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public noDiamond: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public brawl: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public brawlSolo: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-    public brawlDuo: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        headsEaten: number
-    };
-}
-class SpeedUHC {
-    constructor(data: object);
-    public coins: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public losses: number;
-    public WLRatio: number;
-    public playedGames: number;
-    public winstreak: number;
-}
-class MurderMystery {
-    constructor(data: object);
-    public coins: number;
-    public playedGames: number;
-    public kills: number;
-    public deaths: number;
-    public winsAsMurderer: number;
-    public winsAsDetective: number;
-    public wins: number;
-    public assassins: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        playedGames: number
-    };
-    public doubleUp: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        playedGames: number
-    };
-    public infection: {
-        wins: number,
-        kills: number,
-        deaths: number,
-        playedGames: number
-    };
-}
-class Duels {
-    public coins: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public losses: number;
-    public WLRatio: number;
-    public playedGames: number;
-    public uhc: {
-        v1: {
+    export class SpeedUHC {
+        constructor(data: object);
+        public coins: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public losses: number;
+        public WLRatio: number;
+        public playedGames: number;
+        public winstreak: number;
+    }
+    export class MurderMystery {
+        constructor(data: object);
+        public coins: number;
+        public playedGames: number;
+        public kills: number;
+        public deaths: number;
+        public winsAsMurderer: number;
+        public winsAsDetective: number;
+        public wins: number;
+        public assassins: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            playedGames: number
+        };
+        public doubleUp: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            playedGames: number
+        };
+        public infection: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            playedGames: number
+        };
+    }
+    export class Duels {
+        public coins: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public losses: number;
+        public WLRatio: number;
+        public playedGames: number;
+        public uhc: {
+            v1: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v2: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v4: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            }
+        };
+        public op: {
+            v1: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v2: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            }
+        };
+        public skywars: {
+            v1: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v2: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            }
+        };
+        public sumo: {
             kills: number,
             deaths: number,
             wins: number,
             losses: number
-        },
-        v2: {
+        };
+        public classic: {
             kills: number,
             deaths: number,
             wins: number,
             losses: number
-        },
-        v4: {
+        };
+        public combo: {
             kills: number,
             deaths: number,
             wins: number,
             losses: number
-        }
-    };
-    public op: {
-        v1: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        v2: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        }
-    };
-    public skywars: {
-        v1: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        v2: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        }
-    };
-    public sumo: {
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number
-    };
-    public classic: {
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number
-    };
-    public combo: {
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number
-    };
-    public bridge: {
-        v1: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        v2: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        v4: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        }
-    };
-}
-class CrazyWalls {
-    constructor(data: object);
-    public coins: number;
-    public winstreak: number;
-    public kills: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public losses: number;
-    public WLRatio: number;
-    public solo: {
-        normal: {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        },
-        lucky: {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        }
-    };
-    public team: {
-        normal: {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        },
-        lucky: {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
-        }
-    };
-}
-class BuildBattle {
-    constructor(data: object);
-    public score: number;
-    public playedGames: number;
-    public coins: number;
-    public totalVotes: number;
-    public winsTotal: number;
-    public wins: {
-        solo: number,
-        team: number,
-        pro: number,
-        gtb: number
-    };
-}
-class MegaWalls {
-    constructor(data: object)
-    public selectedClass: string;
-    public coins: number;
-    public kills: number;
-    public assists: number;
-    public deaths: number;
-    public KDRatio: number;
-    public wins: number;
-    public losses: number;
-    public WLRatio: number;
-    public finalKills: number;
-    public finalAssists: number;
-    public finalDeaths: number;
-    public playedGames: number;
-    public witherDamage: number;
-    public defenderKills: number;
-    public mode: {
-        normal: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        faceoff: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        },
-        casualBrawl: {
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number
-        }
-    };
+        };
+        public bridge: {
+            v1: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v2: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            v4: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            }
+        };
+    }
+    export class CrazyWalls {
+        constructor(data: object);
+        public coins: number;
+        public winstreak: number;
+        public kills: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public losses: number;
+        public WLRatio: number;
+        public solo: {
+            normal: {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            lucky: {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            }
+        };
+        public team: {
+            normal: {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            },
+            lucky: {
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number
+            }
+        };
+    }
+    export class BuildBattle {
+        constructor(data: object);
+        public score: number;
+        public playedGames: number;
+        public coins: number;
+        public totalVotes: number;
+        public winsTotal: number;
+        public wins: {
+            solo: number,
+            team: number,
+            pro: number,
+            gtb: number
+        };
+    }
+    export class MegaWalls {
+        constructor(data: object)
+        public selectedClass: string;
+        public coins: number;
+        public kills: number;
+        public assists: number;
+        public deaths: number;
+        public KDRatio: number;
+        public wins: number;
+        public losses: number;
+        public WLRatio: number;
+        public finalKills: number;
+        public finalAssists: number;
+        public finalDeaths: number;
+        public playedGames: number;
+        public witherDamage: number;
+        public defenderKills: number;
+        public mode: {
+            normal: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            faceoff: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            },
+            casualBrawl: {
+                kills: number,
+                deaths: number,
+                wins: number,
+                losses: number
+            }
+        };
+    }
 }
