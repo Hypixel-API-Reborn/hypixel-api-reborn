@@ -34,17 +34,13 @@ class Client {
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
       if (!uuid) {
-        return {
-          error: Errors.PLAYER_DOES_NOT_EXIST
-        };
+        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
       }
       query = uuid;
     }
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     return new Player(res.player);
@@ -57,9 +53,7 @@ class Client {
     switch (searchParameter) {
       case 'id': {
         if (!isGuildID(query)) {
-          return {
-            error: Errors.INVALID_GUILD_ID
-          };
+          throw new Error(Errors.INVALID_GUILD_ID);
         }
         res = await this._makeRequest(`/guild?id=${query}`);
         break;
@@ -72,9 +66,7 @@ class Client {
         if (!isUUID(query)) {
           const uuid = await getUuid(query);
           if (!uuid) {
-            return {
-              error: Errors.PLAYER_DOES_NOT_EXIST
-            };
+            throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
           };
           query = uuid;
         }
@@ -82,22 +74,16 @@ class Client {
         break;
       }
       default: {
-        return {
-          error: Errors.INVALID_GUILD_SEARCH_PARAMETER
-        };
+        throw new Error(Errors.INVALID_GUILD_SEARCH_PARAMETER);
       }
     }
 
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     if (!res.guild) {
-      return {
-        error: Errors.GUILD_DOES_NOT_EXIST
-      };
+      throw new Error(Errors.GUILD_DOES_NOT_EXIST);
     }
 
     return new Guild(res.guild);
@@ -110,18 +96,14 @@ class Client {
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
       if (!uuid) {
-        return {
-          error: Errors.PLAYER_DOES_NOT_EXIST
-        };
+        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
       }
       query = uuid;
     }
 
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     if (res.records.length & res.records.length > 0) {
@@ -136,9 +118,7 @@ class Client {
 
     const res = await this._makeRequest('/watchdogstats');
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     return new WatchdogStats(res);
@@ -149,9 +129,7 @@ class Client {
 
     const res = await this._makeRequest('/boosters');
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     return res.boosters.length ? res.boosters.map(b => new Booster(b)) : [];
@@ -162,21 +140,15 @@ class Client {
     const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
 
     if (!isUUID(uuid)) {
-      return {
-        error: Errors.MALFORMED_UUID
-      };
+      throw new Error(Errors.MALFORMED_UUID);
     };
 
     let sbProfile = await this._makeRequest(`/player?uuid=${uuid}`);
     if (!sbProfile.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, sbProfile.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, sbProfile.cause));
     }
     if (!sbProfile.player) {
-      return {
-        error: Errors.PLAYER_DOES_NOT_EXIST
-      };
+      throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
     }
     if (!('SkyBlock' in sbProfile.player.stats)) return [];
     sbProfile = sbProfile.player.stats.SkyBlock.profiles;
@@ -233,16 +205,12 @@ class Client {
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
 
     if (!isUUID(uuid)) {
-      return {
-        error: Errors.MALFORMED_UUID
-      };
+      throw new Error(Errors.MALFORMED_UUID);
     }
 
     const res = await this._makeRequest(`/skyblock/auction?player=${uuid}`);
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     return res.auctions.length ? res.auctions.map(a => new Auction(a)) : [];
@@ -253,9 +221,7 @@ class Client {
 
     const res = await this._makeRequest('/skyblock/bazaar');
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
     const productsKeys = Object.keys(res.products);
     const products = [];
@@ -272,17 +238,13 @@ class Client {
     if (!isUUID(query)) {
       const uuid = await getUuid(query);
       if (!uuid) {
-        return {
-          error: Errors.PLAYER_DOES_NOT_EXIST
-        };
+        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
       }
       query = uuid;
     }
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
     return new Status(res.session);
   }
@@ -290,9 +252,7 @@ class Client {
   async getOnline () {
     const res = await this._makeRequest('/playerCount');
     if (!res.success) {
-      return {
-        error: Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause)
-      };
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
 
     return res.playerCount;
