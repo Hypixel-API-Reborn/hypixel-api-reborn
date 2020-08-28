@@ -17,36 +17,36 @@ declare module 'hypixel-api-reborn' {
         /**
          * @param query player nickname or uuid
          */
-        public getPlayer(query: string): Promise<Player | { error?: string }>;
+        public getPlayer(query: string): Promise<Player>;
         /**
          * @param searchParameter 'name', 'player' or 'id'
          * @param query guild name, player nickname or guild id
          */
-        public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild | { error?: string }>;
+        public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
          * @param query player nickname or uuid
          */
-        public getFriends(query: string): Promise<Friend[] | { error?: string }>;
-        public getWatchdogStats(): Promise<WatchdogStats | { error?: string }>;
-        public getBoosters(): Promise<Booster[] | { error?: string }>;
+        public getFriends(query: string): Promise<Friend[]>;
+        public getWatchdogStats(): Promise<WatchdogStats>;
+        public getBoosters(): Promise<Booster[]>;
         /**
          * @param uuid player uuid
          */
-        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[] | { error?: string }>;
+        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[]>;
         /**
          * @param page number (not required)
          */
-        public getSkyblockAuctions(page?: number): Promise<Auction[] | { error?: string }>;
+        public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         /**
          * @param uuid player uuid
          */
-        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[] | { error: string }>;
-        public getSkyblockBazaar(): Promise<Product[] | { error?: string }>;
+        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[]>;
+        public getSkyblockBazaar(): Promise<Product[]>;
         /**
          * @param query player nickname or uuid
          */
-        public getStatus(query: string): Promise<Status | { error?: string }>;
-        public getOnline(): Promise<number | { error?: string }>;
+        public getStatus(query: string): Promise<Status>;
+        public getOnline(): Promise<number>;
     }
     export class Player {
         constructor(data: object);
