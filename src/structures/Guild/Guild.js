@@ -56,8 +56,8 @@ class Guild {
    * @returns {GuildRank}
    */
   getRankByPriority (priority) {
-    if(!this._data.ranks || !this._data.ranks.find(r => r.priority === priority)) return null;
-    return new GuildRank(this._data.ranks.find(r => r.priority === priority))
+    if (!this._data.ranks || !this._data.ranks.find(r => r.priority === priority)) return null;
+    return new GuildRank(this._data.ranks.find(r => r.priority === priority));
   }
 }
 /**
