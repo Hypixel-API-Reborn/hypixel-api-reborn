@@ -49,6 +49,16 @@ class Guild {
   get ranks () {
     return this._data.ranks ? this._data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : null;
   }
+
+  /**
+   * @author linearaccelerator
+   * @param {number} priority - The priority of the guild rank
+   * @returns {GuildRank}
+   */
+  getRankByPriority (priority) {
+    if(!this._data.ranks || !this._data.ranks.find(r => r.priority === priority)) return null;
+    return new GuildRank(this._data.ranks.find(r => r.priority === priority))
+  }
 }
 /**
  *
