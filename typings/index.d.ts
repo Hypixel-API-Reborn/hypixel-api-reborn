@@ -326,6 +326,7 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public amount: number;
         public pricePerUnit: number;
+        public totalPrice: number;
         public orders: number;
     }
     export class WatchdogStats {
