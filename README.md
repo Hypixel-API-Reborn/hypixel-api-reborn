@@ -30,6 +30,7 @@
 | getSkyblockAuctionsByPlayer |                       UUID                       |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 |      getSkyblockBazaar      |                                                  |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
 |          getStatus          |                 UUID / Nickname                  |                               Promise<[Status](./src/structures/Status.js)>                                |
+|         getKeyInfo          |                                                  |                              Promise<[KeyInfo](./src/structures/KeyInfo.js)>                               |
 
 ---
 
