@@ -8,6 +8,7 @@ module.exports = {
   Friend: require('./structures/Friend'),
   Status: require('./structures/Status'),
   Color: require('./structures/Color'),
+  KeyInfo: require('./structures/KeyInfo'),
 
   /* Watchdog */
   WatchdogStats: require('./structures/Watchdog/Stats'),

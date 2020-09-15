@@ -47,6 +47,7 @@ declare module 'hypixel-api-reborn' {
          */
         public getStatus(query: string): Promise<Status>;
         public getOnline(): Promise<number>;
+        public getKeyInfo(): Promise<KeyInfo>;
     }
     export class Player {
         constructor(data: object);
@@ -84,6 +85,14 @@ declare module 'hypixel-api-reborn' {
             blitzsg?: BlitzSurvivalGames,
             arena?: ArenaBrawl
         }
+    }
+    export class KeyInfo {
+        constructor(data: object);
+        public key: string;
+        public owner: string;
+        public limitPerMinute: number;
+        public requestsInPastMin: number;
+        public totalRequests: number;
     }
     export class ArenaBrawl {
         constructor(data: object);
