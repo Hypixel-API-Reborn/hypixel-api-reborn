@@ -72,6 +72,30 @@ module.exports = {
       if (_level > level) { level = _level; }
     }
 
+    return {
+      xp: slayer.xp || 0,
+      tier1: slayer.boss_kills_tier_0 || 0,
+      tier2: slayer.boss_kills_tier_1 || 0,
+      tier3: slayer.boss_kills_tier_2 || 0,
+      tier4: slayer.boss_kills_tier_3 || 0,
+      level: level
+    };
+  },
+
+  getSlayerLevelByXP (xp) {
+    const { slayer_xp } = constants;
+    const maxLevel = Math.max(...Object.keys(slayer_xp));
+
+    let level = 0;
+
+    for (let x = 1; x <= maxLevel; x++) {
+      if (slayer_xp[x] > xp) {
+        break;
+      } else {
+        level = x;
+      }
+    }
+
     return level;
   },
 

@@ -87,7 +87,8 @@ module.exports = {
     5: 5000,
     6: 20000,
     7: 100000,
-    8: 400000
+    8: 400000,
+    9: 1000000
   },
 
   base_stats: {
@@ -370,7 +371,7 @@ module.exports = {
 
     combat_skill: {
       1: {
-        crit_chance: 1,
+        crit_chance: 0.5,
         damage_increase: 0.04
       }
     },
