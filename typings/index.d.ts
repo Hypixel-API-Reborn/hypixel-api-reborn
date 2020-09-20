@@ -473,6 +473,32 @@ declare module 'hypixel-api-reborn' {
                 progress: number
             }
         };
+        public slayer: {
+            zombie: {
+                xp: number,
+                tier1: number,
+                tier2: number,
+                tier3: number,
+                tier4: number,
+                level: number
+            },
+            spider: {
+                xp: number,
+                tier1: number,
+                tier2: number,
+                tier3: number,
+                tier4: number,
+                level: number
+            },
+            wolf: {
+                xp: number,
+                tier1: number,
+                tier2: number,
+                tier3: number,
+                tier4: number,
+                level: number
+            }
+        };
         public collections: object;
         public stats: {
             purse: number,

@@ -1,4 +1,4 @@
-const { decode, getLevelByXp } = require('../../utils/SkyblockUtils');
+const { decode, getLevelByXp, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const Armor = require('./SkyblockArmor');
 const Item = require('./SkyblockItem');
 const objectPath = require('object-path');
@@ -21,6 +21,7 @@ class SkyblockMember {
     };
     this.fairySouls = data.m.fairy_souls_collected || 0;
     this.skills = getSkills(data.m);
+    this.slayer = getSlayer(data.m);
     this.collections = data.m.collection ? data.m.collection : null;
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
@@ -93,6 +94,21 @@ function getSkills (data) {
     runecrafting: getLevelByXp(data.experience_skill_runecrafting, true)
   };
   return skills;
+}
+/**
+ * @param {object} data
+ *
+ * @return {object}
+ */
+function getSlayer (data) {
+  if (!objectPath.has(data, 'slayer_bosses')) {
+    return null;
+  }
+  return {
+    zombie: getSlayerLevel(data.slayer_bosses.zombie),
+    spider: getSlayerLevel(data.slayer_bosses.spider),
+    wolf: getSlayerLevel(data.slayer_bosses.wolf)
+  };
 }
 
 module.exports = SkyblockMember;
