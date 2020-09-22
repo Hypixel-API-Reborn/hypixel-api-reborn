@@ -390,6 +390,7 @@ declare module 'hypixel-api-reborn' {
         public uuid: string;
         public firstJoin: number;
         public lastSave: number;
+        public lastDeath: number;
         public fairySouls: number;
         public skills: {
             taming: {
@@ -511,7 +512,7 @@ declare module 'hypixel-api-reborn' {
         };
         public getInventory(): Promise<Item[]>;
         public getEnderChest(): Promise<Item[]>;
-        public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>
+        public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>;
     }
     export class Color {
         constructor(color: string)

@@ -8,6 +8,7 @@ class SkyblockMember {
     this.uuid = data.uuid;
     this.firstJoin = data.m.first_join;
     this.lastSave = data.m.last_save;
+    this.lastDeath = data.m.last_death;
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
       const decoded = await decode(base64.data);

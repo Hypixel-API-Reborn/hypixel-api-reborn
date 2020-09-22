@@ -50,5 +50,8 @@ module.exports = {
   SpeedUHC: require('./structures/MiniGames/SpeedUHC'),
   TNTGames: require('./structures/MiniGames/TNTGames'),
   UHC: require('./structures/MiniGames/UHC'),
-  VampireZ: require('./structures/MiniGames/VampireZ')
+  VampireZ: require('./structures/MiniGames/VampireZ'),
+
+  /* Errors */
+  Errors: require('./Errors')
 };
