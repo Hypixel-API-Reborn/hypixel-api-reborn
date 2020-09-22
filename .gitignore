@@ -44,3 +44,5 @@ package-lock.json
 
 testing/
 test/
+.circleci/
+changelog.md
