@@ -8,6 +8,21 @@ type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 
 declare module 'hypixel-api-reborn' {
     export const version: string;
+
+    export const Errors: {
+        INVALID_API_KEY: string,
+        NO_API_KEY: string,
+        KEY_MUST_BE_A_STRING: string,
+        NO_NICKNAME_UUID: string,
+        NO_UUID: string,
+        MALFORMED_UUID: string,
+        PLAYER_DOES_NOT_EXIST: string,
+        NO_GUILD: string,
+        INVALID_GUILD_ID: string,
+        INVALID_GUILD_SEARCH_PARAMETER: string,
+        GUILD_DOES_NOT_EXIST: string,
+        INVALID_RESPONSE_BODY: string
+    }
     export class Client {
         constructor(key: string);
         public readonly key: string;
@@ -354,7 +369,7 @@ declare module 'hypixel-api-reborn' {
         public rank: string;
         public weeklyExperience: number;
         public mutedUntil: number;
-        public expHistory: {day: string, exp: number}[];
+        public expHistory: { day: string, exp: number }[];
     }
     export class GuildRank {
         constructor(data: object);
