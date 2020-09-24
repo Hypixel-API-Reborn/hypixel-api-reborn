@@ -62,6 +62,17 @@ module.exports = {
   },
 
   getSlayerLevel (slayer) {
+    if (!slayer) {
+      return {
+        xp: 0,
+        tier1: 0,
+        tier2: 0,
+        tier3: 0,
+        tier4: 0,
+        level: 0
+      };
+    }
+
     const { claimed_levels } = slayer;
 
     let level = 0;
