@@ -158,36 +158,6 @@ class Client {
     }
 
     return profiles.map(p => new SkyblockProfile(p));
-
-    // let sbProfile = await this._makeRequest(`/player?uuid=${uuid}`);
-    // if (!sbProfile.success) {
-    //   throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, sbProfile.cause));
-    // }
-    // if (!sbProfile.player) {
-    //   throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
-    // }
-    // if (!('SkyBlock' in sbProfile.player.stats)) return [];
-    // sbProfile = sbProfile.player.stats.SkyBlock.profiles;
-
-    // const sbProfiles = objectToArray(sbProfile);
-
-    // const profilesAmount = sbProfiles.length;
-
-    // if (profilesAmount === 0) return [];
-
-    // const profiles = [];
-    // for (var i = 0; i < profilesAmount; i++) {
-    //   let profile = await this._makeRequest(`/skyblock/profile?profile=${sbProfiles[i]}`);
-    //   profile = profile.profile;
-    //   if (!profile) return;
-    //   profiles.push({
-    //     profile_name: sbProfile[sbProfiles[i]].cute_name,
-    //     profile_id: profile.profile_id,
-    //     members: profile.members
-    //   });
-    // }
-
-    // return profiles.map(p => new SkyblockProfile(p));
   }
 
   async getSkyblockAuctions (page) {
