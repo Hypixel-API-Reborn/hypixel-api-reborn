@@ -7,7 +7,7 @@
 <a href="https://app.circleci.com/pipelines/github/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/status/stavz/hypixel-api-reborn/master/ci/circleci"></a>
 <img src="https://flat.badgen.net/npm/v/hypixel-api-reborn">
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
-<a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
+<a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
 <h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
@@ -15,7 +15,7 @@
 
 # Documentation
 
-<h3><a href="https://github.com/StavZ/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
+<h3><a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
 
 |          Functions          |                    Arguments                     |                                                  Returns                                                   |
 | :-------------------------: | :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------: |
