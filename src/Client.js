@@ -252,5 +252,39 @@ class Client {
     };
     return new KeyInfo(res.record);
   }
+
+  async getLeaderboards () {
+    const Leaderboard = require('./structures/Leaderboard');
+    const res = await this._makeRequest('/leaderboards');
+    if (!res.success) {
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
+    };
+    if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
+    return {
+      ARENA: res.leaderboards.ARENA.length ? res.leaderboards.ARENA.map(lb => new Leaderboard(lb)) : [],
+      COPS_AND_CRIMS: res.leaderboards.MCGO.length ? res.leaderboards.MCGO.map(lb => new Leaderboard(lb)) : [],
+      WARLORDS: res.leaderboards.BATTLEGROUND.length ? res.leaderboards.BATTLEGROUND.map(lb => new Leaderboard(lb)) : [],
+      BLITZ_SURVIVAL_GAMES: res.leaderboards.SURVIVAL_GAMES.length ? res.leaderboards.SURVIVAL_GAMES.map(lb => new Leaderboard(lb)) : [],
+      UHC: res.leaderboards.UHC.length ? res.leaderboards.UHC.map(lb => new Leaderboard(lb)) : [],
+      WALLS: res.leaderboards.WALLS.length ? res.leaderboards.WALLS.map(lb => new Leaderboard(lb)) : [],
+      PROTOTYPE: res.leaderboards.PROTOTYPE.length ? res.leaderboards.PROTOTYPE.map(lb => new Leaderboard(lb)) : [],
+      PAINTBALL: res.leaderboards.PAINTBALL.length ? res.leaderboards.PAINTBALL.map(lb => new Leaderboard(lb)) : [],
+      SKYWARS: res.leaderboards.SKYWARS.length ? res.leaderboards.SKYWARS.map(lb => new Leaderboard(lb)) : [],
+      MURDER_MYSTERY: res.leaderboards.MURDER_MYSTERY.length ? res.leaderboards.MURDER_MYSTERY.map(lb => new Leaderboard(lb)) : [],
+      SMASH_HEROES: res.leaderboards.SUPER_SMASH.length ? res.leaderboards.SUPER_SMASH.map(lb => new Leaderboard(lb)) : [],
+      DUELS: res.leaderboards.DUELS.length ? res.leaderboards.DUELS.map(lb => new Leaderboard(lb)) : [],
+      SPEED_UHC: res.leaderboards.SPEED_UHC.length ? res.leaderboards.SPEED_UHC.map(lb => new Leaderboard(lb)) : [],
+      TNTGAMES: res.leaderboards.TNTGAMES.length ? res.leaderboards.TNTGAMES.map(lb => new Leaderboard(lb)) : [],
+      BEDWARS: res.leaderboards.BEDWARS.length ? res.leaderboards.BEDWARS.map(lb => new Leaderboard(lb)) : [],
+      TURBO_KART_RACERS: res.leaderboards.GINGERBREAD.length ? res.leaderboards.GINGERBREAD.map(lb => new Leaderboard(lb)) : [],
+      BUILD_BATTLE: res.leaderboards.BUILD_BATTLE.length ? res.leaderboards.BUILD_BATTLE.map(lb => new Leaderboard(lb)) : [],
+      ARCADE: res.leaderboards.ARCADE.length ? res.leaderboards.ARCADE.map(lb => new Leaderboard(lb)) : [],
+      SKYCLASH: res.leaderboards.SKYCLASH.length ? res.leaderboards.SKYCLASH.map(lb => new Leaderboard(lb)) : [],
+      QUAKECRAFT: res.leaderboards.QUAKECRAFT.length ? res.leaderboards.QUAKECRAFT.map(lb => new Leaderboard(lb)) : [],
+      CRAZY_WALLS: res.leaderboards.TRUE_COMBAT.length ? res.leaderboards.TRUE_COMBAT.map(lb => new Leaderboard(lb)) : [],
+      MEGA_WALLS: res.leaderboards.WALLS3.length ? res.leaderboards.WALLS3.map(lb => new Leaderboard(lb)) : [],
+      VAMPIREZ: res.leaderboards.VAMPIREZ.length ? res.leaderboards.VAMPIREZ.map(lb => new Leaderboard(lb)) : []
+    };
+  }
 }
 module.exports = Client;

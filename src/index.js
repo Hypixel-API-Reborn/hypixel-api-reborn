@@ -52,6 +52,9 @@ module.exports = {
   UHC: require('./structures/MiniGames/UHC'),
   VampireZ: require('./structures/MiniGames/VampireZ'),
 
+  /* Leaderboards */
+  Leaderboard: require('./structures/Leaderboard'),
+
   /* Errors */
   Errors: require('./Errors')
 };

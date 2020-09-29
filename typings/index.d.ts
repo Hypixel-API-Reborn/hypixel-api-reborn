@@ -63,6 +63,7 @@ declare module 'hypixel-api-reborn' {
         public getStatus(query: string): Promise<Status>;
         public getOnline(): Promise<number>;
         public getKeyInfo(): Promise<KeyInfo>;
+        public getLeaderboards(): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
     }
     export class Player {
         constructor(data: object);
@@ -100,6 +101,16 @@ declare module 'hypixel-api-reborn' {
             blitzsg?: BlitzSurvivalGames,
             arena?: ArenaBrawl
         }
+    }
+    export class Leaderboard {
+        constructor(data: object);
+        public name: string;
+        public title: string;
+        public playerCount: number;
+        /**
+         * @description Array of player uuids
+         */
+        public leaders: string[];
     }
     export class KeyInfo {
         constructor(data: object);

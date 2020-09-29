@@ -31,6 +31,7 @@
 |      getSkyblockBazaar      |                                                  |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
 |          getStatus          |                 UUID / Nickname                  |                               Promise<[Status](./src/structures/Status.js)>                                |
 |         getKeyInfo          |                                                  |                              Promise<[KeyInfo](./src/structures/KeyInfo.js)>                               |
+|       getLeaderboards       |                                                  |           [Wiki](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/wiki/getLeaderboards)            |
 
 ---
 
