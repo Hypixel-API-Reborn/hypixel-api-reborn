@@ -314,6 +314,7 @@ declare module 'hypixel-api-reborn' {
         public preferredGames: Game[];
         public get members(): GuildMember[];
         public get ranks(): GuildRank[];
+        public get ranksByNewest(): GuildRank[];
         public getRankByPriority(priority: number): GuildRank;
         public get memberUUIDMap(): Map<string, GuildMember>;
     }

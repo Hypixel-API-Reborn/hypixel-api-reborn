@@ -52,6 +52,14 @@ class Guild {
 
   /**
    * @author linearaccelerator
+   * @returns {Array<GuildRank>} An array containing all guild ranks sorted by newest
+   */
+  get ranksByNewest () {
+    return this._data.ranks ? this._data.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null
+  }
+
+  /**
+   * @author linearaccelerator
    * @param {number} priority - The priority of the guild rank
    * @returns {GuildRank}
    */
