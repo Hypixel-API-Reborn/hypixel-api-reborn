@@ -291,7 +291,6 @@ declare module 'hypixel-api-reborn' {
     }
     export class Guild {
         constructor(data: object);
-        private _data: object;
         public id: string;
         public name: string;
         public description: string;
