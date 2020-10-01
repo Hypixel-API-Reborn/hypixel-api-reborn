@@ -312,11 +312,11 @@ declare module 'hypixel-api-reborn' {
         public chatMuteUntil: number;
         public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
         public preferredGames: Game[];
-        public get members(): GuildMember[];
-        public get ranks(): GuildRank[];
-        public get ranksByNewest(): GuildRank[];
-        public getRankByPriority(priority: number): GuildRank;
-        public get memberUUIDMap(): Map<string, GuildMember>;
+        public members: GuildMember[];
+        public ranks: GuildRank[];
+        public ranksByNewest(): GuildRank[];
+        public getRankByPriority(data: object, priority: number): GuildRank;
+        public memberUUIDMap(): Map<string, GuildMember>;
     }
     export class Auction {
         constructor(data: object);
