@@ -4,10 +4,10 @@
 <h1>Hypixel API • Reborn</h1>
 <a href="https://discord.gg/NSEBNMM"><img src="https://discordapp.com/api/guilds/660416184252104705/embed.png"></a>
 <a href="https://travis-ci.org/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/travis/StavZ/hypixel-api-reborn"></a>
-<a href="https://app.circleci.com/pipelines/github/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/status/stavz/hypixel-api-reborn/master/ci/circleci"></a>
+<a href="https://app.circleci.com/pipelines/github/hypixel-api-reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/status/hypixel-api-reborn/hypixel-api-reborn/master/ci/circleci"></a>
 <img src="https://flat.badgen.net/npm/v/hypixel-api-reborn">
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
-<a href="https://github.com/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/stavz/hypixel-api-reborn"></a>
+<a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/hypixel-api-reborn/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
 <h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
@@ -15,7 +15,7 @@
 
 # Documentation
 
-<h3><a href="https://github.com/StavZ/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
+<h3><a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/wiki">GitHub Wiki</a></h3>
 
 |          Functions          |                    Arguments                     |                                                  Returns                                                   |
 | :-------------------------: | :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------: |
@@ -31,6 +31,7 @@
 |      getSkyblockBazaar      |                                                  |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
 |          getStatus          |                 UUID / Nickname                  |                               Promise<[Status](./src/structures/Status.js)>                                |
 |         getKeyInfo          |                                                  |                              Promise<[KeyInfo](./src/structures/KeyInfo.js)>                               |
+|       getLeaderboards       |                                                  |           [Wiki](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/wiki/getLeaderboards)            |
 
 ---
 
