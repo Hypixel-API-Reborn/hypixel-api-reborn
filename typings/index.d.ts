@@ -563,6 +563,7 @@ declare module 'hypixel-api-reborn' {
         public count: number;
         public name: string;
         public lore: string;
+        public loreArray: string[];
         public loreForEmbed: string;
         public enchantments: object;
         public anvilUses: number;
