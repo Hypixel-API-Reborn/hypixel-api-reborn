@@ -23,6 +23,7 @@ class SkyblockMember {
     this.fairySouls = data.m.fairy_souls_collected || 0;
     this.skills = getSkills(data.m);
     this.slayer = getSlayer(data.m);
+    this.dungeons = getDungeons(data.m);
     this.collections = data.m.collection ? data.m.collection : null;
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
@@ -78,11 +79,10 @@ class SkyblockMember {
  * @return {object}
  */
 function getSkills (data) {
-  let skills = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
     return null;
   }
-  skills = {
+  return {
     taming: getLevelByXp(data.experience_skill_taming),
     farming: getLevelByXp(data.experience_skill_farming),
     mining: getLevelByXp(data.experience_skill_mining),
@@ -92,9 +92,8 @@ function getSkills (data) {
     enchanting: getLevelByXp(data.experience_skill_enchanting),
     alchemy: getLevelByXp(data.experience_skill_alchemy),
     carpentry: getLevelByXp(data.experience_skill_carpentry),
-    runecrafting: getLevelByXp(data.experience_skill_runecrafting, true)
+    runecrafting: getLevelByXp(data.experience_skill_runecrafting, 'runecrafting')
   };
-  return skills;
 }
 /**
  * @param {object} data
@@ -109,6 +108,28 @@ function getSlayer (data) {
     zombie: getSlayerLevel(data.slayer_bosses.zombie),
     spider: getSlayerLevel(data.slayer_bosses.spider),
     wolf: getSlayerLevel(data.slayer_bosses.wolf)
+  };
+}
+/**
+ * @param {object} data
+ *
+ * @return {object}
+ */
+function getDungeons (data) {
+  if (!objectPath.has(data, 'dungeons')) {
+    return null;
+  }
+  return {
+    types: {
+      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs.experience, 'dungeons')
+    },
+    classes: {
+      healer: getLevelByXp(data.dungeons.player_classes.healer?.experience, 'dungeons'),
+      mage: getLevelByXp(data.dungeons.player_classes.mage?.experience, 'dungeons'),
+      berserk: getLevelByXp(data.dungeons.player_classes.berserk?.experience, 'dungeons'),
+      archer: getLevelByXp(data.dungeons.player_classes.archer?.experience, 'dungeons'),
+      tank: getLevelByXp(data.dungeons.player_classes.tank?.experience, 'dungeons')
+    }
   };
 }
 
