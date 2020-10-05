@@ -526,6 +526,60 @@ declare module 'hypixel-api-reborn' {
                 level: number
             }
         };
+        public dungeons: {
+            types: {
+                catacombs: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                }
+              },
+              classes: {
+                healer: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                },
+                mage: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                },
+                berserk: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                },
+                archer: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                },
+                tank: {
+                    xp: number,
+                    level: number,
+                    maxLevel: number,
+                    xpCurrent: number,
+                    xpForNext: number,
+                    progress: number
+                }
+              }
+        };
         public collections: object;
         public stats: {
             purse: number,

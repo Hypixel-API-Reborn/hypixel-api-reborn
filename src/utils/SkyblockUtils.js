@@ -14,8 +14,21 @@ module.exports = {
     return newdata;
   },
 
-  getLevelByXp (xp, runecrafting) {
-    const xpTable = runecrafting ? constants.runecrafting_xp : constants.leveling_xp;
+  getLevelByXp (xp, type) {
+    let xpTable;
+
+    switch (type) {
+      case 'runecrafting':
+        xpTable = constants.runecrafting_xp;
+        break;
+
+      case 'dungeons':
+        xpTable = constants.dungeon_xp;
+        break;
+
+      default:
+        xpTable = constants.leveling_xp;
+    }
 
     if (isNaN(xp)) {
       return {
@@ -29,10 +42,9 @@ module.exports = {
 
     let xpTotal = 0;
     let level = 0;
-
     let xpForNext = 0;
 
-    const maxLevel = Object.keys(xpTable).sort((a, b) => Number(a) - Number(b)).map(a => Number(a)).pop();
+    const maxLevel = Math.max(...Object.keys(xpTable));
 
     for (let x = 1; x <= maxLevel; x++) {
       xpTotal += xpTable[x];
@@ -47,9 +59,9 @@ module.exports = {
 
     const xpCurrent = Math.floor(xp - xpTotal);
 
-    if (level < maxLevel) { xpForNext = Math.ceil(xpTable[level + 1]); }
+    if (level < maxLevel) xpForNext = Math.ceil(xpTable[level + 1]);
 
-    const progress = Math.round((Math.max(0, Math.min(xpCurrent / xpForNext, 1))) * 100);
+    const progress = Math.floor((Math.max(0, Math.min(xpCurrent / xpForNext, 1))) * 100);
 
     return {
       xp,
@@ -93,18 +105,14 @@ module.exports = {
     };
   },
 
-  getSlayerLevelByXP (xp) {
+  getSlayerLevelByXp (xp) {
     const { slayer_xp } = constants;
     const maxLevel = Math.max(...Object.keys(slayer_xp));
 
     let level = 0;
 
-    for (let x = 1; x <= maxLevel; x++) {
-      if (slayer_xp[x] > xp) {
-        break;
-      } else {
-        level = x;
-      }
+    for (let x = 1; x <= maxLevel && slayer_xp[x] <= xp; x++) {
+      level = x;
     }
 
     return level;
