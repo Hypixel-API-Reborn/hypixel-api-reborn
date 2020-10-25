@@ -121,14 +121,14 @@ function getDungeons (data) {
   }
   return {
     types: {
-      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs.experience, 'dungeons')
+      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
     },
     classes: {
-      healer: getLevelByXp(data.dungeons.player_classes.healer?.experience, 'dungeons'),
-      mage: getLevelByXp(data.dungeons.player_classes.mage?.experience, 'dungeons'),
-      berserk: getLevelByXp(data.dungeons.player_classes.berserk?.experience, 'dungeons'),
-      archer: getLevelByXp(data.dungeons.player_classes.archer?.experience, 'dungeons'),
-      tank: getLevelByXp(data.dungeons.player_classes.tank?.experience, 'dungeons')
+      healer: getLevelByXp(data.dungeons.player_classes.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
+      mage: getLevelByXp(data.dungeons.player_classes.mage ? data.dungeons.player_classes.mage.experience : null, 'dungeons'),
+      berserk: getLevelByXp(data.dungeons.player_classes.berserk ? data.dungeons.player_classes.berserk.experience : null, 'dungeons'),
+      archer: getLevelByXp(data.dungeons.player_classes.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
+      tank: getLevelByXp(data.dungeons.player_classes.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
     }
   };
 }
