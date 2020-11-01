@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const BASE_URL = 'https://api.hypixel.net';
-const getUuid = require('./utils/getUuid');
+const toUuid = require('./utils/toUuid');
 const isUUID = require('./utils/isUUID');
 const isGuildID = require('./utils/isGuildID');
 const Errors = require('./Errors');
@@ -30,13 +30,8 @@ class Client {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Player = require('./structures/Player');
 
-    if (!isUUID(query)) {
-      const uuid = await getUuid(query);
-      if (!uuid) {
-        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
-      }
-      query = uuid;
-    }
+    query=await toUuid(query);
+
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
@@ -62,13 +57,7 @@ class Client {
         break;
       }
       case 'player': {
-        if (!isUUID(query)) {
-          const uuid = await getUuid(query);
-          if (!uuid) {
-            throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
-          };
-          query = uuid;
-        }
+        query=await toUuid(query);
         res = await this._makeRequest(`/guild?player=${query}`);
         break;
       }
@@ -92,13 +81,7 @@ class Client {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Friend = require('./structures/Friend');
 
-    if (!isUUID(query)) {
-      const uuid = await getUuid(query);
-      if (!uuid) {
-        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
-      }
-      query = uuid;
-    }
+    query=await toUuid(query);
 
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
@@ -134,14 +117,10 @@ class Client {
     return res.boosters.length ? res.boosters.map(b => new Booster(b)) : [];
   }
 
-  async getSkyblockProfiles (uuid) {
-    if (!uuid) throw new Error(Errors.NO_UUID);
-    const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
-    if (!isUUID(uuid)) {
-      throw new Error(Errors.MALFORMED_UUID);
-    };
-
-    const res = await this._makeRequest(`/skyblock/profiles?uuid=${uuid}`);
+  async getSkyblockProfiles (query) {
+    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
+    query=await toUuid(query);
+    const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
@@ -221,13 +200,7 @@ class Client {
 
   async getStatus (query) {
     const Status = require('./structures/Status');
-    if (!isUUID(query)) {
-      const uuid = await getUuid(query);
-      if (!uuid) {
-        throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
-      }
-      query = uuid;
-    }
+    query=await toUuid(query);
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));

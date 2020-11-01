@@ -5,11 +5,11 @@ module.exports = async (input) => {
     if(isUUID(input)) return input.replace(/-/g,"");
     const res = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`);
     if (res.status && res.status === 204) {
-      return null;
+      throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
     }
     const parsedRes = await res.json();
     return parsedRes.id;
   } catch (e) {
-    return null;
+    throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
   }
 };
