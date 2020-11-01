@@ -234,7 +234,7 @@ class Client {
     };
     if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
     let lbnames=require("./utils/Constants").leaderboardNames;
-    for(const name of lbnames){
+    for(const name in lbnames){
       lbnames[name]= res.leaderboards[name].length ? res.leaderboards[name].map(lb => new Leaderboard(lb)) : []
     }
     return lbnames;
