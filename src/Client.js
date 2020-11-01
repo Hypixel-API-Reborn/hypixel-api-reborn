@@ -233,7 +233,7 @@ class Client {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     };
     if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
-    let lbnames=require("./assets/leaderboardNames.json");
+    let lbnames=require("./utils/Constants").leaderboardNames;
     for(const name of lbnames){
       lbnames[name]= res.leaderboards[name].length ? res.leaderboards[name].map(lb => new Leaderboard(lb)) : []
     }
