@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const isUUID=require("./isUUID.js");
+const Errors = require('../Errors');
 module.exports = async (input) => {
   try {
     if(isUUID(input)) return input.replace(/-/g,"");
