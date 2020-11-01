@@ -30,7 +30,7 @@ class Client {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Player = require('./structures/Player');
 
-    query=await toUuid(query);
+    query = await toUuid(query);
 
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
@@ -57,7 +57,7 @@ class Client {
         break;
       }
       case 'player': {
-        query=await toUuid(query);
+        query = await toUuid(query);
         res = await this._makeRequest(`/guild?player=${query}`);
         break;
       }
@@ -81,7 +81,7 @@ class Client {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Friend = require('./structures/Friend');
 
-    query=await toUuid(query);
+    query = await toUuid(query);
 
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
@@ -118,8 +118,9 @@ class Client {
   }
 
   async getSkyblockProfiles (query) {
+    const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-    query=await toUuid(query);
+    query = await toUuid(query);
     const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
@@ -200,7 +201,7 @@ class Client {
 
   async getStatus (query) {
     const Status = require('./structures/Status');
-    query=await toUuid(query);
+    query = await toUuid(query);
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
@@ -233,9 +234,9 @@ class Client {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     };
     if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
-    let lbnames=require("./utils/Constants").leaderboardNames;
-    for(const name in lbnames){
-      lbnames[name]= res.leaderboards[name].length ? res.leaderboards[name].map(lb => new Leaderboard(lb)) : []
+    const lbnames = require('./utils/Constants').leaderboardNames;
+    for (const name in lbnames) {
+      lbnames[name] = res.leaderboards[lbnames[name]].length ? res.leaderboards[lbnames[name]].map(lb => new Leaderboard(lb)) : [];
     }
     return lbnames;
   }
