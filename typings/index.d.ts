@@ -62,9 +62,9 @@ declare module 'hypixel-api-reborn' {
         public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         /**
          * @description Allows you to get all auctions of player
-         * @param uuid player uuid
+         * @param qeury player uuid
          */
-        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
