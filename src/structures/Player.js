@@ -32,6 +32,7 @@ class Player {
     } else {
       this.plusColor = null;
     }
+    this.guild = data.guild ? data.guild : null;
     this.karma = data.karma || 0;
     this.achievementPoints = data.achievementPoints || 0;
     this.totalExperience = data.networkExp || 0;
