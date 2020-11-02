@@ -2,7 +2,6 @@ const fetch = require('node-fetch');
 
 const BASE_URL = 'https://api.hypixel.net';
 const toUuid = require('./utils/toUuid');
-const isUUID = require('./utils/isUUID');
 const isGuildID = require('./utils/isGuildID');
 const Errors = require('./Errors');
 let cache = {}
@@ -174,15 +173,11 @@ class Client {
     return auctions;
   }
 
-  async getSkyblockAuctionsByPlayer (uuid) {
-    if (!uuid) throw new Error('[hypixel-api-reborn] No uuid specified');
+  async getSkyblockAuctionsByPlayer (query) {
+    if (!query) throw new Error(ERRORS.NO_NICKNAME_UUID);
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
-
-    if (!isUUID(uuid)) {
-      throw new Error(Errors.MALFORMED_UUID);
-    }
-
-    const res = await this._makeRequest(`/skyblock/auction?player=${uuid}`);
+    query=await toUuid(query)
+    const res = await this._makeRequest(`/skyblock/auction?player=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
