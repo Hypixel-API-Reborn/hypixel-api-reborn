@@ -17,6 +17,7 @@
   "scripts": {
     "tslint": "tslint typings/index.d.ts",
     "eslint": "eslint src",
+    "eslint:fix": "eslint src --fix",
     "test": "npm run tslint && npm run eslint"
   },
   "author": "StavZ",
