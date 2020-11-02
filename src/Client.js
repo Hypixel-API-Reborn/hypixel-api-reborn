@@ -5,16 +5,20 @@ const toUuid = require('./utils/toUuid');
 const isUUID = require('./utils/isUUID');
 const isGuildID = require('./utils/isGuildID');
 const Errors = require('./Errors');
+let cache = {}
 
 class Client {
-  constructor (key) {
+  constructor (key,options) {
+
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
+    this.options=options||{}
     this.key = key;
   }
 
   async _makeRequest (url) {
     if (!url) return;
+    if(cached[url]) return cached[url]
     const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
@@ -23,6 +27,10 @@ class Client {
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '400 Bad Request').replace(/{cause}/g, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
+    if(options.cache){
+      cache[url]=parsedRes;
+      setTimeout(()=>delete cache[url],1000*(this.options.cacheTime||60));
+    }
     return parsedRes;
   }
 
