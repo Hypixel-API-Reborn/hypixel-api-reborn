@@ -2,6 +2,7 @@
     "extends": "tslint:recommended",
     "rulesDirectory": [],
     "rules": {
+        "class-name": false,
         "new-parens": true,
         "no-arg": true,
         "no-bitwise": true,

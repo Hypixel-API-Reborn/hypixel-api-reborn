@@ -23,7 +23,7 @@
   "author": "StavZ",
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "object-path": "^0.11.4",
+    "object-path": "^0.11.5",
     "prismarine-nbt": "^1.3.0"
   },
   "license": "MIT",
