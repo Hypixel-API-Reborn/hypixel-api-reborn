@@ -56,35 +56,8 @@ function getStarLevel (data) {
   const wins = data.wins || 0;
   const sum = ((kills * 1) + (wins * 10));
   let starLevel = 1;
-  if (sum >= 10) {
-    starLevel = 2;
-  } else if (sum >= 60) {
-    starLevel = 3;
-  } else if (sum >= 210) {
-    starLevel = 4;
-  } else if (sum >= 460) {
-    starLevel = 5;
-  } else if (sum >= 960) {
-    starLevel = 6;
-  } else if (sum >= 1710) {
-    starLevel = 7;
-  } else if (sum >= 2710) {
-    starLevel = 8;
-  } else if (sum >= 5210) {
-    starLevel = 9;
-  } else if (sum >= 10210) {
-    starLevel = 10;
-  } else if (sum >= 13210) {
-    starLevel = 11;
-  } else if (sum >= 16210) {
-    starLevel = 12;
-  } else if (sum >= 19210) {
-    starLevel = 13;
-  } else if (sum >= 22210) {
-    starLevel = 14;
-  } else if (sum >= 25210) {
-    starLevel = 15;
-  }
+  const sums = [0, 1, 6, 21, 46, 96, 171, 271, 521, 1021, 1321, 1621, 1921, 2221, 2521, Infinity];
+  starLevel += sums.map(x => x * 10 - sum).findIndex(x => x > 0) - 1;
   return starLevel;
 }
 module.exports = UHC;

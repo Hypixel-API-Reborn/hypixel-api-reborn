@@ -4,16 +4,19 @@ const BASE_URL = 'https://api.hypixel.net';
 const toUuid = require('./utils/toUuid');
 const isGuildID = require('./utils/isGuildID');
 const Errors = require('./Errors');
+const cached = {};
 
 class Client {
-  constructor (key) {
+  constructor (key, options) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
+    this.options = options || {};
     this.key = key;
   }
 
   async _makeRequest (url) {
     if (!url) return;
+    if (cached[url]) return cached[url];
     const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
@@ -22,6 +25,10 @@ class Client {
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '400 Bad Request').replace(/{cause}/g, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
+    if (this.options.cache) {
+      cached[url] = parsedRes;
+      setTimeout(() => delete cached[url], 1000 * (this.options.cacheTime || 60));
+    }
     return parsedRes;
   }
 
@@ -175,9 +182,7 @@ class Client {
   async getSkyblockAuctionsByPlayer (query) {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Auction = require('./structures/SkyBlock/Auctions/Auction');
-
     query = await toUuid(query);
-
     const res = await this._makeRequest(`/skyblock/auction?player=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
@@ -238,7 +243,7 @@ class Client {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     };
     if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
-    const lbnames = require('./utils/Constants').leaderboardNames;
+    const lbnames = Object.create(require('./utils/Constants').leaderboardNames);
     for (const name in lbnames) {
       lbnames[name] = res.leaderboards[lbnames[name]].length ? res.leaderboards[lbnames[name]].map(lb => new Leaderboard(lb)) : [];
     }
