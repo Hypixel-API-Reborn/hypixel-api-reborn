@@ -32,7 +32,7 @@ class Client {
     return parsedRes;
   }
 
-  async getPlayer (query) {
+  async getPlayer (query, options = { guild: false }) {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     const Player = require('./structures/Player');
 
@@ -42,12 +42,19 @@ class Client {
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
     }
+    if (options.guild) {
+      const guildRes = await this._makeRequest(`/guild?player=${query}`);
+      if (!guildRes.success) {
+        throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, guildRes.cause));
+      }
+      res.player.guild = guildRes.guild;
+    }
 
     return new Player(res.player);
   }
 
   async getGuild (searchParameter, query) {
-    if (!query) throw new Error(Errors.NO_GUILD);
+    if (!query) throw new Error(Errors.NO_GUILD_QUERY);
     const Guild = require('./structures/Guild/Guild');
     var res;
     switch (searchParameter) {

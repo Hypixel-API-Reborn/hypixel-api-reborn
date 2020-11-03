@@ -8,7 +8,7 @@ module.exports = {
   NO_UUID: '[hypixel-api-reborn] No uuid specified.',
   MALFORMED_UUID: '[hypixel-api-reborn] Malformed UUID!',
   PLAYER_DOES_NOT_EXIST: '[hypixel-api-reborn] Player does not exist.',
-  NO_GUILD: '[hypixel-api-reborn] No guild search query specified.',
+  NO_GUILD_QUERY: '[hypixel-api-reborn] No guild search query specified.',
   INVALID_GUILD_ID: '[hypixel-api-reborn] Specified Guild ID is invalid.',
   INVALID_GUILD_SEARCH_PARAMETER: '[hypixel-api-reborn] getGuild() searchParameter must be \'id\', \'guild\' or \'player\'.',
   SOMETHING_WENT_WRONG: '[hypixel-api-reborn] Something went wrong. {cause}',

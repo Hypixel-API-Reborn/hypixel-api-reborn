@@ -5,7 +5,6 @@ type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTG
 type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
 type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
-
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
@@ -17,7 +16,7 @@ declare module 'hypixel-api-reborn' {
         NO_UUID: string,
         MALFORMED_UUID: string,
         PLAYER_DOES_NOT_EXIST: string,
-        NO_GUILD: string,
+        NO_GUILD_QUERY: string,
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
         GUILD_DOES_NOT_EXIST: string,
@@ -25,44 +24,67 @@ declare module 'hypixel-api-reborn' {
     }
     export class Client {
         constructor(key: string);
-        public readonly key: string;
-
-        private _makeRequest(url: string): Promise<object>;
-        private validApiKey(): Promise<boolean>;
+        public key: string;
         /**
-         * @param query player nickname or uuid
+         * @description Allows you to get statistics of player
+         * @param query - player nickname or uuid
+         * @param options - player search options
          */
-        public getPlayer(query: string): Promise<Player>;
+        public getPlayer(query: string, options?: {guild?: boolean}): Promise<Player>;
         /**
+         * @description Allows you to get statistics of hypixel guild
          * @param searchParameter 'name', 'player' or 'id'
          * @param query guild name, player nickname or guild id
          */
         public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
+         * @description Allows you to get all friends of player
          * @param query player nickname or uuid
          */
         public getFriends(query: string): Promise<Friend[]>;
+        /**
+         * @description Allows you to get statistics of watchdog anticheat
+         */
         public getWatchdogStats(): Promise<WatchdogStats>;
+        /**
+         * @description Allows you to get all active boosters
+         */
         public getBoosters(): Promise<Booster[]>;
         /**
-         * @param uuid player uuid
+         * @description Allows you to get player's skyblock profiles
+         * @param query player uuid
          */
-        public getSkyblockProfiles(uuid: string): Promise<SkyblockProfile[]>;
+        public getSkyblockProfiles(query: string): Promise<SkyblockProfile[]>;
         /**
+         * @description Allows you to get all skyblock auctions
          * @param page number (not required)
          */
         public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         /**
-         * @param uuid player uuid
+         * @description Allows you to get all auctions of player
+         * @param qeury player uuid
          */
-        public getSkyblockAuctionsByPlayer(uuid: string): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
+        /**
+         * @description Allows you to get list of products
+         */
         public getSkyblockBazaar(): Promise<Product[]>;
         /**
+         * @description Allows you to get player's network status
          * @param query player nickname or uuid
          */
         public getStatus(query: string): Promise<Status>;
+        /**
+         * @description Allows you to get current player count
+         */
         public getOnline(): Promise<number>;
+        /**
+         * @description Allows you to get information about API key used
+         */
         public getKeyInfo(): Promise<KeyInfo>;
+        /**
+         * @description Allows you to get leaderboards of each mini-game
+         */
         public getLeaderboards(): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
     }
     export class Player {
@@ -84,6 +106,7 @@ declare module 'hypixel-api-reborn' {
         public giftsSent: number;
         public giftsReceived: number;
         public isOnline: boolean;
+        public guild?: Guild;
         public stats?: {
             skywars?: SkyWars,
             bedwars?: BedWars,
@@ -536,8 +559,8 @@ declare module 'hypixel-api-reborn' {
                     xpForNext: number,
                     progress: number
                 }
-              },
-              classes: {
+            },
+            classes: {
                 healer: {
                     xp: number,
                     level: number,
@@ -578,7 +601,7 @@ declare module 'hypixel-api-reborn' {
                     xpForNext: number,
                     progress: number
                 }
-              }
+            }
         };
         public collections: object;
         public stats: {
