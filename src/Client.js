@@ -37,7 +37,7 @@ class Client {
     }
     if (options.guild) {
       const guildRes = await this._makeRequest(`/guild?player=${query}`);
-      if (!res.success) {
+      if (!guildRes.success) {
         throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, guildRes.cause));
       }
       res.player.guild = guildRes.guild;
