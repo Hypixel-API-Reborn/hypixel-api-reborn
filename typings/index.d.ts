@@ -5,6 +5,10 @@ type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTG
 type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
 type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
+interface clientOptions {
+    cache: boolean;
+    cacheTime: number;
+}
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
@@ -23,7 +27,7 @@ declare module 'hypixel-api-reborn' {
         INVALID_RESPONSE_BODY: string
     }
     export class Client {
-        constructor(key: string);
+        constructor(key: string, options: clientOptions);
         public key: string;
         /**
          * @description Allows you to get statistics of player

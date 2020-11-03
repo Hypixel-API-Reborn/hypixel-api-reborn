@@ -7,7 +7,7 @@ const Errors = require('./Errors');
 const cached = {};
 
 class Client {
-  constructor (key, options) {
+  constructor (key, options = { cache: false, cacheTime: 60 }) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
     this.options = options || {};
@@ -27,7 +27,7 @@ class Client {
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
     if (this.options.cache) {
       cached[url] = parsedRes;
-      setTimeout(() => delete cached[url], 1000 * (this.options.cacheTime || 60));
+      setTimeout(() => delete cached[url], 1000 * ((typeof this.options.cacheTime === 'number' ? this.options.cacheTime : null) || 60));
     }
     return parsedRes;
   }
@@ -49,7 +49,6 @@ class Client {
       }
       res.player.guild = guildRes.guild;
     }
-
     return new Player(res.player);
   }
 
