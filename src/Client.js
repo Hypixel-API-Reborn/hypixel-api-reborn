@@ -19,6 +19,7 @@ class Client {
     };
     this.key = key;
     this.requests = 0;
+    this.lastRequestAt = 9999999999999; // Set to a large number so 1st request doesn't get rate limited already
     this._validateOptions();
     if (this.options.rateLimit !== 'NONE') {
       this.getKeyInfo().then(info => {
@@ -37,6 +38,7 @@ class Client {
   _rateLimitManager () {
     // eslint-disable-next-line no-useless-return
     if (this.options.rateLimit === 'AUTO' && this.requests <= 60) return;
+    if (new Date().getTime() - this.lastRequestAt >= 500) return;
     // Wait before send, because user is on HARD RateLimit mode or AUTO, but passed 60 requests/min
     // With rate limit set to HARD, you will never be able to pass the Ratelimit set by hypixel API if this is the only script you are using the API key with.
     // eslint-disable-next-line promise/param-names
@@ -56,6 +58,7 @@ class Client {
     if (this.options.rateLimit !== 'NONE') await this._rateLimitManager();
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
     this.requests++;
+    this.lastRequestAt = new Date().getTime();
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
