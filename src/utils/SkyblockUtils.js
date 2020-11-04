@@ -30,10 +30,13 @@ module.exports = {
         xpTable = constants.leveling_xp;
     }
 
+    const maxLevel = Math.max(...Object.keys(xpTable));
+
     if (isNaN(xp)) {
       return {
         xp: 0,
         level: 0,
+        maxLevel: maxLevel,
         xpCurrent: 0,
         xpForNext: xpTable[1],
         progress: 0
@@ -43,8 +46,6 @@ module.exports = {
     let xpTotal = 0;
     let level = 0;
     let xpForNext = 0;
-
-    const maxLevel = Math.max(...Object.keys(xpTable));
 
     for (let x = 1; x <= maxLevel; x++) {
       xpTotal += xpTable[x];
