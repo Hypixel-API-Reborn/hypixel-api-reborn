@@ -25,9 +25,9 @@
 |         getBoosters         |                                                  |                      Promise<Array<[Booster](./src/structures/Boosters/Booster.js)>>                       |
 |          getOnline          |                                                  | Promise<[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)> |
 |      getWatchdogStats       |                                                  |                        Promise<[WatchdogStats](./src/structures/Watchdog/Stats.js)>                        |
-|     getSkyblockProfiles     |                       UUID                       |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
+|     getSkyblockProfiles     |                       UUID / Nickname                        |              Promise<Array<[SkyblockProfile](./src/structures/SkyBlock/SkyblockProfile.js)>>               |
 |     getSkyblockAuctions     |                  Number / null                   |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
-| getSkyblockAuctionsByPlayer |                       UUID                       |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
+| getSkyblockAuctionsByPlayer |                       UUID / Nickname                       |              Promise<Array<[SkyblockAuction](./src/structures/SkyBlock/Auctions/Auction.js)>>              |
 |      getSkyblockBazaar      |                                                  |               Promise<Array<[SkyblockProduct](./src/structures/SkyBlock/Bazzar/Product.js)>>               |
 |          getStatus          |                 UUID / Nickname                  |                               Promise<[Status](./src/structures/Status.js)>                                |
 |         getKeyInfo          |                                                  |                              Promise<[KeyInfo](./src/structures/KeyInfo.js)>                               |
@@ -40,8 +40,17 @@
 ``` js
 const Hypixel = require('hypixel-api-reborn');
 
-// Parameters:
-// API Key (String)
+/* Parameters:
+API Key (String)
+options (Object)
+options.cache (false by default) - Enables/Disables Request Caching
+options.cacheTime (60 by default) - Amount of time in seconds to cache the request. 
+*/
 
-const hypixel = new Hypixel.Client('API-KEY');
+//Enables caching with a max age of 30 seconds
+const options = {
+    cache: true,
+    cacheTime: 30
+    };
+const hypixel = new Hypixel.Client('API-KEY', options);
 ```
