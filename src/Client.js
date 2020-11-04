@@ -46,7 +46,6 @@ class Client {
 
   async getPlayer (query, options = { guild: false }) {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-    if (typeof query !== 'string') throw new Error(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
     const Player = require('./structures/Player');
 
     query = await toUuid(query);
