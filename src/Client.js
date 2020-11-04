@@ -14,22 +14,48 @@ class Client {
     this.options = {
       cache: options.cache || false,
       cacheTime: options.cacheTime || 60,
-      cacheSize: options.cacheSize || -1
+      cacheSize: options.cacheSize || -1,
+      rateLimit: options.rateLimit || 'AUTO'
     };
     this.key = key;
+    this.requests = 0;
     this._validateOptions();
+    if (this.options.rateLimit !== 'NONE') {
+      this.getKeyInfo().then(info => {
+        this.requests = info.requestsInPastMin;
+        setTimeout(this._rateLimitMonitor, 1000 * info.resetsAfter);
+      });
+    }
+  }
+
+  _rateLimitMonitor () {
+    this.requests = 0;
+    // eslint-disable-next-line no-return-assign
+    setInterval(() => this.requests = 0, 1000 * 60);
+  }
+
+  _rateLimitManager () {
+    // eslint-disable-next-line no-useless-return
+    if (this.options.rateLimit === 'AUTO' && this.requests <= 60) return;
+    // Wait before send, because user is on HARD RateLimit mode or AUTO, but passed 60 requests/min
+    // With rate limit set to HARD, you will never be able to pass the Ratelimit set by hypixel API if this is the only script you are using the API key with.
+    // eslint-disable-next-line promise/param-names
+    return new Promise(r => setTimeout(r, 500));
   }
 
   _validateOptions (options = this.options) {
     if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
+    if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
   }
 
   async _makeRequest (url) {
     if (!url) return;
-    if (cached.has(url)) return cached.get(url);
+    if (cached.has(url) && url !== '/key') return cached.get(url);
+    if (this.options.rateLimit !== 'NONE') await this._rateLimitManager();
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
+    this.requests++;
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
@@ -41,7 +67,12 @@ class Client {
       cached.set(url, parsedRes);
       setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
     }
-    return parsedRes;
+    return (url === '/key' ? [parsedRes, res.headers] : parsedRes);
+  }
+
+  async sweepCache (amount) {
+    if (!amount || amount >= cached.size) return cached.clear();
+    return Array.from(cached.keys()).slice(cached.size - amount).map(x => cached.delete(x));
   }
 
   async getPlayer (query, options = { guild: false }) {
@@ -241,10 +272,10 @@ class Client {
   async getKeyInfo () {
     const KeyInfo = require('./structures/KeyInfo');
     const res = await this._makeRequest('/key');
-    if (!res.success) {
+    if (!res[0].success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     };
-    return new KeyInfo(res.record);
+    return new KeyInfo([res[0].record, res[1]]);
   }
 
   async getLeaderboards () {
