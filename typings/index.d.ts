@@ -8,6 +8,7 @@ type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 interface clientOptions {
     cache: boolean;
     cacheTime: number;
+    cacheLimit: number;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;

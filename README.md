@@ -40,17 +40,20 @@
 ``` js
 const Hypixel = require('hypixel-api-reborn');
 
-/* Parameters:
+/* 
+Parameters:
 API Key (String)
 options (Object)
 options.cache (false by default) - Enables/Disables Request Caching
-options.cacheTime (60 by default) - Amount of time in seconds to cache the request. 
+options.cacheTime (60 by default) - Amount of time in seconds to cache the request.
+options.cacheLimit (0 by default) - The limit of how many results will be cached (set 0 for no limit)
 */
 
-//Enables caching with a max age of 30 seconds
+//Enables caching with a max age of 30 seconds and a limit of 5 cached results
 const options = {
     cache: true,
-    cacheTime: 30
-    };
+    cacheTime: 30,
+    cacheLimit: 5
+};
 const hypixel = new Hypixel.Client('API-KEY', options);
 ```

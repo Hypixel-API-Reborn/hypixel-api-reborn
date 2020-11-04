@@ -7,7 +7,7 @@ const Errors = require('./Errors');
 const cached = {};
 
 class Client {
-  constructor (key, options = { cache: false, cacheTime: 60 }) {
+  constructor (key, options = { cache: false, cacheTime: 60, cacheLimit: 0 }) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
     this.options = options || {};
@@ -26,7 +26,8 @@ class Client {
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
     if (this.options.cache) {
-      cached[url] = parsedRes;
+      if (this.options.cacheLimit < 1) cached[url] = parsedRes;
+      else if (Object.keys(this.options).length < this.options.cacheLimit) cached[url] = parsedRes;
       setTimeout(() => delete cached[url], 1000 * ((typeof this.options.cacheTime === 'number' ? this.options.cacheTime : null) || 60));
     }
     return parsedRes;
