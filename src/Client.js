@@ -14,7 +14,7 @@ class Client {
     this.options = {
       cache: options.cache || false,
       cacheTime: options.cacheTime || 60,
-      cacheLimit: options.cacheLimit || -1
+      cacheSize: options.cacheSize || -1
     };
     this.key = key;
     this._validateOptions();
@@ -23,7 +23,7 @@ class Client {
   _validateOptions (options = this.options) {
     if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
-    if (typeof options.cacheLimit !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
+    if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
   }
 
   async _makeRequest (url) {
@@ -37,7 +37,7 @@ class Client {
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
-    if (this.options.cache && (this.options.cacheLimit === -1 || this.options.cacheLimit > cached.size)) {
+    if (this.options.cache && (this.options.cacheSize === -1 || this.options.cacheSize > cached.size)) {
       cached.set(url, parsedRes);
       setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
     }
