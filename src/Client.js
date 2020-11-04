@@ -27,7 +27,7 @@ class Client {
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
     if (this.options.cache) {
       if (this.options.cacheLimit < 1) cached[url] = parsedRes;
-      else if (Object.keys(this.options).length < this.options.cacheLimit) cached[url] = parsedRes;
+      else if (Object.keys(cached).length < this.options.cacheLimit) cached[url] = parsedRes;
       setTimeout(() => delete cached[url], 1000 * ((typeof this.options.cacheTime === 'number' ? this.options.cacheTime : null) || 60));
     }
     return parsedRes;
