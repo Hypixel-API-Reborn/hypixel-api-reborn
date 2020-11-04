@@ -4,31 +4,42 @@ const BASE_URL = 'https://api.hypixel.net';
 const toUuid = require('./utils/toUuid');
 const isGuildID = require('./utils/isGuildID');
 const Errors = require('./Errors');
-const cached = {};
+const cached = new Map();
 
 class Client {
-  constructor (key, options = { cache: false, cacheTime: 60, cacheLimit: 0 }) {
+  constructor (key, options = {}) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
-    this.options = options || {};
+
+    this.options = {
+      cache: options.cache || false,
+      cacheTime: options.cacheTime || 60,
+      cacheLimit: options.cacheLimit || -1
+    };
     this.key = key;
+    this._validateOptions();
+  }
+
+  _validateOptions (options = this.options) {
+    if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
+    if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
+    if (typeof options.cacheLimit !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
   }
 
   async _makeRequest (url) {
     if (!url) return;
-    if (cached[url]) return cached[url];
-    const res = await fetch(BASE_URL + url + (url.match(/\?/g) ? `&key=${this.key}` : `?key=${this.key}`));
-    if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, '522 Connection Timed Out'));
+    if (cached.has(url)) return cached.get(url);
+    const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
+    if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
-    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '400 Bad Request').replace(/{cause}/g, (parsedRes.cause || '')));
-    if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/g, '403 Forbidden').replace(/{cause}/g, 'Invalid API Key'));
-    if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/g, res.statusText));
-    if (this.options.cache) {
-      if (this.options.cacheLimit < 1) cached[url] = parsedRes;
-      else if (Object.keys(cached).length < this.options.cacheLimit) cached[url] = parsedRes;
-      setTimeout(() => delete cached[url], 1000 * ((typeof this.options.cacheTime === 'number' ? this.options.cacheTime : null) || 60));
+    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
+    if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
+    if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
+    if (this.options.cache && (this.options.cacheLimit === -1 || this.options.cacheLimit > cached.size)) {
+      cached.set(url, parsedRes);
+      setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
     }
     return parsedRes;
   }
@@ -41,12 +52,12 @@ class Client {
 
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     if (options.guild) {
       const guildRes = await this._makeRequest(`/guild?player=${query}`);
       if (!guildRes.success) {
-        throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, guildRes.cause));
+        throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, guildRes.cause));
       }
       res.player.guild = guildRes.guild;
     }
@@ -80,7 +91,7 @@ class Client {
     }
 
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     if (!res.guild) {
@@ -98,7 +109,7 @@ class Client {
 
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     if (res.records.length & res.records.length > 0) {
@@ -113,7 +124,7 @@ class Client {
 
     const res = await this._makeRequest('/watchdogstats');
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     return new WatchdogStats(res);
@@ -124,7 +135,7 @@ class Client {
 
     const res = await this._makeRequest('/boosters');
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     return res.boosters.length ? res.boosters.map(b => new Booster(b)) : [];
@@ -136,7 +147,7 @@ class Client {
     query = await toUuid(query);
     const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     if (!res.profiles || !res.profiles.length) {
       return [];
@@ -185,7 +196,7 @@ class Client {
     query = await toUuid(query);
     const res = await this._makeRequest(`/skyblock/auction?player=${query}`);
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     return res.auctions.length ? res.auctions.map(a => new Auction(a)) : [];
@@ -196,7 +207,7 @@ class Client {
 
     const res = await this._makeRequest('/skyblock/bazaar');
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     const productsKeys = Object.keys(res.products);
     const products = [];
@@ -213,7 +224,7 @@ class Client {
     query = await toUuid(query);
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     return new Status(res.session);
   }
@@ -221,7 +232,7 @@ class Client {
   async getOnline () {
     const res = await this._makeRequest('/playerCount');
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
 
     return res.playerCount;
@@ -231,7 +242,7 @@ class Client {
     const KeyInfo = require('./structures/KeyInfo');
     const res = await this._makeRequest('/key');
     if (!res.success) {
-      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/g, res.cause));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     };
     return new KeyInfo(res.record);
   }

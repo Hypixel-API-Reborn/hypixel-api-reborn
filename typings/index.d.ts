@@ -28,7 +28,7 @@ declare module 'hypixel-api-reborn' {
         INVALID_RESPONSE_BODY: string
     }
     export class Client {
-        constructor(key: string, options: clientOptions);
+        constructor(key: string, options?: clientOptions);
         public key: string;
         /**
          * @description Allows you to get statistics of player
