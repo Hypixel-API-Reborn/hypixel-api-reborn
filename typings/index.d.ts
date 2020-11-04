@@ -5,6 +5,11 @@ type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTG
 type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
 type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
+interface clientOptions {
+    cache: boolean;
+    cacheTime: number;
+    cacheSize: number;
+}
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
@@ -20,10 +25,13 @@ declare module 'hypixel-api-reborn' {
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
         GUILD_DOES_NOT_EXIST: string,
-        INVALID_RESPONSE_BODY: string
+        INVALID_RESPONSE_BODY: string,
+        OPTIONS_MUST_BE_AN_OBJECT: string,
+        CACHE_TIME_MUST_BE_A_NUMBER: string,
+        CACHE_LIMIT_MUST_BE_A_NUMBER: string
     }
     export class Client {
-        constructor(key: string);
+        constructor(key: string, options?: clientOptions);
         public key: string;
         /**
          * @description Allows you to get statistics of player

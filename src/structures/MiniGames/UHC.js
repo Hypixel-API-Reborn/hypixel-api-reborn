@@ -2,9 +2,9 @@ class UHC {
   constructor (data) {
     this.coins = data.coins || 0;
     this.score = data.score || 0;
-    this.kills = data.kills || 0;
-    this.deaths = data.deaths || 0;
-    this.wins = data.wins || 0;
+    this.kills = (data.kills || 0) + (data.kills_solo || 0);
+    this.deaths = (data.deaths || 0) + (data.deaths_solo || 0);
+    this.wins = (data.wins || 0) + (data.wins_solo || 0);
     this.headsEaten = data.heads_eaten || 0;
     this.starLevel = getStarLevel(data);
     this.solo = {
@@ -52,8 +52,8 @@ class UHC {
   }
 }
 function getStarLevel (data) {
-  const kills = data.kills || 0;
-  const wins = data.wins || 0;
+  const kills = (data.kills || 0) + (data.kills_solo || 0);
+  const wins = (data.wins || 0) + (data.wins_solo || 0);
   const sum = ((kills * 1) + (wins * 10));
   let starLevel = 1;
   const sums = [0, 1, 6, 21, 46, 96, 171, 271, 521, 1021, 1321, 1621, 1921, 2221, 2521, Infinity];
