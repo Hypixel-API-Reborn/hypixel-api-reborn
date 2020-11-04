@@ -44,17 +44,16 @@ class Client {
     return parsedRes;
   }
 
-  async getPlayer (query, options = { guild: false }) {
-    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-    const Player = require('./structures/Player');
-
+  async getPlayer (query, options = {}) {
     query = await toUuid(query);
-
+    if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
+    const { guild = false } = options;
+    const Player = require('./structures/Player');
     const res = await this._makeRequest(`/player?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
-    if (options.guild) {
+    if (guild) {
       const guildRes = await this._makeRequest(`/guild?player=${query}`);
       if (!guildRes.success) {
         throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, guildRes.cause));
@@ -67,7 +66,7 @@ class Client {
   async getGuild (searchParameter, query) {
     if (!query) throw new Error(Errors.NO_GUILD_QUERY);
     const Guild = require('./structures/Guild/Guild');
-    var res;
+    let res;
     switch (searchParameter) {
       case 'id': {
         if (!isGuildID(query)) {
@@ -102,11 +101,8 @@ class Client {
   }
 
   async getFriends (query) {
-    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-    const Friend = require('./structures/Friend');
-
     query = await toUuid(query);
-
+    const Friend = require('./structures/Friend');
     const res = await this._makeRequest(`/friends?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -121,7 +117,6 @@ class Client {
 
   async getWatchdogStats () {
     const WatchdogStats = require('./structures/Watchdog/Stats');
-
     const res = await this._makeRequest('/watchdogstats');
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -132,7 +127,6 @@ class Client {
 
   async getBoosters () {
     const Booster = require('./structures/Boosters/Booster');
-
     const res = await this._makeRequest('/boosters');
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -142,9 +136,8 @@ class Client {
   }
 
   async getSkyblockProfiles (query) {
-    const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
-    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     query = await toUuid(query);
+    const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
     const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -191,9 +184,8 @@ class Client {
   }
 
   async getSkyblockAuctionsByPlayer (query) {
-    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-    const Auction = require('./structures/SkyBlock/Auctions/Auction');
     query = await toUuid(query);
+    const Auction = require('./structures/SkyBlock/Auctions/Auction');
     const res = await this._makeRequest(`/skyblock/auction?player=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -204,7 +196,6 @@ class Client {
 
   async getSkyblockBazaar () {
     const Product = require('./structures/SkyBlock/Bazzar/Product');
-
     const res = await this._makeRequest('/skyblock/bazaar');
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
@@ -220,8 +211,8 @@ class Client {
   }
 
   async getStatus (query) {
-    const Status = require('./structures/Status');
     query = await toUuid(query);
+    const Status = require('./structures/Status');
     const res = await this._makeRequest(`/status?uuid=${query}`);
     if (!res.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
