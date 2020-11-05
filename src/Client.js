@@ -19,6 +19,7 @@ class Client {
     };
     this.key = key;
     this.requests = 0;
+    this.waitingRequests = 0;
     this.lastRequestAt = 9999999999999; // Set to a large number so 1st request doesn't get rate limited already
     this._validateOptions();
     if (this.options.rateLimit !== 'NONE') {
@@ -37,12 +38,13 @@ class Client {
 
   _rateLimitManager () {
     // eslint-disable-next-line no-useless-return
-    if (this.options.rateLimit === 'AUTO' && this.requests <= 60) return;
-    if (Date.now() - this.lastRequestAt >= 500) return;
+    if (this.options.rateLimit === 'AUTO' && this.requests <= 60) return false;
+    if (Date.now() - this.lastRequestAt >= 500) return false;
     // Wait before send, because user is on HARD RateLimit mode or AUTO, but passed 60 requests/min
+    this.waitingRequests++;
     // With rate limit set to HARD, you will never be able to pass the Ratelimit set by hypixel API if this is the only script you are using the API key with.
     // eslint-disable-next-line promise/param-names
-    return new Promise(r => setTimeout(r, 500));
+    return new Promise(r => setTimeout(r, 500 * this.waitingRequests), true);
   }
 
   _validateOptions (options = this.options) {
@@ -56,8 +58,8 @@ class Client {
     if (!url) return;
     if (cached.has(url) && url !== '/key') return cached.get(url);
     if (this.options.rateLimit !== 'NONE') {
-        await this._rateLimitManager();
-        this.requests++;
+      if (await this._rateLimitManager()) this.waitingRequests--;
+      this.requests++;
     }
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
     this.lastRequestAt = Date.now();
