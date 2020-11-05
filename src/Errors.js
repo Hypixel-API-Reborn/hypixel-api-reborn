@@ -5,6 +5,7 @@ module.exports = {
   ERROR_STATUSTEXT: '[hypixel-api-reborn] {statustext}! For help join our Discord Server https://discord.gg/NSEBNMM',
   KEY_MUST_BE_A_STRING: '[hypixel-api-reborn] Specified API Key must be a string! For help join our Discord Server https://discord.gg/NSEBNMM',
   OPTIONS_MUST_BE_AN_OBJECT: '[hypixel-api-reborn] Options must be an object! For help join our Discord Server https://discord.gg/NSEBNMM',
+  CACHE_MUST_BE_A_BOOLEAN: '[hypixel-api-reborn] Cache must be a boolean! For help join our Discord Server https://discord.gg/NSEBNMM',
   CACHE_TIME_MUST_BE_A_NUMBER: '[hypixel-api-reborn] Cache Time must be a number! For help join our Discord Server https://discord.gg/NSEBNMM',
   CACHE_LIMIT_MUST_BE_A_NUMBER: '[hypixel-api-reborn] Cache Limit must be a number! For help join our Discord Server https://discord.gg/NSEBNMM',
   NO_NICKNAME_UUID: '[hypixel-api-reborn] No nickname or uuid specified.',

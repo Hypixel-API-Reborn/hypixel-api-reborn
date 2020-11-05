@@ -12,18 +12,19 @@ class Client {
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
 
     this.options = {
-      cache: options.cache || false,
-      cacheTime: options.cacheTime || 60,
-      cacheSize: options.cacheSize || -1
+      cache: options.cache === undefined ? false : options.cache,
+      cacheTime: options.cacheTime === undefined ? 60 : options.cacheTime,
+      cacheSize: options.cacheSize === undefined ? -1 : options.cacheSize
     };
     this.key = key;
-    this._validateOptions();
+    this._validateOptions(options);
   }
 
-  _validateOptions (options = this.options) {
+  _validateOptions (options) {
     if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
-    if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
-    if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
+    if (typeof this.options.cache !== 'boolean') throw new Error(Errors.CACHE_MUST_BE_A_BOOLEAN);
+    if (typeof this.options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
+    if (typeof this.options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
   }
 
   async _makeRequest (url) {

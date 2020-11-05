@@ -28,7 +28,8 @@ declare module 'hypixel-api-reborn' {
         INVALID_RESPONSE_BODY: string,
         OPTIONS_MUST_BE_AN_OBJECT: string,
         CACHE_TIME_MUST_BE_A_NUMBER: string,
-        CACHE_LIMIT_MUST_BE_A_NUMBER: string
+        CACHE_LIMIT_MUST_BE_A_NUMBER: string,
+        CACHE_MUST_BE_A_BOOLEAN: string
     }
     export class Client {
         constructor(key: string, options?: clientOptions);
