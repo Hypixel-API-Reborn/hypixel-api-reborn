@@ -55,9 +55,11 @@ class Client {
   async _makeRequest (url) {
     if (!url) return;
     if (cached.has(url) && url !== '/key') return cached.get(url);
-    if (this.options.rateLimit !== 'NONE') await this._rateLimitManager();
+    if (this.options.rateLimit !== 'NONE') {
+        await this._rateLimitManager();
+        this.requests++;
+    }
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
-    this.requests++;
     this.lastRequestAt = Date.now();
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
