@@ -38,7 +38,7 @@ class Client {
   _rateLimitManager () {
     // eslint-disable-next-line no-useless-return
     if (this.options.rateLimit === 'AUTO' && this.requests <= 60) return;
-    if (new Date().getTime() - this.lastRequestAt >= 500) return;
+    if (Date.now() - this.lastRequestAt >= 500) return;
     // Wait before send, because user is on HARD RateLimit mode or AUTO, but passed 60 requests/min
     // With rate limit set to HARD, you will never be able to pass the Ratelimit set by hypixel API if this is the only script you are using the API key with.
     // eslint-disable-next-line promise/param-names
