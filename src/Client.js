@@ -58,7 +58,7 @@ class Client {
     if (this.options.rateLimit !== 'NONE') await this._rateLimitManager();
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
     this.requests++;
-    this.lastRequestAt = new Date().getTime();
+    this.lastRequestAt = Date.now();
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
