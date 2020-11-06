@@ -9,6 +9,8 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
+    cacheLimit: number;
+    rateLimit : 'HARD' | 'AUTO' | 'NONE';
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -60,7 +62,7 @@ declare module 'hypixel-api-reborn' {
         public getBoosters(): Promise<Booster[]>;
         /**
          * @description Allows you to get player's skyblock profiles
-         * @param query player uuid
+         * @param query player nickname or uuid
          */
         public getSkyblockProfiles(query: string): Promise<SkyblockProfile[]>;
         /**
@@ -70,7 +72,7 @@ declare module 'hypixel-api-reborn' {
         public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         /**
          * @description Allows you to get all auctions of player
-         * @param qeury player uuid
+         * @param qeury player nickname or uuid
          */
         public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
         /**
