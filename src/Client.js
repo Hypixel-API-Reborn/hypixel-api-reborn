@@ -11,12 +11,8 @@ class Client {
 
     console.log(`[hypixel-api-reborn] Using key ${key.slice(0, 8) + key.slice(8).replace(/[^-]/g, '*')}.`);
     validate.validateOptions(this.options);
-  }
-
-  init () {
     // eslint-disable-next-line no-return-assign
     Object.keys(API).forEach(func => Client.prototype[func] = API[func].bind({ _makeRequest: this._makeRequest, ...this }));
-
     rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
   }
 
