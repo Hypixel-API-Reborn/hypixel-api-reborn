@@ -11,7 +11,7 @@ module.exports = class Validation {
     return {
       cache: options.cache || false,
       cacheTime: options.cacheTime || 60,
-      cacheSize: options.cacheSize || -1,
+      cacheSize: (options.cacheSize === -1 ? Infinity : options.cacheSize) || Infinity,
       rateLimit: options.rateLimit || 'AUTO'
     };
   }

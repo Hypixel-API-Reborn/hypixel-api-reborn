@@ -12,9 +12,10 @@ module.exports = class Requests {
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
-    if (this.options.cache && (this.options.cacheSize === -1 || this.options.cacheSize > cached.size)) {
+    if (this.options.cache) {
+      if (this.options.cacheSize > cached.size) cached.delete(cached.keys()[0]);
       cached.set(url, parsedRes);
-      setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
+      setTimeout(() => { try { cached.delete(url); } catch (e) {} }, 1000 * this.options.cacheTime);
     }
     if (!parsedRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
