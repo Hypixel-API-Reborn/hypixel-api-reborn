@@ -9,7 +9,7 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
-    rateLimit : 'HARD' | 'AUTO' | 'NONE';
+    rateLimit: 'HARD' | 'AUTO' | 'NONE';
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -88,7 +88,7 @@ declare module 'hypixel-api-reborn' {
          */
         public getOnline(): Promise<number>;
         /**
-         * @description Allows you to get information about API key used
+         * @description Allows you to get information about used API key
          */
         public getKeyInfo(): Promise<KeyInfo>;
         /**
