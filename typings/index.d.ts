@@ -9,7 +9,6 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
-    cacheLimit: number;
     rateLimit : 'HARD' | 'AUTO' | 'NONE';
 }
 declare module 'hypixel-api-reborn' {
@@ -152,6 +151,7 @@ declare module 'hypixel-api-reborn' {
         public limitPerMinute: number;
         public requestsInPastMin: number;
         public totalRequests: number;
+        public resetsAfter: number;
     }
     export class ArenaBrawl {
         constructor(data: object);
