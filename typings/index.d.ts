@@ -9,8 +9,7 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
-    cacheLimit: number;
-    rateLimit : 'HARD' | 'AUTO' | 'NONE';
+    rateLimit: 'HARD' | 'AUTO' | 'NONE';
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -89,7 +88,7 @@ declare module 'hypixel-api-reborn' {
          */
         public getOnline(): Promise<number>;
         /**
-         * @description Allows you to get information about API key used
+         * @description Allows you to get information about used API key
          */
         public getKeyInfo(): Promise<KeyInfo>;
         /**
@@ -152,6 +151,7 @@ declare module 'hypixel-api-reborn' {
         public limitPerMinute: number;
         public requestsInPastMin: number;
         public totalRequests: number;
+        public resetsAfter: number;
     }
     export class ArenaBrawl {
         constructor(data: object);

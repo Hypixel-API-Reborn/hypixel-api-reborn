@@ -18,5 +18,5 @@ module.exports = {
   SOMETHING_WENT_WRONG: '[hypixel-api-reborn] Something went wrong. {cause}',
   GUILD_DOES_NOT_EXIST: '[hypixel-api-reborn] Guild does not exist.',
   INVALID_RESPONSE_BODY: '[hypixel-api-reborn] An error occurred while converting to JSON. Perhaps this is due to an update or maintenance. For help join our Discord Server https://discord.gg/NSEBNMM',
-  INVALID_RATE_LIMIT_OPTION: '[hypixel-api-reborn] Rate Limit provided in Client options must be \'HARD\', \'AUTO\', or \'NONE\'. '
+  INVALID_RATE_LIMIT_OPTION: '[hypixel-api-reborn] Rate Limit provided in Client options must be \'HARD\', \'AUTO\', or \'NONE\'. For help join our Discord Server https://discord.gg/NSEBNMM'
 };
