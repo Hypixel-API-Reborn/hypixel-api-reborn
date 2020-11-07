@@ -5,7 +5,7 @@ module.exports = async function (searchParameter, query) {
   if (!query) throw new Error(Errors.NO_GUILD_QUERY);
   const Guild = require('../structures/Guild/Guild');
   if (searchParameter === 'id' && !isGuildID(query)) throw new Error(Errors.INVALID_GUILD_ID);
-  if (searchParameter === 'name') query = await toUuid(query);
+  if (searchParameter === 'player') query = await toUuid(query);
   if (!['id', 'name', 'player'].includes(searchParameter)) throw new Error(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   const res = await this._makeRequest(`/guild?${searchParameter}=${encodeURI(query)}`); ;
   if (!res.guild) {
