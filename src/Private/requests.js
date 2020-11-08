@@ -3,7 +3,7 @@ const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const cached = new Map();
 module.exports = class Requests {
-  async request (url) {
+  async request (url, options) {
     const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
@@ -12,13 +12,15 @@ module.exports = class Requests {
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
-    if (this.options.cache) {
-      if (this.options.cacheSize > cached.size) cached.delete(cached.keys().next().value()); // Map and its special "iterators"
-      cached.set(url, parsedRes);
-      setTimeout(() => { try { cached.delete(url); } catch (e) {} }, 1000 * this.options.cacheTime);
-    }
     if (!parsedRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
+    }
+    if (options.nocache) return (url === '/key' ? [parsedRes, res.headers] : parsedRes);
+    // split by question mark : first part is /path, remove /
+    if (this.options.cache && this.options.cacheFilter(url.split('?')[0].slice(1))) {
+      if (this.options.cacheSize < cached.size) cached.delete(cached.keys().next().value); // Map and its special "iterators"
+      cached.set(url, parsedRes);
+      setTimeout(() => { try { cached.delete(url); } catch (e) {} }, 1000 * this.options.cacheTime);
     }
     return (url === '/key' ? [parsedRes, res.headers] : parsedRes);
   }

@@ -7,6 +7,7 @@ module.exports = {
   OPTIONS_MUST_BE_AN_OBJECT: '[hypixel-api-reborn] Options must be an object! For help join our Discord Server https://discord.gg/NSEBNMM',
   CACHE_TIME_MUST_BE_A_NUMBER: '[hypixel-api-reborn] Cache Time must be a number! For help join our Discord Server https://discord.gg/NSEBNMM',
   CACHE_LIMIT_MUST_BE_A_NUMBER: '[hypixel-api-reborn] Cache Limit must be a number! For help join our Discord Server https://discord.gg/NSEBNMM',
+  CACHE_FILTER_INVALID: '[hypixel-api-reborn] Cache Filter must be a function returning a boolean, an object, an array, or a string!',
   NO_NICKNAME_UUID: '[hypixel-api-reborn] No nickname or uuid specified.',
   NO_UUID: '[hypixel-api-reborn] No uuid specified.',
   UUID_NICKNAME_MUST_BE_A_STRING: '[hypixel-api-reborn] Nickname or uuid must be a string.',

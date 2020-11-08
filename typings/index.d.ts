@@ -9,6 +9,7 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
+    cacheFilter: string | string[] | function | { 'whitelist':string | string[], 'blacklist':string | string[] };
     rateLimit: 'HARD' | 'AUTO' | 'NONE';
 }
 declare module 'hypixel-api-reborn' {
