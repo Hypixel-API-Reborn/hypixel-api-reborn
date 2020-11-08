@@ -34,6 +34,7 @@ declare module 'hypixel-api-reborn' {
     export class Client {
         constructor(key: string, options?: clientOptions);
         public key: string;
+        public options: clientOptions;
         /**
          * @description Allows you to get statistics of player
          * @param query - player nickname or uuid
@@ -95,6 +96,10 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get leaderboards of each mini-game
          */
         public getLeaderboards(): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        /**
+         * @description Allows you to clear cache
+         */
+        public get sweepCache(): void;
     }
     export class Player {
         constructor(data: object);
