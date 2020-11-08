@@ -8,9 +8,9 @@ module.exports = async function (searchParameter, query) {
   if (searchParameter === 'player') query = await toUuid(query);
   if (!['id', 'name', 'player'].includes(searchParameter)) throw new Error(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   const res = await this._makeRequest(`/guild?${searchParameter}=${encodeURI(query)}`); ;
-  if (!res.guild) {
+  if (!res.guild && searchParameter !== 'player') {
     throw new Error(Errors.GUILD_DOES_NOT_EXIST);
   }
 
-  return new Guild(res.guild);
+  return res.guild ? new Guild(res.guild) : null;
 };
