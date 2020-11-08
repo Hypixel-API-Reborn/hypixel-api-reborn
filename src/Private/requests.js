@@ -13,7 +13,7 @@ module.exports = class Requests {
     if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     if (this.options.cache) {
-      if (this.options.cacheSize > cached.size) cached.delete(cached.keys()[0]);
+      if (this.options.cacheSize > cached.size) cached.delete(cached.keys().next().value()); // Map and its special "iterators"
       cached.set(url, parsedRes);
       setTimeout(() => { try { cached.delete(url); } catch (e) {} }, 1000 * this.options.cacheTime);
     }
