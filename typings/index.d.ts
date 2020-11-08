@@ -43,13 +43,13 @@ declare module 'hypixel-api-reborn' {
         public getPlayer(query: string, options?: {guild?: boolean}): Promise<Player>;
         /**
          * @description Allows you to get statistics of hypixel guild
-         * @param searchParameter 'name', 'player' or 'id'
-         * @param query guild name, player nickname or guild id
+         * @param searchParameter - 'name', 'player' or 'id'
+         * @param query - guild name, player nickname or guild id
          */
         public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
          * @description Allows you to get all friends of player
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
         public getFriends(query: string): Promise<Friend[]>;
         /**
@@ -62,17 +62,17 @@ declare module 'hypixel-api-reborn' {
         public getBoosters(): Promise<Booster[]>;
         /**
          * @description Allows you to get player's skyblock profiles
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
         public getSkyblockProfiles(query: string): Promise<SkyblockProfile[]>;
         /**
          * @description Allows you to get all skyblock auctions
-         * @param page number (not required)
+         * @param page - number (optional)
          */
         public getSkyblockAuctions(page?: number): Promise<Auction[]>;
         /**
          * @description Allows you to get all auctions of player
-         * @param qeury player nickname or uuid
+         * @param qeury - player nickname or uuid
          */
         public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
         /**
@@ -81,7 +81,7 @@ declare module 'hypixel-api-reborn' {
         public getSkyblockBazaar(): Promise<Product[]>;
         /**
          * @description Allows you to get player's network status
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
         public getStatus(query: string): Promise<Status>;
         /**
