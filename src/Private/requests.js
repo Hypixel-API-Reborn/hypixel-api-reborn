@@ -17,7 +17,7 @@ module.exports = class Requests {
     }
     if (options.nocache) return (url === '/key' ? [parsedRes, res.headers] : parsedRes);
     // split by question mark : first part is /path, remove /
-    if (this.options.cache && this.options.cacheFilter(url.split('?')[0].slice(1))) {
+    if (!options.noCaching && this.options.cache && this.options.cacheFilter(url.split('?')[0].slice(1))) {
       if (this.options.cacheSize < cached.size) cached.delete(cached.keys().next().value); // Map and its special "iterators"
       cached.set(url, parsedRes);
       setTimeout(() => { try { cached.delete(url); } catch (e) {} }, 1000 * this.options.cacheTime);

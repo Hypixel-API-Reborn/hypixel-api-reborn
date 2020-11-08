@@ -24,6 +24,12 @@ module.exports = class Validation {
     return key;
   }
 
+  cacheSuboptions (input) {
+    if (typeof input !== 'object') return false;
+    if (!input.noCacheCheck && !input.noCaching) return false;
+    return true;
+  }
+
   _handleFilter (filter) {
     if (!filter) return () => true;
     if (typeof filter === 'object' && !Array.isArray(filter)) {
