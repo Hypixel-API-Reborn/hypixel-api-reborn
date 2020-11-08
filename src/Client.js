@@ -23,7 +23,7 @@ class Client {
   async _makeRequest (options, url) {
     if (!url) return;
     if (url !== '/key') {
-      if (requests.cache.has(url)) return requests.cache.get(url);
+      if (requests.cache.has(url) && options.nocache) return requests.cache.get(url);
       rateLimit.rateLimitManager();
     }
 
