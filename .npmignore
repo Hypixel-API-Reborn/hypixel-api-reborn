@@ -14,9 +14,8 @@ CVS
 npm-debug.log
 .eslintignore
 .eslintrc.json
-testing/
 test/
 changelog.md
 .github
-test/
 .travis.yml
+.circleci
