@@ -26,7 +26,7 @@ module.exports = class RateLimit {
     this.options = { rateLimit };
     this.requests = 0;
     this.waitingRequests = 0;
-    this.lastRequestAt = 9999999999999; // Set to a large number so 1st request doesn't get rate limited already
+    this.lastRequestAt = 0; // Set to a large number so 1st request doesn't get rate limited already
     keyInfo
       .then(info => {
         this.requests = info.requestsInPastMin;
