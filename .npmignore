@@ -20,3 +20,4 @@ changelog.md
 .github
 test/
 .travis.yml
+.vscode/

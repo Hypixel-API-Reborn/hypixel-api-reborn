@@ -41,7 +41,6 @@ dist
 .dynamodb/
 package-lock.json
 .tern-port
-
 testing/
 test/
 .circleci/
