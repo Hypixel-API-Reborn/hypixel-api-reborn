@@ -13,6 +13,7 @@
 <h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
 <br>
 </div>
+
 ### Links
 - [Discord Support](https://discord.gg/NSEBNMM) <br>
 - [Documenation](https://hypixel.stavzdev.xyz) <br>
