@@ -14,6 +14,6 @@
 <br>
 </div>
 ### Links
-- [Discord Support](https://discord.gg/NSEBNMM)
-- [Documenation](https://hypixel.stavzdev.xyz)
-- [NPM](https://www.npmjs.com/package/hypixel-api-reborn)
+- [Discord Support](https://discord.gg/NSEBNMM) <br>
+- [Documenation](https://hypixel.stavzdev.xyz) <br>
+- [NPM](https://www.npmjs.com/package/hypixel-api-reborn) <br>
