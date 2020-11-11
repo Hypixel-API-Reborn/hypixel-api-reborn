@@ -9,6 +9,15 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
+    cacheFilter: string | string[] | function | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    rateLimit: 'HARD' | 'AUTO' | 'NONE';
+}
+interface methodOptions {
+    noCacheCheck?: boolean;
+    noCaching?: boolean;
+}
+interface playerMethodOptions extends methodOptions {
+    guild?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -33,67 +42,73 @@ declare module 'hypixel-api-reborn' {
     export class Client {
         constructor(key: string, options?: clientOptions);
         public key: string;
+        public options: clientOptions;
         /**
          * @description Allows you to get statistics of player
          * @param query - player nickname or uuid
          * @param options - player search options
          */
-        public getPlayer(query: string, options?: {guild?: boolean}): Promise<Player>;
+        public getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
         /**
          * @description Allows you to get statistics of hypixel guild
-         * @param searchParameter 'name', 'player' or 'id'
-         * @param query guild name, player nickname or guild id
+         * @param searchParameter - 'name', 'player' or 'id'
+         * @param query - guild name, player nickname or guild id
          */
         public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
          * @description Allows you to get all friends of player
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
-        public getFriends(query: string): Promise<Friend[]>;
+        public getFriends(query: string, options?: methodOptions): Promise<Friend[]>;
         /**
          * @description Allows you to get statistics of watchdog anticheat
          */
-        public getWatchdogStats(): Promise<WatchdogStats>;
+        public getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
         /**
          * @description Allows you to get all active boosters
          */
-        public getBoosters(): Promise<Booster[]>;
+        public getBoosters(options?: methodOptions): Promise<Booster[]>;
         /**
          * @description Allows you to get player's skyblock profiles
-         * @param query player uuid
+         * @param query - player nickname or uuid
          */
-        public getSkyblockProfiles(query: string): Promise<SkyblockProfile[]>;
+        public getSkyblockProfiles(query: string, options?: methodOptions): Promise<SkyblockProfile[]>;
         /**
          * @description Allows you to get all skyblock auctions
-         * @param page number (not required)
+         * @param page - number (optional)
          */
-        public getSkyblockAuctions(page?: number): Promise<Auction[]>;
+        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get all auctions of player
-         * @param qeury player uuid
+         * @param qeury - player nickname or uuid
          */
-        public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(qeury: string, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
-        public getSkyblockBazaar(): Promise<Product[]>;
+        public getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
         /**
          * @description Allows you to get player's network status
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
-        public getStatus(query: string): Promise<Status>;
+        public getStatus(query: string, options?: methodOptions): Promise<Status>;
         /**
          * @description Allows you to get current player count
          */
-        public getOnline(): Promise<number>;
+        public getOnline(options?: methodOptions): Promise<number>;
         /**
-         * @description Allows you to get information about API key used
+         * @description Allows you to get information about used API key
          */
-        public getKeyInfo(): Promise<KeyInfo>;
+        public getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
         /**
          * @description Allows you to get leaderboards of each mini-game
          */
-        public getLeaderboards(): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        public getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        /**
+         * @description Allows you to clear cache
+         */
+        public get sweepCache(): void;
+        public get cache(): Map<string, object>;
     }
     export class Player {
         constructor(data: object);
@@ -150,6 +165,7 @@ declare module 'hypixel-api-reborn' {
         public limitPerMinute: number;
         public requestsInPastMin: number;
         public totalRequests: number;
+        public resetsAfter: number;
     }
     export class ArenaBrawl {
         constructor(data: object);
