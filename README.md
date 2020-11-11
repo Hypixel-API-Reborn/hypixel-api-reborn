@@ -47,13 +47,15 @@ options (Object)
 options.cache (false by default) - Enables/Disables Request Caching
 options.cacheTime (60 by default) - Amount of time in seconds to cache the request.
 options.cacheSize (-1 by default) - The amount of how many results will be cached (set -1 for infinity)
+options.rateLimit ('AUTO' by default) - Enables/disables a rate limit of 0.5 seconds for requests to the API ( cached results not counted ). Very useful for programs that are designed to be used by a large public audience. 
 */
 
 //Enables caching with a max age of 30 seconds and a limit of 5 cached results
 const options = {
     cache: true,
     cacheTime: 30,
-    cacheSize: 5
+    cacheSize: 5,
+    rateLimit: 'NONE'
 };
 const hypixel = new Hypixel.Client('API-KEY', options);
 ```

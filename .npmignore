@@ -1,4 +1,3 @@
-testing/
 node_modules/
 .*.swp
 ._*
@@ -14,8 +13,8 @@ CVS
 npm-debug.log
 .eslintignore
 .eslintrc.json
-test/
+testing/
 changelog.md
 .github
 .travis.yml
-.circleci
+.vscode/
