@@ -4,6 +4,7 @@ class Bid {
     this.profileId = data.profile_id || null;
     this.amount = data.amount || 0;
     this.timestamp = data.timestamp || null;
+    this.at = data.timestampe ? new Date(data.timestamp) : null;
     this.bidder = data.bidder || null;
   }
 }

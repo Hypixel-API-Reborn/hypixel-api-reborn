@@ -105,9 +105,13 @@ declare module 'hypixel-api-reborn' {
          */
         public getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
         /**
+         * @description Allows you to get recent games of a player
+         */
+        public getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        /**
          * @description Allows you to clear cache
          */
-        public get sweepCache(): void;
+         public get sweepCache(): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -117,8 +121,12 @@ declare module 'hypixel-api-reborn' {
         public history: string[];
         public rank: PLAYER_RANK;
         public mcVersion: string;
-        public lastLogin: number;
-        public firstLogin: number;
+        public lastLoginTimestamp: number;
+        public lastLogin: Date;
+        public lastLogoutTimestamp: number;
+        public lastLogout: Date;
+        public firstLoginTimestamp: number;
+        public firstLogin: Date;
         public recentlyPlayedGame: Game;
         public plusColor?: Color;
         public karma: number;
@@ -147,6 +155,7 @@ declare module 'hypixel-api-reborn' {
             blitzsg?: BlitzSurvivalGames,
             arena?: ArenaBrawl
         }
+        public getRecentGames(): Promise<RecentGame[]>;
     }
     export class Leaderboard {
         constructor(data: object);
@@ -343,7 +352,8 @@ declare module 'hypixel-api-reborn' {
         public description: string;
         public experience: number;
         public level: number;
-        public createdAt: number;
+        public createdAtTimestamp: number;
+        public createdAt: Date;
         public joinable: boolean;
         public publiclyListed: boolean;
         public tag: string;
@@ -355,7 +365,8 @@ declare module 'hypixel-api-reborn' {
             experienceKings: number,
             onlinePlayers: number
         };
-        public chatMuteUntil: number;
+        public chatMuteUntilTimestamp: number;
+        public chatMuteUntil: Date;
         public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
         public preferredGames: Game[];
         public members: GuildMember[];
@@ -369,8 +380,10 @@ declare module 'hypixel-api-reborn' {
         public auctionId: string;
         public auctioneerUuid: string;
         public coop: string[];
-        public auctionStart: number;
-        public auctionEnd: number;
+        public auctionStartTimestamp: number;
+        public auctionEndTimestamp: number;
+        public auctionStart: Date;
+        public auctionEnd: Date;
         public item: string;
         public itemLore: string;
         public startingBid: number;
@@ -386,6 +399,7 @@ declare module 'hypixel-api-reborn' {
         public profileId: string;
         public amount: number;
         public timestamp: number;
+        public at: Date;
         public bidder: string;
     }
     export class Product {
@@ -422,11 +436,13 @@ declare module 'hypixel-api-reborn' {
     export class GuildMember {
         constructor(data: object);
         public uuid: string;
-        public joinedAt: number;
+        public joinedAtTimestamp: number;
+        public joinedAt: Date;
         public questParticipation: number;
         public rank: string;
         public weeklyExperience: number;
-        public mutedUntil: number;
+        public mutedUntilTimestamp: number;
+        public mutedUntil: Date;
         public expHistory: { day: string, exp: number }[];
     }
     export class GuildRank {
@@ -434,14 +450,16 @@ declare module 'hypixel-api-reborn' {
         public name: string;
         public default: boolean;
         public tag: string | null;
-        public createdAt: number;
+        public createdAtTimestamp: number;
+        public createdAt: Date;
         public priority: number;
     }
     export class Friend {
         constructor(data: object);
         public sender: string;
         public receiver: string;
-        public friendSince: number;
+        public friendSinceTimestamp: number;
+        public friendSince: Date;
     }
     export class Booster {
         constructor(data: object);
@@ -464,6 +482,9 @@ declare module 'hypixel-api-reborn' {
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
+        public firstJoinAt: Date;
+        public lastSaveAt: Date;
+        public lastDeathAt: Date;
         public fairySouls: number;
         public skills: {
             taming: {
@@ -1197,6 +1218,15 @@ declare module 'hypixel-api-reborn' {
             pro: number,
             gtb: number
         };
+    }
+    export class RecentGame {
+        constructor(data: object)
+        public date: number;
+        public at: Date;
+        public mode: string;
+        public map: string;
+        public endedAt: Date;
+        public endedTimestamp: number;
     }
     export class MegaWalls {
         constructor(data: object)

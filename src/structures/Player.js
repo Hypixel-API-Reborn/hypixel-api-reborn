@@ -24,8 +24,12 @@ class Player {
     this.history = data.knownAliases;
     this.rank = getRank(data);
     this.mcVersion = data.mcVersionRp || null;
-    this.lastLogin = data.lastLogin || null;
-    this.firstLogin = data.firstLogin || null;
+    this.lastLoginTimestamp = data.lastLogin || null;
+    this.firstLoginTimestamp = data.firstLogin || null;
+    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    this.lastLogoutTimestamp = data.lastLogout || null;
+    this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
@@ -42,7 +46,7 @@ class Player {
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
-    this.isOnline = this.lastLogin > data.lastLogout;
+    this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
 
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
@@ -61,6 +65,10 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null)
     } : null);
+  }
+
+  getRecentGames () {
+    return this.getRecentGames(this.uuid, this);
   }
 }
 
