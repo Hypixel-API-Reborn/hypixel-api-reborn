@@ -13,12 +13,13 @@ const SmashHeroes = require('./MiniGames/SmashHeroes');
 const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
-
+const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 
 class Player {
-  constructor (data) {
+  constructor (data, fakethis) {
+    this.fakethis = fakethis;
     this.nickname = data.displayname;
     this.uuid = data.uuid;
     this.history = data.knownAliases;
@@ -42,7 +43,6 @@ class Player {
     this.totalExperience = data.networkExp || 0;
     this.level = getPlayerLevel(this.totalExperience) || 0;
     this.socialmedia = getSocialMedia(data.socialMedia) || [];
-
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
@@ -68,7 +68,7 @@ class Player {
   }
 
   getRecentGames () {
-    return this.getRecentGames(this.uuid, {"lastLogoutTimestamp":this.lastLogoutTimestamp});
+    return getRecentGames.call(this.fakethis, this.uuid, this);
   }
 }
 
