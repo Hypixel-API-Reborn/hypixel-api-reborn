@@ -5,8 +5,8 @@ class GuildMember {
     this.questParticipation = data.questParticipation || 0;
     this.rank = data.rank;
     this.mutedUntil = data.mutedTill ? data.mutedTill : null;
-    var gexp = 0;
-    var history = [];
+    let gexp = 0;
+    const history = [];
     if (Object.keys(data.expHistory).length) {
       for (const day in data.expHistory) {
         gexp += data.expHistory[day];
