@@ -16,24 +16,24 @@ class Guild {
      * @author linearaccelerator
      * @returns {Array<GuildRank>} An array containing all guild ranks sorted by newest
      */
-    this.ranksByNewest = function (data) {
-      return data.ranks ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null;
+    this.getRanksByNewest = function () {
+      return this.ranks.length ? this.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : [];
     };
     /**
      * @author linearaccelerator
-     * @returns {Array<GuildMember>} An array containing all guild ranks sorted by newest
+     * @returns {Map<GuildMember>} A map containing all guild members, keyed by their uuids
      */
-    this.memberUUIDMap = function (data) {
-      return data.members.length ? new Map(data.members.map(m => [new GuildMember(m).uuid, new GuildMember(m)])) : [];
+    this.getMemberUUIDMap = function () {
+      return this.members.length ? new Map(this.members.map(m => [new GuildMember(m).uuid, new GuildMember(m)])) : [];
     };
     /**
      * @author linearaccelerator
      * @param {number} priority - The priority of the guild rank
      * @returns {GuildRank}
      */
-    this.getRankByPriority = function (data, priority) {
-      if (!data.ranks || !data.ranks.find(r => r.priority === priority)) return null;
-      return new GuildRank(data.ranks.find(r => r.priority === priority));
+    this.getRankByPriority = function (priority) {
+      if (!this.ranks.length || !this.ranks.some(r => r.priority === priority)) return null;
+      return new GuildRank(this.ranks.find(r => r.priority === priority));
     };
     this.createdAt = data.created;
     this.joinable = data.joinable ? data.joinable : false;
