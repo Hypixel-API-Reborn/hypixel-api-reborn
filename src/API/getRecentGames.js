@@ -10,7 +10,7 @@ module.exports = async function (query, playerData) {
   const res = await this._makeRequest(`/recentgames?uuid=${query}`);
   if (res.games === []) {
     if (!playerData) throw new Error(Errors.PLAYER_IS_INACTIVE);
-    if (new Date().getTime() - playerData.lastlogin < day3) throw new Error(Errors.PLAYER_DISABLED_ENDPOINT);
+    if (new Date().getTime() - playerData.lastLogoutTimestamp < day3) throw new Error(Errors.PLAYER_DISABLED_ENDPOINT);
     throw new Error(Errors.PLAYER_IS_INACTIVE);
   }
   return res.games.map(x => new RecentGame(x));
