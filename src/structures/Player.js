@@ -68,7 +68,7 @@ class Player {
   }
 
   getRecentGames () {
-    return this.getRecentGames(this.uuid, this);
+    return this.getRecentGames(this.uuid, {...this.lastLogoutTimestamp});
   }
 }
 
