@@ -15,5 +15,5 @@ module.exports = async function (query, options = { guild: false }) {
     }
     res.player.guild = guildRes.guild;
   }
-  return new Player(res.player);
+  return new Player(res.player, this);
 };

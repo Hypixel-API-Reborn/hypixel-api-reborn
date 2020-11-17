@@ -35,10 +35,12 @@ class Guild {
       if (!data.ranks || !data.ranks.find(r => r.priority === priority)) return null;
       return new GuildRank(data.ranks.find(r => r.priority === priority));
     };
-    this.createdAt = data.created;
+    this.createdAtTimestamp = data.created;
+    this.createdAt = new Date(data.created);
     this.joinable = data.joinable ? data.joinable : false;
     this.publiclyListed = !!data.publiclyListed;
-    this.chatMuteUntil = data.chatMute ? data.chatMute : null;
+    this.chatMuteUntilTimestamp = data.chatMute ? data.chatMute : null;
+    this.chatMuteUntil = data.chatMute ? new Date(data.chatMute) : null;
     this.banner = data.banner ? data.banner : data.banner;
     this.tag = data.tag ? data.tag : null;
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
