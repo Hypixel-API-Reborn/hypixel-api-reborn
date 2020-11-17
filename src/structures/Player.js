@@ -19,7 +19,6 @@ const Game = require('./Game');
 
 class Player {
   constructor (data, fakethis) {
-    this.fakethis = fakethis;
     this.nickname = data.displayname;
     this.uuid = data.uuid;
     this.history = data.knownAliases;
@@ -47,6 +46,9 @@ class Player {
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
     this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
+    this.getRecentGames = function () {
+      return getRecentGames.call(fakethis, this.uuid, this);
+    };
 
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
@@ -65,10 +67,6 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null)
     } : null);
-  }
-
-  getRecentGames () {
-    return getRecentGames.call(this.fakethis, this.uuid, this);
   }
 }
 
