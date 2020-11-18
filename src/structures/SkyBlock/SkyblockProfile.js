@@ -3,6 +3,7 @@ class SkyblockProfile {
   constructor (data) {
     this.profileId = data.profile_id;
     this.profileName = data.profile_name;
+    this.gameMode = data.game_mode || null;
     this.members = edit(data.members).map(m => new Member(m));
   }
 }
