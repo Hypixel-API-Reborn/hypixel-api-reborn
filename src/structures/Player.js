@@ -13,19 +13,23 @@ const SmashHeroes = require('./MiniGames/SmashHeroes');
 const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
-
+const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 
 class Player {
-  constructor (data) {
+  constructor (data, fakethis) {
     this.nickname = data.displayname;
     this.uuid = data.uuid;
     this.history = data.knownAliases;
     this.rank = getRank(data);
     this.mcVersion = data.mcVersionRp || null;
-    this.lastLogin = data.lastLogin || null;
-    this.firstLogin = data.firstLogin || null;
+    this.lastLoginTimestamp = data.lastLogin || null;
+    this.firstLoginTimestamp = data.firstLogin || null;
+    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    this.lastLogoutTimestamp = data.lastLogout || null;
+    this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
@@ -38,11 +42,13 @@ class Player {
     this.totalExperience = data.networkExp || 0;
     this.level = getPlayerLevel(this.totalExperience) || 0;
     this.socialmedia = getSocialMedia(data.socialMedia) || [];
-
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
-    this.isOnline = this.lastLogin > data.lastLogout;
+    this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
+    this.getRecentGames = function () {
+      return getRecentGames.call(fakethis, this.uuid, this);
+    };
 
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
