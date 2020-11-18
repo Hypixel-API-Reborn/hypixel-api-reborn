@@ -17,14 +17,14 @@ class Guild {
      * @returns {Array<GuildRank>} An array containing all guild ranks sorted by newest
      */
     this.getRanksByNewest = function () {
-      return this.ranks.length ? this.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : [];
+      return this.ranks.length ? this.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null;
     };
     /**
      * @author linearaccelerator
      * @returns {Map<GuildMember>} A map containing all guild members, keyed by their uuids
      */
     this.getMemberUUIDMap = function () {
-      return this.members.length ? new Map(this.members.map(m => [new GuildMember(m).uuid, new GuildMember(m)])) : [];
+      return this.members.length ? new Map(this.members.map(m => [new GuildMember(m).uuid, new GuildMember(m)])) : null;
     };
     /**
      * @author linearaccelerator
