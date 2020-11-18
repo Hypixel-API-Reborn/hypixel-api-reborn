@@ -1,4 +1,5 @@
 const { decode, getLevelByXp, getSlayerLevel } = require('../../utils/SkyblockUtils');
+const { pet_score } = require('../../utils/Constants'); // eslint-disable-line camelcase
 const Armor = require('./SkyblockArmor');
 const Item = require('./SkyblockItem');
 const objectPath = require('object-path');
@@ -61,6 +62,14 @@ class SkyblockMember {
       } catch (e) {
         return e;
       }
+    };
+    this.getPetScore = function () {
+      if (!data.m.pets) return 0;
+      let petScore = 0;
+      for (const pet of data.m.pets) {
+        petScore += pet_score[pet.tier] || 0;
+      }
+      return petScore;
     };
     this.stats = (data.m.stats ? {
       purse: Math.floor(data.m.coin_purse) || 0,

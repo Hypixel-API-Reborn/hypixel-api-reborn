@@ -144,6 +144,14 @@ module.exports = {
     9: 1000000
   },
 
+  pet_score: {
+    COMMON: 1,
+    UNCOMMON: 2,
+    RARE: 3,
+    EPIC: 4,
+    LEGENDARY: 5
+  },
+
   base_stats: {
     damage: 0,
     health: 100,
