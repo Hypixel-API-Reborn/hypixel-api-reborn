@@ -645,7 +645,7 @@ declare module 'hypixel-api-reborn' {
         public getInventory(): Promise<Item[]>;
         public getEnderChest(): Promise<Item[]>;
         public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>;
-        public getPetScore(): Number;
+        public getPetScore(): number;
     }
     export class Color {
         constructor(color: string)
