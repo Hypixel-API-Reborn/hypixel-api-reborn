@@ -1,10 +1,12 @@
 class GuildMember {
   constructor (data) {
     this.uuid = data.uuid;
-    this.joinedAt = data.joined;
+    this.joinedAtTimestamp = data.joined;
+    this.joinedAt = new Date(data.joined);
     this.questParticipation = data.questParticipation || 0;
     this.rank = data.rank;
-    this.mutedUntil = data.mutedTill ? data.mutedTill : null;
+    this.mutedUntilTimestamp = data.mutedTill ? data.mutedTill : null;
+    this.mutedUntil = data.mutedTill ? new Date(data.mutedTill) : null;
     let gexp = 0;
     const history = [];
     if (Object.keys(data.expHistory).length) {

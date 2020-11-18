@@ -6,7 +6,8 @@ class Booster {
     this.amount = data.amount;
     this.originalLength = data.originalLength;
     this.remaining = data.length;
-    this.activated = data.dateActivated;
+    this.activatedTimestamp = data.dateActivated;
+    this.activated = new Date(data.Activated);
     this.game = data.gameType ? new Game(data.gameType) : null;
   }
 }
