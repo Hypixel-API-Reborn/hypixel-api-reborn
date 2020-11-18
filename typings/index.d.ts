@@ -479,6 +479,7 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
+        public gameMode?: string;
         public members: SkyblockMember[];
     }
     export class SkyblockMember {
