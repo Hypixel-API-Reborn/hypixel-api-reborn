@@ -14,7 +14,8 @@ module.exports = async function (query) {
     profiles.push({
       profile_name: res.profiles[i].cute_name,
       profile_id: res.profiles[i].profile_id,
-      members: res.profiles[i].members
+      members: res.profiles[i].members,
+      me: query
     });
   }
 

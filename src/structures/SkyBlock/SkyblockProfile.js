@@ -4,6 +4,7 @@ class SkyblockProfile {
     this.profileId = data.profile_id;
     this.profileName = data.profile_name;
     this.members = edit(data.members).map(m => new Member(m));
+    this.me = this.members.find(x => x.uuid === data.me);
   }
 }
 /**
