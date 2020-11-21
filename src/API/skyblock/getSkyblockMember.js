@@ -11,7 +11,7 @@ module.exports = async function (query) {
   }
   const memberByProfileName = new Map();
   for (const profile of res.profiles) {
-    memberByProfileName.set(profile.cute_name, new SkyblockMember({ uuid: query, m: profile.members[query] }));
+    memberByProfileName.set(profile.cute_name, new SkyblockMember({ uuid: query, profileName: profile.cute_name, m: profile.members[query] }));
   }
   return memberByProfileName;
 };
