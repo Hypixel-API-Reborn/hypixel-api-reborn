@@ -391,6 +391,7 @@ declare module 'hypixel-api-reborn' {
         public auctionEnd: Date;
         public item: string;
         public itemLore: string;
+        public rarity: string;
         public startingBid: number;
         public highestBid: number;
         public bids: Bid[];
@@ -481,6 +482,7 @@ declare module 'hypixel-api-reborn' {
         public profileName: string;
         public gameMode?: string;
         public members: SkyblockMember[];
+        public me: SkyblockMember;
     }
     export class SkyblockMember {
         constructor(data: object);
