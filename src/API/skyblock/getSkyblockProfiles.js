@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-module.exports = async function (query, options = { includePlayerApi: false }) {
+module.exports = async function (query, options = { includePlayer: false }) {
   const SkyblockProfile = require('../../structures/SkyBlock/SkyblockProfile');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
@@ -10,27 +10,23 @@ module.exports = async function (query, options = { includePlayerApi: false }) {
     return [];
   }
 
-  const playerData = new Map();
-  if (options.includePlayerApi) {
+  const players = new Map();
+  if (options.includePlayer) {
+    const Player = require('../../structures/Player');
     const uniqueUuidsArray = [...new Set((res.profiles.map(profile => Object.keys(profile.members)).flat()))];
     for (const uuid of uniqueUuidsArray) {
       const playerRes = await this._makeRequest(`/player?uuid=${uuid}`);
       if (!playerRes.success) {
         throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, playerRes.cause));
       }
-      playerData.set(uuid, {
-        ign: playerRes.player.displayname,
-        achievements: playerRes.player.achievements
-      });
+      players.set(uuid, new Player(playerRes.player, this));
     }
   }
 
   const profiles = [];
   for (let i = 0; i < res.profiles.length; i++) {
-    if (options.includePlayerApi) {
-      for (const memberUuid of Object.keys(res.profiles[i].members)) {
-        Object.assign(res.profiles[i].members[memberUuid], playerData.get(memberUuid));
-      }
+    for (const memberUuid of Object.keys(res.profiles[i].members)) {
+      res.profiles[i].members[memberUuid].player = players.get(memberUuid) || null;
     }
 
     profiles.push({
