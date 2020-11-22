@@ -7,7 +7,7 @@ const objectPath = require('object-path');
 class SkyblockMember {
   constructor (data) {
     this.uuid = data.uuid;
-    this.nickname = data.m.ign || null;
+    this.player = data.m.player;
     this.profileName = data.profileName;
     this.gameMode = data.gameMode;
     this.firstJoinTimestamp = data.m.first_join;
@@ -96,9 +96,9 @@ class SkyblockMember {
 function getSkills (data) {
   const skillsObject = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
-    if (data.achievements) {
+    if (data.player) {
       for (const [skill, achievement] of Object.entries(skills_achievements)) {
-        skillsObject[skill] = getLevelByAchievement(data.achievements[achievement], skill);
+        skillsObject[skill] = getLevelByAchievement(data.player.achievements[achievement], skill);
       }
       skillsObject.usedAchievementApi = true;
       return skillsObject;
@@ -106,9 +106,9 @@ function getSkills (data) {
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.achievements);
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.player ? data.player.achievements : undefined);
   }
-  if (data.achievements) skillsObject.usedAchievementApi = false;
+  if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
 }
 /**

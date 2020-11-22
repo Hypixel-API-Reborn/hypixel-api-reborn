@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-module.exports = async function (query, options = { includePlayerApi: false }) {
+module.exports = async function (query, options = { includePlayer: false }) {
   const SkyblockMember = require('../../structures/SkyBlock/SkyblockMember');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
@@ -10,21 +10,19 @@ module.exports = async function (query, options = { includePlayerApi: false }) {
     return new Map();
   }
 
-  let playerData;
-  if (options.includePlayerApi) {
+  let player;
+  if (options.includePlayer) {
     const playerRes = await this._makeRequest(`/player?uuid=${query}`);
     if (!playerRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, playerRes.cause));
     }
-    playerData = {
-      ign: playerRes.player.displayname,
-      achievements: playerRes.player.achievements
-    };
+    const Player = require('../../structures/Player');
+    player = new Player(playerRes.player, this);
   }
 
   const memberByProfileName = new Map();
   for (const profile of res.profiles) {
-    if (options.includePlayerApi) Object.assign(profile.members[query], playerData);
+    profile.members[query].player = player || null;
     memberByProfileName.set(profile.cute_name, new SkyblockMember({
       uuid: query,
       profileName: profile.cute_name,
