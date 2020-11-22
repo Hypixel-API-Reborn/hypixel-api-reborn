@@ -1,4 +1,6 @@
 module.exports = {
+  skyblock_year_0: 1560275700000,
+
   leveling_xp: {
     1: 50,
     2: 125,
