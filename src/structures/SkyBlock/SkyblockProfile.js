@@ -12,11 +12,11 @@ class SkyblockProfile {
  * @param {Array} members
  * @returns {Array}
  */
-function edit (members) {
+function edit (members, profileName) {
   const edited = [];
   Object.keys(members).forEach((k) => {
     const m = members[k];
-    edited.push({ uuid: k, m });
+    edited.push({ uuid: k, profileName: profileName, m });
   });
   return edited;
 }

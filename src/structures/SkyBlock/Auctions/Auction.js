@@ -11,6 +11,7 @@ class Auction {
     this.auctionEndTimestamp = data.end || null;
     this.item = data.item_name || null;
     this.itemLore = data.item_lore ? data.item_lore.replace(/§([1-9]|[a-l])|§/gm, '') : null;
+    this.rarity = data.tier || null;
     this.startingBid = data.starting_bid || 0;
     this.highestBid = data.highest_bid_amount || 0;
     this.bids = data.bids.length ? data.bids.map(b => new Bid(b)) : [];

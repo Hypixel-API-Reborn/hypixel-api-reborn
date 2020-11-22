@@ -132,12 +132,12 @@ function getSkyWarsPrestige (level) {
 }
 function getSkyWarsLevel (xp) {
   if (xp < 20) return 1;
-  var totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
-  var exactLevel = 0;
+  const totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
+  let exactLevel = 0;
   if (xp >= 15000) {
     exactLevel = (xp - 15000) / 10000 + 12;
   } else {
-    var c = 0;
+    let c = 0;
     // eslint-disable-next-line no-unmodified-loop-condition
     while (xp >= 0) {
       if (xp - totalXp[c] >= 0) {
