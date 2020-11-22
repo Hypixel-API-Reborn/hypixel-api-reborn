@@ -26,7 +26,7 @@ module.exports = async function (query, options = { includePlayer: false }) {
     memberByProfileName.set(profile.cute_name, new SkyblockMember({
       uuid: query,
       profileName: profile.cute_name,
-      gameMode: profile.gameMode || null,
+      gameMode: profile.game_mode || null,
       m: profile.members[query]
     }));
   }
