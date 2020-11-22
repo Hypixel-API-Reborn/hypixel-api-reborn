@@ -490,7 +490,7 @@ declare module 'hypixel-api-reborn' {
     export class SkyblockMember {
         constructor(data: object);
         public uuid: string;
-        public ign?: string;
+        public nickname?: string;
         public profileName: string;
         public gameMode?: string;
         public firstJoin: number;
