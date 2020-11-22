@@ -14,7 +14,7 @@ module.exports = async function (query, options = { guild: false }) {
     if (!guildRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, guildRes.cause));
     }
-    res.player.guild = new Guild(guildRes.guild);
+    res.player.guild = guildRes.guild ? new Guild(guildRes.guild) : null;
   }
   return new Player(res.player, this);
 };
