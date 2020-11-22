@@ -13,14 +13,14 @@ module.exports = async function (query, options = { includePlayer: false }) {
   const players = new Map();
   if (options.includePlayer) {
     const Player = require('../../structures/Player');
-    const uniqueUuids = new Set((res.profiles.map(profile => Object.keys(profile.members)).flat()));
-    for (const uuid of uniqueUuids) {
+    const uniqueUuids = [...new Set((res.profiles.map(profile => Object.keys(profile.members)).flat()))];
+    await Promise.all(uniqueUuids.map(async uuid => {
       const playerRes = await this._makeRequest(`/player?uuid=${uuid}`);
       if (!playerRes.success) {
         throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, playerRes.cause));
       }
       players.set(uuid, new Player(playerRes.player, this));
-    }
+    }));
   }
 
   const profiles = [];
