@@ -1,5 +1,6 @@
+/* eslint-disable camelcase */
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
-const { skills, skills_achievements, pet_score } = require('../../utils/Constants'); // eslint-disable-line camelcase
+const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
 const Armor = require('./SkyblockArmor');
 const Item = require('./SkyblockItem');
 const objectPath = require('object-path');
@@ -14,7 +15,7 @@ class SkyblockMember {
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;
     this.lastSaveAt = new Date(data.m.last_save);
-    this.lastDeathAt = new Date(data.m.last_death);
+    this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
     this.lastDeath = data.m.last_death;
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
