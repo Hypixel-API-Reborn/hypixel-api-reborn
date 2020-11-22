@@ -9,11 +9,12 @@ module.exports = async function (query, options = { guild: false }) {
   const res = await this._makeRequest(`/player?uuid=${query}`);
 
   if (options.guild) {
+    const Guild = require('../structures/Guild/Guild');
     const guildRes = await this._makeRequest(`/guild?player=${query}`);
     if (!guildRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, guildRes.cause));
     }
-    res.player.guild = guildRes.guild;
+    res.player.guild = new Guild(guildRes.guild);
   }
   return new Player(res.player, this);
 };
