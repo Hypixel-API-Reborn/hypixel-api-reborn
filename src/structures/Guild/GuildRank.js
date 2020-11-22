@@ -1,6 +1,5 @@
 class GuildRank {
   constructor (data) {
-    console.log(data);
     this.name = data.name;
     this.default = data.default;
     this.tag = data.tag ? data.tag : null;

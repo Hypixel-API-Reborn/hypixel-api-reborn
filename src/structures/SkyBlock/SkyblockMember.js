@@ -7,7 +7,9 @@ const objectPath = require('object-path');
 class SkyblockMember {
   constructor (data) {
     this.uuid = data.uuid;
+    this.ign = data.m.ign || null;
     this.profileName = data.profileName;
+    this.gameMode = data.gameMode;
     this.firstJoinTimestamp = data.m.first_join;
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;
@@ -98,6 +100,7 @@ function getSkills (data) {
       for (const [skill, achievement] of Object.entries(skills_achievements)) {
         skillsObject[skill] = getLevelByAchievement(data.achievements[achievement], skill);
       }
+      skillsObject.usedAchievementApi = true;
       return skillsObject;
     }
     return null;
@@ -105,6 +108,7 @@ function getSkills (data) {
   for (const skill of skills) {
     skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.achievements);
   }
+  if (data.achievements) skillsObject.usedAchievementApi = false;
   return skillsObject;
 }
 /**
