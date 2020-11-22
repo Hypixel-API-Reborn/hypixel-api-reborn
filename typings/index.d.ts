@@ -19,6 +19,9 @@ interface methodOptions {
 interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
+interface skyblockMemberOptions extends methodOptions {
+    achievements?: boolean;
+}
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
@@ -72,12 +75,12 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get a player's skyblock profiles
          * @param query - player nickname or uuid
          */
-        public getSkyblockProfiles(query: string, options?: methodOptions): Promise<SkyblockProfile[]>;
+        public getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
         /**
          * @description Allows you to get a player's skyblock member data from all their profiles
          * @param query - player nickname or uuid
          */
-        public getSkyblockMember(query: string, options?: methodOptions): Promise<Map<string, SkyblockMember>>;
+        public getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
         /**
          * @description Allows you to get all skyblock auctions
          * @param page - number (optional)
@@ -391,6 +394,7 @@ declare module 'hypixel-api-reborn' {
         public auctionEnd: Date;
         public item: string;
         public itemLore: string;
+        public rarity: string;
         public startingBid: number;
         public highestBid: number;
         public bids: Bid[];
@@ -481,10 +485,12 @@ declare module 'hypixel-api-reborn' {
         public profileName: string;
         public gameMode?: string;
         public members: SkyblockMember[];
+        public me: SkyblockMember;
     }
     export class SkyblockMember {
         constructor(data: object);
         public uuid: string;
+        public profileName: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;

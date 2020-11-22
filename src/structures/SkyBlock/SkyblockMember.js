@@ -1,5 +1,5 @@
-const { decode, getLevelByXp, getSlayerLevel } = require('../../utils/SkyblockUtils');
-const { pet_score } = require('../../utils/Constants'); // eslint-disable-line camelcase
+const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
+const { skills, skills_achievements, pet_score } = require('../../utils/Constants'); // eslint-disable-line camelcase
 const Armor = require('./SkyblockArmor');
 const Item = require('./SkyblockItem');
 const objectPath = require('object-path');
@@ -7,6 +7,7 @@ const objectPath = require('object-path');
 class SkyblockMember {
   constructor (data) {
     this.uuid = data.uuid;
+    this.profileName = data.profileName;
     this.firstJoinTimestamp = data.m.first_join;
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;
@@ -91,21 +92,20 @@ class SkyblockMember {
  * @return {object}
  */
 function getSkills (data) {
+  const skillsObject = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
+    if (data.achievements) {
+      for (const [skill, achievement] of Object.entries(skills_achievements)) {
+        skillsObject[skill] = getLevelByAchievement(data.achievements[achievement], skill);
+      }
+      return skillsObject;
+    }
     return null;
   }
-  return {
-    taming: getLevelByXp(data.experience_skill_taming),
-    farming: getLevelByXp(data.experience_skill_farming),
-    mining: getLevelByXp(data.experience_skill_mining),
-    combat: getLevelByXp(data.experience_skill_combat),
-    foraging: getLevelByXp(data.experience_skill_foraging),
-    fishing: getLevelByXp(data.experience_skill_fishing),
-    enchanting: getLevelByXp(data.experience_skill_enchanting),
-    alchemy: getLevelByXp(data.experience_skill_alchemy),
-    carpentry: getLevelByXp(data.experience_skill_carpentry),
-    runecrafting: getLevelByXp(data.experience_skill_runecrafting, 'runecrafting')
-  };
+  for (const skill of skills) {
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.achievements);
+  }
+  return skillsObject;
 }
 /**
  * @param {object} data
