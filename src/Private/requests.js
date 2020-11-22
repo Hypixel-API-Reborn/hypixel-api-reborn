@@ -20,7 +20,7 @@ module.exports = class Requests {
     if (!options.noCaching && this.options.cache && this.options.cacheFilter(url.split('?')[0].slice(1))) {
       if (this.options.cacheSize < cached.size) cached.delete(cached.keys().next().value); // Map and its special "iterators"
       cached.set(url, parsedRes);
-      setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
+      if (this.options.cacheTime >= 0) setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
     }
     return (url === '/key' ? [parsedRes, res.headers] : parsedRes);
   }

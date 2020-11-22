@@ -52,6 +52,19 @@ module.exports = {
     50: 4000000
   },
 
+  xp_past_50: {
+    51: 4300000,
+    52: 4600000,
+    53: 4900000,
+    54: 5200000,
+    55: 5500000,
+    56: 5800000,
+    57: 6100000,
+    58: 6400000,
+    59: 6700000,
+    60: 7000000
+  },
+
   runecrafting_xp: {
     1: 50,
     2: 100,
@@ -77,6 +90,43 @@ module.exports = {
     22: 9800,
     23: 12200,
     24: 15300
+  },
+
+  skills: [
+    'farming',
+    'mining',
+    'combat',
+    'foraging',
+    'fishing',
+    'enchanting',
+    'alchemy',
+    'taming',
+    'carpentry',
+    'runecrafting'
+  ],
+
+  skills_achievements: {
+    farming: 'skyblock_harvester',
+    mining: 'skyblock_excavator',
+    combat: 'skyblock_combat',
+    foraging: 'skyblock_gatherer',
+    fishing: 'skyblock_angler',
+    enchanting: 'skyblock_augmentation',
+    alchemy: 'skyblock_concoctor',
+    taming: 'skyblock_domesticator'
+  },
+
+  skills_cap: {
+    taming: 50,
+    farming: 60,
+    mining: 50,
+    combat: 50,
+    foraging: 50,
+    fishing: 50,
+    enchanting: 50,
+    alchemy: 50,
+    carpentry: 50,
+    runecrafting: 25
   },
 
   dungeon_xp: {
@@ -142,6 +192,14 @@ module.exports = {
     7: 100000,
     8: 400000,
     9: 1000000
+  },
+
+  pet_score: {
+    COMMON: 1,
+    UNCOMMON: 2,
+    RARE: 3,
+    EPIC: 4,
+    LEGENDARY: 5
   },
 
   base_stats: {

@@ -2,13 +2,13 @@ const Errors = require('../Errors');
 const { isStrArray, strToArray } = require('../utils/arrayTools');
 module.exports = class Validation {
   validateOptions (options) {
-    if (typeof options !== 'object') throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
     if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
   }
 
   parseOptions (options) {
+    if (typeof options !== 'object' || options === null) throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     return {
       cache: options.cache || false,
       cacheTime: options.cacheTime || 60,
@@ -25,7 +25,7 @@ module.exports = class Validation {
   }
 
   cacheSuboptions (input) {
-    if (typeof input !== 'object') return false;
+    if (typeof input !== 'object' || input === null) return false;
     if (!input.noCacheCheck && !input.noCaching) return false;
     return true;
   }

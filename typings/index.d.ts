@@ -19,6 +19,9 @@ interface methodOptions {
 interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
+interface skyblockMemberOptions extends methodOptions {
+    achievements?: boolean;
+}
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
@@ -69,10 +72,15 @@ declare module 'hypixel-api-reborn' {
          */
         public getBoosters(options?: methodOptions): Promise<Booster[]>;
         /**
-         * @description Allows you to get player's skyblock profiles
+         * @description Allows you to get a player's skyblock profiles
          * @param query - player nickname or uuid
          */
-        public getSkyblockProfiles(query: string, options?: methodOptions): Promise<SkyblockProfile[]>;
+        public getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
+        /**
+         * @description Allows you to get a player's skyblock member data from all their profiles
+         * @param query - player nickname or uuid
+         */
+        public getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
         /**
          * @description Allows you to get all skyblock auctions
          * @param page - number (optional)
@@ -371,9 +379,9 @@ declare module 'hypixel-api-reborn' {
         public preferredGames: Game[];
         public members: GuildMember[];
         public ranks: GuildRank[];
-        public ranksByNewest(): GuildRank[];
+        public getRanksByNewest(): GuildRank[];
         public getRankByPriority(data: object, priority: number): GuildRank;
-        public memberUUIDMap(): Map<string, GuildMember>;
+        public getMemberUUIDMap(): Map<string, GuildMember>;
     }
     export class Auction {
         constructor(data: object);
@@ -386,6 +394,7 @@ declare module 'hypixel-api-reborn' {
         public auctionEnd: Date;
         public item: string;
         public itemLore: string;
+        public rarity: string;
         public startingBid: number;
         public highestBid: number;
         public bids: Bid[];
@@ -474,11 +483,14 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
+        public gameMode?: string;
         public members: SkyblockMember[];
+        public me: SkyblockMember;
     }
     export class SkyblockMember {
         constructor(data: object);
         public uuid: string;
+        public profileName: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
@@ -661,6 +673,7 @@ declare module 'hypixel-api-reborn' {
         public getInventory(): Promise<Item[]>;
         public getEnderChest(): Promise<Item[]>;
         public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>;
+        public getPetScore(): number;
     }
     export class Color {
         constructor(color: string)
