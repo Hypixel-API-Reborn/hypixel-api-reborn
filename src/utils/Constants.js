@@ -129,7 +129,8 @@ module.exports = {
     enchanting: 50,
     alchemy: 50,
     carpentry: 50,
-    runecrafting: 25
+    runecrafting: 25,
+    dungeons: 50
   },
 
   dungeon_xp: {
