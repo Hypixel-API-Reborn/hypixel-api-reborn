@@ -32,6 +32,7 @@ module.exports = async function (query, options = { achievements: false }) {
 
     profiles.push({
       profile_id: res.profiles[i].profile_id,
+      profile_name: res.profiles[i].cute_name,
       members: res.profiles[i].members,
       me: query
     });
