@@ -20,7 +20,7 @@ interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
 interface skyblockMemberOptions extends methodOptions {
-    includePlayer?: boolean;
+    fetchPlayer?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;

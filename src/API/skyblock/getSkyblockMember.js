@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-module.exports = async function (query, options = { includePlayer: false }) {
+module.exports = async function (query, options = { fetchPlayer: false }) {
   const SkyblockMember = require('../../structures/SkyBlock/SkyblockMember');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
@@ -11,7 +11,7 @@ module.exports = async function (query, options = { includePlayer: false }) {
   }
 
   let player;
-  if (options.includePlayer) {
+  if (options.fetchPlayer) {
     const playerRes = await this._makeRequest(`/player?uuid=${query}`);
     if (!playerRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, playerRes.cause));

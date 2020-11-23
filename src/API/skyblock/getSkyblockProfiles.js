@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-module.exports = async function (query, options = { includePlayer: false }) {
+module.exports = async function (query, options = { fetchPlayer: false }) {
   const SkyblockProfile = require('../../structures/SkyBlock/SkyblockProfile');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
@@ -11,7 +11,7 @@ module.exports = async function (query, options = { includePlayer: false }) {
   }
 
   const players = new Map();
-  if (options.includePlayer) {
+  if (options.fetchPlayer) {
     const Player = require('../../structures/Player');
     const uniqueUuids = [...new Set((res.profiles.map(profile => Object.keys(profile.members)).flat()))];
     await Promise.all(uniqueUuids.map(async uuid => {
