@@ -68,7 +68,7 @@ module.exports = {
 
     const xpCurrent = Math.floor(xp - xpTotal);
 
-    if (level < constants.skills_cap[type]) xpForNext = Math.ceil(xpTable[level + 1]);
+    if (type in constants.skills_cap ? level < constants.skills_cap[type] : level < maxLevelCap) xpForNext = Math.ceil(xpTable[level + 1]);
 
     const progress = Math.floor((Math.max(0, Math.min(xpCurrent / xpForNext, 1))) * 100);
 
