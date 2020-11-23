@@ -15,11 +15,11 @@ class Client {
     rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
   }
 
-  async _makeRequest (options, url) {
+  async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck) {
       if (requests.cache.has(url)) return requests.cache.get(url);
-      rateLimit.rateLimitManager();
+      if (useRateLimitManager) rateLimit.rateLimitManager();
     }
 
     return requests.request.call(this, url, options);
