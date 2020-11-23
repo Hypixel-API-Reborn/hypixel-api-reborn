@@ -38,6 +38,7 @@ class Player {
     }
     this.guild = data.guild ? data.guild : null;
     this.karma = data.karma || 0;
+    this.achievements = data.achievements;
     this.achievementPoints = data.achievementPoints || 0;
     this.totalExperience = data.networkExp || 0;
     this.level = getPlayerLevel(this.totalExperience) || 0;

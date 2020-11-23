@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-module.exports = async function (query, options = { achievements: false }) {
+module.exports = async function (query, options = { includePlayer: false }) {
   const SkyblockProfile = require('../../structures/SkyBlock/SkyblockProfile');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
@@ -10,29 +10,29 @@ module.exports = async function (query, options = { achievements: false }) {
     return [];
   }
 
-  const achievementMap = new Map();
-  if (options.achievements) {
+  const players = new Map();
+  if (options.includePlayer) {
+    const Player = require('../../structures/Player');
     const uniqueUuidsArray = [...new Set((res.profiles.map(profile => Object.keys(profile.members)).flat()))];
     for (const uuid of uniqueUuidsArray) {
-      const achievementsRes = await this._makeRequest(`/player?uuid=${uuid}`);
-      if (!achievementsRes.success) {
-        throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, achievementsRes.cause));
+      const playerRes = await this._makeRequest(`/player?uuid=${uuid}`);
+      if (!playerRes.success) {
+        throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, playerRes.cause));
       }
-      achievementMap.set(uuid, achievementsRes.player.achievements);
+      players.set(uuid, new Player(playerRes.player, this));
     }
   }
 
   const profiles = [];
   for (let i = 0; i < res.profiles.length; i++) {
-    if (options.achievements) {
-      for (const memberUuid of Object.keys(res.profiles[i].members)) {
-        res.profiles[i].members[memberUuid].achievements = achievementMap.get(memberUuid);
-      }
+    for (const memberUuid of Object.keys(res.profiles[i].members)) {
+      res.profiles[i].members[memberUuid].player = players.get(memberUuid) || null;
     }
 
     profiles.push({
       profile_id: res.profiles[i].profile_id,
       profile_name: res.profiles[i].cute_name,
+      game_mode: res.profiles[i].game_mode,
       members: res.profiles[i].members,
       me: query
     });

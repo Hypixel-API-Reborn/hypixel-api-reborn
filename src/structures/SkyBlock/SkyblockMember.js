@@ -1,5 +1,6 @@
+/* eslint-disable camelcase */
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
-const { skills, skills_achievements, pet_score } = require('../../utils/Constants'); // eslint-disable-line camelcase
+const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
 const Armor = require('./SkyblockArmor');
 const Item = require('./SkyblockItem');
 const objectPath = require('object-path');
@@ -7,12 +8,14 @@ const objectPath = require('object-path');
 class SkyblockMember {
   constructor (data) {
     this.uuid = data.uuid;
+    this.player = data.m.player;
     this.profileName = data.profileName;
+    this.gameMode = data.gameMode;
     this.firstJoinTimestamp = data.m.first_join;
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;
     this.lastSaveAt = new Date(data.m.last_save);
-    this.lastDeathAt = new Date(data.m.last_death);
+    this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
     this.lastDeath = data.m.last_death;
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
@@ -94,17 +97,19 @@ class SkyblockMember {
 function getSkills (data) {
   const skillsObject = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
-    if (data.achievements) {
+    if (data.player) {
       for (const [skill, achievement] of Object.entries(skills_achievements)) {
-        skillsObject[skill] = getLevelByAchievement(data.achievements[achievement], skill);
+        skillsObject[skill] = getLevelByAchievement(data.player.achievements[achievement], skill);
       }
+      skillsObject.usedAchievementApi = true;
       return skillsObject;
     }
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.achievements);
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.player ? data.player.achievements : undefined);
   }
+  if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
 }
 /**

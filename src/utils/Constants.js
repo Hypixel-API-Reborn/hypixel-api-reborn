@@ -1,4 +1,6 @@
 module.exports = {
+  skyblock_year_0: 1560275700000,
+
   leveling_xp: {
     1: 50,
     2: 125,
@@ -89,7 +91,8 @@ module.exports = {
     21: 7800,
     22: 9800,
     23: 12200,
-    24: 15300
+    24: 15300,
+    25: 19050
   },
 
   skills: [

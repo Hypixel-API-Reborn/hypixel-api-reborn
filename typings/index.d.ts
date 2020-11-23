@@ -20,7 +20,7 @@ interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
 interface skyblockMemberOptions extends methodOptions {
-    achievements?: boolean;
+    includePlayer?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -138,6 +138,7 @@ declare module 'hypixel-api-reborn' {
         public recentlyPlayedGame: Game;
         public plusColor?: Color;
         public karma: number;
+        public achievements: object;
         public achievementPoints: number;
         public totalExperience: number;
         public level: number;
@@ -490,7 +491,9 @@ declare module 'hypixel-api-reborn' {
     export class SkyblockMember {
         constructor(data: object);
         public uuid: string;
+        public player?: Player;
         public profileName: string;
+        public gameMode?: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
@@ -563,7 +566,7 @@ declare module 'hypixel-api-reborn' {
                 xpForNext: number,
                 progress: number
             },
-            carpentry: {
+            carpentry?: {
                 xp: number,
                 level: number,
                 maxLevel: number,
@@ -571,14 +574,15 @@ declare module 'hypixel-api-reborn' {
                 xpForNext: number,
                 progress: number
             },
-            runecrafting: {
+            runecrafting?: {
                 xp: number,
                 level: number,
                 maxLevel: number,
                 xpCurrent: number,
                 xpForNext: number,
                 progress: number
-            }
+            },
+            usedAchievementsApi?: boolean
         };
         public slayer: {
             zombie: {
