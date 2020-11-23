@@ -19,7 +19,7 @@ class Client {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck) {
       if (requests.cache.has(url)) return requests.cache.get(url);
-      if (useRateLimitManager) rateLimit.rateLimitManager();
+      if (useRateLimitManager) await rateLimit.rateLimitManager();
     }
 
     return requests.request.call(this, url, options);
