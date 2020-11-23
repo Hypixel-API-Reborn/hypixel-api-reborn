@@ -106,47 +106,23 @@ module.exports = SkyWars;
  * @returns {string}
  */
 function getSkyWarsPrestige (level) {
-  if (level < 10) {
-    return 'Iron';
-  } else if (level < 15) {
-    return 'Gold';
-  } else if (level < 20) {
-    return 'Diamond';
-  } else if (level < 25) {
-    return 'Emerald';
-  } else if (level < 30) {
-    return 'Sapphire';
-  } else if (level < 35) {
-    return 'Ruby';
-  } else if (level < 40) {
-    return 'Crystal';
-  } else if (level < 45) {
-    return 'Opal';
-  } else if (level < 50) {
-    return 'Amethyst';
-  } else if (level >= 50) {
-    return 'Rainbow';
-  } else {
-    return null;
-  }
+  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)];
 }
 function getSkyWarsLevel (xp) {
-  if (xp < 20) return 1;
-  const totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
-  let exactLevel = 0;
-  if (xp >= 15000) {
-    exactLevel = (xp - 15000) / 10000 + 12;
-  } else {
-    let c = 0;
-    // eslint-disable-next-line no-unmodified-loop-condition
-    while (xp >= 0) {
-      if (xp - totalXp[c] >= 0) {
-        c++;
-      } else {
-        exactLevel = c + 1 + (xp - totalXp[c - 1]) / (totalXp[c] - totalXp[c - 1]);
-        break;
+  return Math.floor((function () {
+    if (xp < 20) return 1;
+    const totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
+    if (xp >= 15000) {
+      return (xp - 15000) / 10000 + 12;
+    } else {
+      let c = 0;
+      while (c < totalXp.length) {
+        if (xp - totalXp[c] >= 0) {
+          c++;
+        } else {
+          return c + 1 + (xp - totalXp[c - 1]) / (totalXp[c] - totalXp[c - 1]);
+        }
       }
     }
-  }
-  return Math.floor(exactLevel);
+  })(xp));
 }
