@@ -17,11 +17,8 @@ class Client {
 
   async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck) {
-      if (requests.cache.has(url)) return requests.cache.get(url);
-      if (useRateLimitManager) await rateLimit.rateLimitManager();
-    }
-
+    if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
+    if (useRateLimitManager) await rateLimit.rateLimitManager();
     return requests.request.call(this, url, options);
   }
 
