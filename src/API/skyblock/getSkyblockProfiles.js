@@ -30,9 +30,9 @@ module.exports = async function (query, options = { includePlayer: false }) {
     }
 
     profiles.push({
-      profile_id: res.profiles[i].profile_id,
-      profile_name: res.profiles[i].cute_name,
-      game_mode: res.profiles[i].game_mode,
+      profileId: res.profiles[i].profile_id,
+      profileName: res.profiles[i].cute_name,
+      gameMode: res.profiles[i].game_mode,
       members: res.profiles[i].members,
       me: query
     });

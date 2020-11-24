@@ -10,7 +10,7 @@ class SkyblockMember {
     this.uuid = data.uuid;
     this.player = data.m.player;
     this.profileName = data.profileName;
-    this.gameMode = data.game_mode;
+    this.gameMode = data.gameMode;
     this.firstJoinTimestamp = data.m.first_join;
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;
