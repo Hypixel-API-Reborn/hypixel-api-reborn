@@ -8,9 +8,8 @@ const objectPath = require('object-path');
 class SkyblockMember {
   constructor (data) {
     this.uuid = data.uuid;
-    this.player = data.m.player;
+    this.player = data.m.player || null;
     this.profileName = data.profileName;
-    this.gameMode = data.gameMode;
     this.firstJoinTimestamp = data.m.first_join;
     this.firstJoinAt = new Date(data.m.first_join);
     this.lastSave = data.m.last_save;

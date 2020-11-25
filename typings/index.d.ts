@@ -20,7 +20,7 @@ interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
 interface skyblockMemberOptions extends methodOptions {
-    includePlayer?: boolean;
+    fetchPlayer?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -485,7 +485,6 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
-        public gameMode?: string;
         public members: SkyblockMember[];
         public me: SkyblockMember;
     }
@@ -494,7 +493,6 @@ declare module 'hypixel-api-reborn' {
         public uuid: string;
         public player?: Player;
         public profileName: string;
-        public gameMode?: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
