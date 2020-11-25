@@ -484,7 +484,6 @@ declare module 'hypixel-api-reborn' {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
-        public gameMode?: string;
         public members: SkyblockMember[];
         public me: SkyblockMember;
     }
@@ -493,7 +492,6 @@ declare module 'hypixel-api-reborn' {
         public uuid: string;
         public player?: Player;
         public profileName: string;
-        public gameMode?: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
