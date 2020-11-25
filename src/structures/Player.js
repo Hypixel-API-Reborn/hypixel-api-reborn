@@ -149,6 +149,6 @@ function getSocialMedia (data) {
   const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Mixer', 'Hypixel', 'Discord'];
   const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'MIXER', 'HYPIXEL', 'DISCORD'];
   if (!links) return;
-  return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: data[upperNames[x]] }));
+  return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 module.exports = Player;
