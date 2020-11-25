@@ -7,7 +7,7 @@ module.exports = async function (query, options = { guild: false }) {
   query = await toUuid(query);
 
   const res = await this._makeRequest(`/player?uuid=${query}`);
-  if (!res.player) throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
+  if (query && !res.player) throw new Error(Errors.PLAYER_HAS_NEVER_LOGGED);
 
   if (options.guild) {
     const Guild = require('../structures/Guild/Guild');
