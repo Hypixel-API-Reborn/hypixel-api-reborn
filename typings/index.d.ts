@@ -33,6 +33,7 @@ declare module 'hypixel-api-reborn' {
         NO_UUID: string,
         MALFORMED_UUID: string,
         PLAYER_DOES_NOT_EXIST: string,
+        PLAYER_HAS_NEVER_LOGGED: string,
         NO_GUILD_QUERY: string,
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
@@ -350,7 +351,7 @@ declare module 'hypixel-api-reborn' {
     export class Status {
         constructor(data: object);
         public online: boolean;
-        public game: Game;
+        public game?: Game;
         public mode?: string;
         public map?: string
     }
