@@ -16,6 +16,7 @@ const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
+const { recursive } = require('../utils/removeSnakeCase');
 
 class Player {
   constructor (data, fakethis) {
@@ -38,11 +39,11 @@ class Player {
     }
     this.guild = data.guild ? data.guild : null;
     this.karma = data.karma || 0;
-    this.achievements = data.achievements;
+    this.achievements = recursive(data.achievements);
     this.achievementPoints = data.achievementPoints || 0;
     this.totalExperience = data.networkExp || 0;
     this.level = getPlayerLevel(this.totalExperience) || 0;
-    this.socialmedia = getSocialMedia(data.socialMedia) || [];
+    this.socialMedia = getSocialMedia(data.socialMedia) || [];
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
@@ -144,32 +145,10 @@ function getPlayerLevel (exp) {
 
 function getSocialMedia (data) {
   if (!data) return null;
-
   const links = data.links;
-
-  const media = [];
+  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Mixer', 'Hypixel', 'Discord'];
+  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'MIXER', 'HYPIXEL', 'DISCORD'];
   if (!links) return;
-  if (links.TWITTER !== undefined) {
-    media.push({ name: 'Twitter', link: links.TWITTER });
-  }
-  if (links.YOUTUBE !== undefined) {
-    media.push({ name: 'YouTube', link: links.YOUTUBE });
-  }
-  if (links.INSTAGRAM !== undefined) {
-    media.push({ name: 'Instagram', link: links.INSTAGRAM });
-  }
-  if (links.TWITCH !== undefined) {
-    media.push({ name: 'Twitch', link: links.TWITCH });
-  }
-  if (links.MIXER !== undefined) {
-    media.push({ name: 'Mixer', link: links.MIXER });
-  }
-  if (links.HYPIXEL !== undefined) {
-    media.push({ name: 'Hypixel', link: links.HYPIXEL });
-  }
-  if (links.DISCORD !== undefined) {
-    media.push({ name: 'Discord', link: links.DISCORD });
-  }
-  return media;
+  return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 module.exports = Player;

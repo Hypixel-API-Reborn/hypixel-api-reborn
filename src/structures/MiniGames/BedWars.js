@@ -74,29 +74,7 @@ class BedWars {
   }
 }
 function getBedWarsPrestige (level) {
-  if (level < 100) {
-    return 'Stone';
-  } else if (level < 200) {
-    return 'Iron';
-  } else if (level < 300) {
-    return 'Gold';
-  } else if (level < 400) {
-    return 'Diamond';
-  } else if (level < 500) {
-    return 'Emerald';
-  } else if (level < 600) {
-    return 'Sapphire';
-  } else if (level < 700) {
-    return 'Ruby';
-  } else if (level < 800) {
-    return 'Crystal';
-  } else if (level < 900) {
-    return 'Opal';
-  } else if (level < 1000) {
-    return 'Amethyst';
-  }
-
-  return 'Rainbow';
+  return ['Stone', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 100)] || 'Rainbow';
 }
 const EASY_LEVELS = 4;
 const EASY_LEVELS_XP = 7000;
