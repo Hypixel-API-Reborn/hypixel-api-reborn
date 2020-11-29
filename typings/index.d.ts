@@ -9,7 +9,7 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
-    cacheFilter: string | string[] | function | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    cacheFilter: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
     rateLimit: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
@@ -120,7 +120,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to clear cache
          */
-         public get sweepCache(): void;
+        public get sweepCache(): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -382,14 +382,14 @@ declare module 'hypixel-api-reborn' {
         public members: GuildMember[];
         public ranks: GuildRank[];
         public getRanksByNewest(): GuildRank[];
-        public getRankByPriority(data: object, priority: number): GuildRank;
+        public getRankByPriority(priority: number): GuildRank;
         public getMemberUUIDMap(): Map<string, GuildMember>;
     }
     export class Auction {
         constructor(data: object);
         public auctionId: string;
         public auctioneerUuid: string;
-        public coop: string[];
+        public coop: string[] | [];
         public auctionStartTimestamp: number;
         public auctionEndTimestamp: number;
         public auctionStart: Date;
@@ -478,8 +478,9 @@ declare module 'hypixel-api-reborn' {
         public amount: number;
         public originalLength: number;
         public remaining: number;
-        public activated: boolean;
-        public game: Game;
+        public activatedTimestamp: number
+        public activated: Date;
+        public game?: Game;
     }
     export class SkyblockProfile {
         constructor(data: object);
@@ -1235,14 +1236,14 @@ declare module 'hypixel-api-reborn' {
             gtb: number
         };
     }
-    export class RecentGame {
+    export class RecentGame extends Game {
         constructor(data: object)
-        public date: number;
-        public at: Date;
-        public mode: string;
-        public map: string;
-        public endedAt: Date;
-        public endedTimestamp: number;
+        public date?: number;
+        public at?: Date;
+        public mode?: string;
+        public map?: string;
+        public endedAt?: Date;
+        public endedTimestamp?: number;
     }
     export class MegaWalls {
         constructor(data: object)

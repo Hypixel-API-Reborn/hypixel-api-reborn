@@ -7,8 +7,8 @@ class RecentGame extends Game {
     this.mode = data.mode || null;
     this.map = data.map || null;
     // Per hypixel API docs : if ended isn't present, the game is ONGOING.
-    this.endedAt = new Date(data.ended) || 'ONGOING';
-    this.endedTimestamp = data.ended;
+    this.endedAt = data.ended ? new Date(data.ended) : null;
+    this.endedTimestamp = data.ended ? data.ended : null;
   }
 }
 module.exports = RecentGame;
