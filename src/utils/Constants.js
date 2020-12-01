@@ -109,14 +109,14 @@ module.exports = {
   ],
 
   skills_achievements: {
-    farming: 'skyblock_harvester',
-    mining: 'skyblock_excavator',
-    combat: 'skyblock_combat',
-    foraging: 'skyblock_gatherer',
-    fishing: 'skyblock_angler',
-    enchanting: 'skyblock_augmentation',
-    alchemy: 'skyblock_concoctor',
-    taming: 'skyblock_domesticator'
+    farming: 'skyblockHarvester',
+    mining: 'skyblockExcavator',
+    combat: 'skyblockCombat',
+    foraging: 'skyblockGatherer',
+    fishing: 'skyblockAngler',
+    enchanting: 'skyblockAugmentation',
+    alchemy: 'skyblockConcoctor',
+    taming: 'skyblockDomesticator'
   },
 
   skills_cap: {
@@ -129,7 +129,8 @@ module.exports = {
     enchanting: 50,
     alchemy: 50,
     carpentry: 50,
-    runecrafting: 25
+    runecrafting: 25,
+    dungeons: 50
   },
 
   dungeon_xp: {

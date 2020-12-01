@@ -6,7 +6,7 @@ module.exports = async function (page) {
     let currentPage = 0;
     let totalPages = 0;
     do {
-      const pageByNumber = await this._makeRequest(`/skyblock/auctions?page=${currentPage}`);
+      const pageByNumber = await this._makeRequest(`/skyblock/auctions?page=${currentPage}`, false);
       if (!pageByNumber.success) break;
       pageByNumber.auctions.forEach(auction => {
         auctions.push(new Auction(auction));
@@ -16,7 +16,7 @@ module.exports = async function (page) {
     } while (currentPage <= totalPages);
   } else {
     page = Math.floor(page);
-    const pageBySpecifiedPage = await this._makeRequest(`/skyblock/auctions?page=${page}`);
+    const pageBySpecifiedPage = await this._makeRequest(`/skyblock/auctions?page=${page}`, false);
     if (!pageBySpecifiedPage.success) return [];
     pageBySpecifiedPage.auctions.forEach(auction => {
       auctions.push(new Auction(auction));

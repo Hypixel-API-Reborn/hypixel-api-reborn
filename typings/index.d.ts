@@ -9,7 +9,7 @@ interface clientOptions {
     cache: boolean;
     cacheTime: number;
     cacheSize: number;
-    cacheFilter: string | string[] | function | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    cacheFilter: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
     rateLimit: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
@@ -20,7 +20,7 @@ interface playerMethodOptions extends methodOptions {
     guild?: boolean;
 }
 interface skyblockMemberOptions extends methodOptions {
-    includePlayer?: boolean;
+    fetchPlayer?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -33,6 +33,7 @@ declare module 'hypixel-api-reborn' {
         NO_UUID: string,
         MALFORMED_UUID: string,
         PLAYER_DOES_NOT_EXIST: string,
+        PLAYER_HAS_NEVER_LOGGED: string,
         NO_GUILD_QUERY: string,
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
@@ -119,7 +120,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to clear cache
          */
-         public get sweepCache(): void;
+        public get sweepCache(): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -350,7 +351,7 @@ declare module 'hypixel-api-reborn' {
     export class Status {
         constructor(data: object);
         public online: boolean;
-        public game: Game;
+        public game?: Game;
         public mode?: string;
         public map?: string
     }
@@ -381,14 +382,14 @@ declare module 'hypixel-api-reborn' {
         public members: GuildMember[];
         public ranks: GuildRank[];
         public getRanksByNewest(): GuildRank[];
-        public getRankByPriority(data: object, priority: number): GuildRank;
+        public getRankByPriority(priority: number): GuildRank;
         public getMemberUUIDMap(): Map<string, GuildMember>;
     }
     export class Auction {
         constructor(data: object);
         public auctionId: string;
         public auctioneerUuid: string;
-        public coop: string[];
+        public coop: string[] | [];
         public auctionStartTimestamp: number;
         public auctionEndTimestamp: number;
         public auctionStart: Date;
@@ -477,14 +478,14 @@ declare module 'hypixel-api-reborn' {
         public amount: number;
         public originalLength: number;
         public remaining: number;
-        public activated: boolean;
-        public game: Game;
+        public activatedTimestamp: number
+        public activated: Date;
+        public game?: Game;
     }
     export class SkyblockProfile {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
-        public gameMode?: string;
         public members: SkyblockMember[];
         public me: SkyblockMember;
     }
@@ -493,7 +494,6 @@ declare module 'hypixel-api-reborn' {
         public uuid: string;
         public player?: Player;
         public profileName: string;
-        public gameMode?: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
@@ -1236,14 +1236,14 @@ declare module 'hypixel-api-reborn' {
             gtb: number
         };
     }
-    export class RecentGame {
+    export class RecentGame extends Game {
         constructor(data: object)
-        public date: number;
-        public at: Date;
-        public mode: string;
-        public map: string;
-        public endedAt: Date;
-        public endedTimestamp: number;
+        public date?: number;
+        public at?: Date;
+        public mode?: string;
+        public map?: string;
+        public endedAt?: Date;
+        public endedTimestamp?: number;
     }
     export class MegaWalls {
         constructor(data: object)

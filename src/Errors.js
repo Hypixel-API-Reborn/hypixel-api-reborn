@@ -13,6 +13,7 @@ module.exports = {
   UUID_NICKNAME_MUST_BE_A_STRING: '[hypixel-api-reborn] Nickname or uuid must be a string.',
   MALFORMED_UUID: '[hypixel-api-reborn] Malformed UUID!',
   PLAYER_DOES_NOT_EXIST: '[hypixel-api-reborn] Player does not exist.',
+  PLAYER_HAS_NEVER_LOGGED: '[hypixel-api-reborn] Player has never logged into Hypixel.',
   PLAYER_IS_INACTIVE: '[hypixel-api-reborn] No records of recent games because player hasn\'t been online for more than 3 days or is lacking data to determine the cause of an empty response',
   PLAYER_DISABLED_ENDPOINT: '[hypixel-api-reborn] Player has disabled this endpoint.',
   NO_GUILD_QUERY: '[hypixel-api-reborn] No guild search query specified.',
