@@ -86,7 +86,7 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get all skyblock auctions
          * @param page - number (optional)
          */
-        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<{info: AuctionInfo, auction: Auction[]}>;
+        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
         /**
          * @description Allows you to get all auctions of player
          * @param query - player nickname or uuid
