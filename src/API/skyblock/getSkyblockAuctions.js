@@ -1,8 +1,10 @@
 module.exports = async function (page) {
   const Auction = require('../../structures/SkyBlock/Auctions/Auction');
+  const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 
   const auctions = [];
-  if (!page || isNaN(page)) {
+  let info;
+  if (page !== 0 && (!page || isNaN(page))) {
     let currentPage = 0;
     let totalPages = 0;
     do {
@@ -11,6 +13,7 @@ module.exports = async function (page) {
       pageByNumber.auctions.forEach(auction => {
         auctions.push(new Auction(auction));
       });
+      info = info || new AuctionInfo(pageByNumber);
       currentPage++;
       totalPages = pageByNumber.totalPages;
     } while (currentPage <= totalPages);
@@ -21,7 +24,7 @@ module.exports = async function (page) {
     pageBySpecifiedPage.auctions.forEach(auction => {
       auctions.push(new Auction(auction));
     });
+    info = new AuctionInfo(pageBySpecifiedPage);
   }
-
-  return auctions;
+  return { info, auctions };
 };

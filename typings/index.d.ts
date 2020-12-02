@@ -86,12 +86,12 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get all skyblock auctions
          * @param page - number (optional)
          */
-        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<Auction[]>;
+        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
         /**
          * @description Allows you to get all auctions of player
-         * @param qeury - player nickname or uuid
+         * @param query - player nickname or uuid
          */
-        public getSkyblockAuctionsByPlayer(qeury: string, options?: methodOptions): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(query: string, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
@@ -396,6 +396,7 @@ declare module 'hypixel-api-reborn' {
         public auctionEnd: Date;
         public item: string;
         public itemLore: string;
+        public itemLoreRaw: string;
         public rarity: string;
         public startingBid: number;
         public highestBid: number;
@@ -403,6 +404,15 @@ declare module 'hypixel-api-reborn' {
         public claimed: boolean;
         public claimedBidders: string[];
         public bin: boolean;
+    }
+    export class AuctionInfo {
+        constructor(data: object);
+        public age: number;
+        public lastUpdatedAt: Date;
+        public lastUpdated: number;
+        public totalPages: number;
+        public page: number;
+        public totalAuctions: number
     }
     export class Bid {
         constructor(data: object);
