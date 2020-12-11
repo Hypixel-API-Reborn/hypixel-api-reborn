@@ -1,10 +1,12 @@
 class KeyInfo {
   constructor (data) {
-    this.key = data.key;
-    this.owner = data.owner;
-    this.limitPerMinute = data.limit || 0;
-    this.requestsInPastMin = data.queriesInPastMin || 0;
-    this.totalRequests = data.totalQueries || 0;
+    const record = data.record;
+    this.key = record.key;
+    this.owner = record.owner;
+    this.limitPerMinute = record.limit || 0;
+    this.requestsInPastMin = record.queriesInPastMin || 0;
+    this.totalRequests = record.totalQueries || 0;
+    this.resetsAfter = parseInt(data._headers.get('ratelimit-reset'));
   }
 }
 module.exports = KeyInfo;

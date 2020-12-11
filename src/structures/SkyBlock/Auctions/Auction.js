@@ -5,10 +5,14 @@ class Auction {
     this.auctionId = data.uuid || null;
     this.auctioneerUuid = data.auctioneer || null;
     this.coop = data.coop || [];
-    this.auctionStart = data.start || null;
-    this.auctionEnd = data.end || null;
+    this.auctionStartTimestamp = data.start || null;
+    this.auctionStart = data.start ? new Date(data.start) : null;
+    this.auctionEnd = data.end ? new Date(data.end) : null;
+    this.auctionEndTimestamp = data.end || null;
     this.item = data.item_name || null;
     this.itemLore = data.item_lore ? data.item_lore.replace(/§([1-9]|[a-l])|§/gm, '') : null;
+    this.itemLoreRaw = data.item_lore || null;
+    this.rarity = data.tier || null;
     this.startingBid = data.starting_bid || 0;
     this.highestBid = data.highest_bid_amount || 0;
     this.bids = data.bids.length ? data.bids.map(b => new Bid(b)) : [];

@@ -74,29 +74,7 @@ class BedWars {
   }
 }
 function getBedWarsPrestige (level) {
-  if (level < 100) {
-    return 'Stone';
-  } else if (level < 200) {
-    return 'Iron';
-  } else if (level < 300) {
-    return 'Gold';
-  } else if (level < 400) {
-    return 'Diamond';
-  } else if (level < 500) {
-    return 'Emerald';
-  } else if (level < 600) {
-    return 'Sapphire';
-  } else if (level < 700) {
-    return 'Ruby';
-  } else if (level < 800) {
-    return 'Crystal';
-  } else if (level < 900) {
-    return 'Opal';
-  } else if (level < 1000) {
-    return 'Amethyst';
-  }
-
-  return 'Rainbow';
+  return ['Stone', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 100)] || 'Rainbow';
 }
 const EASY_LEVELS = 4;
 const EASY_LEVELS_XP = 7000;
@@ -107,7 +85,7 @@ const HIGHEST_PRESTIGE = 10;
 function getExpForLevel (level) {
   if (level === 0) return 0;
 
-  var respectedLevel = getLevelRespectingPrestige(level);
+  const respectedLevel = getLevelRespectingPrestige(level);
   if (respectedLevel > EASY_LEVELS) {
     return 5000;
   }
@@ -146,12 +124,12 @@ function getLevelRespectingPrestige (level) {
  * @returns {number}
  */
 function getLevelForExp (exp) {
-  var prestiges = Math.floor(exp / XP_PER_PRESTIGE);
-  var level = prestiges * LEVELS_PER_PRESTIGE;
-  var expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE);
+  const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
+  let level = prestiges * LEVELS_PER_PRESTIGE;
+  let expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE);
 
   for (let i = 1; i <= EASY_LEVELS; ++i) {
-    var expForEasyLevel = getExpForLevel(i);
+    const expForEasyLevel = getExpForLevel(i);
     if (expWithoutPrestiges < expForEasyLevel) {
       break;
     }

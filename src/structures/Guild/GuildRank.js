@@ -3,7 +3,8 @@ class GuildRank {
     this.name = data.name;
     this.default = data.default;
     this.tag = data.tag ? data.tag : null;
-    this.createdAt = data.created;
+    this.createdAtTimestamp = data.created ? data.created : data.createdAtTimestamp;
+    this.createdAt = new Date((data.created ? data.created : data.createdAtTimestamp));
     this.priority = data.priority;
   }
 }

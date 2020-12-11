@@ -14,7 +14,7 @@ module.exports = {
     return newdata;
   },
 
-  getLevelByXp (xp, type) {
+  getLevelByXp (xp, type, achievements) {
     let xpTable;
 
     switch (type) {
@@ -30,10 +30,21 @@ module.exports = {
         xpTable = constants.leveling_xp;
     }
 
+    let maxLevel = Math.max(...Object.keys(xpTable));
+    let maxLevelCap = maxLevel;
+
+    if (constants.skills_cap[type] > maxLevel) {
+      xpTable = Object.assign(constants.xp_past_50, xpTable);
+
+      maxLevel = Math.max(...Object.keys(xpTable));
+      if (achievements && type in constants.skills_achievements) maxLevelCap = achievements[constants.skills_achievements[type]];
+    }
+
     if (isNaN(xp)) {
       return {
         xp: 0,
         level: 0,
+        maxLevel,
         xpCurrent: 0,
         xpForNext: xpTable[1],
         progress: 0
@@ -44,9 +55,7 @@ module.exports = {
     let level = 0;
     let xpForNext = 0;
 
-    const maxLevel = Math.max(...Object.keys(xpTable));
-
-    for (let x = 1; x <= maxLevel; x++) {
+    for (let x = 1; x <= maxLevelCap; x++) {
       xpTotal += xpTable[x];
 
       if (xpTotal > xp) {
@@ -70,6 +79,46 @@ module.exports = {
       xpCurrent,
       xpForNext,
       progress
+    };
+  },
+
+  getLevelByAchievement (achievementLevel, type) {
+    let xpTable = constants.leveling_xp;
+    let maxLevel = Math.max(...Object.keys(xpTable));
+
+    if (constants.skills_cap[type] > maxLevel && type in constants.skills_achievements) {
+      xpTable = Object.assign(constants.xp_past_50, xpTable);
+
+      maxLevel = Math.max(...Object.keys(xpTable));
+    }
+
+    if (isNaN(achievementLevel)) {
+      return {
+        xp: 0,
+        level: 0,
+        maxLevel,
+        xpCurrent: 0,
+        xpForNext: xpTable[1],
+        progress: 0
+      };
+    }
+
+    let xpTotal = 0;
+    let xpForNext = 0;
+
+    for (let x = 1; x <= achievementLevel; x++) {
+      xpTotal += xpTable[x];
+    }
+
+    if (achievementLevel < maxLevel) xpForNext = Math.ceil(xpTable[achievementLevel + 1]);
+
+    return {
+      xp: xpTotal,
+      level: achievementLevel,
+      maxLevel,
+      xpCurrent: 0,
+      xpForNext,
+      progress: 0
     };
   },
 

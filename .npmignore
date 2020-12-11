@@ -1,4 +1,3 @@
-testing/
 node_modules/
 .*.swp
 ._*
@@ -15,8 +14,7 @@ npm-debug.log
 .eslintignore
 .eslintrc.json
 testing/
-test/
 changelog.md
 .github
-test/
 .travis.yml
+.vscode/

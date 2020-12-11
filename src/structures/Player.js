@@ -13,19 +13,24 @@ const SmashHeroes = require('./MiniGames/SmashHeroes');
 const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
-
+const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
+const { recursive } = require('../utils/removeSnakeCase');
 
 class Player {
-  constructor (data) {
+  constructor (data, fakethis) {
     this.nickname = data.displayname;
     this.uuid = data.uuid;
     this.history = data.knownAliases;
     this.rank = getRank(data);
     this.mcVersion = data.mcVersionRp || null;
-    this.lastLogin = data.lastLogin || null;
-    this.firstLogin = data.firstLogin || null;
+    this.lastLoginTimestamp = data.lastLogin || null;
+    this.firstLoginTimestamp = data.firstLogin || null;
+    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    this.lastLogoutTimestamp = data.lastLogout || null;
+    this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
@@ -34,15 +39,18 @@ class Player {
     }
     this.guild = data.guild ? data.guild : null;
     this.karma = data.karma || 0;
+    this.achievements = recursive(data.achievements);
     this.achievementPoints = data.achievementPoints || 0;
     this.totalExperience = data.networkExp || 0;
     this.level = getPlayerLevel(this.totalExperience) || 0;
-    this.socialmedia = getSocialMedia(data.socialMedia) || [];
-
+    this.socialMedia = getSocialMedia(data.socialMedia) || [];
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
 
-    this.isOnline = this.lastLogin > data.lastLogout;
+    this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
+    this.getRecentGames = function () {
+      return getRecentGames.call(fakethis, this.uuid, this);
+    };
 
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
@@ -137,32 +145,10 @@ function getPlayerLevel (exp) {
 
 function getSocialMedia (data) {
   if (!data) return null;
-
   const links = data.links;
-
-  const media = [];
+  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Mixer', 'Hypixel', 'Discord'];
+  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'MIXER', 'HYPIXEL', 'DISCORD'];
   if (!links) return;
-  if (links.TWITTER !== undefined) {
-    media.push({ name: 'Twitter', link: links.TWITTER });
-  }
-  if (links.YOUTUBE !== undefined) {
-    media.push({ name: 'YouTube', link: links.YOUTUBE });
-  }
-  if (links.INSTAGRAM !== undefined) {
-    media.push({ name: 'Instagram', link: links.INSTAGRAM });
-  }
-  if (links.TWITCH !== undefined) {
-    media.push({ name: 'Twitch', link: links.TWITCH });
-  }
-  if (links.MIXER !== undefined) {
-    media.push({ name: 'Mixer', link: links.MIXER });
-  }
-  if (links.HYPIXEL !== undefined) {
-    media.push({ name: 'Hypixel', link: links.HYPIXEL });
-  }
-  if (links.DISCORD !== undefined) {
-    media.push({ name: 'Discord', link: links.DISCORD });
-  }
-  return media;
+  return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 module.exports = Player;

@@ -8,7 +8,19 @@ type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 interface clientOptions {
     cache: boolean;
     cacheTime: number;
-    cacheLimit: number;
+    cacheSize: number;
+    cacheFilter: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    rateLimit: 'HARD' | 'AUTO' | 'NONE';
+}
+interface methodOptions {
+    noCacheCheck?: boolean;
+    noCaching?: boolean;
+}
+interface playerMethodOptions extends methodOptions {
+    guild?: boolean;
+}
+interface skyblockMemberOptions extends methodOptions {
+    fetchPlayer?: boolean;
 }
 declare module 'hypixel-api-reborn' {
     export const version: string;
@@ -21,76 +33,95 @@ declare module 'hypixel-api-reborn' {
         NO_UUID: string,
         MALFORMED_UUID: string,
         PLAYER_DOES_NOT_EXIST: string,
+        PLAYER_HAS_NEVER_LOGGED: string,
         NO_GUILD_QUERY: string,
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
         GUILD_DOES_NOT_EXIST: string,
-        INVALID_RESPONSE_BODY: string
+        INVALID_RESPONSE_BODY: string,
+        OPTIONS_MUST_BE_AN_OBJECT: string,
+        CACHE_TIME_MUST_BE_A_NUMBER: string,
+        CACHE_LIMIT_MUST_BE_A_NUMBER: string
     }
     export class Client {
-        constructor(key: string, options: clientOptions);
+        constructor(key: string, options?: clientOptions);
         public key: string;
+        public options: clientOptions;
         /**
          * @description Allows you to get statistics of player
          * @param query - player nickname or uuid
          * @param options - player search options
          */
-        public getPlayer(query: string, options?: {guild?: boolean}): Promise<Player>;
+        public getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
         /**
          * @description Allows you to get statistics of hypixel guild
-         * @param searchParameter 'name', 'player' or 'id'
-         * @param query guild name, player nickname or guild id
+         * @param searchParameter - 'name', 'player' or 'id'
+         * @param query - guild name, player nickname or guild id
          */
         public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
          * @description Allows you to get all friends of player
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
-        public getFriends(query: string): Promise<Friend[]>;
+        public getFriends(query: string, options?: methodOptions): Promise<Friend[]>;
         /**
          * @description Allows you to get statistics of watchdog anticheat
          */
-        public getWatchdogStats(): Promise<WatchdogStats>;
+        public getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
         /**
          * @description Allows you to get all active boosters
          */
-        public getBoosters(): Promise<Booster[]>;
+        public getBoosters(options?: methodOptions): Promise<Booster[]>;
         /**
-         * @description Allows you to get player's skyblock profiles
-         * @param query player uuid
+         * @description Allows you to get a player's skyblock profiles
+         * @param query - player nickname or uuid
          */
-        public getSkyblockProfiles(query: string): Promise<SkyblockProfile[]>;
+        public getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
+        /**
+         * @description Allows you to get a player's skyblock member data from all their profiles
+         * @param query - player nickname or uuid
+         */
+        public getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
         /**
          * @description Allows you to get all skyblock auctions
-         * @param page number (not required)
+         * @param page - number (optional)
          */
-        public getSkyblockAuctions(page?: number): Promise<Auction[]>;
+        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
         /**
          * @description Allows you to get all auctions of player
-         * @param qeury player uuid
+         * @param query - player nickname or uuid
          */
-        public getSkyblockAuctionsByPlayer(qeury: string): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(query: string, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
-        public getSkyblockBazaar(): Promise<Product[]>;
+        public getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
         /**
          * @description Allows you to get player's network status
-         * @param query player nickname or uuid
+         * @param query - player nickname or uuid
          */
-        public getStatus(query: string): Promise<Status>;
+        public getStatus(query: string, options?: methodOptions): Promise<Status>;
         /**
          * @description Allows you to get current player count
          */
-        public getOnline(): Promise<number>;
+        public getOnline(options?: methodOptions): Promise<number>;
         /**
-         * @description Allows you to get information about API key used
+         * @description Allows you to get information about used API key
          */
-        public getKeyInfo(): Promise<KeyInfo>;
+        public getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
         /**
          * @description Allows you to get leaderboards of each mini-game
          */
-        public getLeaderboards(): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        public getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        /**
+         * @description Allows you to get recent games of a player
+         */
+        public getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        /**
+         * @description Allows you to clear cache
+         */
+        public get sweepCache(): void;
+        public get cache(): Map<string, object>;
     }
     export class Player {
         constructor(data: object);
@@ -99,11 +130,16 @@ declare module 'hypixel-api-reborn' {
         public history: string[];
         public rank: PLAYER_RANK;
         public mcVersion: string;
-        public lastLogin: number;
-        public firstLogin: number;
+        public lastLoginTimestamp: number;
+        public lastLogin: Date;
+        public lastLogoutTimestamp: number;
+        public lastLogout: Date;
+        public firstLoginTimestamp: number;
+        public firstLogin: Date;
         public recentlyPlayedGame: Game;
         public plusColor?: Color;
         public karma: number;
+        public achievements: object;
         public achievementPoints: number;
         public totalExperience: number;
         public level: number;
@@ -129,6 +165,7 @@ declare module 'hypixel-api-reborn' {
             blitzsg?: BlitzSurvivalGames,
             arena?: ArenaBrawl
         }
+        public getRecentGames(): Promise<RecentGame[]>;
     }
     export class Leaderboard {
         constructor(data: object);
@@ -147,6 +184,7 @@ declare module 'hypixel-api-reborn' {
         public limitPerMinute: number;
         public requestsInPastMin: number;
         public totalRequests: number;
+        public resetsAfter: number;
     }
     export class ArenaBrawl {
         constructor(data: object);
@@ -313,7 +351,7 @@ declare module 'hypixel-api-reborn' {
     export class Status {
         constructor(data: object);
         public online: boolean;
-        public game: Game;
+        public game?: Game;
         public mode?: string;
         public map?: string
     }
@@ -324,7 +362,8 @@ declare module 'hypixel-api-reborn' {
         public description: string;
         public experience: number;
         public level: number;
-        public createdAt: number;
+        public createdAtTimestamp: number;
+        public createdAt: Date;
         public joinable: boolean;
         public publiclyListed: boolean;
         public tag: string;
@@ -336,24 +375,29 @@ declare module 'hypixel-api-reborn' {
             experienceKings: number,
             onlinePlayers: number
         };
-        public chatMuteUntil: number;
+        public chatMuteUntilTimestamp: number;
+        public chatMuteUntil: Date;
         public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
         public preferredGames: Game[];
         public members: GuildMember[];
         public ranks: GuildRank[];
-        public ranksByNewest(): GuildRank[];
-        public getRankByPriority(data: object, priority: number): GuildRank;
-        public memberUUIDMap(): Map<string, GuildMember>;
+        public getRanksByNewest(): GuildRank[];
+        public getRankByPriority(priority: number): GuildRank;
+        public getMemberUUIDMap(): Map<string, GuildMember>;
     }
     export class Auction {
         constructor(data: object);
         public auctionId: string;
         public auctioneerUuid: string;
-        public coop: string[];
-        public auctionStart: number;
-        public auctionEnd: number;
+        public coop: string[] | [];
+        public auctionStartTimestamp: number;
+        public auctionEndTimestamp: number;
+        public auctionStart: Date;
+        public auctionEnd: Date;
         public item: string;
         public itemLore: string;
+        public itemLoreRaw: string;
+        public rarity: string;
         public startingBid: number;
         public highestBid: number;
         public bids: Bid[];
@@ -361,12 +405,22 @@ declare module 'hypixel-api-reborn' {
         public claimedBidders: string[];
         public bin: boolean;
     }
+    export class AuctionInfo {
+        constructor(data: object);
+        public age: number;
+        public lastUpdatedAt: Date;
+        public lastUpdated: number;
+        public totalPages: number;
+        public page: number;
+        public totalAuctions: number
+    }
     export class Bid {
         constructor(data: object);
         public auctionId: string;
         public profileId: string;
         public amount: number;
         public timestamp: number;
+        public at: Date;
         public bidder: string;
     }
     export class Product {
@@ -403,11 +457,13 @@ declare module 'hypixel-api-reborn' {
     export class GuildMember {
         constructor(data: object);
         public uuid: string;
-        public joinedAt: number;
+        public joinedAtTimestamp: number;
+        public joinedAt: Date;
         public questParticipation: number;
         public rank: string;
         public weeklyExperience: number;
-        public mutedUntil: number;
+        public mutedUntilTimestamp: number;
+        public mutedUntil: Date;
         public expHistory: { day: string, exp: number }[];
     }
     export class GuildRank {
@@ -415,14 +471,16 @@ declare module 'hypixel-api-reborn' {
         public name: string;
         public default: boolean;
         public tag: string | null;
-        public createdAt: number;
+        public createdAtTimestamp: number;
+        public createdAt: Date;
         public priority: number;
     }
     export class Friend {
         constructor(data: object);
         public sender: string;
         public receiver: string;
-        public friendSince: number;
+        public friendSinceTimestamp: number;
+        public friendSince: Date;
     }
     export class Booster {
         constructor(data: object);
@@ -430,21 +488,28 @@ declare module 'hypixel-api-reborn' {
         public amount: number;
         public originalLength: number;
         public remaining: number;
-        public activated: boolean;
-        public game: Game;
+        public activatedTimestamp: number
+        public activated: Date;
+        public game?: Game;
     }
     export class SkyblockProfile {
         constructor(data: object);
         public profileId: string;
         public profileName: string;
         public members: SkyblockMember[];
+        public me: SkyblockMember;
     }
     export class SkyblockMember {
         constructor(data: object);
         public uuid: string;
+        public player?: Player;
+        public profileName: string;
         public firstJoin: number;
         public lastSave: number;
         public lastDeath: number;
+        public firstJoinAt: Date;
+        public lastSaveAt: Date;
+        public lastDeathAt: Date;
         public fairySouls: number;
         public skills: {
             taming: {
@@ -511,7 +576,7 @@ declare module 'hypixel-api-reborn' {
                 xpForNext: number,
                 progress: number
             },
-            carpentry: {
+            carpentry?: {
                 xp: number,
                 level: number,
                 maxLevel: number,
@@ -519,14 +584,15 @@ declare module 'hypixel-api-reborn' {
                 xpForNext: number,
                 progress: number
             },
-            runecrafting: {
+            runecrafting?: {
                 xp: number,
                 level: number,
                 maxLevel: number,
                 xpCurrent: number,
                 xpForNext: number,
                 progress: number
-            }
+            },
+            usedAchievementsApi?: boolean
         };
         public slayer: {
             zombie: {
@@ -621,6 +687,7 @@ declare module 'hypixel-api-reborn' {
         public getInventory(): Promise<Item[]>;
         public getEnderChest(): Promise<Item[]>;
         public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>;
+        public getPetScore(): number;
     }
     export class Color {
         constructor(color: string)
@@ -1178,6 +1245,15 @@ declare module 'hypixel-api-reborn' {
             pro: number,
             gtb: number
         };
+    }
+    export class RecentGame extends Game {
+        constructor(data: object)
+        public date?: number;
+        public at?: Date;
+        public mode?: string;
+        public map?: string;
+        public endedAt?: Date;
+        public endedTimestamp?: number;
     }
     export class MegaWalls {
         constructor(data: object)
