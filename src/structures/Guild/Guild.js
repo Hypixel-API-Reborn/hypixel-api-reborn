@@ -5,7 +5,6 @@ const Game = require('../Game');
 const getGuildLevel = require('../../utils/getGuildLevel');
 /**
  * Guild class
- * @param {data} Object data
  */
 class Guild {
   constructor (data) {
