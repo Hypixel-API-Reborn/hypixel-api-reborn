@@ -1,6 +1,6 @@
 const divide = require('../../utils/divide');
 /**
- * ArenaBralw class
+ * ArenaBrawl class
  * @param {data} data ArenaBrawl data
  */
 class ArenaBrawl {
