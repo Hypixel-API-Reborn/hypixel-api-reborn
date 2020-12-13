@@ -18,7 +18,8 @@
     "tslint": "tslint typings/index.d.ts",
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
-    "test": "npm run tslint && npm run eslint"
+    "test": "npm run tslint && npm run eslint",
+    "docgen": "docgen -s src/structures -o docs/docs.json"
   },
   "author": "StavZ",
   "dependencies": {
@@ -34,6 +35,7 @@
   "publisher": "StavZ",
   "devDependencies": {
     "@types/node": "^14.14.7",
+    "discord.js-docgen": "git+https://github.com/discordjs/docgen.git",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
