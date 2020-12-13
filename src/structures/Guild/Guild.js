@@ -3,9 +3,6 @@ const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
 const getGuildLevel = require('../../utils/getGuildLevel');
-/**
- * Guild class
- */
 class Guild {
   constructor (data) {
     /**

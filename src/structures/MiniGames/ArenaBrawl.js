@@ -1,7 +1,14 @@
 const divide = require('../../utils/divide');
 class ArenaBrawl {
   constructor (data) {
+    /**
+     * Coins
+     * @type {number}
+     */
     this.coins = data.coins || 0;
+    /**
+     * @type {{'1v1':{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number},'2v2':{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number},'4v4':{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}}
+     */
     this.mode = {
       '1v1': generateModeStats(data, '1v1'),
       '2v2': generateModeStats(data, '2v2'),

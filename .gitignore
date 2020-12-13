@@ -42,6 +42,6 @@ dist
 package-lock.json
 .tern-port
 testing/
-test/
 .circleci/
 changelog.md
+out/
