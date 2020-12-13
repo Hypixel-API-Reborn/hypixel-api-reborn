@@ -118,6 +118,11 @@ declare module 'hypixel-api-reborn' {
          */
         public getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
         /**
+         * @param ip - Valid IP/Hostname address
+         * @description Pings the minecraft server of hypixel by default
+         */
+        public getPing(ip?: string): Promise<number>;
+        /**
          * @description Allows you to clear cache
          */
         public get sweepCache(): void;
