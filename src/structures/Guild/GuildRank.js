@@ -1,3 +1,7 @@
+/**
+ * GuildRank class
+ * @param {data} data Guild rank data
+ */
 class GuildRank {
   constructor (data) {
     /**

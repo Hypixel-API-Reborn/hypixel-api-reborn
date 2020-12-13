@@ -3,6 +3,10 @@ const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
 const getGuildLevel = require('../../utils/getGuildLevel');
+/**
+ * Guild class
+ * @param {data} data Guild data
+ */
 class Guild {
   constructor (data) {
     /**
