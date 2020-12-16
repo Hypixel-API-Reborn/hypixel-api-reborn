@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
-const Armor = require('./SkyblockArmor');
-const Item = require('./SkyblockItem');
+const InventoryItem = require('./SkyblockInventoryItem');
 const objectPath = require('object-path');
 
 class SkyblockMember {
@@ -20,10 +19,10 @@ class SkyblockMember {
       const base64 = data.m.inv_armor;
       const decoded = await decode(base64.data);
       const armor = {
-        helmet: decoded[3].id ? new Armor(decoded[3]) : null,
-        chestplate: decoded[2].id ? new Armor(decoded[2]) : null,
-        leggings: decoded[1].id ? new Armor(decoded[1]) : null,
-        boots: decoded[0].id ? new Armor(decoded[0]) : null
+        helmet: decoded[3].id ? new InventoryItem(decoded[3]) : null,
+        chestplate: decoded[2].id ? new InventoryItem(decoded[2]) : null,
+        leggings: decoded[1].id ? new InventoryItem(decoded[1]) : null,
+        boots: decoded[0].id ? new InventoryItem(decoded[0]) : null
       };
       return armor;
     };
@@ -44,7 +43,7 @@ class SkyblockMember {
           if (!enderChest[i].id) {
             continue;
           }
-          edited.push(new Item(enderChest[i]));
+          edited.push(new InventoryItem(enderChest[i]));
         }
         return edited;
       } catch (e) {
@@ -62,7 +61,7 @@ class SkyblockMember {
           if (!inventory[i].id) {
             continue;
           }
-          edited.push(new Item(inventory[i]));
+          edited.push(new InventoryItem(inventory[i]));
         }
         return edited;
       } catch (e) {

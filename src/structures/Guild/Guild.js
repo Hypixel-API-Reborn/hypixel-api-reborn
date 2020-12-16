@@ -11,43 +11,36 @@ class Guild {
   constructor (data) {
     /**
      * Guild ID
-     * @readonly
      * @type {string}
      */
     this.id = data._id;
     /**
      * Guild name
-     * @readonly
      * @type {String}
      */
     this.name = data.name;
     /**
      * Guild description
-     * @readonly
      * @type {String}
      */
     this.description = data.description ? data.description : null;
     /**
      * Guild experience
-     * @readonly
      * @type {Number}
      */
     this.experience = data.exp || 0;
     /**
      * Guild level
-     * @readonly
      * @type {Number}
      */
     this.level = getGuildLevel(this.experience);
     /**
      * Guild members
-     * @readonly
      * @type {Array<GuildMember>}
      */
     this.members = members(data);
     /**
      * Guild ranks
-     * @readonly
      * @type {Array<GuildRank>}
      */
     this.ranks = ranks(data);
@@ -79,74 +72,62 @@ class Guild {
     };
     /**
      * Date of guild creation as timestamp
-     * @readonly
      * @type {String}
      */
     this.createdAtTimestamp = data.created;
     /**
      * Date of guild creation
-     * @readonly
      * @type {Date}
      */
     this.createdAt = new Date(data.created);
     /**
      * Whether this guild can be joined using /g join
-     * @readonly
      * @type {boolean}
      */
     this.joinable = data.joinable ? data.joinable : false;
     /**
      * Whether this guild is listed in the Guild Finder
-     * @readonly
      * @type {boolean}
      */
     this.publiclyListed = !!data.publiclyListed;
     /**
      * Timestamp guild chat will be unmuted at.
-     * @readonly
      * @type {number|null}
      */
     this.chatMuteUntilTimestamp = data.chatMute ? data.chatMute : null;
     /**
      * Timestamp guild chat will be unmuted at as Date.
-     * @readonly
      * @type {Date|null}
      */
     this.chatMuteUntil = data.chatMute ? new Date(data.chatMute) : null;
     /**
      * Timestamp guild chat will be unmuted at.
-     * @readonly
      * @type {Array<{ Pattern: string, Color: string }>}
      */
     this.banner = data.banner ? data.banner : data.banner;
     /**
      * Guild tag
-     * @readonly
      * @type {String}
      */
     this.tag = data.tag ? data.tag : null;
     /**
      * Guild tag color
-     * @readonly
      * @type {Color}
      */
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
     /**
      * Ranking in the number of guild coins owned in the legacy guild system. (0 - indexed)
      * @deprecated
-     * @readonly
      * @type {number}
      */
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;
     /**
      * Experience history per day
-     * @readonly
      * @type {Array<{day:String, exp: number}>}
      */
     this.expHistory = calculateExpHistory(data);
     /**
      * Guild achievements
-     * @readonly
      * @type {{winners: number, experienceKings: number, onlinePlayers: number}}
      */
     this.achievements = {
@@ -156,7 +137,6 @@ class Guild {
     };
     /**
      * Guild preferred games
-     * @readonly
      * @type {Array<Game>}
      */
     this.preferredGames = data.preferredGames ? data.preferredGames.map(g => new Game(g)) : [];

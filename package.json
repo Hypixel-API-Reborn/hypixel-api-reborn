@@ -19,7 +19,7 @@
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
     "test": "npm run tslint && npm run eslint",
-    "docgen": "docgen -s src/structures -o docs.json"
+    "docgen": "docgen -s src -o master.json"
   },
   "author": "StavZ",
   "dependencies": {

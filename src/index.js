@@ -21,8 +21,7 @@ module.exports = {
   /* SkyBlock */
   SkyblockProfile: require('./structures/SkyBlock/SkyblockProfile'),
   SkyblockMember: require('./structures/SkyBlock/SkyblockMember'),
-  SkyblockArmor: require('./structures/SkyBlock/SkyblockArmor'),
-  SkyblockItem: require('./structures/SkyBlock/SkyblockItem'),
+  SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem'),
 
   /* Skyblock Auctions */
   SkyblockAuction: require('./structures/SkyBlock/Auctions/Auction'),
