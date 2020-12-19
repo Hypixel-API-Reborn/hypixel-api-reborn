@@ -6,11 +6,11 @@ type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
 interface clientOptions {
-    cache: boolean;
-    cacheTime: number;
-    cacheSize: number;
-    cacheFilter: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
-    rateLimit: 'HARD' | 'AUTO' | 'NONE';
+    cache?: boolean;
+    cacheTime?: number;
+    cacheSize?: number;
+    cacheFilter?: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    rateLimit?: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
     noCacheCheck?: boolean;
