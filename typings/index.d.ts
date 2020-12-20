@@ -85,13 +85,20 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to get all skyblock auctions
          * @param page - number (optional)
+         * @param includeItemBytes - include item bytes (optional), only possible when fetching a single page
          */
-        public getSkyblockAuctions(page?: number, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
+        public getSkyblockAuctions(page?: number, includeItemBytes?: boolean, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
+        /**
+         * @description Allows you to get all ended auctions in around the last 60 seconds
+         * @param includeItemBytes - include item bytes (optional)
+         */
+        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
         /**
          * @description Allows you to get all auctions of player
          * @param query - player nickname or uuid
+         * @param includeItemBytes - include item bytes (optional)
          */
-        public getSkyblockAuctionsByPlayer(query: string, options?: methodOptions): Promise<Auction[]>;
+        public getSkyblockAuctionsByPlayer(query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
@@ -123,9 +130,13 @@ declare module 'hypixel-api-reborn' {
          */
         public getPing(ip?: string): Promise<number>;
         /**
+         * @description Parses the RSS feed from status.hypixel.net
+         */
+        public getAPIStatus(): Promise<APIStatus>;
+        /**
          * @description Allows you to clear cache
          */
-        public get sweepCache(): void;
+        public sweepCache(): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -390,10 +401,16 @@ declare module 'hypixel-api-reborn' {
         public getRankByPriority(priority: number): GuildRank;
         public getMemberUUIDMap(): Map<string, GuildMember>;
     }
-    export class Auction {
-        constructor(data: object);
+    export class BaseAuction {
+        constructor(data: object)
         public auctionId: string;
         public auctioneerUuid: string;
+        public auctioneerProfile: string;
+        public bin: boolean;
+        public itemBytes: ItemBytes | null;
+    }
+    export class Auction extends BaseAuction{
+        constructor(data: object);
         public coop: string[] | [];
         public auctionStartTimestamp: number;
         public auctionEndTimestamp: number;
@@ -408,7 +425,11 @@ declare module 'hypixel-api-reborn' {
         public bids: Bid[];
         public claimed: boolean;
         public claimedBidders: string[];
-        public bin: boolean;
+    }
+    export class PartialAuction extends BaseAuction {
+        constructor(data: object);
+        public buyer: string;
+        public price: number;
     }
     export class AuctionInfo {
         constructor(data: object);
@@ -1297,5 +1318,34 @@ declare module 'hypixel-api-reborn' {
                 losses: number
             }
         };
+    }
+    export class APIStatus {
+        constructor(data: object)
+        public sourceUrl: string;
+        public title: string;
+        public description: string;
+        public incidents: APIIncident[]
+    }
+    export class APIIncident {
+        constructor(data: object)
+        public link: string;
+        public start: Date;
+        public startFormatted: string;
+        public startTimestamp: number;
+        public author: string;
+        public HTMLContent: string;
+        public TextContent: string;
+        public snippet: string;
+        public guid: string;
+        public categories: string[];
+    }
+    export class ItemBytes {
+        constructor(data: object)
+        public base64: string;
+        public bytesBuffer: Buffer;
+        /**
+         * @description Reads the bytes as a NBT tag
+         */
+        public readNBT(): Promise<any[]>
     }
 }

@@ -9,7 +9,7 @@ class APIIncident {
     this.snippet = data.contentSnippet || null;
     this.TextContent = (data.content || '').replace(/<[^>]+>/g, '') || null;
     this.guid = data.guid || null;
-    this.categories = data.categories || null;
+    this.categories = data.categories || [];
   }
 }
 
