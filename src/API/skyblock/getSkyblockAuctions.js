@@ -1,4 +1,4 @@
-module.exports = async function (page) {
+module.exports = async function (page, includeItemBytes = false) {
   const Auction = require('../../structures/SkyBlock/Auctions/Auction');
   const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 
@@ -11,7 +11,7 @@ module.exports = async function (page) {
       const pageByNumber = await this._makeRequest(`/skyblock/auctions?page=${currentPage}`, false);
       if (!pageByNumber.success) break;
       pageByNumber.auctions.forEach(auction => {
-        auctions.push(new Auction(auction));
+        auctions.push(new Auction(auction, includeItemBytes));
       });
       info = info || new AuctionInfo(pageByNumber);
       currentPage++;
@@ -22,7 +22,7 @@ module.exports = async function (page) {
     const pageBySpecifiedPage = await this._makeRequest(`/skyblock/auctions?page=${page}`, false);
     if (!pageBySpecifiedPage.success) return [];
     pageBySpecifiedPage.auctions.forEach(auction => {
-      auctions.push(new Auction(auction));
+      auctions.push(new Auction(auction, includeItemBytes));
     });
     info = new AuctionInfo(pageBySpecifiedPage);
   }
