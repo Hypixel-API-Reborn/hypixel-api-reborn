@@ -3,18 +3,62 @@ const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require(
 const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
 const InventoryItem = require('./SkyblockInventoryItem');
 const objectPath = require('object-path');
-
+/**
+ * Skyblock member class
+ * @param {object} data Skyblock member data
+ */
 class SkyblockMember {
   constructor (data) {
+    /**
+     * Skyblock member UUID
+     * @type {string}
+     */
     this.uuid = data.uuid;
+    /**
+     * Skyblock member's player profile<br>
+     * If `fetchPlayer` option is `true`.
+     * @type {Player|null}
+     */
     this.player = data.m.player || null;
+    /**
+     * Skyblock member's profile name
+     * @type {string}
+     */
     this.profileName = data.profileName;
+    /**
+     * Timestamp when player first joined to SkyBlock
+     * @type {number}
+     */
     this.firstJoinTimestamp = data.m.first_join;
+    /**
+     * Timestamp when player first joined to SkyBlock as Date
+     * @type {Date}
+     */
     this.firstJoinAt = new Date(data.m.first_join);
+    /**
+     * Last save timestamp
+     * @type {number}
+     */
     this.lastSave = data.m.last_save;
+    /**
+     * Last save timestamp as Date
+     * @type {Date}
+     */
     this.lastSaveAt = new Date(data.m.last_save);
+    /**
+     * Last death timestamp as Date
+     * @type {Date}
+     */
     this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
+    /**
+     * Last save timestamp
+     * @type {number}
+     */
     this.lastDeath = data.m.last_death;
+    /**
+     * Equipped armor
+     * @type {SkyblockMemberArmor}
+     */
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
       const decoded = await decode(base64.data);
@@ -26,11 +70,35 @@ class SkyblockMember {
       };
       return armor;
     };
+    /**
+     * Collected fairy souls
+     * @type {SkyblockMemberArmor}
+     */
     this.fairySouls = data.m.fairy_souls_collected || 0;
+    /**
+     * Skyblock member skills
+     * @type {SkyblockMemberSkills}
+     */
     this.skills = getSkills(data.m);
+    /**
+     * Skyblock member slayer
+     * @type {SkyblockMemberSlayer|null}
+     */
     this.slayer = getSlayer(data.m);
+    /**
+     * Skyblock member dangeons
+     * @type {SkyblockMemberDungeons|null}
+     */
     this.dungeons = getDungeons(data.m);
+    /**
+     * Skyblock member collections
+     * @type {object}
+     */
     this.collections = data.m.collection ? data.m.collection : null;
+    /**
+     * Skyblock member enderchest
+     * @returns {Promise<InventoryItem[]|null>}
+     */
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
       if (!chest) return null;
@@ -50,6 +118,10 @@ class SkyblockMember {
         return e;
       }
     };
+    /**
+     * Skyblock member inventory
+     * @returns {Promise<InventoryItem[]|null>}
+     */
     this.getInventory = async () => {
       let inventory = data.m.inv_contents;
       if (!inventory) return null;
@@ -89,7 +161,6 @@ class SkyblockMember {
 }
 /**
  * @param {object} data
- *
  * @return {object}
  */
 function getSkills (data) {
@@ -112,7 +183,6 @@ function getSkills (data) {
 }
 /**
  * @param {object} data
- *
  * @return {object}
  */
 function getSlayer (data) {
@@ -127,7 +197,6 @@ function getSlayer (data) {
 }
 /**
  * @param {object} data
- *
  * @return {object}
  */
 function getDungeons (data) {
@@ -147,5 +216,68 @@ function getDungeons (data) {
     }
   };
 }
-
+/**
+ * @typedef {object} SkyblockMemberArmor Equipped armor
+ * @property {InventoryItem|null} helmet Helmet
+ * @property {InventoryItem|null} chestplate Chestplate
+ * @property {InventoryItem|null} leggings Leggings
+ * @property {InventoryItem|null} boots Boots
+ */
+/**
+ * @typedef {object} SkyblockMemberSkills
+ * @property {SkyblockSkillLevel} farming Farming skill
+ * @property {SkyblockSkillLevel} mining Mining skill
+ * @property {SkyblockSkillLevel} combat Combat skill
+ * @property {SkyblockSkillLevel} foraging Foraging skills
+ * @property {SkyblockSkillLevel} fishing Fishing skill
+ * @property {SkyblockSkillLevel} enchanting Enchanting skill
+ * @property {SkyblockSkillLevel} alchemy Alchemy skill
+ * @property {SkyblockSkillLevel} taming Taming skill
+ * @property {SkyblockSkillLevel} carpentry Carpentry skill
+ * @property {SkyblockSkillLevel} runecrafting Runecrafting skill
+ */
+/**
+ * @typedef {object} SkyblockSkillLevel
+ * There is list of skills: {@link SkyblockMemberSkills}. <br>
+ * Usage: `<SkyblockMember>.skills.farming.xp`.
+ *
+ * @property {number} xp Total XP
+ * @property {number} level Level
+ * @property {number} maxLevel Max level
+ * @property {number} xpCurrent Current XP
+ * @property {number} xpForNext XP for next level
+ * @property {number} progress Progress
+ */
+/**
+ * @typedef {object} SkyblockMemberSlayer
+ * @property {SkyblockMemberSlayerLevel} zombie
+ * @property {SkyblockMemberSlayerLevel} spider
+ * @property {SkyblockMemberSlayerLevel} wolf
+ */
+/**
+ * @typedef {object} SkyblockMemberSlayerLevel
+ * @property {number} xp Total XP
+ * @property {number} tier1 Tier 1
+ * @property {number} tier2 Tier 2
+ * @property {number} tier3 Tier 3
+ * @property {number} tier4 Tier 4
+ * @property {number} level Level
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeons
+ * @property {object} types Dungeons types
+ * @property {object} classes Dungeons classes
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsTypes
+ * @property {SkyblockSkillLevel} catacombs
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsClasses
+ * @property {SkyblockSkillLevel} healer Healer class
+ * @property {SkyblockSkillLevel} mage Mage class
+ * @property {SkyblockSkillLevel} berserk Berserk class
+ * @property {SkyblockSkillLevel} archer Archer class
+ * @property {SkyblockSkillLevel} tank Tank class
+ */
 module.exports = SkyblockMember;
