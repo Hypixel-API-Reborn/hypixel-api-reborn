@@ -44,4 +44,4 @@ package-lock.json
 testing/
 .circleci/
 changelog.md
-docs.json
+master.json
