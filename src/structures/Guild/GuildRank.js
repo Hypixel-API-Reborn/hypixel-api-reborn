@@ -10,7 +10,7 @@ class GuildRank {
      */
     this.name = data.name;
     /**
-     * Whether this rank is the defualt rank a player gets when they join a guild
+     * Whether this rank is the default rank a player gets when they join a guild
      * @type {boolean}
      */
     this.default = data.default;
@@ -30,7 +30,7 @@ class GuildRank {
     */
     this.createdAt = new Date((data.created ? data.created : data.createdAtTimestamp));
     /**
-    * Guild rank priority - Higher number = higher up in the heirarchy
+    * Guild rank priority - Higher number = higher up in the hierarchy
     * @type {number}
     */
     this.priority = data.priority;

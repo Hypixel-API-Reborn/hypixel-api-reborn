@@ -49,7 +49,7 @@ class BedWars {
      */
     this.level = data.Experience ? getLevelForExp(data.Experience) : 0;
     /**
-     * Coins
+     * Prestige
      * @type {BedWarsPrestige}
      */
     this.prestige = data.Experience ? getBedWarsPrestige(getLevelForExp(data.Experience)) : 'Stone';
@@ -122,17 +122,17 @@ class BedWars {
       bedsBroken: divide(this.beds.broken, this.playedGames)
     };
     /**
-     * Kills/Deaths ratio
+     * Kill Death ratio
      * @type {number}
      */
     this.KDRatio = divide(this.kills, this.deaths);
     /**
-     * Final kills/Final deaths ratio
+     * Final kill death ratio
      * @type {number}
      */
     this.finalKDRatio = divide(this.finalKills, this.finalDeaths);
     /**
-     * Wins/Losses ratio
+     * Win Loss ratio
      * @type {number}
      */
     this.WLRatio = divide(this.wins, this.losses);
@@ -157,7 +157,7 @@ class BedWars {
      */
     this.four = generateStatsForMode(data, 'four_four');
     /**
-     * BedWars 2v4
+     * BedWars 2v4 stats
      * @type {BedWarsModeStats}
      */
     this.fourV2 = generateStatsForMode(data, 'two_four');
@@ -263,8 +263,8 @@ function getLevelForExp (exp) {
  * @property {number} finalDeaths Final deaths
  * @property {BedWarsBeds} beds Beds
  * @property {BedWarsAvg} avg Average Kills/Final kills/Beds broken
- * @property {number} KDRatio Kills/Deaths ratio
- * @property {number} WLRatio Wins/Losses ratio
+ * @property {number} KDRatio Kill Death ratio
+ * @property {number} WLRatio Win Loss ratio
  * @property {number} finalKDRatio Final kills/Final deaths ratio
  */
 module.exports = BedWars;

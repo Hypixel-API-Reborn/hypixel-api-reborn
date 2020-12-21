@@ -41,12 +41,12 @@ class APIIncident {
      */
     this.snippet = data.contentSnippet || null;
     /**
-     * Content
+     * Content as plain text
      * @type {string|null}
      */
     this.TextContent = (data.content || '').replace(/<[^>]+>/g, '') || null;
     /**
-     * Incident author
+     * GUID
      * @type {string|null}
      */
     this.guid = data.guid ? regex.exec(data.guid)[1] : null;

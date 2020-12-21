@@ -44,9 +44,9 @@ function generateModeStats (data, mode) {
  * @typedef {Object} ArenaBrawlModeStats
  * @property {number} kills ArenaBrawl kills
  * @property {number} deaths ArenaBrawl deaths
- * @property {number} KDRatio ArenaBrawl Kills/Deaths ratio
+ * @property {number} KDRatio ArenaBrawl Kill Death ratio
  * @property {number} wins ArenaBrawl wins
  * @property {number} losses ArenaBrawl losses
- * @property {number} WLRatio ArenaBrawl Wins/Losses ratio
+ * @property {number} WLRatio ArenaBrawl Win Loss ratio
  */
 module.exports = ArenaBrawl;

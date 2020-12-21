@@ -122,7 +122,7 @@ class Guild {
      */
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;
     /**
-     * Experience history per day
+     * Experience history per day, resets at 5 am UTC
      * @type {Array<{day:String, exp: number}>}
      */
     this.expHistory = calculateExpHistory(data);

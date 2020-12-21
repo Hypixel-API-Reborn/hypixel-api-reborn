@@ -42,7 +42,7 @@ class VampireZ {
  * @typedef {object} VampireZHumanStats
  * @property {number} kills Kills
  * @property {number} deaths Deaths
- * @property {number} KDRatio Kills/Deaths ratio
+ * @property {number} KDRatio Kill Death ratio
  * @property {number} wins Wins
  */
 /**
@@ -53,6 +53,6 @@ class VampireZ {
  * @typedef {object} VampireZVampireStats
  * @property {number} kills Kills
  * @property {number} deaths Deaths
- * @property {number} KDRatio Kills/Deaths ratio
+ * @property {number} KDRatio Kill Death ratio
  */
 module.exports = VampireZ;

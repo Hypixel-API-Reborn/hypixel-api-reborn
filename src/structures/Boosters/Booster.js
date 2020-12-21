@@ -3,17 +3,17 @@ const Game = require('../Game');
 class Booster {
   constructor (data) {
     /**
-     * Booster purchaser's UUID
+     * Booster's purchaser's UUID
      * @type {String}
      */
     this.purchaser = data.purchaserUuid;
     /**
-     * Booster multiplier
+     * Booster's multiplier
      * @type {Number}
      */
     this.amount = data.amount;
     /**
-     * Booster length in seconds
+     * Booster's length in seconds
      * @type {Number}
      */
     this.originalLength = data.originalLength;

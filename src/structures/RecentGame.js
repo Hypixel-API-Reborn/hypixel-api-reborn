@@ -29,6 +29,11 @@ class RecentGame extends Game {
     this.map = data.map || null;
     // Per hypixel API docs : if ended isn't present, the game is ONGOING.
     /**
+     * Is game ongoing?
+     * @type {boolean}
+     */
+    this.ongoing = Boolean(data.ended);
+    /**
      * Game ended at as Date
      * @type {Date}
      */

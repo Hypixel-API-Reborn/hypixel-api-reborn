@@ -5,12 +5,12 @@
 class Friend {
   constructor (data) {
     /**
-     * Friend request sender UUID
+     * Friend request sender's UUID
      * @type {string}
      */
     this.sender = data.uuidSender;
     /**
-     * Friend request receiver UUID
+     * Friend request receiver's UUID
      * @type {string}
      */
     this.receiver = data.uuidReceiver;

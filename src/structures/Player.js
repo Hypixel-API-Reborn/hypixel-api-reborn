@@ -34,7 +34,7 @@ class Player {
      */
     this.uuid = data.uuid;
     /**
-     * Player nickname history
+     * Player nickname history known to Hypixel
      * @type {Array<string>}
      */
     this.history = data.knownAliases;
@@ -52,35 +52,35 @@ class Player {
      * Timestamp when player last logged in
      * @type {number}
      */
-    this.lastLoginTimestamp = data.lastLogin || null;
-    /**
-     * Timestamp when player first logged in
-     * @type {number}
-     */
     this.firstLoginTimestamp = data.firstLogin || null;
     /**
      * Timestamp when player last logged in as Date
-     * @type {Date}
-     */
-    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
-    /**
-     * Timestamp when player last logged out as Date
-     * @type {Date}
-     */
-    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
-    /**
-     * Timestamp when player last logged out
-     * @type {number}
-     */
-    this.lastLogoutTimestamp = data.lastLogout || null;
-    /**
-     * Timestamp when player first logged in as Date
      * @type {Date}
      */
     this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     /**
      * Player's recently played game
      * @type {Game|null}
+     */
+    this.lastLoginTimestamp = data.lastLogin || null;
+    /**
+     * Timestamp when player first logged in
+     * @type {number}
+     */
+    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    /**
+     * Timestamp when player last logged out as Date
+     * @type {Date}
+     */
+    this.lastLogoutTimestamp = data.lastLogout || null;
+    /**
+     * Timestamp when player first logged in as Date
+     * @type {Date}
+     */
+    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    /**
+     * Timestamp when player last logged out
+     * @type {number}
      */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
@@ -123,7 +123,7 @@ class Player {
      */
     this.level = getPlayerLevel(this.totalExperience) || 0;
     /**
-     * Player social media
+     * Player social media, if any
      * @type {Array<PlayerSocialMedia>}
      */
     this.socialMedia = getSocialMedia(data.socialMedia) || [];
