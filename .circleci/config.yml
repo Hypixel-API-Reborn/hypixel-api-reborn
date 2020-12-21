@@ -15,6 +15,7 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test:
-          branches:
-            ignore: 
-              - docs
+          filters:
+              branches:
+                only:
+                  - master
