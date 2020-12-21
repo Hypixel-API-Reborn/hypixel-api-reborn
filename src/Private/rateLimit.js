@@ -1,4 +1,3 @@
-const Errors = require('../Errors');
 module.exports = class RateLimit {
   rateLimitMonitor () {
     this.requests = 0;
@@ -29,9 +28,8 @@ module.exports = class RateLimit {
         this.requests = info.requestsInPastMin;
         setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
       })
-      .catch(e => {
-        throw new Error(Errors.INVALID_API_KEY);
-      });
+      // eslint-disable-next-line camelcase
+      .catch(O_o => {});
     // Still make the requests per min possible
   }
 };

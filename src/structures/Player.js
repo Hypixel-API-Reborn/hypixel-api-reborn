@@ -17,37 +17,135 @@ const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 const { recursive } = require('../utils/removeSnakeCase');
-
+/**
+ * Player class
+ * @param {object} data Player data
+ */
 class Player {
   constructor (data, fakethis) {
+    /**
+     * Player nickname
+     * @type {string}
+     */
     this.nickname = data.displayname;
+    /**
+     * Player UUID
+     * @type {string}
+     */
     this.uuid = data.uuid;
+    /**
+     * Player nickname history
+     * @type {Array<string>}
+     */
     this.history = data.knownAliases;
+    /**
+     * Player rank
+     * @type {PlayerRank}
+     */
     this.rank = getRank(data);
+    /**
+     * Player minecraft version
+     * @type {string|null}
+     */
     this.mcVersion = data.mcVersionRp || null;
+    /**
+     * Timestamp when player last logged in
+     * @type {number}
+     */
     this.lastLoginTimestamp = data.lastLogin || null;
+    /**
+     * Timestamp when player first logged in
+     * @type {number}
+     */
     this.firstLoginTimestamp = data.firstLogin || null;
+    /**
+     * Timestamp when player last logged in as Date
+     * @type {Date}
+     */
     this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    /**
+     * Timestamp when player last logged out as Date
+     * @type {Date}
+     */
     this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    /**
+     * Timestamp when player last logged out
+     * @type {number}
+     */
     this.lastLogoutTimestamp = data.lastLogout || null;
+    /**
+     * Timestamp when player first logged in as Date
+     * @type {Date}
+     */
     this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
+    /**
+     * Player's recently played game
+     * @type {Game|null}
+     */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
+    /**
+     * Player's plus color (must be a MVP+ rank)
+     * @type {Color|null}
+     */
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
     } else {
       this.plusColor = null;
     }
+    /**
+     * Player's guild. Guild option must be `true`
+     * @type {Guild}
+     */
     this.guild = data.guild ? data.guild : null;
+    /**
+     * Player karma
+     * @type {number}
+     */
     this.karma = data.karma || 0;
+    /**
+     * Player achievements
+     * @type {Object}
+     */
     this.achievements = recursive(data.achievements);
+    /**
+     * Player achievement points
+     * @type {number}
+     */
     this.achievementPoints = data.achievementPoints || 0;
+    /**
+     * Player total experience
+     * @type {number}
+     */
     this.totalExperience = data.networkExp || 0;
+    /**
+     * Player level
+     * @type {number}
+     */
     this.level = getPlayerLevel(this.totalExperience) || 0;
+    /**
+     * Player social media
+     * @type {Array<PlayerSocialMedia>}
+     */
     this.socialMedia = getSocialMedia(data.socialMedia) || [];
+    /**
+     * Amount of gifts sent
+     * @type {number}
+     */
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
+    /**
+     * Amount of gifts received
+     * @type {number}
+     */
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
-
+    /**
+     * Is player online?
+     * @type {boolean}
+     */
     this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
+    /**
+     * Player recent games
+     * @returns {Promise<Array<RecentGame>>}
+     */
     this.getRecentGames = function () {
       return getRecentGames.call(fakethis, this.uuid, this);
     };
@@ -78,7 +176,6 @@ class Player {
 * @param {object} player
 * @returns {string}
 */
-
 function getRank (player) {
   let rank;
   if (player.prefix) {
@@ -119,12 +216,9 @@ function getRank (player) {
   return rank;
 }
 /**
- *
  * @param {number} exp
- *
  * @returns {number}
  */
-
 function getPlayerLevel (exp) {
   const BASE = 10000;
   const GROWTH = 2500;
@@ -137,12 +231,9 @@ function getPlayerLevel (exp) {
 }
 
 /**
- *
  * @param {object} data
- *
- * @returns {Array}
+ * @returns {Array<{name:string,link:string,id:string}>}
  */
-
 function getSocialMedia (data) {
   if (!data) return null;
   const links = data.links;
@@ -151,4 +242,47 @@ function getSocialMedia (data) {
   if (!links) return;
   return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
+/**
+ * @typedef {string} PlayerRank
+ * * `Default`
+ * * `VIP`
+ * * `VIP+`
+ * * `MVP`
+ * * `MVP+`
+ * * `MVP++`
+ * * `Helper`
+ * * `Moderator`
+ * * `Admin`
+ * * `YouTube`
+ * * `Build Team`
+ * * `MCProHosting`
+ */
+/**
+ * @typedef {Object} PlayerSocialMedia
+ * Player social media object
+ * @property {string} name Twitter, YouTube, Instagram, Twitch, Mixer, Hypixel, Discord
+ * @property {string} link Link to social media
+ * @property {string} id TWITTER, YOUTUBE, INSTRAGRAM, TWITCH, MIXER, HYPIXEL, DISCORD
+ */
+/**
+ * @typedef {Object|null} PlayerStats
+ * Player stats for each mini-game. `null` if player has no stats.
+ * <br>
+ * Usage: `<Player>.stats.skywars`
+ * @property {SkyWars|null} skywars SkyWars
+ * @property {BedWars|null} bedwars BedWars
+ * @property {UHC|null} uhc UHC
+ * @property {SpeedUHC|null} speedUHC Speed UHC
+ * @property {MurderMystery|null} murdermystery Murder Mystery
+ * @property {Duels|null} duels Duels
+ * @property {CrazyWalls|null} crazywalls CrazyWalls
+ * @property {BuildBattle|null} buildbattle BuildBattle
+ * @property {MegaWalls|null} megawalls MegaWalls
+ * @property {CopsAndCrims|null} copsandcrims CopsAndCrims
+ * @property {TNTGames|null} tntgames TNTGames
+ * @property {SmashHeroes|null} smashheroes SmashHeroes
+ * @property {VampireZ|null} vampirez VampireZ
+ * @property {BlitzSurvivalGames|null} blitzsg BlitzSurvivalGames
+ * @property {ArenaBrawl|null} arena ArenaBrawl
+ */
 module.exports = Player;

@@ -6,11 +6,11 @@ type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | '
 type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow';
 interface clientOptions {
-    cache: boolean;
-    cacheTime: number;
-    cacheSize: number;
-    cacheFilter: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
-    rateLimit: 'HARD' | 'AUTO' | 'NONE';
+    cache?: boolean;
+    cacheTime?: number;
+    cacheSize?: number;
+    cacheFilter?: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    rateLimit?: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
     noCacheCheck?: boolean;
@@ -710,9 +710,9 @@ declare module 'hypixel-api-reborn' {
             gifts_given: number,
             gifts_received: number
         };
-        public getInventory(): Promise<Item[]>;
-        public getEnderChest(): Promise<Item[]>;
-        public getArmor(): Promise<{ helmet: Armor, chestplate: Armor, leggings: Armor, boots: Armor }>;
+        public getInventory(): Promise<InventoryItem[]>;
+        public getEnderChest(): Promise<InventoryItem[]>;
+        public getArmor(): Promise<{ helmet: InventoryItem, chestplate: InventoryItem, leggings: InventoryItem, boots: InventoryItem }>;
         public getPetScore(): number;
     }
     export class Color {
@@ -721,18 +721,7 @@ declare module 'hypixel-api-reborn' {
         public toHex(): string;
         public toName(): string;
     }
-    export class Armor {
-        constructor(data: object);
-        public itemId: number;
-        public count: number;
-        public name: string;
-        public lore: string;
-        public loreForEmbed: string;
-        public enchantments: object;
-        public anvilUses: number;
-        public damage: number;
-    }
-    export class Item {
+    export class InventoryItem {
         constructor(data: object);
         public itemId: number;
         public count: number;
@@ -1274,8 +1263,8 @@ declare module 'hypixel-api-reborn' {
     }
     export class RecentGame extends Game {
         constructor(data: object)
-        public date?: number;
-        public at?: Date;
+        public dateTimestamp?: number;
+        public date?: Date;
         public mode?: string;
         public map?: string;
         public endedAt?: Date;

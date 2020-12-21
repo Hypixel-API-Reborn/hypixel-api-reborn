@@ -2,7 +2,11 @@ const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const requests = new (require('./Private/requests'))();
 const API = require('./API/index');
-
+/**
+ * Client class
+ * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
+ * @param {ClientOptions} options Client options
+ */
 class Client {
   constructor (key, options = {}) {
     this.key = validate.validateKey(key);
@@ -22,13 +26,27 @@ class Client {
     return requests.request.call(this, url, options);
   }
 
+  /**
+   * Returns all cache entries
+   * @type {Map<string,data>}
+   */
   get cache () {
     return requests.cache;
   }
 
-  get sweepCache () {
+  /**
+   * Delete all cache entries
+   * @returns {void}
+   */
+  sweepCache () {
     return requests.sweepCache;
   }
 }
-
+/**
+ * @typedef {?object} ClientOptions
+ * @prop {?boolean} [cache=false] Enable/Disable request caching.
+ * @prop {?number} [cacheTime=60] Amount of time in seconds to cache the requests.
+ * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
+ * @prop {?number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
+ */
 module.exports = Client;
