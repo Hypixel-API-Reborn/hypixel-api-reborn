@@ -30,13 +30,13 @@ class GuildMember {
      */
     this.rank = data.rank;
     /**
-     * Timestamp this member will be unmuted at
-     * @type {Number}
+     * Timestamp this member will be unmuted at ( if muted )
+     * @type {Number|null}
      */
     this.mutedUntilTimestamp = data.mutedTill ? data.mutedTill : null;
     /**
-     * Timestamp this member will be unmuted at as Date
-     * @type {Date}
+     * Timestamp this member will be unmuted at as Date ( if muted )
+     * @type {Date|null}
      */
     this.mutedUntil = data.mutedTill ? new Date(data.mutedTill) : null;
     let gexp = 0;
@@ -48,12 +48,12 @@ class GuildMember {
       }
     }
     /**
-     * Experience history per day
+     * Experience history per day, resets at 5 am UTC
      * @type {Array<{day: string, exp: number}>}
      */
     this.expHistory = history;
     /**
-     * Experience per week
+     * Experience per week, resets every Monday at 5 am UTC
      * @type {Number}
      */
     this.weeklyExperience = gexp;
