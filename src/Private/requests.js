@@ -10,7 +10,7 @@ module.exports = class Requests {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
     if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
-    if (res.status === 403) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '403 Forbidden').replace(/{cause}/, 'Invalid API Key'));
+    if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
     if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     if (!parsedRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
