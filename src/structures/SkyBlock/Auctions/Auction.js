@@ -1,9 +1,8 @@
 const Bid = require('./Bid');
-
-class Auction {
-  constructor (data) {
-    this.auctionId = data.uuid || null;
-    this.auctioneerUuid = data.auctioneer || null;
+const BaseAuction = require('./BaseAuction');
+class Auction extends BaseAuction {
+  constructor (data, includeItemBytes) {
+    super(data, includeItemBytes);
     this.coop = data.coop || [];
     this.auctionStartTimestamp = data.start || null;
     this.auctionStart = data.start ? new Date(data.start) : null;
@@ -18,7 +17,6 @@ class Auction {
     this.bids = data.bids.length ? data.bids.map(b => new Bid(b)) : [];
     this.claimed = data.claimed || false;
     this.claimedBidders = this.claimed ? data.claimed_bidders : [];
-    this.bin = data.bin || false;
   }
 }
 module.exports = Auction;
