@@ -149,7 +149,10 @@ class Player {
     this.getRecentGames = function () {
       return getRecentGames.call(fakethis, this.uuid, this);
     };
-
+    /**
+     * Player stats for each mini-game
+     * @type {PlayerStats}
+     */
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
@@ -278,11 +281,11 @@ function getSocialMedia (data) {
  * @property {CrazyWalls|null} crazywalls CrazyWalls
  * @property {BuildBattle|null} buildbattle BuildBattle
  * @property {MegaWalls|null} megawalls MegaWalls
- * @property {CopsAndCrims|null} copsandcrims CopsAndCrims
- * @property {TNTGames|null} tntgames TNTGames
- * @property {SmashHeroes|null} smashheroes SmashHeroes
+ * @property {CopsAndCrims|null} copsandcrims Cops and Crims
+ * @property {TNTGames|null} tntgames The TNT Games
+ * @property {SmashHeroes|null} smashheroes Smash Heroes
  * @property {VampireZ|null} vampirez VampireZ
- * @property {BlitzSurvivalGames|null} blitzsg BlitzSurvivalGames
- * @property {ArenaBrawl|null} arena ArenaBrawl
+ * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
+ * @property {ArenaBrawl|null} arena Arena Brawl
  */
 module.exports = Player;

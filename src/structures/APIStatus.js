@@ -1,4 +1,8 @@
 const APIIncident = require('./APIIncident');
+/**
+ * API status class
+ * @param {object} data API status data
+ */
 class APIStatus {
   constructor (data) {
     /**

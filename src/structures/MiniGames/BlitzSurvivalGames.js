@@ -15,14 +15,46 @@ const kits = [
   'ranger', 'donkeytamer', 'phoenix',
   'warrior', 'rambo', 'random'
 ];
+/**
+ * Blitz SG class
+ * @param {object} data Blitz SG data
+ */
 class BlitzSurvivalGames {
   constructor (data) {
+    /**
+     * Coins
+     * @type {number}
+     */
     this.coins = data.coins || 0;
+    /**
+     * Kills
+     * @type {number}
+     */
     this.kills = data.kills || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
     this.deaths = data.deaths || 0;
+    /**
+     * Kill Death ratio
+     * @type {number}
+     */
     this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Solo wins
+     * @type {number}
+     */
     this.winsSolo = data.wins || 0;
+    /**
+     * Team wins
+     * @type {number}
+     */
     this.winsTeam = data.wins_teams || 0;
+    /**
+     * Stats for each kit
+     * @type {number}
+     */
     this.kitStats = generateKitStats(data);
   };
 }
@@ -48,4 +80,49 @@ function generateKitStats (data) {
   }
   return stats;
 }
+/**
+ * @typedef {object} BlitzSGKits
+ * @property {BlitzSGKitStats} arachnologist
+ * @property {BlitzSGKitStats} archer
+ * @property {BlitzSGKitStats} armorer
+ * @property {BlitzSGKitStats} astronaut
+ * @property {BlitzSGKitStats} baker
+ * @property {BlitzSGKitStats} blaze
+ * @property {BlitzSGKitStats} creepertamer
+ * @property {BlitzSGKitStats} fisherman
+ * @property {BlitzSGKitStats} horsetamer
+ * @property {BlitzSGKitStats} hunter
+ * @property {BlitzSGKitStats} knight
+ * @property {BlitzSGKitStats} meatmaster
+ * @property {BlitzSGKitStats} necromancer
+ * @property {BlitzSGKitStats} pigman
+ * @property {BlitzSGKitStats} reddragon
+ * @property {BlitzSGKitStats} rogue
+ * @property {BlitzSGKitStats} scout
+ * @property {BlitzSGKitStats} slimeyslime
+ * @property {BlitzSGKitStats} speleologist
+ * @property {BlitzSGKitStats} tim
+ * @property {BlitzSGKitStats} toxicologist
+ * @property {BlitzSGKitStats} troll
+ * @property {BlitzSGKitStats} wolftamer
+ * @property {BlitzSGKitStats} paladin
+ * @property {BlitzSGKitStats} shadow knight
+ * @property {BlitzSGKitStats} hype train
+ * @property {BlitzSGKitStats} jockey
+ * @property {BlitzSGKitStats} reaper
+ * @property {BlitzSGKitStats} golem
+ * @property {BlitzSGKitStats} farmer
+ * @property {BlitzSGKitStats} florist
+ * @property {BlitzSGKitStats} snowman
+ * @property {BlitzSGKitStats} guardian
+ * @property {BlitzSGKitStats} warlock
+ * @property {BlitzSGKitStats} viking
+ * @property {BlitzSGKitStats} diver
+ * @property {BlitzSGKitStats} ranger
+ * @property {BlitzSGKitStats} donkeytamer
+ * @property {BlitzSGKitStats} phoenix
+ * @property {BlitzSGKitStats} warrior
+ * @property {BlitzSGKitStats} rambo
+ * @property {BlitzSGKitStats} random
+*/
 module.exports = BlitzSurvivalGames;

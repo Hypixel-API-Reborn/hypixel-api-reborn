@@ -3,8 +3,20 @@ const BaseAuction = require('./BaseAuction');
 class Auction extends BaseAuction {
   constructor (data, includeItemBytes) {
     super(data, includeItemBytes);
+    /**
+     * Coop members. Array of UUIDs
+     * @type {string[]}
+     */
     this.coop = data.coop || [];
+    /**
+     * Auction start timestamp
+     * @type {number|null}
+     */
     this.auctionStartTimestamp = data.start || null;
+    /**
+     * Auction start timestamp as Date
+     * @type {Date}
+     */
     this.auctionStart = data.start ? new Date(data.start) : null;
     this.auctionEnd = data.end ? new Date(data.end) : null;
     this.auctionEndTimestamp = data.end || null;

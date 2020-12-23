@@ -17,7 +17,7 @@ class ItemBytes {
    * Returns Item Bytes in base64 encoded
    * @returns {String}
    */
-  get base64 () {
+  base64 () {
     return this.bytesBuffer.toString('base64');
   }
 
