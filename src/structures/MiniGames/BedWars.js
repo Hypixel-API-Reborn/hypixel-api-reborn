@@ -231,6 +231,26 @@ function getLevelForExp (exp) {
  * * `Opal`
  * * `Amethyst`
  * * `Rainbow`
+ * * `Iron Prime`
+ * * `Gold Prime`
+ * * `Diamond Prime`
+ * * `Emerald Prime`
+ * * `Sapphire Prime`
+ * * `Ruby Prime`
+ * * `Crystal Prime`
+ * * `Opal Prime`
+ * * `Amethyst Prime`
+ * * `Mirror`
+ * * `Light`
+ * * `Dawn`
+ * * `Dusk`
+ * * `Air`
+ * * `Wind`
+ * * `Nebula`
+ * * `Thunder`
+ * * `Earth`
+ * * `Water`
+ * * `Fire`
  */
 /**
  * @typedef {object} BedWarsAvg
