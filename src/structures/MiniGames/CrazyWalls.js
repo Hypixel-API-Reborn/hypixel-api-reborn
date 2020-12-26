@@ -1,14 +1,55 @@
 const divide = require('../../utils/divide');
+/**
+ * @deprecated
+ * Crazy walls class. https://hypixel.net/threads/2990753/
+ * @param {object} data CrazyWalls data
+ */
 class CrazyWalls {
   constructor (data) {
+    /**
+     * Coins
+     * @type {number}
+     */
     this.coins = data.coins || 0;
+    /**
+     * Winstreak
+     * @type {number}
+     */
     this.winstreak = data.win_streak || 0;
+    /**
+     * Kills
+     * @type {number}
+     */
     this.kills = data.kills || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
     this.deaths = data.deaths || 0;
+    /**
+     * Kill Death ratio
+     * @type {number}
+     */
     this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
     this.wins = data.wins || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
     this.losses = data.losses || 0;
+    /**
+     * Win Loss ratio
+     * @type {number}
+     */
     this.WLRatio = divide(this.wins, this.losses);
+    /**
+     * Solo mode
+     * @type {CrazyWallsMode}
+     */
     this.solo = {
       normal: {
         kills: data.crazywalls_kills_solo || 0,
@@ -27,6 +68,10 @@ class CrazyWalls {
         WLRatio: divide(data.crazywalls_wins_solo_chaos, data.crazywalls_losses_solo_chaos)
       }
     };
+    /**
+     * Team mode
+     * @type {CrazyWallsMode}
+     */
     this.team = {
       normal: {
         kills: data.crazywalls_kills_team || 0,
@@ -47,4 +92,18 @@ class CrazyWalls {
     };
   }
 }
+/**
+ * @typedef {object} CrazyWallsMode
+ * @property {CrazyWallsModeStats} normal Normal
+ * @property {CrazyWallsModeStats} lucky Lucky
+ */
+/**
+ * @typedef {object} CrazyWallsModeStats
+ * @property {object} kills Kills
+ * @property {object} deaths Deaths
+ * @property {object} KDRatio Kill Death ratio
+ * @property {object} wins Wins
+ * @property {object} losses Losses
+ * @property {object} WLRatio WLRatio
+ */
 module.exports = CrazyWalls;

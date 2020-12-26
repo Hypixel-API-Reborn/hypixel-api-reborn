@@ -1253,7 +1253,7 @@ declare module 'hypixel-api-reborn' {
         public playedGames: number;
         public coins: number;
         public totalVotes: number;
-        public winsTotal: number;
+        public totalWins: number;
         public wins: {
             solo: number,
             team: number,
