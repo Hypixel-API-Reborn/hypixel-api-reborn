@@ -32,7 +32,7 @@ class RecentGame extends Game {
      * Is game ongoing?
      * @type {boolean}
      */
-    this.ongoing = Boolean(data.ended);
+    this.ongoing = Boolean(!data.ended);
     /**
      * Game ended at as Date
      * @type {Date}
