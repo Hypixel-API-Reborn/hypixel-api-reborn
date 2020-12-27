@@ -32,7 +32,7 @@ class Duels {
      * Cosmetic title
      * @type {string|null}
      */
-    this.title = cosmeticTitlePrestige();
+    this.title = cosmeticTitlePrestige(data);
     /**
      * Kills
      * @type {number}
