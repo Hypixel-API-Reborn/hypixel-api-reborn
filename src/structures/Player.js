@@ -79,8 +79,8 @@ class Player {
      */
     this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
     /**
-     * Timestamp when player last logged out
-     * @type {number}
+     * Recently played game
+     * @type {Game|null}
      */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
