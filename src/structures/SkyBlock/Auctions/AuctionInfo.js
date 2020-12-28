@@ -35,5 +35,10 @@ class AuctionInfo {
      */
     this.age = parseInt(data._headers.get('age')) || 0;
   }
+
+  _extend (name, value) {
+    this[name] = value;
+    return this;
+  }
 };
 module.exports = AuctionInfo;
