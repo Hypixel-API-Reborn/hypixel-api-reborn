@@ -38,7 +38,7 @@ class Client {
    * Delete all cache entries
    * @returns {void}
    */
-  sweepCache () {
+  get sweepCache () {
     return requests.sweepCache;
   }
 }

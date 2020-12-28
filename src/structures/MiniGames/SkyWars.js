@@ -240,13 +240,7 @@ class SkyWars {
  */
 /**
  * @typedef {Object} SkyWarsModeExtendedStats
- * @property {number} playedGames Played games
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} KDRatio Kill Death ratio
- * @property {number} WLRatio Win Loss ratio
+ * @property {SkyWarsModeStats} total Total Stats
  * @property {SkyWarsModeStats} normal Normal Mode Stats
  * @property {SkyWarsModeStats} insane Insane Mode Stats
  */

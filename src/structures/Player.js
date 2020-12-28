@@ -143,6 +143,16 @@ class Player {
      */
     this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
     /**
+     * Last time player claimed the daily reward
+     * @type {Date | null}
+     */
+    this.lastDailyReward = new Date(data.lastAdsenseGenerateTime) || null;
+    /**
+     * Last time player claimed the daily reward, as timestamp
+     * @type {number | null}
+     */
+    this.lastDailyRewardTimestamp = data.lastAdsenseGenerateTime || null;
+    /**
      * Player recent games
      * @returns {Promise<Array<RecentGame>>}
      */
