@@ -1,8 +1,4 @@
 const divide = require('../../utils/divide');
-/**
- * Duels class
- * @param {object} data Duels data
- */
 function capitalize (string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -13,9 +9,20 @@ const numerals = {
   4: 'IV',
   5: 'V'
 };
+function cosmeticTitlePrestige (data) {
+  if (data.active_cosmetictitle) {
+    const prestige = data[`${data.active_cosmetictitle.split('_').reverse().join('_')}_title_prestige`] || 1;
+    return `${capitalize(data.active_cosmetictitle.split('_')[1])} ${capitalize(data.active_cosmetictitle.split('_')[0])} ${numerals[prestige]}`;
+  } else {
+    return null;
+  }
+}
+/**
+ * Duels class
+ * @param {object} data Duels data
+ */
 class Duels {
   constructor (data) {
-    const prestige = data[`${data.active_cosmetictitle.split('_').reverse().join('_')}_title_prestige`] || 1;
     /**
      * Coins
      * @type {number}
@@ -23,9 +30,9 @@ class Duels {
     this.coins = data.coins || 0;
     /**
      * Cosmetic title
-     * @type {string}
+     * @type {string|null}
      */
-    this.title = `${capitalize(data.active_cosmetictitle.split('_')[1])} ${capitalize(data.active_cosmetictitle.split('_')[0])} ${numerals[prestige]}`;
+    this.title = cosmeticTitlePrestige(data);
     /**
      * Kills
      * @type {number}

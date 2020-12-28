@@ -1,7 +1,7 @@
 const divide = require('../../utils/divide');
 /**
+ * Crazy Walls class. https://hypixel.net/threads/2990753/
  * @deprecated
- * Crazy walls class. https://hypixel.net/threads/2990753/
  * @param {object} data CrazyWalls data
  */
 class CrazyWalls {
