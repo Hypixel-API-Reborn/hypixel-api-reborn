@@ -9,7 +9,7 @@ interface clientOptions {
     cache?: boolean;
     cacheTime?: number;
     cacheSize?: number;
-    cacheFilter?: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
     rateLimit?: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
@@ -106,12 +106,12 @@ declare module 'hypixel-api-reborn' {
          * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
          * @param options Options
          */
-        public getSkyblockAuctions(page?: ( '*' | number | [number,number] ), options?: auctionsOptions): Promise<{info?: AuctionInfo, auctions?: Auction[]}>;
+        public getSkyblockAuctions(page?: ('*' | number | [number, number]), options?: auctionsOptions): Promise<{ info?: AuctionInfo, auctions?: Auction[] }>;
         /**
          * @description Allows you to get all ended auctions in around the last 60 seconds
          * @param includeItemBytes - include item bytes (optional)
          */
-        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
+        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: Auction[] }>;
         /**
          * @description Allows you to get all auctions of player
          * @param query - player nickname or uuid
@@ -153,9 +153,10 @@ declare module 'hypixel-api-reborn' {
          */
         public getAPIStatus(): Promise<APIStatus>;
         /**
+         * @param amount - Amount of cache entries to delete
          * @description Allows you to clear cache
          */
-        public sweepCache(): void;
+        public sweepCache(amount?: number): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -428,7 +429,7 @@ declare module 'hypixel-api-reborn' {
         public bin: boolean;
         public itemBytes: ItemBytes | null;
     }
-    export class Auction extends BaseAuction{
+    export class Auction extends BaseAuction {
         constructor(data: object);
         public coop: string[] | [];
         public auctionStartTimestamp: number;
