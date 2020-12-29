@@ -22,7 +22,7 @@ interface playerMethodOptions extends methodOptions {
 interface skyblockMemberOptions extends methodOptions {
     fetchPlayer?: boolean;
 }
-interface auctionsOptions {
+interface auctionsOptions extends methodOptions {
     noInfo?: boolean;
     noAuctions?: boolean;
     raw?: boolean;
@@ -106,7 +106,7 @@ declare module 'hypixel-api-reborn' {
          * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
          * @param options Options
          */
-        public getSkyblockAuctions(page?: ( '*' | number | [number,number] ), options?: auctionsOptions, options?: methodOptions): Promise<{info?: AuctionInfo, auctions?: Auction[]}>;
+        public getSkyblockAuctions(page?: ( '*' | number | [number,number] ), options?: auctionsOptions): Promise<{info?: AuctionInfo, auctions?: Auction[]}>;
         /**
          * @description Allows you to get all ended auctions in around the last 60 seconds
          * @param includeItemBytes - include item bytes (optional)

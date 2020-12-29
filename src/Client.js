@@ -36,10 +36,10 @@ class Client {
 
   /**
    * Delete all cache entries
-   * @returns {void}
+   * @returns {Promise<void|boolean[]>}
    */
-  get sweepCache () {
-    return requests.sweepCache;
+  sweepCache (...args) {
+    return requests.sweepCache(...args);
   }
 }
 /**
