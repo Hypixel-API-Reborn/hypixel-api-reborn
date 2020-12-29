@@ -21,6 +21,8 @@ module.exports = {
   INVALID_GUILD_SEARCH_PARAMETER: '[hypixel-api-reborn] getGuild() searchParameter must be \'id\', \'guild\' or \'player\'.',
   SOMETHING_WENT_WRONG: '[hypixel-api-reborn] Something went wrong. {cause}',
   GUILD_DOES_NOT_EXIST: '[hypixel-api-reborn] Guild does not exist.',
+  PAGE_INDEX_ERROR: '[hypixel-api-reborn] Invalid page index. Must be an integer, an array of 2 integers, or a keyword. For help join our Discord Server https://discord.gg/NSEBNMM',
+  INVALID_OPTION_VALUE: '[hypixel-api-reborn] Invalid option value! For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_RESPONSE_BODY: '[hypixel-api-reborn] An error occurred while converting to JSON. Perhaps this is due to an update or maintenance. For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_RATE_LIMIT_OPTION: '[hypixel-api-reborn] Rate Limit provided in Client options must be \'HARD\', \'AUTO\', or \'NONE\'. For help join our Discord Server https://discord.gg/NSEBNMM'
 };

@@ -3,8 +3,8 @@ const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const cached = new Map();
 module.exports = class Requests {
-  async request (url, options) {
-    const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`);
+  async request (url, options = {}) {
+    const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`, options);
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);

@@ -9,7 +9,7 @@ interface clientOptions {
     cache?: boolean;
     cacheTime?: number;
     cacheSize?: number;
-    cacheFilter?: string | string[] | { 'whitelist':string | string[], 'blacklist':string | string[] };
+    cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
     rateLimit?: 'HARD' | 'AUTO' | 'NONE';
 }
 interface methodOptions {
@@ -22,26 +22,45 @@ interface playerMethodOptions extends methodOptions {
 interface skyblockMemberOptions extends methodOptions {
     fetchPlayer?: boolean;
 }
+interface auctionsOptions extends methodOptions {
+    noInfo?: boolean;
+    noAuctions?: boolean;
+    raw?: boolean;
+    retries?: number;
+    cooldown?: number;
+    race?: boolean;
+    includeItemBytes?: boolean
+}
 declare module 'hypixel-api-reborn' {
     export const version: string;
 
     export const Errors: {
+        CACHE_FILTER_INVALID: string,
+        CACHE_LIMIT_MUST_BE_A_NUMBER: string,
+        CACHE_TIME_MUST_BE_A_NUMBER: string,
+        ERROR_CODE_CAUSE: string,
+        ERROR_STATUSTEXT: string,
+        GUILD_DOES_NOT_EXIST: string,
         INVALID_API_KEY: string,
-        NO_API_KEY: string,
-        KEY_MUST_BE_A_STRING: string,
-        NO_NICKNAME_UUID: string,
-        NO_UUID: string,
-        MALFORMED_UUID: string,
-        PLAYER_DOES_NOT_EXIST: string,
-        PLAYER_HAS_NEVER_LOGGED: string,
-        NO_GUILD_QUERY: string,
         INVALID_GUILD_ID: string,
         INVALID_GUILD_SEARCH_PARAMETER: string,
-        GUILD_DOES_NOT_EXIST: string,
+        INVALID_OPTION_VALUE: string,
+        INVALID_RATE_LIMIT_OPTION: string,
         INVALID_RESPONSE_BODY: string,
+        KEY_MUST_BE_A_STRING: string,
+        MALFORMED_UUID: string,
+        NO_API_KEY: string,
+        NO_GUILD_QUERY: string,
+        NO_NICKNAME_UUID: string,
+        NO_UUID: string,
         OPTIONS_MUST_BE_AN_OBJECT: string,
-        CACHE_TIME_MUST_BE_A_NUMBER: string,
-        CACHE_LIMIT_MUST_BE_A_NUMBER: string
+        PAGE_INDEX_ERROR: string,
+        PLAYER_DISABLED_ENDPOINT: string,
+        PLAYER_DOES_NOT_EXIST: string,
+        PLAYER_HAS_NEVER_LOGGED: string,
+        PLAYER_IS_INACTIVE: string,
+        SOMETHING_WENT_WRONG: string,
+        UUID_NICKNAME_MUST_BE_A_STRING: string
     }
     export class Client {
         constructor(key: string, options?: clientOptions);
@@ -84,15 +103,15 @@ declare module 'hypixel-api-reborn' {
         public getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
         /**
          * @description Allows you to get all skyblock auctions
-         * @param page - number (optional)
-         * @param includeItemBytes - include item bytes (optional), only possible when fetching a single page
+         * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
+         * @param options Options
          */
-        public getSkyblockAuctions(page?: number, includeItemBytes?: boolean, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
+        public getSkyblockAuctions(page?: ('*' | number | [number, number]), options?: auctionsOptions): Promise<{ info?: AuctionInfo, auctions?: Auction[] }>;
         /**
          * @description Allows you to get all ended auctions in around the last 60 seconds
          * @param includeItemBytes - include item bytes (optional)
          */
-        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{info: AuctionInfo, auctions: Auction[]}>;
+        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: Auction[] }>;
         /**
          * @description Allows you to get all auctions of player
          * @param query - player nickname or uuid
@@ -134,9 +153,10 @@ declare module 'hypixel-api-reborn' {
          */
         public getAPIStatus(): Promise<APIStatus>;
         /**
+         * @param amount - Amount of cache entries to delete
          * @description Allows you to clear cache
          */
-        public sweepCache(): void;
+        public sweepCache(amount?: number): void;
         public get cache(): Map<string, object>;
     }
     export class Player {
@@ -409,7 +429,7 @@ declare module 'hypixel-api-reborn' {
         public bin: boolean;
         public itemBytes: ItemBytes | null;
     }
-    export class Auction extends BaseAuction{
+    export class Auction extends BaseAuction {
         constructor(data: object);
         public coop: string[] | [];
         public auctionStartTimestamp: number;
@@ -438,7 +458,8 @@ declare module 'hypixel-api-reborn' {
         public lastUpdated: number;
         public totalPages: number;
         public page: number;
-        public totalAuctions: number
+        public totalAuctions: number;
+        public failedPages: number[]
     }
     export class Bid {
         constructor(data: object);
