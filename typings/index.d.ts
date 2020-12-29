@@ -179,7 +179,7 @@ declare module 'hypixel-api-reborn' {
         public achievementPoints: number;
         public totalExperience: number;
         public level: number;
-        public socialmedia: { name: string, link: string }[];
+        public socialMedia: { name: string, link: string }[];
         public giftsSent: number;
         public giftsReceived: number;
         public isOnline: boolean;
