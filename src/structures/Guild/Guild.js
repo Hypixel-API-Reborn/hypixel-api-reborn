@@ -9,6 +9,7 @@ const getGuildLevel = require('../../utils/getGuildLevel');
  */
 class Guild {
   constructor (data) {
+    console.log(data);
     /**
      * Guild ID
      * @type {string}
@@ -146,7 +147,7 @@ function members (data) {
   return data.members.length ? data.members.map(m => new GuildMember(m)) : [];
 }
 function ranks (data) {
-  return data.ranks.length ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
+  return data.ranks && data.ranks.length ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
 }
 /**
  * @param {Object} data
