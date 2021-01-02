@@ -9,7 +9,6 @@ const getGuildLevel = require('../../utils/getGuildLevel');
  */
 class Guild {
   constructor (data) {
-    console.log(data);
     /**
      * Guild ID
      * @type {string}
