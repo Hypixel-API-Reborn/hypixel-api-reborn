@@ -104,7 +104,7 @@ class Guild {
      * Timestamp guild chat will be unmuted at.
      * @type {Array<{ Pattern: string, Color: string }>}
      */
-    this.banner = data.banner ? data.banner : data.banner;
+    this.banner = data.banner ? data.banner : null;
     /**
      * Guild tag
      * @type {String}
