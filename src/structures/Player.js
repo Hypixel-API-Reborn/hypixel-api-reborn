@@ -267,8 +267,6 @@ function getSocialMedia (data) {
  * * `Moderator`
  * * `Admin`
  * * `YouTube`
- * * `Build Team`
- * * `MCProHosting`
  */
 /**
  * @typedef {Object} PlayerSocialMedia

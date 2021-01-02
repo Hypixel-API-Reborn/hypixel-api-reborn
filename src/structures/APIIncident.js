@@ -1,4 +1,4 @@
-const regex = /https:\/\/status\.hypixel\.net\/incidents\/([a-z1-9]{0,})/gm;
+const regex = /https:\/\/status.hypixel.net\/incidents\/([a-z0-9]+)/;
 /**
  * API incident class
  * @param {object} data API incident data
