@@ -1,4 +1,4 @@
-const SkyWarsPrestigeIcons = require('../../utils/SkyWarsPrestigeIcons');
+const { SkyWarsPrestigeIcons } = require('../../utils/Constants');
 const divide = require('../../utils/divide');
 const generateStatsForMode = (data, mode) => {
   return {
@@ -227,6 +227,34 @@ class SkyWars {
  * * `Opal`
  * * `Amethyst`
  * * `Rainbow`
+ */
+/**
+ * @typedef {string} SkyWarsPrestigeIcons
+ * * '⋆'
+ * * '★'
+ * * '☆'
+ * * '⁕',
+ * * '✶',
+ * * '✳',
+ * * '✴',
+ * * '✷',
+ * * '❋',
+ * * '✼',
+ * * '❂',
+ * * '❁',
+ * * '☬',
+ * * '✙',
+ * * '❤️',
+ * * '☠',
+ * * '✦',
+ * * '✌',
+ * * '❦',
+ * * '✵',
+ * * '❣',
+ * * '☯',
+ * * '✺',
+ * * 'ಠ_ಠ',
+ * * '⚔'
  */
 /**
  * @typedef {Object} SkyWarsModeStats

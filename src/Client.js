@@ -192,7 +192,7 @@ class Client {
    * @returns {Promise<RecentGame[]>}
    * @example
    * hypixel.getRecentGames().then(recentGames =>{
-   * console.log(recentGames[0].endedTimestamp); // 1609670588789
+   *   console.log(recentGames[0].endedTimestamp); // 1609670588789
    * })
    * .catch(console.log);
    */
@@ -205,7 +205,7 @@ class Client {
    * @returns {Promise<Status>}
    * @example
    * hypixel.getStatus('Stavzdev').then(status =>{
-   * console.log(status.online); // true
+   *   console.log(status.online); // true
    * })
    * .catch(console.log);
    */
@@ -215,10 +215,49 @@ class Client {
    * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {?auctionsOptions} options Options
-   * @returns {Promise<[AuctionInfo,Auction[]]>}
+   * @returns {Promise<{info?:AuctionInfo,auctions?:Auction[]}>}
    * @example
    * hypixel.getSkyblockAuctions(0).then(auctions =>{
-   * console.log(auctions[0].item); // Mythic Farmer Boots
+   *   console.log(auctions[0].item); // Mythic Farmer Boots
+   * })
+   * .catch(console.log);
+   */
+  /**
+   * Allows you to get player's skyblock auctions
+   * @method
+   * @name Client#getSkyblockAuctionsByPlayer
+   * @param {string} query - player nickname or uuid
+   * @param {?boolean} includeItemBytes - include item bytes (optional)
+   * @param {?MethodOptions} options Options
+   * @returns {Promise<Auction[]>}
+   * @example
+   * hypixel.getSkyblockAuctionsByPlayer('hypixel').then(auctions =>{
+   *   console.log(auctions[0].auctionId); // b0491da3e81c43c88fd287ea3b3eacc0
+   * })
+   * .catch(console.log);
+   */
+  /**
+   * Allows you to get all ended auctions in around the last 60 seconds
+   * @method
+   * @name Client#getEndedSkyblockAuctions
+   * @param {?boolean} includeItemBytes - include item bytes (optional)
+   * @param {?MethodOptions} options Options
+   * @returns {Promise<{info?:AuctionInfo,auctions?:PartialAuction[]}>}
+   * @example
+   * hypixel.getEndedSkyblockAuctions().then(ended =>{
+   *   console.log(ended.auctions[0].auctionId); // 0fe7fd132367474e86ff3022b4a84a13
+   * })
+   * .catch(console.log);
+   */
+  /**
+   * Allows you to get player's skyblock auctions
+   * @method
+   * @name Client#getSkyblockBazaar
+   * @param {?MethodOptions} options Options
+   * @returns {Promise<Product[]>}
+   * @example
+   * hypixel.getSkyblockBazaar().then(products =>{
+   *   console.log(products[0].productId); // INK_SACK:3
    * })
    * .catch(console.log);
    */
