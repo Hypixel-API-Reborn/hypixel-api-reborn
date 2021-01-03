@@ -27,10 +27,11 @@ module.exports = async function (range, options = {}) {
   options.retries = options.retries || 3;
   options.cooldown = options.cooldown || 100;
   if (!range || range === '*') range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
-  if (!Array.isArray(range)) range = [parseInt(range), parseInt(range)].sort();
+  if (!Array.isArray(range)) range = [parseInt(range), parseInt(range)];
   if (isNaN(range[0])) throw new Error(Errors.PAGE_INDEX_ERROR);
   if (parseInt(options.retries) !== options.retries || options.retries > 10 || options.retries < 0) throw new Error(Errors.INVALID_OPTION_VALUE);
   if (parseInt(options.cooldown) !== options.cooldown || options.cooldown > 3000 || options.cooldown < 0) throw new Error(Errors.INVALID_OPTION_VALUE);
+  range = range.sort();
   const result = { auctions: [] };
   const fetches = [];
   const failedPages = [];

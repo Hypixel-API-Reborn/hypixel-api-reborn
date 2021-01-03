@@ -28,7 +28,10 @@ module.exports = {
   SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem.js'),
 
   /* Skyblock Auctions */
+  BaseSkyblockAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),
+  PartialSkyblockAuction: require('./structures/SkyBlock/Auctions/PartialAuction.js'),
   SkyblockAuction: require('./structures/SkyBlock/Auctions/Auction.js'),
+  SkyblockAuctionInfo: require('./structures/SkyBlock/Auctions/AuctionInfo.js'),
   SkyblockAuctionBid: require('./structures/SkyBlock/Auctions/Bid.js'),
 
   /* Skyblock Bazaar */
@@ -59,5 +62,8 @@ module.exports = {
   Leaderboard: require('./structures/Leaderboard.js'),
 
   /* Errors */
-  Errors: require('./Errors.js')
+  Errors: require('./Errors.js'),
+
+  /* Utils */
+  Utils: require('./utils')
 };
