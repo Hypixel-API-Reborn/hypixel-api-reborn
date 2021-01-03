@@ -782,7 +782,7 @@ declare module 'hypixel-api-reborn' {
         public WLRatio: number;
         public solo: {
             total: {
-                played: number,
+                playedGames: number,
                 kills: number,
                 wins: number,
                 losses: number,
@@ -811,7 +811,7 @@ declare module 'hypixel-api-reborn' {
         };
         public team: {
             total: {
-                played: number,
+                playedGames: number,
                 kills: number,
                 wins: number,
                 losses: number,
@@ -837,7 +837,7 @@ declare module 'hypixel-api-reborn' {
             }
         };
         public ranked: {
-            played: number,
+            playedGames: number,
             kills: number,
             wins: number,
             losses: number,
@@ -846,7 +846,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number
         };
         public mega: {
-            played: number,
+            playedGames: number,
             kills: number,
             wins: number,
             losses: number,
@@ -855,7 +855,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number
         };
         public lab: {
-            played: number,
+            playedGames: number,
             kills: number,
             wins: number,
             losses: number,
