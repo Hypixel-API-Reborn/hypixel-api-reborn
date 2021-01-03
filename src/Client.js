@@ -250,7 +250,7 @@ class Client {
    * .catch(console.log);
    */
   /**
-   * Allows you to get player's skyblock auctions
+   * Allows you to get list of products
    * @method
    * @name Client#getSkyblockBazaar
    * @param {?MethodOptions} options Options
