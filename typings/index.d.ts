@@ -500,6 +500,7 @@ declare module 'hypixel-api-reborn' {
         public preferredGames: Game[];
         public members: GuildMember[];
         public ranks: GuildRank[];
+        public totalWeeklyGexp: number
         public getRanksByNewest(): GuildRank[];
         public getRankByPriority(priority: number): GuildRank;
         public getMemberUUIDMap(): Map<string, GuildMember>;
