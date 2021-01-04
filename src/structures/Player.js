@@ -4,7 +4,6 @@ const UHC = require('./MiniGames/UHC');
 const SpeedUHC = require('./MiniGames/SpeedUHC');
 const MurderMystery = require('./MiniGames/MurderMystery');
 const Duels = require('./MiniGames/Duels');
-const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
 const CopsAndCrims = require('./MiniGames/CopsAndCrims');
@@ -17,49 +16,159 @@ const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 const { recursive } = require('../utils/removeSnakeCase');
-
+/**
+ * Player class
+ * @param {object} data Player data
+ */
 class Player {
   constructor (data, fakethis) {
+    /**
+     * Player nickname
+     * @type {string}
+     */
     this.nickname = data.displayname;
+    /**
+     * Player UUID
+     * @type {string}
+     */
     this.uuid = data.uuid;
+    /**
+     * Player nickname history known to Hypixel
+     * @type {Array<string>}
+     */
     this.history = data.knownAliases;
+    /**
+     * Player rank
+     * @type {PlayerRank}
+     */
     this.rank = getRank(data);
+    /**
+     * Player minecraft version
+     * @type {string|null}
+     */
     this.mcVersion = data.mcVersionRp || null;
-    this.lastLoginTimestamp = data.lastLogin || null;
+    /**
+     * Timestamp when player last logged in
+     * @type {number}
+     */
     this.firstLoginTimestamp = data.firstLogin || null;
-    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
-    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
-    this.lastLogoutTimestamp = data.lastLogout || null;
+    /**
+     * Timestamp when player last logged in as Date
+     * @type {Date}
+     */
     this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
+    /**
+     * Player's recently played game
+     * @type {Game|null}
+     */
+    this.lastLoginTimestamp = data.lastLogin || null;
+    /**
+     * Timestamp when player first logged in
+     * @type {number}
+     */
+    this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
+    /**
+     * Timestamp when player last logged out as Date
+     * @type {Date}
+     */
+    this.lastLogoutTimestamp = data.lastLogout || null;
+    /**
+     * Timestamp when player first logged in as Date
+     * @type {Date}
+     */
+    this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
+    /**
+     * Recently played game
+     * @type {Game|null}
+     */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
+    /**
+     * Player's plus color (must be a MVP+ rank)
+     * @type {Color|null}
+     */
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
     } else {
       this.plusColor = null;
     }
+    /**
+     * Player's guild. Guild option must be `true`
+     * @type {Guild}
+     */
     this.guild = data.guild ? data.guild : null;
+    /**
+     * Player karma
+     * @type {number}
+     */
     this.karma = data.karma || 0;
+    /**
+     * Player achievements
+     * @type {Object}
+     */
     this.achievements = recursive(data.achievements);
+    /**
+     * Player achievement points
+     * @type {number}
+     */
     this.achievementPoints = data.achievementPoints || 0;
+    /**
+     * Player total experience
+     * @type {number}
+     */
     this.totalExperience = data.networkExp || 0;
+    /**
+     * Player level
+     * @type {number}
+     */
     this.level = getPlayerLevel(this.totalExperience) || 0;
+    /**
+     * Player social media, if any
+     * @type {Array<PlayerSocialMedia>}
+     */
     this.socialMedia = getSocialMedia(data.socialMedia) || [];
+    /**
+     * Amount of gifts sent
+     * @type {number}
+     */
     this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
+    /**
+     * Amount of gifts received
+     * @type {number}
+     */
     this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
-
+    /**
+     * Is player online?
+     * @type {boolean}
+     */
     this.isOnline = this.lastLoginTimestamp > this.lastLogoutTimestamp;
+    /**
+     * Last time player claimed the daily reward
+     * @type {Date | null}
+     */
+    this.lastDailyReward = new Date(data.lastAdsenseGenerateTime) || null;
+    /**
+     * Last time player claimed the daily reward, as timestamp
+     * @type {number | null}
+     */
+    this.lastDailyRewardTimestamp = data.lastAdsenseGenerateTime || null;
+    /**
+     * Player recent games
+     * @returns {Promise<Array<RecentGame>>}
+     */
     this.getRecentGames = function () {
       return getRecentGames.call(fakethis, this.uuid, this);
     };
-
+    /**
+     * Player stats for each mini-game
+     * @type {PlayerStats}
+     */
     this.stats = (data.stats ? {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
       uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
-      speedUHC: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
+      speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
       murdermystery: (data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null),
       duels: (data.stats.Duels ? new Duels(data.stats.Duels) : null),
-      crazywalls: (data.stats.TrueCombat ? new CrazyWalls(data.stats.TrueCombat) : null),
       buildbattle: (data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null),
       megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null),
       copsandcrims: (data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null),
@@ -78,7 +187,6 @@ class Player {
 * @param {object} player
 * @returns {string}
 */
-
 function getRank (player) {
   let rank;
   if (player.prefix) {
@@ -119,12 +227,9 @@ function getRank (player) {
   return rank;
 }
 /**
- *
  * @param {number} exp
- *
  * @returns {number}
  */
-
 function getPlayerLevel (exp) {
   const BASE = 10000;
   const GROWTH = 2500;
@@ -137,18 +242,55 @@ function getPlayerLevel (exp) {
 }
 
 /**
- *
  * @param {object} data
- *
- * @returns {Array}
+ * @returns {Array<{name:string,link:string,id:string}>}
  */
-
 function getSocialMedia (data) {
   if (!data) return null;
   const links = data.links;
-  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Mixer', 'Hypixel', 'Discord'];
-  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'MIXER', 'HYPIXEL', 'DISCORD'];
+  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Hypixel', 'Discord'];
+  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'HYPIXEL', 'DISCORD'];
   if (!links) return;
   return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
+/**
+ * @typedef {string} PlayerRank
+ * * `Default`
+ * * `VIP`
+ * * `VIP+`
+ * * `MVP`
+ * * `MVP+`
+ * * `MVP++`
+ * * `Helper`
+ * * `Moderator`
+ * * `Admin`
+ * * `YouTube`
+ */
+/**
+ * @typedef {Object} PlayerSocialMedia
+ * Player social media object
+ * @property {string} name Twitter, YouTube, Instagram, Twitch, Hypixel, Discord
+ * @property {string} link Link to social media
+ * @property {string} id TWITTER, YOUTUBE, INSTRAGRAM, TWITCH, HYPIXEL, DISCORD
+ */
+/**
+ * @typedef {Object|null} PlayerStats
+ * Player stats for each mini-game. `null` if player has no stats.
+ * <br>
+ * Usage: `<Player>.stats.skywars`
+ * @property {SkyWars|null} skywars SkyWars
+ * @property {BedWars|null} bedwars BedWars
+ * @property {UHC|null} uhc UHC
+ * @property {SpeedUHC|null} speedUHC Speed UHC
+ * @property {MurderMystery|null} murdermystery Murder Mystery
+ * @property {Duels|null} duels Duels
+ * @property {BuildBattle|null} buildbattle BuildBattle
+ * @property {MegaWalls|null} megawalls MegaWalls
+ * @property {CopsAndCrims|null} copsandcrims Cops and Crims
+ * @property {TNTGames|null} tntgames The TNT Games
+ * @property {SmashHeroes|null} smashheroes Smash Heroes
+ * @property {VampireZ|null} vampirez VampireZ
+ * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
+ * @property {ArenaBrawl|null} arena Arena Brawl
+ */
 module.exports = Player;

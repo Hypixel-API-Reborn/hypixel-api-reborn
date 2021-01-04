@@ -40,8 +40,9 @@ dist
 .fusebox/
 .dynamodb/
 package-lock.json
+yarn.lock
 .tern-port
 testing/
-test/
 .circleci/
 changelog.md
+master.json

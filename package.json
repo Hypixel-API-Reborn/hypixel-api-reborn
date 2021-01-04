@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "3.1.2",
+  "version": "5.0.0",
   "description": "This is the only Hypixel API wrapper for Node.js with intellisense support",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",
@@ -18,13 +18,16 @@
     "tslint": "tslint typings/index.d.ts",
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
-    "test": "npm run tslint && npm run eslint"
+    "test": "npm run tslint && npm run eslint",
+    "docgen": "docgen -s src -o master.json",
+    "prepublishOnly": "npm run test && npm run docgen"
   },
   "author": "StavZ",
   "dependencies": {
     "node-fetch": "^2.6.1",
     "object-path": "^0.11.5",
-    "prismarine-nbt": "^1.3.0"
+    "prismarine-nbt": "^1.3.0",
+    "rss-parser": "^3.10.0"
   },
   "license": "MIT",
   "readme": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/blob/master/README.md",
@@ -34,12 +37,13 @@
   "publisher": "StavZ",
   "devDependencies": {
     "@types/node": "^14.14.7",
+    "discord.js-docgen": "git+https://github.com/discordjs/docgen.git",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "path": "^0.12.7",
     "tslint": "^6.1.3",
     "typescript": "^4.0.5"
