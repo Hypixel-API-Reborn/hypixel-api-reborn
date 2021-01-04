@@ -137,30 +137,30 @@ class BedWars {
      */
     this.WLRatio = divide(this.wins, this.losses);
     /**
-     * BedWars 1v8 stats
+     * BedWars Solo stats
      * @type {BedWarsModeStats}
      */
     this.solo = generateStatsForMode(data, 'eight_one');
     /**
-     * BedWars 2v8 stats
+     * BedWars Doubles stats
      * @type {BedWarsModeStats}
      */
     this.doubles = generateStatsForMode(data, 'eight_two');
     /**
-     * BedWars 3v4 stats
+     * BedWars 3v3v3v3 stats
      * @type {BedWarsModeStats}
      */
-    this.three = generateStatsForMode(data, 'four_three');
+    this.threes = generateStatsForMode(data, 'four_three');
+    /**
+     * BedWars 4v4v4v4 stats
+     * @type {BedWarsModeStats}
+     */
+    this.fours = generateStatsForMode(data, 'four_four');
     /**
      * BedWars 4v4 stats
      * @type {BedWarsModeStats}
      */
-    this.four = generateStatsForMode(data, 'four_four');
-    /**
-     * BedWars 2v4 stats
-     * @type {BedWarsModeStats}
-     */
-    this.fourV2 = generateStatsForMode(data, 'two_four');
+    this['4v4'] = generateStatsForMode(data, 'two_four');
   }
 }
 function getBedWarsPrestige (level) {

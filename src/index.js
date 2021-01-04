@@ -47,7 +47,6 @@ module.exports = {
   BlitzSurvivalGames: require('./structures/MiniGames/BlitzSurvivalGames.js'),
   BuildBattle: require('./structures/MiniGames/BuildBattle.js'),
   CopsAndCrims: require('./structures/MiniGames/CopsAndCrims.js'),
-  CrazyWalls: require('./structures/MiniGames/CrazyWalls.js'),
   Duels: require('./structures/MiniGames/Duels.js'),
   MegaWalls: require('./structures/MiniGames/MegaWalls.js'),
   MurderMystery: require('./structures/MiniGames/MurderMystery.js'),

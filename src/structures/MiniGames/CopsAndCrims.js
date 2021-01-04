@@ -72,6 +72,7 @@ class CopsAndCrims {
     this.deathmatch = {
       kills: data.kills_deathmatch || 0,
       deaths: data.deaths_deathmatch || 0,
+      KDRatio: divide(data.kills_deathmatch, data.deaths_deathmatch),
       killsAsCrim: data.criminal_kills_deathmatch || 0,
       killsAsCop: data.cop_kills_deathmatch || 0
     };

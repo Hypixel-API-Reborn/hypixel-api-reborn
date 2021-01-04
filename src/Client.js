@@ -215,7 +215,7 @@ class Client {
    * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {?auctionsOptions} options Options
-   * @returns {Promise<{info?:AuctionInfo,auctions?:Auction[]}>}
+   * @returns {Promise<{info:AuctionInfo,auctions:Auction[]}>}
    * @example
    * hypixel.getSkyblockAuctions(0).then(auctions =>{
    *   console.log(auctions[0].item); // Mythic Farmer Boots
@@ -242,7 +242,7 @@ class Client {
    * @name Client#getEndedSkyblockAuctions
    * @param {?boolean} includeItemBytes - include item bytes (optional)
    * @param {?MethodOptions} options Options
-   * @returns {Promise<{info?:AuctionInfo,auctions?:PartialAuction[]}>}
+   * @returns {Promise<{info:AuctionInfo,auctions:PartialAuction[]}>}
    * @example
    * hypixel.getEndedSkyblockAuctions().then(ended =>{
    *   console.log(ended.auctions[0].auctionId); // 0fe7fd132367474e86ff3022b4a84a13

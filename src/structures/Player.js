@@ -4,7 +4,6 @@ const UHC = require('./MiniGames/UHC');
 const SpeedUHC = require('./MiniGames/SpeedUHC');
 const MurderMystery = require('./MiniGames/MurderMystery');
 const Duels = require('./MiniGames/Duels');
-const CrazyWalls = require('./MiniGames/CrazyWalls');
 const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
 const CopsAndCrims = require('./MiniGames/CopsAndCrims');
@@ -167,10 +166,9 @@ class Player {
       skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
       uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
-      speedUHC: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
+      speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
       murdermystery: (data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null),
       duels: (data.stats.Duels ? new Duels(data.stats.Duels) : null),
-      crazywalls: (data.stats.TrueCombat ? new CrazyWalls(data.stats.TrueCombat) : null),
       buildbattle: (data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null),
       megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null),
       copsandcrims: (data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null),
@@ -250,8 +248,8 @@ function getPlayerLevel (exp) {
 function getSocialMedia (data) {
   if (!data) return null;
   const links = data.links;
-  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Mixer', 'Hypixel', 'Discord'];
-  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'MIXER', 'HYPIXEL', 'DISCORD'];
+  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Hypixel', 'Discord'];
+  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'HYPIXEL', 'DISCORD'];
   if (!links) return;
   return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
@@ -271,9 +269,9 @@ function getSocialMedia (data) {
 /**
  * @typedef {Object} PlayerSocialMedia
  * Player social media object
- * @property {string} name Twitter, YouTube, Instagram, Twitch, Mixer, Hypixel, Discord
+ * @property {string} name Twitter, YouTube, Instagram, Twitch, Hypixel, Discord
  * @property {string} link Link to social media
- * @property {string} id TWITTER, YOUTUBE, INSTRAGRAM, TWITCH, MIXER, HYPIXEL, DISCORD
+ * @property {string} id TWITTER, YOUTUBE, INSTRAGRAM, TWITCH, HYPIXEL, DISCORD
  */
 /**
  * @typedef {Object|null} PlayerStats
@@ -286,7 +284,6 @@ function getSocialMedia (data) {
  * @property {SpeedUHC|null} speedUHC Speed UHC
  * @property {MurderMystery|null} murdermystery Murder Mystery
  * @property {Duels|null} duels Duels
- * @property {CrazyWalls|null} crazywalls CrazyWalls
  * @property {BuildBattle|null} buildbattle BuildBattle
  * @property {MegaWalls|null} megawalls MegaWalls
  * @property {CopsAndCrims|null} copsandcrims Cops and Crims
