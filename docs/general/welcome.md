@@ -1,4 +1,3 @@
-
 <div align="center">
 <img src="https://i.imgur.com/cDFoQZU.png?1">
 <h1>Hypixel API • Reborn</h1>
@@ -12,18 +11,24 @@
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
 <br>
 </div>
+
 #### Welcome to the hypixel-api-reborn documentation
+
 ### About
+
 Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescript.
-<br>
-- 100% Promise-based.
-- Speedy and efficient.
+<br/>
+- 100% Promise-based. <br/>
+- Speedy and efficient. <br/>
 - Intellisense support. [(?)](https://code.visualstudio.com/docs/editor/intellisense)
+
 ### Installation
-```js
+
+```
 npm i hypixel-api-reborn
 ```
 ### Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
