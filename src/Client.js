@@ -31,7 +31,7 @@ class Client {
    * @method
    * @name Client#getPlayer
    * @param {string} query Player nickname or UUID
-   * @param {?PlayerMethodOptions} options Method options
+   * @param {PlayerMethodOptions} [options={}] Method options
    * @returns {Promise<Player>}
    * @example
    * // { guild: true } - fetch player's guild
@@ -49,7 +49,7 @@ class Client {
    * @name Client#getGuild
    * @param {id|name|player} searchParameter Search for guild by id, name or player ( if player is in guild)
    * @param {string} query Guild ID, Guild name or player uuid/nickname
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Guild>}
    * @example
    * hypixel.getGuild('name', 'The Foundation').then(guild => {
@@ -64,7 +64,7 @@ class Client {
    * @method
    * @name Client#getFriends
    * @param {string} query Player nickname or UUID
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Array<Friend>>}
    * @example
    * hypixel.getFriends('StavZDev').then(friends => {
@@ -77,7 +77,7 @@ class Client {
    * Allows you to get statistics of watchdog, the server anticheat
    * @method
    * @name Client#getWatchdogStats
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<WatchdogStats>}
    * @example
    * hypixel.getWatchdogStats().then(watchdog => {
@@ -90,7 +90,7 @@ class Client {
    * Allows you to get all active boosters
    * @method
    * @name Client#getBoosters
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Array<Booster>>}
    * @example
    * hypixel.getBoosters().then(boosters => {
@@ -104,7 +104,7 @@ class Client {
    * @method
    * @name Client#getSkyblockProfiles
    * @param {string} query Player nickname or UUID
-   * @param {?SkyblockMethodOptions} options Method options
+   * @param {SkyblockMethodOptions} [options={}] Method options
    * @returns {Promise<Array<SkyblockProfile>>}
    * @example
    * hypixel.getSkyblockProfiles('StavZDev').then(profiles => {
@@ -118,7 +118,7 @@ class Client {
    * @method
    * @name Client#getSkyblockMember
    * @param {string} query Player nickname or UUID
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Map<string,SkyblockMember>>}
    * @example
    * hypixel.getSkyblockMember('StavZDev').then(member => {
@@ -144,7 +144,7 @@ class Client {
    * Gets Key information
    * @method
    * @name Client#getKeyInfo
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<KeyInfo>}
    * @example
    * hypixel.getKeyInfo().then(keyInfo => {
@@ -157,7 +157,7 @@ class Client {
    * Gets all leaderboards
    * @method
    * @name Client#getLeaderboards
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>}
    * @example
    * hypixel.getLeaderboards().then(leaderboards => {
@@ -179,7 +179,7 @@ class Client {
    * Allows you to get current player count
    * @method
    * @name Client#getOnline
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<number>}
    * @example
    * hypixel.getOnline().then(console.log).catch(console.log); // 121730
@@ -188,7 +188,7 @@ class Client {
    * Allows you to get recent games of a player
    * @method
    * @name Client#getRecentGames
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<RecentGame[]>}
    * @example
    * hypixel.getRecentGames().then(recentGames =>{
@@ -201,7 +201,7 @@ class Client {
    * @method
    * @name Client#getStatus
    * @param {string} query Player nickname or UUID
-   * @param {?MethodOptions} options Method options
+   * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Status>}
    * @example
    * hypixel.getStatus('Stavzdev').then(status =>{
@@ -214,7 +214,7 @@ class Client {
    * @method
    * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
-   * @param {?auctionsOptions} options Options
+   * @param {auctionsOptions} [options={}] Options
    * @returns {Promise<{info:AuctionInfo,auctions:Auction[]}>}
    * @example
    * hypixel.getSkyblockAuctions(0).then(auctions =>{
@@ -227,8 +227,8 @@ class Client {
    * @method
    * @name Client#getSkyblockAuctionsByPlayer
    * @param {string} query - player nickname or uuid
-   * @param {?boolean} includeItemBytes - include item bytes (optional)
-   * @param {?MethodOptions} options Options
+   * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
+   * @param {MethodOptions} [options={}] Options
    * @returns {Promise<Auction[]>}
    * @example
    * hypixel.getSkyblockAuctionsByPlayer('hypixel').then(auctions =>{
@@ -240,8 +240,8 @@ class Client {
    * Allows you to get all ended auctions in around the last 60 seconds
    * @method
    * @name Client#getEndedSkyblockAuctions
-   * @param {?boolean} includeItemBytes - include item bytes (optional)
-   * @param {?MethodOptions} options Options
+   * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
+   * @param {MethodOptions} [options={}] Options
    * @returns {Promise<{info:AuctionInfo,auctions:PartialAuction[]}>}
    * @example
    * hypixel.getEndedSkyblockAuctions().then(ended =>{
@@ -253,7 +253,7 @@ class Client {
    * Allows you to get list of products
    * @method
    * @name Client#getSkyblockBazaar
-   * @param {?MethodOptions} options Options
+   * @param {MethodOptions} [options={}] Options
    * @returns {Promise<Product[]>}
    * @example
    * hypixel.getSkyblockBazaar().then(products =>{
@@ -279,39 +279,39 @@ class Client {
   }
 }
 /**
- * @typedef {?object} ClientOptions
- * @prop {?boolean} [cache=false] Enable/Disable request caching.
- * @prop {?number} [cacheTime=60] Amount of time in seconds to cache the requests.
+ * @typedef {object} ClientOptions
+ * @prop {boolean} [cache=false] Enable/Disable request caching.
+ * @prop {number} [cacheTime=60] Amount of time in seconds to cache the requests.
  * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
- * @prop {?number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
+ * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
  */
 /**
- * @typedef {?object} MethodOptions
- * @property {?boolean} noCacheCheck Disable/Enable cache checking
- * @property {?boolean} noCaching Disable/Enable writing to cache
+ * @typedef {object} MethodOptions
+ * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  */
 /**
- * @typedef {?object} PlayerMethodOptions
- * @property {?boolean} noCacheCheck Disable/Enable cache checking
- * @property {?boolean} noCaching Disable/Enable writing to cache
- * @property {?boolean} guild Disable/Enable request for player's guild
+ * @typedef {object} PlayerMethodOptions
+ * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {boolean} [noCaching=false] Disable/Enable writing to cache
+ * @property {boolean} [guild=false] Disable/Enable request for player's guild
  */
 /**
- * @typedef {?object} SkyblockMethodOptions
- * @property {?boolean} noCacheCheck Disable/Enable cache checking
- * @property {?boolean} noCaching Disable/Enable writing to cache
- * @property {?boolean} fetchPlayer Disable/Enable player profile request for each member
+ * @typedef {object} SkyblockMethodOptions
+ * @property {?boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {?boolean} [noCaching=false] Disable/Enable writing to cache
+ * @property {?boolean} [fetchPlayer=false] Disable/Enable player profile request for each member
  */
 /**
- * @typedef {?object} auctionsOptions
- * @property {?boolean} noCacheCheck Disable/Enable cache checking
- * @property {?boolean} noCaching Disable/Enable writing to cache
- * @property {?boolean} noInfo If true, result doesn't show Auction Info
- * @property {?boolean} noAuctions If true, result doesn't show auctions
- * @property {?boolean} raw If true, result will not contain parsed auctions, but will present them as it is received. This can speed up performance in some cases.
- * @property {?number} retries Number of times to retry fetching a page before abandoning
- * @property {?number} cooldown Cooldown between each fetch, only works if race is unset or false;
- * @property {?boolean} race Issues simultaneous requests to the API, instead of requesting then parsing one by one. Can largely increase speed at the cost of hogging bandwidth and memory
- * @property {?boolean} includeItemBytes Whether to include item bytes in the result
+ * @typedef {object} auctionsOptions
+ * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {boolean} [noCaching=false] Disable/Enable writing to cache
+ * @property {boolean} [noInfo=false] If true, result doesn't show Auction Info
+ * @property {boolean} [noAuctions=false] If true, result doesn't show auctions
+ * @property {boolean} [raw=false] If true, result will not contain parsed auctions, but will present them as it is received. This can speed up performance in some cases.
+ * @property {number} [retries=3] Number of times to retry fetching a page before abandoning
+ * @property {number} [cooldown=100] Cooldown between each fetch, only works if race is unset or false;
+ * @property {boolean} [race=false] Issues simultaneous requests to the API, instead of requesting then parsing one by one. Can largely increase speed at the cost of hogging bandwidth and memory
+ * @property {boolean} [includeItemBytes=false] Whether to include item bytes in the result
  */
 module.exports = Client;

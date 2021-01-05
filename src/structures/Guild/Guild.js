@@ -126,7 +126,7 @@ class Guild {
      * @deprecated
      * @type {number}
      */
-    this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : undefined;
+    this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking) + 1 : 0;
     /**
      * Experience history per day, resets at 5 am UTC
      * @type {Array<{day:String, exp: number}>}

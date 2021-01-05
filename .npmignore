@@ -14,7 +14,8 @@ npm-debug.log
 .eslintignore
 .eslintrc.json
 testing/
-changelog.md
 .github
 .travis.yml
 .vscode/
+.circleci/
+docs/

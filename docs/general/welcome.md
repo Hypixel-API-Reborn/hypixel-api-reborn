@@ -10,35 +10,36 @@
 <a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/hypixel-api-reborn/hypixel-api-reborn"></a>
 <a href="https://www.patreon.com/hypixelapireborn"><img src="https://i.imgur.com/gXkqa1Z.png?1"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
-<h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
 <br>
 </div>
-
-### Links
-[Discord Support](https://discord.gg/NSEBNMM) | [Documenation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn)
-
-### Installation & Usage
+#### Welcome to the hypixel-api-reborn documentation
+### About
+Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescript.
+<br>
+- 100% Promise-based.
+- Speedy and efficient.
+- Intellisense support. [(?)](https://code.visualstudio.com/docs/editor/intellisense)
+### Installation
 ```js
 npm i hypixel-api-reborn
 ```
-<br>
+### Example usage
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-// getPlayer
 hypixel.getPlayer('StavZDev').then(player => {
   console.log(player.level); // 141
 }).catch(e => {
   console.error(e);
-})
-
-// getGuild
-hypixel.getGuild('name', 'The Foundation').then(guild => {
-  console.log(guild.level); // 111
-}).catch(e => {
-  console.error(e);
-})
+});
 ```
-For more examples go to our [documentation](https://hypixel.stavzdev.xyz/).
+
+### Links
+- [Hypixel API • Reborn Discord Server](https://discord.gg/NSEBNMM)
+- [GitHub](https://github.com/Hypixel-API-Reborn)
+- [NPM](https://www.npmjs.com/package/hypixel-api-reborn)
+
+### Contributing
+Make sure before creating an issue that it hasn't already reported. Please, don't create an issue for feature request, you can do it on our [discord server](https://discord.gg/NSEBNMM).

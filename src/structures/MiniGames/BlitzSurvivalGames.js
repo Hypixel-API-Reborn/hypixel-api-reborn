@@ -13,7 +13,7 @@ const kits = [
   'florist', 'snowman', 'guardian',
   'warlock', 'viking', 'diver',
   'ranger', 'donkeytamer', 'phoenix',
-  'warrior', 'rambo', 'random'
+  'warrior', 'rambo'
 ];
 /**
  * Blitz SG class
@@ -123,7 +123,6 @@ function generateKitStats (data) {
  * * `phoenix`
  * * `warrior`
  * * `rambo`
- * * `random`
 */
 /**
  * @typedef {object} BlitzSGKitStats
