@@ -21,7 +21,6 @@
 ```js
 npm i hypixel-api-reborn
 ```
-<br>
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
