@@ -45,6 +45,12 @@ class Guild {
      */
     this.ranks = ranks(data);
     /**
+     * The total guild experience earned in the last 7 days
+     * @author linearaccelerator
+     * @type {number}
+     */
+    this.totalWeeklyGexp = totalWeeklyGexp(data);
+    /**
      * An array containing all guild ranks sorted by newest
      * @author linearaccelerator
      * @returns {Array<GuildRank>}
@@ -147,6 +153,9 @@ function members (data) {
 }
 function ranks (data) {
   return data.ranks && data.ranks.length ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
+}
+function totalWeeklyGexp (data) {
+  return members(data).map(m => m.weeklyExperience).reduce((acc, cur) => acc + cur);
 }
 /**
  * @param {Object} data
