@@ -6,37 +6,37 @@
   files:
     - name: getPlayer
       path: getPlayer.md
-    - name: getGuild
-      path: getGuild.md
-    - name: getFriends
-      path: getFriends.md
-    - name: getStatus
-      path: getStatus.md
-    - name: getPing
-      path: getPing.md
-    - name: getRecentGames
-      path: getRecentGames.md
-    - name: getWatchdogStats
-      path: getWatchdogStats.md
-    - name: getOnline
-      path: getOnline.md
-    - name: getKeyInfo
-      path: getKeyInfo.md
-    - name: getLeaderboards
-      path: getLeaderboards.md
-    - name: getAPIStatus
-      path: getAPIStatus.md
-    - name: getBoosters
-      path: getBoosters.md
-    - name: getSkyblockProfiles
-      path: getSkyblockProfiles.md
-    - name: getSkyblockMember
-      path: getSkyblockMember.md
-    - name: getSkyblockBazaar
-      path: getSkyblockBazaar.md
-    - name: getSkyblockAuctions
-      path: getSkyblockAuctions.md
-    - name: getSkyblockAuctionsByPlayer
-      path: getSkyblockAuctionsByPlayer.md
-    - name: getEndedSkyblockAuctions
-      path: getEndedSkyblockAuctions.md
+    # - name: getGuild
+    #   path: getGuild.md
+    # - name: getFriends
+    #   path: getFriends.md
+    # - name: getStatus
+    #   path: getStatus.md
+    # - name: getPing
+    #   path: getPing.md
+    # - name: getRecentGames
+    #   path: getRecentGames.md
+    # - name: getWatchdogStats
+    #   path: getWatchdogStats.md
+    # - name: getOnline
+    #   path: getOnline.md
+    # - name: getKeyInfo
+    #   path: getKeyInfo.md
+    # - name: getLeaderboards
+    #   path: getLeaderboards.md
+    # - name: getAPIStatus
+    #   path: getAPIStatus.md
+    # - name: getBoosters
+    #   path: getBoosters.md
+    # - name: getSkyblockProfiles
+    #   path: getSkyblockProfiles.md
+    # - name: getSkyblockMember
+    #   path: getSkyblockMember.md
+    # - name: getSkyblockBazaar
+    #   path: getSkyblockBazaar.md
+    # - name: getSkyblockAuctions
+    #   path: getSkyblockAuctions.md
+    # - name: getSkyblockAuctionsByPlayer
+    #   path: getSkyblockAuctionsByPlayer.md
+    # - name: getEndedSkyblockAuctions
+    #   path: getEndedSkyblockAuctions.md

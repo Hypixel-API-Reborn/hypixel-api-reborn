@@ -19,7 +19,7 @@
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
     "test": "npm run tslint && npm run eslint",
-    "docgen": "docgen -s src -o master.json",
+    "docgen": "docgen -s src --custom docs/index.yml -o master.json",
     "prepublishOnly": "npm run test && npm run docgen"
   },
   "author": "StavZ",
