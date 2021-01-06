@@ -221,7 +221,7 @@ function getRank (player) {
         rank = 'VIP';
         break;
       default:
-        rank = 'Default';
+        rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? 'MVP++' : 'Default';
     }
   }
   return rank;
