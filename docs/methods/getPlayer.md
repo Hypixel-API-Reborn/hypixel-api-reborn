@@ -1,6 +1,8 @@
 # getPlayer
 Allows you to get statistics of player.
 ## Arguments
+- Player nickname or UUID
+- [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/PlayerMethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -79,23 +81,37 @@ Player {
   lastDailyRewardTimestamp: 1609699031800,
   getRecentGames: [Function (anonymous)],
   stats: {
-    skywars: SkyWars // https://hypixel.stavzdev.xyz/#/docs/main/master/class/SkyWars,
-    bedwars: BedWars, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/BedWars
-    uhc: UHC, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/UHC
-    speeduhc: SpeedUHC, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/SpeedUHC
-    murdermystery: MurderMystery, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/MurderMystery
-    duels: Duels, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/Duels
-    buildbattle: BuildBattle, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/BuildBattle
-    megawalls: MegaWalls, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/MegaWalls
-    copsandcrims: CopsAndCrims, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/CopsAndCrims
-    tntgames: TNTGames, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/TNTGames
-    smashheroes: SmashHeroes, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/ShashHeroes
-    vampirez: VampireZ, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/VampireZ
-    blitzsg: BlitzSurvivalGames, // https://hypixel.stavzdev.xyz/#/docs/main/master/class/BlitzSurvivalGames
-    arena: ArenaBrawl // https://hypixel.stavzdev.xyz/#/docs/main/master/class/ArenaBrawl
+    skywars: SkyWars,
+    bedwars: BedWars,
+    uhc: UHC,
+    speeduhc: SpeedUHC,
+    murdermystery: MurderMystery,
+    duels: Duels,
+    buildbattle: BuildBattle,
+    megawalls: MegaWalls,
+    copsandcrims: CopsAndCrims,
+    tntgames: TNTGames,
+    smashheroes: SmashHeroes,
+    vampirez: VampireZ,
+    blitzsg: BlitzSurvivalGames,
+    arena: ArenaBrawl
   }
 }
 ```
 ## Links
 - [getPlayer](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getPlayer)
 - [Player](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Player)
+- [SkyWars](https://hypixel.stavzdev.xyz/#/docs/main/master/class/SkyWars)
+- [BedWars](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BedWars)
+- [UHC](https://hypixel.stavzdev.xyz/#/docs/main/master/class/UHC)
+- [Speed UHC](https://hypixel.stavzdev.xyz/#/docs/main/master/class/SpeedUHC)
+- [Murder Mystery](https://hypixel.stavzdev.xyz/#/docs/main/master/class/MurderMystery)
+- [Duels](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Duels)
+- [BuildBattle](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BuildBattle)
+- [MegaWalls](https://hypixel.stavzdev.xyz/#/docs/main/master/class/MegaWalls)
+- [Cops And Crims](https://hypixel.stavzdev.xyz/#/docs/main/master/class/CopsAndCrims)
+- [The TNT Games](https://hypixel.stavzdev.xyz/#/docs/main/master/class/TNTGames)
+- [Smash Heroes](https://hypixel.stavzdev.xyz/#/docs/main/master/class/ShashHeroes)
+- [VampireZ](https://hypixel.stavzdev.xyz/#/docs/main/master/class/VampireZ)
+- [Blitz Survival Games](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BlitzSurvivalGames)
+- [Arena Brawl](https://hypixel.stavzdev.xyz/#/docs/main/master/class/ArenaBrawl)

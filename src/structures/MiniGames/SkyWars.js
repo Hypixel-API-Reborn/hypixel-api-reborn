@@ -142,14 +142,13 @@ class SkyWars {
      * @type {SkyWarsModeExtendedStats}
      */
     this.solo = {
-      total: {
+      overall: {
+        winstreak: data.winstreak_solo || 0,
         playedGames: data.games_solo || 0,
         kills: data.kills_solo || 0,
         wins: data.wins_solo || 0,
         losses: data.losses_solo || 0,
         deaths: data.deaths_solo || 0,
-        winstreak: data.winstreak_solo || 0,
-        killstreak: data.killstreak_solo || 0,
         KDRatio: divide(data.kills_solo, data.deaths_solo),
         WLRatio: divide(data.wins_solo, data.losses_solo)
       },
@@ -161,7 +160,8 @@ class SkyWars {
      * @type {SkyWarsModeExtendedStats}
      */
     this.team = {
-      total: {
+      overall: {
+        winstreak: data.winstreak_team || 0,
         playedGames: data.games_team || 0,
         kills: data.kills_team || 0,
         wins: data.wins_team || 0,
@@ -175,9 +175,10 @@ class SkyWars {
     };
     /**
      * Ranked Skywars Stats
-     * @type {SkyWarsModeStats}
+     * @type {SkyWarsTotalModeStats}
      */
     this.ranked = {
+      winstreak: data.winstreak_ranked,
       playedGames: data.games_ranked || 0,
       kills: data.kills_ranked || 0,
       wins: data.wins_ranked || 0,
@@ -188,22 +189,44 @@ class SkyWars {
     };
     /**
      * Mega Skywars Stats
-     * @type {SkyWarsModeStats}
+     * @type {SkyWarsMegaStats}
      */
     this.mega = {
-      playedGames: (data.games_mega || 0) + (data.games_mega_doubles || 0),
-      kills: (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
-      wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
-      losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
-      deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0),
-      KDRatio: divide(((data.kills_mega || 0) + (data.kills_mega_doubles || 0)), ((data.deaths_mega || 0) + (data.deaths_mega_doubles || 0))),
-      WLRatio: divide(((data.wins_mega || 0) + (data.wins_mega_doubles || 0)), ((data.losses_mega || 0) + (data.losses_mega_doubles || 0)))
+      overall: {
+        winstreak: data.winstreak_mega || 0,
+        playedGames: (data.games_mega || 0) + (data.games_mega_doubles || 0),
+        kills: (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
+        wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
+        losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
+        deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0),
+        KDRatio: divide(((data.kills_mega || 0) + (data.kills_mega_doubles || 0)), ((data.deaths_mega || 0) + (data.deaths_mega_doubles || 0))),
+        WLRatio: divide(((data.wins_mega || 0) + (data.wins_mega_doubles || 0)), ((data.losses_mega || 0) + (data.losses_mega_doubles || 0)))
+      },
+      solo: {
+        playedGames: data.games_mega || 0,
+        kills: data.kills_mega || 0,
+        wins: data.wins_mega || 0,
+        losses: data.losses_mega || 0,
+        deaths: data.deaths_mega || 0,
+        KDRatio: divide(data.kills_mega || 0, data.deaths_mega || 0),
+        WLRatio: divide(data.wins_mega || 0, data.losses_mega || 0)
+      },
+      doubles: {
+        playedGames: data.games_mega_doubles || 0,
+        kills: data.kills_mega_doubles || 0,
+        wins: data.wins_mega_doubles || 0,
+        losses: data.losses_mega_doubles || 0,
+        deaths: data.deaths_mega_doubles || 0,
+        KDRatio: divide(data.kills_mega_doubles || 0, data.deaths_mega_doubles || 0),
+        WLRatio: divide(data.wins_mega_doubles || 0, data.losses_mega_doubles || 0)
+      }
     };
     /**
      * Skywars Laboratory Stats
-     * @type {SkyWarsModeStats}
+     * @type {SkyWarsTotalModeStats}
      */
     this.lab = {
+      winstreak: data.winstreak_lab || 0,
       playedGames: data.games_lab || 0,
       kills: data.kills_lab || 0,
       wins: data.wins_lab || 0,
@@ -258,6 +281,16 @@ class SkyWars {
  */
 /**
  * @typedef {Object} SkyWarsModeStats
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} KDRatio Kill Death ratio
+ * @property {number} WLRatio Win Loss ratio
+ */
+/**
+ * @typedef {Object} SkyWarsTotalModeStats
+ * @property {number} winstreak Winstreak
  * @property {number} playedGames Played games
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -268,9 +301,15 @@ class SkyWars {
  */
 /**
  * @typedef {Object} SkyWarsModeExtendedStats
- * @property {SkyWarsModeStats} total Total Stats
+ * @property {SkyWarsTotalModeStats} overall Overall Stats
  * @property {SkyWarsModeStats} normal Normal Mode Stats
  * @property {SkyWarsModeStats} insane Insane Mode Stats
+ */
+/**
+ * @typedef {Object} SkyWarsMegaStats
+ * @property {SkyWarsTotalModeStats} overall Overall Mega Stats
+ * @property {SkyWarsModeStats} solo Mega Solo Stats
+ * @property {SkyWarsModeStats} doubles Mega Doubles Stats
  */
 module.exports = SkyWars;
 /**

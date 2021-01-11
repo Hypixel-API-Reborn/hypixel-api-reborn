@@ -8,7 +8,7 @@
 <h3>Welcome to the hypixel-api-reborn documentation</h3>
 </div>
 
-### About
+# About
 
 Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescript.
 <br/>
@@ -17,12 +17,12 @@ Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescrip
 - Intellisense support. [(?)](https://code.visualstudio.com/docs/editor/intellisense)
 
 
-### Installation
+# Installation
 
 ```
 npm i hypixel-api-reborn
 ```
-### Example usage
+## Example usage
 
 ```js
 const Hypixel = require('hypixel-api-reborn');
@@ -36,10 +36,10 @@ hypixel.getPlayer('StavZDev').then(player => {
 });
 ```
 
-### Links
+## Links
 - [Hypixel API • Reborn Discord Server](https://discord.gg/NSEBNMM)
 - [GitHub](https://github.com/Hypixel-API-Reborn)
 - [NPM](https://www.npmjs.com/package/hypixel-api-reborn)
 
-### Contributing
+# Contributing
 Make sure before creating an issue that it hasn't already reported. Please, don't create an issue for feature request, you can do it on our [discord server](https://discord.gg/NSEBNMM).

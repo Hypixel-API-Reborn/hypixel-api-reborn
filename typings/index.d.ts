@@ -866,14 +866,14 @@ declare module 'hypixel-api-reborn' {
         public KDRatio: number;
         public WLRatio: number;
         public solo: {
-            total: {
+            overall: {
+                winstreak: number,
                 playedGames: number,
                 kills: number,
                 wins: number,
                 losses: number,
                 deaths: number,
                 winstreak: number,
-                killstreak: number,
                 KDRatio: number,
                 WLRatio: number
             },
@@ -895,7 +895,8 @@ declare module 'hypixel-api-reborn' {
             }
         };
         public team: {
-            total: {
+            overall: {
+                winstreak: number,
                 playedGames: number,
                 kills: number,
                 wins: number,
@@ -922,6 +923,7 @@ declare module 'hypixel-api-reborn' {
             }
         };
         public ranked: {
+            winstreak: number,
             playedGames: number,
             kills: number,
             wins: number,
@@ -931,15 +933,38 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number
         };
         public mega: {
-            playedGames: number,
-            kills: number,
-            wins: number,
-            losses: number,
-            deaths: number,
-            KDRatio: number,
-            WLRatio: number
+            overall: {
+                winstreak: number,
+                playedGames: number,
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                winstreak: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            solo: {
+                playedGames: number,
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            },
+            doubles: {
+                playedGames: number,
+                kills: number,
+                wins: number,
+                losses: number,
+                deaths: number,
+                KDRatio: number,
+                WLRatio: number
+            }
         };
         public lab: {
+            winstreak: number,
             playedGames: number,
             kills: number,
             wins: number,
@@ -1215,6 +1240,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     export class Duels {
+        public title: string | null;
         public coins: number;
         public kills: number;
         public deaths: number;
@@ -1224,156 +1250,232 @@ declare module 'hypixel-api-reborn' {
         public WLRatio: number;
         public playedGames: number;
         public uhc: {
+            overall: {
+                winstreak: number,
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number,
+                playedGames: number
+            },
             '1v1': {
+                wintreak: number
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '2v2': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '4v4': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             meetup: {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             }
         };
         public op: {
+            overall: {
+                winstreak: number,
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number,
+                playedGames: number
+            },
             '1v1': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '2v2': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             }
         };
         public skywars: {
+            overall: {
+                winstreak: number,
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number,
+                playedGames: number
+            },
             '1v1': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '2v2': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             }
         };
         public sumo: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public classic: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public combo: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public bridge: {
+            overall: {
+                winstreak: number,
+                kills: number,
+                deaths: number,
+                KDRatio: number,
+                wins: number,
+                losses: number,
+                WLRatio: number,
+                playedGames: number
+            },
             '1v1': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '2v2': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             },
             '4v4': {
+                winstreak: number,
                 kills: number,
                 deaths: number,
                 wins: number,
                 losses: number,
                 KDRatio: number,
-                WLRatio: number
+                WLRatio: number,
+                playedGames: number
             }
         };
         public megawalls: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public blitz: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public nodebuff: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
         public bow: {
+            winstreak: number,
             kills: number,
             deaths: number,
             wins: number,
             losses: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            playedGames: number
         };
     }
     export class BuildBattle {
