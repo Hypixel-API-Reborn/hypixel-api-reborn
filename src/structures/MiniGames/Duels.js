@@ -215,7 +215,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.sumo = {
-      winstreak: data.current_winstreak_mode_sumo_duel,
+      winstreak: data.current_winstreak_mode_sumo_duel || 0,
       kills: data.sumo_duel_kills || 0,
       deaths: data.sumo_duel_deaths || 0,
       KDRatio: divide(data.sumo_duel_kills, data.sumo_duel_deaths),
@@ -229,7 +229,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.classic = {
-      winstreak: data.current_winstreak_mode_classic_duel,
+      winstreak: data.current_winstreak_mode_classic_duel || 0,
       kills: data.classic_duel_kills || 0,
       deaths: data.classic_duel_deaths || 0,
       KDRatio: divide(data.classic_duel_kills, data.classic_duel_deaths),
@@ -243,7 +243,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.combo = {
-      winstreak: data.current_winstreak_mode_combo_duel,
+      winstreak: data.current_winstreak_mode_combo_duel || 0,
       kills: data.combo_duel_kills || 0,
       deaths: data.combo_duel_deaths || 0,
       KDRatio: divide(data.combo_duel_kills, data.combo_duel_deaths),
