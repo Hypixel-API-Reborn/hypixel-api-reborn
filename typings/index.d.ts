@@ -581,7 +581,7 @@ declare module 'hypixel-api-reborn' {
     export class WatchdogStats {
         constructor(data: object);
         public byWatchdogTotal: number;
-        public byWatchDogLastMinute: number;
+        public byWatchdogLastMinute: number;
         public byWatchdogRollingDay: number;
         public byStaffTotal: number;
         public byStaffRollingDay: number;

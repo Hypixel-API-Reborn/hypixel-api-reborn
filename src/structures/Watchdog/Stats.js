@@ -13,7 +13,7 @@ class WatchdogStats {
      * Watchdog's bans in the last minute
      * @type {number}
      */
-    this.byWatchDogLastMinute = data.watchdog_lastMinute || 0;
+    this.byWatchdogLastMinute = data.watchdog_lastMinute || 0;
     /**
      * Watchdog's bans in the last day ( resets at 5 am UTC ).
      * @type {number}
