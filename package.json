@@ -48,6 +48,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "mocha": "^8.2.1",
+    "node-env-run": "^4.0.2",
     "path": "^0.12.7",
     "standard": "^16.0.3",
     "tslint": "^6.1.3",
