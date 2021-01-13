@@ -20,7 +20,11 @@ Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescrip
 # Installation
 
 ```
+// npm
 npm i hypixel-api-reborn
+
+// yarn
+yarn add hypixel-api-reborn
 ```
 ## Example usage
 

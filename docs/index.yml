@@ -6,8 +6,8 @@
   files:
     - name: getPlayer
       path: getPlayer.md
-    # - name: getGuild
-    #   path: getGuild.md
+    - name: getGuild
+      path: getGuild.md
     # - name: getFriends
     #   path: getFriends.md
     # - name: getStatus
