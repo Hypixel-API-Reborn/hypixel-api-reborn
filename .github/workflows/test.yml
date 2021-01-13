@@ -30,4 +30,4 @@ jobs:
     - run: npm run test:lint
     - run: npm test
       env:
-        HYPIXEL_KEY: ${{githubactions.HYPIXEL_KEY}}
+        HYPIXEL_KEY: ${{secrets.HYPIXEL_KEY}}
