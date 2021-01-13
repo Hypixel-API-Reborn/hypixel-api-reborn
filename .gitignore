@@ -39,7 +39,6 @@ dist
 .serverless/
 .fusebox/
 .dynamodb/
-package-lock.json
 yarn.lock
 .tern-port
 testing/
