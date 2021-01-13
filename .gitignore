@@ -46,3 +46,4 @@ testing/
 .circleci/
 changelog.md
 master.json
+.env

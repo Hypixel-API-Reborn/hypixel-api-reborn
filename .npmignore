@@ -19,3 +19,4 @@ testing/
 .vscode/
 .circleci/
 docs/
+tests/

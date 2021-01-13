@@ -113,7 +113,7 @@ class Guild {
     this.banner = data.banner ? data.banner : null;
     /**
      * Guild tag
-     * @type {String}
+     * @type {string}
      */
     this.tag = data.tag ? data.tag : null;
     /**

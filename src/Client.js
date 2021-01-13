@@ -47,7 +47,7 @@ class Client {
    * Allows you to get statistics of hypixel guild
    * @method
    * @name Client#getGuild
-   * @param {id|name|player} searchParameter Search for guild by id, name or player ( if player is in guild)
+   * @param {id|name|player} searchParameter Search for guild by id, name or player (if player is in guild)
    * @param {string} query Guild ID, Guild name or player uuid/nickname
    * @param {MethodOptions} [options={}] Method options
    * @returns {Promise<Guild>}
