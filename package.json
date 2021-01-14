@@ -20,7 +20,8 @@
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
     "test:lint": "npm run tslint && npm run eslint",
-    "test": "nodenv --exec mocha tests",
+    "test": "mocha tests",
+    "test:dev": "nodenv --exec mocha tests",
     "docgen": "docgen -s src -o master.json",
     "docgen:custom": "docgen -s src --custom docs/index.yml -o master.json",
     "prepublishOnly": "npm run test && npm run docgen"
