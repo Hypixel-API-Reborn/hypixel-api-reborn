@@ -5,6 +5,11 @@ name: test
 
 on:
   push:
+    paths:
+    - '**.js'
+    paths-ignore: 
+    - 'docs/**'
+    - 'typings/**'
     branches: [ master ]
   pull_request:
     branches: [ master ]
