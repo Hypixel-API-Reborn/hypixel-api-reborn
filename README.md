@@ -4,6 +4,7 @@
 <h1>Hypixel API • Reborn</h1>
 <a href="https://discord.gg/NSEBNMM"><img src="https://discordapp.com/api/guilds/660416184252104705/embed.png"></a>
 <a href="https://travis-ci.org/StavZ/hypixel-api-reborn"><img src="https://flat.badgen.net/travis/hypixel-api-reborn/hypixel-api-reborn"></a>
+<a href="https://app.codacy.com/gh/Hypixel-API-Reborn/hypixel-api-reborn?utm_source=github.com&utm_medium=referral&utm_content=Hypixel-API-Reborn/hypixel-api-reborn&utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/71cd7e95499b496cb2dd11c29b9def33"></a>
 <img src="https://flat.badgen.net/npm/v/hypixel-api-reborn">
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
 <a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/hypixel-api-reborn/hypixel-api-reborn"></a>
