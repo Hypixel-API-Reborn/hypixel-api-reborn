@@ -15,6 +15,9 @@
 </div>
 
 ### Links
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/71cd7e95499b496cb2dd11c29b9def33)](https://app.codacy.com/gh/Hypixel-API-Reborn/hypixel-api-reborn?utm_source=github.com&utm_medium=referral&utm_content=Hypixel-API-Reborn/hypixel-api-reborn&utm_campaign=Badge_Grade)
+
 [Discord Support](https://discord.gg/NSEBNMM) | [Documenation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn)
 
 ### Installation & Usage
