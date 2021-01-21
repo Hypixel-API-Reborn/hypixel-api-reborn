@@ -112,7 +112,7 @@ module.exports = {
     const { claimed_levels } = slayer;
     let level = 0;
     for (const level_name in claimed_levels) {
-      const _level = parseInt(level_name.split('_').pop());
+      const _level = parseInt(level_name.split('_').pop(), 10);
       if (_level > level) { level = _level; }
     }
     return {

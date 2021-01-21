@@ -8,17 +8,17 @@ class AuctionInfo {
      * Page number
      * @type {number}
      */
-    this.page = parseInt(data.page) || 0;
+    this.page = parseInt(data.page, 10) || 0;
     /**
      * Total pages
      * @type {number}
      */
-    this.totalPages = parseInt(data.totalPages) || 1;
+    this.totalPages = parseInt(data.totalPages, 10) || 1;
     /**
      * Total auctions
      * @type {number}
      */
-    this.totalAuctions = parseInt(data.totalAuctions) || 0;
+    this.totalAuctions = parseInt(data.totalAuctions, 10) || 0;
     /**
      * Last updated timestamp
      * @type {number}
@@ -33,7 +33,7 @@ class AuctionInfo {
      * Age
      * @type {number}
      */
-    this.age = parseInt(data._headers.get('age')) || 0;
+    this.age = parseInt(data._headers.get('age'), 10) || 0;
   }
 
   _extend (name, value) {

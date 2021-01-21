@@ -34,7 +34,7 @@ class KeyInfo {
      * Limit resets after in seconds
      * @type {number}
      */
-    this.resetsAfter = parseInt(data._headers.get('ratelimit-reset'));
+    this.resetsAfter = parseInt(data._headers.get('ratelimit-reset'), 10);
   }
 }
 module.exports = KeyInfo;
