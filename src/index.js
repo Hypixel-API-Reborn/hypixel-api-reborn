@@ -28,15 +28,15 @@ module.exports = {
   SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem.js'),
 
   /* Skyblock Auctions */
-  BaseSkyblockAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),
-  PartialSkyblockAuction: require('./structures/SkyBlock/Auctions/PartialAuction.js'),
-  SkyblockAuction: require('./structures/SkyBlock/Auctions/Auction.js'),
-  SkyblockAuctionInfo: require('./structures/SkyBlock/Auctions/AuctionInfo.js'),
-  SkyblockAuctionBid: require('./structures/SkyBlock/Auctions/Bid.js'),
+  BaseAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),
+  PartialAuction: require('./structures/SkyBlock/Auctions/PartialAuction.js'),
+  Auction: require('./structures/SkyBlock/Auctions/Auction.js'),
+  AuctionInfo: require('./structures/SkyBlock/Auctions/AuctionInfo.js'),
+  Bid: require('./structures/SkyBlock/Auctions/Bid.js'),
 
   /* Skyblock Bazaar */
-  SkyblockBazaarProduct: require('./structures/SkyBlock/Bazzar/Product.js'),
-  SkyblockBazaarOrder: require('./structures/SkyBlock/Bazzar/Order.js'),
+  Product: require('./structures/SkyBlock/Bazzar/Product.js'),
+  Order: require('./structures/SkyBlock/Bazzar/Order.js'),
 
   /* Booster */
   Booster: require('./structures/Boosters/Booster.js'),
