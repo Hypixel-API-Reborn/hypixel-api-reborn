@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 module.exports = {
   INVALID_API_KEY: '[hypixel-api-reborn] Invalid API Key! For help join our Discord Server https://discord.gg/NSEBNMM',
   NO_API_KEY: '[hypixel-api-reborn] No API Key specified! For help join our Discord Server https://discord.gg/NSEBNMM',

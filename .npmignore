@@ -20,3 +20,4 @@ testing/
 .circleci/
 docs/
 tests/
+typings/*.json

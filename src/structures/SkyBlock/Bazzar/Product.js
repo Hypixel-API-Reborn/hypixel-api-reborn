@@ -2,9 +2,11 @@ const Order = require('./Order');
 
 /**
  * Product class
- * @param {object} data Product data
  */
 class Product {
+  /**
+   * @param {object} data Product data
+   */
   constructor (data) {
     /**
      * Product ID
@@ -15,12 +17,12 @@ class Product {
      * Product sell orders
      * @type {Order[]}
      */
-    this.sellSummary = data.sell_summary.length ? data.sell_summary.map(sellOrder => new Order(sellOrder)) : [];
+    this.sellSummary = data.sell_summary.length ? data.sell_summary.map((sellOrder) => new Order(sellOrder)) : [];
     /**
      * Product buy orders
      * @type {Order[]}
      */
-    this.buySummary = data.buy_summary.length ? data.buy_summary.map(buyOrder => new Order(buyOrder)) : [];
+    this.buySummary = data.buy_summary.length ? data.buy_summary.map((buyOrder) => new Order(buyOrder)) : [];
     /**
      * Product status
      * @type {ProductStatus}

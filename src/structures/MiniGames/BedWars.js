@@ -34,9 +34,11 @@ const generateStatsForMode = (data, mode) => {
 
 /**
  * BedWars class
- * @param {object} data BedWars data
  */
 class BedWars {
+  /**
+   * @param {object} data BedWars data
+   */
   constructor (data) {
     /**
      * Coins
@@ -163,7 +165,12 @@ class BedWars {
     this['4v4'] = generateStatsForMode(data, 'two_four');
   }
 }
+/**
+ * @param {number} level
+ * @return {string}
+ */
 function getBedWarsPrestige (level) {
+  // eslint-disable-next-line max-len
   return ['Stone', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow', 'Iron Prime', 'Gold Prime', 'Diamond Prime', 'Emerald Prime', 'Sapphire Prime', 'Ruby Prime', 'Crystal Prime', 'Opal Prime', 'Amethyst Prime', 'Mirror', 'Light', 'Dawn', 'Dusk', 'Air', 'Wind', 'Nebula', 'Thunder', 'Earth', 'Water', 'Fire'][Math.floor(level / 100)] || 'Rainbow';
 }
 const EASY_LEVELS = 4;
@@ -172,6 +179,10 @@ const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
 
+/**
+ * @param {number} level
+ * @return {number}
+ */
 function getExpForLevel (level) {
   if (level === 0) return 0;
   const respectedLevel = getLevelRespectingPrestige(level);
@@ -190,7 +201,7 @@ function getExpForLevel (level) {
 }
 /**
  * @param {number} level
- * @returns {number}
+ * @return {number}
  */
 function getLevelRespectingPrestige (level) {
   if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
@@ -200,8 +211,8 @@ function getLevelRespectingPrestige (level) {
   }
 }
 /**
- * @param {number} level
- * @returns {number}
+ * @param {number} exp
+ * @return {number}
  */
 function getLevelForExp (exp) {
   const prestiges = Math.floor(exp / XP_PER_PRESTIGE);

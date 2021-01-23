@@ -1,8 +1,10 @@
 /**
  * Order class
- * @param {object} data Order data
  */
 class Order {
+  /**
+   * @param {object} data Order data
+   */
   constructor (data) {
     /**
      * Amount

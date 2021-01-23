@@ -1,10 +1,12 @@
 const ItemBytes = require('../../ItemBytes');
 /**
  * Base auction class
- * @param {object} data Base auction data
- * @param {boolean} includeItemBytes
  */
 class BaseAuction {
+  /**
+   * @param {object} data Base auction data
+   * @param {boolean} includeItemBytes
+   */
   constructor (data, includeItemBytes) {
     /**
      * Auction ID

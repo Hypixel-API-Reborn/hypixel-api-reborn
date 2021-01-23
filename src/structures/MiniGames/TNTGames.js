@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * The TNT Games class
- * @param {object} data TNT Games data
  */
 class TNTGames {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor (data) {
     /**
      * Coins

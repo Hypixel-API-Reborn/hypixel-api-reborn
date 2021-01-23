@@ -1,8 +1,10 @@
 /**
  * KeyInfo class
- * @param {object} data Key data
  */
 class KeyInfo {
+  /**
+   * @param {object} data Key data
+   */
   constructor (data) {
     const record = data.record;
     /**

@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 const Auction = require('../../structures/SkyBlock/Auctions/Auction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 const Errors = require('../../Errors');
@@ -8,16 +9,17 @@ async function getPage (page = 0, options = {}) {
   if (!options.noInfo) result.info = new AuctionInfo(content);
   if (options.raw) result.auctions = content.auctions;
   else if (options.noAuctions) result.auctions = [];
-  else result.auctions = content.auctions.map(x => new Auction(x, options.includeItemBytes));
+  else result.auctions = content.auctions.map((x) => new Auction(x, options.includeItemBytes));
   return result;
 }
 async function noReject (promise, args = [], retries = 3, cooldown = 100) {
   try {
+    // eslint-disable-next-line prefer-spread
     const result = await promise.apply(null, args);
     return result;
   } catch (e) {
     if (retries) {
-      await new Promise(resolve => setTimeout(resolve, cooldown));
+      await new Promise((resolve) => setTimeout(resolve, cooldown));
       return await noReject(promise, args, retries - 1, cooldown);
     } else return null;
   }

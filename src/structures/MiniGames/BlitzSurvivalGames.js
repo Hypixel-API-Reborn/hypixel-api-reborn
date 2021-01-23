@@ -17,9 +17,11 @@ const kits = [
 ];
 /**
  * Blitz SG class
- * @param {object} data Blitz SG data
  */
 class BlitzSurvivalGames {
+  /**
+   * @param {object} data Blitz SG data
+   */
   constructor (data) {
     /**
      * Coins
@@ -58,6 +60,10 @@ class BlitzSurvivalGames {
     this.kitStats = generateKitStats(data);
   };
 }
+/**
+ * @param {object} data
+ * @return {object}
+ */
 function generateKitStats (data) {
   const stats = [];
   for (let i = 0; i < kits.length; i++) {

@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * VampireZ class
- * @param {object} data VampireZ data
  */
 class VampireZ {
+  /**
+   * @param {object} data VampireZ data
+   */
   constructor (data) {
     /**
      * Coins

@@ -93,16 +93,16 @@ describe('Client#getPlayer', () => {
   });
 });
 describe('Client#getWatchdogStats', () => {
-  let result;
+  let watchdog;
   it('expect not to throw', async () => {
-    result = await client.getWatchdogStats();
+    watchdog = await client.getWatchdogStats();
   });
   it('required keys should exist', () => {
-    expect(result.byStaffRollingDay).to.be.a('number');
-    expect(result.byStaffTotal).to.be.a('number');
-    expect(result.byWatchdogLastMinute).to.be.a('number');
-    expect(result.byWatchdogRollingDay).to.be.a('number');
-    expect(result.byWatchdogTotal).to.be.a('number');
+    expect(watchdog.byStaffRollingDay).to.be.a('number');
+    expect(watchdog.byStaffTotal).to.be.a('number');
+    expect(watchdog.byWatchdogLastMinute).to.be.a('number');
+    expect(watchdog.byWatchdogRollingDay).to.be.a('number');
+    expect(watchdog.byWatchdogTotal).to.be.a('number');
   });
 });
 describe('Client#getPing', () => {
@@ -112,8 +112,11 @@ describe('Client#getPing', () => {
   });
 });
 describe('Client#getFriends', () => {
+  let friends;
+  it('expect not to throw', async () => {
+    friends = await client.getFriends('f025c1c7f55a4ea0b8d93f47d17dfe0f');
+  });
   it('required keys should exist', async () => {
-    const friends = await client.getFriends('f025c1c7f55a4ea0b8d93f47d17dfe0f');
     expect(friends).to.be.an('array');
     for (const friend of friends) {
       expect(friend.sender).to.be.a('string');
@@ -121,5 +124,64 @@ describe('Client#getFriends', () => {
       expect(friend.friendSinceTimestamp).to.be.a('number');
       expect(friend.friendSince).to.be.a('Date');
     }
+  });
+});
+describe('Client#getStatus', () => {
+  let status;
+  it('expect not to throw', async () => {
+    status = await client.getStatus('f025c1c7f55a4ea0b8d93f47d17dfe0f');
+  });
+  it('required keys should exist', () => {
+    if (status.online) {
+      expect(status.online).to.be.a('boolean');
+    }
+    if (status.game) {
+      expect(status.game).to.be.a('number');
+    }
+    if (status.map) {
+      expect(status.map).to.be.a('number');
+    }
+    if (status.mode) {
+      expect(status.mode).to.be.a('number');
+    }
+  });
+});
+describe('Client#getLeaderboards', async () => {
+  let leaderboards;
+  it('expect not to throw', async () => {
+    leaderboards = await client.getLeaderboards();
+  });
+  it('should be an object', () => {
+    expect(leaderboards).to.be.an('object');
+  });
+  it('required keys should exist', () => {
+    for (const minigame in leaderboards) {
+      const minigameLbs = leaderboards[minigame];
+      for (const lb of minigameLbs) {
+        expect(lb).to.be.an('object');
+        expect(lb.leaders).to.be.an('array');
+        expect(lb.playerCount).to.be.a('number');
+        if (lb.name) {
+          expect(lb.name).to.be.a('string');
+        }
+        if(lb.title) {
+          expect(lb.title).to.be.a('string');
+        }
+      }
+    }
+  });
+});
+describe('Client#getKeyInfo', async () => {
+  let keyinfo;
+  it('expect not to throw', async () => {
+    keyinfo = await client.getKeyInfo();
+  });
+  it('required keys should exist', () => {
+    expect(keyinfo.key).to.be.a('string');
+    expect(keyinfo.limitPerMinute).to.be.a('number');
+    expect(keyinfo.owner).to.be.a('string');
+    expect(keyinfo.requestsInPastMin).to.be.a('number');
+    expect(keyinfo.resetsAfter).to.be.a('number');
+    expect(keyinfo.totalRequests).to.be.a('number');
   });
 });

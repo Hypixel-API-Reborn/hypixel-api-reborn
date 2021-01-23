@@ -1,9 +1,11 @@
 const regex = /https:\/\/status.hypixel.net\/incidents\/([a-z0-9]+)/;
 /**
  * API incident class
- * @param {object} data API incident data
  */
 class APIIncident {
+  /**
+   * @param {object} data API incident data
+   */
   constructor (data) {
     /**
      * Link to incident

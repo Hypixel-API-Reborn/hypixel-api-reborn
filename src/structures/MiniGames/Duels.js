@@ -1,4 +1,9 @@
+/* eslint-disable max-len */
 const divide = require('../../utils/divide');
+/**
+ * @param {string} string
+ * @return {string}
+ */
 function capitalize (string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -9,11 +14,15 @@ const numerals = {
   4: 'IV',
   5: 'V'
 };
+/**
+ * @param {object} data
+ * @return {string|null}
+ */
 function cosmeticTitlePrestige (data) {
   if (data.active_cosmetictitle === 'custom') {
     if (!data.equipped_custom_titles) return null;
     return `${data.equipped_custom_titles.replace(/§[0-9a-fl]{1}/g, '')}`;
-  };
+  }
   if (data.active_cosmetictitle) {
     const prestige = data[`${data.active_cosmetictitle.split('_').reverse().join('_')}_title_prestige`] || 1;
     return `${capitalize(data.active_cosmetictitle.split('_')[1])} ${capitalize(data.active_cosmetictitle.split('_')[0])} ${numerals[prestige]}`;
@@ -23,9 +32,11 @@ function cosmeticTitlePrestige (data) {
 }
 /**
  * Duels class
- * @param {object} data Duels data
  */
 class Duels {
+  /**
+   * @param {object} data Duels data
+   */
   constructor (data) {
     /**
      * Coins
@@ -77,7 +88,7 @@ class Duels {
      * @type {DuelsUHC}
      */
     this.uhc = {
-      overall: {
+      'overall': {
         winstreak: (data.current_winstreak_mode_uhc_duel || 0) + (data.current_winstreak_mode_uhc_doubles || 0) + (data.current_winstreak_mode_uhc_four || 0) + (data.current_winstreak_mode_uhc_meetup || 0),
         kills: (data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0),
         deaths: (data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0),
@@ -117,7 +128,7 @@ class Duels {
         WLRatio: divide(data.uhc_four_wins, data.uhc_four_losses),
         playedGames: data.uhc_four_rounds_played || 0
       },
-      meetup: {
+      'meetup': {
         winstreak: data.current_winstreak_mode_uhc_meetup || 0,
         kills: data.uhc_meetup_kills || 0,
         deaths: data.uhc_meetup_deaths || 0,
@@ -143,7 +154,7 @@ class Duels {
      * @type {DuelsOP}
      */
     this.op = {
-      overall: {
+      'overall': {
         winstreak: (data.current_winstreak_mode_op_duel || 0) + (data.current_winstreak_mode_op_doubles || 0),
         kills: (data.op_duel_kills || 0) + (data.op_doubles_kills || 0),
         deaths: (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0),
@@ -179,7 +190,7 @@ class Duels {
      * @type {DuelsSkyWars}
      */
     this.skywars = {
-      overall: {
+      'overall': {
         winstreak: (data.current_winstreak_mode_sw_duel || 0) + (data.current_winstreak_mode_sw_doubles || 0),
         kills: (data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0),
         deaths: (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0),
@@ -257,7 +268,7 @@ class Duels {
      * @type {DuelsBridge}
      */
     this.bridge = {
-      overall: {
+      'overall': {
         winstreak: (data.current_winstreak_mode_bridge_duel || 0) + (data.current_winstreak_mode_bridge_doubles || 0) + (data.current_winstreak_mode_bridge_four || 0),
         kills: ((data.bridge_duel_kills || data.bridge_duel_bridge_kills) || 0) + ((data.bridge_doubles_kills || data.bridge_doubles_bridge_kills) || 0) + ((data.bridge_four_kills || data.bridge_four_bridge_kills) || 0),
         deaths: ((data.bridge_duel_deaths || data.bridge_duel_bridge_deaths) || 0) + ((data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths) || 0) + ((data.bridge_four_deaths || data.bridge_four_bridge_deaths) || 0),

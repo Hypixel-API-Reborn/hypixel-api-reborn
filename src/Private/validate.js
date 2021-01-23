@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 const Errors = require('../Errors');
 const { isStrArray, strToArray } = require('../utils/arrayTools');
 module.exports = class Validation {

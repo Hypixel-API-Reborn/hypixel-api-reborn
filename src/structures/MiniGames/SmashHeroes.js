@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * SmashHeroes class
- * @param {object} data SmashHeroes data
  */
 class SmashHeroes {
+  /**
+   * @param {object} data SmashHeroes data
+   */
   constructor (data) {
     /**
      * Coins
@@ -76,6 +78,11 @@ class SmashHeroes {
     this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
 }
+/**
+ * @param {object} data
+ * @param {string} mode
+ * @return {object}
+ */
 function generateModeStats (data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
@@ -86,23 +93,29 @@ function generateModeStats (data, mode) {
     WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
   };
 }
+/**
+ * @param {object} data
+ * @return {object}
+ */
 function generateHeroStats (data) {
   // eslint-disable-next-line no-useless-return
   const stats = [];
   for (const hero in data.class_stats) {
-    stats.push({
-      name: hero,
-      level: data[`lastLevel_${hero}`] || 0,
-      xp: data[`xp_${hero}`] || 0,
-      prestige: data[`pg_${hero}`] || 0,
-      playedGames: data.class_stats[hero].games || 0,
-      kills: data.class_stats[hero].kills || 0,
-      deaths: data.class_stats[hero].deaths || 0,
-      KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
-      wins: data.class_stats[hero].wins || 0,
-      losses: data.class_stats[hero].losses || 0,
-      WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
-    });
+    if (Object.prototype.hasOwnProperty.call(data.class_stats, hero)) {
+      stats.push({
+        name: hero,
+        level: data[`lastLevel_${hero}`] || 0,
+        xp: data[`xp_${hero}`] || 0,
+        prestige: data[`pg_${hero}`] || 0,
+        playedGames: data.class_stats[hero].games || 0,
+        kills: data.class_stats[hero].kills || 0,
+        deaths: data.class_stats[hero].deaths || 0,
+        KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
+        wins: data.class_stats[hero].wins || 0,
+        losses: data.class_stats[hero].losses || 0,
+        WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
+      });
+    }
   }
   return stats;
 }

@@ -2,9 +2,11 @@ const Game = require('./Game');
 /**
  * RecentGame class
  * @extends {Game}
- * @param {object} data Recent game data
  */
 class RecentGame extends Game {
+  /**
+   * @param {object} data Recent game data
+   */
   constructor (data) {
     super(data.gameType);
     /**

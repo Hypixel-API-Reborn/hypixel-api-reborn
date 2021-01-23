@@ -1,9 +1,11 @@
 const APIIncident = require('./APIIncident');
 /**
  * API status class
- * @param {object} data API status data
  */
 class APIStatus {
+  /**
+   * @param {object} data API status data
+   */
   constructor (data) {
     /**
      * Source url
@@ -24,7 +26,7 @@ class APIStatus {
      * API incident
      * @type {APIIncident[]}
      */
-    this.incidents = data.items.map(x => new APIIncident(x));
+    this.incidents = data.items.map((x) => new APIIncident(x));
   }
 }
 

@@ -1,10 +1,13 @@
 const BaseAuction = require('./BaseAuction');
 /**
  * Partial auction class
- * @param {object} data Partial auction data
- * @param {boolean} includeItemBytes
+ * @extends {BaseAuction}
  */
 class PartialAuction extends BaseAuction {
+  /**
+   * @param {object} data Partial auction data
+   * @param {boolean} includeItemBytes
+   */
   constructor (data, includeItemBytes) {
     super(data, includeItemBytes);
     /**

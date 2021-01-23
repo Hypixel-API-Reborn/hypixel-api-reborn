@@ -5,9 +5,11 @@ const InventoryItem = require('./SkyblockInventoryItem');
 const objectPath = require('object-path');
 /**
  * Skyblock member class
- * @param {object} data Skyblock member data
  */
 class SkyblockMember {
+  /**
+   * @param {object} data Skyblock member data
+   */
   constructor (data) {
     /**
      * Skyblock member UUID
@@ -57,7 +59,7 @@ class SkyblockMember {
     this.lastDeath = data.m.last_death;
     /**
      * Equipped armor
-     * @type {SkyblockMemberArmor}
+     * @return {Promise<SkyblockMemberArmor>}
      */
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
@@ -72,7 +74,7 @@ class SkyblockMember {
     };
     /**
      * Collected fairy souls
-     * @type {SkyblockMemberArmor}
+     * @type {number}
      */
     this.fairySouls = data.m.fairy_souls_collected || 0;
     /**
@@ -97,7 +99,7 @@ class SkyblockMember {
     this.collections = data.m.collection ? data.m.collection : null;
     /**
      * Skyblock member enderchest
-     * @returns {Promise<InventoryItem[]|null>}
+     * @return {Promise<InventoryItem[]|null>}
      */
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
@@ -120,7 +122,7 @@ class SkyblockMember {
     };
     /**
      * Skyblock member inventory
-     * @returns {Promise<InventoryItem[]|null>}
+     * @return {Promise<InventoryItem[]|null>}
      */
     this.getInventory = async () => {
       let inventory = data.m.inv_contents;

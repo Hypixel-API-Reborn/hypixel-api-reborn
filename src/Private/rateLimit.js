@@ -1,7 +1,10 @@
+/* eslint-disable require-jsdoc */
 module.exports = class RateLimit {
   rateLimitMonitor () {
     this.requests = 0;
-    setInterval(() => { this.requests = 0; }, 1000 * 60);
+    setInterval(() => {
+      this.requests = 0;
+    }, 1000 * 60);
   }
 
   async rateLimitManager (options) {
@@ -13,7 +16,7 @@ module.exports = class RateLimit {
     // Wait before send, because user is on HARD RateLimit mode or AUTO, but passed 60 requests/min
     this.waitingRequests++;
     // With rate limit set to HARD, you will never be able to pass the Ratelimit set by hypixel API if this is the only script you are using the API key with.
-    await new Promise(r => setTimeout(r, 500 * this.waitingRequests), true);
+    await new Promise((r) => setTimeout(r, 500 * this.waitingRequests), true);
     this.waitingRequests--;
     this.lastRequestAt = Date.now();
   }
@@ -24,12 +27,12 @@ module.exports = class RateLimit {
     this.waitingRequests = 0;
     this.lastRequestAt = 0; // Set to a large number so 1st request doesn't get rate limited already
     keyInfo
-      .then(info => {
-        this.requests = info.requestsInPastMin;
-        setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
-      })
-      // eslint-disable-next-line camelcase
-      .catch(O_o => {});
+        .then((info) => {
+          this.requests = info.requestsInPastMin;
+          setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
+        })
+    // eslint-disable-next-line camelcase
+        .catch((O_o) => {});
     // Still make the requests per min possible
   }
 };

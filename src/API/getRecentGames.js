@@ -13,5 +13,5 @@ module.exports = async function (query, playerData) {
     if (Date.now() - playerData.lastLogoutTimestamp < day3) throw new Error(Errors.PLAYER_DISABLED_ENDPOINT);
     throw new Error(Errors.PLAYER_IS_INACTIVE);
   }
-  return res.games.map(x => new RecentGame(x));
+  return res.games.map((x) => new RecentGame(x));
 };

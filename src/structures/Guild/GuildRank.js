@@ -1,8 +1,10 @@
 /**
  * GuildRank class
- * @param {data} data Guild rank data
  */
 class GuildRank {
+  /**
+   * @param {data} data Guild rank data
+   */
   constructor (data) {
     /**
      * Guild rank name

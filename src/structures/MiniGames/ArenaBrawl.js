@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * ArenaBrawl class
- * @param {object} data ArenaBrawl data
  */
 class ArenaBrawl {
+  /**
+   * @param {object} data ArenaBrawl data
+   */
   constructor (data) {
     /**
      * Coins
@@ -22,7 +24,9 @@ class ArenaBrawl {
   }
 }
 /**
- * @returns {{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}
+ * @param {object} data
+ * @param {string} mode
+ * @return {{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}
  */
 function generateModeStats (data, mode) {
   return {

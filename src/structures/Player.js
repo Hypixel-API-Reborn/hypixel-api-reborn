@@ -18,9 +18,12 @@ const Game = require('./Game');
 const { recursive } = require('../utils/removeSnakeCase');
 /**
  * Player class
- * @param {object} data Player data
  */
 class Player {
+  /**
+   * @param {object} data Player data
+   * @param {object} fakethis
+   */
   constructor (data, fakethis) {
     /**
      * Player nickname
@@ -83,10 +86,10 @@ class Player {
      */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
     if (this.rank === 'MVP+' || this.rank === 'MVP++') {
-    /**
-     * Player's plus color (must be a MVP+ rank)
-     * @type {Color|null}
-     */
+      /**
+       * Player's plus color (must be a MVP+ rank)
+       * @type {Color|null}
+       */
       this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
     } else {
       this.plusColor = null;
@@ -153,7 +156,7 @@ class Player {
     this.lastDailyRewardTimestamp = data.lastAdsenseGenerateTime || null;
     /**
      * Player recent games
-     * @returns {Promise<Array<RecentGame>>}
+     * @return {Promise<Array<RecentGame>>}
      */
     this.getRecentGames = function () {
       return getRecentGames.call(fakethis, this.uuid, this);
@@ -185,7 +188,7 @@ class Player {
 * @async
 * @description Get player's rank
 * @param {object} player
-* @returns {string}
+* @return {string}
 */
 function getRank (player) {
   let rank;
@@ -228,7 +231,7 @@ function getRank (player) {
 }
 /**
  * @param {number} exp
- * @returns {number}
+ * @return {number}
  */
 function getPlayerLevel (exp) {
   const BASE = 10000;
@@ -243,15 +246,15 @@ function getPlayerLevel (exp) {
 
 /**
  * @param {object} data
- * @returns {Array<{name:string,link:string,id:string}>}
+ * @return {Array<{name:string,link:string,id:string}>}
  */
 function getSocialMedia (data) {
   if (!data) return null;
   const links = data.links;
   const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Hypixel', 'Discord'];
   const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'HYPIXEL', 'DISCORD'];
-  if (!links) return;
-  return Object.keys(links).map(x => upperNames.indexOf(x)).filter(x => x !== -1).map(x => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
+  if (!links) return null;
+  return Object.keys(links).map((x) => upperNames.indexOf(x)).filter((x) => x !== -1).map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 /**
  * @typedef {string} PlayerRank

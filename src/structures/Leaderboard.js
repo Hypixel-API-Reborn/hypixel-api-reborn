@@ -1,8 +1,10 @@
 /**
  * Leaderboard class
- * @param {object} data Leaderboard data
  */
 class Leaderboard {
+  /**
+   * @param {object} data Leaderboard data
+   */
   constructor (data) {
     /**
      * Leaderboard name

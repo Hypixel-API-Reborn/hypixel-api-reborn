@@ -1,8 +1,10 @@
 /**
  * BuildBattle class
- * @param {object} data BuildBattle data
  */
 class BuildBattle {
+  /**
+   * @param {object} data BuildBattle data
+   */
   constructor (data) {
     /**
      * Score

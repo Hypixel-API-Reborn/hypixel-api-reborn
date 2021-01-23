@@ -1,14 +1,17 @@
 /**
- * @param {ColorCode} color Color code
+ * Color class
  */
 class Color {
+  /**
+   * @param {ColorCode} color Color code
+   */
   constructor (color) {
     this.color = color;
   }
 
   /**
    * Returns regular color name
-   * @returns {ColorString}
+   * @return {ColorString}
    */
   toString () {
     const ColorStrings = {
@@ -34,7 +37,7 @@ class Color {
 
   /**
    * Returns color HEX code
-   * @returns {ColorHex}
+   * @return {ColorHex}
    */
   toHex () {
     const ColorHex = {
@@ -60,7 +63,7 @@ class Color {
 
   /**
    * Returns color code
-   * @returns {ColorCode}
+   * @return {ColorCode}
    */
   toCode () {
     return this.color;

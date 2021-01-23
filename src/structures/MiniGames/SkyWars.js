@@ -11,10 +11,12 @@ const generateStatsForMode = (data, mode) => {
   };
 };
 /**
-* SkyWars class
-* @param {object} data SkyWars data
-*/
+ * SkyWars class
+ */
 class SkyWars {
+  /**
+   * @param {object} data SkyWars data
+   */
   constructor (data) {
     /**
      * Coins
@@ -313,19 +315,15 @@ class SkyWars {
  */
 module.exports = SkyWars;
 /**
- *
  * @param {number} level
- *
- * @returns {string}
+ * @return {string}
  */
 function getSkyWarsPrestige (level) {
   return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)];
 }
 /**
- *
  * @param {number} xp
- *
- * @returns {number}
+ * @return {number}
  */
 function getSkyWarsLevel (xp) {
   return Math.floor((function () {

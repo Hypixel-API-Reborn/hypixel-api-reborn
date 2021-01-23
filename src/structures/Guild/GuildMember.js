@@ -1,8 +1,10 @@
 /**
  * GuildMember class
- * @param {data} data Guild member data
  */
 class GuildMember {
+  /**
+   * @param {data} data Guild member data
+   */
   constructor (data) {
     /**
      * Guild member UUID
@@ -43,8 +45,10 @@ class GuildMember {
     const history = [];
     if (Object.keys(data.expHistory).length) {
       for (const day in data.expHistory) {
-        gexp += data.expHistory[day];
-        history.push({ day: day, exp: data.expHistory[day] });
+        if (Object.prototype.hasOwnProperty.call(data.expHistory, day)) {
+          gexp += data.expHistory[day];
+          history.push({ day, exp: data.expHistory[day] });
+        }
       }
     }
     /**

@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * Speed UHC class
- * @param {object} data Speed UHC data
  */
 class SpeedUHC {
+  /**
+   * @param {object} data Speed UHC data
+   */
   constructor (data) {
     /**
      * Coins

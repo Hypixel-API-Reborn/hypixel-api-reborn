@@ -29,45 +29,29 @@ const games = [
 ];
 /**
  * Game class
- * @param {GameId|GameCode} game Game ID or Game Code
  */
 class Game {
+  /**
+   * @param {GameId|GameCode} game Game ID or Game Code
+   * @param {GameId} id Game ID
+   * @param {GameCode} code Game Code
+   */
   constructor (game) {
     this.game = game;
+    this.id = isNaN(this.game) ? (games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).id : 'Not found') : this.game;
+    this.code = !isNaN(this.game) ? (games.find((g) => g.id === this.game) ? games.find((g) => g.id === this.game).id : 'Not found') : this.game;
   }
 
   /**
    * Returns regular game name
-   * @returns {GameString}
+   * @return {GameString}
    */
   toString () {
     if (isNaN(this.game)) {
-      return games.find(g => g.code === this.game) ? games.find(g => g.code === this.game).name : 'Not found';
+      return games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
     } else {
-      return games.find(g => g.id === this.game) ? games.find(g => g.id === this.game).name : 'Not found';
+      return games.find((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
     }
-  }
-
-  /**
-   * Returns game ID
-   * @type {GameId}
-   */
-  get id () {
-    if (isNaN(this.game)) {
-      return games.find(g => g.code === this.game) ? games.find(g => g.code === this.game).id : 'Not found';
-    }
-    return this.game;
-  }
-
-  /**
-   * Returns game code
-   * @type {GameCode}
-   */
-  get code () {
-    if (!isNaN(this.game)) {
-      return games.find(g => g.id === this.game) ? games.find(g => g.id === this.game).id : 'Not found';
-    }
-    return this.game;
   }
 }
 /**

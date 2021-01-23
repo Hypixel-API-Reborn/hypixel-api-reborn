@@ -1,8 +1,11 @@
+/* eslint-disable require-jsdoc */
 /**
  * Auction info class
- * @param {object} data Auction info data
  */
 class AuctionInfo {
+  /**
+   * @param {object} data Auction info data
+   */
   constructor (data) {
     /**
      * Page number

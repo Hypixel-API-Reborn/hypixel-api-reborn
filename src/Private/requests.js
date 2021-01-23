@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 const fetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
@@ -32,6 +33,6 @@ module.exports = class Requests {
 
   async sweepCache (amount) {
     if (!amount || amount >= cached.size) return cached.clear();
-    return Array.from(cached.keys()).slice(cached.size - amount).map(x => cached.delete(x));
+    return Array.from(cached.keys()).slice(cached.size - amount).map((x) => cached.delete(x));
   }
 };

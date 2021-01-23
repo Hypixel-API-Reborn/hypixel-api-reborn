@@ -3,11 +3,12 @@ if (!Array.prototype.flat) {
   Object.defineProperty(Array.prototype, 'flat', {
     configurable: true,
     value: function flat () {
+      // eslint-disable-next-line prefer-rest-params
       const depth = isNaN(arguments[0]) ? 1 : Number(arguments[0]);
 
       return depth ? Array.prototype.reduce.call(this, function (acc, cur) {
         if (Array.isArray(cur)) {
-          acc.push.apply(acc, flat.call(cur, depth - 1));
+          acc.push(acc, flat.call(cur, depth - 1));
         } else {
           acc.push(cur);
         }
@@ -22,5 +23,4 @@ if (!Array.prototype.flat) {
 module.exports = {
   isStrArray: (input) => Array.isArray(input) || typeof input === 'string',
   strToArray: (input) => [input].flat()
-
 };

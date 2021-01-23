@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-disable require-jsdoc */
+/* eslint-disable max-len */
 type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
 type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit';
 type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64;
@@ -30,12 +33,12 @@ interface auctionsOptions extends methodOptions {
     retries?: number;
     cooldown?: number;
     race?: boolean;
-    includeItemBytes?: boolean
+    includeItemBytes?: boolean;
 }
 declare module 'hypixel-api-reborn' {
-    export const version: string;
+    const version: string;
 
-    export const Errors: {
+    const Errors: {
         CACHE_FILTER_INVALID: string,
         CACHE_LIMIT_MUST_BE_A_NUMBER: string,
         CACHE_TIME_MUST_BE_A_NUMBER: string,
@@ -62,8 +65,8 @@ declare module 'hypixel-api-reborn' {
         PLAYER_IS_INACTIVE: string,
         SOMETHING_WENT_WRONG: string,
         UUID_NICKNAME_MUST_BE_A_STRING: string
-    }
-    export const Utils: {
+    };
+    const Utils: {
         arrayTools: {
             /**
              * @description Is this string or array?
@@ -150,130 +153,139 @@ declare module 'hypixel-api-reborn' {
          * @param input Player nickname
          */
         toUUID(input: string): Promise<string>
-    }
-    export class Client {
-        constructor(key: string, options?: clientOptions);
-        public key: string;
-        public options: clientOptions;
+    };
+    class Client {
+      constructor(key: string, options?: clientOptions);
+        /**
+         * @description API Key
+         */
+        key: string;
+        /**
+         * @description Client options
+         */
+        options: clientOptions;
+        /**
+         * @description Returns all cache entries
+         */
+        cache: Map<string, object>;
         /**
          * @description Allows you to get statistics of player
          * @param query - player nickname or uuid
          * @param options - player search options
          */
-        public getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
+        getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
         /**
          * @description Allows you to get statistics of hypixel guild
          * @param searchParameter - 'name', 'player' or 'id'
          * @param query - guild name, player nickname or guild id
          */
-        public getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
+        getGuild(searchParameter: ('name' | 'player' | 'id'), query: string): Promise<Guild>;
         /**
          * @description Allows you to get all friends of player
          * @param query - player nickname or uuid
          */
-        public getFriends(query: string, options?: methodOptions): Promise<Friend[]>;
+        getFriends(query: string, options?: methodOptions): Promise<Friend[]>;
         /**
          * @description Allows you to get statistics of watchdog anticheat
          */
-        public getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
+        getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
         /**
          * @description Allows you to get all active boosters
          */
-        public getBoosters(options?: methodOptions): Promise<Booster[]>;
+        getBoosters(options?: methodOptions): Promise<Booster[]>;
         /**
          * @description Allows you to get a player's skyblock profiles
          * @param query - player nickname or uuid
          */
-        public getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
+        getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
         /**
          * @description Allows you to get a player's skyblock member data from all their profiles
          * @param query - player nickname or uuid
          */
-        public getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
+        getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
         /**
          * @description Allows you to get all skyblock auctions
          * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
          * @param options Options
          */
-        public getSkyblockAuctions(page?: ('*' | number | [number, number]), options?: auctionsOptions): Promise<{ info?: AuctionInfo, auctions?: Auction[] }>;
+        getSkyblockAuctions(page?: ('*' | number | [number, number]), options?: auctionsOptions): Promise<{ info?: AuctionInfo, auctions?: Auction[] }>;
         /**
          * @description Allows you to get all ended auctions in around the last 60 seconds
          * @param includeItemBytes - include item bytes (optional)
          */
-        public getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: PartialAuction[] }>;
+        getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: PartialAuction[] }>;
         /**
          * @description Allows you to get all auctions of player
          * @param query - player nickname or uuid
          * @param includeItemBytes - include item bytes (optional)
          */
-        public getSkyblockAuctionsByPlayer(query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
+        getSkyblockAuctionsByPlayer(query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
         /**
          * @description Allows you to get list of products
          */
-        public getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+        getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
         /**
          * @description Allows you to get player's network status
          * @param query - player nickname or uuid
          */
-        public getStatus(query: string, options?: methodOptions): Promise<Status>;
+        getStatus(query: string, options?: methodOptions): Promise<Status>;
         /**
          * @description Allows you to get current player count
          */
-        public getOnline(options?: methodOptions): Promise<number>;
+        getOnline(options?: methodOptions): Promise<number>;
         /**
          * @description Allows you to get information about used API key
          */
-        public getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
+        getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
         /**
          * @description Allows you to get leaderboards of each mini-game
          */
-        public getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
+        getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>;
         /**
          * @description Allows you to get recent games of a player
          */
-        public getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default
          */
-        public getPing(ip?: string): Promise<number>;
+        getPing(ip?: string): Promise<number>;
         /**
          * @description Parses the RSS feed from status.hypixel.net
          */
-        public getAPIStatus(): Promise<APIStatus>;
+        getAPIStatus(): Promise<APIStatus>;
         /**
          * @param amount - Amount of cache entries to delete
          * @description Allows you to clear cache
          */
-        public sweepCache(amount?: number): void;
-        public get cache(): Map<string, object>;
+        sweepCache(amount?: number): void;
     }
-    export class Player {
-        constructor(data: object);
-        public nickname: string;
-        public uuid: string;
-        public history: string[];
-        public rank: PLAYER_RANK;
-        public mcVersion: string;
-        public lastLoginTimestamp: number;
-        public lastLogin: Date;
-        public lastLogoutTimestamp: number;
-        public lastLogout: Date;
-        public firstLoginTimestamp: number;
-        public firstLogin: Date;
-        public recentlyPlayedGame: Game;
-        public plusColor?: Color;
-        public karma: number;
-        public achievements: object;
-        public achievementPoints: number;
-        public totalExperience: number;
-        public level: number;
-        public socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID }[];
-        public giftsSent: number;
-        public giftsReceived: number;
-        public isOnline: boolean;
-        public guild?: Guild;
-        public stats?: {
+    class Player {
+      constructor(data: object);
+        nickname: string;
+        uuid: string;
+        history: string[];
+        rank: PLAYER_RANK;
+        mcVersion: string;
+        lastLoginTimestamp: number;
+        lastLogin: Date;
+        lastLogoutTimestamp: number;
+        lastLogout: Date;
+        firstLoginTimestamp: number;
+        firstLogin: Date;
+        recentlyPlayedGame: Game;
+        plusColor?: Color;
+        karma: number;
+        achievements: object;
+        achievementPoints: number;
+        totalExperience: number;
+        level: number;
+        socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID }[];
+        giftsSent: number;
+        giftsReceived: number;
+        isOnline: boolean;
+        guild?: Guild;
+        stats?: {
             skywars?: SkyWars,
             bedwars?: BedWars,
             uhc?: UHC,
@@ -288,29 +300,29 @@ declare module 'hypixel-api-reborn' {
             vampirez?: VampireZ,
             blitzsg?: BlitzSurvivalGames,
             arena?: ArenaBrawl
-        }
-        public getRecentGames(): Promise<RecentGame[]>;
+        };
+        getRecentGames(): Promise<RecentGame[]>;
     }
-    export class Leaderboard {
-        constructor(data: object);
-        public name: string;
-        public title: string;
-        public playerCount: number;
-        public leaders: string[];
+    class Leaderboard {
+      constructor(data: object);
+        name: string;
+        title: string;
+        playerCount: number;
+        leaders: string[];
     }
-    export class KeyInfo {
-        constructor(data: object);
-        public key: string;
-        public owner: string;
-        public limitPerMinute: number;
-        public requestsInPastMin: number;
-        public totalRequests: number;
-        public resetsAfter: number;
+    class KeyInfo {
+      constructor(data: object);
+        key: string;
+        owner: string;
+        limitPerMinute: number;
+        requestsInPastMin: number;
+        totalRequests: number;
+        resetsAfter: number;
     }
-    export class ArenaBrawl {
-        constructor(data: object);
-        public coins: number;
-        public mode: {
+    class ArenaBrawl {
+      constructor(data: object);
+        coins: number;
+        mode: {
             '1v1': {
                 kills: number,
                 deaths: number,
@@ -337,15 +349,15 @@ declare module 'hypixel-api-reborn' {
             }
         };
     }
-    export class BlitzSurvivalGames {
-        constructor(data: object);
-        public coins: number;
-        public kills: number;
-        public deaths: number;
-        public KDRatio: number;
-        public winsSolo: number;
-        public winsTeam: number
-        public kitStats: {
+    class BlitzSurvivalGames {
+      constructor(data: object);
+        coins: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        winsSolo: number;
+        winsTeam: number;
+        kitStats: {
             name: string,
             games: number,
             level: number,
@@ -360,37 +372,37 @@ declare module 'hypixel-api-reborn' {
             timePlayed: number
         }[];
     }
-    export class VampireZ {
-        constructor(data: object);
-        public coins: number;
-        public human: {
+    class VampireZ {
+      constructor(data: object);
+        coins: number;
+        human: {
             kills: number,
             deaths: number,
             KDRatio: number,
             wins: number
         };
-        public zombie: {
+        zombie: {
             kills: number
         };
-        public vampire: {
+        vampire: {
             kills: number,
             deaths: number,
             KDRatio: number
         };
     }
-    export class SmashHeroes {
-        constructor(data: object);
-        public coins: number;
-        public level: number;
-        public winstreak: number;
-        public playedGames: number;
-        public kills: number;
-        public deaths: number;
-        public KDRatio: number;
-        public wins: number;
-        public losses: number;
-        public WLRatio: number;
-        public mode: {
+    class SmashHeroes {
+      constructor(data: object);
+        coins: number;
+        level: number;
+        winstreak: number;
+        playedGames: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+        mode: {
             '1v1v1v1': {
                 kills: number,
                 deaths: number,
@@ -416,8 +428,8 @@ declare module 'hypixel-api-reborn' {
                 WLRatio: number
             }
         };
-        public activeClass: string;
-        public heroStats: {
+        activeClass: string;
+        heroStats: {
             name: string,
             level: number,
             xp: number,
@@ -429,36 +441,36 @@ declare module 'hypixel-api-reborn' {
             wins: number,
             losses: number,
             WLRatio: number
-        }[]
+        }[];
     }
-    export class TNTGames {
-        constructor(data: object);
-        public coins: number;
-        public winstreak: number;
-        public wins: number;
-        public tntrun: {
+    class TNTGames {
+      constructor(data: object);
+        coins: number;
+        winstreak: number;
+        wins: number;
+        tntrun: {
             wins: number,
             deaths: number,
             record: number
         };
-        public pvprun: {
+        pvprun: {
             kills: number,
             wins: number,
             deaths: number,
             KDRatio: number,
             record: number
         };
-        public tnttag: {
+        tnttag: {
             kills: number,
             wins: number,
             speed: number
         };
-        public bowspleef: {
+        bowspleef: {
             wins: number,
             tags: number,
             deaths: number
         };
-        public wizards: {
+        wizards: {
             points: number,
             class: string,
             kills: number,
@@ -468,99 +480,99 @@ declare module 'hypixel-api-reborn' {
             KDRatio: number
         };
     }
-    export class Status {
-        constructor(data: object);
-        public online: boolean;
-        public game?: Game;
-        public mode?: string;
-        public map?: string
+    class Status {
+      constructor(data: object);
+        online: boolean;
+        game?: Game;
+        mode?: string;
+        map?: string;
     }
-    export class Guild {
-        constructor(data: object);
-        public id: string;
-        public name: string;
-        public description: string;
-        public experience: number;
-        public level: number;
-        public createdAtTimestamp: number;
-        public createdAt: Date;
-        public joinable: boolean;
-        public publiclyListed: boolean;
-        public tag: string;
-        public tagColor: Color;
-        public legacyRank: number;
-        public dailyExperience: { day: string, exp: number }[];
-        public achievements: {
+    class Guild {
+      constructor(data: object);
+        id: string;
+        name: string;
+        description: string;
+        experience: number;
+        level: number;
+        createdAtTimestamp: number;
+        createdAt: Date;
+        joinable: boolean;
+        yListed: boolean;
+        tag: string;
+        tagColor: Color;
+        legacyRank: number;
+        dailyExperience: { day: string, exp: number }[];
+        achievements: {
             winners: number,
             experienceKings: number,
             onlinePlayers: number
         };
-        public chatMuteUntilTimestamp: number;
-        public chatMuteUntil: Date;
-        public banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] }
-        public preferredGames: Game[];
-        public members: GuildMember[];
-        public ranks: GuildRank[];
-        public totalWeeklyGexp: number
-        public getRanksByNewest(): GuildRank[];
-        public getRankByPriority(priority: number): GuildRank;
-        public getMemberUUIDMap(): Map<string, GuildMember>;
+        chatMuteUntilTimestamp: number;
+        chatMuteUntil: Date;
+        banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] };
+        preferredGames: Game[];
+        members: GuildMember[];
+        ranks: GuildRank[];
+        totalWeeklyGexp: number;
+        getRanksByNewest(): GuildRank[];
+        getRankByPriority(priority: number): GuildRank;
+        getMemberUUIDMap(): Map<string, GuildMember>;
     }
-    export class BaseAuction {
-        constructor(data: object)
-        public auctionId: string;
-        public auctioneerUuid: string;
-        public auctioneerProfile: string;
-        public bin: boolean;
-        public itemBytes: ItemBytes | null;
+    class BaseAuction {
+      constructor(data: object)
+        auctionId: string;
+        auctioneerUuid: string;
+        auctioneerProfile: string;
+        bin: boolean;
+        itemBytes: ItemBytes | null;
     }
-    export class Auction extends BaseAuction {
-        constructor(data: object);
-        public coop: string[] | [];
-        public auctionStartTimestamp: number;
-        public auctionEndTimestamp: number;
-        public auctionStart: Date;
-        public auctionEnd: Date;
-        public item: string;
-        public itemLore: string;
-        public itemLoreRaw: string;
-        public rarity: string;
-        public startingBid: number;
-        public highestBid: number;
-        public bids: Bid[];
-        public claimed: boolean;
-        public claimedBidders: string[];
+    class Auction extends BaseAuction {
+      constructor(data: object);
+        coop: string[] | [];
+        auctionStartTimestamp: number;
+        auctionEndTimestamp: number;
+        auctionStart: Date;
+        auctionEnd: Date;
+        item: string;
+        itemLore: string;
+        itemLoreRaw: string;
+        rarity: string;
+        startingBid: number;
+        highestBid: number;
+        bids: Bid[];
+        claimed: boolean;
+        claimedBidders: string[];
     }
-    export class PartialAuction extends BaseAuction {
-        constructor(data: object);
-        public buyer: string;
-        public price: number;
+    class PartialAuction extends BaseAuction {
+      constructor(data: object);
+        buyer: string;
+        price: number;
     }
-    export class AuctionInfo {
-        constructor(data: object);
-        public age: number;
-        public lastUpdatedAt: Date;
-        public lastUpdated: number;
-        public totalPages: number;
-        public page: number;
-        public totalAuctions: number;
-        public failedPages: number[]
+    class AuctionInfo {
+      constructor(data: object);
+        age: number;
+        lastUpdatedAt: Date;
+        lastUpdated: number;
+        totalPages: number;
+        page: number;
+        totalAuctions: number;
+        failedPages: number[];
     }
-    export class Bid {
-        constructor(data: object);
-        public auctionId: string;
-        public profileId: string;
-        public amount: number;
-        public timestamp: number;
-        public at: Date;
-        public bidder: string;
+    class Bid {
+      constructor(data: object);
+        auctionId: string;
+        profileId: string;
+        amount: number;
+        timestamp: number;
+        at: Date;
+        bidder: string;
     }
-    export class Product {
-        constructor(data: object);
-        public productId: string;
-        public sellSummary: Order[];
-        public buySummary: Order[];
-        public status: {
+    class Product {
+      constructor(data: object);
+        productId: string;
+        sellSummary: Order[];
+        buySummary: Order[];
+        status: {
             sellPrice: number,
             buyPrice: number,
             sellVolume: number,
@@ -571,79 +583,79 @@ declare module 'hypixel-api-reborn' {
             buyOrders: number
         };
     }
-    export class Order {
-        constructor(data: object);
-        public amount: number;
-        public pricePerUnit: number;
-        public totalPrice: number;
-        public orders: number;
+    class Order {
+      constructor(data: object);
+        amount: number;
+        pricePerUnit: number;
+        totalPrice: number;
+        orders: number;
     }
-    export class WatchdogStats {
-        constructor(data: object);
-        public byWatchdogTotal: number;
-        public byWatchdogLastMinute: number;
-        public byWatchdogRollingDay: number;
-        public byStaffTotal: number;
-        public byStaffRollingDay: number;
+    class WatchdogStats {
+      constructor(data: object);
+        byWatchdogTotal: number;
+        byWatchdogLastMinute: number;
+        byWatchdogRollingDay: number;
+        byStaffTotal: number;
+        byStaffRollingDay: number;
     }
-    export class GuildMember {
-        constructor(data: object);
-        public uuid: string;
-        public joinedAtTimestamp: number;
-        public joinedAt: Date;
-        public questParticipation: number;
-        public rank: string;
-        public weeklyExperience: number;
-        public mutedUntilTimestamp: number;
-        public mutedUntil: Date;
-        public expHistory: { day: string, exp: number }[];
+    class GuildMember {
+      constructor(data: object);
+        uuid: string;
+        joinedAtTimestamp: number;
+        joinedAt: Date;
+        questParticipation: number;
+        rank: string;
+        weeklyExperience: number;
+        mutedUntilTimestamp: number;
+        mutedUntil: Date;
+        expHistory: { day: string, exp: number }[];
     }
-    export class GuildRank {
-        constructor(data: object);
-        public name: string;
-        public default: boolean;
-        public tag: string | null;
-        public createdAtTimestamp: number;
-        public createdAt: Date;
-        public priority: number;
+    class GuildRank {
+      constructor(data: object);
+        name: string;
+        default: boolean;
+        tag: string | null;
+        createdAtTimestamp: number;
+        createdAt: Date;
+        priority: number;
     }
-    export class Friend {
-        constructor(data: object);
-        public sender: string;
-        public receiver: string;
-        public friendSinceTimestamp: number;
-        public friendSince: Date;
+    class Friend {
+      constructor(data: object);
+        sender: string;
+        receiver: string;
+        friendSinceTimestamp: number;
+        friendSince: Date;
     }
-    export class Booster {
-        constructor(data: object);
-        public purchaser: string;
-        public amount: number;
-        public originalLength: number;
-        public remaining: number;
-        public activatedTimestamp: number
-        public activated: Date;
-        public game?: Game;
+    class Booster {
+      constructor(data: object);
+        purchaser: string;
+        amount: number;
+        originalLength: number;
+        remaining: number;
+        activatedTimestamp: number;
+        activated: Date;
+        game?: Game;
     }
-    export class SkyblockProfile {
-        constructor(data: object);
-        public profileId: string;
-        public profileName: string;
-        public members: SkyblockMember[];
-        public me: SkyblockMember;
+    class SkyblockProfile {
+      constructor(data: object);
+        profileId: string;
+        profileName: string;
+        members: SkyblockMember[];
+        me: SkyblockMember;
     }
-    export class SkyblockMember {
-        constructor(data: object);
-        public uuid: string;
-        public player?: Player;
-        public profileName: string;
-        public firstJoin: number;
-        public lastSave: number;
-        public lastDeath: number;
-        public firstJoinAt: Date;
-        public lastSaveAt: Date;
-        public lastDeathAt: Date;
-        public fairySouls: number;
-        public skills: {
+    class SkyblockMember {
+      constructor(data: object);
+        uuid: string;
+        player?: Player;
+        profileName: string;
+        firstJoin: number;
+        lastSave: number;
+        lastDeath: number;
+        firstJoinAt: Date;
+        lastSaveAt: Date;
+        lastDeathAt: Date;
+        fairySouls: number;
+        skills: {
             taming: {
                 xp: number,
                 level: number,
@@ -726,7 +738,7 @@ declare module 'hypixel-api-reborn' {
             },
             usedAchievementsApi?: boolean
         };
-        public slayer: {
+        slayer: {
             zombie: {
                 xp: number,
                 tier1: number,
@@ -752,7 +764,7 @@ declare module 'hypixel-api-reborn' {
                 level: number
             }
         };
-        public dungeons: {
+        dungeons: {
             types: {
                 catacombs: {
                     xp: number,
@@ -806,8 +818,8 @@ declare module 'hypixel-api-reborn' {
                 }
             }
         };
-        public collections: any;
-        public stats: {
+        collections: any;
+        stats: {
             purse: number,
             kills: number,
             deaths: number,
@@ -816,57 +828,57 @@ declare module 'hypixel-api-reborn' {
             gifts_given: number,
             gifts_received: number
         };
-        public getInventory(): Promise<InventoryItem[]>;
-        public getEnderChest(): Promise<InventoryItem[]>;
-        public getArmor(): Promise<{ helmet: InventoryItem, chestplate: InventoryItem, leggings: InventoryItem, boots: InventoryItem }>;
-        public getPetScore(): number;
+        getInventory(): Promise<InventoryItem[]>;
+        getEnderChest(): Promise<InventoryItem[]>;
+        getArmor(): Promise<{ helmet: InventoryItem, chestplate: InventoryItem, leggings: InventoryItem, boots: InventoryItem }>;
+        getPetScore(): number;
     }
-    export class Color {
-        constructor(color: string)
-        public toString(): string;
-        public toHex(): string;
-        public toName(): string;
-        public toCode(): string;
+    class Color {
+      constructor(color: string)
+      toString(): string;
+      toHex(): string;
+      toName(): string;
+      toCode(): string;
     }
-    export class InventoryItem {
-        constructor(data: object);
-        public itemId: number;
-        public count: number;
-        public name: string;
-        public lore: string;
-        public loreArray: string[];
-        public loreForEmbed: string;
-        public enchantments: object;
-        public anvilUses: number;
-        public damage: number;
+    class InventoryItem {
+      constructor(data: object);
+        itemId: number;
+        count: number;
+        name: string;
+        lore: string;
+        loreArray: string[];
+        loreForEmbed: string;
+        enchantments: object;
+        anvilUses: number;
+        damage: number;
     }
-    export class Game {
-        constructor(game: string | number);
-        public toString(): GAME_NAME;
-        public get code(): GAME_CODE;
-        public get id(): GAME_ID;
+    class Game {
+      constructor(game: string | number);
+      toString(): GAME_NAME;
+      code: GAME_CODE;
+      id: GAME_ID;
     }
-    export class SkyWars {
-        constructor(data: object);
-        public coins: number;
-        public souls: number;
-        public tokens: number;
-        public winStreak: number;
-        public kills: number;
-        public losses: number;
-        public deaths: number;
-        public wins: number;
-        public lootChests: number;
-        public openedLootChests: number;
-        public heads: number;
-        public level: number;
-        public levelFormatted: string;
-        public prestige: SKYWARS_PRESTIGE;
-        public prestigeIcon: SKYWARS_PRESTIGE_ICON;
-        public playedGames: number;
-        public KDRatio: number;
-        public WLRatio: number;
-        public solo: {
+    class SkyWars {
+      constructor(data: object);
+        coins: number;
+        souls: number;
+        tokens: number;
+        winStreak: number;
+        kills: number;
+        losses: number;
+        deaths: number;
+        wins: number;
+        lootChests: number;
+        openedLootChests: number;
+        heads: number;
+        level: number;
+        levelFormatted: string;
+        prestige: SKYWARS_PRESTIGE;
+        prestigeIcon: SKYWARS_PRESTIGE_ICON;
+        playedGames: number;
+        KDRatio: number;
+        WLRatio: number;
+        solo: {
             overall: {
                 winstreak: number,
                 playedGames: number,
@@ -894,7 +906,7 @@ declare module 'hypixel-api-reborn' {
                 WLRatio: number
             }
         };
-        public team: {
+        team: {
             overall: {
                 winstreak: number,
                 playedGames: number,
@@ -922,7 +934,7 @@ declare module 'hypixel-api-reborn' {
                 WLRatio: number
             }
         };
-        public ranked: {
+        ranked: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -932,7 +944,7 @@ declare module 'hypixel-api-reborn' {
             KDRatio: number,
             WLRatio: number
         };
-        public mega: {
+        mega: {
             overall: {
                 winstreak: number,
                 playedGames: number,
@@ -962,7 +974,7 @@ declare module 'hypixel-api-reborn' {
                 WLRatio: number
             }
         };
-        public lab: {
+        lab: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -973,61 +985,61 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number
         };
     }
-    export class CopsAndCrims {
-        constructor(data: object);
-        public coins: number;
-        public kills: number;
-        public deaths: number;
-        public KDRatio: number;
-        public wins: number;
-        public roundWins: number;
-        public shotsFired: number;
-        public headshotKills: number;
-        public bombsDefused: number;
-        public bombsPlanted: number;
-        public killsAsCrim: number;
-        public killsAsCop: number;
-        public deathmatch: {
+    class CopsAndCrims {
+      constructor(data: object);
+        coins: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        roundWins: number;
+        shotsFired: number;
+        headshotKills: number;
+        bombsDefused: number;
+        bombsPlanted: number;
+        killsAsCrim: number;
+        killsAsCop: number;
+        deathmatch: {
             kills: number,
             deaths: number,
             KDRatio: number,
             killsAsCrim: number,
             killsAsCop: number
-        }
+        };
     }
-    export class BedWars {
-        constructor(data: object);
-        public coins: number;
-        public level: number;
-        public prestige: BEDWARS_PRESTIGE;
-        public playedGames: number;
-        public wins: number;
-        public winstreak: number;
-        public kills: number;
-        public finalKills: number;
-        public losses: number;
-        public deaths: number;
-        public finalDeaths: number;
-        public collectedItemsTotal: {
+    class BedWars {
+      constructor(data: object);
+        coins: number;
+        level: number;
+        prestige: BEDWARS_PRESTIGE;
+        playedGames: number;
+        wins: number;
+        winstreak: number;
+        kills: number;
+        finalKills: number;
+        losses: number;
+        deaths: number;
+        finalDeaths: number;
+        collectedItemsTotal: {
             iron: number,
             gold: number,
             diamond: number,
             emerald: number
         };
-        public beds: {
+        beds: {
             lost: number,
             broken: number,
             BLRatio: number
         };
-        public avg: {
+        avg: {
             finalKills: number,
             kills: number,
             bedsBroken: number
         };
-        public KDRatio: number;
-        public finalKDRatio: number;
-        public WLRatio: number;
-        public solo: {
+        KDRatio: number;
+        finalKDRatio: number;
+        WLRatio: number;
+        solo: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -1050,7 +1062,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             finalKDRatio: number,
         };
-        public doubles: {
+        doubles: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -1073,7 +1085,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             finalKDRatio: number,
         };
-        public threes: {
+        threes: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -1096,7 +1108,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             finalKDRatio: number,
         };
-        public fours: {
+        fours: {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -1119,7 +1131,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             finalKDRatio: number,
         };
-        public '4v4': {
+        '4v4': {
             winstreak: number,
             playedGames: number,
             kills: number,
@@ -1141,96 +1153,96 @@ declare module 'hypixel-api-reborn' {
             KDRatio: number,
             WLRatio: number,
             finalKDRatio: number,
-        }
-    }
-    export class UHC {
-        constructor(data: object);
-        public coins: number;
-        public score: number;
-        public kills: number;
-        public deaths: number;
-        public wins: number;
-        public headsEaten: number;
-        public starLevel: number;
-        public solo: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public team: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public redVsBlue: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public noDiamond: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public brawl: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public brawlSolo: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
-        };
-        public brawlDuo: {
-            wins: number,
-            kills: number,
-            deaths: number,
-            headsEaten: number
         };
     }
-    export class SpeedUHC {
-        constructor(data: object);
-        public coins: number;
-        public kills: number;
-        public deaths: number;
-        public KDRatio: number;
-        public wins: number;
-        public losses: number;
-        public WLRatio: number;
-        public playedGames: number;
-        public winstreak: number;
+    class UHC {
+      constructor(data: object);
+        coins: number;
+        score: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        headsEaten: number;
+        starLevel: number;
+        solo: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        team: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        redVsBlue: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        noDiamond: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        brawl: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        brawlSolo: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
+        brawlDuo: {
+            wins: number,
+            kills: number,
+            deaths: number,
+            headsEaten: number
+        };
     }
-    export class MurderMystery {
-        constructor(data: object);
-        public coins: number;
-        public playedGames: number;
-        public kills: number;
-        public deaths: number;
-        public winsAsMurderer: number;
-        public winsAsDetective: number;
-        public wins: number;
-        public assassins: {
+    class SpeedUHC {
+      constructor(data: object);
+        coins: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+        playedGames: number;
+        winstreak: number;
+    }
+    class MurderMystery {
+      constructor(data: object);
+        coins: number;
+        playedGames: number;
+        kills: number;
+        deaths: number;
+        winsAsMurderer: number;
+        winsAsDetective: number;
+        wins: number;
+        assassins: {
             wins: number,
             kills: number,
             deaths: number,
             KDRatio: number,
             playedGames: number
         };
-        public doubleUp: {
+        doubleUp: {
             wins: number,
             kills: number,
             deaths: number,
             KDRatio: number,
             playedGames: number
         };
-        public infection: {
+        infection: {
             wins: number,
             kills: number,
             deaths: number,
@@ -1238,17 +1250,17 @@ declare module 'hypixel-api-reborn' {
             playedGames: number
         };
     }
-    export class Duels {
-        public title: string | null;
-        public coins: number;
-        public kills: number;
-        public deaths: number;
-        public KDRatio: number;
-        public wins: number;
-        public losses: number;
-        public WLRatio: number;
-        public playedGames: number;
-        public uhc: {
+    class Duels {
+        title: string | null;
+        coins: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+        playedGames: number;
+        uhc: {
             overall: {
                 winstreak: number,
                 kills: number,
@@ -1300,7 +1312,7 @@ declare module 'hypixel-api-reborn' {
                 playedGames: number
             }
         };
-        public op: {
+        op: {
             overall: {
                 winstreak: number,
                 kills: number,
@@ -1332,7 +1344,7 @@ declare module 'hypixel-api-reborn' {
                 playedGames: number
             }
         };
-        public skywars: {
+        skywars: {
             overall: {
                 winstreak: number,
                 kills: number,
@@ -1364,7 +1376,7 @@ declare module 'hypixel-api-reborn' {
                 playedGames: number
             }
         };
-        public sumo: {
+        sumo: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1374,7 +1386,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public classic: {
+        classic: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1384,7 +1396,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public combo: {
+        combo: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1394,7 +1406,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public bridge: {
+        bridge: {
             overall: {
                 winstreak: number,
                 kills: number,
@@ -1436,7 +1448,7 @@ declare module 'hypixel-api-reborn' {
                 playedGames: number
             }
         };
-        public megawalls: {
+        megawalls: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1446,7 +1458,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public blitz: {
+        blitz: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1456,7 +1468,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public nodebuff: {
+        nodebuff: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1466,7 +1478,7 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number,
             playedGames: number
         };
-        public bow: {
+        bow: {
             winstreak: number,
             kills: number,
             deaths: number,
@@ -1477,47 +1489,47 @@ declare module 'hypixel-api-reborn' {
             playedGames: number
         };
     }
-    export class BuildBattle {
-        constructor(data: object);
-        public score: number;
-        public playedGames: number;
-        public coins: number;
-        public totalVotes: number;
-        public totalWins: number;
-        public wins: {
+    class BuildBattle {
+      constructor(data: object);
+        score: number;
+        playedGames: number;
+        coins: number;
+        totalVotes: number;
+        totalWins: number;
+        wins: {
             solo: number,
             team: number,
             pro: number,
             gtb: number
         };
     }
-    export class RecentGame extends Game {
-        constructor(data: object)
-        public dateTimestamp?: number;
-        public date?: Date;
-        public mode?: string;
-        public map?: string;
-        public endedAt?: Date;
-        public endedTimestamp?: number;
+    class RecentGame extends Game {
+      constructor(data: object)
+        dateTimestamp?: number;
+        date?: Date;
+        mode?: string;
+        map?: string;
+        endedAt?: Date;
+        endedTimestamp?: number;
     }
-    export class MegaWalls {
-        constructor(data: object)
-        public selectedClass: string;
-        public coins: number;
-        public kills: number;
-        public assists: number;
-        public deaths: number;
-        public KDRatio: number;
-        public wins: number;
-        public losses: number;
-        public WLRatio: number;
-        public finalKills: number;
-        public finalAssists: number;
-        public finalDeaths: number;
-        public playedGames: number;
-        public witherDamage: number;
-        public defenderKills: number;
-        public mode: {
+    class MegaWalls {
+      constructor(data: object)
+        selectedClass: string;
+        coins: number;
+        kills: number;
+        assists: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+        finalKills: number;
+        finalAssists: number;
+        finalDeaths: number;
+        playedGames: number;
+        witherDamage: number;
+        defenderKills: number;
+        mode: {
             normal: {
                 kills: number,
                 deaths: number,
@@ -1538,33 +1550,33 @@ declare module 'hypixel-api-reborn' {
             }
         };
     }
-    export class APIStatus {
-        constructor(data: object)
-        public sourceUrl: string;
-        public title: string;
-        public description: string;
-        public incidents: APIIncident[]
+    class APIStatus {
+      constructor(data: object)
+        sourceUrl: string;
+        title: string;
+        description: string;
+        incidents: APIIncident[];
     }
-    export class APIIncident {
-        constructor(data: object)
-        public link: string;
-        public start: Date;
-        public startFormatted: string;
-        public startTimestamp: number;
-        public author: string;
-        public HTMLContent: string;
-        public TextContent: string;
-        public snippet: string;
-        public guid: string;
-        public categories: string[];
+    class APIIncident {
+      constructor(data: object)
+        link: string;
+        start: Date;
+        startFormatted: string;
+        startTimestamp: number;
+        author: string;
+        HTMLContent: string;
+        TextContent: string;
+        snippet: string;
+        guid: string;
+        categories: string[];
     }
-    export class ItemBytes {
-        constructor(data: object)
-        public bytesBuffer: Buffer;
-        public base64(): string;
+    class ItemBytes {
+      constructor(data: object)
+        bytesBuffer: Buffer;
+        base64(): string;
         /**
          * @description Reads the bytes as a NBT tag
          */
-        public readNBT(): Promise<any[]>
+        readNBT(): Promise<any[]>;
     }
 }

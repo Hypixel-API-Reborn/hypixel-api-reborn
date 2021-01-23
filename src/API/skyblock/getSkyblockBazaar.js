@@ -5,5 +5,5 @@ module.exports = async function () {
 
   const productsKeys = Object.keys(res.products);
 
-  return productsKeys.map(x => new Product(res.products[x]));
+  return productsKeys.map((x) => new Product(res.products[x]));
 };

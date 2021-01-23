@@ -1,8 +1,10 @@
 /**
  * Friend class
- * @param {object} data Friend data
  */
 class Friend {
+  /**
+   * @param {object} data Friend data
+   */
   constructor (data) {
     /**
      * Friend request sender's UUID

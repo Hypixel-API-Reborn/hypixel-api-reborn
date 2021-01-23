@@ -1,6 +1,11 @@
 const Game = require('../Game');
-
+/**
+ * Booster class
+ */
 class Booster {
+  /**
+   * @param {object} data
+   */
   constructor (data) {
     /**
      * Booster's purchaser's UUID

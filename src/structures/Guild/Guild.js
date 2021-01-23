@@ -5,9 +5,11 @@ const Game = require('../Game');
 const getGuildLevel = require('../../utils/getGuildLevel');
 /**
  * Guild class
- * @param {data} data Guild data
  */
 class Guild {
+  /**
+   * @param {data} data Guild data
+   */
   constructor (data) {
     /**
      * Guild ID
@@ -53,28 +55,28 @@ class Guild {
     /**
      * An array containing all guild ranks sorted by newest
      * @author linearaccelerator
-     * @returns {Array<GuildRank>}
+     * @return {Array<GuildRank>}
      */
     this.getRanksByNewest = function () {
-      return this.ranks.length ? this.ranks.map(r => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null;
+      return this.ranks.length ? this.ranks.map((r) => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null;
     };
     /**
      * A map containing all guild members, keyed by their uuids
      * @author linearaccelerator
-     * @returns {Map<GuildMember>}
+     * @return {Map<GuildMember>}
      */
     this.getMemberUUIDMap = function () {
-      return this.members.length ? new Map(this.members.map(m => [new GuildMember(m).uuid, new GuildMember(m)])) : null;
+      return this.members.length ? new Map(this.members.map((m) => [new GuildMember(m).uuid, new GuildMember(m)])) : null;
     };
     /**
      * Returns a guild rank by priority
      * @author linearaccelerator
      * @param {number} priority - The priority of the guild rank
-     * @returns {GuildRank}
+     * @return {GuildRank}
      */
     this.getRankByPriority = function (priority) {
-      if (!this.ranks.length || !this.ranks.some(r => r.priority === priority)) return null;
-      return new GuildRank(this.ranks.find(r => r.priority === priority));
+      if (!this.ranks.length || !this.ranks.some((r) => r.priority === priority)) return null;
+      return new GuildRank(this.ranks.find((r) => r.priority === priority));
     };
     /**
      * Date of guild creation as timestamp
@@ -145,31 +147,47 @@ class Guild {
      * Guild preferred games
      * @type {Array<Game>}
      */
-    this.preferredGames = data.preferredGames ? data.preferredGames.map(g => new Game(g)) : [];
+    this.preferredGames = data.preferredGames ? data.preferredGames.map((g) => new Game(g)) : [];
   }
 }
+/**
+ * @param {object} data
+ * @return {GuildMember[]}
+ */
 function members (data) {
-  return data.members.length ? data.members.map(m => new GuildMember(m)) : [];
+  return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
 }
+/**
+ * @param {object} data
+ * @return {GuildRank[]}
+ */
 function ranks (data) {
-  return data.ranks && data.ranks.length ? data.ranks.map(r => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
+  return data.ranks && data.ranks.length ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
 }
+/**
+ * @param {object} data
+ * @return {number}
+ */
 function totalWeeklyGexp (data) {
-  return members(data).map(m => m.weeklyExperience).reduce((acc, cur) => acc + cur);
+  return members(data).map((m) => m.weeklyExperience).reduce((acc, cur) => acc + cur);
 }
 /**
  * @param {Object} data
- * @returns {Array}
+ * @return {Array}
  */
 function calculateExpHistory (data) {
   const array = [];
   const days = Object.keys(data.members[0].expHistory);
   for (const day in Object.keys(data.members[0].expHistory)) {
-    let gexp = 0;
-    for (const member in data.members) {
-      gexp += (data.members[member].expHistory[days[day]] || 0);
+    if (Object.prototype.hasOwnProperty.call(data.members[0].expHistory, day)) {
+      let gexp = 0;
+      for (const member in data.members) {
+        if (Object.prototype.hasOwnProperty.call(data.member, member)) {
+          gexp += (data.members[member].expHistory[days[day]] || 0);
+        }
+      }
+      array.push({ day: days[day], exp: gexp });
     }
-    array.push({ day: days[day], exp: gexp });
   }
   return array;
 }

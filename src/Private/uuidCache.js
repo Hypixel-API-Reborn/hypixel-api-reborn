@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 const fetch = require('node-fetch');
 const cachedUuids = new Map();
 
@@ -20,7 +21,7 @@ function response (obj) {
 }
 function checkHit (query) {
   if (cachedUuids.has(query)) return response({ id: query, name: cachedUuids.get(query) });
-  const reverseSearch = Array.from(cachedUuids.entries()).find(pair => pair[1].toLowerCase() === query.toLowerCase());
+  const reverseSearch = Array.from(cachedUuids.entries()).find((pair) => pair[1].toLowerCase() === query.toLowerCase());
   if (reverseSearch) return response({ id: reverseSearch[0], name: query });
   return null;
 }

@@ -1,9 +1,11 @@
 const SkyblockMember = require('./SkyblockMember');
 /**
  * Skyblock Profile class
- * @param {object} data Skyblock profile data
  */
 class SkyblockProfile {
+  /**
+   * @param {object} data Skyblock profile data
+   */
   constructor (data) {
     /**
      * @type {string} Skyblock profile ID
@@ -16,17 +18,20 @@ class SkyblockProfile {
     /**
      * @type {SkyblockMember[]} Skyblock profile members
      */
-    this.members = edit(data.members, this.profileName).map(m => new SkyblockMember(m));
+    this.members = edit(data.members, this.profileName).map((m) => new SkyblockMember(m));
     /**
      * @type {SkyblockMember} Queried player's member stats
      */
-    this.me = this.members.find(x => x.uuid === data.me);
+    this.me = this.members.find((x) => x.uuid === data.me);
   }
 }
+
 /**
  * @private
  * @param {Array} members
- * @returns {Array}
+ * @param {string} profileName
+ * @param {string} gameMode
+ * @return {Array}
  */
 function edit (members, profileName, gameMode) {
   const edited = [];
@@ -34,7 +39,7 @@ function edit (members, profileName, gameMode) {
     const m = members[k];
     edited.push({
       uuid: k,
-      profileName: profileName,
+      profileName,
       m
     });
   });

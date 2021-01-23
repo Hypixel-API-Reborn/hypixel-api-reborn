@@ -2,9 +2,11 @@ const nbt = require('prismarine-nbt');
 const parseNbt = (require('util')).promisify(nbt.parse);
 /**
  * Item Bytes class
- * @param {string} data base64 encoded bytes
  */
 class ItemBytes {
+  /**
+   * @param {string} data base64 encoded bytes
+   */
   constructor (data) {
   /**
    *  Item Bytes as Buffer
@@ -15,7 +17,7 @@ class ItemBytes {
 
   /**
    * Returns Item Bytes in base64 encoded
-   * @returns {String}
+   * @return {String}
    */
   base64 () {
     return this.bytesBuffer.toString('base64');
@@ -23,7 +25,7 @@ class ItemBytes {
 
   /**
    * Returns NBT of Item Bytes
-   * @returns {any[]}
+   * @return {any[]}
    */
   async readNBT () {
     let data = await parseNbt(this.bytesBuffer);

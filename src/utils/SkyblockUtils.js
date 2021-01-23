@@ -112,8 +112,12 @@ module.exports = {
     const { claimed_levels } = slayer;
     let level = 0;
     for (const level_name in claimed_levels) {
-      const _level = parseInt(level_name.split('_').pop(), 10);
-      if (_level > level) { level = _level; }
+      if (Object.prototype.hasOwnProperty.call(claimed_levels, level_name)) {
+        const _level = parseInt(level_name.split('_').pop(), 10);
+        if (_level > level) {
+          level = _level;
+        }
+      }
     }
     return {
       xp: slayer.xp || 0,
@@ -135,13 +139,19 @@ module.exports = {
   },
   getBonusStat (level, skill, max, incremention) {
     const skill_stats = constants.bonus_stats[skill];
-    const steps = Object.keys(skill_stats).sort((a, b) => Number(a) - Number(b)).map(a => Number(a));
+    const steps = Object.keys(skill_stats).sort((a, b) => Number(a) - Number(b)).map((a) => Number(a));
     const bonus = Object.assign({}, constants.stat_template);
     for (let x = steps[0]; x <= max; x += incremention) {
-      if (level < x) { break; }
-      const skill_step = steps.slice().reverse().find(a => a <= x);
+      if (level < x) {
+        break;
+      }
+      const skill_step = steps.slice().reverse().find((a) => a <= x);
       const skill_bonus = skill_stats[skill_step];
-      for (const skill in skill_bonus) { bonus[skill] += skill_bonus[skill]; }
+      for (const skill in skill_bonus) {
+        if (Object.prototype.hasOwnProperty.call(skill_bonus, skill)) {
+          bonus[skill] += skill_bonus[skill];
+        }
+      }
     }
     return bonus;
   },

@@ -1,9 +1,11 @@
 const divide = require('../../utils/divide');
 /**
  * MegaWalls class
- * @param {object} data MegaWalls data
  */
 class MegaWalls {
+  /**
+   * @param {object} data MegaWalls data
+   */
   constructor (data) {
     /**
      * Selected class

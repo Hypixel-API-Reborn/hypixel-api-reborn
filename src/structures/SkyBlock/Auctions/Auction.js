@@ -1,6 +1,13 @@
 const Bid = require('./Bid');
 const BaseAuction = require('./BaseAuction');
+/**
+ * Auction class
+ */
 class Auction extends BaseAuction {
+  /**
+   * @param {object} data
+   * @param {boolean} includeItemBytes
+   */
   constructor (data, includeItemBytes) {
     super(data, includeItemBytes);
     /**
@@ -62,7 +69,7 @@ class Auction extends BaseAuction {
      * Auction bids
      * @type {Bid[]}
      */
-    this.bids = data.bids.length ? data.bids.map(b => new Bid(b)) : [];
+    this.bids = data.bids.length ? data.bids.map((b) => new Bid(b)) : [];
     /**
      * is Auction Claimed
      * @type {boolean}

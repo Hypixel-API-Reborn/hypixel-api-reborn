@@ -1,8 +1,10 @@
 /**
  * Bid class
- * @param {object} data Bid data
  */
 class Bid {
+  /**
+   * @param {object} data Bid data
+   */
   constructor (data) {
     /**
      * Auction ID

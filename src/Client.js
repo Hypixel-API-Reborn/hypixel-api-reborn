@@ -1,22 +1,29 @@
+/* eslint-disable require-jsdoc */
+/* eslint-disable max-len */
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const requests = new (require('./Private/requests'))();
 const API = require('./API/index');
 /**
- * Client class, starting point for interacting with the wrapper. As a general rule, there should only be one instance of Client in use.
- * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
- * @param {ClientOptions} options Client options
+ * Client class
  */
 class Client {
+  /**
+   * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
+   * @param {ClientOptions} options Client options
+   * @param {Map<string,data>} cache Returns all cache entries
+   */
   constructor (key, options = {}) {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
-
-    console.log(`[hypixel-api-reborn] Using key ${key.slice(0, 8) + key.slice(8).replace(/[^-]/g, '*')}.`);
     validate.validateOptions(this.options);
     // eslint-disable-next-line no-return-assign
-    Object.keys(API).forEach(func => Client.prototype[func] = function () { return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : {}) }), ...this }, arguments); });
+    Object.keys(API).forEach((func) => Client.prototype[func] = function () {
+      // eslint-disable-next-line prefer-rest-params
+      return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : {}) }), ...this }, arguments);
+    });
     rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
+    this.cache = requests.cache;
   }
 
   async _makeRequest (options, url, useRateLimitManager = true) {
@@ -261,18 +268,11 @@ class Client {
    * })
    * .catch(console.log);
    */
-  /**
-   * Returns all cache entries
-   * @type {Map<string,data>}
-   */
-  get cache () {
-    return requests.cache;
-  }
 
   /**
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
-   * @returns {Promise<void|boolean[]>}
+   * @return {Promise<void|boolean[]>}
    */
   sweepCache (amount) {
     return requests.sweepCache(amount);

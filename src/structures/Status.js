@@ -1,9 +1,11 @@
 const Game = require('./Game');
 /**
  * Status class
- * @param {object} data Status data
  */
 class Status {
+  /**
+   * @param {object} data Status data
+   */
   constructor (data) {
     /**
      * Player online status.<br>

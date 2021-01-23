@@ -1,8 +1,10 @@
 /**
  * Item class
- * @param {object} data Item data
  */
 class Item {
+  /**
+   * @param {object} data Item data
+   */
   constructor (data) {
     /**
      * Item ID
@@ -38,12 +40,12 @@ class Item {
      * Item enchantments
      * @type {object}
      */
-    this.enchantments = data.tag.ExtraAttributes.enchantments !== undefined ? data.tag.ExtraAttributes.enchantments : null;
+    this.enchantments = data.tag.ExtraAttributes.enchantments ? data.tag.ExtraAttributes.enchantments : null;
     /**
      * Anvil uses
      * @type {number}
      */
-    this.anvilUses = data.tag.ExtraAttributes.anvil_uses !== undefined ? data.tag.ExtraAttributes.anvil_uses : 0;
+    this.anvilUses = data.tag.ExtraAttributes.anvil_uses ? data.tag.ExtraAttributes.anvil_uses : 0;
     /**
      * Damage
      * @type {number}
