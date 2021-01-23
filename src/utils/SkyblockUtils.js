@@ -125,7 +125,7 @@ module.exports = {
       tier2: slayer.boss_kills_tier_1 || 0,
       tier3: slayer.boss_kills_tier_2 || 0,
       tier4: slayer.boss_kills_tier_3 || 0,
-      level: level
+      level
     };
   },
   getSlayerLevelByXp (xp) {

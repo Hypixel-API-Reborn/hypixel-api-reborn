@@ -178,7 +178,7 @@ function getSkills (data) {
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.player ? data.player.achievements : undefined);
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.player ? data.player.achievements : {});
   }
   if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;

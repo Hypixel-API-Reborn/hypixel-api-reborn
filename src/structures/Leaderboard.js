@@ -27,5 +27,5 @@ class Leaderboard {
      */
     this.leaders = data.leaders || [];
   }
-};
+}
 module.exports = Leaderboard;
