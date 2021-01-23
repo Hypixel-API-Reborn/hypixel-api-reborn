@@ -54,7 +54,7 @@ module.exports = async function (range, options = {}) {
       if (!cV) {
         failedPages.push(index + range[0]);
         return pV;
-      };
+      }
       if (cV.info) result.info = cV.info;
       if (cV.auctions.length) return pV.concat(cV.auctions);
       return pV;

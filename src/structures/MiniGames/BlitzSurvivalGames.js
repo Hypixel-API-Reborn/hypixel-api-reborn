@@ -58,7 +58,7 @@ class BlitzSurvivalGames {
      * @type {BlitzSGKitStats[]}
      */
     this.kitStats = generateKitStats(data);
-  };
+  }
 }
 /**
  * @param {object} data

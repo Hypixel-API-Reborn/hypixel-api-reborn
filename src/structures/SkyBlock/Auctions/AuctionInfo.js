@@ -43,5 +43,5 @@ class AuctionInfo {
     this[name] = value;
     return this;
   }
-};
+}
 module.exports = AuctionInfo;
