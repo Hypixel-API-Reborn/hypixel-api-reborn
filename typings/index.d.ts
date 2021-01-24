@@ -396,7 +396,8 @@ declare module 'hypixel-api-reborn' {
       constructor(data: Record<string, unknown>);
         title: string;
         link: string;
-        date: string;
+        rawDate: string;
+        date: Date;
     }
     class TNTGames {
       constructor(data: Record<string, unknown>);
