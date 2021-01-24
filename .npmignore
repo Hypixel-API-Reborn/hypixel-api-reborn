@@ -21,3 +21,4 @@ testing/
 docs/
 tests/
 typings/*.json
+master.json

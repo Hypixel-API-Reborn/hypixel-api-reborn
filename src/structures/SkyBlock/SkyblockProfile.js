@@ -30,10 +30,9 @@ class SkyblockProfile {
  * @private
  * @param {Array} members
  * @param {string} profileName
- * @param {string} gameMode
  * @return {Array}
  */
-function edit (members, profileName, gameMode) {
+function edit (members, profileName) {
   const edited = [];
   Object.keys(members).forEach((k) => {
     const m = members[k];

@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
 module.exports = {
-
   Client: require('./Client.js'),
   version: require('../package.json').version,
 
@@ -38,6 +36,9 @@ module.exports = {
   /* Skyblock Bazaar */
   Product: require('./structures/SkyBlock/Bazzar/Product.js'),
   Order: require('./structures/SkyBlock/Bazzar/Order.js'),
+
+  /** Skyblock News */
+  SkyblockNews: require('./structures/SkyBlock/News/SkyblockNews'),
 
   /* Booster */
   Booster: require('./structures/Boosters/Booster.js'),

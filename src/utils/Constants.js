@@ -720,7 +720,13 @@ module.exports = {
     BUILD_BATTLE: 'Build Battle',
     DUELS: 'Duels',
     PIT: 'The Pit',
-    SKYBLOCK: 'SkyBlock'
+    SKYBLOCK: 'SkyBlock',
+    REPLAY: 'Replay',
+    LIMBO: 'Limbo',
+    IDLE: 'Idle',
+    QUEUE: 'Queue',
+    MAIN_LOBBY: 'Main Lobby',
+    TOURNAMENT_LOBBY: 'Tournament Lobby'
   },
   SkyWarsPrestigeIcons: {
     default: '⋆',

@@ -39,7 +39,7 @@ class Client {
    * @name Client#getPlayer
    * @param {string} query Player nickname or UUID
    * @param {PlayerMethodOptions} [options={}] Method options
-   * @returns {Promise<Player>}
+   * @return {Promise<Player>}
    * @example
    * // { guild: true } - fetch player's guild
    * hypixel.getPlayer('StavZDev', { guild: true }).then(player => {
@@ -57,7 +57,7 @@ class Client {
    * @param {id|name|player} searchParameter Search for guild by id, name or player (if player is in guild)
    * @param {string} query Guild ID, Guild name or player uuid/nickname
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<Guild>}
+   * @return {Promise<Guild>}
    * @example
    * hypixel.getGuild('name', 'The Foundation').then(guild => {
    *   console.log(guild.level); // 111
@@ -72,7 +72,7 @@ class Client {
    * @name Client#getFriends
    * @param {string} query Player nickname or UUID
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<Array<Friend>>}
+   * @return {Promise<Array<Friend>>}
    * @example
    * hypixel.getFriends('StavZDev').then(friends => {
    *   console.log(friends[0].friendSinceTimestamp); // 1528363745834
@@ -85,7 +85,7 @@ class Client {
    * @method
    * @name Client#getWatchdogStats
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<WatchdogStats>}
+   * @return {Promise<WatchdogStats>}
    * @example
    * hypixel.getWatchdogStats().then(watchdog => {
    *   console.log(watchdog.byWatchdogTotal); // 5931897
@@ -98,7 +98,7 @@ class Client {
    * @method
    * @name Client#getBoosters
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<Array<Booster>>}
+   * @return {Promise<Array<Booster>>}
    * @example
    * hypixel.getBoosters().then(boosters => {
    *   console.log(boosters[0].purchaser); // '978ddb705a8e43618e41749178c020b0'
@@ -112,7 +112,7 @@ class Client {
    * @name Client#getSkyblockProfiles
    * @param {string} query Player nickname or UUID
    * @param {SkyblockMethodOptions} [options={}] Method options
-   * @returns {Promise<Array<SkyblockProfile>>}
+   * @return {Promise<Array<SkyblockProfile>>}
    * @example
    * hypixel.getSkyblockProfiles('StavZDev').then(profiles => {
    *   console.log(profiles[0].members[0].uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
@@ -126,7 +126,7 @@ class Client {
    * @name Client#getSkyblockMember
    * @param {string} query Player nickname or UUID
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<Map<string,SkyblockMember>>}
+   * @return {Promise<Map<string,SkyblockMember>>}
    * @example
    * hypixel.getSkyblockMember('StavZDev').then(member => {
    *   // 'Cucumber' - profile name
@@ -139,7 +139,7 @@ class Client {
    * Allows you to get the Hypixel API's Status and past Incidents, no key needed.
    * @method
    * @name Client#getAPIStatus
-   * @returns {Promise<APIStatus>}
+   * @return {Promise<APIStatus>}
    * @example
    * hypixel.getAPIStatus().then(status => {
    *   console.log(status.incidents[0].link); // 'https://status.hypixel.net/incidents/zdd5gppdtcc3'
@@ -152,7 +152,7 @@ class Client {
    * @method
    * @name Client#getKeyInfo
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<KeyInfo>}
+   * @return {Promise<KeyInfo>}
    * @example
    * hypixel.getKeyInfo().then(keyInfo => {
    *   console.log(keyInfo.owner); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
@@ -165,7 +165,7 @@ class Client {
    * @method
    * @name Client#getLeaderboards
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>}
+   * @return {Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[] }>}
    * @example
    * hypixel.getLeaderboards().then(leaderboards => {
    *   console.log(leaderboards.ARENA[0].name); // 'Wins'
@@ -178,7 +178,7 @@ class Client {
    * @method
    * @name Client#getPing
    * @param {string} [ip=mc.hypixel.net] Valid IP/Hostname address
-   * @returns {Promise<number>}
+   * @return {Promise<number>}
    * @example
    * hypixel.getPing().then(console.log).catch(console.log); // 100
    */
@@ -187,7 +187,7 @@ class Client {
    * @method
    * @name Client#getOnline
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<number>}
+   * @return {Promise<number>}
    * @example
    * hypixel.getOnline().then(console.log).catch(console.log); // 121730
    */
@@ -196,7 +196,7 @@ class Client {
    * @method
    * @name Client#getRecentGames
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<RecentGame[]>}
+   * @return {Promise<RecentGame[]>}
    * @example
    * hypixel.getRecentGames().then(recentGames =>{
    *   console.log(recentGames[0].endedTimestamp); // 1609670588789
@@ -209,7 +209,7 @@ class Client {
    * @name Client#getStatus
    * @param {string} query Player nickname or UUID
    * @param {MethodOptions} [options={}] Method options
-   * @returns {Promise<Status>}
+   * @return {Promise<Status>}
    * @example
    * hypixel.getStatus('Stavzdev').then(status =>{
    *   console.log(status.online); // true
@@ -222,7 +222,7 @@ class Client {
    * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {auctionsOptions} [options={}] Options
-   * @returns {Promise<{info:AuctionInfo,auctions:Auction[]}>}
+   * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
    * @example
    * hypixel.getSkyblockAuctions(0).then(auctions =>{
    *   console.log(auctions[0].item); // Mythic Farmer Boots
@@ -236,7 +236,7 @@ class Client {
    * @param {string} query - player nickname or uuid
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
    * @param {MethodOptions} [options={}] Options
-   * @returns {Promise<Auction[]>}
+   * @return {Promise<Auction[]>}
    * @example
    * hypixel.getSkyblockAuctionsByPlayer('hypixel').then(auctions =>{
    *   console.log(auctions[0].auctionId); // b0491da3e81c43c88fd287ea3b3eacc0
@@ -249,7 +249,7 @@ class Client {
    * @name Client#getEndedSkyblockAuctions
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
    * @param {MethodOptions} [options={}] Options
-   * @returns {Promise<{info:AuctionInfo,auctions:PartialAuction[]}>}
+   * @return {Promise<{info:AuctionInfo,auctions:PartialAuction[]}>}
    * @example
    * hypixel.getEndedSkyblockAuctions().then(ended =>{
    *   console.log(ended.auctions[0].auctionId); // 0fe7fd132367474e86ff3022b4a84a13
@@ -261,12 +261,24 @@ class Client {
    * @method
    * @name Client#getSkyblockBazaar
    * @param {MethodOptions} [options={}] Options
-   * @returns {Promise<Product[]>}
+   * @return {Promise<Product[]>}
    * @example
    * hypixel.getSkyblockBazaar().then(products =>{
    *   console.log(products[0].productId); // INK_SACK:3
    * })
    * .catch(console.log);
+   */
+  /**
+   * Allows you to get skyblock news
+   * @method
+   * @name Client#getSkyblockNews
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<SkyblockNews[]>}
+   * @example
+   * hypixel.getSkyblockNews().then((news) => {
+   *   console.log(news[0].link); // https://hypixel.net/threads/3749492/
+   * })
+   * .catch(console.log)
    */
 
   /**

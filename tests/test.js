@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl } = require('../src');
+const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
   it('expect not to throw', async () => {
-    player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f');
+    player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f', { guild: true });
   });
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
@@ -31,6 +31,9 @@ describe('Client#getPlayer', () => {
     }
     if (player.plusColor) {
       expect(player.plusColor).instanceOf(Color);
+    }
+    if (player.guild) {
+      expect(player.guild).instanceOf(Guild);
     }
     expect(player.karma).to.be.a('number');
     expect(player.achievementPoints).to.be.a('number');
@@ -183,5 +186,19 @@ describe('Client#getKeyInfo', async () => {
     expect(keyinfo.requestsInPastMin).to.be.a('number');
     expect(keyinfo.resetsAfter).to.be.a('number');
     expect(keyinfo.totalRequests).to.be.a('number');
+  });
+});
+describe('Client#getSkyblockNews', async () => {
+  let news;
+  it('expect not to throw', async () => {
+    news = await client.getSkyblockNews();
+  });
+  it('required keys should exist', () => {
+    expect(news).to.be.an('array');
+    for (const record of news) {
+      expect(record.title).to.be.a('string');
+      expect(record.link).to.be.a('string');
+      expect(record.date).to.be.a('string');
+    }
   });
 });

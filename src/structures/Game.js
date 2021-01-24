@@ -25,7 +25,13 @@ const games = [
   { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60 },
   { name: 'Duels', code: 'DUELS', id: 61 },
   { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 },
-  { name: 'The Pit', code: 'PIT', id: 64 }
+  { name: 'The Pit', code: 'PIT', id: 64 },
+  { name: 'Replay', code: 'REPLAY', id: -1 },
+  { name: 'Limbo', code: 'LIMBO', id: -1 },
+  { name: 'Queue', code: 'QUEUE', id: -1 },
+  { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -1 },
+  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -1 },
+  { name: 'Idle', code: 'IDLE', id: -1 }
 ];
 /**
  * Game class

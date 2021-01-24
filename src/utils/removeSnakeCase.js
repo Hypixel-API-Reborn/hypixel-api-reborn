@@ -12,14 +12,24 @@ function validateJSON (obj) {
 }
 /**
  * @param {object} obj
+ * @param {boolean} lowerCase
  * @return {object}
  */
-function recursive (obj) {
+function recursive (obj, lowerCase = false) {
   if (!validateJSON(obj)) return obj;
-  return Object.keys(obj).reduce((pV, cV) => ({ ...pV, [cV.replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: recursive(obj[cV]) }), {});
+  return Object.keys(obj).reduce((pV, cV) => ({ ...pV, [(lowerCase ? cV : cV.toLowerCase()).replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: recursive(obj[cV]) }), {});
+}
+/**
+ * @param {string} str
+ * @return {string}
+ */
+function removeSnakeCaseString (str) {
+  if (typeof str !== 'string') return null;
+  return str.toLowerCase().replace(/_[a-z]/gi, (x) => x[1].toUpperCase());
 }
 module.exports = {
   single,
   recursive,
-  validateJSON
+  validateJSON,
+  removeSnakeCaseString
 };

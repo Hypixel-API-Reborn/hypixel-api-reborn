@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable camelcase */
 /* eslint-disable require-jsdoc */
 module.exports = class RateLimit {
   rateLimitMonitor () {
@@ -31,7 +33,7 @@ module.exports = class RateLimit {
           this.requests = info.requestsInPastMin;
           setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
         })
-    // eslint-disable-next-line camelcase
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .catch((O_o) => {});
     // Still make the requests per min possible
   }

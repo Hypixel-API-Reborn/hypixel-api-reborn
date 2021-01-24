@@ -5,7 +5,8 @@
         "node": true
     },
     "extends": [
-        "google"
+        "google",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -35,6 +36,7 @@
         "object-curly-spacing": "off",
         "space-before-function-paren": "off",
         "semi": "error",
-        "no-console": "error"
+        "no-console": "error",
+        "@typescript-eslint/no-var-requires": "off"
     }
 }

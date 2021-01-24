@@ -37,7 +37,6 @@ interface auctionsOptions extends methodOptions {
 }
 declare module 'hypixel-api-reborn' {
     const version: string;
-
     const Errors: {
         CACHE_FILTER_INVALID: string,
         CACHE_LIMIT_MUST_BE_A_NUMBER: string,
@@ -90,7 +89,7 @@ declare module 'hypixel-api-reborn' {
             pet_score: { COMMON: 1, UNCOMMON: 2, RARE: 3, EPIC: 4, LEGENDARY: 5 },
             base_stats: { damage: 0, health: 100, defense: 0, effective_health: 100, strength: 0, damage_increase: 0, speed: 100, crit_chance: 20, crit_damage: 50, intelligence: 0 },
             stat_template: { damage: 0, health: 0, defense: 0, effective_health: 0, strength: 0, damage_increase: 0, speed: 0, crit_chance: 0, crit_damage: 0, intelligence: 0 },
-            bonus_stats: { taming_skill: { 1: { pet_luck: 1 } }, fairy_souls: { 5: { health: 3, defense: 1, strength: 1, speed: 0 }, 10: { health: 3, defense: 1, strength: 1, speed: 0 }, 15: { health: 4, defense: 1, strength: 1, speed: 0 }, 20: { health: 4, defense: 1, strength: 1, speed: 0 }, 25: { health: 5, defense: 2, strength: 2, speed: 0 }, 30: { health: 5, defense: 1, strength: 1, speed: 0 }, 35: { health: 6, defense: 1, strength: 1, speed: 0 }, 40: { health: 6, defense: 1, strength: 1, speed: 0 }, 45: { health: 7, defense: 1, strength: 1, speed: 0 }, 50: { health: 7, defense: 2, strength: 2, speed: 1 }, 55: { health: 8, defense: 1, strength: 1, speed: 0 }, 60: { health: 8, defense: 1, strength: 1, speed: 0 }, 65: { health: 9, defense: 1, strength: 1, speed: 0 }, 70: { health: 9, defense: 1, strength: 1, speed: 0 }, 75: { health: 10, defense: 2, strength: 2, speed: 0 }, 80: { health: 10, defense: 1, strength: 1, speed: 0 }, 85: { health: 11, defense: 1, strength: 1, speed: 0 }, 90: { health: 11, defense: 1, strength: 1, speed: 0 }, 95: { health: 12, defense: 1, strength: 1, speed: 0 }, 100: { health: 12, defense: 2, strength: 2, speed: 1 }, 105: { health: 13, defense: 1, strength: 1, speed: 0 }, 110: { health: 13, defense: 1, strength: 1, speed: 0 }, 115: { health: 14, defense: 1, strength: 1, speed: 0 }, 120: { health: 14, defense: 1, strength: 1, speed: 0 }, 125: { health: 15, defense: 2, strength: 2, speed: 0 }, 130: { health: 15, defense: 1, strength: 1, speed: 0 }, 135: { health: 16, defense: 1, strength: 1, speed: 0 }, 140: { health: 16, defense: 1, strength: 1, speed: 0 }, 145: { health: 17, defense: 1, strength: 1, speed: 0 }, 150: { health: 17, defense: 2, strength: 2, speed: 1 }, 155: { health: 18, defense: 1, strength: 1, speed: 0 }, 160: { health: 18, defense: 1, strength: 1, speed: 0 }, 165: { health: 19, defense: 1, strength: 1, speed: 0 }, 170: { health: 19, defense: 1, strength: 1, speed: 0 }, 175: { health: 20, defense: 2, strength: 2, speed: 0 }, 180: { health: 20, defense: 1, strength: 1, speed: 0 }, 185: { health: 21, defense: 1, strength: 1, speed: 0 }, 190: { health: 21, defense: 1, strength: 1, speed: 0 } }, farming_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, combat_skill: { 1: { crit_chance: 0.5, damage_increase: 0.04 } }, mining_skill: { 1: { defense: 1 }, 15: { defense: 2 } }, foraging_skill: { 1: { strength: 1 }, 15: { strength: 2 } }, fishing_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, enchanting_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, alchemy_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, carpentry_skill: { 1: {} }, runecrafting_skill: { 1: {} }, zombie_slayer: { 1: { health: 2 }, 3: { health: 3 }, 5: { health: 4 }, 7: { health: 5 }, 9: { health: 6 } }, spider_slayer: { 1: { crit_damage: 1 }, 5: { crit_damage: 2 }, 7: { crit_damage: 0, crit_chance: 1 }, 8: { crit_chance: 0, crit_damage: 3 } }, wolf_slayer: { 1: { speed: 1 }, 2: { health: 2 }, 3: { speed: 1 }, 4: { health: 2 }, 5: { crit_damage: 1 }, 6: { health: 3 }, 7: { crit_damage: 2 }, 8: { speed: 1 } }, enchantments: { sharpness: { 1: { damage_multiplicator: 0.05 } }, ender: { 1: { damage_multiplicator: 0.12 } }, giant_killer: { 1: { damage_multiplicator: 0.05 } }, cubism: { 1: { damage_multiplicator: 0.1 } }, impaling: { 1: { damage_multiplicator: 0.125 } }, critical: { 1: { crit_damage: 10 } }, first_strike: { 1: { damage_multiplicator: 0.25 } }, power: { 1: { damage_multiplicator: 0.08 } } } },
+            bonus_stats: { taming_skill: { 1: { pet_luck: 1 } }, fairy_souls: { 5: { health: 3, defense: 1, strength: 1, speed: 0 }, 10: { health: 3, defense: 1, strength: 1, speed: 0 }, 15: { health: 4, defense: 1, strength: 1, speed: 0 }, 20: { health: 4, defense: 1, strength: 1, speed: 0 }, 25: { health: 5, defense: 2, strength: 2, speed: 0 }, 30: { health: 5, defense: 1, strength: 1, speed: 0 }, 35: { health: 6, defense: 1, strength: 1, speed: 0 }, 40: { health: 6, defense: 1, strength: 1, speed: 0 }, 45: { health: 7, defense: 1, strength: 1, speed: 0 }, 50: { health: 7, defense: 2, strength: 2, speed: 1 }, 55: { health: 8, defense: 1, strength: 1, speed: 0 }, 60: { health: 8, defense: 1, strength: 1, speed: 0 }, 65: { health: 9, defense: 1, strength: 1, speed: 0 }, 70: { health: 9, defense: 1, strength: 1, speed: 0 }, 75: { health: 10, defense: 2, strength: 2, speed: 0 }, 80: { health: 10, defense: 1, strength: 1, speed: 0 }, 85: { health: 11, defense: 1, strength: 1, speed: 0 }, 90: { health: 11, defense: 1, strength: 1, speed: 0 }, 95: { health: 12, defense: 1, strength: 1, speed: 0 }, 100: { health: 12, defense: 2, strength: 2, speed: 1 }, 105: { health: 13, defense: 1, strength: 1, speed: 0 }, 110: { health: 13, defense: 1, strength: 1, speed: 0 }, 115: { health: 14, defense: 1, strength: 1, speed: 0 }, 120: { health: 14, defense: 1, strength: 1, speed: 0 }, 125: { health: 15, defense: 2, strength: 2, speed: 0 }, 130: { health: 15, defense: 1, strength: 1, speed: 0 }, 135: { health: 16, defense: 1, strength: 1, speed: 0 }, 140: { health: 16, defense: 1, strength: 1, speed: 0 }, 145: { health: 17, defense: 1, strength: 1, speed: 0 }, 150: { health: 17, defense: 2, strength: 2, speed: 1 }, 155: { health: 18, defense: 1, strength: 1, speed: 0 }, 160: { health: 18, defense: 1, strength: 1, speed: 0 }, 165: { health: 19, defense: 1, strength: 1, speed: 0 }, 170: { health: 19, defense: 1, strength: 1, speed: 0 }, 175: { health: 20, defense: 2, strength: 2, speed: 0 }, 180: { health: 20, defense: 1, strength: 1, speed: 0 }, 185: { health: 21, defense: 1, strength: 1, speed: 0 }, 190: { health: 21, defense: 1, strength: 1, speed: 0 } }, farming_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, combat_skill: { 1: { crit_chance: 0.5, damage_increase: 0.04 } }, mining_skill: { 1: { defense: 1 }, 15: { defense: 2 } }, foraging_skill: { 1: { strength: 1 }, 15: { strength: 2 } }, fishing_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, enchanting_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, alchemy_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, carpentry_skill: { 1: Record<string, unknown> }, runecrafting_skill: { 1: Record<string, unknown> }, zombie_slayer: { 1: { health: 2 }, 3: { health: 3 }, 5: { health: 4 }, 7: { health: 5 }, 9: { health: 6 } }, spider_slayer: { 1: { crit_damage: 1 }, 5: { crit_damage: 2 }, 7: { crit_damage: 0, crit_chance: 1 }, 8: { crit_chance: 0, crit_damage: 3 } }, wolf_slayer: { 1: { speed: 1 }, 2: { health: 2 }, 3: { speed: 1 }, 4: { health: 2 }, 5: { crit_damage: 1 }, 6: { health: 3 }, 7: { crit_damage: 2 }, 8: { speed: 1 } }, enchantments: { sharpness: { 1: { damage_multiplicator: 0.05 } }, ender: { 1: { damage_multiplicator: 0.12 } }, giant_killer: { 1: { damage_multiplicator: 0.05 } }, cubism: { 1: { damage_multiplicator: 0.1 } }, impaling: { 1: { damage_multiplicator: 0.125 } }, critical: { 1: { crit_damage: 10 } }, first_strike: { 1: { damage_multiplicator: 0.25 } }, power: { 1: { damage_multiplicator: 0.08 } } } },
             leaderboardNames: { ARENA: 'ARENA', COPS_AND_CRIMS: 'MCGO', WARLORDS: 'BATTLEGROUND', BLITZ_SURVIVAL_GAMES: 'SURVIVAL_GAMES', UHC: 'UHC', WALLS: 'WALLS', PROTOTYPE: 'PROTOTYPE', PAINTBALL: 'PAINTBALL', SKYWARS: 'SKYWARS', MURDER_MYSTERY: 'MURDER_MYSTERY', SMASH_HEROES: 'SUPER_SMASH', DUELS: 'DUELS', SPEED_UHC: 'SPEED_UHC', TNTGAMES: 'TNTGAMES', BEDWARS: 'BEDWARS', TURBO_KART_RACERS: 'GINGERBREAD', BUILD_BATTLE: 'BUILD_BATTLE', ARCADE: 'ARCADE', SKYCLASH: 'SKYCLASH', QUAKECRAFT: 'QUAKECRAFT', CRAZY_WALLS: 'TRUE_COMBAT', MEGA_WALLS: 'WALLS3', VAMPIREZ: 'VAMPIREZ' },
             MiniGamesString: { QUAKECRAFT: 'Quakecraft', WALLS: 'Walls', PAINTBALL: 'Paintball', SURVIVAL_GAMES: 'Blitz Survival Games', TNTGAMES: 'The TNT Games', VAMPIREZ: 'VampireZ', WALLS3: 'Mega Walls', ARCADE: 'Arcade', ARENA: 'Arena Brawl', MCGO: 'Cops and Crims', UHC: 'UHC Champions', BATTLEGROUND: 'Warlords', SUPER_SMASH: 'Smash Heroes', GINGERBREAD: 'Turbo Kart Racers', HOUSING: 'Housing', SKYWARS: 'SkyWars', TRUE_COMBAT: 'Crazy Walls', SPEED_UHC: 'Speed UHC', SKYCLASH: 'SkyClash', LEGACY: 'Classic Games', PROTOTYPE: 'Prototype', BEDWARS: 'BedWars', MURDER_MYSTERY: 'Murder Mystery', BUILD_BATTLE: 'Build Battle', DUELS: 'Duels', PIT: 'The Pit', SKYBLOCK: 'SkyBlock' }
             SkyWarsPrestigeIcons: { default: '⋆', angel_1: '★', angel_2: '☆', angel_3: '⁕', angel_4: '✶', angel_5: '✳', angel_6: '✴', angel_7: '✷', angel_8: '❋', angel_9: '✼', angel_10: '❂', angel_11: '❁', angel_12: '☬', iron_prestige: '✙', gold_prestige: '❤️', diamond_prestige: '☠', emerald_prestige: '✦', sapphire_prestige: '✌', ruby_prestige: '❦', crystal_prestige: '✵', opal_prestige: '❣', amethyst_prestige: '☯', rainbow_prestige: '✺', mythic_prestige: 'ಠ_ಠ', favor_of_the_angel_prestige: '⚔' }
@@ -115,25 +114,29 @@ declare module 'hypixel-api-reborn' {
             /**
              * @description Validates JSON
              */
-            validateJSON(obj: object): boolean
+            validateJSON(obj: Record<string, unknown>): boolean
             /**
              * @description Converts {str_str: {}} to {strStr: {}} without JSON validation
              */
-            single(obj: object): object;
+            single(obj: Record<string, unknown>): Record<string, unknown>;
             /**
              * @description Converts {str_str: {}} to {strStr: {}}
              */
-            recursive(obj: object): object;
+            recursive(obj: Record<string, unknown>, lowerCase?: boolean): Record<string, unknown>;
+            /**
+             * @description Converts 'str_str' to 'strStr'
+             */
+            removeSnakeCaseString(str: string): string;
         },
         SkyblockUtils: {
             /**
              * @description Decodes base64 to skyblock inventory data
              */
-            decode(base64: string): Promise<object>;
+            decode(base64: string): Promise<Record<string, unknown>>;
             /**
              * @description Get level by experience
              */
-            getLevelByXp(xp: number, type: string, achievements: object): number;
+            getLevelByXp(xp: number, type: string, achievements: Record<string, unknown>): number;
             /**
              * @description Get level by achievement
              */
@@ -141,7 +144,7 @@ declare module 'hypixel-api-reborn' {
             /**
              * @description Get slayer level
              */
-            getSlayerLevel(slayer: object): { xp: number, tier1: number, tier2: number, tier3: number, tier4: number, level: number };
+            getSlayerLevel(slayer: Record<string, unknown>): { xp: number, tier1: number, tier2: number, tier3: number, tier4: number, level: number };
         }
         /**
          * Calls Mojang API for player's nickname by uuid
@@ -159,15 +162,16 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description API Key
          */
-        key: string;
+        readonly key: string;
         /**
          * @description Client options
          */
-        options: clientOptions;
+        readonly options: clientOptions;
         /**
          * @description Returns all cache entries
          */
-        cache: Map<string, object>;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        readonly cache: Map<string, any>;
         /**
          * @description Allows you to get statistics of player
          * @param query - player nickname or uuid
@@ -224,6 +228,7 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get list of products
          */
         getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+        getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
         /**
          * @description Allows you to get player's network status
          * @param query - player nickname or uuid
@@ -261,7 +266,7 @@ declare module 'hypixel-api-reborn' {
         sweepCache(amount?: number): void;
     }
     class Player {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         nickname: string;
         uuid: string;
         history: string[];
@@ -276,7 +281,7 @@ declare module 'hypixel-api-reborn' {
         recentlyPlayedGame: Game;
         plusColor?: Color;
         karma: number;
-        achievements: object;
+        achievements: Record<string, unknown>;
         achievementPoints: number;
         totalExperience: number;
         level: number;
@@ -304,14 +309,14 @@ declare module 'hypixel-api-reborn' {
         getRecentGames(): Promise<RecentGame[]>;
     }
     class Leaderboard {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         name: string;
         title: string;
         playerCount: number;
         leaders: string[];
     }
     class KeyInfo {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         key: string;
         owner: string;
         limitPerMinute: number;
@@ -320,37 +325,22 @@ declare module 'hypixel-api-reborn' {
         resetsAfter: number;
     }
     class ArenaBrawl {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         mode: {
             '1v1': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             },
             '2v2': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             },
             '4v4': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             }
         };
     }
     class BlitzSurvivalGames {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -358,40 +348,24 @@ declare module 'hypixel-api-reborn' {
         winsSolo: number;
         winsTeam: number;
         kitStats: {
-            name: string,
-            games: number,
-            level: number,
-            experience: number,
-            prestige: number,
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number,
-            timePlayed: number
+            name: string, games: number, level: number, experience: number, prestige: number, kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number, timePlayed: number
         }[];
     }
     class VampireZ {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         human: {
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number
+            kills: number, deaths: number, KDRatio: number, wins: number
         };
         zombie: {
             kills: number
         };
         vampire: {
-            kills: number,
-            deaths: number,
-            KDRatio: number
+            kills: number, deaths: number, KDRatio: number
         };
     }
     class SmashHeroes {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         level: number;
         winstreak: number;
@@ -404,91 +378,56 @@ declare module 'hypixel-api-reborn' {
         WLRatio: number;
         mode: {
             '1v1v1v1': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             },
             '2v2': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             },
             '2v2v2': {
-                kills: number,
-                deaths: number,
-                KDRatio: number,
-                wins: number,
-                losses: number,
-                WLRatio: number
+                kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
             }
         };
         activeClass: string;
         heroStats: {
-            name: string,
-            level: number,
-            xp: number,
-            prestige: number,
-            games: number,
-            kills: number,
-            deaths: number,
-            KDRatio: number,
-            wins: number,
-            losses: number,
-            WLRatio: number
+            name: string, level: number, xp: number, prestige: number, games: number, kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number
         }[];
     }
+    class SkyblockNews {
+      constructor(data: Record<string, unknown>);
+        title: string;
+        link: string;
+        date: string;
+    }
     class TNTGames {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         winstreak: number;
         wins: number;
         tntrun: {
-            wins: number,
-            deaths: number,
-            record: number
+            wins: number, deaths: number, record: number
         };
         pvprun: {
-            kills: number,
-            wins: number,
-            deaths: number,
-            KDRatio: number,
-            record: number
+            kills: number, wins: number, deaths: number, KDRatio: number, record: number
         };
         tnttag: {
-            kills: number,
-            wins: number,
-            speed: number
+            kills: number, wins: number, speed: number
         };
         bowspleef: {
-            wins: number,
-            tags: number,
-            deaths: number
+            wins: number, tags: number, deaths: number
         };
         wizards: {
-            points: number,
-            class: string,
-            kills: number,
-            assists: number,
-            wins: number,
-            deaths: number,
-            KDRatio: number
+            points: number, class: string, kills: number, assists: number, wins: number, deaths: number, KDRatio: number
         };
     }
     class Status {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         online: boolean;
         game?: Game;
         mode?: string;
         map?: string;
     }
     class Guild {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         id: string;
         name: string;
         description: string;
@@ -503,9 +442,7 @@ declare module 'hypixel-api-reborn' {
         legacyRank: number;
         dailyExperience: { day: string, exp: number }[];
         achievements: {
-            winners: number,
-            experienceKings: number,
-            onlinePlayers: number
+            winners: number, experienceKings: number, onlinePlayers: number
         };
         chatMuteUntilTimestamp: number;
         chatMuteUntil: Date;
@@ -519,7 +456,7 @@ declare module 'hypixel-api-reborn' {
         getMemberUUIDMap(): Map<string, GuildMember>;
     }
     class BaseAuction {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         auctionId: string;
         auctioneerUuid: string;
         auctioneerProfile: string;
@@ -527,7 +464,7 @@ declare module 'hypixel-api-reborn' {
         itemBytes: ItemBytes | null;
     }
     class Auction extends BaseAuction {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coop: string[] | [];
         auctionStartTimestamp: number;
         auctionEndTimestamp: number;
@@ -544,12 +481,12 @@ declare module 'hypixel-api-reborn' {
         claimedBidders: string[];
     }
     class PartialAuction extends BaseAuction {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         buyer: string;
         price: number;
     }
     class AuctionInfo {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         age: number;
         lastUpdatedAt: Date;
         lastUpdated: number;
@@ -559,7 +496,7 @@ declare module 'hypixel-api-reborn' {
         failedPages: number[];
     }
     class Bid {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         auctionId: string;
         profileId: string;
         amount: number;
@@ -568,7 +505,7 @@ declare module 'hypixel-api-reborn' {
         bidder: string;
     }
     class Product {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         productId: string;
         sellSummary: Order[];
         buySummary: Order[];
@@ -584,14 +521,14 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class Order {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         amount: number;
         pricePerUnit: number;
         totalPrice: number;
         orders: number;
     }
     class WatchdogStats {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         byWatchdogTotal: number;
         byWatchdogLastMinute: number;
         byWatchdogRollingDay: number;
@@ -599,7 +536,7 @@ declare module 'hypixel-api-reborn' {
         byStaffRollingDay: number;
     }
     class GuildMember {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         uuid: string;
         joinedAtTimestamp: number;
         joinedAt: Date;
@@ -611,7 +548,7 @@ declare module 'hypixel-api-reborn' {
         expHistory: { day: string, exp: number }[];
     }
     class GuildRank {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         name: string;
         default: boolean;
         tag: string | null;
@@ -620,14 +557,14 @@ declare module 'hypixel-api-reborn' {
         priority: number;
     }
     class Friend {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         sender: string;
         receiver: string;
         friendSinceTimestamp: number;
         friendSince: Date;
     }
     class Booster {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         purchaser: string;
         amount: number;
         originalLength: number;
@@ -637,14 +574,14 @@ declare module 'hypixel-api-reborn' {
         game?: Game;
     }
     class SkyblockProfile {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         profileId: string;
         profileName: string;
         members: SkyblockMember[];
         me: SkyblockMember;
     }
     class SkyblockMember {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         uuid: string;
         player?: Player;
         profileName: string;
@@ -818,6 +755,7 @@ declare module 'hypixel-api-reborn' {
                 }
             }
         };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         collections: any;
         stats: {
             purse: number,
@@ -841,25 +779,25 @@ declare module 'hypixel-api-reborn' {
       toCode(): string;
     }
     class InventoryItem {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         itemId: number;
         count: number;
         name: string;
         lore: string;
         loreArray: string[];
         loreForEmbed: string;
-        enchantments: object;
+        enchantments: Record<string, unknown>;
         anvilUses: number;
         damage: number;
     }
     class Game {
       constructor(game: string | number);
       toString(): GAME_NAME;
-      code: GAME_CODE;
-      id: GAME_ID;
+        code: GAME_CODE;
+        id: GAME_ID;
     }
     class SkyWars {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         souls: number;
         tokens: number;
@@ -986,7 +924,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class CopsAndCrims {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -1008,7 +946,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class BedWars {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         level: number;
         prestige: BEDWARS_PRESTIGE;
@@ -1156,7 +1094,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class UHC {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         score: number;
         kills: number;
@@ -1208,7 +1146,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class SpeedUHC {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -1220,7 +1158,7 @@ declare module 'hypixel-api-reborn' {
         winstreak: number;
     }
     class MurderMystery {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         coins: number;
         playedGames: number;
         kills: number;
@@ -1490,7 +1428,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class BuildBattle {
-      constructor(data: object);
+      constructor(data: Record<string, unknown>);
         score: number;
         playedGames: number;
         coins: number;
@@ -1504,7 +1442,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class RecentGame extends Game {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         dateTimestamp?: number;
         date?: Date;
         mode?: string;
@@ -1513,7 +1451,7 @@ declare module 'hypixel-api-reborn' {
         endedTimestamp?: number;
     }
     class MegaWalls {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         selectedClass: string;
         coins: number;
         kills: number;
@@ -1551,14 +1489,14 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class APIStatus {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         sourceUrl: string;
         title: string;
         description: string;
         incidents: APIIncident[];
     }
     class APIIncident {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         link: string;
         start: Date;
         startFormatted: string;
@@ -1571,12 +1509,13 @@ declare module 'hypixel-api-reborn' {
         categories: string[];
     }
     class ItemBytes {
-      constructor(data: object)
+      constructor(data: Record<string, unknown>)
         bytesBuffer: Buffer;
         base64(): string;
         /**
          * @description Reads the bytes as a NBT tag
          */
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         readNBT(): Promise<any[]>;
     }
 }
