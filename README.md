@@ -20,9 +20,8 @@
 
 #### Requirements
 
-**For Node.js users >= v14.x.x**
+**For Node.js users >= v14.x.x** <br>
 **For TypeScript users  >= v3.5**
-
 
 ### Installation & Usage
 ```js
