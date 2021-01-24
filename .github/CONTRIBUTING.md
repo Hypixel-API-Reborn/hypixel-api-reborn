@@ -4,4 +4,4 @@ If you want to contribute to hypixel-api-reborn, feel free to fork the repositor
 1. Fork the repository.
 2. Run `npm ci`.
 3. Code your idea.
-4. Run `npm test` to run ESlint.
+4. Run `npm test:lint` to run ESlint.
