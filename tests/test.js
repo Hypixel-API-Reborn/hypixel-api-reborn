@@ -198,7 +198,8 @@ describe('Client#getSkyblockNews', async () => {
     for (const record of news) {
       expect(record.title).to.be.a('string');
       expect(record.link).to.be.a('string');
-      expect(record.date).to.be.a('string');
+      expect(record.date).instanceOf(Date);
+      expect(record.rawDate).to.be.a('string');
     }
   });
 });
