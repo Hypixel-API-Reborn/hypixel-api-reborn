@@ -85,15 +85,16 @@ class Player {
      * @type {Game|null}
      */
     this.recentlyPlayedGame = data.mostRecentGameType ? new Game(data.mostRecentGameType) : null;
-    if (this.rank === 'MVP+' || this.rank === 'MVP++') {
-      /**
-       * Player's plus color (must be a MVP+ rank)
-       * @type {Color|null}
-       */
-      this.plusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
-    } else {
-      this.plusColor = null;
-    }
+    /**
+     * Player's plus color (must be a MVP+ rank)
+     * @type {Color|null}
+     */
+    this.plusColor = this.rank === 'MVP+' || this.rank === 'MVP++' ? (data.rankPlusColor ? new Color(data.rankPlusColor) : null) : null;
+    /**
+     * MVP++ prefix color
+     * @type {Color|null}
+     */
+    this.prefixColor = this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
     /**
      * Player's guild. Guild option must be `true`
      * @type {Guild}
