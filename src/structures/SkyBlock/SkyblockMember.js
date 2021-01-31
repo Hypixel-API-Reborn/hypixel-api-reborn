@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
-const InventoryItem = require('./SkyblockInventoryItem');
+const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const objectPath = require('object-path');
 /**
  * Skyblock member class
@@ -65,10 +65,10 @@ class SkyblockMember {
       const base64 = data.m.inv_armor;
       const decoded = await decode(base64.data);
       const armor = {
-        helmet: decoded[3].id ? new InventoryItem(decoded[3]) : null,
-        chestplate: decoded[2].id ? new InventoryItem(decoded[2]) : null,
-        leggings: decoded[1].id ? new InventoryItem(decoded[1]) : null,
-        boots: decoded[0].id ? new InventoryItem(decoded[0]) : null
+        helmet: decoded[3].id ? new SkyblockInventoryItem(decoded[3]) : null,
+        chestplate: decoded[2].id ? new SkyblockInventoryItem(decoded[2]) : null,
+        leggings: decoded[1].id ? new SkyblockInventoryItem(decoded[1]) : null,
+        boots: decoded[0].id ? new SkyblockInventoryItem(decoded[0]) : null
       };
       return armor;
     };
@@ -99,7 +99,7 @@ class SkyblockMember {
     this.collections = data.m.collection ? data.m.collection : null;
     /**
      * Skyblock member enderchest
-     * @return {Promise<InventoryItem[]|null>}
+     * @return {Promise<SkyblockInventoryItem[]|null>}
      */
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
@@ -113,7 +113,7 @@ class SkyblockMember {
           if (!enderChest[i].id) {
             continue;
           }
-          edited.push(new InventoryItem(enderChest[i]));
+          edited.push(new SkyblockInventoryItem(enderChest[i]));
         }
         return edited;
       } catch (e) {
@@ -122,7 +122,7 @@ class SkyblockMember {
     };
     /**
      * Skyblock member inventory
-     * @return {Promise<InventoryItem[]|null>}
+     * @return {Promise<SkyblockInventoryItem[]|null>}
      */
     this.getInventory = async () => {
       let inventory = data.m.inv_contents;
@@ -135,7 +135,7 @@ class SkyblockMember {
           if (!inventory[i].id) {
             continue;
           }
-          edited.push(new InventoryItem(inventory[i]));
+          edited.push(new SkyblockInventoryItem(inventory[i]));
         }
         return edited;
       } catch (e) {
@@ -220,10 +220,10 @@ function getDungeons (data) {
 }
 /**
  * @typedef {object} SkyblockMemberArmor Equipped armor
- * @property {InventoryItem|null} helmet Helmet
- * @property {InventoryItem|null} chestplate Chestplate
- * @property {InventoryItem|null} leggings Leggings
- * @property {InventoryItem|null} boots Boots
+ * @property {SkyblockInventoryItem|null} helmet Helmet
+ * @property {SkyblockInventoryItem|null} chestplate Chestplate
+ * @property {SkyblockInventoryItem|null} leggings Leggings
+ * @property {SkyblockInventoryItem|null} boots Boots
  */
 /**
  * @typedef {object} SkyblockMemberSkills

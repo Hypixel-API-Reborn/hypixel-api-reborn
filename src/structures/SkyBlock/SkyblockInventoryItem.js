@@ -1,7 +1,7 @@
 /**
  * Item class
  */
-class Item {
+class SkyblockInventoryItem {
   /**
    * @param {object} data Item data
    */
@@ -54,4 +54,4 @@ class Item {
   }
 }
 
-module.exports = Item;
+module.exports = SkyblockInventoryItem;

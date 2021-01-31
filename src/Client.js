@@ -11,7 +11,6 @@ class Client {
   /**
    * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
    * @param {ClientOptions} options Client options
-   * @param {Map<string,data>} cache Returns all cache entries
    */
   constructor (key, options = {}) {
     this.key = validate.validateKey(key);
@@ -23,6 +22,10 @@ class Client {
       return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : {}) }), ...this }, arguments);
     });
     rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
+    /**
+     * All cache entries
+     * @type {Map<string,object>}
+     */
     this.cache = requests.cache;
   }
 
@@ -195,6 +198,7 @@ class Client {
    * Allows you to get recent games of a player
    * @method
    * @name Client#getRecentGames
+   * @param {string} query Player nickname or UUID
    * @param {MethodOptions} [options={}] Method options
    * @return {Promise<RecentGame[]>}
    * @example

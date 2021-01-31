@@ -4,23 +4,28 @@ const SkyblockMember = require('./SkyblockMember');
  */
 class SkyblockProfile {
   /**
-   * @param {object} data Skyblock profile data
+   * Skyblock profile data
+   * @param {object} data
    */
   constructor (data) {
     /**
-     * @type {string} Skyblock profile ID
+     * Skyblock profile ID
+     * @type {string}
      */
     this.profileId = data.profile_id;
     /**
-     * @type {string} Skyblock profile name
+     * Skyblock profile name
+     * @type {string}
      */
     this.profileName = data.profile_name;
     /**
-     * @type {SkyblockMember[]} Skyblock profile members
+     * Skyblock profile members
+     * @type {SkyblockMember[]}
      */
     this.members = edit(data.members, this.profileName).map((m) => new SkyblockMember(m));
     /**
-     * @type {SkyblockMember} Queried player's member stats
+     * Queried player's member stats
+     * @type {SkyblockMember}
      */
     this.me = this.members.find((x) => x.uuid === data.me);
   }

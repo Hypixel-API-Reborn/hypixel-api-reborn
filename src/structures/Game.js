@@ -27,11 +27,11 @@ const games = [
   { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 },
   { name: 'The Pit', code: 'PIT', id: 64 },
   { name: 'Replay', code: 'REPLAY', id: -1 },
-  { name: 'Limbo', code: 'LIMBO', id: -1 },
-  { name: 'Queue', code: 'QUEUE', id: -1 },
-  { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -1 },
-  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -1 },
-  { name: 'Idle', code: 'IDLE', id: -1 }
+  { name: 'Limbo', code: 'LIMBO', id: -2 },
+  { name: 'Queue', code: 'QUEUE', id: -3 },
+  { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },
+  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5 },
+  { name: 'Idle', code: 'IDLE', id: -6 }
 ];
 /**
  * Game class
@@ -44,8 +44,8 @@ class Game {
    */
   constructor (game) {
     this.game = game;
-    this.id = isNaN(this.game) ? (games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).id : 'Not found') : this.game;
-    this.code = !isNaN(this.game) ? (games.find((g) => g.id === this.game) ? games.find((g) => g.id === this.game).id : 'Not found') : this.game;
+    this.id = (games.find((g) => g.code === this.game || g.id === this.game).id ? games.find((g) => g.code === this.game || g.id === this.game).id : 'Not found');
+    this.code = (games.find((g) => g.code === this.game || g.id === this.game).code ? games.find((g) => g.code === this.game || g.id === this.game).code : 'Not found');
   }
 
   /**
