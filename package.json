@@ -23,7 +23,7 @@
     "test:dev": "nodenv --exec mocha tests -- --exit",
     "docgen": "docgen -s src -o master.json",
     "docgen:custom": "docgen -s src --custom docs/index.yml -o master.json",
-    "prepublishOnly": "npm run test && npm run docgen",
+    "prepublishOnly": "npm run test:dev && npm run docgen",
     "dtslint": "dtslint typings"
   },
   "engines": {
