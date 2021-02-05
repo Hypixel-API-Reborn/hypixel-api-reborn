@@ -284,7 +284,18 @@ class Client {
    * })
    * .catch(console.log)
    */
-
+  /**
+   * Allows you to get player count along with the player count of each public game
+   * @method
+   * @name Client#getGameCounts
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<GameCounts>}
+   * @example
+   * hypixel.getGameCounts().then((gameCounts) => {
+   *   console.log(gameCounts.mainLobby.players);
+   * })
+   * .catch(console.log)
+   */
   /**
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete

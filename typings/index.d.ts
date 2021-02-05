@@ -228,6 +228,9 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get list of products
          */
         getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+        /**
+         * @description Allows you to get skyblock news
+         */
         getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
         /**
          * @description Allows you to get player's network status
@@ -250,6 +253,10 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get recent games of a player
          */
         getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        /**
+         * @description Allows you to get player count along with the player count of each public game
+         */
+        getGameCounts(options?: methodOptions): Promise<GameCounts>;
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default

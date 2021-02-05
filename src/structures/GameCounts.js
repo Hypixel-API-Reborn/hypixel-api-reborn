@@ -9,10 +9,6 @@ class GameCounts {
    */
   constructor (data) {
     /**
-     * Current player count
-     * @type {number}
-     */
-    /**
      * Player count in Main lobby
      * @name GameCounts#mainLobby
      * @type {object}
@@ -131,6 +127,10 @@ class GameCounts {
      * Player count in Queue
      * @name GameCounts#queue
      * @type {object}
+     */
+    /**
+     * Current player count
+     * @type {number}
      */
     this.playerCount = data.playerCount;
     for (const game in data.games) {
