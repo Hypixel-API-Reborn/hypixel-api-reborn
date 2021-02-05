@@ -34,7 +34,7 @@
     "node-fetch": "^2.6.1",
     "object-path": "^0.11.5",
     "prismarine-nbt": "^1.4.0",
-    "rss-parser": "^3.10.0"
+    "rss-parser": "^3.10.0",
   },
   "license": "MIT",
   "readme": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/blob/master/README.md",
