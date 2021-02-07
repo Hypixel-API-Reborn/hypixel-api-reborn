@@ -63,7 +63,7 @@ class APIIncident {
      * @type {boolean}
      * @version >6.0.1
      */
-    this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -')
+    this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -');
   }
 }
 
