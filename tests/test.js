@@ -203,3 +203,9 @@ describe('Client#getSkyblockNews', async () => {
     }
   });
 });
+describe('Client#getOnline', () => {
+  it('should be a number', async () => {
+    const online = await client.getOnline();
+    expect(online).to.be.an('number');
+  });
+});
