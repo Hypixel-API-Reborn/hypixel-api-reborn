@@ -9,6 +9,8 @@ on:
     - '**.js'
     branches: [ master ]
   pull_request:
+    paths:
+    - '**.js'
     branches: [ master ]
 
 jobs:
