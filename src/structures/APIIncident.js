@@ -57,6 +57,13 @@ class APIIncident {
      * @type {string[]}
      */
     this.categories = data.categories || [];
+    /**
+     * Whether the incident is resolved/completed or not
+     * @author linearaccelerator
+     * @type {boolean}
+     * @version >6.0.1
+     */
+    this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -');
   }
 }
 

@@ -1570,6 +1570,7 @@ declare module 'hypixel-api-reborn' {
         snippet: string;
         guid: string;
         categories: string[];
+        isResolved: boolean;
     }
     class ItemBytes {
       constructor(data: Record<string, unknown>)
