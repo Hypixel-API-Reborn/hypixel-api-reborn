@@ -35,7 +35,7 @@ class Item {
      * Item lore for embed
      * @type {string}
      */
-    this.loreForEmbed = this.lore.replace(/§([1-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
+    this.loreForEmbed = this.lore.replace(/§([0-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
     /**
      * Item enchantments
      * @type {object}
@@ -51,6 +51,13 @@ class Item {
      * @type {number}
      */
     this.damage = data.Damage || 0;
+  }
+  /**
+   * Item Name
+   * @return {string}
+   */
+  toString() {
+    return this.name;
   }
 }
 

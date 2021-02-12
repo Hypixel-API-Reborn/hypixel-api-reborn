@@ -37,5 +37,12 @@ class Bid {
      */
     this.bidder = data.bidder || null;
   }
+  /**
+   * Bidder Name - Bid Amount
+   * @return {string}
+   */
+  toString() {
+    return `${this.bidder} bid ${this.amount} coins`;
+  }
 }
 module.exports = Bid;

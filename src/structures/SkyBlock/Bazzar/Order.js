@@ -27,5 +27,12 @@ class Order {
      */
     this.orders = data.orders || 0;
   }
+  /**
+   * Price as string
+   * @return {string}
+   */
+  toString() {
+    return this.totalPrice;
+  }
 }
 module.exports = Order;

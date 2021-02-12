@@ -58,6 +58,13 @@ class APIIncident {
      */
     this.categories = data.categories || [];
   }
+  /**
+   * Text Content
+   * @return {string}
+   */
+  toString() {
+    return this.TextContent;
+  }
 }
 
 module.exports = APIIncident;

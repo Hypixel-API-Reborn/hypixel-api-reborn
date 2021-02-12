@@ -30,5 +30,12 @@ class Status {
      */
     this.map = data.map ? data.map : null;
   }
+  /**
+   * Online Status
+   * @return {string}
+   */
+  toString() {
+    return this.online ? 'Online' : 'Offline';
+  }
 }
 module.exports = Status;

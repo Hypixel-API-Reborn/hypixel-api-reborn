@@ -15,6 +15,7 @@ const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
+const PlayerCosmetics = require('./PlayerCosmetics');
 const { recursive } = require('../utils/removeSnakeCase');
 /**
  * Player class
@@ -181,6 +182,52 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null)
     } : null);
+    /**
+     * User's current language
+     * @type {string}
+     * @default ENGLISH Default to english
+     */
+    this.userLanguage = data.userLanguage || 'ENGLISH';
+    /**
+     * Raw Response from API.
+     * @type {object}
+     */
+    this.raw = data;
+  }
+  /**
+   * Player Name ( at least last known to hypixel )
+   * @return {string}
+   */
+  toString() {
+    return this.nickname;
+  }
+  /**
+   * Parse more info from the raw data
+   * @returns {Player}
+   */
+  parseExtraInfo() {
+    // This is created because the API has A LOT OF THINGS that aren't handled above, but still might interest people
+    /**
+     * Claimed Leveling Rewards
+     * @type {number[]}
+     */
+    this.claimedLevelingRewards = parseClaimedRewards(this.raw) || [];
+    /**
+     * Global Cosmetics a player owns
+     * @type {PlayerCosmetics}
+     */
+    this.globalCosmetics = new PlayerCosmetics(this.raw) || null;
+    /**
+     * Time at which the ranks were purchased. Can be all null if bought a long time ago, and some values can be null if player bought directly a rank above that
+     * @type {RanksPurchaseTime}
+     */
+    this.ranksPurchaseTime = {
+      'VIP': this.raw.levelUp_VIP ? new Date(this.raw.levelUp_VIP) : null,
+      'VIP_PLUS': this.raw.levelUp_VIP_PLUS ? new Date(this.raw.levelUp_VIP_PLUS) : null,
+      'MVP': this.raw.levelUp_MVP ? new Date(this.raw.levelUp_MVP) : null,
+      'MVP_PLUS': this.raw.levelUp_MVP_PLUS ? new Date(this.raw.levelUp_MVP_PLUS) : null
+    };
+    return this;
   }
 }
 
@@ -257,6 +304,15 @@ function getSocialMedia (data) {
   return Object.keys(links).map((x) => upperNames.indexOf(x)).filter((x) => x !== -1).map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 /**
+ *
+ * @param {object} data
+ * @returns {number[]}
+ */
+function parseClaimedRewards(data) {
+  if (!data) return null;
+  return Object.keys(data).map((x)=>x.match(/levelingReward_(\d+)/)).filter((x)=>x).map((x)=>parseInt(x[1]));
+}
+/**
  * @typedef {string} PlayerRank
  * * `Default`
  * * `VIP`
@@ -295,5 +351,13 @@ function getSocialMedia (data) {
  * @property {VampireZ|null} vampirez VampireZ
  * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
  * @property {ArenaBrawl|null} arena Arena Brawl
+ */
+/**
+ * @typedef {Object} RanksPurchaseTime
+ * Time at which ranks were purchased. Beware, even if a player has MVP+(+), every value here *could* be null
+ * @property {Date|null} VIP VIP rank
+ * @property {Date|null} VIP_PLUS VIP+ rank
+ * @property {Date|null} MVP MVP rank
+ * @property {Date|null} MVP_PLUS MVP+ rank
  */
 module.exports = Player;

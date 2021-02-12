@@ -28,6 +28,13 @@ class SkyblockNews {
      */
     this.date = parseDate(data.text);
   }
+  /**
+   * News title
+   * @return {string}
+   */
+  toString() {
+    return this.title;
+  }
 }
 /**
  * Parses a string date

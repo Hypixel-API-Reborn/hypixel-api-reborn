@@ -28,6 +28,13 @@ class APIStatus {
      */
     this.incidents = data.items.map((x) => new APIIncident(x));
   }
+  /**
+   * Status Title
+   * @return {string}
+   */
+  toString() {
+    return this.title;
+  }
 }
 
 module.exports = APIStatus;

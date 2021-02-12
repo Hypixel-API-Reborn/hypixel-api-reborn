@@ -24,6 +24,13 @@ class SkyblockProfile {
      */
     this.me = this.members.find((x) => x.uuid === data.me);
   }
+  /**
+   * Profile Name
+   * @return {string}
+   */
+  toString() {
+    return this.profileName;
+  }
 }
 
 /**

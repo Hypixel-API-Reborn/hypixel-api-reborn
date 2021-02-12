@@ -43,5 +43,12 @@ class AuctionInfo {
     this[name] = value;
     return this;
   }
+  /**
+   * Current Page / Total Page
+   * @return {string}
+   */
+  toString() {
+    return `${this.page} / ${this.totalPages}`;
+  }
 }
 module.exports = AuctionInfo;

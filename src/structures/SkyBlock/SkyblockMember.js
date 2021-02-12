@@ -160,6 +160,13 @@ class SkyblockMember {
       giftsReceived: data.m.stats.gifts_received || 0
     } : null);
   }
+  /**
+   * Profile Name
+   * @return {string}
+   */
+  toString() {
+    return this.profileName;
+  }
 }
 /**
  * @param {object} data

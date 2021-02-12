@@ -81,6 +81,13 @@ class Auction extends BaseAuction {
      */
     this.claimedBidders = this.claimed ? data.claimed_bidders : [];
   }
+  /**
+   * Item Name
+   * @return {string}
+   */
+  toString() {
+    return this.item;
+  }
 }
 /**
  * @typedef {string} Rarity

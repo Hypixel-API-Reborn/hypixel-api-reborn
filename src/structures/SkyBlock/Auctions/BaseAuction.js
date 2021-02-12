@@ -34,5 +34,12 @@ class BaseAuction {
      */
     this.itemBytes = includeItemBytes ? (new ItemBytes(data.item_bytes) || null) : null;
   }
+  /**
+   * Auction ID
+   * @return {string}
+   */
+  toString() {
+    return this.auctionId;
+  }
 }
 module.exports = BaseAuction;

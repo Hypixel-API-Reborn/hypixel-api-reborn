@@ -149,6 +149,13 @@ class Guild {
      */
     this.preferredGames = data.preferredGames ? data.preferredGames.map((g) => new Game(g)) : [];
   }
+  /**
+   * Guild name
+   * @return {string}
+   */
+  toString() {
+    return this.name;
+  }
 }
 /**
  * @param {object} data
