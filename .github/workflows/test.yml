@@ -8,8 +8,10 @@ on:
     paths:
     - '**.js'
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  # pull_request:
+  #   paths:
+  #   - '**.js'
+  #   branches: [ master ]
 
 jobs:
   build:

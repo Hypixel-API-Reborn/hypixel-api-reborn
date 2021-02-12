@@ -228,6 +228,9 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get list of products
          */
         getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+        /**
+         * @description Allows you to get skyblock news
+         */
         getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
         /**
          * @description Allows you to get player's network status
@@ -250,6 +253,10 @@ declare module 'hypixel-api-reborn' {
          * @description Allows you to get recent games of a player
          */
         getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        /**
+         * @description Allows you to get player count along with the player count of each public game
+         */
+        getGameCounts(options?: methodOptions): Promise<GameCounts>;
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default
@@ -280,6 +287,7 @@ declare module 'hypixel-api-reborn' {
         firstLogin: Date;
         recentlyPlayedGame: Game;
         plusColor?: Color;
+        prefixColor?: Color;
         karma: number;
         achievements: Record<string, unknown>;
         achievementPoints: number;
@@ -314,6 +322,60 @@ declare module 'hypixel-api-reborn' {
         title: string;
         playerCount: number;
         leaders: string[];
+    }
+    /**
+     * @description Typings might be different. Hypixel: Due to the large amount of modes and that they can change at anytime we don't currently have a friendly list of mode keys to clean names. This may be added at a later date.
+     */
+    class GameCounts {
+      constructor(data: Record<string, unknown>);
+        playerCount: number;
+        mainLobby: { players: number };
+        tournamentLobby: { players: number };
+        megaWalls: { players: number, modes: { standard: number, faceOff: number } };
+        classicGames: { players: number, modes: { paintball: number, walls: number, quakecraft: number, gingerbread: number, arena: number, vampirez: number } };
+        thePit: { players: number, modes: { pit: number } };
+        blitzSurvivalGames: { players: number, modes: { soloNormal: number, teamsNormal: number } };
+        duels: {
+            players: number, modes: { duelsBowspleefDuel: number, duelsBowDuel: number, duelsBridge_2v2v2v2: number, duelsMwDuel: number, duelsUhcFour: number, duelsUhcMeetup: number, duelsBridgeDoubles: number, duelsSwDoubles: number, duelsUhcDoubles: number, duelsBridgeFour: number, duelsBridge_3v3v3v3: number, duelsSumoDuel: number, duelsUhcDuel: number, duelsOpDoubles: number, duelsOpDuel: number, duelsMwDoubles: number, duelsBlitzDuel: number, duelsPotionDuel: number, duelsClassicDuel: number, duelsComboDuel: number, duelsBridgeDuel: number, duelsSwDuel: number }
+        };
+        uhcChampions: { players: number, modes: { teams: number, solo: number } };
+        speedUhc: { players: number, modes: { soloNormal: number } };
+        theTntGames: {
+            players: number, modes: { pvprun: number, tntag: number, tntrun: number, bowspleef: number, capture: number }
+        };
+        prototype: {
+            players: number, modes: { towerwarsSolo: number, towerwarsTeamOfTwo: number }
+        };
+        smashHeroes: {
+            players: number, modes: { '1v1Normal': number, friendsNormal: number, soloNormal: number, '2v2Normal': number, teamsNormal: number }
+        };
+        bedwars: {
+            players: number, modes: { bedwarsTwoFour: number, bedwarsFourFourRush: number, bedwarsEightOne: number, bedwarsEightTwoRush: number, bedwarsEightTwoVoidless: number, bedwarsEightTwoArmed: number, bedwarsEightTwo: number, bedwarsFourFour: number, bedwarsEightTwoLucky: number, bedwarsFourThree: number, bedwarsFourFourVoidless: number, bedwarsFourFourLucky: number, bedwarsEightTwoUltimate: number }
+        };
+        buildBattle: {
+            players: number, modes: { buildBattleSoloNormalLatest: number, buildBattleGuessTheBuild: number, buildBattleTeamsNormal: number, buildBattleSoloPro: number, buildBattleSoloNormal: number }
+        };
+        housing: { players: number };
+        skywars: {
+            players: number, modes: { soloInsaneLucky: number, soloInsaneSlime: number, teamsInsaneSlime: number, teamsInsaneRush: number, teamsInsane: number, soloNormal: number, soloInsaneHuntersVsBeasts: number, rankedNormal: number, soloInsaneTntMadness: number, soloInsaneRush: number, soloInsane: number, teamsNormal: number, megaNormal: number }
+        };
+        replay: { players: number, modes: { base: number } };
+        skyblock: {
+            players: number, modes: { dungeonHub: number, mining_2: number, farming_2: number, farming_1: number, mining_3: number, combat_3: number, dynamic: number, combat_1: number, foraging_1: number, hub: number, dungeon: number, combat_2: number, mining_1: number }
+        };
+        copsAndCrims: { players: number, modes: { normal: number, deathmatch: number } };
+        murderMystery: {
+            players: number, modes: { murderDoubleUp: number, murderInfection: number, murderAssassins: number, murderClassic: number }
+        };
+        arcade: {
+            players: number, modes: { party: number, holeInTheWall: number, defender: number, miniWalls: number, simonSays: number, zombiesBadBlood: number, hideAndSeekPartyPooper: number, dayone: number, drawTheirThing: number, zombiesAlienArcadium: number, oneinthequiver: number, soccer: number, pvpCtw: number, ender: number, throwOut: number, starwars: number, dragonwars2: number, zombiesDeadEnd: number, farmHunt: number, hideAndSeekPropHunt: number }
+        };
+        warlords: {
+            players: number, modes: { ctfMini: number, domination: number, teamDeathmatch: number }
+        };
+        limbo: { players: number };
+        idle: { players: number };
+        queue: { players: number };
     }
     class KeyInfo {
       constructor(data: Record<string, unknown>);
@@ -398,6 +460,7 @@ declare module 'hypixel-api-reborn' {
         link: string;
         rawDate: string;
         date: Date;
+        version: string | null;
     }
     class TNTGames {
       constructor(data: Record<string, unknown>);
@@ -1495,6 +1558,7 @@ declare module 'hypixel-api-reborn' {
         title: string;
         description: string;
         incidents: APIIncident[];
+        currentIncidents: APIIncident[];
     }
     class APIIncident {
       constructor(data: Record<string, unknown>)
@@ -1508,6 +1572,7 @@ declare module 'hypixel-api-reborn' {
         snippet: string;
         guid: string;
         categories: string[];
+        isResolved: boolean;
     }
     class ItemBytes {
       constructor(data: Record<string, unknown>)

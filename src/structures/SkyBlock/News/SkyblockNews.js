@@ -1,4 +1,5 @@
 const dateRegExp = /(\d{1,2})(?:st|nd|rd|th|) ([A-z]+) (\d+)/;
+const versionRegExp = /v\d+(.\d+){1,}/;
 /**
  * SkyblockNews
  */
@@ -27,6 +28,13 @@ class SkyblockNews {
      * @type {Date}
      */
     this.date = parseDate(data.text);
+    /**
+     * The version from the title (Skyblock v0.12.57673856757.327.2 => v0.12.57673856757.327.2)
+     * @author linearaccelerator
+     * @type {string | null}
+     * @version >6.0.1
+     */
+    this.version = parseVer(this.title);
   }
   /**
    * News title
@@ -45,5 +53,16 @@ function parseDate(stringDate) {
   const matched = stringDate.match(dateRegExp);
   if (!matched) return null;
   return new Date(matched.slice(1).join(' ')); // Ok this is lazy, but should work
+}
+
+/**
+ * Parses the version from a string
+ * @param {string} stringVer
+ * @returns {string | null}
+ */
+function parseVer(stringVer) {
+  const matched = stringVer.match(versionRegExp)[0];
+  if (!matched) return null; // this shouldn't really happen
+  return matched;
 }
 module.exports = SkyblockNews;
