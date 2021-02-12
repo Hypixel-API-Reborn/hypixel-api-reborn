@@ -33,7 +33,7 @@ class APIStatus {
      * @type {APIIncident[]}
      * @version >6.0.1
      */
-    this.currentIncidents = this.incidents.filter(i => !i.isResolved);
+    this.currentIncidents = this.incidents.filter((i) => !i.isResolved);
   }
 }
 
