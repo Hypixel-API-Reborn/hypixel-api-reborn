@@ -27,6 +27,13 @@ class APIStatus {
      * @type {APIIncident[]}
      */
     this.incidents = data.items.map((x) => new APIIncident(x));
+    /**
+     * All incidents that aren't completed/resolved
+     * @author linearaccelerator
+     * @type {APIIncident[]}
+     * @version >6.0.1
+     */
+    this.currentIncidents = this.incidents.filter(i => !i.isResolved);
   }
 }
 
