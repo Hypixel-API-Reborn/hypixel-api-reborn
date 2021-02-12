@@ -1558,6 +1558,7 @@ declare module 'hypixel-api-reborn' {
         title: string;
         description: string;
         incidents: APIIncident[];
+        currentIncidents: APIIncident[];
     }
     class APIIncident {
       constructor(data: Record<string, unknown>)
