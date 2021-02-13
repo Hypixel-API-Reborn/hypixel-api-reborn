@@ -190,10 +190,25 @@ class Player {
      */
     this.userLanguage = data.userLanguage || 'ENGLISH';
     /**
-     * Raw Response from API.
-     * @type {object}
+     * Claimed Leveling Rewards
+     * @type {number[]}
      */
-    this.raw = data;
+    this.claimedLevelingRewards = parseClaimedRewards(data) || [];
+    /**
+     * Global Cosmetics a player owns
+     * @type {PlayerCosmetics}
+     */
+    this.globalCosmetics = new PlayerCosmetics(data) || null;
+    /**
+     * Time at which the ranks were purchased. Can be all null if bought a long time ago, and some values can be null if player bought directly a rank above that
+     * @type {RanksPurchaseTime}
+     */
+    this.ranksPurchaseTime = {
+      'VIP': data.levelUp_VIP ? new Date(data.levelUp_VIP) : null,
+      'VIP_PLUS': data.levelUp_VIP_PLUS ? new Date(data.levelUp_VIP_PLUS) : null,
+      'MVP': data.levelUp_MVP ? new Date(data.levelUp_MVP) : null,
+      'MVP_PLUS': data.levelUp_MVP_PLUS ? new Date(data.levelUp_MVP_PLUS) : null
+    };
   }
   /**
    * Player Name ( at least last known to hypixel )
@@ -201,34 +216,6 @@ class Player {
    */
   toString () {
     return this.nickname;
-  }
-  /**
-   * Parse more info from the raw data
-   * @return {Player}
-   */
-  parseExtraInfo () {
-    // This is created because the API has A LOT OF THINGS that aren't handled above, but still might interest people
-    /**
-     * Claimed Leveling Rewards
-     * @type {number[]}
-     */
-    this.claimedLevelingRewards = parseClaimedRewards(this.raw) || [];
-    /**
-     * Global Cosmetics a player owns
-     * @type {PlayerCosmetics}
-     */
-    this.globalCosmetics = new PlayerCosmetics(this.raw) || null;
-    /**
-     * Time at which the ranks were purchased. Can be all null if bought a long time ago, and some values can be null if player bought directly a rank above that
-     * @type {RanksPurchaseTime}
-     */
-    this.ranksPurchaseTime = {
-      'VIP': this.raw.levelUp_VIP ? new Date(this.raw.levelUp_VIP) : null,
-      'VIP_PLUS': this.raw.levelUp_VIP_PLUS ? new Date(this.raw.levelUp_VIP_PLUS) : null,
-      'MVP': this.raw.levelUp_MVP ? new Date(this.raw.levelUp_MVP) : null,
-      'MVP_PLUS': this.raw.levelUp_MVP_PLUS ? new Date(this.raw.levelUp_MVP_PLUS) : null
-    };
-    return this;
   }
 }
 

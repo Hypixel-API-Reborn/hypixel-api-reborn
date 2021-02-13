@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild } = require('../src');
+const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
@@ -48,6 +48,29 @@ describe('Client#getPlayer', () => {
     }
     if (player.lastDailyRewardTimestamp) {
       expect(player.lastDailyRewardTimestamp).to.be.a('number');
+    }
+    expect(player.userLanguage).to.be.a('string');
+    if (player.claimedLevelingRewards.length) {
+      expect(player.claimedLevelingRewards).to.be.an('array').that.satisfies(v => {
+        return v.every(i =>  typeof i === 'number');
+      })
+    }
+    if (player.globalCosmetics) {
+      expect(player.globalCosmetics).to.be.instanceOf(PlayerCosmetics);
+    }
+    if (player.ranksPurchaseTime) {
+      if (player.ranksPurchaseTime['VIP']) {
+        expect(player.ranksPurchaseTime['VIP']).to.be.instanceOf(Date);
+      }
+      if (player.ranksPurchaseTime['VIP_PLUS']) {
+        expect(player.ranksPurchaseTime['VIP_PLUS']).to.be.instanceOf(Date);
+      }
+      if (player.ranksPurchaseTime['MVP']) {
+        expect(player.ranksPurchaseTime['MVP']).to.be.instanceOf(Date);
+      }
+      if (player.ranksPurchaseTime['MVP_PLUS']) {
+        expect(player.ranksPurchaseTime['MVP_PLUS']).to.be.instanceOf(Date);
+      }
     }
     if (player.stats) {
       if (player.stats.skywars) {

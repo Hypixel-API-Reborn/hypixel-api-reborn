@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable camelcase */
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
@@ -158,7 +159,7 @@ declare module 'hypixel-api-reborn' {
         toUUID(input: string): Promise<string>
     };
     class Client {
-      constructor(key: string, options?: clientOptions);
+        constructor(key: string, options?: clientOptions);
         /**
          * @description API Key
          */
@@ -273,7 +274,7 @@ declare module 'hypixel-api-reborn' {
         sweepCache(amount?: number): void;
     }
     class Player {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         nickname: string;
         uuid: string;
         history: string[];
@@ -297,6 +298,15 @@ declare module 'hypixel-api-reborn' {
         giftsSent: number;
         giftsReceived: number;
         isOnline: boolean;
+        userLanguage: string;
+        claimedLevelingRewards: number[];
+        globalCosmetics: PlayerCosmetics;
+        ranksPurchaseTime: {
+            'VIP': Date | null,
+            'VIP_PLUS': Date | null,
+            'MVP': Date | null,
+            'MVP_PLUS': Date | null
+        };
         guild?: Guild;
         stats?: {
             skywars?: SkyWars,
@@ -315,9 +325,50 @@ declare module 'hypixel-api-reborn' {
             arena?: ArenaBrawl
         };
         getRecentGames(): Promise<RecentGame[]>;
+        toString(): string;
+    }
+    class PlayerCosmetics {
+        constructor(data: Record<string, unknown>);
+        allCosmetics: string[];
+        petManager: Pets;
+        get suits(): string[];
+        get hats(): string[];
+        get gadgets(): string[];
+        get morphs(): string[];
+        get cloaks(): string[];
+        get taunts(): string[];
+        get rankColors(): string[];
+        get clickEffects(): string[];
+    }
+    class Pets {
+        constructor(pets: string[], data: Record<string, unknown>);
+        pets: Pet[];
+        lastJourneyTimestamp: number | null;
+        lastJourneyAt: Date | null;
+        petConsumables: Record<string, unknown>;
+    }
+    class Pet {
+        constructor(name: string, data: Record<string, unknown>);
+        isFavorite: boolean;
+        name: string;
+        active: boolean;
+        stats?: {
+            hunger: number | null,
+            lastFed: number | null,
+            lastFedAt: Date | null,
+            thirst: number | null,
+            lastDrank: number | null,
+            lastDrankAt: Date | null,
+            exercise: number | null,
+            lastExercised: number | null,
+            lastExercisedAt: Date | null
+        };
+        rawNickname: string | null;
+        nickname: string | null;
+        experience: number;
     }
     class Leaderboard {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         name: string;
         title: string;
         playerCount: number;
@@ -327,7 +378,7 @@ declare module 'hypixel-api-reborn' {
      * @description Typings might be different. Hypixel: Due to the large amount of modes and that they can change at anytime we don't currently have a friendly list of mode keys to clean names. This may be added at a later date.
      */
     class GameCounts {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         playerCount: number;
         mainLobby: { players: number };
         tournamentLobby: { players: number };
@@ -378,7 +429,7 @@ declare module 'hypixel-api-reborn' {
         queue: { players: number };
     }
     class KeyInfo {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         key: string;
         owner: string;
         limitPerMinute: number;
@@ -387,7 +438,7 @@ declare module 'hypixel-api-reborn' {
         resetsAfter: number;
     }
     class ArenaBrawl {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         mode: {
             '1v1': {
@@ -402,7 +453,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class BlitzSurvivalGames {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -414,7 +465,7 @@ declare module 'hypixel-api-reborn' {
         }[];
     }
     class VampireZ {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         human: {
             kills: number, deaths: number, KDRatio: number, wins: number
@@ -427,7 +478,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class SmashHeroes {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         level: number;
         winstreak: number;
@@ -455,7 +506,7 @@ declare module 'hypixel-api-reborn' {
         }[];
     }
     class SkyblockNews {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         title: string;
         link: string;
         rawDate: string;
@@ -463,7 +514,7 @@ declare module 'hypixel-api-reborn' {
         version: string | null;
     }
     class TNTGames {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         winstreak: number;
         wins: number;
@@ -484,14 +535,14 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class Status {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         online: boolean;
         game?: Game;
         mode?: string;
         map?: string;
     }
     class Guild {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         id: string;
         name: string;
         description: string;
@@ -504,7 +555,7 @@ declare module 'hypixel-api-reborn' {
         tag: string;
         tagColor: Color;
         legacyRank: number;
-        dailyExperience: { day: string, exp: number }[];
+        expHistory: { day: string, exp: number }[];
         achievements: {
             winners: number, experienceKings: number, onlinePlayers: number
         };
@@ -520,7 +571,7 @@ declare module 'hypixel-api-reborn' {
         getMemberUUIDMap(): Map<string, GuildMember>;
     }
     class BaseAuction {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         auctionId: string;
         auctioneerUuid: string;
         auctioneerProfile: string;
@@ -528,7 +579,7 @@ declare module 'hypixel-api-reborn' {
         itemBytes: ItemBytes | null;
     }
     class Auction extends BaseAuction {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coop: string[] | [];
         auctionStartTimestamp: number;
         auctionEndTimestamp: number;
@@ -545,12 +596,12 @@ declare module 'hypixel-api-reborn' {
         claimedBidders: string[];
     }
     class PartialAuction extends BaseAuction {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         buyer: string;
         price: number;
     }
     class AuctionInfo {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         age: number;
         lastUpdatedAt: Date;
         lastUpdated: number;
@@ -560,7 +611,7 @@ declare module 'hypixel-api-reborn' {
         failedPages: number[];
     }
     class Bid {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         auctionId: string;
         profileId: string;
         amount: number;
@@ -569,7 +620,7 @@ declare module 'hypixel-api-reborn' {
         bidder: string;
     }
     class Product {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         productId: string;
         sellSummary: Order[];
         buySummary: Order[];
@@ -585,14 +636,14 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class Order {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         amount: number;
         pricePerUnit: number;
         totalPrice: number;
         orders: number;
     }
     class WatchdogStats {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         byWatchdogTotal: number;
         byWatchdogLastMinute: number;
         byWatchdogRollingDay: number;
@@ -600,7 +651,7 @@ declare module 'hypixel-api-reborn' {
         byStaffRollingDay: number;
     }
     class GuildMember {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         uuid: string;
         joinedAtTimestamp: number;
         joinedAt: Date;
@@ -612,7 +663,7 @@ declare module 'hypixel-api-reborn' {
         expHistory: { day: string, exp: number }[];
     }
     class GuildRank {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         name: string;
         default: boolean;
         tag: string | null;
@@ -621,14 +672,14 @@ declare module 'hypixel-api-reborn' {
         priority: number;
     }
     class Friend {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         sender: string;
         receiver: string;
         friendSinceTimestamp: number;
         friendSince: Date;
     }
     class Booster {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         purchaser: string;
         amount: number;
         originalLength: number;
@@ -638,14 +689,14 @@ declare module 'hypixel-api-reborn' {
         game?: Game;
     }
     class SkyblockProfile {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         profileId: string;
         profileName: string;
         members: SkyblockMember[];
         me: SkyblockMember;
     }
     class SkyblockMember {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         uuid: string;
         player?: Player;
         profileName: string;
@@ -836,14 +887,14 @@ declare module 'hypixel-api-reborn' {
         getPetScore(): number;
     }
     class Color {
-      constructor(color: string)
-      toString(): string;
-      toHex(): string;
-      toName(): string;
-      toCode(): string;
+        constructor(color: string)
+        toString(): string;
+        toHex(): string;
+        toName(): string;
+        toCode(): string;
     }
     class InventoryItem {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         itemId: number;
         count: number;
         name: string;
@@ -855,13 +906,13 @@ declare module 'hypixel-api-reborn' {
         damage: number;
     }
     class Game {
-      constructor(game: string | number);
-      toString(): GAME_NAME;
+        constructor(game: string | number);
+        toString(): GAME_NAME;
         code: GAME_CODE;
         id: GAME_ID;
     }
     class SkyWars {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         souls: number;
         tokens: number;
@@ -988,7 +1039,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class CopsAndCrims {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -1010,7 +1061,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class BedWars {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         level: number;
         prestige: BEDWARS_PRESTIGE;
@@ -1158,7 +1209,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class UHC {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         score: number;
         kills: number;
@@ -1210,7 +1261,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class SpeedUHC {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         kills: number;
         deaths: number;
@@ -1222,7 +1273,7 @@ declare module 'hypixel-api-reborn' {
         winstreak: number;
     }
     class MurderMystery {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         coins: number;
         playedGames: number;
         kills: number;
@@ -1492,7 +1543,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class BuildBattle {
-      constructor(data: Record<string, unknown>);
+        constructor(data: Record<string, unknown>);
         score: number;
         playedGames: number;
         coins: number;
@@ -1506,7 +1557,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class RecentGame extends Game {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         dateTimestamp?: number;
         date?: Date;
         mode?: string;
@@ -1515,7 +1566,7 @@ declare module 'hypixel-api-reborn' {
         endedTimestamp?: number;
     }
     class MegaWalls {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         selectedClass: string;
         coins: number;
         kills: number;
@@ -1553,7 +1604,7 @@ declare module 'hypixel-api-reborn' {
         };
     }
     class APIStatus {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         sourceUrl: string;
         title: string;
         description: string;
@@ -1561,7 +1612,7 @@ declare module 'hypixel-api-reborn' {
         currentIncidents: APIIncident[];
     }
     class APIIncident {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         link: string;
         start: Date;
         startFormatted: string;
@@ -1575,7 +1626,7 @@ declare module 'hypixel-api-reborn' {
         isResolved: boolean;
     }
     class ItemBytes {
-      constructor(data: Record<string, unknown>)
+        constructor(data: Record<string, unknown>)
         bytesBuffer: Buffer;
         base64(): string;
         /**
