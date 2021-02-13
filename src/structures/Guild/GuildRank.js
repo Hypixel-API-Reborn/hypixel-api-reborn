@@ -37,5 +37,12 @@ class GuildRank {
     */
     this.priority = data.priority;
   }
+  /**
+   * Rank Name
+   * @return {string}
+   */
+  toString() {
+    return this.name;
+  }
 }
 module.exports = GuildRank;

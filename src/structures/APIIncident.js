@@ -65,6 +65,13 @@ class APIIncident {
      */
     this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -');
   }
+  /**
+   * Text Content
+   * @return {string}
+   */
+  toString() {
+    return this.TextContent;
+  }
 }
 
 module.exports = APIIncident;

@@ -35,6 +35,13 @@ class APIStatus {
      */
     this.currentIncidents = this.incidents.filter((i) => !i.isResolved);
   }
+  /**
+   * Status Title
+   * @return {string}
+   */
+  toString() {
+    return this.title;
+  }
 }
 
 module.exports = APIStatus;

@@ -46,5 +46,12 @@ class RecentGame extends Game {
      */
     this.endedTimestamp = data.ended ? data.ended : null;
   }
+  /**
+   * Name of gamemode
+   * @return {string}
+   */
+  toString() {
+    return this.mode;
+  }
 }
 module.exports = RecentGame;

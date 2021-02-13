@@ -36,6 +36,13 @@ class SkyblockNews {
      */
     this.version = parseVer(this.title);
   }
+  /**
+   * News title
+   * @return {string}
+   */
+  toString() {
+    return this.title;
+  }
 }
 /**
  * Parses a string date

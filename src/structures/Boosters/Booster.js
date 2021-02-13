@@ -43,5 +43,12 @@ class Booster {
      */
     this.game = data.gameType ? new Game(data.gameType) : null;
   }
+  /**
+   * Beautiful format
+   * @return {string}
+   */
+  toString () {
+    return `${this.purchaser}'s booster in ${this.game}`;
+  }
 }
 module.exports = Booster;

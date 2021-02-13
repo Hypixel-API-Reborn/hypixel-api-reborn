@@ -62,5 +62,12 @@ class GuildMember {
      */
     this.weeklyExperience = gexp;
   }
+  /**
+   * UUID
+   * @return {string}
+   */
+  toString() {
+    return this.uuid;
+  }
 }
 module.exports = GuildMember;

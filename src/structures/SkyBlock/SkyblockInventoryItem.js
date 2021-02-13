@@ -35,7 +35,7 @@ class SkyblockInventoryItem {
      * Item lore for embed
      * @type {string}
      */
-    this.loreForEmbed = this.lore.replace(/§([1-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
+    this.loreForEmbed = this.lore.replace(/§([0-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
     /**
      * Item enchantments
      * @type {object}
@@ -69,6 +69,13 @@ function parseRarity (stringContainingRarity) {
   const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'SUPREME', 'SPECIAL', 'VERY SPECIAL'];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
+  }
+  /**
+   * Item Name
+   * @return {string}
+   */
+  toString() {
+    return this.name;
   }
 }
 module.exports = SkyblockInventoryItem;

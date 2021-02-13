@@ -12,6 +12,9 @@ module.exports = {
   Status: require('./structures/Status.js'),
   Color: require('./structures/Color.js'),
   KeyInfo: require('./structures/KeyInfo.js'),
+  Pet: require('./structures/Pet'),
+  Pets: require('./structures/Pets'),
+  PlayerCosmetics: require('./structures/PlayerCosmetics'),
 
   /* Watchdog */
   WatchdogStats: require('./structures/Watchdog/Stats.js'),
