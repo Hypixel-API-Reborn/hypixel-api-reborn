@@ -853,6 +853,7 @@ declare module 'hypixel-api-reborn' {
         enchantments: Record<string, unknown>;
         anvilUses: number;
         damage: number;
+        rarity: string;
     }
     class Game {
       constructor(game: string | number);

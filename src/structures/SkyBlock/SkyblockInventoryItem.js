@@ -51,7 +51,24 @@ class SkyblockInventoryItem {
      * @type {number}
      */
     this.damage = data.Damage || 0;
+    /**
+     * What rarity the item has, as an uppercase string
+     * @author linearaccelerator
+     * @type {string}
+     * @version >6.0.1
+     */
+    this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
   }
 }
-
+/**
+ * parses rarity
+ * @param {string} stringContainingRarity
+ * @return {string}
+ */
+function parseRarity (stringContainingRarity) {
+  const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'SUPREME', 'SPECIAL', 'VERY SPECIAL'];
+  for (const rarity of rarityArray) {
+    if (stringContainingRarity.includes(rarity)) return rarity;
+  }
+}
 module.exports = SkyblockInventoryItem;
