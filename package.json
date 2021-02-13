@@ -18,7 +18,8 @@
   "scripts": {
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
-    "test:lint": "npm run eslint && npm run dtslint",
+    "test:lint": "npm run eslint",
+    "test:lint:dev": "npm run eslint && npm run dtslint",
     "test": "mocha tests --exit",
     "test:dev": "nodenv --exec mocha tests -- --exit",
     "docgen": "docgen -s src -o master.json",
