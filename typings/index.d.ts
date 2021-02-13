@@ -504,7 +504,7 @@ declare module 'hypixel-api-reborn' {
         tag: string;
         tagColor: Color;
         legacyRank: number;
-        dailyExperience: { day: string, exp: number }[];
+        expHistory: { day: string, exp: number }[];
         achievements: {
             winners: number, experienceKings: number, onlinePlayers: number
         };
