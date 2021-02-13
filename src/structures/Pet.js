@@ -8,7 +8,7 @@ class Pet {
      * @param {string} name Name of pet
      * @param {object} data data
      */
-  constructor(name, data) {
+  constructor (name, data) {
     /**
      * Is Pet Favorite
      * @type {boolean}

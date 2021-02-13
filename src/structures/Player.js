@@ -199,14 +199,14 @@ class Player {
    * Player Name ( at least last known to hypixel )
    * @return {string}
    */
-  toString() {
+  toString () {
     return this.nickname;
   }
   /**
    * Parse more info from the raw data
-   * @returns {Player}
+   * @return {Player}
    */
-  parseExtraInfo() {
+  parseExtraInfo () {
     // This is created because the API has A LOT OF THINGS that aren't handled above, but still might interest people
     /**
      * Claimed Leveling Rewards
@@ -309,9 +309,9 @@ function getSocialMedia (data) {
  * @param {object} data
  * @returns {number[]}
  */
-function parseClaimedRewards(data) {
+function parseClaimedRewards (data) {
   if (!data) return null;
-  return Object.keys(data).map((x)=>x.match(/levelingReward_(\d+)/)).filter((x)=>x).map((x)=>parseInt(x[1]));
+  return Object.keys(data).map((x) => x.match(/levelingReward_(\d+)/)).filter((x) => x).map((x) => parseInt(x[1], 10));
 }
 /**
  * @typedef {string} PlayerRank

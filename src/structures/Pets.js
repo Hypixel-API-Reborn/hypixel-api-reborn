@@ -4,16 +4,16 @@ const Pet = require('./Pet');
  */
 class Pets {
   /**
-     * Pets
-     * @param {string[]} pets Array of pets
-     * @param {object} data data
-     */
-  constructor(pets, data) {
+   * Pets
+   * @param {string[]} pets Array of pets
+   * @param {object} data data
+   */
+  constructor (pets, data) {
     /**
-       * Array of pets
-       * @type {Pet[]}
-       */
-    this.pets = pets.map((x)=>new Pet(x, data));
+     * Array of pets
+     * @type {Pet[]}
+     */
+    this.pets = pets.map((x) => new Pet(x, data));
     /**
      * Last Pet Journey ( as timestamp )
      * @type {number|null}
