@@ -62,12 +62,13 @@ class SkyblockInventoryItem {
 }
 /**
  * parses rarity
- * @param {string} stringContainingRarity 
+ * @param {string} stringContainingRarity
+ * @return {string}
  */
-function parseRarity(stringContainingRarity){
+function parseRarity (stringContainingRarity) {
   const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'SUPREME', 'SPECIAL', 'VERY SPECIAL'];
-  for(const rarity of rarityArray){
-    if(stringContainingRarity.includes(rarity)) return rarity;
+  for (const rarity of rarityArray) {
+    if (stringContainingRarity.includes(rarity)) return rarity;
   }
 }
 module.exports = SkyblockInventoryItem;
