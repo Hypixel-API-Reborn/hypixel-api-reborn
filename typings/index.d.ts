@@ -881,9 +881,9 @@ declare module 'hypixel-api-reborn' {
             gifts_given: number,
             gifts_received: number
         };
-        getInventory(): Promise<InventoryItem[]>;
-        getEnderChest(): Promise<InventoryItem[]>;
-        getArmor(): Promise<{ helmet: InventoryItem, chestplate: InventoryItem, leggings: InventoryItem, boots: InventoryItem }>;
+        getInventory(): Promise<SkyblockInventoryItem[]>;
+        getEnderChest(): Promise<SkyblockInventoryItem[]>;
+        getArmor(): Promise<{ helmet: SkyblockInventoryItem, chestplate: SkyblockInventoryItem, leggings: SkyblockInventoryItem, boots: SkyblockInventoryItem }>;
         getPetScore(): number;
     }
     class Color {
@@ -893,7 +893,7 @@ declare module 'hypixel-api-reborn' {
         toName(): string;
         toCode(): string;
     }
-    class InventoryItem {
+    class SkyblockInventoryItem {
         constructor(data: Record<string, unknown>);
         itemId: number;
         count: number;
@@ -905,6 +905,7 @@ declare module 'hypixel-api-reborn' {
         anvilUses: number;
         damage: number;
         rarity: string;
+        toString(): string;
     }
     class Game {
         constructor(game: string | number);
