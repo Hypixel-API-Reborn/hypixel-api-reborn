@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
-const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics } = require('../src');
+const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics, Pets, Pet, Color } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
   it('expect not to throw', async () => {
     player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f', { guild: true });
-  });
+  }).timeout(5000);
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
     expect(player.uuid).to.be.a('string');
@@ -57,6 +57,64 @@ describe('Client#getPlayer', () => {
     }
     if (player.globalCosmetics) {
       expect(player.globalCosmetics).to.be.instanceOf(PlayerCosmetics);
+      expect(player.globalCosmetics.allCosmetics).to.be.an('array').that.satisfies(v => {
+        return v.every(i => typeof i === 'string');
+      })
+      if (player.globalCosmetics.petManager) {
+        expect(player.globalCosmetics.petManager).to.be.instanceOf(Pets);
+        expect(player.globalCosmetics.petManager.pets).to.be.an('array').that.satisfies(v => {
+          return v.every(i => i instanceof Pet);
+        })
+        if (player.globalCosmetics.petManager.lastJourneyTimestamp) {
+          expect(player.globalCosmetics.petManager.lastJourneyTimestamp).to.be.a('number');
+        }
+        if (player.globalCosmetics.petManager.lastJourneyAt) {
+          expect(player.globalCosmetics.petManager.lastJourneyAt).to.be.instanceOf(Date);
+        }
+        if (player.globalCosmetics.petManager.petConsumables) {
+          expect(player.globalCosmetics.petManager.petConsumables).to.be.an('object');
+        }
+      }
+      if (player.globalCosmetics.suits) {
+        expect(player.globalCosmetics.suits).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.hats) {
+        expect(player.globalCosmetics.hats).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.gadgets) {
+        expect(player.globalCosmetics.gadgets).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.morphs) {
+        expect(player.globalCosmetics.morphs).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.cloaks) {
+        expect(player.globalCosmetics.cloaks).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.rankColors) {
+        expect(player.globalCosmetics.rankColors).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.particlePacks) {
+        expect(player.globalCosmetics.particlePacks).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
+      if (player.globalCosmetics.clickEffects) {
+        expect(player.globalCosmetics.clickEffects).to.be.an('array').that.satisfies(v => {
+          return v.every(i => typeof i === 'string');
+        });
+      }
     }
     if (player.ranksPurchaseTime) {
       if (player.ranksPurchaseTime['VIP']) {

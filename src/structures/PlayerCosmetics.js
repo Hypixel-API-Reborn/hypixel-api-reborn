@@ -15,9 +15,9 @@ class PlayerCosmetics {
     this.allCosmetics = data.vanityMeta.packages;
     /**
      * Pets
-     * @type {Pets}
+     * @type {Pets|null}
      */
-    this.petManager = new Pets(this.allCosmetics.filter((x) => x.startsWith('pet_')), data) || [];
+    this.petManager = this.allCosmetics ? new Pets(this.allCosmetics.filter((x) => x.startsWith('pet_')), data) : null;
   }
   /**
    * Suits

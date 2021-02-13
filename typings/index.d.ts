@@ -330,7 +330,7 @@ declare module 'hypixel-api-reborn' {
     class PlayerCosmetics {
         constructor(data: Record<string, unknown>);
         allCosmetics: string[];
-        petManager: Pets;
+        petManager: Pets|null;
         get suits(): string[];
         get hats(): string[];
         get gadgets(): string[];

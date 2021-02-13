@@ -12,7 +12,7 @@ class Pet {
      * Is Pet Favorite
      * @type {boolean}
      */
-    this.isFavorite = Boolean(data.vanityFavorites.includes(name.toUpperCase()));
+    this.isFavorite = data.vanityFavorites ? Boolean(data.vanityFavorites.includes(name.toUpperCase())) : false;
     name = name.replace('pet_', '');
     /**
      * Official Name of the pet
