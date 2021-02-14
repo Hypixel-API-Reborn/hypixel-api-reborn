@@ -123,7 +123,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to get recent games of a player
          */
-        public getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        public getRecentGames(query: string, options?: methodOptions): Promise<RecentGame[]>;
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default
