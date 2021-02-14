@@ -253,7 +253,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to get recent games of a player
          */
-        getRecentGames(options?: methodOptions): Promise<RecentGame[]>;
+        getRecentGames(query: string, options?: methodOptions): Promise<RecentGame[]>;
         /**
          * @description Allows you to get player count along with the player count of each public game
          */
