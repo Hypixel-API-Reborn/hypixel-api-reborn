@@ -1564,6 +1564,7 @@ declare module 'hypixel-api-reborn' {
         date?: Date;
         mode?: string;
         map?: string;
+        ongoing?: boolean;
         endedAt?: Date;
         endedTimestamp?: number;
     }
