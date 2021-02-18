@@ -41,26 +41,17 @@ class GuildMember {
      * @type {Date|null}
      */
     this.mutedUntil = data.mutedTill ? new Date(data.mutedTill) : null;
-    let gexp = 0;
-    const history = [];
-    if (Object.keys(data.expHistory).length) {
-      for (const day in data.expHistory) {
-        if (Object.prototype.hasOwnProperty.call(data.expHistory, day)) {
-          gexp += data.expHistory[day];
-          history.push({ day, exp: data.expHistory[day] });
-        }
-      }
-    }
+    const xpCheck = Array.isArray(data.expHistory) && Object.values(data.expHistory)[0] === 'number';
     /**
      * Experience history per day, resets at 5 am UTC
-     * @type {Array<{day: string, exp: number}>}
+     * @type {Array<ExpHistory>}
      */
-    this.expHistory = history;
+    this.expHistory = parseHistory(data.expHistory);
     /**
      * Experience per week, resets every Monday at 5 am UTC
      * @type {Number}
      */
-    this.weeklyExperience = gexp;
+    this.weeklyExperience = xpCheck ? Object.values(data.expHistory).reduce((pV, cV) => pV + cV, 0) : null;
   }
   /**
    * UUID
@@ -70,4 +61,39 @@ class GuildMember {
     return this.uuid;
   }
 }
+
+const dateRegExp = /(\d{4})-(\d{1,2})-(\d{1-2})/;
+/**
+ * Parses exp history
+ * @param {object} historyData History data from the API
+ * @returns {Array<ExpHistory>} Array of ExpJistory
+ */
+function parseHistory(historyData) {
+  return Object.entries(historyData).map((x, index) => ({
+    day: x[0],
+    date: parseDate(x[0].match(dateRegExp).slice(1).map(parseInt)) || undefined,
+    exp: x[1] || null,
+    totalExp: Object.values(data.expHistory).slice(0, index + 1).reduce((pV, cV) => pV + cV, 0)
+  }));
+}
+
+/**
+ * Parses date
+ * Because hypixel's oscillation precises that exp resets at 5 am UTC, the hour is set accordingly
+ * @param {number[]} date Date from regexp
+ * @returns {Date} Parsed Date
+ */
+function parseDate(date) {
+  date[1] -= 1;
+  return new Date(new Date().setUTCFullYear(...date)).setUTCHours(5, 0, 0);
+}
+
+/**
+ * @typedef ExpHistory
+ * @property {string} day String Date ( unparsed )
+ * @property {Date} date Parsed Date
+ * @property {number} exp Experience of the day
+ * @property {number} totalExp Experience earned from day 0 to this day
+ */
+
 module.exports = GuildMember;
