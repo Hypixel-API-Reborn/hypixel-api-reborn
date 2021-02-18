@@ -41,7 +41,7 @@ class GuildMember {
      * @type {Date|null}
      */
     this.mutedUntil = data.mutedTill ? new Date(data.mutedTill) : null;
-    const xpCheck = Array.isArray(data.expHistory) && Object.values(data.expHistory)[0] === 'number';
+    const xpCheck = data.expHistory && typeof Object.values(data.expHistory)[0] === 'number';
     /**
      * Experience history per day, resets at 5 am UTC
      * @type {Array<ExpHistory>}
@@ -62,7 +62,7 @@ class GuildMember {
   }
 }
 
-const dateRegExp = /(\d{4})-(\d{1,2})-(\d{1-2})/;
+const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
 /**
  * Parses exp history
  * @param {object} historyData History data from the API
@@ -71,9 +71,9 @@ const dateRegExp = /(\d{4})-(\d{1,2})-(\d{1-2})/;
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
-    date: parseDate(x[0].match(dateRegExp).slice(1).map(parseInt)) || undefined,
-    exp: x[1] || null,
-    totalExp: Object.values(data.expHistory).slice(0, index + 1).reduce((pV, cV) => pV + cV, 0)
+    date: parseDate(x[0].match(dateRegExp).slice(1).map((x) => parseInt(x))) || undefined,
+    exp: x[1] || 0,
+    totalExp: Object.values(historyData).slice(0, index + 1).reduce((pV, cV) => pV + cV, 0)
   }));
 }
 
@@ -85,7 +85,7 @@ function parseHistory(historyData) {
  */
 function parseDate(date) {
   date[1] -= 1;
-  return new Date(new Date().setUTCFullYear(...date)).setUTCHours(5, 0, 0);
+  return new Date(Math.round(new Date(new Date().setUTCFullYear(...date)).setUTCHours(5, 0, 0) / 1000) * 1000);
 }
 
 /**
