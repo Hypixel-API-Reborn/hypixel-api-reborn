@@ -66,7 +66,7 @@ class Guild {
      * @return {Map<GuildMember>}
      */
     this.getMemberUUIDMap = function () {
-      return this.members.length ? new Map(this.members.map((m) => [new GuildMember(m).uuid, new GuildMember(m)])) : null;
+      return this.members.length ? new Map(this.members.map((m) => [m.uuid, m])) : null;
     };
     /**
      * Returns a guild rank by priority
