@@ -10,16 +10,16 @@ const API = require('./API/index');
 class Client {
   /**
    * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
-   * @param {ClientOptions} options Client options
+   * @param {ClientOptions} [options={}] Client options
    */
   constructor (key, options = {}) {
+    validate.validateNodeVersion();
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
     // eslint-disable-next-line no-return-assign
-    Object.keys(API).forEach((func) => Client.prototype[func] = function () {
-      // eslint-disable-next-line prefer-rest-params
-      return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : {}) }), ...this }, arguments);
+    Object.keys(API).forEach((func) => Client.prototype[func] = function (...args) {
+      return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(args[args.length - 1]) ? args[args.length - 1] : {}) }), ...this }, args);
     });
     rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
     /**
@@ -28,7 +28,14 @@ class Client {
      */
     this.cache = requests.cache;
   }
-
+  /**
+   * Private function - make request
+   * @param {MethodOptions} options Options for request
+   * @param {string} url Endpoint URL to request
+   * @param {boolean} [useRateLimitManager=true] Use rate limit
+   * @returns {Promise<Object>} Response
+   * @private
+   */
   async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
