@@ -63,7 +63,7 @@ class Guild {
     /**
      * A map containing all guild members, keyed by their uuids
      * @author linearaccelerator
-     * @return {Map<GuildMember>}
+     * @return {Map<string, GuildMember>}
      */
     this.getMemberUUIDMap = function () {
       return this.members.length ? new Map(this.members.map((m) => [m.uuid, m])) : null;
