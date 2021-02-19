@@ -71,7 +71,7 @@ const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
-    date: parseDate(x[0].match(dateRegExp).slice(1).map((x) => parseInt(x))) || undefined,
+    date: parseDate(x[0].match(dateRegExp).slice(1).map((x) => parseInt(x, 10))) || undefined,
     exp: x[1] || 0,
     totalExp: Object.values(historyData).slice(0, index + 1).reduce((pV, cV) => pV + cV, 0)
   }));
