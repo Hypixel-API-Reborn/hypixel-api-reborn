@@ -42,6 +42,28 @@ class Booster {
      * @type {Game}
      */
     this.game = data.gameType ? new Game(data.gameType) : null;
+    /**
+     * Is Booster Active
+     * @type {boolean}
+     */
+    this.isActive = Array.isArray(data.stacked);
+    /**
+     * Booster type : either 'QUEUED', 'STACKED'* or 'ACTIVE'.
+     * *STACKED is always queued, when active, they disappear into stackers of the active game booster
+     * @type {string}
+     */
+    this.type = parseType(data);
+    /**
+     * Stacked by ( if any )
+     * @type {string[]}
+     */
+    this.stackers = Array.isArray(data.stacked) ? data.stacked : [];
+    /**
+     * Possibly expired booster
+     * Works by checking if date.length is negative
+     * @type {boolean}
+     */
+    this.expired = data.length < 0;
   }
   /**
    * Beautiful format
@@ -50,5 +72,16 @@ class Booster {
   toString () {
     return `${this.purchaser}'s booster in ${this.game}`;
   }
+}
+
+/**
+ * Parses the type of the booster
+ * @param {Object} data Data
+ * @returns {string} Type of booster
+ */
+function parseType(data) {
+  if (data.stacked === true) return 'STACKED';
+  if (!data.stacked) return 'QUEUED';
+  return 'ACTIVE';
 }
 module.exports = Booster;

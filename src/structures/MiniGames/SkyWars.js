@@ -74,6 +74,11 @@ class SkyWars {
      */
     this.heads = data.heads || 0;
     /**
+     * Experience
+     * @type {number}
+     */
+    this.experience = data.skywars_experience;
+    /**
      * Level
      * @type {number}
      */
@@ -326,20 +331,8 @@ function getSkyWarsPrestige (level) {
  * @return {number}
  */
 function getSkyWarsLevel (xp) {
-  return Math.floor((function () {
-    if (xp < 20) return 1;
-    const totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
-    if (xp >= 15000) {
-      return (xp - 15000) / 10000 + 12;
-    } else {
-      let c = 0;
-      while (c < totalXp.length) {
-        if (xp - totalXp[c] >= 0) {
-          c++;
-        } else {
-          return c + 1 + (xp - totalXp[c - 1]) / (totalXp[c] - totalXp[c - 1]);
-        }
-      }
-    }
-  })(xp));
+  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
+  if (xp >= 15000) return (xp - 15000) / 10000 + 12;
+  const level = totalXp.findIndex((x) => x * 10 - xp > 0);
+  return level + ( xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10;
 }

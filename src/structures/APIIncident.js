@@ -44,6 +44,7 @@ class APIIncident {
     this.snippet = data.contentSnippet || null;
     /**
      * Content as plain text
+     * The parsing might be faulty!
      * @type {string|null}
      */
     this.TextContent = (data.content || '').replace(/<[^>]+>/g, '') || null;
