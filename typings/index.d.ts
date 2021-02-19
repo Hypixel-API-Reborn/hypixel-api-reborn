@@ -687,6 +687,10 @@ declare module 'hypixel-api-reborn' {
         activatedTimestamp: number;
         activated: Date;
         game?: Game;
+        isActive: boolean;
+        type: 'QUEUED' | 'STACKED' | 'ACTIVE';
+        stackers: string[];
+        expired: boolean;
     }
     class SkyblockProfile {
         constructor(data: Record<string, unknown>);
@@ -926,6 +930,7 @@ declare module 'hypixel-api-reborn' {
         lootChests: number;
         openedLootChests: number;
         heads: number;
+        experience: number;
         level: number;
         levelFormatted: string;
         prestige: SKYWARS_PRESTIGE;
