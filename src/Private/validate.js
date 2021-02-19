@@ -82,7 +82,7 @@ module.exports = class Validation {
    * @private
    */
   validateNodeVersion() {
-    const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{2}\.\d+/)[1], 10);
+    const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
     if (nodeVersion < 12 ) throw new Error(Errors.NODE_VERSION_ERR);
     // eslint-disable-next-line no-console
     if (nodeVersion < 14 ) console.warn(Errors.NODE_VERSION_WARN);
