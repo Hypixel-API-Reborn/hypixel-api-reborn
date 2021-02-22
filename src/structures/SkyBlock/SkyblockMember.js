@@ -161,11 +161,11 @@ class SkyblockMember {
     } : null);
   }
   /**
-   * Profile Name
+   * UUID
    * @return {string}
    */
   toString() {
-    return this.profileName;
+    return this.uuid;
   }
 }
 /**
