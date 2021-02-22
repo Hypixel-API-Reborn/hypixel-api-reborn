@@ -89,7 +89,7 @@ function parseDate(date) {
 }
 
 /**
- * @typedef ExpHistory
+ * @typedef {object} ExpHistory
  * @property {string} day String Date ( unparsed )
  * @property {Date} date Parsed Date
  * @property {number} exp Experience of the day
