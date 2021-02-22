@@ -22,3 +22,5 @@ docs/
 tests/
 typings/*.json
 master.json
+.env
+dtslint.json
