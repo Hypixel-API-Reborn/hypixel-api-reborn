@@ -4,7 +4,7 @@ const { isStrArray, strToArray } = require('../utils/arrayTools');
 /**
  * Validation Class, used internally to validate provided arguments
  */
-module.exports = class Validation {
+class Validation {
   /**
    * Check if cache options are valid
    * @param {Object} options Global Cache Options to be validated
@@ -87,4 +87,5 @@ module.exports = class Validation {
     // eslint-disable-next-line no-console
     if (nodeVersion < 14 ) console.warn(Errors.NODE_VERSION_WARN);
   }
-};
+}
+module.exports = Validation;
