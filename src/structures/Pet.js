@@ -24,7 +24,7 @@ class Pet {
      * @type {boolean}
      */
     this.active = data.currentPet === name.toUpperCase();
-    const stats = data.petStats[name.toUpperCase()];
+    const stats = data.petStats && data.petStats[name.toUpperCase()];
     /**
      * Stats of the pet, if any
      * @type {object}
