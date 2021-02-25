@@ -25,15 +25,13 @@ console.log(recentGames); // if player doesn't exist will return null.
 [
   RecentGame {
     game: 'SKYWARS',
-    id: 51,
-    code: 'SKYWARS',
-    dateTimestamp: 1612067873760,
-    date: 2021-01-31T04:37:53.760Z,
+    startedAt: 2021-01-31T04:37:53.760Z,
+    startTimestamp: 1612067873760,
+    endedAt: null,
+    endedTimestamp: null
     mode: 'solo_insane',
     map: 'Aquarius',
     ongoing: true,
-    endedAt: null,
-    endedTimestamp: null
   }
 ]
 ```

@@ -10,15 +10,25 @@ class RecentGame extends Game {
   constructor (data) {
     super(data.gameType);
     /**
-     * Date as timestamp
-     * @type {number}
-     */
-    this.dateTimestamp = data.date || null;
-    /**
      * Date
      * @type {Date}
      */
-    this.date = data.date ? new Date(data.date) : null;
+    this.startedAt = data.date ? new Date(data.date) : null;
+    /**
+     * Date as timestamp
+     * @type {number}
+     */
+    this.startedTimestamp = data.date || null;
+    /**
+     * Game ended at as Date
+     * @type {Date}
+     */
+    this.endedAt = data.ended ? new Date(data.ended) : null;
+    /**
+     * Game ended at
+     * @type {number}
+     */
+    this.endedTimestamp = data.ended ? data.ended : null;
     /**
      * Game mode
      * @type {string}
@@ -35,23 +45,6 @@ class RecentGame extends Game {
      * @type {boolean}
      */
     this.ongoing = Boolean(!data.ended);
-    /**
-     * Game ended at as Date
-     * @type {Date}
-     */
-    this.endedAt = data.ended ? new Date(data.ended) : null;
-    /**
-     * Game ended at
-     * @type {number}
-     */
-    this.endedTimestamp = data.ended ? data.ended : null;
-  }
-  /**
-   * Name of gamemode
-   * @return {string}
-   */
-  toString() {
-    return this.mode;
   }
 }
 module.exports = RecentGame;

@@ -1,51 +1,47 @@
 const games = [
-  { name: 'Quake Craft', code: 'QUAKECRAFT', id: 2 },
-  { name: 'Walls', code: 'WALLS', id: 3 },
-  { name: 'Paintball', code: 'PAINTBALL', id: 4 },
-  { name: 'Blitz Survival Games', code: 'SURVIVAL_GAMES', id: 5 },
-  { name: 'The TNT Games', code: 'TNTGAMES', id: 6 },
-  { name: 'VampireZ', code: 'VAMPIREZ', id: 7 },
-  { name: 'Mega Walls', code: 'WALLS3', id: 13 },
-  { name: 'Arcade', code: 'ARCADE', id: 14 },
-  { name: 'Arena Brawl', code: 'ARENA', id: 17 },
-  { name: 'UHC Champions', code: 'UHC', id: 20 },
-  { name: 'Cops and Crims', code: 'MCGO', id: 21 },
-  { name: 'Warlords', code: 'BATTLEGROUND', id: 23 },
-  { name: 'Smash Heroes', code: 'SUPER_SMASH', id: 24 },
-  { name: 'Turbo Kart Racers', code: 'GINGERBREAD', id: 25 },
-  { name: 'Housing', code: 'HOUSING', id: 26 },
-  { name: 'SkyWars', code: 'SKYWARS', id: 51 },
-  { name: 'Crazy Walls', code: 'TRUE_COMBAT', id: 52 },
-  { name: 'Speed UHC', code: 'SPEED_UHC', id: 54 },
-  { name: 'SkyClash', code: 'SKYCLASH', id: 55 },
-  { name: 'Classic Games', code: 'LEGACY', id: 56 },
-  { name: 'Prototype', code: 'PROTOTYPE', id: 57 },
-  { name: 'BedWars', code: 'BEDWARS', id: 58 },
-  { name: 'Murder Mystery', code: 'MURDER_MYSTERY', id: 59 },
-  { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60 },
-  { name: 'Duels', code: 'DUELS', id: 61 },
-  { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 },
-  { name: 'The Pit', code: 'PIT', id: 64 },
-  { name: 'Replay', code: 'REPLAY', id: -1 },
-  { name: 'Limbo', code: 'LIMBO', id: -2 },
-  { name: 'Queue', code: 'QUEUE', id: -3 },
-  { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },
-  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5 },
-  { name: 'Idle', code: 'IDLE', id: -6 }
+  { name: 'Quake Craft', code: 'QUAKECRAFT' },
+  { name: 'Walls', code: 'WALLS' },
+  { name: 'Paintball', code: 'PAINTBALL' },
+  { name: 'Blitz Survival Games', code: 'SURVIVAL_GAMES' },
+  { name: 'The TNT Games', code: 'TNTGAMES' },
+  { name: 'VampireZ', code: 'VAMPIREZ' },
+  { name: 'Mega Walls', code: 'WALLS3' },
+  { name: 'Arcade', code: 'ARCADE' },
+  { name: 'Arena Brawl', code: 'ARENA' },
+  { name: 'UHC Champions', code: 'UHC' },
+  { name: 'Cops and Crims', code: 'MCGO' },
+  { name: 'Warlords', code: 'BATTLEGROUND' },
+  { name: 'Smash Heroes', code: 'SUPER_SMASH' },
+  { name: 'Turbo Kart Racers', code: 'GINGERBREAD' },
+  { name: 'Housing', code: 'HOUSING' },
+  { name: 'SkyWars', code: 'SKYWARS' },
+  { name: 'Crazy Walls', code: 'TRUE_COMBAT' },
+  { name: 'Speed UHC', code: 'SPEED_UHC' },
+  { name: 'SkyClash', code: 'SKYCLASH' },
+  { name: 'Classic Games', code: 'LEGACY' },
+  { name: 'Prototype', code: 'PROTOTYPE' },
+  { name: 'BedWars', code: 'BEDWARS' },
+  { name: 'Murder Mystery', code: 'MURDER_MYSTERY' },
+  { name: 'Build Battle', code: 'BUILD_BATTLE' },
+  { name: 'Duels', code: 'DUELS' },
+  { name: 'SkyBlock', code: 'SKYBLOCK' },
+  { name: 'The Pit', code: 'PIT' },
+  { name: 'Replay', code: 'REPLAY' },
+  { name: 'Limbo', code: 'LIMBO' },
+  { name: 'Queue', code: 'QUEUE' },
+  { name: 'Main Lobby', code: 'MAIN_LOBBY' },
+  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY' },
+  { name: 'Idle', code: 'IDLE' }
 ];
 /**
  * Game class
  */
 class Game {
   /**
-   * @param {GameId|GameCode} game Game ID or Game Code
-   * @param {GameId} id Game ID
-   * @param {GameCode} code Game Code
+   * @param {GameCode} game Game Code
    */
   constructor (game) {
     this.game = game;
-    this.id = (games.find((g) => g.code === this.game || g.id === this.game).id ? games.find((g) => g.code === this.game || g.id === this.game).id : 'Not found');
-    this.code = (games.find((g) => g.code === this.game || g.id === this.game).code ? games.find((g) => g.code === this.game || g.id === this.game).code : 'Not found');
   }
 
   /**
@@ -53,11 +49,7 @@ class Game {
    * @return {GameString}
    */
   toString () {
-    if (isNaN(this.game)) {
-      return games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
-    } else {
-      return games.find((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
-    }
+    return games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
   }
 }
 /**

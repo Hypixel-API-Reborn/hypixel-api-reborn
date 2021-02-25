@@ -24,7 +24,7 @@ console.log(status); // if player doesn't exist will return null
 ```js
 Status {
   online: true,
-  game: Game { game: 'SKYWARS', id: 51, code: 'SKYWARS' },
+  game: Game { game: 'SKYWARS' },
   mode: 'LOBBY',
   map: null
 }
