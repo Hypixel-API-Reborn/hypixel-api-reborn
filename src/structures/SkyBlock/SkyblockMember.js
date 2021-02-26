@@ -99,11 +99,11 @@ class SkyblockMember {
     this.collections = data.m.collection ? data.m.collection : null;
     /**
      * Skyblock member enderchest
-     * @return {Promise<SkyblockInventoryItem[]|null>}
+     * @return {Promise<SkyblockInventoryItem[]>}
      */
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
-      if (!chest) return null;
+      if (!chest) return [];
 
       try {
         const enderChest = await decode(chest.data);
@@ -122,11 +122,11 @@ class SkyblockMember {
     };
     /**
      * Skyblock member inventory
-     * @return {Promise<SkyblockInventoryItem[]|null>}
+     * @return {Promise<SkyblockInventoryItem[]>}
      */
     this.getInventory = async () => {
       let inventory = data.m.inv_contents;
-      if (!inventory) return null;
+      if (!inventory) return [];
 
       try {
         inventory = await decode(inventory.data);
