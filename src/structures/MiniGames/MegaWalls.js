@@ -68,6 +68,11 @@ class MegaWalls {
      */
     this.finalDeaths = isNaN((data.final_deaths || 0) + (data.finalDeaths || 0)) ? 0 : Math.floor((data.final_deaths || 0) + (data.finalDeaths || 0));
     /**
+     * Final Kill Death ratio
+     * @type {number}
+     */
+    this.finalKDRatio = divide((data.final_kills || 0), (data.final_deaths || 0) + (data.finalDeaths || 0));
+    /**
      * Played games
      * @type {number}
      */

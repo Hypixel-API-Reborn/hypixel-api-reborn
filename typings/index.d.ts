@@ -1588,6 +1588,7 @@ declare module 'hypixel-api-reborn' {
         finalKills: number;
         finalAssists: number;
         finalDeaths: number;
+        finalKDRatio: number;
         playedGames: number;
         witherDamage: number;
         defenderKills: number;
