@@ -44,8 +44,8 @@ class Game {
    */
   constructor (game) {
     this.game = game;
-    this.id = (games.find((g) => g.code === this.game || g.id === this.game).id ? games.find((g) => g.code === this.game || g.id === this.game).id : 'Not found');
-    this.code = (games.find((g) => g.code === this.game || g.id === this.game).code ? games.find((g) => g.code === this.game || g.id === this.game).code : 'Not found');
+    this.id = (games.some((g) => g.code === this.game || g.id === this.game) ? games.find((g) => g.code === this.game || g.id === this.game).id : 'Not found');
+    this.code = (games.some((g) => g.code === this.game || g.id === this.game) ? games.find((g) => g.code === this.game || g.id === this.game).code : 'Not found');
   }
 
   /**
@@ -54,9 +54,9 @@ class Game {
    */
   toString () {
     if (isNaN(this.game)) {
-      return games.find((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
+      return games.some((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
     } else {
-      return games.find((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
+      return games.some((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
     }
   }
 }
