@@ -359,7 +359,7 @@ function getSkyWarsLevelProgress (xp) {
   let currentLevelXp = xp;
   if (xp >= 15000) {
     for (let i = 0; i < xpToNextLvl.length; i++) currentLevelXp -= xpToNextLvl[i] * 10;
-    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0.00, xpNextLevel: 10000 };
+    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
     if (currentLevelXp > 10000) {
       do {
         currentLevelXp -= 10000;
