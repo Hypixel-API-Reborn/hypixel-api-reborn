@@ -71,7 +71,7 @@ class MegaWalls {
      * Final Kill Death ratio
      * @type {number}
      */
-    this.finalKDRatio = divide((data.final_kills || 0), (data.final_deaths || 0) + (data.finalDeaths || 0));
+    this.finalKDRatio = divide(data.final_kills, (data.final_deaths || 0) + (data.finalDeaths || 0));
     /**
      * Played games
      * @type {number}

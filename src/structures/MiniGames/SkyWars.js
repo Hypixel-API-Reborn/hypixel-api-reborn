@@ -84,6 +84,11 @@ class SkyWars {
      */
     this.level = getSkyWarsLevel(data.skywars_experience);
     /**
+     * Level Progress
+     * @type {SkyWarsLevelProgress}
+     */
+    this.levelProgress = getSkyWarsLevelProgress(data.skywars_experience);
+    /**
      * Formatted Level
      * @type {string}
      */
@@ -287,6 +292,12 @@ class SkyWars {
  * * '⚔'
  */
 /**
+ * @typedef {Object} SkyWarsLevelProgress
+ * @property {number} percent Level progress in percent
+ * @property {number} xpToNextLevel XP to next level
+ * @property {number} XPNextLevel Total xp for next level
+ */
+/**
  * @typedef {Object} SkyWarsModeStats
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -334,5 +345,44 @@ function getSkyWarsLevel (xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   if (xp >= 15000) return (xp - 15000) / 10000 + 12;
   const level = totalXp.findIndex((x) => x * 10 - xp > 0);
-  return level + ( xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10;
+  return level; /* + (xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10*/
+}
+/**
+ * @param {number} xp
+ * @return {{xpToNextLevel:number,percent:number,xpNextLevel:number}}
+ */
+function getSkyWarsLevelProgress (xp) {
+  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
+  const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
+  let percent;
+  let xpToNextLevel;
+  let currentLevelXp = xp;
+  if (xp >= 15000) {
+    for (let i = 0; i < xpToNextLvl.length; i++) currentLevelXp -= xpToNextLvl[i] * 10;
+    if (currentLevelXp === 0) return { xpToNextLevel: 10000, percent: 0.00, xpNextLevel: 10000 };
+    if (currentLevelXp > 10000) {
+      do {
+        currentLevelXp -= 10000;
+      } while (currentLevelXp >= 10000);
+    }
+    xpToNextLevel = 10000 - currentLevelXp;
+    percent = (Math.round(((currentLevelXp / 10000) * 100) * 100) / 100);
+    return {
+      xpToNextLevel,
+      percent,
+      xpNextLevel: 10000
+    };
+  }
+  const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
+  for (let i = 0; i < xpToNextLvl.length; i++) {
+    if ((currentLevelXp - xpToNextLvl[i] * 10) < 0) break;
+    currentLevelXp -= xpToNextLvl[i] * 10;
+  }
+  xpToNextLevel = totalXptoNextLevel - currentLevelXp;
+  percent = (Math.round(((currentLevelXp / totalXptoNextLevel) * 100) * 100) / 100);
+  return {
+    xpToNextLevel,
+    percent,
+    xpNextLevel: totalXptoNextLevel
+  };
 }

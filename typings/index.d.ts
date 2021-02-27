@@ -933,6 +933,11 @@ declare module 'hypixel-api-reborn' {
         heads: number;
         experience: number;
         level: number;
+        levelProgress: {
+            xpToNextLevel: number,
+            percent: number,
+            xpNextLevel: number
+        };
         levelFormatted: string;
         prestige: SKYWARS_PRESTIGE;
         prestigeIcon: SKYWARS_PRESTIGE_ICON;
