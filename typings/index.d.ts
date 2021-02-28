@@ -934,6 +934,7 @@ declare module 'hypixel-api-reborn' {
         experience: number;
         level: number;
         levelProgress: {
+            currentLevelXp: number,
             xpToNextLevel: number,
             percent: number,
             xpNextLevel: number
