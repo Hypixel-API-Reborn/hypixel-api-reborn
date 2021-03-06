@@ -203,7 +203,8 @@ module.exports = {
     UNCOMMON: 2,
     RARE: 3,
     EPIC: 4,
-    LEGENDARY: 5
+    LEGENDARY: 5,
+    MYTHIC: 6
   },
 
   base_stats: {
