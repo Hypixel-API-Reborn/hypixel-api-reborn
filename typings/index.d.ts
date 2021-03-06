@@ -1052,6 +1052,17 @@ declare module 'hypixel-api-reborn' {
             WLRatio: number
         };
     }
+    class SkyblockPet {
+        constructor(data: Record<string, unknown>);
+        petUuid: string | null;
+        name: string;
+        experience: number;
+        isEquipped: boolean;
+        rarity: string;
+        heldItem: string | null;
+        candyUsed: number;
+        skin: string | null;
+    }
     class CopsAndCrims {
         constructor(data: Record<string, unknown>);
         coins: number;
