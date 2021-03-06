@@ -12,7 +12,7 @@ class PlayerCosmetics {
      * All cosmetics
      * @type {string[]}
      */
-    this.allCosmetics = data.vanityMeta.packages;
+    this.allCosmetics = data.vanityMeta?.packages;
     /**
      * Pets
      * @type {Pets|null}
@@ -24,7 +24,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get suits () {
-    if (!this._suits) this._suits = this.allCosmetics.filter((x) => x.startsWith('suit_')).map((x) => removeSnakeCaseString(x.replace('suit_', ''))) || [];
+    if (!this._suits) this._suits = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('suit_')).map((x) => removeSnakeCaseString(x.replace('suit_', ''))) || [] : [];
     return this._suits;
   }
   /**
@@ -32,7 +32,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get hats () {
-    if (!this._hats) this._hats = this.allCosmetics.filter((x) => x.startsWith('hat_')).map((x) => removeSnakeCaseString(x.replace('hat_', ''))) || [];
+    if (!this._hats) this._hats = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('hat_')).map((x) => removeSnakeCaseString(x.replace('hat_', ''))) || [] : [];
     return this._hats;
   }
   /**
@@ -40,7 +40,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get gadgets () {
-    if (!this._gadgets) this._gadgets = this.allCosmetics.filter((x) => x.startsWith('gadget_')).map((x) => removeSnakeCaseString(x.replace('gadget_', ''))) || [];
+    if (!this._gadgets) this._gadgets = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('gadget_')).map((x) => removeSnakeCaseString(x.replace('gadget_', ''))) || [] : [];
     return this._gadgets;
   }
   /**
@@ -48,7 +48,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get morphs () {
-    if (!this._morphs) this._morphs = this.allCosmetics.filter((x) => x.startsWith('morph_')).map((x) => removeSnakeCaseString(x.replace('morph_', ''))) || [];
+    if (!this._morphs) this._morphs = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('morph_')).map((x) => removeSnakeCaseString(x.replace('morph_', ''))) || [] : [];
     return this._morphs;
   }
   /**
@@ -56,7 +56,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get cloaks () {
-    if (!this._cloaks) this._cloaks = this.allCosmetics.filter((x) => x.startsWith('cloak_')).map((x) => removeSnakeCaseString(x.replace('cloak_', ''))) || [];
+    if (!this._cloaks) this._cloaks = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('cloak_')).map((x) => removeSnakeCaseString(x.replace('cloak_', ''))) || [] : [];
     return this._cloaks;
   }
   /**
@@ -64,7 +64,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get taunts () {
-    if (!this._taunts) this._taunts = this.allCosmetics.filter((x) => x.startsWith('taunt_')).map((x) => removeSnakeCaseString(x.replace('taunt_', ''))) || [];
+    if (!this._taunts) this._taunts = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('taunt_')).map((x) => removeSnakeCaseString(x.replace('taunt_', ''))) || [] : [];
     return this._taunts;
   }
   /**
@@ -72,7 +72,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get rankColors () {
-    if (!this._rankcolors) this._rankcolors = this.allCosmetics.filter((x) => x.startsWith('rankcolor_')).map((x) => removeSnakeCaseString(x.replace('rankcolor_', ''))) || [];
+    if (!this._rankcolors) this._rankcolors = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('rankcolor_')).map((x) => removeSnakeCaseString(x.replace('rankcolor_', ''))) || [] : [];
     return this._rankcolors;
   }
   /**
@@ -80,7 +80,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get particlePacks () {
-    if (!this._particle) this._particle = this.allCosmetics.filter((x) => x.startsWith('particlepack_')).map((x) => removeSnakeCaseString(x.replace('particlepack_', ''))) || [];
+    if (!this._particle) this._particle = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('particlepack_')).map((x) => removeSnakeCaseString(x.replace('particlepack_', ''))) || [] : [];
     return this._particlepacks;
   }
   /**
@@ -88,7 +88,7 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get clickEffects () {
-    if (!this._clickfx) this._clickfx = this.allCosmetics.filter((x) => x.startsWith('clickeffects_')).map((x) => removeSnakeCaseString(x.replace('clickeffects_', ''))) || [];
+    if (!this._clickfx) this._clickfx = this.allCosmetics ? this.allCosmetics.filter((x) => x.startsWith('clickeffects_')).map((x) => removeSnakeCaseString(x.replace('clickeffects_', ''))) || [] : [];
     return this._clickfx;
   }
 }
