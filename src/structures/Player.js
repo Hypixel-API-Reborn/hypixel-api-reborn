@@ -52,6 +52,11 @@ class Player {
      */
     this.mcVersion = data.mcVersionRp || null;
     /**
+     * Current chat channel
+     * @type {string|null}
+     */
+    this.channel = data.channel || null;
+    /**
      * Timestamp when player last logged in
      * @type {number}
      */

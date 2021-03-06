@@ -39,6 +39,7 @@ Player {
   ],
   rank: 'MVP+',
   mcVersion: '1.8.9',
+  channel: 'PARTY',
   firstLoginTimestamp: 1505345803214,
   firstLogin: 2017-09-13T23:36:43.214Z,
   lastLoginTimestamp: 1609782932833,
