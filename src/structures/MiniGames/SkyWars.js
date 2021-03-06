@@ -335,7 +335,7 @@ module.exports = SkyWars;
  * @return {string}
  */
 function getSkyWarsPrestige (level) {
-  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)];
+  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Rainbow';
 }
 /**
  * @param {number} xp
