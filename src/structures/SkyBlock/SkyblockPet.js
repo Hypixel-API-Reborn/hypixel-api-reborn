@@ -1,6 +1,5 @@
 // eslint-disable-next-line camelcase
 const { pet_score } = require('../../utils/Constants');
-
 /**
  * Skyblock Pet class
  */
