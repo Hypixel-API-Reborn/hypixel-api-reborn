@@ -97,6 +97,8 @@ class SkyblockMember {
      * @type {object}
      */
     this.collections = data.m.collection ? data.m.collection : null;
+    this.pets = data.m.pets ? data.m.pets.map((pet) => new SkyblockPet(pet)) : [];
+    this.equippedPet = pets.find((pet) => pet.isEquipped);
     /**
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
