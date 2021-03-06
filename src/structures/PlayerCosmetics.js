@@ -12,7 +12,7 @@ class PlayerCosmetics {
      * All cosmetics
      * @type {string[]}
      */
-    this.allCosmetics = data.vanityMeta.packages;
+    this.allCosmetics = data.vanityMeta?.packages;
     /**
      * Pets
      * @type {Pets|null}
