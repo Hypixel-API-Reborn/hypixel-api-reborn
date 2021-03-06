@@ -933,6 +933,12 @@ declare module 'hypixel-api-reborn' {
         heads: number;
         experience: number;
         level: number;
+        levelProgress: {
+            currentLevelXp: number,
+            xpToNextLevel: number,
+            percent: number,
+            xpNextLevel: number
+        };
         levelFormatted: string;
         prestige: SKYWARS_PRESTIGE;
         prestigeIcon: SKYWARS_PRESTIGE_ICON;
@@ -1588,6 +1594,7 @@ declare module 'hypixel-api-reborn' {
         finalKills: number;
         finalAssists: number;
         finalDeaths: number;
+        finalKDRatio: number;
         playedGames: number;
         witherDamage: number;
         defenderKills: number;
