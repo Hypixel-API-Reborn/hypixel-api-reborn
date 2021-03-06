@@ -281,6 +281,7 @@ declare module 'hypixel-api-reborn' {
         history: string[];
         rank: PLAYER_RANK;
         mcVersion: string;
+        channel: string;
         lastLoginTimestamp: number;
         lastLogin: Date;
         lastLogoutTimestamp: number;
