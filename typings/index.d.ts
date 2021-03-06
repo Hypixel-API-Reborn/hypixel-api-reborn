@@ -886,6 +886,8 @@ declare module 'hypixel-api-reborn' {
             gifts_given: number,
             gifts_received: number
         };
+        pets: SkyblockPet[];
+        equippedPet: SkyblockPet;
         getInventory(): Promise<SkyblockInventoryItem[]>;
         getEnderChest(): Promise<SkyblockInventoryItem[]>;
         getArmor(): Promise<{ helmet: SkyblockInventoryItem, chestplate: SkyblockInventoryItem, leggings: SkyblockInventoryItem, boots: SkyblockInventoryItem }>;

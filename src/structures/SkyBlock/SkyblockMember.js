@@ -2,6 +2,7 @@
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements, pet_score } = require('../../utils/Constants');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
+const SkyblockPet = require('./SkyblockPet')
 const objectPath = require('object-path');
 /**
  * Skyblock member class
