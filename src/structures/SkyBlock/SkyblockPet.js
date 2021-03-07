@@ -16,39 +16,39 @@ class SkyblockPet {
     this.uuid = data.uuid;
     /**
      * Skyblock Pet type
-     * @type {SkyblockPetType}
+     * @type {string}
      */
     this.type = data.type;
     /**
      * Skyblock Pet experience
      * @type {number}
      */
-    this.xp = data.exp;
+    this.xp = data.exp || 0;
     /**
      * wether the pet is currently equipped
      * @type {boolean}
      */
-    this.active = data.active;
+    this.active = Boolean(data.active);
     /**
      * Skyblock Pet rarity
      * @type {Rarity}
      */
     this.rarity = data.tier;
     /**
-     * Skyblock Pet pet score
-     * @type {Rarity}
+     * Skyblock Pet score
+     * @type {number}
      */
-    this.petScore = pet_score[data.tier];
+    this.petScore = pet_score[data.tier] || 0;
     /**
      * Skyblock Pet held item
-     * @type {SkyblockPetHeldItem|null}
+     * @type {string|null}
      */
     this.heldItem = data.heldItem ? data.heldItem.replace(/^PET_ITEM_/, '') : null;
     /**
      * Skyblock Pet candy used
      * @type {number}
      */
-    this.candyUsed = data.candyUsed;
+    this.candyUsed = data.candyUsed || 0;
     /**
      * Skyblock Pet skin
      * @type {string|null}
