@@ -8,7 +8,7 @@ class ItemBytes {
    * @param {string} data base64 encoded bytes
    */
   constructor (data) {
-  /**
+    /**
    *  Item Bytes as Buffer
    * @type {Buffer}
    */

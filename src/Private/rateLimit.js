@@ -29,12 +29,12 @@ module.exports = class RateLimit {
     this.waitingRequests = 0;
     this.lastRequestAt = 0; // Set to a large number so 1st request doesn't get rate limited already
     keyInfo
-        .then((info) => {
-          this.requests = info.requestsInPastMin;
-          setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
-        })
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .catch((O_o) => {});
+      .then((info) => {
+        this.requests = info.requestsInPastMin;
+        setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
+      })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      .catch((O_o) => {});
     // Still make the requests per min possible
   }
 };
