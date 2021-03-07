@@ -51,14 +51,28 @@ class Client {
    * @param {PlayerMethodOptions} [options={}] Method options
    * @return {Promise<Player>}
    * @example
-   * // { guild: true } - fetch player's guild
-   * hypixel.getPlayer('StavZDev', { guild: true }).then(player => {
+   * hypixel.getPlayer('StavZDev').then(player => {
    *   console.log(player.level); // 141
    *   console.log(player.rank); // 'MVP+'
-   *   console.log(player.guild); // null (player is not in guild)
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * // Get player's guild along with player stats
+   * hypixel.getPlayer('Minikloon').then(player => {
+   *   console.log(player.guild) // null if player isn't is guild
+   *   console.log(player.guild.name) // Mini Squid
+   *   console.log(player.guild.level) // 110
+   * }).catch(e => {
+   *   console.log(e);
+   * });
+   * @example
+   * // async/await
+   * const player = await hypixel.getPlayer('Minikloon').catch(console.log);
+   * // If player doesn't exist
+   * console.log(player); // null
+   *
+   * console.log(player.uuid); // 20934ef9488c465180a78f861586b4cf
    */
   /**
    * Allows you to get statistics of hypixel guild
