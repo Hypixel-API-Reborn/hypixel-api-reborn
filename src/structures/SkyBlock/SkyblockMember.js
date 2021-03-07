@@ -10,8 +10,8 @@ const objectPath = require('object-path');
  */
 class SkyblockMember {
   /**
-       * @param {object} data Skyblock member data
-       */
+   * @param {object} data Skyblock member data
+   */
   constructor (data) {
     /**
      * Skyblock member UUID
