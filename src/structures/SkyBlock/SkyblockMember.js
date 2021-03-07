@@ -161,9 +161,9 @@ class SkyblockMember {
     };
     /**
          * Skyblock coins in purse
-         * @type {number|null}
+         * @type {number}
          */
-    this.purse = data.m.purse || null;
+    this.purse = data.m.purse || 0;
     /**
          * Skyblock member stats
          * @type {SkyblockMemberStats}
