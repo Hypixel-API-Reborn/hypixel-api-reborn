@@ -243,7 +243,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to get current player count
          */
-        getOnline(options?: methodOptions): Promise<number>;
+        getOnline(server?: string): Promise<number>;
         /**
          * @description Allows you to get information about used API key
          */
@@ -263,6 +263,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default
+         * @deprecated Will be reworked soon
          */
         getPing(ip?: string): Promise<number>;
         /**
