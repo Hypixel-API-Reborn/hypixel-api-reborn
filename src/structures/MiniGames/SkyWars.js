@@ -360,13 +360,13 @@ const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|ratin
  */
 function getRankedPositions(data) {
   const map = new Map();
-  const keys = Object.keys(data.stats.Skywars).map((key) => key.match(ratingRegex)).filter((x)=>x);
+  const keys = Object.keys(data).map((key) => key.match(ratingRegex)).filter((x)=>x);
   for (const key of keys) {
-    const computedKey = `${(key[1].length - 1 ? '0':'')}${key[1]}-${key[2]}`;
+    const computedKey = `${(key[1].length - 1 ? '':'0')}${key[1]}-${key[2]}`;
     map.set(computedKey, {
       ...map.get(computedKey),
-      [key[3]]: parseInt(data.stats.Skywars[key[0]], 10) || 0,
-      date: new Date(new Date().setFullYear(2000 + parseInt(key[2], 10), parseInt(key[1], 10) - 1, 1))
+      [key[3]]: parseInt(data[key[0]], 10) || 0,
+      date: new Date(new Date(1000 * 60 * 60 * 5).setFullYear(2000 + parseInt(key[2], 10), parseInt(key[1], 10) - 1, 1))
     });
   }
   return map;
