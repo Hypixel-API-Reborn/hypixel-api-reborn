@@ -262,6 +262,7 @@ class SkyWars {
  * * `Opal`
  * * `Amethyst`
  * * `Rainbow`
+ * * `Mythic`
  */
 /**
  * @typedef {string} SkyWarsPrestigeIcons
