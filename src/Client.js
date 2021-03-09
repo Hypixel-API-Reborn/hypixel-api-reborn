@@ -210,7 +210,7 @@ class Client {
    * Allows you to get current player count
    * @method
    * @name Client#getOnline
-   * @param {MethodOptions} [options={}] Method options
+   * @param {string}  [ip=mc.hypixel.net] Valid IP/Hostname address
    * @return {Promise<number>}
    * @example
    * hypixel.getOnline().then(console.log).catch(console.log); // 121730
