@@ -567,9 +567,11 @@ declare module 'hypixel-api-reborn' {
         members: GuildMember[];
         ranks: GuildRank[];
         totalWeeklyGexp: number;
+        get guildMaster(): GuildMember;
         getRanksByNewest(): GuildRank[];
         getRankByPriority(priority: number): GuildRank;
         getMemberUUIDMap(): Map<string, GuildMember>;
+        toString(): string;
     }
     class BaseAuction {
         constructor(data: Record<string, unknown>)
