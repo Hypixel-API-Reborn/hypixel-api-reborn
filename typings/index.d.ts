@@ -1336,7 +1336,8 @@ declare module 'hypixel-api-reborn' {
             losses: number,
             deaths: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            ratings: Map<string, {rating: number, position: number, date: Date}>
         };
         mega: {
             overall: {
