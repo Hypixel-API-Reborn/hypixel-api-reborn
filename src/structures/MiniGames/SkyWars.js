@@ -262,6 +262,7 @@ class SkyWars {
  * * `Opal`
  * * `Amethyst`
  * * `Rainbow`
+ * * `Mythic`
  */
 /**
  * @typedef {string} SkyWarsPrestigeIcons
@@ -335,7 +336,7 @@ module.exports = SkyWars;
  * @return {string}
  */
 function getSkyWarsPrestige (level) {
-  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)];
+  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Mythic';
 }
 /**
  * @param {number} xp

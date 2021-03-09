@@ -29,10 +29,11 @@
         "max-len": [
             "error",
             {
-                "code": 205,
+                "code": 210,
                 "ignoreUrls": true
             }
         ],
+		"indent": ["error", 2, { "SwitchCase": 1 }],
         "object-curly-spacing": "off",
         "space-before-function-paren": "off",
         "semi": "error",

@@ -10,8 +10,8 @@ const objectPath = require('object-path');
  */
 class SkyblockMember {
   /**
-       * @param {object} data Skyblock member data
-       */
+   * @param {object} data Skyblock member data
+   */
   constructor (data) {
     /**
      * Skyblock member UUID
@@ -25,54 +25,54 @@ class SkyblockMember {
      */
     this.player = data.m.player || null;
     /**
-         * Skyblock member's profile name
-         * @type {string}
-         */
+     * Skyblock member's profile name
+     * @type {string}
+     */
     this.profileName = data.profileName;
     /**
-             * Timestamp when player first joined SkyBlock
-             * @type {number}
-             */
+     * Timestamp when player first joined SkyBlock
+     * @type {number}
+     */
     this.firstJoinTimestamp = data.m.first_join;
     /**
-             * Timestamp when player first joined SkyBlock as Date
-             * @type {Date}
-             */
+     * Timestamp when player first joined SkyBlock as Date
+     * @type {Date}
+     */
     this.firstJoinAt = new Date(data.m.first_join);
     /**
-             * Timestamp when player first joined the SkyBlock Hub
-             * @type {number}
-             */
+     * Timestamp when player first joined the SkyBlock Hub
+     * @type {number}
+     */
     this.firstJoinHubTimestamp = data.m.first_join_hub;
     /**
-             * Timestamp when player first joined the SkyBlock Hub as Date
-             * @type {Date}
-             */
+     * Timestamp when player first joined the SkyBlock Hub as Date
+     * @type {Date}
+     */
     this.firstJoinHubAt = new Date(data.m.first_join_hub);
     /**
-             * Last save timestamp
-             * @type {number}
-             */
+     * Last save timestamp
+     * @type {number}
+     */
     this.lastSave = data.m.last_save;
     /**
-             * Last save timestamp as Date
-             * @type {Date}
-             */
+     * Last save timestamp as Date
+     * @type {Date}
+     */
     this.lastSaveAt = new Date(data.m.last_save);
     /**
-         * Last death timestamp as Date
-         * @type {Date}
-         */
+     * Last death timestamp as Date
+     * @type {Date}
+     */
     this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
     /**
-         * Last save timestamp
-         * @type {number}
-         */
+     * Last save timestamp
+     * @type {number}
+     */
     this.lastDeath = data.m.last_death;
     /**
-         * Equipped armor
-         * @return {Promise<SkyblockMemberArmor>}
-         */
+     * Equipped armor
+     * @return {Promise<SkyblockMemberArmor>}
+     */
     this.getArmor = async () => {
       const base64 = data.m.inv_armor;
       const decoded = await decode(base64.data);
@@ -85,39 +85,39 @@ class SkyblockMember {
       return armor;
     };
     /**
-             * Collected fairy souls
-             * @type {number}
-             */
+     * Collected fairy souls
+     * @type {number}
+     */
     this.fairySouls = data.m.fairy_souls_collected || 0;
     /**
-             * Amount of fairy soul exchanges
-             * @type {number}
-             */
+     * Amount of fairy soul exchanges
+     * @type {number}
+     */
     this.fairyExchanges = data.m.fairyExchanges || 0;
     /**
-             * Skyblock member skills
-             * @type {SkyblockMemberSkills}
-             */
+     * Skyblock member skills
+     * @type {SkyblockMemberSkills}
+     */
     this.skills = getSkills(data.m);
     /**
-             * Skyblock member slayer
-             * @type {SkyblockMemberSlayer|null}
-             */
+     * Skyblock member slayer
+     * @type {SkyblockMemberSlayer|null}
+     */
     this.slayer = getSlayer(data.m);
     /**
-             * Skyblock member dungeons
-             * @type {SkyblockMemberDungeons|null}
-             */
+     * Skyblock member dungeons
+     * @type {SkyblockMemberDungeons|null}
+     */
     this.dungeons = getDungeons(data.m);
     /**
-             * Skyblock member collections
-             * @type {object}
-             */
+     * Skyblock member collections
+     * @type {object}
+     */
     this.collections = data.m.collection ? data.m.collection : null;
     /**
-             * Skyblock member enderchest
-             * @return {Promise<SkyblockInventoryItem[]>}
-             */
+     * Skyblock member enderchest
+     * @return {Promise<SkyblockInventoryItem[]>}
+     */
     this.getEnderChest = async () => {
       const chest = data.m.ender_chest_contents;
       if (!chest) return [];
@@ -138,9 +138,9 @@ class SkyblockMember {
       }
     };
     /**
-             * Skyblock member inventory
-             * @return {Promise<SkyblockInventoryItem[]>}
-             */
+     * Skyblock member inventory
+     * @return {Promise<SkyblockInventoryItem[]>}
+     */
     this.getInventory = async () => {
       let inventory = data.m.inv_contents;
       if (!inventory) return [];
@@ -160,32 +160,32 @@ class SkyblockMember {
       }
     };
     /**
-         * Skyblock coins in purse
-         * @type {number}
-         */
+     * Skyblock coins in purse
+     * @type {number}
+     */
     this.purse = data.m.purse || 0;
     /**
-         * Skyblock member stats
-         * @type {SkyblockMemberStats}
-         */
+     * Skyblock member stats
+     * @type {SkyblockMemberStats}
+     */
     this.stats = data.m.stats ? single(data.m.stats) : null;
     /**
-         * Skyblock pets
-         * @type {SkyblockPet[]}
-         */
+     * Skyblock pets
+     * @type {SkyblockPet[]}
+     */
     this.pets = data.m.pets ? data.m.pets.map((pet) => new SkyblockPet(pet)) : [];
   }
   /**
-     * Skyblock Member pet score
-     * @return {number}
-     */
+   * Skyblock Member pet score
+   * @return {number}
+   */
   getPetScore () {
     return this.pets.reduce((acc, cur) => acc + (cur.petScore || 0), 0);
   }
   /**
-     * UUID
-     * @return {string}
-     */
+   * UUID
+   * @return {string}
+   */
   toString () {
     return this.uuid;
   }

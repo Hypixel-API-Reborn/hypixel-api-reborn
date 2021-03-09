@@ -52,6 +52,11 @@ class Player {
      */
     this.mcVersion = data.mcVersionRp || null;
     /**
+     * Current chat channel
+     * @type {string|null}
+     */
+    this.channel = data.channel || null;
+    /**
      * Timestamp when player last logged in
      * @type {number}
      */
@@ -97,7 +102,8 @@ class Player {
      */
     this.prefixColor = this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
     /**
-     * Player's guild. Guild option must be `true`
+     * Player's guild. Guild option must be `true`. <br>
+     * Example: {@link Client#getPlayer}
      * @type {Guild}
      */
     this.guild = data.guild ? data.guild : null;
