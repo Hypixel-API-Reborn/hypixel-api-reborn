@@ -137,7 +137,7 @@ class SkyWars {
      * Shards
      * @type {number}
      */
-    this.shards = data.shards || 0;
+    this.shards = data.shard || 0;
     /**
      * Shard By Mode
      * @type {SkyWarsShardsInMode}
