@@ -137,7 +137,7 @@ class SkyWars {
      * Shards
      * @type {number}
      */
-    this.shards = data.shards || 0;
+    this.shards = data.shard || 0;
     /**
      * Shard By Mode
      * @type {SkyWarsShardsInMode}
@@ -197,7 +197,8 @@ class SkyWars {
       losses: data.losses_ranked || 0,
       deaths: data.deaths_ranked || 0,
       KDRatio: divide(data.kills_ranked, data.deaths_ranked),
-      WLRatio: divide(data.wins_ranked, data.losses_ranked)
+      WLRatio: divide(data.wins_ranked, data.losses_ranked),
+      ratings: getRankedPositions(data)
     };
     /**
      * Mega Skywars Stats
@@ -319,6 +320,21 @@ class SkyWars {
  * @property {number} WLRatio Win Loss ratio
  */
 /**
+ * @typedef {Object} SkywarsRankedStats
+ * @extends SkywarsTotalModeStats
+ * @property {Map<PseudoDate,SkywarsRankData>} ratings Ratings & leaderboard positions
+ */
+/**
+ * @typedef {Object} SkywarsRankData
+ * @property {number} rating Rating of player ( if not found, this is set to 0 )
+ * @property {number} position Position of player ( if not found, this is set to 0 )
+ * @property {Date} date Parsed date
+ */
+/**
+ * @typedef {string} PseudoDate String date, in the format of MM-YY ( YY is 20YY )
+ * @example `10-19` would be October 2019.
+ */
+/**
  * @typedef {Object} SkyWarsModeExtendedStats
  * @property {SkyWarsTotalModeStats} overall Overall Stats
  * @property {SkyWarsModeStats} normal Normal Mode Stats
@@ -388,4 +404,23 @@ function getSkyWarsLevelProgress (xp) {
     percent,
     xpNextLevel: totalXptoNextLevel
   };
+}
+const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|rating)$/;
+/**
+ * gets ratings & positions on the leaderboard
+ * @param {Object} data data
+ * @returns {SkywarsRankedStats} some map
+ */
+function getRankedPositions (data) {
+  const map = new Map();
+  const keys = Object.keys(data).map((key) => key.match(ratingRegex)).filter((x) => x);
+  for (const key of keys) {
+    const computedKey = `${(key[1].length - 1 ? '' : '0')}${key[1]}-${key[2]}`;
+    map.set(computedKey, {
+      ...map.get(computedKey),
+      [key[3]]: parseInt(data[key[0]], 10) || 0,
+      date: new Date(new Date(1000 * 60 * 60 * 5).setFullYear(2000 + parseInt(key[2], 10), parseInt(key[1], 10) - 1, 1))
+    });
+  }
+  return map;
 }

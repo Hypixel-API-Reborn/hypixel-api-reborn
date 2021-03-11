@@ -156,6 +156,13 @@ class Guild {
   toString() {
     return this.name;
   }
+  /**
+   * The Guild Master of the guild as a GuildMember
+   * @return {GuildMember}
+   */
+  get guildMaster () {
+    return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
+  }
 }
 /**
  * @param {object} data

@@ -4,8 +4,9 @@ const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const cached = new Map();
 module.exports = class Requests {
-  async request (url, options = {}) {
-    const res = await fetch(BASE_URL + url + (/\?/.test(url) ? '&' : '?') + `key=${this.key}`, options);
+  async request (endpoint, options = {}) {
+    options.headers = {'API-Key': this.key, ...options.headers};
+    const res = await fetch(BASE_URL + endpoint, options);
     if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
@@ -19,10 +20,10 @@ module.exports = class Requests {
     parsedRes._headers = res.headers;
     if (options.noCaching) return parsedRes;
     // split by question mark : first part is /path, remove /
-    if (this.options.cache && this.options.cacheFilter(url.split('?')[0].slice(1))) {
+    if (this.options.cache && this.options.cacheFilter(endpoint.split('?')[0].slice(1))) {
       if (this.options.cacheSize < cached.size) cached.delete(cached.keys().next().value); // Map and its special "iterators"
-      cached.set(url, parsedRes);
-      if (this.options.cacheTime >= 0) setTimeout(() => cached.delete(url), 1000 * this.options.cacheTime);
+      cached.set(endpoint, parsedRes);
+      if (this.options.cacheTime >= 0) setTimeout(() => cached.delete(endpoint), 1000 * this.options.cacheTime);
     }
     return parsedRes;
   }

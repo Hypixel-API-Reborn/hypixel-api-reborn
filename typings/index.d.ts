@@ -243,7 +243,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @description Allows you to get current player count
          */
-        getOnline(options?: methodOptions): Promise<number>;
+        getOnline(server?: string): Promise<number>;
         /**
          * @description Allows you to get information about used API key
          */
@@ -263,6 +263,7 @@ declare module 'hypixel-api-reborn' {
         /**
          * @param ip - Valid IP/Hostname address
          * @description Pings the minecraft server of hypixel by default
+         * @deprecated Will be reworked soon
          */
         getPing(ip?: string): Promise<number>;
         /**
@@ -569,9 +570,11 @@ declare module 'hypixel-api-reborn' {
         members: GuildMember[];
         ranks: GuildRank[];
         totalWeeklyGexp: number;
+        get guildMaster(): GuildMember;
         getRanksByNewest(): GuildRank[];
         getRankByPriority(priority: number): GuildRank;
         getMemberUUIDMap(): Map<string, GuildMember>;
+        toString(): string;
     }
     class BaseAuction {
         constructor(data: Record<string, unknown>)
@@ -1334,7 +1337,8 @@ declare module 'hypixel-api-reborn' {
             losses: number,
             deaths: number,
             KDRatio: number,
-            WLRatio: number
+            WLRatio: number,
+            ratings: Map<string, {rating: number, position: number, date: Date}>
         };
         mega: {
             overall: {
