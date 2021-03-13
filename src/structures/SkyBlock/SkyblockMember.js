@@ -174,6 +174,11 @@ class SkyblockMember {
      * @type {SkyblockPet[]}
      */
     this.pets = data.m.pets ? data.m.pets.map((pet) => new SkyblockPet(pet)) : [];
+    /**
+     * Skyblock jacob data
+     * @type {jacobData}
+     */
+    this.jacob = getJacobData(data);
   }
   /**
    * Skyblock Member pet score
@@ -207,7 +212,7 @@ function getSkills (data) {
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, data.player ? data.player.achievements : {});
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, skill === 'farming' ? data.jacob2 && data.jacob2.perks && data.jacob2.perks.farming_level_cap : null);
   }
   if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
@@ -245,6 +250,35 @@ function getDungeons (data) {
       archer: getLevelByXp(data.dungeons.player_classes.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
       tank: getLevelByXp(data.dungeons.player_classes.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
     }
+  };
+}
+/**
+ * @param {object} data
+ * @return {jacobData}
+ */
+function getJacobData (data) {
+  if (!data.jacob2) {
+    return {
+      medals: {
+        bronze: 0,
+        silver: 0,
+        gold: 0
+      },
+      perks: {
+        doubleDrops: 0,
+        farmingLevelCap: 0
+      },
+      contests: {}
+    };
+  }
+  return {
+    medals: data.jacob2.medals_inv ?
+      { bronze: data.jacob2.medals_inv.bronze || 0, silver: data.jacob2.medals_inv.silver || 0, gold: data.jacob2.medals_inv.gold || 0 } :
+      { bronze: 0, silver: 0, gold: 0 },
+    perks: data.jacob2.perks ?
+      { doubleDrops: data.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.jacob2.perks.farmingLevelCap || 0 } :
+      { doubleDrops: 0, farmingLevelCap: 0 },
+    contests: data.jacob2.contests || {}
   };
 }
 /**
@@ -626,5 +660,16 @@ function getDungeons (data) {
  * @property {number|undefined} mythosKills
  * @property {number|undefined} petMilestoneOresMined
  * @property {number|undefined} petMilestoneSeaCreaturesKilled
+ */
+/**
+ * @typedef {object} jacobData
+ * @property {object} medals
+ * @property {number} medals.bronze
+ * @property {number} medals.silver
+ * @property {number} medals.gold
+ * @property {object} perks
+ * @property {number} perks.doubleDrops
+ * @property {number} perks.farmingLevelCap
+ * @property {object} contests
  */
 module.exports = SkyblockMember;
