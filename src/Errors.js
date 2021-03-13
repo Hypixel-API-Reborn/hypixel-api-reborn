@@ -27,5 +27,6 @@ module.exports = {
   INVALID_RESPONSE_BODY: '[hypixel-api-reborn] An error occurred while converting to JSON. Perhaps this is due to an update or maintenance. For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_RATE_LIMIT_OPTION: '[hypixel-api-reborn] Rate Limit provided in Client options must be \'HARD\', \'AUTO\', or \'NONE\'. For help join our Discord Server https://discord.gg/NSEBNMM',
   NODE_VERSION_ERR: '[hypixel-api-reborn] You are using a version of Nodejs that doesn\'t support certain features we use. Please upgrade to version 14 or above.',
-  NODE_VERSION_WARN: '[hypixel-api-reborn] We will be dropping support for nodejs v12 in favor of v14+. Please upgrade if possible.'
+  NODE_VERSION_WARN: '[hypixel-api-reborn] We will be dropping support for nodejs v12 in favor of v14+. Please upgrade if possible.',
+  CONNECTION_ERROR: '[hypixel-qpi-reborn] Failed to connect.'
 };

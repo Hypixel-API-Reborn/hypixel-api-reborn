@@ -198,13 +198,14 @@ class Client {
    * })
    */
   /**
-   * Pings the minecraft server of hypixel (by default)
+   * Sends a STATUS packet to hypixel and parses the return info (a 0x00 and 0x01 packet)
    * @method
-   * @name Client#getPing
-   * @param {string} [ip=mc.hypixel.net] Valid IP/Hostname address
-   * @return {Promise<number>}
+   * @name Client#getServerInfo
+   * @return {Promise<ServerInfo>}
    * @example
-   * hypixel.getPing().then(console.log).catch(console.log); // 100
+   * hypixel.getServerInfo().then(serverInfo =>{
+   *   console.log(serverInfo.ping); // 69
+   * }).catch(console.log)
    */
   /**
    * Allows you to get current player count
