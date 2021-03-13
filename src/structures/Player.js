@@ -12,6 +12,7 @@ const SmashHeroes = require('./MiniGames/SmashHeroes');
 const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
+const Arcade = require('./MiniGames/Arcade');
 const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
@@ -187,7 +188,8 @@ class Player {
       smashheroes: (data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null),
       vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
-      arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null)
+      arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
+      arcade: (data.stats.Arcade ? new Arcade(data.stats.Arcade) : null)
     } : null);
     /**
      * User's current language
