@@ -158,7 +158,7 @@ class Guild {
   }
   /**
    * The Guild Master of the guild as a GuildMember
-   * @return {GuildMember}
+   * @type {GuildMember}
    */
   get guildMaster () {
     return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
