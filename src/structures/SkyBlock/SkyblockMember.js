@@ -663,13 +663,13 @@ function getJacobData (data) {
  */
 /**
  * @typedef {object} jacobData
- * @property {object} medals
- * @property {number} medals.bronze
- * @property {number} medals.silver
- * @property {number} medals.gold
- * @property {object} perks
- * @property {number} perks.doubleDrops
- * @property {number} perks.farmingLevelCap
- * @property {object} contests
+ * @property {object} medals Medals
+ * @property {number} medals.bronze Bronze medals
+ * @property {number} medals.silver Silver medals
+ * @property {number} medals.gold Gold medals
+ * @property {object} perks Perks
+ * @property {number} perks.doubleDrops Double drops
+ * @property {number} perks.farmingLevelCap Farming level cap
+ * @property {object} contests Contests
  */
 module.exports = SkyblockMember;
