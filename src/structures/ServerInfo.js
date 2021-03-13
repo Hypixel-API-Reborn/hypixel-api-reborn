@@ -3,15 +3,15 @@
  */
 class ServerInfo {
   /**
-     * Constructor
-     * @param {Object} data data parsed from packet
-     * @param {number} ping Ping
-     */
-  constructor(data, ping) {
+   * Constructor
+   * @param {Object} data data parsed from packet
+   * @param {number} ping Ping
+   */
+  constructor (data, ping) {
     /**
-       * Protocol used for retrieving info, should be 736
-       * @type {Number}
-       */
+     * Protocol used for retrieving info, should be 736
+     * @type {Number}
+     */
     this.protocolUsed = data.version.protocol || 736;
     /**
      * Version required / Server version used
@@ -26,7 +26,7 @@ class ServerInfo {
       max: data.players.max || 0,
       online: data.players.online || 0,
       players: data.players.sample || [],
-      toString: ()=>`${this.players.online}/${this.players.max}`
+      toString: () => `${this.players.online}/${this.players.max}`
     };
     /**
      * Server MOTD, as it is received
@@ -63,7 +63,7 @@ class ServerInfo {
    * toString override
    * @returns {string}
    */
-  toString() {
+  toString () {
     return `${this.textMOTD} - ${this.players} Players (${this.ping} ms) - ${this.versionInfo}`;
   }
 }
