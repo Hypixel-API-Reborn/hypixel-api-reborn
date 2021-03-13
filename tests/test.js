@@ -189,12 +189,6 @@ describe('Client#getWatchdogStats', () => {
     expect(watchdog.byWatchdogTotal).to.be.a('number');
   });
 });
-describe('Client#getPing', () => {
-  it('should be a number', async () => {
-    const ping = await client.getPing();
-    expect(ping).to.be.an('number');
-  });
-});
 describe('Client#getFriends', () => {
   let friends;
   it('expect not to throw', async () => {
@@ -282,11 +276,5 @@ describe('Client#getSkyblockNews', async () => {
       expect(record.date).instanceOf(Date);
       expect(record.rawDate).to.be.a('string');
     }
-  });
-});
-describe('Client#getOnline', () => {
-  it('should be a number', async () => {
-    const online = await client.getOnline();
-    expect(online).to.be.an('number');
   });
 });
