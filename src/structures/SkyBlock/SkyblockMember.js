@@ -212,7 +212,7 @@ function getSkills (data) {
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, skill === 'farming' ? data.jacob2 && data.jacob2.perks && data.jacob2.perks.farming_level_cap : null);
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, skill === 'farming' ? (data.jacob2 && data.jacob2.perks && data.jacob2.perks.farming_level_cap) || 0 : null);
   }
   if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
