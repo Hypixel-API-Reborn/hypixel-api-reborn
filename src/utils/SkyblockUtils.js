@@ -13,7 +13,7 @@ module.exports = {
     }
     return newdata;
   },
-  getLevelByXp (xp, type, achievements) {
+  getLevelByXp (xp, type, levelCap) {
     let xpTable;
     switch (type) {
       case 'runecrafting':
@@ -26,11 +26,11 @@ module.exports = {
         xpTable = constants.leveling_xp;
     }
     let maxLevel = Math.max(...Object.keys(xpTable));
-    let maxLevelCap = maxLevel;
     if (constants.skills_cap[type] > maxLevel) {
       xpTable = Object.assign(constants.xp_past_50, xpTable);
-      maxLevel = Math.max(...Object.keys(xpTable));
-      if (achievements && type in constants.skills_achievements) maxLevelCap = achievements[constants.skills_achievements[type]];
+      maxLevel = typeof levelCap === 'number' ?
+        maxLevel + levelCap :
+        Math.max(...Object.keys(xpTable));
     }
     if (isNaN(xp)) {
       return {
@@ -45,7 +45,7 @@ module.exports = {
     let xpTotal = 0;
     let level = 0;
     let xpForNext = 0;
-    for (let x = 1; x <= maxLevelCap; x++) {
+    for (let x = 1; x <= maxLevel; x++) {
       xpTotal += xpTable[x];
       if (xpTotal > xp) {
         xpTotal -= xpTable[x];
@@ -106,6 +106,7 @@ module.exports = {
         tier2: 0,
         tier3: 0,
         tier4: 0,
+        tier5: 0,
         level: 0
       };
     }
@@ -125,6 +126,7 @@ module.exports = {
       tier2: slayer.boss_kills_tier_1 || 0,
       tier3: slayer.boss_kills_tier_2 || 0,
       tier4: slayer.boss_kills_tier_3 || 0,
+      tier5: slayer.boss_kills_tier_4 || 0,
       level
     };
   },
