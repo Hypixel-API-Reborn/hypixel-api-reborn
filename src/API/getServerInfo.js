@@ -7,7 +7,9 @@ const packetsToSend = [
   '0100',
   '09010000000000000000'
 ].map((x) => Buffer.from(x, 'hex')); // To avoid dependency hell, these are precompiled as hex.
-module.exports = async function () {
+module.exports = async function (repeats) {
+  if (repeats < 0 || !repeats ) repeats = 3;
+  if (repeats > 10) repeats = 10;
   let aggregatedData = '';
   let dataLength = 0;
   return await new Promise((resolve, reject) => {
@@ -28,10 +30,24 @@ module.exports = async function () {
 
       if (dataLength >= aggregatedData.length) return;
       cli.removeAllListeners('data'); // Remove this listener
-      resolve(parseData(aggregatedData, await ping(cli)));
+      resolve(parseData(aggregatedData, await getPing(repeats, cli)));
     });
   });
 };
+/**
+ * Gets hypixel's ping
+ * @param {number} amount Amount of times to ping
+ * @param {net.Socket} cli Socket connected to hypixel
+ * @returns {number}
+ */
+async function getPing(amount, cli) {
+  let pingSum = 0;
+  for (let i = 0; i < amount; i++) {
+    pingSum += await ping(cli);
+  }
+  cli.destroy();
+  return Math.round(pingSum / amount);
+}
 /**
  * Pings hypixel
  * @param {net.Socket} cli Client socket, connected to hypixel.
@@ -42,7 +58,6 @@ async function ping(cli) {
   const time = Date.now();
   return new Promise((resolve) => {
     cli.once('data', ()=>{
-      cli.destroy();
       resolve(Date.now() - time);
     });
   });

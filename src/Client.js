@@ -201,20 +201,12 @@ class Client {
    * Sends a STATUS packet to hypixel and parses the return info (a 0x00 and 0x01 packet)
    * @method
    * @name Client#getServerInfo
+   * @param {number} [repeats=3] Sends x amount of ping requests and gets the average. Should be between 1 and 10
    * @return {Promise<ServerInfo>}
    * @example
-   * hypixel.getServerInfo().then(serverInfo =>{
+   * hypixel.getServerInfo(3).then(serverInfo =>{
    *   console.log(serverInfo.ping); // 69
    * }).catch(console.log)
-   */
-  /**
-   * Allows you to get current player count
-   * @method
-   * @name Client#getOnline
-   * @param {string}  [ip=mc.hypixel.net] Valid IP/Hostname address
-   * @return {Promise<number>}
-   * @example
-   * hypixel.getOnline().then(console.log).catch(console.log); // 121730
    */
   /**
    * Allows you to get recent games of a player

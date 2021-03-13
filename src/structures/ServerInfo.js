@@ -37,7 +37,12 @@ class ServerInfo {
      * Clean MOTD, no color codes
      * @type {string}
      */
-    this.textMOTD = this.rawMOTD.replace(/§[a-z0-9]/gi, '');
+    this.cleanMOTD = this.rawMOTD.replace(/§[a-z0-9]/gi, '');
+    /**
+     * MOTD without surrounding white spaces for centering
+     * @type {string}
+     */
+    this.textMOTD = this.cleanMOTD.replace(/^\s+/gm, '');
     /**
      * base64 Favicon - as it is received
      * @type {string}

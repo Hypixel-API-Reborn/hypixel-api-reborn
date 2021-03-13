@@ -44,6 +44,7 @@ declare module 'hypixel-api-reborn' {
         CACHE_FILTER_INVALID: string,
         CACHE_LIMIT_MUST_BE_A_NUMBER: string,
         CACHE_TIME_MUST_BE_A_NUMBER: string,
+        CONNECTION_ERROR: string,
         ERROR_CODE_CAUSE: string,
         ERROR_STATUSTEXT: string,
         GUILD_DOES_NOT_EXIST: string,
@@ -159,6 +160,12 @@ declare module 'hypixel-api-reborn' {
          * @param input Player nickname
          */
         toUUID(input: string): Promise<string>
+        /**
+         * Converts varInts to js numbers
+         * @param bytes Array of numbers to be read as minecraft var ints.
+         */
+        varInt(bytes: number[]): number
+
     };
     class Client {
         constructor(key: string, options?: clientOptions);
@@ -241,10 +248,6 @@ declare module 'hypixel-api-reborn' {
          */
         getStatus(query: string, options?: methodOptions): Promise<Status>;
         /**
-         * @description Allows you to get current player count
-         */
-        getOnline(server?: string): Promise<number>;
-        /**
          * @description Allows you to get information about used API key
          */
         getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
@@ -261,11 +264,10 @@ declare module 'hypixel-api-reborn' {
          */
         getGameCounts(options?: methodOptions): Promise<GameCounts>;
         /**
-         * @param ip - Valid IP/Hostname address
-         * @description Pings the minecraft server of hypixel by default
-         * @deprecated Will be reworked soon
+         * @param repeats Amount of times to ping hypixel, preferably between 1 and 10 times.
+         * @description Parses information returned by hypixel upon a status request packet
          */
-        getPing(ip?: string): Promise<number>;
+        getServerInfo(repeats?: number): Promise<ServerInfo>;
         /**
          * @description Parses the RSS feed from status.hypixel.net
          */
@@ -1979,5 +1981,21 @@ declare module 'hypixel-api-reborn' {
          */
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         readNBT(): Promise<any[]>;
+    }
+    class ServerInfo {
+        constructor(data: Record<string, unknown>, ping: number)
+        protocolUsed: number;
+        versionInfo: string;
+        players: {
+            max: number;
+            online:number;
+            players: string[];
+        }
+        rawMOTD: string;
+        cleanMOTD: string;
+        textMOTD: string;
+        faviconB64: string;
+        favicon: Buffer;
+        ping: number;
     }
 }
