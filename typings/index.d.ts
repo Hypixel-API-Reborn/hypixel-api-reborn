@@ -139,7 +139,7 @@ declare module 'hypixel-api-reborn' {
             /**
              * @description Get level by experience
              */
-            getLevelByXp(xp: number, type: string, achievements: Record<string, unknown>): number;
+            getLevelByXp(xp: number, type: string, levelCap: number | null): number;
             /**
              * @description Get level by achievement
              */
@@ -1218,6 +1218,18 @@ declare module 'hypixel-api-reborn' {
         getEnderChest(): Promise<SkyblockInventoryItem[]>;
         getArmor(): Promise<{ helmet: SkyblockInventoryItem, chestplate: SkyblockInventoryItem, leggings: SkyblockInventoryItem, boots: SkyblockInventoryItem }>;
         getPetScore(): number;
+        jacob: {
+            medals: {
+                bronze: number,
+                silver: number,
+                gold: number
+            },
+            perks: {
+                doubleDrops: number,
+                farmingLevelCap: number,
+            },
+            contests: Record<string, unknown>,
+        }
     }
     class Color {
         constructor(color: string)
