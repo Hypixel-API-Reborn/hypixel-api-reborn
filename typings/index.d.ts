@@ -1265,7 +1265,7 @@ declare module 'hypixel-api-reborn' {
     coins: number;
     souls: number;
     tokens: number;
-    winStreak: number;
+    winstreak: number;
     kills: number;
     losses: number;
     deaths: number;
