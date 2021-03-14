@@ -1287,6 +1287,10 @@ declare module 'hypixel-api-reborn' {
     playedGames: number;
     KDRatio: number;
     WLRatio: number;
+    opals: number;
+    avarice: number;
+    tenacity: number;
+    shards: number;
     solo: {
       overall: {
         winstreak: number,
