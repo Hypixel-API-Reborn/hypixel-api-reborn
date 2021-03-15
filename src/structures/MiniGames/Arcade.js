@@ -9,6 +9,16 @@ class Arcade {
      */
   constructor(data = {}) {
     /**
+     * Last Tournament Advertisement as timestamp, only appears when a tournament is announced
+     * @type {number}
+     */
+    this.lastTourneyAdTimestamp = data.lastTourneyAd || undefined;
+    /**
+     * Last Tournament Advertisement as Date, only appears when a tournament is announced
+     * @type {Date}
+     */
+    this.lastTourneyAdAt = this.lastTourneyAdTimestamp ? new Date(data.lastTourneyAd) : undefined;
+    /**
      * Amount of coins
      * @type {number}
      */
@@ -87,7 +97,7 @@ class Arcade {
      * Mini Walls stats
      * @type {BaseGame}
      */
-    this.miniWalls = new BaseGame(data, 'mini_walls'); // also needs extension
+    this.miniWalls = new BaseGame(data, 'mini_walls'); // needs extension
     /**
      * Party games (1) stats
      * @type {BaseGame}
@@ -128,9 +138,9 @@ class Arcade {
     this.enderSpleef = new BaseGame(data, 'ender');
     /**
      * Blocking dead ( previously known as DayOne ) stats
-     * @type {BaseGame}
+     * @type {BlockingDead}
      */
-    this.blockingDead = new BaseGame(data, 'dayone'); // blocking dead was this tf
+    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone);
     /**
      * Galaxy Wars stats
      * @type {GalaxyWars}
@@ -160,19 +170,19 @@ class BaseGame {
     this.wins = parseInt(data['wins_'+gameName]);
     /**
      * Kills, only available in combat games
-     * @type {number|undefined}
+     * @type {?number}
      */
-    this.kills = parseInt(data['kills_'+gameName]) || undefined;
+    this.kills = parseInt(data['kills_'+gameName]) || null;
     /**
      * Deaths, only available in combat games
-     * @type {number|undefined}
+     * @type {?number}
      */
-    this.deaths = parseInt(data['deaths_'+gameName]) || undefined;
+    this.deaths = parseInt(data['deaths_'+gameName]) || null;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
-     * @type {number|undefined}
+     * @type {?number|}
      */
-    this.roundsPlayed = parseInt(data['rounds_'+gameName]) || undefined;
+    this.roundsPlayed = parseInt(data['rounds_'+gameName]) || null;
   }
   /**
    * Extend BaseGame without creating a new class
@@ -317,5 +327,10 @@ class HITW extends BaseGame {
  * @typedef {Object} OITQ
  * @extends BaseGame
  * @property {number} bountyKills Bounty Kills
+ */
+/**
+ * @typedef {Object} BlockingDead
+ * @extends BaseGame
+ * @property {number} headshots Headshots
  */
 module.exports = Arcade;
