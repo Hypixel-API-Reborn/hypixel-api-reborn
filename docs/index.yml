@@ -12,14 +12,10 @@
       path: getFriends.md
     - name: getStatus
       path: getStatus.md
-    - name: getPing
-      path: getPing.md
     - name: getRecentGames
       path: getRecentGames.md
     - name: getWatchdogStats
       path: getWatchdogStats.md
-    - name: getOnline
-      path: getOnline.md
     - name: getKeyInfo
       path: getKeyInfo.md
     - name: getLeaderboards
@@ -28,6 +24,8 @@
       path: getAPIStatus.md
     - name: getBoosters
       path: getBoosters.md
+    - name: getServerInfo
+      path: getServerInfo.md
     # - name: getSkyblockProfiles
     #   path: getSkyblockProfiles.md
     # - name: getSkyblockMember

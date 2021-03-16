@@ -1,4 +1,4 @@
-# getPlayer
+# getStatus
 Allows you to get the status of a player.
 ## Arguments
 - Player nickname or UUID

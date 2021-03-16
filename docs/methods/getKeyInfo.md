@@ -1,4 +1,4 @@
-# getPlayer
+# getKeyInfo
 Gets Key information.
 ## Arguments
 - [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)
