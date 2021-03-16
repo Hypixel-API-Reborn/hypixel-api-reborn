@@ -1,5 +1,5 @@
 const Errors = require('../Errors');
-const toUuid = require('../utils/toUUID');
+const toUuid = require('../utils/toUuid');
 const getGuild = require('./getGuild');
 module.exports = async function (query, options = { guild: false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);

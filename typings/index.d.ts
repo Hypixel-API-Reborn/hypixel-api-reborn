@@ -159,7 +159,7 @@ declare module 'hypixel-api-reborn' {
      * Calls Mojang API for player's uuid by nickname
      * @param input Player nickname
      */
-    toUUID(input: string): Promise<string>
+    toUuid(input: string): Promise<string>
     /**
      * Converts varInts to js numbers
      * @param bytes Array of numbers to be read as minecraft var ints.
