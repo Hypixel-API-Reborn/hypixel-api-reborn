@@ -1,5 +1,5 @@
 const Errors = require('../../Errors');
-const toUuid = require('../../utils/toUuid');
+const toUuid = require('../../utils/toUUID');
 const getPlayer = require('../getPlayer');
 module.exports = async function (query, options = { fetchPlayer: false }) {
   const SkyblockProfile = require('../../structures/SkyBlock/SkyblockProfile');

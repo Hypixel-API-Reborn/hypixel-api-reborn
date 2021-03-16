@@ -1,5 +1,5 @@
 const Errors = require('../../Errors');
-const toUuid = require('../../utils/toUuid');
+const toUuid = require('../../utils/toUUID');
 module.exports = async function (query, includeItemBytes = false) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   const Auction = require('../../structures/SkyBlock/Auctions/Auction');

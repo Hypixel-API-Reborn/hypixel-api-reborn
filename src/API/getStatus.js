@@ -1,4 +1,4 @@
-const toUuid = require('../utils/toUuid');
+const toUuid = require('../utils/toUUID');
 module.exports = async function (query) {
   const Status = require('../structures/Status');
   query = await toUuid(query);

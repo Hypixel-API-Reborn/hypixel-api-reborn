@@ -1,5 +1,5 @@
 const Errors = require('../Errors');
-const toUuid = require('../utils/toUuid');
+const toUuid = require('../utils/toUUID');
 const day3 = 1000 * 60 * 60 * 24 * 3;
 module.exports = async function (query, playerData) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
