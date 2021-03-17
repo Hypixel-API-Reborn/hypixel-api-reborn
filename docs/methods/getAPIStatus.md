@@ -1,4 +1,4 @@
-# getPlayer
+# getAPIStatus
 Allows you to get the Hypixel API's Status and past Incidents, no key needed.
 ## Arguments
 

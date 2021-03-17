@@ -66,6 +66,9 @@ module.exports = {
   /* Leaderboards */
   Leaderboard: require('./structures/Leaderboard.js'),
 
+  /** Server Info */
+  ServerInfo: require('./structures/ServerInfo'),
+
   /* Errors */
   Errors: require('./Errors.js'),
 

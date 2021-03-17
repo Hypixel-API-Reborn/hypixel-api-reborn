@@ -1,4 +1,4 @@
-# getPlayer
+# getBoosters
 Allows you to get all active boosters.
 ## Arguments
 - [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)

@@ -1,4 +1,4 @@
-# getPlayer
+# getRecentGames
 Allows you to get recent games of a player.
 ## Arguments
 - Player nickname or UUID
