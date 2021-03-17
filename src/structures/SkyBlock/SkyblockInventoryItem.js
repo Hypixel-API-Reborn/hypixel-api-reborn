@@ -58,6 +58,18 @@ class SkyblockInventoryItem {
      * @version >6.0.1
      */
     this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
+    /**
+     * The amount of dungeon stars the item has (each star equates to a 10% stat boost while in dungeons)
+     * @author linearaccelerator
+     * @type {number}
+     */
+    this.dungeonStars = this.name.match(/(\u272a)/g) ? this.name.match(/(\u272a)/g).length : 0;
+    /**
+     * Dungeon gear score of the item (or null if not present)
+     * @author linearaccelerator
+     * @type {number}
+     */
+    this.gearScore = parseGearScore(this.loreArray) || null;
   }
   /**
    * Item Name
@@ -76,6 +88,12 @@ function parseRarity (stringContainingRarity) {
   const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'SUPREME', 'SPECIAL', 'VERY SPECIAL'];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
+  }
+}
+
+function parseGearScore(lore) {
+  for(const line of lore){
+    if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
   }
 }
 module.exports = SkyblockInventoryItem;

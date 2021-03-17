@@ -1252,6 +1252,8 @@ declare module 'hypixel-api-reborn' {
     anvilUses: number;
     damage: number;
     rarity: string;
+    dungeonStars: number;
+    gearScore: number;
     toString(): string;
   }
   class Game {
