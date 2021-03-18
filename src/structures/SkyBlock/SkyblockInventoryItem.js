@@ -90,9 +90,12 @@ function parseRarity (stringContainingRarity) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }
 }
-
-function parseGearScore(lore) {
-  for(const line of lore){
+/**
+ * @param {string[]} lore
+ * @return {number}
+ */
+function parseGearScore (lore) {
+  for (const line of lore) {
     if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
   }
 }
