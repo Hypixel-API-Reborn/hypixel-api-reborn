@@ -14,7 +14,7 @@ module.exports = async (input) => {
       return Promise.reject(new Error(Errors.MALFORMED_UUID));
     }
     return parsedRes.name;
-  } catch (e) {
+  } catch {
     throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
   }
 };
