@@ -1,4 +1,4 @@
-# getPlayer
+# getFriends
 Allows you get player's list of friends.
 ## Arguments
 - Player nickname or UUID

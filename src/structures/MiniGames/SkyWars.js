@@ -77,7 +77,7 @@ class SkyWars {
      * Experience
      * @type {number}
      */
-    this.experience = data.skywars_experience;
+    this.experience = data.skywars_experience || 0;
     /**
      * Level
      * @type {number}
@@ -190,7 +190,7 @@ class SkyWars {
      * @type {SkyWarsTotalModeStats}
      */
     this.ranked = {
-      winstreak: data.winstreak_ranked,
+      winstreak: data.winstreak_ranked || 0,
       playedGames: data.games_ranked || 0,
       kills: data.kills_ranked || 0,
       wins: data.wins_ranked || 0,
@@ -352,7 +352,8 @@ module.exports = SkyWars;
  * @return {string}
  */
 function getSkyWarsPrestige (level) {
-  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Mythic';
+  if (level >= 60) return 'Mythic';
+  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Iron';
 }
 /**
  * @param {number} xp

@@ -16,7 +16,7 @@
 </div>
 
 ### Links
-[Discord Support](https://discord.gg/NSEBNMM) | [Documenation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [PreMiD Presence](https://premid.app/store/presences/Hypixel%20API%20Reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1)
+[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [PreMiD Presence](https://premid.app/store/presences/Hypixel%20API%20Reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1)
 
 #### Requirements
 
@@ -48,7 +48,7 @@ hypixel.getGuild('name', 'The Foundation').then(guild => {
 ```
 For more examples go to our [documentation](https://hypixel.stavzdev.xyz/).
 ## Changelog
-[v6.3.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/6.3.0)
+[v7.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/7.0.0)
 
 ### Try it now
 **[Code Sandbox](https://codesandbox.io/s/clever-babbage-xqmfw?file=/src/index.js)**

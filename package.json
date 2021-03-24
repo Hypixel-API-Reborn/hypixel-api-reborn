@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "6.3.0",
+  "version": "7.0.2",
   "description": "This is the only Hypixel API wrapper for Node.js with intellisense support",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",

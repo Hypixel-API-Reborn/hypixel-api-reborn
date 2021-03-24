@@ -1,4 +1,4 @@
-# getPlayer
+# getWatchdogStats
 Allows you to get statistics of watchdog, the server anticheat.
 ## Arguments
 - [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)
