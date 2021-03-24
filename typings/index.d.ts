@@ -165,7 +165,6 @@ declare module 'hypixel-api-reborn' {
      * @param bytes Array of numbers to be read as minecraft var ints.
      */
     varInt(bytes: number[]): number
-
   };
   class Client {
     constructor(key: string, options?: clientOptions);
@@ -717,7 +716,7 @@ declare module 'hypixel-api-reborn' {
     petScore: number;
     heldItem: string | null;
     candyUsed: number;
-    skin: string | null
+    skin: string | null;
   }
   class SkyblockMember {
     constructor(data: Record<string, unknown>);
@@ -1231,7 +1230,7 @@ declare module 'hypixel-api-reborn' {
         farmingLevelCap: number,
       },
       contests: Record<string, unknown>,
-    }
+    };
   }
   class Color {
     constructor(color: string)
@@ -2008,7 +2007,7 @@ declare module 'hypixel-api-reborn' {
       max: number;
       online: number;
       players: string[];
-    }
+    };
     rawMOTD: string;
     cleanMOTD: string;
     textMOTD: string;
