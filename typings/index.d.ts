@@ -18,6 +18,9 @@ interface clientOptions {
   cacheSize?: number;
   cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
+  keyLimit?: number;
+  syncWithHeaders?: boolean;
+  maxSyncRequests?: number;
 }
 interface methodOptions {
   noCacheCheck?: boolean;
@@ -52,6 +55,9 @@ declare module 'hypixel-api-reborn' {
     INVALID_GUILD_ID: string,
     INVALID_GUILD_SEARCH_PARAMETER: string,
     INVALID_OPTION_VALUE: string,
+    INVALID_KEY_LIMIT_OPTION: string,
+    INVALID_HEADER_SYNC_OPTION: string,
+    INVALID_BURST_OPTION: string,
     INVALID_RATE_LIMIT_OPTION: string,
     INVALID_RESPONSE_BODY: string,
     KEY_MUST_BE_A_STRING: string,
@@ -66,8 +72,10 @@ declare module 'hypixel-api-reborn' {
     PLAYER_DOES_NOT_EXIST: string,
     PLAYER_HAS_NEVER_LOGGED: string,
     PLAYER_IS_INACTIVE: string,
+    RATE_LIMIT_INIT_ERROR: string,
     SOMETHING_WENT_WRONG: string,
-    UUID_NICKNAME_MUST_BE_A_STRING: string
+    UUID_NICKNAME_MUST_BE_A_STRING: string,
+    MULTIPLE_INSTANCES: string
   };
   const Utils: {
     arrayTools: {
