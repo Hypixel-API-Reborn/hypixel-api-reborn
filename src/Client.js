@@ -19,6 +19,7 @@ class Client {
     if (clients.find((x) => x.key === key)) {
       // eslint-disable-next-line no-console
       console.warn(Errors.MULTIPLE_INSTANCES);
+      return clients.find((x) => x.key === key);
     }
     validate.validateNodeVersion();
     this.key = validate.validateKey(key);
@@ -34,7 +35,7 @@ class Client {
      */
     this.cache = requests.cache;
     clients.push(this);
-    return rateLimit.init(this.getKeyInfo(), this.options);
+    rateLimit.init(this.getKeyInfo(), this.options);
   }
   /**
    * Private function - make request

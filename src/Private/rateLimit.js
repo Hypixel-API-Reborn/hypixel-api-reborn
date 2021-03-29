@@ -4,11 +4,16 @@ const Errors = require('../Errors');
 
 /* eslint-disable require-jsdoc */
 module.exports = class RateLimit {
+  constructor() {
+    this.initialized = 0;
+  }
+
   rateLimitMonitor () {
     this.resetTimer = setTimeout(this.reset, 1000 * 60, this);
   }
 
   async rateLimitManager () {
+    if (!this.initialized) return;
     this.requests++;
     this.requestQueue.unshift(Date.now());
     if (this.options.rateLimit === 'NONE' || !this.requestQueue.length) return;
@@ -63,11 +68,12 @@ module.exports = class RateLimit {
      * @type {number[]}
      */
     this.requestQueue = [];
-    keyInfo
+    return keyInfo
       .then((info) => {
         this.requests = info.requestsInPastMin;
         this.lastResetHappenedAt = Date.now() - (60 - info.resetsAfter) * 1000; // Computed reset time
         this.resetTimer = setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
+        this.initialized = 1;
       })
       .catch(() => {
         // eslint-disable-next-line no-console
@@ -75,6 +81,7 @@ module.exports = class RateLimit {
         this.requests = 0;
         this.lastResetHappenedAt = Date.now();
         this.rateLimitMonitor();
+        this.initialized = 1;
       });
     // Still make the requests per min possible
   }
