@@ -59,7 +59,7 @@ class Client {
    * })
    * @example
    * // Get player's guild along with player stats
-   * hypixel.getPlayer('Minikloon').then(player => {
+   * hypixel.getPlayer('Minikloon', { guild: true }).then(player => {
    *   console.log(player.guild) // null if player isn't is guild
    *   console.log(player.guild.name) // Mini Squid
    *   console.log(player.guild.level) // 110
