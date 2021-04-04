@@ -8,10 +8,6 @@ module.exports = class RateLimit {
     this.initialized = 0;
   }
 
-  rateLimitMonitor () {
-    this.resetTimer = setTimeout(this.reset, 1000 * 60, this);
-  }
-
   async rateLimitManager () {
     if (!this.initialized) return;
     this.requests++;
@@ -47,6 +43,10 @@ module.exports = class RateLimit {
     fthis.requestQueue = fthis.requestQueue.filter((x)=>x >= Date.now());
   }
 
+  rateLimitMonitor () {
+    this.resetTimer = setTimeout(this.reset, 1000 * 60, this);
+  }
+
   init (keyInfo, options) {
     /**
      * Rate limit Options
@@ -72,7 +72,7 @@ module.exports = class RateLimit {
       .then((info) => {
         this.requests = info.requestsInPastMin;
         this.lastResetHappenedAt = Date.now() - (60 - info.resetsAfter) * 1000; // Computed reset time
-        this.resetTimer = setTimeout(this.rateLimitMonitor, 1000 * info.resetsAfter);
+        this.resetTimer = setTimeout(this.rateLimitMonitor.bind(this), 1000 * info.resetsAfter);
         this.initialized = 1;
       })
       .catch(() => {
