@@ -4,18 +4,24 @@
 class Friend {
   /**
    * @param {object} data Friend data
+   * @param {string} uuid UUID of player from whom the data is retrieved from
    */
-  constructor (data) {
+  constructor (data, uuid) {
     /**
-     * Friend request sender's UUID
+     * Friend request sender's UUID ( Whoever sent the FR )
      * @type {string}
      */
     this.sender = data.uuidSender;
     /**
-     * Friend request receiver's UUID
+     * Friend request receiver's UUID ( Whoever received the FR )
      * @type {string}
      */
     this.receiver = data.uuidReceiver;
+    /**
+     * Friend's UUID
+     * @type {string}
+     */
+    this.uuid = this.sender === uuid ? this.receiver : this.sender;
     /**
      * Friend since timestamp
      * @type {number}
