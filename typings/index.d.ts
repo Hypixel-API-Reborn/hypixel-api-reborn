@@ -450,6 +450,134 @@ declare module 'hypixel-api-reborn' {
     totalRequests: number;
     resetsAfter: number;
   }
+
+  class Arcade {
+    constructor(data?: Record<string, unknown>);
+    lastTourneyAdTimestamp: number;
+    lastTourneyAdAt: Date;
+    coins: number;
+    weeklyCoins: number;
+    monthlyCoins: number;
+    hintsDisabled: boolean;
+    flashDisabled: boolean;
+    drawTheirThing: BaseGame;
+    dragonWars: BaseGame;
+    easterSimulator: EasterSimulator;
+    grinchSimulator: GrinchSimulator;
+    scubaSimulator: ScubaSimulator;
+    santaSimulator: SantaSimulator;
+    santaSays: BaseGame;
+    simonSays: BaseGame;
+    farmHunt: BaseGame;
+    holeInTheWall: HITW;
+    miniWalls: MiniWalls;
+    partyGames: BaseGame;
+    partyGames2: BaseGame;
+    partyGames3: BaseGame;
+    throwOut: BaseGame;
+    soccer: Soccer;
+    hypixelSports: BaseGame;
+    enderSpleef: BaseGame;
+    blockingDead: BlockingDead;
+    galaxyWars: GalaxyWars;
+    oitq: OITQ;
+    oneInTheQuiver: OITQ;
+    zombies: Zombies;
+  }
+  class BaseGame {
+    constructor(data: Record<string, unknown>, gameName: string);
+    wins: number | null;
+    kills: number | null;
+    deaths: number | null;
+    roundsPlayed: number | null;
+    private extend;
+  }
+  class EasterSimulator extends BaseGame {
+    eggsFound: number;
+  }
+  class GrinchSimulator extends BaseGame {
+    giftsFound: number;
+  }
+  class ScubaSimulator extends BaseGame {
+    itemsFound: number;
+  }
+  class SantaSimulator extends BaseGame {
+    giftsDelivered: number;
+  }
+  class HITW extends BaseGame {
+    constructor(data: Record<string, unknown>);
+    scoreRecordFinals: number;
+    scoreRecordNormal: number;
+  }
+  class MiniWalls extends BaseGame {
+    constructor(data: Record<string, unknown>);
+    arrowHits: number;
+    arrowShots: number;
+    bowAccuracy: number;
+    finalKills: number;
+    witherDamage: number;
+    witherKills: number;
+  }
+  class Soccer {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kicks: number;
+    powerKicks: number;
+    goals: number;
+  }
+  class BlockingDead extends BaseGame {
+    headshots: number;
+  }
+  class GalaxyWars {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+    deaths: number;
+    shotsFired: number;
+    weeklyKills: number;
+    monthlyKills: number;
+    attackerKills: number;
+    defenderKills: number;
+  }
+  class OITQ extends BaseGame {
+    bountyKills: number;
+  }
+  class Zombies {
+    constructor(data: Record<string, unknown>);
+    overall: ZombiesStats;
+    deadEnd: ZombieMap;
+    badBlood: ZombieMap;
+    alienArcadium: ZombieMap;
+    killsByZombie: Record<string, number>;
+    bulletsHit: number;
+    bulletsShot: number;
+    gunAccuracy: number;
+    headshots: number;
+    headshotAccuracy: number;
+  }
+  class ZombieMap {
+    constructor(data: Record<string, unknown>, mapName: string);
+    normal: ZombiesStats;
+    hard: ZombiesStats;
+    rip: ZombiesStats;
+    overall: ZombiesStats;
+  }
+  class ZombiesStats {
+    constructor(data: Record<string, unknown>, type?: string);
+    bestRound: number;
+    deaths: number;
+    doorsOpened: number;
+    fastestRound10: number;
+    fastestRound20: number;
+    fastestRound30: number;
+    playersRevived: number;
+    timesKnockedDown: number;
+    roundsSurvived: number;
+    windowsRepaired: number;
+    wins: number;
+    zombieKills: number;
+  }
+
   class ArenaBrawl {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -690,6 +818,7 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     sender: string;
     receiver: string;
+    uuid: string;
     friendSinceTimestamp: number;
     friendSince: Date;
   }

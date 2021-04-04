@@ -364,7 +364,7 @@ class Zombies {
   constructor(data) {
     /**
      * Overall Stats
-     * @type {ZombieStats}
+     * @type {ZombiesStats}
      */
     this.overall = new ZombiesStats(data);
     /**
@@ -499,6 +499,7 @@ class ZombiesStats {
     this.timesKnockedDown = data[`times_knocked_down_zombies${type}`] || 0;
     /**
      * Total amount of rounds the player survived
+     * @type {number}
      */
     this.roundsSurvived = data[`total_rounds_survived_zombies${type}`] || 0;
     /**
@@ -554,7 +555,7 @@ function parseZombiesKills(data) {
  * @property {number} bountyKills Bounty Kills
  */
 /**
- * @typedef {Object} BlockingDead
+ * @typedef {JSON} BlockingDead
  * @extends BaseGame
  * @property {number} headshots Headshots
  */
