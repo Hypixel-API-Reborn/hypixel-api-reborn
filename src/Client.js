@@ -80,10 +80,10 @@ class Client {
    * @example
    * // async/await
    * const player = await hypixel.getPlayer('Minikloon').catch(console.log);
-   * // If player doesn't exist
+   * // If player doesn't exist, or if an error occurred ( check console )
    * console.log(player); // null
-   *
-   * console.log(player.uuid); // 20934ef9488c465180a78f861586b4cf
+   * // Check if player exists
+   * if(player) console.log(player.uuid); // 20934ef9488c465180a78f861586b4cf
    */
   /**
    * Allows you to get statistics of hypixel guild

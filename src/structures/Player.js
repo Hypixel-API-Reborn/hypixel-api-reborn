@@ -53,7 +53,7 @@ class Player {
      */
     this.mcVersion = data.mcVersionRp || null;
     /**
-     * Current chat channel
+     * Current chat channel, usually ALL, PARTY, or GUILD
      * @type {string|null}
      */
     this.channel = data.channel || null;

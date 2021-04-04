@@ -1,4 +1,7 @@
 // IMPORTANT : a lot of the properties from the API seem to be nonsense
+
+const divide = require('../../utils/divide');
+
 /**
  * Arcade class
  */
@@ -95,9 +98,9 @@ class Arcade {
     this.holeInTheWall = new HITW(data, 'hole_in_the_wall');
     /**
      * Mini Walls stats
-     * @type {BaseGame}
+     * @type {MiniWalls}
      */
-    this.miniWalls = new BaseGame(data, 'mini_walls'); // needs extension
+    this.miniWalls = new MiniWalls(data); // needs extension
     /**
      * Party games (1) stats
      * @type {BaseGame}
@@ -165,9 +168,9 @@ class BaseGame {
   constructor(data, gameName) {
     /**
      * Wins
-     * @type {number}
+     * @type {?number}
      */
-    this.wins = parseInt(data['wins_'+gameName]);
+    this.wins = parseInt(data['wins_'+gameName]) || null;
     /**
      * Kills, only available in combat games
      * @type {?number}
@@ -180,7 +183,7 @@ class BaseGame {
     this.deaths = parseInt(data['deaths_'+gameName]) || null;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
-     * @type {?number|}
+     * @type {?number}
      */
     this.roundsPlayed = parseInt(data['rounds_'+gameName]) || null;
   }
@@ -301,6 +304,48 @@ class HITW extends BaseGame {
      * @type {number}
      */
     this.scoreRecordFinals = this.scoreRecordFinals + this.scoreRecordNormal;
+  }
+}
+/**
+ * Mini Walls class
+ */
+class MiniWalls extends BaseGame {
+  /**
+   * Constructor
+   * @param {Object} data data from API
+   */
+  constructor(data) {
+    super(data, 'mini_walls');
+    /**
+     * Total Arrows Hit
+     * @type {number}
+     */
+    this.arrowHits = data.arrow_hits_mini_walls || 0;
+    /**
+     * Total Arrow shot
+     * @type {number}
+     */
+    this.arrowShots = data.arrow_shots_mini_walls || 0;
+    /**
+     * Bow Accuracy based on hits/shots
+     * @type {number}
+     */
+    this.bowAccuracy = divide(this.arrowHits, this.arrowShots);
+    /**
+     * Final Kills
+     * @type {number}
+     */
+    this.finalKills = data.final_kills_mini_walls || 0;
+    /**
+     * Total damage dealt to withers
+     * @type {number}
+     */
+    this.witherDamage = data.wither_damage_mini_walls || 0;
+    /**
+     * Wither Killed
+     * @type {number}
+     */
+    this.witherKills = data.wither_kills_mini_walls || 0;
   }
 }
 /**
