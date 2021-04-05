@@ -8,9 +8,9 @@ const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
  */
 class Arcade {
   /**
-     * Constructor
-     * @param {Otbject} data Data from the API
-     */
+   * Constructor
+   * @param {Object} data Data from the API
+   */
   constructor(data = {}) {
     /**
      * Last Tournament Advertisement as timestamp, only appears when a tournament is announced
