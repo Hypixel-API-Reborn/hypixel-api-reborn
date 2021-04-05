@@ -3,7 +3,10 @@
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const requests = new (require('./Private/requests'))();
+const Errors = require('./Errors');
 const API = require('./API/index');
+// Test to check for multiple instances of client
+const clients = [];
 /**
  * Client class
  */
@@ -13,6 +16,11 @@ class Client {
    * @param {ClientOptions} [options={}] Client options
    */
   constructor (key, options = {}) {
+    if (clients.find((x) => x.key === key)) {
+      // eslint-disable-next-line no-console
+      console.warn(Errors.MULTIPLE_INSTANCES);
+      return clients.find((x) => x.key === key);
+    }
     validate.validateNodeVersion();
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
@@ -21,12 +29,13 @@ class Client {
     Object.keys(API).forEach((func) => Client.prototype[func] = function (...args) {
       return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(args[args.length - 1]) ? args[args.length - 1] : {}) }), ...this }, args);
     });
-    rateLimit.init(this.getKeyInfo(), this.options.rateLimit);
     /**
      * All cache entries
      * @type {Map<string,object>}
      */
     this.cache = requests.cache;
+    clients.push(this);
+    rateLimit.init(this.getKeyInfo(), this.options);
   }
   /**
    * Private function - make request
@@ -39,8 +48,10 @@ class Client {
   async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
-    if (useRateLimitManager) await rateLimit.rateLimitManager(this.options);
-    return requests.request.call(this, url, options);
+    if (useRateLimitManager) await rateLimit.rateLimitManager();
+    const result = await requests.request.call(this, url, options);
+    if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
+    return result;
   }
 
   /**
@@ -69,10 +80,10 @@ class Client {
    * @example
    * // async/await
    * const player = await hypixel.getPlayer('Minikloon').catch(console.log);
-   * // If player doesn't exist
+   * // If player doesn't exist, or if an error occurred ( check console )
    * console.log(player); // null
-   *
-   * console.log(player.uuid); // 20934ef9488c465180a78f861586b4cf
+   * // Check if player exists
+   * if(player) console.log(player.uuid); // 20934ef9488c465180a78f861586b4cf
    */
   /**
    * Allows you to get statistics of hypixel guild

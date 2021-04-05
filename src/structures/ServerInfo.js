@@ -70,9 +70,9 @@ class ServerInfo {
 
 /**
  * @typedef {Object} PlayerInfo
- * @property {Number} max Max amount of players online possible for the server
- * @property {Number} online Current amount of online players
- * @property {Any[]} players Some or all players online, usually not provided by Hypixel
+ * @property {number} max Max amount of players online possible for the server
+ * @property {number} online Current amount of online players
+ * @property {any[]} players Some or all players online, usually not provided by Hypixel
  */
 
 module.exports = ServerInfo;
