@@ -178,7 +178,7 @@ class SkyblockMember {
      * Skyblock jacob data
      * @type {jacobData}
      */
-    this.jacob = getJacobData(data);
+    this.jacob = getJacobData(data.m);
   }
   /**
    * Skyblock Member pet score
