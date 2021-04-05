@@ -308,7 +308,7 @@ class HITW extends BaseGame {
      * Score Record overall
      * @type {number}
      */
-    this.scoreRecordFinals = this.scoreRecordFinals + this.scoreRecordNormal;
+    this.scoreRecordOverall = this.scoreRecordFinals + this.scoreRecordNormal;
   }
 }
 /**
