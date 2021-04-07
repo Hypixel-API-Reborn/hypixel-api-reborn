@@ -1,51 +1,33 @@
-const games = [
-  { name: 'Quake Craft', code: 'QUAKECRAFT', id: 2 },
-  { name: 'Walls', code: 'WALLS', id: 3 },
-  { name: 'Paintball', code: 'PAINTBALL', id: 4 },
-  { name: 'Blitz Survival Games', code: 'SURVIVAL_GAMES', id: 5 },
-  { name: 'The TNT Games', code: 'TNTGAMES', id: 6 },
-  { name: 'VampireZ', code: 'VAMPIREZ', id: 7 },
-  { name: 'Mega Walls', code: 'WALLS3', id: 13 },
-  { name: 'Arcade', code: 'ARCADE', id: 14 },
-  { name: 'Arena Brawl', code: 'ARENA', id: 17 },
-  { name: 'UHC Champions', code: 'UHC', id: 20 },
-  { name: 'Cops and Crims', code: 'MCGO', id: 21 },
-  { name: 'Warlords', code: 'BATTLEGROUND', id: 23 },
-  { name: 'Smash Heroes', code: 'SUPER_SMASH', id: 24 },
-  { name: 'Turbo Kart Racers', code: 'GINGERBREAD', id: 25 },
-  { name: 'Housing', code: 'HOUSING', id: 26 },
-  { name: 'SkyWars', code: 'SKYWARS', id: 51 },
-  { name: 'Crazy Walls', code: 'TRUE_COMBAT', id: 52 },
-  { name: 'Speed UHC', code: 'SPEED_UHC', id: 54 },
-  { name: 'SkyClash', code: 'SKYCLASH', id: 55 },
-  { name: 'Classic Games', code: 'LEGACY', id: 56 },
-  { name: 'Prototype', code: 'PROTOTYPE', id: 57 },
-  { name: 'BedWars', code: 'BEDWARS', id: 58 },
-  { name: 'Murder Mystery', code: 'MURDER_MYSTERY', id: 59 },
-  { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60 },
-  { name: 'Duels', code: 'DUELS', id: 61 },
-  { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 },
-  { name: 'The Pit', code: 'PIT', id: 64 },
-  { name: 'Replay', code: 'REPLAY', id: -1 },
-  { name: 'Limbo', code: 'LIMBO', id: -2 },
-  { name: 'Queue', code: 'QUEUE', id: -3 },
-  { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },
-  { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5 },
-  { name: 'Idle', code: 'IDLE', id: -6 }
-];
+const { games } = require('../utils/Constants');
 /**
  * Game class
  */
 class Game {
   /**
    * @param {GameId|GameCode} game Game ID or Game Code
-   * @param {GameId} id Game ID
-   * @param {GameCode} code Game Code
    */
   constructor (game) {
-    this.game = game;
-    this.id = (games.some((g) => g.code === this.game || g.id === this.game) ? games.find((g) => g.code === this.game || g.id === this.game).id : 'Not found');
-    this.code = (games.some((g) => g.code === this.game || g.id === this.game) ? games.find((g) => g.code === this.game || g.id === this.game).code : 'Not found');
+    /**
+     * Input
+     * @type {GameId|GameCode}
+     */
+    this.game = game.toString().toLowerCase();
+    const result = games.find((g) => g.code.toLowerCase() === this.game || g.id.toString() === this.game || g.name.toLowerCase() === this.game);
+    /**
+     * ID of game
+     * @type {GameId}
+     */
+    this.id = result ? result.id : 'Not Found';
+    /**
+     * Codename of game
+     * @type {GameCode}
+     */
+    this.code = result ? result.code : 'Not Found';
+    /**
+     * Whether the game is found
+     * @type {boolean}
+     */
+    this.found = !!result;
   }
 
   /**
@@ -58,6 +40,38 @@ class Game {
     } else {
       return games.some((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
     }
+  }
+
+  /**
+   * Alias for toString
+   * @return {GameString}
+   */
+  get name() {
+    return this.toString();
+  }
+
+  /**
+   * Static list of game IDs ( The list has the same order as CODES or NAMES )
+   * @return {GameId[]}
+   */
+  static get IDS() {
+    return games.map((x)=>x.id);
+  }
+
+  /**
+   * Static list of game codes
+   * @return {GameCode[]}
+   */
+  static get CODES() {
+    return games.map((x)=>x.code);
+  }
+
+  /**
+   * Static list of game strings
+   * @return {GameString[]}
+   */
+  static get NAMES() {
+    return games.map((x)=>x.name);
   }
 }
 /**

@@ -14,8 +14,7 @@ async function getPage (page = 0, options = {}) {
 }
 async function noReject (promise, args = [], retries = 3, cooldown = 100) {
   try {
-    // eslint-disable-next-line prefer-spread
-    const result = await promise.apply(null, args);
+    const result = await promise.call(null, ...args);
     return result;
   } catch (e) {
     if (retries) {

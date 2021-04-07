@@ -32,5 +32,6 @@ module.exports = {
   NODE_VERSION_ERR: '[hypixel-api-reborn] You are using a version of Nodejs that doesn\'t support certain features we use. Please upgrade to version 14 or above.',
   CONNECTION_ERROR: '[hypixel-api-reborn] Failed to connect.',
   RATE_LIMIT_INIT_ERROR: '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to desynchronization.',
-  MULTIPLE_INSTANCES: '[hypixel-api-reborn] Multiple instances of hypixel-api-reborn are found so we merged them for you. Please refrain from spawning multiple instances in the future. For more information, join our Discord Server https://discord.gg/NSEBNMM.'
+  MULTIPLE_INSTANCES: '[hypixel-api-reborn] Multiple instances of hypixel-api-reborn are found so we merged them for you. Please refrain from spawning multiple instances in the future. For more information, join our Discord Server https://discord.gg/NSEBNMM.',
+  INVALID_HEADERS: '[hypixel-api-reborn] Invalid Headers are provided in ClientOptions. For help join our Discord Server https://discord.gg/NSEBNMM'
 };

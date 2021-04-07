@@ -47,7 +47,7 @@ module.exports = class RateLimit {
     this.resetTimer = setTimeout(this.reset, 1000 * 60, this);
   }
 
-  init (keyInfo, options) {
+  init (keyInfo, options, client) {
     /**
      * Rate limit Options
      * @type {RLOptions}
@@ -68,6 +68,11 @@ module.exports = class RateLimit {
      * @type {number[]}
      */
     this.requestQueue = [];
+    /**
+     * Client
+     * @type {Client}
+     */
+    this.client = client;
     return keyInfo
       .then((info) => {
         this.requests = info.requestsInPastMin;
@@ -76,8 +81,7 @@ module.exports = class RateLimit {
         this.initialized = 1;
       })
       .catch(() => {
-        // eslint-disable-next-line no-console
-        console.warn(Errors.RATE_LIMIT_INIT_ERROR);
+        client.emit('warn', Errors.RATE_LIMIT_INIT_ERROR);
         this.requests = 0;
         this.lastResetHappenedAt = Date.now();
         this.rateLimitMonitor();

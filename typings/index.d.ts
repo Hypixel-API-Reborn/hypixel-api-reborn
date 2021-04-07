@@ -3,6 +3,9 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
 // Minimum TypeScript Version: 3.6
+
+import { EventEmitter } from 'events';
+
 type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
 type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit';
 type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64;
@@ -20,7 +23,8 @@ interface clientOptions {
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
   keyLimit?: number;
   syncWithHeaders?: boolean;
-  maxSyncRequests?: number;
+  silent?: boolean;
+  headers?: Record<string, unknown>;
 }
 interface methodOptions {
   noCacheCheck?: boolean;
@@ -174,7 +178,7 @@ declare module 'hypixel-api-reborn' {
      */
     varInt(bytes: number[]): number
   };
-  class Client {
+  class Client extends EventEmitter {
     constructor(key: string, options?: clientOptions);
     /**
      * @description API Key
@@ -284,6 +288,12 @@ declare module 'hypixel-api-reborn' {
      * @description Allows you to clear cache
      */
     sweepCache(amount?: number): void;
+    on(event: 'outgoingRequest', listener: (url: string, options:Record<string, unknown>) => void): this;
+    on(event: 'warn', listener: (error: string) => void): this;
+    /**
+     * @description Emitted ( only once ) when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
+     */
+    once(event: 'ready', listener: () => void): this;
   }
   class Player {
     constructor(data: Record<string, unknown>);
@@ -1397,6 +1407,12 @@ declare module 'hypixel-api-reborn' {
     toString(): GAME_NAME;
     code: GAME_CODE;
     id: GAME_ID;
+    name: GAME_NAME;
+    found: boolean;
+    private game: GAME_CODE | GAME_ID | GAME_NAME;
+    static IDS: Array<GAME_ID>;
+    static CODES: Array<GAME_CODE>;
+    static NAMES: Array<GAME_NAME>;
   }
   class SkyWars {
     constructor(data: Record<string, unknown>);
