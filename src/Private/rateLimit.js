@@ -25,7 +25,7 @@ module.exports = class RateLimit {
     this.requests = parseInt(data.get('ratelimit-ramaining'));
     if (Math.round(Date.now() / 1000) - (60 - parseInt(data.get('ratelimit-reset'))) != Math.round(this.lastResetHappenedAt/1000)) {
       clearTimeout(this.resetTimer);
-      this.resetTimer = setTimeout(this.reset, parseInt(data.get('ratelimit-reset')) * 1000, this);
+      this.resetTimer = setTimeout(this.reset.bind(this), parseInt(data.get('ratelimit-reset')) * 1000);
     }
   }
 
@@ -35,16 +35,16 @@ module.exports = class RateLimit {
     return overhead + (- overhead - Date.now() + 60000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier-this.requests);
   }
 
-  reset(fthis) {
-    fthis.requests = fthis.requests - fthis.options.keyLimit;
-    if (fthis.requests < 0) fthis.requests = 0;
-    fthis.lastResetHappenedAt = Date.now();
-    fthis.resetTimer = setTimeout(fthis.reset, 60000, fthis);
-    fthis.requestQueue = fthis.requestQueue.filter((x)=>x >= Date.now());
+  reset() {
+    this.requests = this.requests - this.options.keyLimit;
+    if (this.requests < 0) this.requests = 0;
+    this.lastResetHappenedAt = Date.now();
+    this.resetTimer = setTimeout(this.reset.bind(this), 60000);
+    this.requestQueue = this.requestQueue.filter((x)=>x >= Date.now());
   }
 
   rateLimitMonitor () {
-    this.resetTimer = setTimeout(this.reset, 1000 * 60, this);
+    this.resetTimer = setTimeout(this.reset.bind(this), 1000 * 60);
   }
 
   init (keyInfo, options, client) {
