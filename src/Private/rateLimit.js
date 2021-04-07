@@ -39,7 +39,7 @@ module.exports = class RateLimit {
     fthis.requests = fthis.requests - fthis.options.keyLimit;
     if (fthis.requests < 0) fthis.requests = 0;
     fthis.lastResetHappenedAt = Date.now();
-    fthis.resetTimer = setTimeout(fthis.reset, 60000, this);
+    fthis.resetTimer = setTimeout(fthis.reset, 60000, fthis);
     fthis.requestQueue = fthis.requestQueue.filter((x)=>x >= Date.now());
   }
 
