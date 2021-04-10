@@ -17,6 +17,7 @@ class Validation {
     if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
     if (typeof options.keyLimit !== 'number') throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
     if (typeof options.syncWithHeaders !== 'boolean') throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
+    if (typeof options.headers !== 'object') throw new Error(Errors.INVALID_HEADERS);
   }
 
   /**
@@ -34,7 +35,8 @@ class Validation {
       cacheFilter: typeof options.cacheFilter === 'function' ? options.cacheFilter : this._handleFilter(options.cacheFilter),
       rateLimit: options.rateLimit || 'AUTO',
       keyLimit: options.keyLimit || 120,
-      syncWithHeaders: !!options.syncWithHeaders
+      syncWithHeaders: !!options.syncWithHeaders,
+      headers: options.headers || {}
     };
   }
 

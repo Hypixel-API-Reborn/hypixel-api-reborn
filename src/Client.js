@@ -5,20 +5,23 @@ const rateLimit = new (require('./Private/rateLimit'))();
 const requests = new (require('./Private/requests'))();
 const Errors = require('./Errors');
 const API = require('./API/index');
-// Test to check for multiple instances of client
+const EventEmitter = require('events');
 const clients = [];
 /**
  * Client class
  */
-class Client {
+class Client extends EventEmitter {
   /**
    * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
    * @param {ClientOptions} [options={}] Client options
    */
   constructor (key, options = {}) {
+    super();
+    // eslint-disable-next-line no-console
+    if (options && !options.silent) this.on('warn', console.warn);
+    // Test to check for multiple instances of client
     if (clients.find((x) => x.key === key)) {
-      // eslint-disable-next-line no-console
-      console.warn(Errors.MULTIPLE_INSTANCES);
+      this.emit('warn', Errors.MULTIPLE_INSTANCES);
       return clients.find((x) => x.key === key);
     }
     validate.validateNodeVersion();
@@ -35,7 +38,7 @@ class Client {
      */
     this.cache = requests.cache;
     clients.push(this);
-    rateLimit.init(this.getKeyInfo(), this.options);
+    rateLimit.init(this.getKeyInfo(), this.options).then(()=>this.emit('ready'));
   }
   /**
    * Private function - make request
@@ -49,11 +52,37 @@ class Client {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
     if (useRateLimitManager) await rateLimit.rateLimitManager();
-    const result = await requests.request.call(this, url, options);
+    this.emit('outgoingRequest', url, {...options, headers: {...options.headers, ...this.options.headers}});
+    const result = await requests.request.call(this, url, {...options, headers: {...options.headers, ...this.options.headers}});
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
-
+  /**
+   * Emitted when a request is going to be sent
+   * @event
+   * @name Client#outgoingRequest
+   * @param {string} url URL
+   * @param {object} [options] Options, if any
+   */
+  /**
+   * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
+   * @event
+   * @name Client#ready
+   * @example
+   * // This example gets the first 100 friends of a player and gets their stats.
+   * hypixel.once('ready',()=>{
+   *  hypixel.getFriends('StavZDev')
+   *  .then(friends => friends.map(x=>x.uuid).slice(0, 100))
+   *  .then(hypixel.getPlayer)
+   *  .catch(console.log);
+   * })
+   */
+  /**
+   * Emitted when there is a warning.
+   * @event
+   * @name Client#warn
+   * @param {string} error Warning Message
+   */
   /**
    * Allows you to get statistics of player
    * @method
@@ -335,24 +364,31 @@ class Client {
  * @prop {boolean} [cache=false] Enable/Disable request caching.
  * @prop {number} [cacheTime=60] Amount of time in seconds to cache the requests.
  * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
+ * @prop {boolean} [syncWithHeaders=false] Sync with headers rate limit information. Usually not necessary nor recommended ( because of latency )
+ * @prop {number} [keyLimit=120] Key limit of your key.
  * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
+ * @prop {boolean} [silent=false] Don't automatically put warnings into console.
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
  */
 /**
  * @typedef {object} MethodOptions
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**
  * @typedef {object} PlayerMethodOptions
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {boolean} [guild=false] Disable/Enable request for player's guild
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**
  * @typedef {object} SkyblockMethodOptions
  * @property {?boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {?boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {?boolean} [fetchPlayer=false] Disable/Enable player profile request for each member
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**
  * @typedef {object} auctionsOptions
@@ -365,5 +401,6 @@ class Client {
  * @property {number} [cooldown=100] Cooldown between each fetch, only works if race is unset or false;
  * @property {boolean} [race=false] Issues simultaneous requests to the API, instead of requesting then parsing one by one. Can largely increase speed at the cost of hogging bandwidth and memory
  * @property {boolean} [includeItemBytes=false] Whether to include item bytes in the result
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 module.exports = Client;
