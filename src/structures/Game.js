@@ -44,7 +44,7 @@ class Game {
 
   /**
    * Alias for toString
-   * @return {GameString}
+   * @type {GameString}
    */
   get name() {
     return this.toString();
@@ -52,7 +52,7 @@ class Game {
 
   /**
    * Static list of game IDs ( The list has the same order as CODES or NAMES )
-   * @return {GameId[]}
+   * @type {GameId[]}
    */
   static get IDS() {
     return games.map((x)=>x.id);
@@ -60,7 +60,7 @@ class Game {
 
   /**
    * Static list of game codes
-   * @return {GameCode[]}
+   * @type {GameCode[]}
    */
   static get CODES() {
     return games.map((x)=>x.code);
@@ -68,7 +68,7 @@ class Game {
 
   /**
    * Static list of game strings
-   * @return {GameString[]}
+   * @type {GameString[]}
    */
   static get NAMES() {
     return games.map((x)=>x.name);

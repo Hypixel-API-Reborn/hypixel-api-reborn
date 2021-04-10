@@ -157,7 +157,8 @@ class Arcade {
      */
     this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver);
     /**
-     * TODO Zombies stats
+     * Zombies
+     * @type {Zombies}
      */
     this.zombies = new Zombies(data);
   }
