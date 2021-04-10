@@ -11,7 +11,7 @@ class Arcade {
    * Constructor
    * @param {Object} data Data from the API
    */
-  constructor(data = {}) {
+  constructor (data = {}) {
     /**
      * Last Tournament Advertisement as timestamp, only appears when a tournament is announced
      * @type {number}
@@ -171,27 +171,27 @@ class BaseGame {
    * @param {Object} data data
    * @param {string} gameName Game Name ( snake )
    */
-  constructor(data, gameName) {
+  constructor (data, gameName) {
     /**
      * Wins
      * @type {?number}
      */
-    this.wins = parseInt(data['wins_'+gameName]) || null;
+    this.wins = parseInt(data['wins_' + gameName]) || null;
     /**
      * Kills, only available in combat games
      * @type {?number}
      */
-    this.kills = parseInt(data['kills_'+gameName]) || null;
+    this.kills = parseInt(data['kills_' + gameName]) || null;
     /**
      * Deaths, only available in combat games
      * @type {?number}
      */
-    this.deaths = parseInt(data['deaths_'+gameName]) || null;
+    this.deaths = parseInt(data['deaths_' + gameName]) || null;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
      * @type {?number}
      */
-    this.roundsPlayed = parseInt(data['rounds_'+gameName]) || null;
+    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || null;
   }
   /**
    * Extend BaseGame without creating a new class
@@ -200,7 +200,7 @@ class BaseGame {
    * @private
    * @returns {BaseGame}
    */
-  extend(name, value) {
+  extend (name, value) {
     this[name] = value;
     return this;
   }
@@ -213,7 +213,7 @@ class GalaxyWars {
   /**
    * @param {Object} data Data from API
    */
-  constructor(data) {
+  constructor (data) {
     /**
      * Wins
      * @type {number}
@@ -263,7 +263,7 @@ class Soccer {
   /**
    * @param {Object} data Data from API
    */
-  constructor(data) {
+  constructor (data) {
     /**
      * Wins
      * @type {number}
@@ -293,7 +293,7 @@ class HITW extends BaseGame {
   /**
    * @param {Object} data Data From API
    */
-  constructor(data) {
+  constructor (data) {
     super(data, 'hole_in_the_wall');
     /**
      * Score Record in Finals
@@ -320,7 +320,7 @@ class MiniWalls extends BaseGame {
    * Constructor
    * @param {Object} data data from API
    */
-  constructor(data) {
+  constructor (data) {
     super(data, 'mini_walls');
     /**
      * Total Arrows Hit
@@ -362,7 +362,7 @@ class Zombies {
    * Constructor
    * @param {Object} data Data from API
    */
-  constructor(data) {
+  constructor (data) {
     /**
      * Overall Stats
      * @type {ZombiesStats}
@@ -424,7 +424,7 @@ class ZombieMap {
    * @param {Object} data Data from API
    * @param {string} mapName String map name
    */
-  constructor(data, mapName) {
+  constructor (data, mapName) {
     /**
      * Normal mode
      * @type {ZombiesStats}
@@ -456,7 +456,7 @@ class ZombiesStats {
    * @param {Object} data Data from API
    * @param {string} type Map name + difficulty ( default overall )
    */
-  constructor(data, type='') {
+  constructor (data, type = '') {
     if (type) type = `_${type}`;
     /**
      * Best Round
@@ -525,10 +525,10 @@ class ZombiesStats {
  * @param {Object} data data from API
  * @returns {Object}
  */
-function parseZombiesKills(data) {
-  const matches = Array.from(Object.keys(data)).map((x)=>x.match(/^([A-z]+)_zombie_kills_zombies$/)).filter((x)=>x);
+function parseZombiesKills (data) {
+  const matches = Array.from(Object.keys(data)).map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/)).filter((x) => x);
   // From entries might be broken
-  return Object.fromEntries(matches.map((x)=>[removeSnakeCaseString(x[1]), data[x[0]] || 0]));
+  return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
 }
 /**
  * @typedef {Object} EasterSimulator
