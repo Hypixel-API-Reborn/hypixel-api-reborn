@@ -20,6 +20,7 @@
     "eslint:fix": "eslint src --fix",
     "test:lint": "npm run eslint",
     "test:lint:dev": "npm run eslint && npm run dtslint",
+    "test:coverage": "node tests/coverageTester.js",
     "test": "mocha tests --exit",
     "test:dev": "nodenv --exec mocha tests -- --exit",
     "docgen": "docgen -s src -o master.json",
