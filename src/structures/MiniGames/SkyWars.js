@@ -1,5 +1,6 @@
 const { SkyWarsPrestigeIcons } = require('../../utils/Constants');
 const divide = require('../../utils/divide');
+const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
 const generateStatsForMode = (data, mode) => {
   return {
     kills: data[`kills_${mode}`] || 0,
@@ -248,6 +249,11 @@ class SkyWars {
       KDRatio: divide(data.kills_lab, data.deaths_lab),
       WLRatio: divide(data.wins_lab, data.losses_lab)
     };
+    /**
+     * Player Packages, can range from kits to achievement
+     * @type {SkywarsPackages}
+     */
+    this.packages = new SkywarsPackages(data.packages);
   }
 }
 /**
@@ -425,3 +431,120 @@ function getRankedPositions (data) {
   }
   return map;
 }
+
+/**
+ * Skywars Packages - parses every package player has
+ */
+class SkywarsPackages {
+  /**
+   * Constructor
+   * @param {string[]} data data from API
+   */
+  constructor(data) {
+    // TODO : a lot more
+    /**
+     * Raw Packages, as received from the API
+     * @type {string[]}
+     */
+    this.rawPackages = Array.from(data);
+    /**
+     * Cages
+     * @type {string[]}
+     */
+    this.cages = this._parseCages();
+    /**
+     * Kits
+     * @type {SkywarsKits}
+     */
+    this.kits = new SkywarsKits(data);
+    /**
+     * Achievements included in packages, under the form of name0
+     * @type {string[]}
+     */
+    this.achievements = this.rawPackages.map((pkg)=>pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x)=>x).map((x)=>x.slice(1).join(''));
+  }
+  /**
+   * Parses cages
+   * @returns {string[]}
+   */
+  _parseCages() {
+    return this.rawPackages.map((pkg)=>pkg.match(/^cage_([A-z]+)-cage$/)).filter((x)=>x).map((x)=>x[1].replace(/-[a-z]/g, (x)=>x[1].toUpperCase()));
+  }
+}
+
+/**
+ * Parses SkyWars Kits
+ */
+class SkywarsKit {
+  /**
+   * Constructor
+   * @param {string} kit Kit
+   */
+  constructor(kit) {
+    /**
+     * Kit data
+     * @private
+     * @type {string[] | null}
+     */
+    this._kitData = kit.match(/^kit_([a-z]+)_([a-z]+)_([a-z]+)$/);
+    /**
+     * Is this a kit
+     * @type {boolean}
+     */
+    this.isKit = !!this._kitData;
+    if (!this._kitData) return;
+    /**
+     * Game mode the kit is for
+     * @type {KitGameModes}
+     */
+    this.gameMode = this._kitData[2];
+    /**
+     * Kit type
+     * @type {KitType}
+     */
+    this.kitType = this._kitData[1];
+    /**
+     * Kit name in camelCase
+     * @type {string}
+     */
+    this.kitName = removeSnakeCaseString(this._kitData[3]);
+  }
+}
+
+/**
+ * Parses SkyWars Kits
+ */
+class SkywarsKits {
+  /**
+   * Constructor
+   * @param {Object} kits Potential Kits
+   */
+  constructor(kits) {
+    this.kits = kits.map((kit)=>new SkywarsKit(kit)).filter((kit)=>kit.isKit);
+  }
+  /**
+   * Get kit by type/gameMode
+   * @param {KitGameModes} [gameMode] Kits in said game mode
+   * @param {KitType} [type] Kits corresponding to this type
+   * @returns {SkywarsKit[]}
+   */
+  get(gameMode = '', type = '') {
+    return this.kits.filter((kit)=>(kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
+  }
+}
+
+/**
+ * @typedef {string} KitType
+ * * basic
+ * * supporting
+ * * mining
+ * * defending
+ * * attacking
+ * * advanced
+ * * enderchest
+ */
+/**
+ * @typedef {string} KitGameModes
+ * * solo
+ * * team
+ */
