@@ -369,7 +369,7 @@ declare module 'hypixel-api-reborn' {
     pets: Pet[];
     lastJourneyTimestamp: number | null;
     lastJourneyAt: Date | null;
-    petConsumables: Record<string, unknown>;
+    petConsumables: PetConsumables;
   }
   class Pet {
     constructor(name: string, data: Record<string, unknown>);
@@ -390,6 +390,35 @@ declare module 'hypixel-api-reborn' {
     rawNickname: string | null;
     nickname: string | null;
     experience: number;
+  }
+  class PetConsumables {
+    BAKED_POTATO: number;
+    COOKIE: number;
+    FEATHER: number;
+    HAY_BLOCK: number;
+    SLIME_BALL: number;
+    COOKED_BEEF: number;
+    RED_ROSE: number;
+    WATER_BUCKET: number;
+    MELON: number;
+    STICK: number;
+    WOOD_SWORD: number;
+    MILK_BUCKET: number;
+    GOLD_RECORD: number;
+    LEASH: number;
+    LAVA_BUCKET: number;
+    BONE: number;
+    MAGMA_CREAM: number;
+    WHEAT: number;
+    MUSHROOM_SOUP: number;
+    BREAD: number;
+    PUMPKIN_PIE: number;
+    APPLE: number;
+    CARROT_ITEM: number;
+    RAW_FISH: number;
+    PORK: number;
+    CAKE: number;
+    ROTTEN_FLESH: number;
   }
   class Leaderboard {
     constructor(data: Record<string, unknown>);
