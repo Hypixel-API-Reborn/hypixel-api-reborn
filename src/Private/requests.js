@@ -7,7 +7,7 @@ module.exports = class Requests {
   async request (endpoint, options = {}) {
     options.headers = {'API-Key': this.key, ...options.headers};
     const res = await fetch(BASE_URL + endpoint, options);
-    if (res.status === 522) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, '522 Connection Timed Out'));
+    if (res.status >= 500 && res.status < 528) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `${res.status} ${res.statusText}`));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
