@@ -194,7 +194,7 @@ class Player {
       vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
-      arcade: (data.stats.Arcade ? new Arcade(data.stats.Arcade) : null)
+      arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null)
     } : null);
     /**
      * User's current language
