@@ -3,7 +3,7 @@ module.exports = {
   INVALID_API_KEY: '[hypixel-api-reborn] Invalid API Key! For help join our Discord Server https://discord.gg/NSEBNMM',
   NO_API_KEY: '[hypixel-api-reborn] No API Key specified! For help join our Discord Server https://discord.gg/NSEBNMM',
   ERROR_CODE_CAUSE: '[hypixel-api-reborn] Code: {code} - {cause}! For help join our Discord Server https://discord.gg/NSEBNMM',
-  ERROR_STATUSTEXT: '[hypixel-api-reborn] Server Error : {statustext}! For help join our Discord Server https://discord.gg/NSEBNMM',
+  ERROR_STATUSTEXT: '[hypixel-api-reborn] {statustext}! For help join our Discord Server https://discord.gg/NSEBNMM',
   KEY_MUST_BE_A_STRING: '[hypixel-api-reborn] Specified API Key must be a string! For help join our Discord Server https://discord.gg/NSEBNMM',
   OPTIONS_MUST_BE_AN_OBJECT: '[hypixel-api-reborn] Options must be an object! For help join our Discord Server https://discord.gg/NSEBNMM',
   CACHE_TIME_MUST_BE_A_NUMBER: '[hypixel-api-reborn] Cache Time must be a number! For help join our Discord Server https://discord.gg/NSEBNMM',
