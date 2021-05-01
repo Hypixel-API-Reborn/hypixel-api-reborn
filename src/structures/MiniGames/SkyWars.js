@@ -367,7 +367,7 @@ function getSkyWarsPrestige (level) {
  */
 function getSkyWarsLevel (xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  if (xp >= 15000) return (xp - 15000) / 10000 + 12;
+  if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
   const level = totalXp.findIndex((x) => x * 10 - xp > 0);
   return level; /* + (xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10*/
 }
@@ -390,7 +390,7 @@ function getSkyWarsLevelProgress (xp) {
       } while (currentLevelXp >= 10000);
     }
     xpToNextLevel = 10000 - currentLevelXp;
-    percent = (Math.round(((currentLevelXp / 10000) * 100) * 100) / 100);
+    percent = (Math.round(currentLevelXp) / 100);
     return {
       currentLevelXp,
       xpToNextLevel,
@@ -404,7 +404,7 @@ function getSkyWarsLevelProgress (xp) {
     currentLevelXp -= xpToNextLvl[i] * 10;
   }
   xpToNextLevel = totalXptoNextLevel - currentLevelXp;
-  percent = (Math.round(((currentLevelXp / totalXptoNextLevel) * 100) * 100) / 100);
+  percent = (Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100);
   return {
     currentLevelXp,
     xpToNextLevel,
