@@ -8,12 +8,12 @@ class Friend {
    */
   constructor (data, uuid) {
     /**
-     * Friend request sender's UUID ( Whoever sent the FR )
+     * Friend request sender's UUID ( Whoever sent the FR ). This can be either the friend's or the player's uuid.
      * @type {string}
      */
     this.sender = data.uuidSender;
     /**
-     * Friend request receiver's UUID ( Whoever received the FR )
+     * Friend request receiver's UUID ( Whoever received the FR ). This can be either the friend's or the player's uuid.
      * @type {string}
      */
     this.receiver = data.uuidReceiver;
