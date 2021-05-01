@@ -1,6 +1,7 @@
 // IMPORTANT : a lot of the properties from the API seem to be nonsense
 
 const divide = require('../../utils/divide');
+const { weekAB, monthAB } = require('../../utils/oscillation');
 const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
 
 /**
@@ -28,15 +29,15 @@ class Arcade {
      */
     this.coins = data.coins || 0;
     /**
-     * Weekly coins, a + b
+     * Weekly coins
      * @type {number}
      */
-    this.weeklyCoins = parseInt((data.weekly_coins_a || 0) + (data.weekly_coins_b || 0));
+    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0);
     /**
-     * Monthly coins, a + b
+     * Monthly coins
      * @type {number}
      */
-    this.monthlyCoins = parseInt((data.monthly_coins_a || 0) + (data.monthly_coins_b || 0));
+    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0);
     /**
      * Hints Disabled
      * @type {Boolean}
@@ -161,6 +162,11 @@ class Arcade {
      * @type {Zombies}
      */
     this.zombies = new Zombies(data);
+    /**
+     * Capture The Wool
+     * @type {{kills: number, captures: number}}
+     */
+    this.captureTheWool = {'kills': data.arcade_ctw_slayer, 'captures': data.arcade_ctw_oh_sheep};
   }
 }
 /**
@@ -235,15 +241,15 @@ class GalaxyWars {
      */
     this.shotsFired = data.sw_shots_fired || 0;
     /**
-     * Total weekly kills ( a + b )
+     * Total weekly kills
      * @type {number}
      */
-    this.weeklyKills = parseInt((data.weekly_kills_a || 0) + (data.weekly_kills_b || 0));
+    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0);
     /**
-     * Total Monthly kills ( a + b )
+     * Total Monthly kills
      * @type {number}
      */
-    this.monthlyKills = parseInt((data.monthly_kills_a || 0) + (data.monthly_kills_b || 0));
+    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0);
     /**
      * Attacker Kills
      * @type {number}
