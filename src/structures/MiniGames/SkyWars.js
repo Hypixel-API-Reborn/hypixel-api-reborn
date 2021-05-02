@@ -143,7 +143,7 @@ class SkyWars {
      * Angel Of Death Level
      * @type {number}
      */
-     this.angelOfDeathLevel = data.angel_of_death_level || 0;
+    this.angelOfDeathLevel = data.angel_of_death_level || 0;
     /**
      * Shard By Mode
      * @type {SkyWarsShardsInMode}
