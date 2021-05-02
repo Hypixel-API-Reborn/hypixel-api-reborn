@@ -1,6 +1,7 @@
 // IMPORTANT : a lot of the properties from the API seem to be nonsense
 
 const divide = require('../../utils/divide');
+const { weekAB, monthAB } = require('../../utils/oscillation');
 const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
 
 /**
@@ -28,15 +29,15 @@ class Arcade {
      */
     this.coins = data.coins || 0;
     /**
-     * Weekly coins, a + b
+     * Weekly coins
      * @type {number}
      */
-    this.weeklyCoins = parseInt((data.weekly_coins_a || 0) + (data.weekly_coins_b || 0));
+    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0);
     /**
-     * Monthly coins, a + b
+     * Monthly coins
      * @type {number}
      */
-    this.monthlyCoins = parseInt((data.monthly_coins_a || 0) + (data.monthly_coins_b || 0));
+    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0);
     /**
      * Hints Disabled
      * @type {Boolean}
@@ -144,7 +145,7 @@ class Arcade {
      * Blocking dead ( previously known as DayOne ) stats
      * @type {BlockingDead}
      */
-    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone);
+    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone || 0);
     /**
      * Galaxy Wars stats
      * @type {GalaxyWars}
@@ -155,12 +156,17 @@ class Arcade {
      * OITQ / One In The Quiver stats
      * @type {OITQ}
      */
-    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver);
+    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver || 0);
     /**
      * Zombies
      * @type {Zombies}
      */
     this.zombies = new Zombies(data);
+    /**
+     * Capture The Wool
+     * @type {{kills: number, captures: number}}
+     */
+    this.captureTheWool = { 'kills': data.arcade_ctw_slayer || 0, 'captures': data.arcade_ctw_oh_sheep || 0 };
   }
 }
 /**
@@ -176,22 +182,22 @@ class BaseGame {
      * Wins
      * @type {?number}
      */
-    this.wins = parseInt(data['wins_' + gameName]) || null;
+    this.wins = parseInt(data['wins_' + gameName]) || 0;
     /**
      * Kills, only available in combat games
      * @type {?number}
      */
-    this.kills = parseInt(data['kills_' + gameName]) || null;
+    this.kills = parseInt(data['kills_' + gameName]) || 0;
     /**
      * Deaths, only available in combat games
      * @type {?number}
      */
-    this.deaths = parseInt(data['deaths_' + gameName]) || null;
+    this.deaths = parseInt(data['deaths_' + gameName]) || 0;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
      * @type {?number}
      */
-    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || null;
+    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || 0;
   }
   /**
    * Extend BaseGame without creating a new class
@@ -235,15 +241,15 @@ class GalaxyWars {
      */
     this.shotsFired = data.sw_shots_fired || 0;
     /**
-     * Total weekly kills ( a + b )
+     * Total weekly kills
      * @type {number}
      */
-    this.weeklyKills = parseInt((data.weekly_kills_a || 0) + (data.weekly_kills_b || 0));
+    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0);
     /**
-     * Total Monthly kills ( a + b )
+     * Total Monthly kills
      * @type {number}
      */
-    this.monthlyKills = parseInt((data.monthly_kills_a || 0) + (data.monthly_kills_b || 0));
+    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0);
     /**
      * Attacker Kills
      * @type {number}
