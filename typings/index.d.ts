@@ -117,10 +117,14 @@ declare module 'hypixel-api-reborn' {
      * @description Divides a by b
      */
     divide(a: number, b: number): number,
-    /**
-     * @description Get guild level by experience
-     */
-    getGuildLevel(exp: number): number
+    guildExp: {
+      parseHistory(historyDate: Record<string, unknown>): { day: string, date: Date, exp: number, totalExp: number }[];
+      getGuildLevel(exp: number): number;
+    }
+    oscillation: {
+      weekAB(date: Date): 'a' | 'b';
+      monthAB(date: Date): 'a' | 'b';
+    }
     /**
      * @description Is this guild ID?
      */
@@ -526,6 +530,7 @@ declare module 'hypixel-api-reborn' {
     oitq: OITQ;
     oneInTheQuiver: OITQ;
     zombies: Zombies;
+    captureTheWool: { kills: number; captures: number; }
   }
   class BaseGame {
     constructor(data: Record<string, unknown>, gameName: string);

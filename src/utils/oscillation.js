@@ -6,7 +6,7 @@
  * @param {number|Date} [date] Timestamp or date, defaults to now
  * @return {'a'|'b'}
  */
-function monthAB(date=Date.now()) {
+function monthAB (date = Date.now()) {
   return new Date(date).getMonth() % 2 ? 'a' : 'b';
 }
 
@@ -16,8 +16,8 @@ const weeklyOscillationStart = 1417237200000;
  * @param {number|Date} [date] Timestamp or date, defaults to now
  * @return {'a'|'b'}
  */
-function weekAB(date=Date.now()) {
+function weekAB (date = Date.now()) {
   return (Math.abs(new Date(date).getTime() - weeklyOscillationStart) / 604800000) % 2 ? 'a' : 'b';
 }
 
-module.exports = {monthAB, weekAB};
+module.exports = { monthAB, weekAB };
