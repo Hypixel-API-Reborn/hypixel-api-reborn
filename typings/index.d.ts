@@ -15,6 +15,8 @@ type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '�
 type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire';
 type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
 type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
+type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
+type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
 interface clientOptions {
   cache?: boolean;
   cacheTime?: number;
@@ -86,7 +88,7 @@ declare module 'hypixel-api-reborn' {
       /**
        * @description Is input string or array?
        */
-      isStrArray(input: string|[]): boolean
+      isStrArray(input: string | []): boolean
       /**
        * @description String to array<string>
        */
@@ -319,8 +321,9 @@ declare module 'hypixel-api-reborn' {
     totalExperience: number;
     level: number;
     socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID }[];
-    giftsSent: number;
-    giftsReceived: number;
+    giftsSent?: number;
+    giftBundlesSent?: number;
+    giftBundlesReceived?: number;
     isOnline: boolean;
     userLanguage: string;
     claimedLevelingRewards: number[];
@@ -1582,6 +1585,26 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number,
       WLRatio: number
     };
+    packages: SkywarsPackages;
+  }
+  class SkywarsPackages {
+    constructor(data: string[]);
+    rawPackages: string[];
+    cages: string[];
+    kits: SkywarsKits
+  }
+  class SkywarsKits {
+    constructor(kits: Record<string, unknown>);
+    kits: SkywarsKit[];
+    get(gameMode: SKYWARS_KIT_GAMEMODE, type: SKYWARS_KIT_TYPE): SkywarsKit[];
+  }
+  class SkywarsKit {
+    constructor(kit: string);
+    private _kitData: string[] | null;
+    isKit: boolean;
+    gameMode?: SKYWARS_KIT_GAMEMODE;
+    kitType?: SKYWARS_KIT_TYPE;
+    kitName?: string;
   }
   class CopsAndCrims {
     constructor(data: Record<string, unknown>);

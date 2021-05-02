@@ -440,7 +440,7 @@ class SkywarsPackages {
    * Constructor
    * @param {string[]} data data from API
    */
-  constructor(data) {
+  constructor (data) {
     // TODO : a lot more
     /**
      * Raw Packages, as received from the API
@@ -461,14 +461,14 @@ class SkywarsPackages {
      * Achievements included in packages, under the form of name0
      * @type {string[]}
      */
-    this.achievements = this.rawPackages.map((pkg)=>pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x)=>x).map((x)=>x.slice(1).join(''));
+    this.achievements = this.rawPackages.map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x) => x).map((x) => x.slice(1).join(''));
   }
   /**
    * Parses cages
    * @returns {string[]}
    */
-  _parseCages() {
-    return this.rawPackages.map((pkg)=>pkg.match(/^cage_([A-z]+)-cage$/)).filter((x)=>x).map((x)=>x[1].replace(/-[a-z]/g, (x)=>x[1].toUpperCase()));
+  _parseCages () {
+    return this.rawPackages.map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/)).filter((x) => x).map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
   }
 }
 
@@ -480,7 +480,7 @@ class SkywarsKit {
    * Constructor
    * @param {string} kit Kit
    */
-  constructor(kit) {
+  constructor (kit) {
     /**
      * Kit data
      * @private
@@ -517,10 +517,10 @@ class SkywarsKit {
 class SkywarsKits {
   /**
    * Constructor
-   * @param {Object} kits Potential Kits
+   * @param {SkywarsKit[]} kits Potential Kits
    */
-  constructor(kits) {
-    this.kits = kits.map((kit)=>new SkywarsKit(kit)).filter((kit)=>kit.isKit);
+  constructor (kits) {
+    this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
   }
   /**
    * Get kit by type/gameMode
@@ -528,8 +528,8 @@ class SkywarsKits {
    * @param {KitType} [type] Kits corresponding to this type
    * @returns {SkywarsKit[]}
    */
-  get(gameMode = '', type = '') {
-    return this.kits.filter((kit)=>(kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
+  get (gameMode = '', type = '') {
+    return this.kits.filter((kit) => (kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
   }
 }
 
