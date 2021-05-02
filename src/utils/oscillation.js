@@ -17,7 +17,7 @@ const weeklyOscillationStart = 1417237200000;
  * @return {'a'|'b'}
  */
 function weekAB(date=Date.now()) {
-  return Math.abs(new Date(date).getTime() - weeklyOscillationStart) % 2 ? 'a' : 'b';
+  return (Math.abs(new Date(date).getTime() - weeklyOscillationStart) / 604800000) % 2 ? 'a' : 'b';
 }
 
 module.exports = {monthAB, weekAB};
