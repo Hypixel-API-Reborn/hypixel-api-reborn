@@ -1483,6 +1483,7 @@ declare module 'hypixel-api-reborn' {
     avarice: number;
     tenacity: number;
     shards: number;
+    angelOfDeathLevel: number;
     solo: {
       overall: {
         winstreak: number,
