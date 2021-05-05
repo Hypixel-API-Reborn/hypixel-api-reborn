@@ -169,6 +169,31 @@ class Player {
      */
     this.lastDailyRewardTimestamp = data.lastAdsenseGenerateTime || null;
     /**
+     * Total amount of Daily Rewards
+     * @type {number | null}
+     */
+    this.totalRewards = data.totalRewards || null;
+    /**
+     * Total amount of Daily Rewards claimed
+     * @type {number | null}
+     */
+    this.totalDailyRewards = data.totalDailyRewards || null;
+    /**
+     * Honestly no clue what this is specifically
+     * @type {number | null}
+     */
+    this.rewardStreak = data.rewardStreak || null;
+    /**
+     * Current Daily Rewards streak
+     * @type {number | null}
+     */
+    this.rewardScore = data.rewardScore || null;
+    /**
+     * Highest Daily Rewards streak
+     * @type {number | null}
+     */
+    this.rewardHighScore = data.rewardHighScore || null;
+    /**
      * Player recent games
      * @return {Promise<Array<RecentGame>>}
      */
