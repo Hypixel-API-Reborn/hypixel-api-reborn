@@ -2,7 +2,7 @@ const GuildMember = require('./GuildMember');
 const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
-const getGuildLevel = require('../../utils/getGuildLevel');
+const {getGuildLevel, parseHistory} = require('../../utils/guildExp');
 /**
  * Guild class
  */
@@ -131,7 +131,7 @@ class Guild {
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking + 1, 10) : 0;
     /**
      * Experience history per day, resets at 5 am UTC
-     * @type {Array<{day:String, exp: number}>}
+     * @type {Array<ExpHistory>}
      */
     this.expHistory = calculateExpHistory(data);
     /**
@@ -190,19 +190,14 @@ function totalWeeklyGexp (data) {
  * @return {Array}
  */
 function calculateExpHistory (data) {
-  const array = [];
-  const days = Object.keys(data.members[0].expHistory);
-  for (const day in Object.keys(data.members[0].expHistory)) {
-    if (Object.prototype.hasOwnProperty.call(data.members[0].expHistory, day)) {
-      let gexp = 0;
-      for (const member in data.members) {
-        if (Object.prototype.hasOwnProperty.call(data.member, member)) {
-          gexp += (data.members[member].expHistory[days[day]] || 0);
-        }
-      }
-      array.push({ day: days[day], exp: gexp });
+  const finalObj = {};
+  for (const day of Object.keys(data.members[0].expHistory)) {
+    let gexp = 0;
+    for (const member of data.members) {
+      gexp += (member.expHistory[day] || 0);
     }
+    finalObj[day] = gexp;
   }
-  return array;
+  return parseHistory(finalObj);
 }
 module.exports = Guild;

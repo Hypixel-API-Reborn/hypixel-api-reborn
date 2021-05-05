@@ -26,7 +26,12 @@ module.exports = {
   INVALID_OPTION_VALUE: '[hypixel-api-reborn] Invalid option value! For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_RESPONSE_BODY: '[hypixel-api-reborn] An error occurred while converting to JSON. Perhaps this is due to an update or maintenance. For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_RATE_LIMIT_OPTION: '[hypixel-api-reborn] Rate Limit provided in Client options must be \'HARD\', \'AUTO\', or \'NONE\'. For help join our Discord Server https://discord.gg/NSEBNMM',
+  INVALID_KEY_LIMIT_OPTION: '[hypixel-api-reborn] Key Limit provided in Client options must be an integer representing the amount of requests possible in one minute with your key.',
+  INVALID_HEADER_SYNC_OPTION: '[hypixel-api-reborn] Invalid Value for maxSyncHeaders : must be a boolean',
+  INVALID_BURST_OPTION: '[hypixel-api-reborn] maxBurstRequests provided in Client options must be a number',
   NODE_VERSION_ERR: '[hypixel-api-reborn] You are using a version of Nodejs that doesn\'t support certain features we use. Please upgrade to version 14 or above.',
-  NODE_VERSION_WARN: '[hypixel-api-reborn] We will be dropping support for nodejs v12 in favor of v14+. Please upgrade if possible.',
-  CONNECTION_ERROR: '[hypixel-api-reborn] Failed to connect.'
+  CONNECTION_ERROR: '[hypixel-api-reborn] Failed to connect.',
+  RATE_LIMIT_INIT_ERROR: '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to desynchronization.',
+  MULTIPLE_INSTANCES: '[hypixel-api-reborn] Multiple instances of hypixel-api-reborn are found so we merged them for you. Please refrain from spawning multiple instances in the future. For more information, join our Discord Server https://discord.gg/NSEBNMM.',
+  INVALID_HEADERS: '[hypixel-api-reborn] Invalid Headers are provided in ClientOptions. For help join our Discord Server https://discord.gg/NSEBNMM'
 };

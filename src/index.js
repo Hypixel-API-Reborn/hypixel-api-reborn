@@ -48,6 +48,7 @@ module.exports = {
   Booster: require('./structures/Boosters/Booster.js'),
 
   /* MiniGames */
+  Arcade: require('./structures/MiniGames/Arcade.js'),
   ArenaBrawl: require('./structures/MiniGames/ArenaBrawl.js'),
   BedWars: require('./structures/MiniGames/BedWars.js'),
   BlitzSurvivalGames: require('./structures/MiniGames/BlitzSurvivalGames.js'),

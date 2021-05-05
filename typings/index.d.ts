@@ -3,33 +3,42 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
 // Minimum TypeScript Version: 3.6
-type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
-type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit';
-type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64;
-type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTGAMES' | 'VAMPIREZ' | 'WALLS3' | 'ARCADE' | 'UHC' | 'MCGO' | 'BATTLEGROUND' | 'SUPER_SMASH' | 'GINGERBREAD' | 'HOUSING' | 'SKYWARS' | 'TRUE_COMBAT' | 'SPEED_UHC' | 'SKYCLASH' | 'LEGACY' | 'PROTOTYPE' | 'BEDWARS' | 'MURDER_MYSTERY' | 'BUILD_BATTLE' | 'DUELS' | 'SKYBLOCK' | 'PIT';
-type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
-type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
-type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire';
-type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
-type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
-interface clientOptions {
+
+import { EventEmitter } from 'events';
+
+export type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
+export type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit' | 'Replay' | 'Limbo' | 'Queue' | 'Main Lobby' | 'Tournament Lobby' | 'Idle';
+export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | -1 | -2 | -3 | -4 | -5 | -6;
+export type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTGAMES' | 'VAMPIREZ' | 'WALLS3' | 'ARCADE' | 'UHC' | 'MCGO' | 'BATTLEGROUND' | 'SUPER_SMASH' | 'GINGERBREAD' | 'HOUSING' | 'SKYWARS' | 'TRUE_COMBAT' | 'SPEED_UHC' | 'SKYCLASH' | 'LEGACY' | 'PROTOTYPE' | 'BEDWARS' | 'MURDER_MYSTERY' | 'BUILD_BATTLE' | 'DUELS' | 'SKYBLOCK' | 'PIT' | 'REPLAY' | 'LIMBO' | 'IDLE' | 'QUEUE' | 'MAIN_LOBBY' | 'TOURNAMENT_LOBBY';
+export type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
+export type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
+export type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire';
+export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
+export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
+export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
+export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export interface clientOptions {
   cache?: boolean;
   cacheTime?: number;
   cacheSize?: number;
   cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
+  keyLimit?: number;
+  syncWithHeaders?: boolean;
+  silent?: boolean;
+  headers?: Record<string, unknown>;
 }
-interface methodOptions {
+export interface methodOptions {
   noCacheCheck?: boolean;
   noCaching?: boolean;
 }
-interface playerMethodOptions extends methodOptions {
+export interface playerMethodOptions extends methodOptions {
   guild?: boolean;
 }
-interface skyblockMemberOptions extends methodOptions {
+export interface skyblockMemberOptions extends methodOptions {
   fetchPlayer?: boolean;
 }
-interface auctionsOptions extends methodOptions {
+export interface auctionsOptions extends methodOptions {
   noInfo?: boolean;
   noAuctions?: boolean;
   raw?: boolean;
@@ -52,6 +61,9 @@ declare module 'hypixel-api-reborn' {
     INVALID_GUILD_ID: string,
     INVALID_GUILD_SEARCH_PARAMETER: string,
     INVALID_OPTION_VALUE: string,
+    INVALID_KEY_LIMIT_OPTION: string,
+    INVALID_HEADER_SYNC_OPTION: string,
+    INVALID_BURST_OPTION: string,
     INVALID_RATE_LIMIT_OPTION: string,
     INVALID_RESPONSE_BODY: string,
     KEY_MUST_BE_A_STRING: string,
@@ -66,19 +78,21 @@ declare module 'hypixel-api-reborn' {
     PLAYER_DOES_NOT_EXIST: string,
     PLAYER_HAS_NEVER_LOGGED: string,
     PLAYER_IS_INACTIVE: string,
+    RATE_LIMIT_INIT_ERROR: string,
     SOMETHING_WENT_WRONG: string,
-    UUID_NICKNAME_MUST_BE_A_STRING: string
+    UUID_NICKNAME_MUST_BE_A_STRING: string,
+    MULTIPLE_INSTANCES: string
   };
   const Utils: {
     arrayTools: {
       /**
-       * @description Is this string or array?
+       * @description Is input string or array?
        */
-      isStrArray(): boolean
+      isStrArray(input: string | []): boolean
       /**
        * @description String to array<string>
        */
-      strToArray(): string[]
+      strToArray(input: string): string[]
     },
     Constants: {
       skyblock_year_0: 1.5602757e+12,
@@ -87,25 +101,30 @@ declare module 'hypixel-api-reborn' {
       runecrafting_xp: { 1: 50, 2: 100, 3: 125, 4: 160, 5: 200, 6: 250, 7: 315, 8: 400, 9: 500, 10: 625, 11: 785, 12: 1000, 13: 1250, 14: 1600, 15: 2000, 16: 2465, 17: 3125, 18: 4000, 19: 5000, 20: 6200, 21: 7800, 22: 9800, 23: 12200, 24: 15300, 25: 19050 },
       skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'],
       skills_achievements: { farming: 'skyblockHarvester', mining: 'skyblockExcavator', combat: 'skyblockCombat', foraging: 'skyblockGatherer', fishing: 'skyblockAngler', enchanting: 'skyblockAugmentation', alchemy: 'skyblockConcoctor', taming: 'skyblockDomesticator' },
-      skills_cap: { taming: 50, farming: 60, mining: 50, combat: 50, foraging: 50, fishing: 50, enchanting: 50, alchemy: 50, carpentry: 50, runecrafting: 25, dungeons: 50 },
+      skills_cap: { taming: 50, farming: 60, mining: 60, combat: 60, foraging: 50, fishing: 50, enchanting: 60, alchemy: 50, carpentry: 50, runecrafting: 25, dungeons: 50 },
       dungeon_xp: { 1: 50, 2: 75, 3: 110, 4: 160, 5: 230, 6: 330, 7: 470, 8: 670, 9: 950, 10: 1340, 11: 1890, 12: 2665, 13: 3760, 14: 5260, 15: 7380, 16: 10300, 17: 14400, 18: 20000, 19: 27600, 20: 38000, 21: 52500, 22: 71500, 23: 97000, 24: 132000, 25: 180000, 26: 243000, 27: 328000, 28: 445000, 29: 600000, 30: 800000, 31: 1065000, 32: 1410000, 33: 1900000, 34: 2500000, 35: 3300000, 36: 4300000, 37: 5600000, 38: 7200000, 39: 9200000, 40: 1.2e+7, 41: 1.5e+7, 42: 1.9e+7, 43: 2.4e+7, 44: 3e+7, 45: 3.8e+7, 46: 4.8e+7, 47: 6e+7, 48: 7.5e+7, 49: 9.3e+7, 50: 1.1625e+8 },
       slayer_xp: { 1: 5, 2: 15, 3: 200, 4: 1000, 5: 5000, 6: 20000, 7: 100000, 8: 400000, 9: 1000000 },
       pet_score: { COMMON: 1, UNCOMMON: 2, RARE: 3, EPIC: 4, LEGENDARY: 5, MYTHIC: 6 },
       base_stats: { damage: 0, health: 100, defense: 0, effective_health: 100, strength: 0, damage_increase: 0, speed: 100, crit_chance: 20, crit_damage: 50, intelligence: 0 },
       stat_template: { damage: 0, health: 0, defense: 0, effective_health: 0, strength: 0, damage_increase: 0, speed: 0, crit_chance: 0, crit_damage: 0, intelligence: 0 },
-      bonus_stats: { taming_skill: { 1: { pet_luck: 1 } }, fairy_souls: { 5: { health: 3, defense: 1, strength: 1, speed: 0 }, 10: { health: 3, defense: 1, strength: 1, speed: 0 }, 15: { health: 4, defense: 1, strength: 1, speed: 0 }, 20: { health: 4, defense: 1, strength: 1, speed: 0 }, 25: { health: 5, defense: 2, strength: 2, speed: 0 }, 30: { health: 5, defense: 1, strength: 1, speed: 0 }, 35: { health: 6, defense: 1, strength: 1, speed: 0 }, 40: { health: 6, defense: 1, strength: 1, speed: 0 }, 45: { health: 7, defense: 1, strength: 1, speed: 0 }, 50: { health: 7, defense: 2, strength: 2, speed: 1 }, 55: { health: 8, defense: 1, strength: 1, speed: 0 }, 60: { health: 8, defense: 1, strength: 1, speed: 0 }, 65: { health: 9, defense: 1, strength: 1, speed: 0 }, 70: { health: 9, defense: 1, strength: 1, speed: 0 }, 75: { health: 10, defense: 2, strength: 2, speed: 0 }, 80: { health: 10, defense: 1, strength: 1, speed: 0 }, 85: { health: 11, defense: 1, strength: 1, speed: 0 }, 90: { health: 11, defense: 1, strength: 1, speed: 0 }, 95: { health: 12, defense: 1, strength: 1, speed: 0 }, 100: { health: 12, defense: 2, strength: 2, speed: 1 }, 105: { health: 13, defense: 1, strength: 1, speed: 0 }, 110: { health: 13, defense: 1, strength: 1, speed: 0 }, 115: { health: 14, defense: 1, strength: 1, speed: 0 }, 120: { health: 14, defense: 1, strength: 1, speed: 0 }, 125: { health: 15, defense: 2, strength: 2, speed: 0 }, 130: { health: 15, defense: 1, strength: 1, speed: 0 }, 135: { health: 16, defense: 1, strength: 1, speed: 0 }, 140: { health: 16, defense: 1, strength: 1, speed: 0 }, 145: { health: 17, defense: 1, strength: 1, speed: 0 }, 150: { health: 17, defense: 2, strength: 2, speed: 1 }, 155: { health: 18, defense: 1, strength: 1, speed: 0 }, 160: { health: 18, defense: 1, strength: 1, speed: 0 }, 165: { health: 19, defense: 1, strength: 1, speed: 0 }, 170: { health: 19, defense: 1, strength: 1, speed: 0 }, 175: { health: 20, defense: 2, strength: 2, speed: 0 }, 180: { health: 20, defense: 1, strength: 1, speed: 0 }, 185: { health: 21, defense: 1, strength: 1, speed: 0 }, 190: { health: 21, defense: 1, strength: 1, speed: 0 } }, farming_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, combat_skill: { 1: { crit_chance: 0.5, damage_increase: 0.04 } }, mining_skill: { 1: { defense: 1 }, 15: { defense: 2 } }, foraging_skill: { 1: { strength: 1 }, 15: { strength: 2 } }, fishing_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, enchanting_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, alchemy_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, carpentry_skill: { 1: Record<string, unknown> }, runecrafting_skill: { 1: Record<string, unknown> }, zombie_slayer: { 1: { health: 2 }, 3: { health: 3 }, 5: { health: 4 }, 7: { health: 5 }, 9: { health: 6 } }, spider_slayer: { 1: { crit_damage: 1 }, 5: { crit_damage: 2 }, 7: { crit_damage: 0, crit_chance: 1 }, 8: { crit_chance: 0, crit_damage: 3 } }, wolf_slayer: { 1: { speed: 1 }, 2: { health: 2 }, 3: { speed: 1 }, 4: { health: 2 }, 5: { crit_damage: 1 }, 6: { health: 3 }, 7: { crit_damage: 2 }, 8: { speed: 1 } }, enchantments: { sharpness: { 1: { damage_multiplicator: 0.05 } }, ender: { 1: { damage_multiplicator: 0.12 } }, giant_killer: { 1: { damage_multiplicator: 0.05 } }, cubism: { 1: { damage_multiplicator: 0.1 } }, impaling: { 1: { damage_multiplicator: 0.125 } }, critical: { 1: { crit_damage: 10 } }, first_strike: { 1: { damage_multiplicator: 0.25 } }, power: { 1: { damage_multiplicator: 0.08 } } } },
+      bonus_stats: { taming_skill: { 1: { pet_luck: 1 } }, fairy_souls: { 5: { health: 3, defense: 1, strength: 1, speed: 0 }, 10: { health: 3, defense: 1, strength: 1, speed: 0 }, 15: { health: 4, defense: 1, strength: 1, speed: 0 }, 20: { health: 4, defense: 1, strength: 1, speed: 0 }, 25: { health: 5, defense: 2, strength: 2, speed: 0 }, 30: { health: 5, defense: 1, strength: 1, speed: 0 }, 35: { health: 6, defense: 1, strength: 1, speed: 0 }, 40: { health: 6, defense: 1, strength: 1, speed: 0 }, 45: { health: 7, defense: 1, strength: 1, speed: 0 }, 50: { health: 7, defense: 2, strength: 2, speed: 1 }, 55: { health: 8, defense: 1, strength: 1, speed: 0 }, 60: { health: 8, defense: 1, strength: 1, speed: 0 }, 65: { health: 9, defense: 1, strength: 1, speed: 0 }, 70: { health: 9, defense: 1, strength: 1, speed: 0 }, 75: { health: 10, defense: 2, strength: 2, speed: 0 }, 80: { health: 10, defense: 1, strength: 1, speed: 0 }, 85: { health: 11, defense: 1, strength: 1, speed: 0 }, 90: { health: 11, defense: 1, strength: 1, speed: 0 }, 95: { health: 12, defense: 1, strength: 1, speed: 0 }, 100: { health: 12, defense: 2, strength: 2, speed: 1 }, 105: { health: 13, defense: 1, strength: 1, speed: 0 }, 110: { health: 13, defense: 1, strength: 1, speed: 0 }, 115: { health: 14, defense: 1, strength: 1, speed: 0 }, 120: { health: 14, defense: 1, strength: 1, speed: 0 }, 125: { health: 15, defense: 2, strength: 2, speed: 0 }, 130: { health: 15, defense: 1, strength: 1, speed: 0 }, 135: { health: 16, defense: 1, strength: 1, speed: 0 }, 140: { health: 16, defense: 1, strength: 1, speed: 0 }, 145: { health: 17, defense: 1, strength: 1, speed: 0 }, 150: { health: 17, defense: 2, strength: 2, speed: 1 }, 155: { health: 18, defense: 1, strength: 1, speed: 0 }, 160: { health: 18, defense: 1, strength: 1, speed: 0 }, 165: { health: 19, defense: 1, strength: 1, speed: 0 }, 170: { health: 19, defense: 1, strength: 1, speed: 0 }, 175: { health: 20, defense: 2, strength: 2, speed: 0 }, 180: { health: 20, defense: 1, strength: 1, speed: 0 }, 185: { health: 21, defense: 1, strength: 1, speed: 0 }, 190: { health: 21, defense: 1, strength: 1, speed: 0 } }, farming_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, combat_skill: { 1: { crit_chance: 0.5, damage_increase: 0.04 } }, mining_skill: { 1: { defense: 1 }, 15: { defense: 2 } }, foraging_skill: { 1: { strength: 1 }, 15: { strength: 2 } }, fishing_skill: { 1: { health: 2 }, 15: { health: 3 }, 20: { health: 4 }, 26: { health: 5 } }, enchanting_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, alchemy_skill: { 1: { intelligence: 1 }, 15: { intelligence: 2 } }, carpentry_skill: { 1: Record<string, never> }, runecrafting_skill: { 1: Record<string, never> }, zombie_slayer: { 1: { health: 2 }, 3: { health: 3 }, 5: { health: 4 }, 7: { health: 5 }, 9: { health: 6 } }, spider_slayer: { 1: { crit_damage: 1 }, 5: { crit_damage: 2 }, 7: { crit_damage: 0, crit_chance: 1 }, 8: { crit_chance: 0, crit_damage: 3 } }, wolf_slayer: { 1: { speed: 1 }, 2: { health: 2 }, 3: { speed: 1 }, 4: { health: 2 }, 5: { crit_damage: 1 }, 6: { health: 3 }, 7: { crit_damage: 2 }, 8: { speed: 1 } }, enchantments: { sharpness: { 1: { damage_multiplicator: 0.05 } }, ender: { 1: { damage_multiplicator: 0.12 } }, giant_killer: { 1: { damage_multiplicator: 0.05 } }, cubism: { 1: { damage_multiplicator: 0.1 } }, impaling: { 1: { damage_multiplicator: 0.125 } }, critical: { 1: { crit_damage: 10 } }, first_strike: { 1: { damage_multiplicator: 0.25 } }, power: { 1: { damage_multiplicator: 0.08 } } } },
       leaderboardNames: { ARENA: 'ARENA', COPS_AND_CRIMS: 'MCGO', WARLORDS: 'BATTLEGROUND', BLITZ_SURVIVAL_GAMES: 'SURVIVAL_GAMES', UHC: 'UHC', WALLS: 'WALLS', PROTOTYPE: 'PROTOTYPE', PAINTBALL: 'PAINTBALL', SKYWARS: 'SKYWARS', MURDER_MYSTERY: 'MURDER_MYSTERY', SMASH_HEROES: 'SUPER_SMASH', DUELS: 'DUELS', SPEED_UHC: 'SPEED_UHC', TNTGAMES: 'TNTGAMES', BEDWARS: 'BEDWARS', TURBO_KART_RACERS: 'GINGERBREAD', BUILD_BATTLE: 'BUILD_BATTLE', ARCADE: 'ARCADE', SKYCLASH: 'SKYCLASH', QUAKECRAFT: 'QUAKECRAFT', CRAZY_WALLS: 'TRUE_COMBAT', MEGA_WALLS: 'WALLS3', VAMPIREZ: 'VAMPIREZ' },
-      MiniGamesString: { QUAKECRAFT: 'Quakecraft', WALLS: 'Walls', PAINTBALL: 'Paintball', SURVIVAL_GAMES: 'Blitz Survival Games', TNTGAMES: 'The TNT Games', VAMPIREZ: 'VampireZ', WALLS3: 'Mega Walls', ARCADE: 'Arcade', ARENA: 'Arena Brawl', MCGO: 'Cops and Crims', UHC: 'UHC Champions', BATTLEGROUND: 'Warlords', SUPER_SMASH: 'Smash Heroes', GINGERBREAD: 'Turbo Kart Racers', HOUSING: 'Housing', SKYWARS: 'SkyWars', TRUE_COMBAT: 'Crazy Walls', SPEED_UHC: 'Speed UHC', SKYCLASH: 'SkyClash', LEGACY: 'Classic Games', PROTOTYPE: 'Prototype', BEDWARS: 'BedWars', MURDER_MYSTERY: 'Murder Mystery', BUILD_BATTLE: 'Build Battle', DUELS: 'Duels', PIT: 'The Pit', SKYBLOCK: 'SkyBlock' }
-      SkyWarsPrestigeIcons: { default: '⋆', angel_1: '★', angel_2: '☆', angel_3: '⁕', angel_4: '✶', angel_5: '✳', angel_6: '✴', angel_7: '✷', angel_8: '❋', angel_9: '✼', angel_10: '❂', angel_11: '❁', angel_12: '☬', iron_prestige: '✙', gold_prestige: '❤️', diamond_prestige: '☠', emerald_prestige: '✦', sapphire_prestige: '✌', ruby_prestige: '❦', crystal_prestige: '✵', opal_prestige: '❣', amethyst_prestige: '☯', rainbow_prestige: '✺', mythic_prestige: 'ಠ_ಠ', favor_of_the_angel_prestige: '⚔' }
+      MiniGamesString: { QUAKECRAFT: 'Quakecraft', WALLS: 'Walls', PAINTBALL: 'Paintball', SURVIVAL_GAMES: 'Blitz Survival Games', TNTGAMES: 'The TNT Games', VAMPIREZ: 'VampireZ', WALLS3: 'Mega Walls', ARCADE: 'Arcade', ARENA: 'Arena Brawl', MCGO: 'Cops and Crims', UHC: 'UHC Champions', BATTLEGROUND: 'Warlords', SUPER_SMASH: 'Smash Heroes', GINGERBREAD: 'Turbo Kart Racers', HOUSING: 'Housing', SKYWARS: 'SkyWars', TRUE_COMBAT: 'Crazy Walls', SPEED_UHC: 'Speed UHC', SKYCLASH: 'SkyClash', LEGACY: 'Classic Games', PROTOTYPE: 'Prototype', BEDWARS: 'BedWars', MURDER_MYSTERY: 'Murder Mystery', BUILD_BATTLE: 'Build Battle', DUELS: 'Duels', PIT: 'The Pit', SKYBLOCK: 'SkyBlock', REPLAY: 'Replay', LIMBO: 'Limbo', IDLE: 'Idle', QUEUE: 'Queue', MAIN_LOBBY: 'Main Lobby', TOURNAMENT_LOBBY: 'Tournament Lobby' },
+      SkyWarsPrestigeIcons: { default: '⋆', angel_1: '★', angel_2: '☆', angel_3: '⁕', angel_4: '✶', angel_5: '✳', angel_6: '✴', angel_7: '✷', angel_8: '❋', angel_9: '✼', angel_10: '❂', angel_11: '❁', angel_12: '☬', iron_prestige: '✙', gold_prestige: '❤️', diamond_prestige: '☠', emerald_prestige: '✦', sapphire_prestige: '✌', ruby_prestige: '❦', crystal_prestige: '✵', opal_prestige: '❣', amethyst_prestige: '☯', rainbow_prestige: '✺', mythic_prestige: 'ಠ_ಠ', favor_of_the_angel_prestige: '⚔' },
+      games: [{ name: 'Quake Craft', code: 'QUAKECRAFT', id: 2 }, { name: 'Walls', code: 'WALLS', id: 3 }, { name: 'Paintball', code: 'PAINTBALL', id: 4 }, { name: 'Blitz Survival Games', code: 'SURVIVAL_GAMES', id: 5 }, { name: 'The TNT Games', code: 'TNTGAMES', id: 6 }, { name: 'VampireZ', code: 'VAMPIREZ', id: 7 }, { name: 'Mega Walls', code: 'WALLS3', id: 13 }, { name: 'Arcade', code: 'ARCADE', id: 14 }, { name: 'Arena Brawl', code: 'ARENA', id: 17 }, { name: 'UHC Champions', code: 'UHC', id: 20 }, { name: 'Cops and Crims', code: 'MCGO', id: 21 }, { name: 'Warlords', code: 'BATTLEGROUND', id: 23 }, { name: 'Smash Heroes', code: 'SUPER_SMASH', id: 24 }, { name: 'Turbo Kart Racers', code: 'GINGERBREAD', id: 25 }, { name: 'Housing', code: 'HOUSING', id: 26 }, { name: 'SkyWars', code: 'SKYWARS', id: 51 }, { name: 'Crazy Walls', code: 'TRUE_COMBAT', id: 52 }, { name: 'Speed UHC', code: 'SPEED_UHC', id: 54 }, { name: 'SkyClash', code: 'SKYCLASH', id: 55 }, { name: 'Classic Games', code: 'LEGACY', id: 56 }, { name: 'Prototype', code: 'PROTOTYPE', id: 57 }, { name: 'BedWars', code: 'BEDWARS', id: 58 }, { name: 'Murder Mystery', code: 'MURDER_MYSTERY', id: 59 }, { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60 }, { name: 'Duels', code: 'DUELS', id: 61 }, { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 }, { name: 'The Pit', code: 'PIT', id: 64 }, { name: 'Replay', code: 'REPLAY', id: -1 }, { name: 'Limbo', code: 'LIMBO', id: -2 }, { name: 'Queue', code: 'QUEUE', id: -3 }, { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 }, { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5 }, { name: 'Idle', code: 'IDLE', id: -6 }]
     },
     /**
      * @description Divides a by b
      */
     divide(a: number, b: number): number,
-    /**
-     * @description Get guild level by experience
-     */
-    getGuildLevel(exp: number): number
+    guildExp: {
+      parseHistory(historyDate: Record<string, unknown>): { day: string, date: Date, exp: number, totalExp: number }[];
+      getGuildLevel(exp: number): number;
+    }
+    oscillation: {
+      weekAB(date: Date): 'a' | 'b';
+      monthAB(date: Date): 'a' | 'b';
+    }
     /**
      * @description Is this guild ID?
      */
@@ -165,9 +184,8 @@ declare module 'hypixel-api-reborn' {
      * @param bytes Array of numbers to be read as minecraft var ints.
      */
     varInt(bytes: number[]): number
-
   };
-  class Client {
+  class Client extends EventEmitter {
     constructor(key: string, options?: clientOptions);
     /**
      * @description API Key
@@ -277,6 +295,12 @@ declare module 'hypixel-api-reborn' {
      * @description Allows you to clear cache
      */
     sweepCache(amount?: number): void;
+    on(event: 'outgoingRequest', listener: (url: string, options: Record<string, unknown>) => void): this;
+    on(event: 'warn', listener: (error: string) => void): this;
+    /**
+     * @description Emitted ( only once ) when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
+     */
+    once(event: 'ready', listener: () => void): this;
   }
   class Player {
     constructor(data: Record<string, unknown>);
@@ -301,8 +325,9 @@ declare module 'hypixel-api-reborn' {
     totalExperience: number;
     level: number;
     socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID }[];
-    giftsSent: number;
-    giftsReceived: number;
+    giftsSent?: number;
+    giftBundlesSent?: number;
+    giftBundlesReceived?: number;
     isOnline: boolean;
     userLanguage: string;
     claimedLevelingRewards: number[];
@@ -351,7 +376,7 @@ declare module 'hypixel-api-reborn' {
     pets: Pet[];
     lastJourneyTimestamp: number | null;
     lastJourneyAt: Date | null;
-    petConsumables: Record<string, unknown>;
+    petConsumables: PetConsumables;
   }
   class Pet {
     constructor(name: string, data: Record<string, unknown>);
@@ -372,6 +397,35 @@ declare module 'hypixel-api-reborn' {
     rawNickname: string | null;
     nickname: string | null;
     experience: number;
+  }
+  class PetConsumables {
+    BAKED_POTATO: number;
+    COOKIE: number;
+    FEATHER: number;
+    HAY_BLOCK: number;
+    SLIME_BALL: number;
+    COOKED_BEEF: number;
+    RED_ROSE: number;
+    WATER_BUCKET: number;
+    MELON: number;
+    STICK: number;
+    WOOD_SWORD: number;
+    MILK_BUCKET: number;
+    GOLD_RECORD: number;
+    LEASH: number;
+    LAVA_BUCKET: number;
+    BONE: number;
+    MAGMA_CREAM: number;
+    WHEAT: number;
+    MUSHROOM_SOUP: number;
+    BREAD: number;
+    PUMPKIN_PIE: number;
+    APPLE: number;
+    CARROT_ITEM: number;
+    RAW_FISH: number;
+    PORK: number;
+    CAKE: number;
+    ROTTEN_FLESH: number;
   }
   class Leaderboard {
     constructor(data: Record<string, unknown>);
@@ -443,6 +497,135 @@ declare module 'hypixel-api-reborn' {
     totalRequests: number;
     resetsAfter: number;
   }
+
+  class Arcade {
+    constructor(data?: Record<string, unknown>);
+    lastTourneyAdTimestamp: number;
+    lastTourneyAdAt: Date;
+    coins: number;
+    weeklyCoins: number;
+    monthlyCoins: number;
+    hintsDisabled: boolean;
+    flashDisabled: boolean;
+    drawTheirThing: BaseGame;
+    dragonWars: BaseGame;
+    easterSimulator: EasterSimulator;
+    grinchSimulator: GrinchSimulator;
+    scubaSimulator: ScubaSimulator;
+    santaSimulator: SantaSimulator;
+    santaSays: BaseGame;
+    simonSays: BaseGame;
+    farmHunt: BaseGame;
+    holeInTheWall: HITW;
+    miniWalls: MiniWalls;
+    partyGames: BaseGame;
+    partyGames2: BaseGame;
+    partyGames3: BaseGame;
+    throwOut: BaseGame;
+    soccer: Soccer;
+    hypixelSports: BaseGame;
+    enderSpleef: BaseGame;
+    blockingDead: BlockingDead;
+    galaxyWars: GalaxyWars;
+    oitq: OITQ;
+    oneInTheQuiver: OITQ;
+    zombies: Zombies;
+    captureTheWool: { kills: number; captures: number; };
+  }
+  class BaseGame {
+    constructor(data: Record<string, unknown>, gameName: string);
+    wins: number | null;
+    kills: number | null;
+    deaths: number | null;
+    roundsPlayed: number | null;
+    private extend;
+  }
+  class EasterSimulator extends BaseGame {
+    eggsFound: number;
+  }
+  class GrinchSimulator extends BaseGame {
+    giftsFound: number;
+  }
+  class ScubaSimulator extends BaseGame {
+    itemsFound: number;
+  }
+  class SantaSimulator extends BaseGame {
+    giftsDelivered: number;
+  }
+  class HITW extends BaseGame {
+    constructor(data: Record<string, unknown>);
+    scoreRecordFinals: number;
+    scoreRecordNormal: number;
+  }
+  class MiniWalls extends BaseGame {
+    constructor(data: Record<string, unknown>);
+    arrowHits: number;
+    arrowShots: number;
+    bowAccuracy: number;
+    finalKills: number;
+    witherDamage: number;
+    witherKills: number;
+  }
+  class Soccer {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kicks: number;
+    powerKicks: number;
+    goals: number;
+  }
+  class BlockingDead extends BaseGame {
+    headshots: number;
+  }
+  class GalaxyWars {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+    deaths: number;
+    shotsFired: number;
+    weeklyKills: number;
+    monthlyKills: number;
+    attackerKills: number;
+    defenderKills: number;
+  }
+  class OITQ extends BaseGame {
+    bountyKills: number;
+  }
+  class Zombies {
+    constructor(data: Record<string, unknown>);
+    overall: ZombiesStats;
+    deadEnd: ZombieMap;
+    badBlood: ZombieMap;
+    alienArcadium: ZombieMap;
+    killsByZombie: Record<string, number>;
+    bulletsHit: number;
+    bulletsShot: number;
+    gunAccuracy: number;
+    headshots: number;
+    headshotAccuracy: number;
+  }
+  class ZombieMap {
+    constructor(data: Record<string, unknown>, mapName: string);
+    normal: ZombiesStats;
+    hard: ZombiesStats;
+    rip: ZombiesStats;
+    overall: ZombiesStats;
+  }
+  class ZombiesStats {
+    constructor(data: Record<string, unknown>, type?: string);
+    bestRound: number;
+    deaths: number;
+    doorsOpened: number;
+    fastestRound10: number;
+    fastestRound20: number;
+    fastestRound30: number;
+    playersRevived: number;
+    timesKnockedDown: number;
+    roundsSurvived: number;
+    windowsRepaired: number;
+    wins: number;
+    zombieKills: number;
+  }
+
   class ArenaBrawl {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -668,7 +851,7 @@ declare module 'hypixel-api-reborn' {
     weeklyExperience: number;
     mutedUntilTimestamp: number;
     mutedUntil: Date;
-    expHistory: { day: string, exp: number }[];
+    expHistory: { day: string, date: Date, exp: number, totalExp: number }[][];
   }
   class GuildRank {
     constructor(data: Record<string, unknown>);
@@ -683,6 +866,7 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     sender: string;
     receiver: string;
+    uuid: string;
     friendSinceTimestamp: number;
     friendSince: Date;
   }
@@ -717,7 +901,7 @@ declare module 'hypixel-api-reborn' {
     petScore: number;
     heldItem: string | null;
     candyUsed: number;
-    skin: string | null
+    skin: string | null;
   }
   class SkyblockMember {
     constructor(data: Record<string, unknown>);
@@ -1231,7 +1415,7 @@ declare module 'hypixel-api-reborn' {
         farmingLevelCap: number,
       },
       contests: Record<string, unknown>,
-    }
+    };
   }
   class Color {
     constructor(color: string)
@@ -1252,6 +1436,8 @@ declare module 'hypixel-api-reborn' {
     anvilUses: number;
     damage: number;
     rarity: string;
+    dungeonStars: number;
+    gearScore: number;
     toString(): string;
   }
   class Game {
@@ -1259,6 +1445,12 @@ declare module 'hypixel-api-reborn' {
     toString(): GAME_NAME;
     code: GAME_CODE;
     id: GAME_ID;
+    name: GAME_NAME;
+    found: boolean;
+    private game: GAME_CODE | GAME_ID | GAME_NAME;
+    static IDS: GAME_ID[];
+    static CODES: GAME_CODE[];
+    static NAMES: GAME_NAME[];
   }
   class SkyWars {
     constructor(data: Record<string, unknown>);
@@ -1291,6 +1483,7 @@ declare module 'hypixel-api-reborn' {
     avarice: number;
     tenacity: number;
     shards: number;
+    angelOfDeathLevel: number;
     solo: {
       overall: {
         winstreak: number,
@@ -1398,6 +1591,26 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number,
       WLRatio: number
     };
+    packages: SkywarsPackages;
+  }
+  class SkywarsPackages {
+    constructor(data: string[]);
+    rawPackages: string[];
+    cages: string[];
+    kits: SkywarsKits;
+  }
+  class SkywarsKits {
+    constructor(kits: Record<string, unknown>);
+    kits: SkywarsKit[];
+    get(gameMode: SKYWARS_KIT_GAMEMODE, type: SKYWARS_KIT_TYPE): SkywarsKit[];
+  }
+  class SkywarsKit {
+    constructor(kit: string);
+    private _kitData: string[] | null;
+    isKit: boolean;
+    gameMode?: SKYWARS_KIT_GAMEMODE;
+    kitType?: SKYWARS_KIT_TYPE;
+    kitName?: string;
   }
   class CopsAndCrims {
     constructor(data: Record<string, unknown>);
@@ -2006,7 +2219,7 @@ declare module 'hypixel-api-reborn' {
       max: number;
       online: number;
       players: string[];
-    }
+    };
     rawMOTD: string;
     cleanMOTD: string;
     textMOTD: string;

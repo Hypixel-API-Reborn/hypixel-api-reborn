@@ -15,12 +15,15 @@ class Validation {
     if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
     if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
+    if (typeof options.keyLimit !== 'number') throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
+    if (typeof options.syncWithHeaders !== 'boolean') throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
+    if (typeof options.headers !== 'object') throw new Error(Errors.INVALID_HEADERS);
   }
 
   /**
    * Parses cache options
    * @param {Object} options Options to be parsed
-   * @returns {Object} Parsed cache optionss
+   * @returns {Object} Parsed cache options
    * @private
    */
   parseOptions (options) {
@@ -30,7 +33,10 @@ class Validation {
       cacheTime: options.cacheTime || 60,
       cacheSize: (options.cacheSize === -1 ? Infinity : options.cacheSize) || Infinity,
       cacheFilter: typeof options.cacheFilter === 'function' ? options.cacheFilter : this._handleFilter(options.cacheFilter),
-      rateLimit: options.rateLimit || 'AUTO'
+      rateLimit: options.rateLimit || 'AUTO',
+      keyLimit: options.keyLimit || 120,
+      syncWithHeaders: !!options.syncWithHeaders,
+      headers: options.headers || {}
     };
   }
 
@@ -84,8 +90,6 @@ class Validation {
   validateNodeVersion() {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
     if (nodeVersion < 12 ) throw new Error(Errors.NODE_VERSION_ERR);
-    // eslint-disable-next-line no-console
-    if (nodeVersion < 14 ) console.warn(Errors.NODE_VERSION_WARN);
   }
 }
 module.exports = Validation;
