@@ -16,7 +16,7 @@
 </div>
 
 ### Links
-[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [PreMiD Presence](https://premid.app/store/presences/Hypixel%20API%20Reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1)
+[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel.stavzdev.xyz) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [PreMiD Presence](https://premid.app/store/presences/Hypixel%20API%20Reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
 
 #### Requirements
 
