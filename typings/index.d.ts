@@ -330,6 +330,13 @@ declare module 'hypixel-api-reborn' {
     giftBundlesReceived?: number;
     isOnline: boolean;
     userLanguage: string;
+    lastDailyReward?: Date;
+    lastDailyRewardTimestamp?: number;
+    totalRewards?: number;
+    totalDailyRewards?: number;
+    rewardStreak?: number;
+    rewardScore?: number;
+    rewardHighScore?: number;
     claimedLevelingRewards: number[];
     globalCosmetics: PlayerCosmetics;
     ranksPurchaseTime: {
