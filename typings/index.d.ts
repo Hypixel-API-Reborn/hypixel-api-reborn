@@ -6,16 +6,18 @@
 
 import { EventEmitter } from 'events';
 
-type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
-type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit' | 'Replay' | 'Limbo' | 'Queue' | 'Main Lobby' | 'Tournament Lobby' | 'Idle';
-type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | -1 | -2 | -3 | -4 | -5 | -6;
-type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTGAMES' | 'VAMPIREZ' | 'WALLS3' | 'ARCADE' | 'UHC' | 'MCGO' | 'BATTLEGROUND' | 'SUPER_SMASH' | 'GINGERBREAD' | 'HOUSING' | 'SKYWARS' | 'TRUE_COMBAT' | 'SPEED_UHC' | 'SKYCLASH' | 'LEGACY' | 'PROTOTYPE' | 'BEDWARS' | 'MURDER_MYSTERY' | 'BUILD_BATTLE' | 'DUELS' | 'SKYBLOCK' | 'PIT' | 'REPLAY' | 'LIMBO' | 'IDLE' | 'QUEUE' | 'MAIN_LOBBY' | 'TOURNAMENT_LOBBY';
-type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
-type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
-type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire';
-type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
-type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
-interface clientOptions {
+export type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Helper' | 'Moderator' | 'Admin';
+export type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit' | 'Replay' | 'Limbo' | 'Queue' | 'Main Lobby' | 'Tournament Lobby' | 'Idle';
+export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | -1 | -2 | -3 | -4 | -5 | -6;
+export type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTGAMES' | 'VAMPIREZ' | 'WALLS3' | 'ARCADE' | 'UHC' | 'MCGO' | 'BATTLEGROUND' | 'SUPER_SMASH' | 'GINGERBREAD' | 'HOUSING' | 'SKYWARS' | 'TRUE_COMBAT' | 'SPEED_UHC' | 'SKYCLASH' | 'LEGACY' | 'PROTOTYPE' | 'BEDWARS' | 'MURDER_MYSTERY' | 'BUILD_BATTLE' | 'DUELS' | 'SKYBLOCK' | 'PIT' | 'REPLAY' | 'LIMBO' | 'IDLE' | 'QUEUE' | 'MAIN_LOBBY' | 'TOURNAMENT_LOBBY';
+export type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
+export type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
+export type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire';
+export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
+export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
+export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
+export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export interface clientOptions {
   cache?: boolean;
   cacheTime?: number;
   cacheSize?: number;
@@ -26,17 +28,17 @@ interface clientOptions {
   silent?: boolean;
   headers?: Record<string, unknown>;
 }
-interface methodOptions {
+export interface methodOptions {
   noCacheCheck?: boolean;
   noCaching?: boolean;
 }
-interface playerMethodOptions extends methodOptions {
+export interface playerMethodOptions extends methodOptions {
   guild?: boolean;
 }
-interface skyblockMemberOptions extends methodOptions {
+export interface skyblockMemberOptions extends methodOptions {
   fetchPlayer?: boolean;
 }
-interface auctionsOptions extends methodOptions {
+export interface auctionsOptions extends methodOptions {
   noInfo?: boolean;
   noAuctions?: boolean;
   raw?: boolean;
@@ -86,7 +88,7 @@ declare module 'hypixel-api-reborn' {
       /**
        * @description Is input string or array?
        */
-      isStrArray(input: string|[]): boolean
+      isStrArray(input: string | []): boolean
       /**
        * @description String to array<string>
        */
@@ -115,10 +117,14 @@ declare module 'hypixel-api-reborn' {
      * @description Divides a by b
      */
     divide(a: number, b: number): number,
-    /**
-     * @description Get guild level by experience
-     */
-    getGuildLevel(exp: number): number
+    guildExp: {
+      parseHistory(historyDate: Record<string, unknown>): { day: string, date: Date, exp: number, totalExp: number }[];
+      getGuildLevel(exp: number): number;
+    }
+    oscillation: {
+      weekAB(date: Date): 'a' | 'b';
+      monthAB(date: Date): 'a' | 'b';
+    }
     /**
      * @description Is this guild ID?
      */
@@ -319,10 +325,18 @@ declare module 'hypixel-api-reborn' {
     totalExperience: number;
     level: number;
     socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID }[];
-    giftsSent: number;
-    giftsReceived: number;
+    giftsSent?: number;
+    giftBundlesSent?: number;
+    giftBundlesReceived?: number;
     isOnline: boolean;
     userLanguage: string;
+    lastDailyReward?: Date;
+    lastDailyRewardTimestamp?: number;
+    totalRewards?: number;
+    totalDailyRewards?: number;
+    rewardStreak?: number;
+    rewardScore?: number;
+    rewardHighScore?: number;
     claimedLevelingRewards: number[];
     globalCosmetics: PlayerCosmetics;
     ranksPurchaseTime: {
@@ -369,7 +383,7 @@ declare module 'hypixel-api-reborn' {
     pets: Pet[];
     lastJourneyTimestamp: number | null;
     lastJourneyAt: Date | null;
-    petConsumables: Record<string, unknown>;
+    petConsumables: PetConsumables;
   }
   class Pet {
     constructor(name: string, data: Record<string, unknown>);
@@ -390,6 +404,35 @@ declare module 'hypixel-api-reborn' {
     rawNickname: string | null;
     nickname: string | null;
     experience: number;
+  }
+  class PetConsumables {
+    BAKED_POTATO: number;
+    COOKIE: number;
+    FEATHER: number;
+    HAY_BLOCK: number;
+    SLIME_BALL: number;
+    COOKED_BEEF: number;
+    RED_ROSE: number;
+    WATER_BUCKET: number;
+    MELON: number;
+    STICK: number;
+    WOOD_SWORD: number;
+    MILK_BUCKET: number;
+    GOLD_RECORD: number;
+    LEASH: number;
+    LAVA_BUCKET: number;
+    BONE: number;
+    MAGMA_CREAM: number;
+    WHEAT: number;
+    MUSHROOM_SOUP: number;
+    BREAD: number;
+    PUMPKIN_PIE: number;
+    APPLE: number;
+    CARROT_ITEM: number;
+    RAW_FISH: number;
+    PORK: number;
+    CAKE: number;
+    ROTTEN_FLESH: number;
   }
   class Leaderboard {
     constructor(data: Record<string, unknown>);
@@ -494,6 +537,7 @@ declare module 'hypixel-api-reborn' {
     oitq: OITQ;
     oneInTheQuiver: OITQ;
     zombies: Zombies;
+    captureTheWool: { kills: number; captures: number; };
   }
   class BaseGame {
     constructor(data: Record<string, unknown>, gameName: string);
@@ -814,7 +858,7 @@ declare module 'hypixel-api-reborn' {
     weeklyExperience: number;
     mutedUntilTimestamp: number;
     mutedUntil: Date;
-    expHistory: { day: string, exp: number }[];
+    expHistory: { day: string, date: Date, exp: number, totalExp: number }[][];
   }
   class GuildRank {
     constructor(data: Record<string, unknown>);
@@ -1446,6 +1490,7 @@ declare module 'hypixel-api-reborn' {
     avarice: number;
     tenacity: number;
     shards: number;
+    angelOfDeathLevel: number;
     solo: {
       overall: {
         winstreak: number,
@@ -1553,6 +1598,26 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number,
       WLRatio: number
     };
+    packages: SkywarsPackages;
+  }
+  class SkywarsPackages {
+    constructor(data: string[]);
+    rawPackages: string[];
+    cages: string[];
+    kits: SkywarsKits;
+  }
+  class SkywarsKits {
+    constructor(kits: Record<string, unknown>);
+    kits: SkywarsKit[];
+    get(gameMode: SKYWARS_KIT_GAMEMODE, type: SKYWARS_KIT_TYPE): SkywarsKit[];
+  }
+  class SkywarsKit {
+    constructor(kit: string);
+    private _kitData: string[] | null;
+    isKit: boolean;
+    gameMode?: SKYWARS_KIT_GAMEMODE;
+    kitType?: SKYWARS_KIT_TYPE;
+    kitName?: string;
   }
   class CopsAndCrims {
     constructor(data: Record<string, unknown>);

@@ -139,15 +139,20 @@ class Player {
      */
     this.socialMedia = getSocialMedia(data.socialMedia) || [];
     /**
+     * Amount of gift bundles sent
+     * @type {number}
+     */
+    this.giftBundlesSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
+    /**
+     * Amount of gift bundles received
+     * @type {number}
+     */
+    this.giftBundlesReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
+    /**
      * Amount of gifts sent
      * @type {number}
      */
-    this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
-    /**
-     * Amount of gifts received
-     * @type {number}
-     */
-    this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
+    this.giftsSent = data.giftingMeta ? data.giftingMeta.giftsGiven || 0 : null;
     /**
      * Is player online?
      * @type {boolean}
@@ -163,6 +168,31 @@ class Player {
      * @type {number | null}
      */
     this.lastDailyRewardTimestamp = data.lastAdsenseGenerateTime || null;
+    /**
+     * Total amount of Daily Rewards
+     * @type {number | null}
+     */
+    this.totalRewards = data.totalRewards || null;
+    /**
+     * Total amount of Daily Rewards claimed
+     * @type {number | null}
+     */
+    this.totalDailyRewards = data.totalDailyRewards || null;
+    /**
+     * Honestly no clue what this is specifically
+     * @type {number | null}
+     */
+    this.rewardStreak = data.rewardStreak || null;
+    /**
+     * Current Daily Rewards streak
+     * @type {number | null}
+     */
+    this.rewardScore = data.rewardScore || null;
+    /**
+     * Highest Daily Rewards streak
+     * @type {number | null}
+     */
+    this.rewardHighScore = data.rewardHighScore || null;
     /**
      * Player recent games
      * @return {Promise<Array<RecentGame>>}
@@ -189,7 +219,7 @@ class Player {
       vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
-      arcade: (data.stats.Arcade ? new Arcade(data.stats.Arcade) : null)
+      arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null)
     } : null);
     /**
      * User's current language
@@ -274,15 +304,15 @@ function getRank (player) {
 }
 /**
  * @param {number} exp
- * @return {number}
+ * @return {number} Level rounded to the nearest cent
  */
 function getPlayerLevel (exp) {
-  const BASE = 10000;
-  const GROWTH = 2500;
-  const REVERSE_PQ_PREFIX = -(BASE - 0.5 * GROWTH) / GROWTH;
-  const REVERSE_CONST = REVERSE_PQ_PREFIX * REVERSE_PQ_PREFIX;
-  const GROWTH_DIVIDES_2 = 2 / GROWTH;
-  const num = 1 + REVERSE_PQ_PREFIX + Math.sqrt(REVERSE_CONST + GROWTH_DIVIDES_2 * exp);
+  const base = 10000;
+  const growth = 2500;
+  const reversePqPrefix = -(base - 0.5 * growth) / growth;
+  const reverseConst = reversePqPrefix * reversePqPrefix;
+  const growthDivides2 = 2 / growth;
+  const num = 1 + reversePqPrefix + Math.sqrt(reverseConst + growthDivides2 * exp);
   const level = Math.round(num * 100) / 100;
   return level;
 }

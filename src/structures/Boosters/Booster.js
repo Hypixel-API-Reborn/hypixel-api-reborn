@@ -57,7 +57,7 @@ class Booster {
      * Stacked by ( if any )
      * @type {string[]}
      */
-    this.stackers = Array.isArray(data.stacked) ? data.stacked : [];
+    this.stackers = Array.isArray(data.stacked) ? Array.from(data.stacked) : [];
     /**
      * Possibly expired booster
      * Works by checking if date.length is negative
