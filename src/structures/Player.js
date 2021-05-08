@@ -194,6 +194,11 @@ class Player {
      */
     this.rewardHighScore = data.rewardHighScore || null;
     /**
+     * Player leveling progress.
+     * @type {PlayerLevelProgress}
+     */
+    this.levelProgress = playerLevelProgress(data);
+    /**
      * Player recent games
      * @return {Promise<Array<RecentGame>>}
      */
@@ -219,7 +224,7 @@ class Player {
       vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
-      arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null)
+      arcade: (data.stats.Arcade ? new Arcade({ ...data.stats.Arcade, ...data.achievements }) : null)
     } : null);
     /**
      * User's current language
@@ -316,7 +321,48 @@ function getPlayerLevel (exp) {
   const level = Math.round(num * 100) / 100;
   return level;
 }
-
+/**
+ * @description EXP to next player level.
+ * @param {object} player
+ * @returns {number}
+ */
+function xpToNextLevel (player) {
+  const lvl = getPlayerLevel(player.networkExp);
+  const xpToNext = (2500 * Math.floor(lvl)) + 5000;
+  if (player.networkExp < 10000) return 10000;
+  return xpToNext;
+}
+/**
+ * @param {Player} player
+ * @returns {number}
+ */
+function levelToXP (player) {
+  let level = Number(Math.floor(getPlayerLevel(player.networkExp)));
+  level = level - 1;
+  const xp = 1250 * level ** 2 + 8750 * level;
+  return xp;
+}
+/**
+* Player Network level Progress
+* @param {Object} player player data
+* @returns {{xpToNext:number,currentXP:number,percent:number,remainingXP:number,percentRemaining:number}}
+*/
+function playerLevelProgress (player) {
+  const xpFromLevel = levelToXP(player);
+  let currentXP = (player.networkExp - xpFromLevel);
+  const xpToNext = xpToNextLevel(player);
+  const remainingXP = (xpToNext - currentXP) + 2500;
+  currentXP = currentXP - 2500;
+  const percent = (Math.round(((currentXP / xpToNext) * 100) * 100) / 100);
+  const percentRemaining = Math.round((100 - percent) * 100) / 100;
+  return {
+    xpToNext,
+    currentXP,
+    remainingXP,
+    percent,
+    percentRemaining
+  };
+}
 /**
  * @param {object} data
  * @return {Array<{name:string,link:string,id:string}>}
@@ -386,5 +432,13 @@ function parseClaimedRewards (data) {
  * @property {Date|null} VIP_PLUS VIP+ rank
  * @property {Date|null} MVP MVP rank
  * @property {Date|null} MVP_PLUS MVP+ rank
+ */
+/**
+ * @typedef {Object} PlayerLevelProgress
+ * @property {number} xpToNext Total XP to a player's next level.
+ * @property {number} remainingXP XP to the player's next level.
+ * @property {number} currentXP XP the player current has.
+ * @property {number} percent Player level progress as a percentage.
+ * @property {number} percentRemaining Remaining percentage of the percent value.
  */
 module.exports = Player;

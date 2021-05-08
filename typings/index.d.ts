@@ -328,6 +328,13 @@ declare module 'hypixel-api-reborn' {
     giftsSent?: number;
     giftBundlesSent?: number;
     giftBundlesReceived?: number;
+    levelProgress: {
+      currentXP: number,
+      remainingXP: number,
+      xpToNext: number,
+      percent: number,
+      percentRemaining: number
+    }
     isOnline: boolean;
     userLanguage: string;
     lastDailyReward?: Date;
