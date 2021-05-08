@@ -360,7 +360,8 @@ declare module 'hypixel-api-reborn' {
       smashheroes?: SmashHeroes,
       vampirez?: VampireZ,
       blitzsg?: BlitzSurvivalGames,
-      arena?: ArenaBrawl
+      arena?: ArenaBrawl,
+      arcade?: Arcade
     };
     getRecentGames(): Promise<RecentGame[]>;
     toString(): string;

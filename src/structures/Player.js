@@ -377,6 +377,7 @@ function parseClaimedRewards (data) {
  * @property {VampireZ|null} vampirez VampireZ
  * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
  * @property {ArenaBrawl|null} arena Arena Brawl
+ * @property {Arcade|null} arcade Arcade
  */
 /**
  * @typedef {Object} RanksPurchaseTime
