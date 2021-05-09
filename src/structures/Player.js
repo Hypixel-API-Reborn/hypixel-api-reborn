@@ -195,7 +195,7 @@ class Player {
     this.rewardHighScore = data.rewardHighScore || null;
     /**
      * Player leveling progress.
-     * @type {PlayerLevelProgress}
+     * @type {LevelProgress}
      */
     this.levelProgress = playerLevelProgress(data);
     /**
