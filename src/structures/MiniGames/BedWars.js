@@ -170,6 +170,10 @@ class BedWars {
     this['4v4'] = generateStatsForMode(data, 'two_four');
   }
 }
+/**
+ * @param {number} xp
+ * @returns {BedWarsLevelProgress}
+ */
 function getBedWarsLevelProgress (xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
