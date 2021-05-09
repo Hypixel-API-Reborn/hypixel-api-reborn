@@ -434,7 +434,7 @@ function parseClaimedRewards (data) {
  * @property {Date|null} MVP_PLUS MVP+ rank
  */
 /**
- * @typedef {Object} PlayerLevelProgress
+ * @typedef {Object} LevelProgress
  * @property {number} xpToNext Total XP to a player's next level.
  * @property {number} remainingXP XP to the player's next level.
  * @property {number} currentXP XP the player current has.

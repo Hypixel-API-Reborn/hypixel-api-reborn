@@ -86,7 +86,7 @@ class SkyWars {
     this.level = getSkyWarsLevel(data.skywars_experience);
     /**
      * Level Progress
-     * @type {SkyWarsLevelProgress}
+     * @type {LevelProgress}
      */
     this.levelProgress = getSkyWarsLevelProgress(data.skywars_experience);
     /**
@@ -305,12 +305,6 @@ class SkyWars {
  * * '⚔'
  */
 /**
- * @typedef {Object} SkyWarsLevelProgress
- * @property {number} percent Level progress in percent
- * @property {number} xpToNextLevel XP to next level
- * @property {number} XPNextLevel Total xp for next level
- */
-/**
  * @typedef {Object} SkyWarsModeStats
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -396,11 +390,13 @@ function getSkyWarsLevelProgress (xp) {
     }
     xpToNextLevel = 10000 - currentLevelXp;
     percent = (Math.round(currentLevelXp) / 100);
+    const percentRemaining = Math.round((100 - percent) * 100) / 100;
     return {
       currentLevelXp,
       xpToNextLevel,
       percent,
-      xpNextLevel: 10000
+      xpNextLevel: 10000,
+      percentRemaining
     };
   }
   const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
