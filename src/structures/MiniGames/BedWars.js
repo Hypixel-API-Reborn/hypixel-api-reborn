@@ -51,6 +51,11 @@ class BedWars {
      */
     this.level = data.Experience ? getLevelForExp(data.Experience) : 0;
     /**
+     * Level Progress
+     * @type {BedWarsLevelProgress}
+     */
+    this.levelProgress = getBedWarsLevelProgress(data.Experience);
+    /**
      * Prestige
      * @type {BedWarsPrestige}
      */
@@ -165,6 +170,43 @@ class BedWars {
     this['4v4'] = generateStatsForMode(data, 'two_four');
   }
 }
+function getBedWarsLevelProgress (xp) {
+  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
+  const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
+  let percent;
+  let xpToNextLevel;
+  let currentLevelXp = xp;
+  if (xp >= 15000) {
+    currentLevelXp -= 15000;
+    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, nextLevelXp: 10000 };
+    if (currentLevelXp > 10000) {
+      do {
+        currentLevelXp -= 10000;
+      } while (currentLevelXp >= 10000);
+    }
+    xpToNextLevel = 10000 - currentLevelXp;
+    percent = (Math.round(currentLevelXp) / 100);
+    return {
+      currentLevelXp,
+      xpToNextLevel,
+      percent,
+      nextLevelXp: 10000
+    };
+  }
+  const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
+  for (let i = 0; i < xpToNextLvl.length; i++) {
+    if ((currentLevelXp - xpToNextLvl[i] * 10) < 0) break;
+    currentLevelXp -= xpToNextLvl[i] * 10;
+  }
+  xpToNextLevel = totalXptoNextLevel - currentLevelXp;
+  percent = (Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100);
+  return {
+    currentLevelXp,
+    xpToNextLevel,
+    percent,
+    nextLevelXp: totalXptoNextLevel
+  };
+}
 /**
  * @param {number} level
  * @return {string}
@@ -263,6 +305,13 @@ function getLevelForExp (exp) {
  * * `Water`
  * * `Fire`
  */
+/**
+ * @typedef {Object} BedWarsLevelProgress
+ * @property {number} percent Level progress in percent
+ * @property {number} xpToNextLevel XP to next level
+ * @property {number} nextLevelXp Total xp for next level
+ */
+/**
 /**
  * @typedef {object} BedWarsAvg
  * @property {number} kills Average kills

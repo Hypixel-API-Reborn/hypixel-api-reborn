@@ -1653,6 +1653,12 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     coins: number;
     level: number;
+    levelProgress: {
+      currentLevelXp: number,
+      xpToNextLevel: number,
+      percent: number,
+      nextLevelXp: number
+    };
     prestige: BEDWARS_PRESTIGE;
     playedGames: number;
     wins: number;
