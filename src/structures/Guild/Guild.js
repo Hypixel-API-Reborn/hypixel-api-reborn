@@ -206,7 +206,7 @@ function calculateExpHistory (data) {
  * @return {number}
  */
 function expLimit(exp) {
-  return exp > 2e5 ? (exp > 7e5 ? Math.round(exp * 3 / 100) : 2e5 + Math.round((exp-2e5) / 10)) : exp;
+  return exp > 2e5 ? (exp > 7e5 ? 2.5e5+Math.round(exp * 0.03) : 2e5 + Math.round((exp-2e5) / 10)) : exp;
 }
 
 module.exports = Guild;
