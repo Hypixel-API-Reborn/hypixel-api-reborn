@@ -130,7 +130,7 @@ class Guild {
      */
     this.legacyRank = !isNaN(data.legacyRanking) ? parseInt(data.legacyRanking + 1, 10) : 0;
     /**
-     * Experience history per day, resets at 5 am UTC
+     * Experience history per day, resets at 5 am UTC. Please remember this is only an estimation based on the sum of every guild member's daily gexp.
      * @type {Array<ExpHistory>}
      */
     this.expHistory = calculateExpHistory(data);
@@ -196,8 +196,17 @@ function calculateExpHistory (data) {
     for (const member of data.members) {
       gexp += (member.expHistory[day] || 0);
     }
-    finalObj[day] = gexp;
+    finalObj[day] = expLimit(gexp);
   }
   return parseHistory(finalObj);
 }
+/**
+ * Calculates and returns the exp after daily limit
+ * @param {number} exp Experience
+ * @return {number}
+ */
+function expLimit(exp) {
+  return exp > 2e5 ? (exp > 7e5 ? Math.round(exp * 3 / 100) : 2e5 + Math.round((exp-2e5) / 10)) : exp;
+}
+
 module.exports = Guild;
