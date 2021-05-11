@@ -258,7 +258,7 @@ class SkyWars {
      * Player Packages, can range from kits to achievement
      * @type {SkywarsPackages}
      */
-    this.packages = new SkywarsPackages(data.packages);
+    this.packages = new SkywarsPackages(data.packages || []);
   }
 }
 /**
