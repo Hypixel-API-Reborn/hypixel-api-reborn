@@ -226,7 +226,7 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
       arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null),
-      pit: (data.stats.Pit ? new Pit(data.stats.Pit) : null)
+      pit: null
     } : null);
     /**
      * User's current language
