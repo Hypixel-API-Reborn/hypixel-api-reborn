@@ -145,7 +145,7 @@ class Arcade {
      * Blocking dead ( previously known as DayOne ) stats
      * @type {BlockingDead}
      */
-    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone);
+    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone || 0);
     /**
      * Galaxy Wars stats
      * @type {GalaxyWars}
@@ -156,7 +156,7 @@ class Arcade {
      * OITQ / One In The Quiver stats
      * @type {OITQ}
      */
-    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver);
+    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver || 0);
     /**
      * Zombies
      * @type {Zombies}
@@ -166,7 +166,7 @@ class Arcade {
      * Capture The Wool
      * @type {{kills: number, captures: number}}
      */
-    this.captureTheWool = {'kills': data.arcade_ctw_slayer, 'captures': data.arcade_ctw_oh_sheep};
+    this.captureTheWool = { 'kills': data.arcade_ctw_slayer || 0, 'captures': data.arcade_ctw_oh_sheep || 0 };
   }
 }
 /**
@@ -182,22 +182,22 @@ class BaseGame {
      * Wins
      * @type {?number}
      */
-    this.wins = parseInt(data['wins_' + gameName]) || null;
+    this.wins = parseInt(data['wins_' + gameName]) || 0;
     /**
      * Kills, only available in combat games
      * @type {?number}
      */
-    this.kills = parseInt(data['kills_' + gameName]) || null;
+    this.kills = parseInt(data['kills_' + gameName]) || 0;
     /**
      * Deaths, only available in combat games
      * @type {?number}
      */
-    this.deaths = parseInt(data['deaths_' + gameName]) || null;
+    this.deaths = parseInt(data['deaths_' + gameName]) || 0;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
      * @type {?number}
      */
-    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || null;
+    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || 0;
   }
   /**
    * Extend BaseGame without creating a new class

@@ -2,7 +2,7 @@ const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
 /**
  * Parses exp history
  * @param {object} historyData History data from the API
- * @returns {Array<ExpHistory>} Array of ExpJistory
+ * @returns {ExpHistory[]} Array of ExpHistory
  */
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({

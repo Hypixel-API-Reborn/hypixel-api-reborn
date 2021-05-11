@@ -86,7 +86,7 @@ class SkyWars {
     this.level = getSkyWarsLevel(data.skywars_experience);
     /**
      * Level Progress
-     * @type {SkyWarsLevelProgress}
+     * @type {LevelProgress}
      */
     this.levelProgress = getSkyWarsLevelProgress(data.skywars_experience);
     /**
@@ -139,6 +139,11 @@ class SkyWars {
      * @type {number}
      */
     this.shards = data.shard || 0;
+    /**
+     * Angel Of Death Level
+     * @type {number}
+     */
+    this.angelOfDeathLevel = data.angel_of_death_level || 0;
     /**
      * Shard By Mode
      * @type {SkyWarsShardsInMode}
@@ -300,12 +305,6 @@ class SkyWars {
  * * '⚔'
  */
 /**
- * @typedef {Object} SkyWarsLevelProgress
- * @property {number} percent Level progress in percent
- * @property {number} xpToNextLevel XP to next level
- * @property {number} XPNextLevel Total xp for next level
- */
-/**
  * @typedef {Object} SkyWarsModeStats
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -391,11 +390,13 @@ function getSkyWarsLevelProgress (xp) {
     }
     xpToNextLevel = 10000 - currentLevelXp;
     percent = (Math.round(currentLevelXp) / 100);
+    const percentRemaining = Math.round((100 - percent) * 100) / 100;
     return {
       currentLevelXp,
       xpToNextLevel,
       percent,
-      xpNextLevel: 10000
+      xpNextLevel: 10000,
+      percentRemaining
     };
   }
   const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
@@ -440,7 +441,7 @@ class SkywarsPackages {
    * Constructor
    * @param {string[]} data data from API
    */
-  constructor(data) {
+  constructor (data) {
     // TODO : a lot more
     /**
      * Raw Packages, as received from the API
@@ -461,14 +462,14 @@ class SkywarsPackages {
      * Achievements included in packages, under the form of name0
      * @type {string[]}
      */
-    this.achievements = this.rawPackages.map((pkg)=>pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x)=>x).map((x)=>x.slice(1).join(''));
+    this.achievements = this.rawPackages.map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x) => x).map((x) => x.slice(1).join(''));
   }
   /**
    * Parses cages
    * @returns {string[]}
    */
-  _parseCages() {
-    return this.rawPackages.map((pkg)=>pkg.match(/^cage_([A-z]+)-cage$/)).filter((x)=>x).map((x)=>x[1].replace(/-[a-z]/g, (x)=>x[1].toUpperCase()));
+  _parseCages () {
+    return this.rawPackages.map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/)).filter((x) => x).map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
   }
 }
 
@@ -480,7 +481,7 @@ class SkywarsKit {
    * Constructor
    * @param {string} kit Kit
    */
-  constructor(kit) {
+  constructor (kit) {
     /**
      * Kit data
      * @private
@@ -517,10 +518,10 @@ class SkywarsKit {
 class SkywarsKits {
   /**
    * Constructor
-   * @param {Object} kits Potential Kits
+   * @param {SkywarsKit[]} kits Potential Kits
    */
-  constructor(kits) {
-    this.kits = kits.map((kit)=>new SkywarsKit(kit)).filter((kit)=>kit.isKit);
+  constructor (kits) {
+    this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
   }
   /**
    * Get kit by type/gameMode
@@ -528,8 +529,8 @@ class SkywarsKits {
    * @param {KitType} [type] Kits corresponding to this type
    * @returns {SkywarsKit[]}
    */
-  get(gameMode = '', type = '') {
-    return this.kits.filter((kit)=>(kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
+  get (gameMode = '', type = '') {
+    return this.kits.filter((kit) => (kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
   }
 }
 

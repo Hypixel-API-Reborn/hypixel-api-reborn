@@ -109,6 +109,11 @@ class GameCounts {
      * @type {object}
      */
     /**
+     * Player count in SMP
+     * @name GameCounts#smp
+     * @type {object}
+     */
+    /**
      * Player count in Replay
      * @name GameCounts#replay
      * @type {object}
@@ -134,9 +139,11 @@ class GameCounts {
      */
     this.playerCount = data.playerCount;
     for (const game in data.games) {
-      if (Object.prototype.hasOwnProperty.call(data.games, game)) {
-        const objectName = MiniGamesString[game].toUpperCase().split(/ +/g).join('_');
+      if (Object.prototype.hasOwnProperty.call(MiniGamesString, game)) {
+        const objectName = MiniGamesString[game].toUpperCase().replace(/ +/g, '_');
         this[removeSnakeCaseString(objectName)] = recursive(data.games[game], true);
+      } else {
+        this[removeSnakeCaseString(game)] = recursive(data.games[game], true);
       }
     }
   }
