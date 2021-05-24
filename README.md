@@ -48,7 +48,7 @@ hypixel.getGuild('name', 'The Foundation').then(guild => {
 ```
 For more examples go to our [documentation](https://hypixel.stavzdev.xyz/).
 ## Changelog
-[v8.1.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/8.1.0)
+[v8.2.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/8.2.0)
 
 ### Try it now
 **[Code Sandbox](https://codesandbox.io/s/clever-babbage-xqmfw?file=/src/index.js)**
