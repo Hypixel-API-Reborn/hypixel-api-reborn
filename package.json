@@ -1,7 +1,7 @@
 {
   "name": "hypixel-api-reborn",
   "version": "8.1.0",
-  "description": "This is the only Hypixel API wrapper for Node.js with intellisense support",
+  "description": "Feature-rich Hypixel API wrapper for Node.js",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",
   "keywords": [
@@ -18,8 +18,7 @@
   "scripts": {
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
-    "test:lint": "npm run eslint",
-    "test:lint:dev": "npm run eslint && npm run dtslint",
+    "lint:dev": "npm run eslint && npm run dtslint",
     "test": "mocha tests --exit",
     "test:dev": "nodenv --exec mocha tests -- --exit",
     "docgen": "docgen -s src -o master.json",

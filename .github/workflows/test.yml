@@ -36,7 +36,7 @@ jobs:
       run: npm run build --if-present
 
     - name: ESlint
-      run: npm run test:lint
+      run: npm run eslint
 
     - name: Tests
       run: npm test
