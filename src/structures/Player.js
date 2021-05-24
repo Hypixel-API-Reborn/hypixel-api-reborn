@@ -13,6 +13,7 @@ const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const Arcade = require('./MiniGames/Arcade');
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Pit = require('./MiniGames/Pit');
 const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');

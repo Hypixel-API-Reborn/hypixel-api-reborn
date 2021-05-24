@@ -167,7 +167,7 @@ class BedWars {
      * BedWars Dream Mode Stats
      * @type {BedwarsDreamStats}
      */
-    this.dream = ['ultimate', 'rush', 'armed', 'lucky', 'voidless'].reduce((ac, mode)=>({
+    this.dream = ['ultimate', 'rush', 'armed', 'lucky', 'voidless'].reduce((ac, mode) => ({
       [mode]: {
         doubles: generateStatsForMode(data, `eight_two_${mode}`),
         fours: generateStatsForMode(data, `four_four_${mode}`)
