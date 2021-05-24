@@ -24,6 +24,11 @@ class Game {
      */
     this.code = result ? result.code : 'Not Found';
     /**
+     * Name of game
+     * @type {GameString}
+     */
+    this.name = result ? result.name : 'Not Found';
+    /**
      * Whether the game is found
      * @type {boolean}
      */
@@ -35,19 +40,7 @@ class Game {
    * @return {GameString}
    */
   toString () {
-    if (isNaN(this.game)) {
-      return games.some((g) => g.code === this.game) ? games.find((g) => g.code === this.game).name : 'Not found';
-    } else {
-      return games.some((g) => g.id === this.game) ? games.find((g) => g.id === this.game).name : 'Not found';
-    }
-  }
-
-  /**
-   * Alias for toString
-   * @type {GameString}
-   */
-  get name() {
-    return this.toString();
+    return this.name;
   }
 
   /**

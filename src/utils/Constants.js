@@ -778,7 +778,7 @@ module.exports = {
     { name: 'SkyClash', code: 'SKYCLASH', id: 55 },
     { name: 'Classic Games', code: 'LEGACY', id: 56 },
     { name: 'Prototype', code: 'PROTOTYPE', id: 57 },
-    { name: 'BedWars', code: 'BEDWARS', id: 58 },
+    { name: 'Bed Wars', code: 'BEDWARS', id: 58 },
     { name: 'Murder Mystery', code: 'MURDER_MYSTERY', id: 59 },
     { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60 },
     { name: 'Duels', code: 'DUELS', id: 61 },
