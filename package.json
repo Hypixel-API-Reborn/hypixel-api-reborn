@@ -48,7 +48,7 @@
     "@typescript-eslint/parser": "^4.22.1",
     "chai": "^4.3.4",
     "dtslint": "^4.0.9",
-    "eslint": "^7.25.0",
+    "eslint": "^7.27.0",
     "eslint-config-google": "^0.14.0",
     "mocha": "^8.3.2",
     "node-env-run": "^4.0.2",
