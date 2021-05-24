@@ -1795,8 +1795,271 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number,
       WLRatio: number,
       finalKDRatio: number,
-    };
+      dream: {
+          ultimate: {
+            doubles: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+            fours: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+          },
+          rush: {
+            doubles: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+            fours: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+          },
+          armed: {
+            doubles: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+            fours: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+          },
+          lucky: {
+            doubles: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+            fours: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+          },
+          voidless: {
+            doubles: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+            fours: {
+              winstreak: number,
+              playedGames: number,
+              kills: number,
+              deaths: number,
+              wins: number,
+              losses: number,
+              finalKills: number,
+              finalDeaths: number,
+              beds: {
+                broken: number,
+                lost: number,
+                BLRatio: number
+              },
+              avg: {
+                kills: number,
+                finalKills: number,
+                bedsBroken: number
+              },
+              KDRatio: number,
+              WLRatio: number,
+              finalKDRatio: number,
+            },
+          },
+        },
+        castle: {
+          winstreak: number,
+          playedGames: number,
+          kills: number,
+          deaths: number,
+          wins: number,
+          losses: number,
+          finalKills: number,
+          finalDeaths: number,
+          beds: {
+            broken: number,
+            lost: number,
+            BLRatio: number
+          },
+          avg: {
+            kills: number,
+            finalKills: number,
+            bedsBroken: number
+          },
+        }
+    }
   }
+
   class UHC {
     constructor(data: Record<string, unknown>);
     coins: number;

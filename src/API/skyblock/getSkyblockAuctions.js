@@ -27,7 +27,7 @@ module.exports = async function (range, options = {}) {
   _makeRequest = this._makeRequest;
   options.retries = options.retries || 3;
   options.cooldown = options.cooldown || 100;
-  if (!range || range === '*') range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
+  if (range == null || range === '*') range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
   if (!Array.isArray(range)) range = [parseInt(range), parseInt(range)];
   if (isNaN(range[0])) throw new Error(Errors.PAGE_INDEX_ERROR);
   if (parseInt(options.retries) !== options.retries || options.retries > 10 || options.retries < 0) throw new Error(Errors.INVALID_OPTION_VALUE);
@@ -35,6 +35,10 @@ module.exports = async function (range, options = {}) {
   range = range.sort();
   const result = { auctions: [] };
   const fetches = [];
+  /**
+   * Failed Pages
+   * @type {number[]}
+   */
   const failedPages = [];
   if (options.noAuctions) return { info: options.noInfo ? null : (await getPage(range[1], { noAuctions: true })).info };
   for (let i = range[0]; i <= range[1]; i++) {
@@ -49,7 +53,7 @@ module.exports = async function (range, options = {}) {
     }
   }
   if (fetches.length) {
-    result.auctions = (await Promise.all(fetches)).reduce((pV, cV, _, index) => {
+    result.auctions = (await Promise.all(fetches)).reduce((pV, cV, index) => {
       if (!cV) {
         failedPages.push(index + range[0]);
         return pV;

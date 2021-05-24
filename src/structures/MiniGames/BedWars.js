@@ -163,6 +163,21 @@ class BedWars {
      * @type {BedWarsModeStats}
      */
     this['4v4'] = generateStatsForMode(data, 'two_four');
+    /**
+     * BedWars Dream Mode Stats
+     * @type {BedwarsDreamStats}
+     */
+    this.dream = ['ultimate', 'rush', 'armed', 'lucky', 'voidless'].reduce((ac, mode) => ({
+      [mode]: {
+        doubles: generateStatsForMode(data, `eight_two_${mode}`),
+        fours: generateStatsForMode(data, `four_four_${mode}`)
+      }, ...ac
+    }), {});
+    /**
+     * BedWars Castle Stats
+     * @type {BedWarsModeStats}
+     */
+    this.castle = generateStatsForMode(data, 'castle');
   }
 }
 /**
@@ -297,5 +312,18 @@ function getLevelForExp (exp) {
  * @property {number} KDRatio Kill Death ratio
  * @property {number} WLRatio Win Loss ratio
  * @property {number} finalKDRatio Final kills/Final deaths ratio
+ */
+/**
+ * @typedef {Object} BedwarsDreamStats
+ * @property {BedwarsDreamModeStats} ultimate Ultimate stats
+ * @property {BedwarsDreamModeStats} rush Rush stats
+ * @property {BedwarsDreamModeStats} armed Armed stats
+ * @property {BedwarsDreamModeStats} lucky Lucky Blocks stats (true api naming)
+ * @property {BedwarsDreamModeStats} voidless Voidless stats
+ */
+/**
+ * @typedef {Object} BedwarsDreamModeStats
+ * @property {BedWarsModeStats} doubles Doubles
+ * @property {BedWarsModeStats} fours Fours
  */
 module.exports = BedWars;
