@@ -48,7 +48,7 @@ class SkyblockMember {
      * Timestamp when player first joined the SkyBlock Hub as Date
      * @type {Date}
      */
-    this.firstJoinHubAt = new Date(data.m.first_join_hub);
+    this.firstJoinHubAt = new Date(this.firstJoinTimestamp + data.m.first_join_hub);
     /**
      * Last save timestamp
      * @type {number}
