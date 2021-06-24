@@ -61,10 +61,10 @@ class Auction extends BaseAuction {
      */
     this.startingBid = data.starting_bid || 0;
     /**
-     * Auction's highest bid, if it is bidded
-     * @type {number}
-     */
-    this.highestBid = data.highest_bid_amount || 0;
+    * Auction's highest bid, if it is bidded or price for BIN
+    * @type {number}
+    */
+    this.highestBid = (this.bin) ? data.starting_bid : data.highest_bid_amount || 0;
     /**
      * Auction bids
      * @type {Bid[]}
