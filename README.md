@@ -24,7 +24,7 @@
 **For TypeScript users  >= v3.5**
 
 ### Installation & Usage
-```js
+```shell
 npm i hypixel-api-reborn
 ```
 ```js
