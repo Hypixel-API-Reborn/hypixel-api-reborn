@@ -368,6 +368,11 @@ declare module 'hypixel-api-reborn' {
       vampirez?: VampireZ,
       blitzsg?: BlitzSurvivalGames,
       arena?: ArenaBrawl,
+      paintball?: Paintball,
+      quakecraft?: Quakecraft,
+      turbokartracers?: TurboKartRacers,
+      walls?: Walls,
+      warlords?: Warlords,
       arcade?: Arcade
     };
     getRecentGames(): Promise<RecentGame[]>;
@@ -656,6 +661,72 @@ declare module 'hypixel-api-reborn' {
       }
     };
   }
+  class Paintball {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    shotsFired: number;
+    killstreaks: number;
+    forcefieldTime: number;
+    hat: string;
+  };
+  class Quakecraft {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    distanceTravelled: number;
+    headshots: number;
+    shotsFired: number;
+    killstreaks: number;
+    highestKillstreak: number;
+    solo: {
+      kills: number, deaths: number, KDRatio: number, wins: number, distanceTravelled: number, headshots: number, shotsFired: number, killstreaks: number
+    };
+    teams: {
+      kills: number, deaths: number, KDRatio: number, wins: number, distanceTravelled: number, headshots: number, shotsFired: number, killstreaks: number
+    };
+  };
+  class TurboKartRacers {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    wins: number;
+    completedLaps: number;
+    bronzeTrophies: number;
+    silverTrophies: number;
+    goldTrophies: number;
+    boxPickups: number;
+  };
+  class Walls {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    assists: number;
+  };
+  class Warlords {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    assists: number;
+    class: string;
+  };
   class BlitzSurvivalGames {
     constructor(data: Record<string, unknown>);
     coins: number;
