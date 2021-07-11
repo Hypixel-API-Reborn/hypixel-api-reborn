@@ -64,20 +64,4 @@ class Paintball {
     this.hat = data.hat || 'None';
   }
 }
-/**
- * @param {object} data
- * @return {{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}
- */
-
-/**
- * @typedef {Object} PaintballModeStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill Death ratio
- * @property {number} wins Wins
- * @property {number} killstreaks Killstreaks
- * @property {number} shotsFired Shots fired
- * @property {number} forcefieldTime Forcefield time
- * @property {string} hat Selected hat
- */
 module.exports = Paintball;

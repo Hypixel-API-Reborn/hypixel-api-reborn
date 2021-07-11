@@ -59,16 +59,4 @@ class Warlords {
     this.class = data.chosen_class || 0;
   }
 }
-/**
- * @typedef {object} WarlordsModeStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill Death ratio
- * @property {number} wins Wins
- * @property {number} distanceTravelled Distance travelled
- * @property {number} headshots Headshots
- * @property {number} killstreaks Killstreaks
- * @property {number} highestKillstreak Highest killstreak
- * @property {number} shotsFired Shots fired
- */
 module.exports = Warlords;
