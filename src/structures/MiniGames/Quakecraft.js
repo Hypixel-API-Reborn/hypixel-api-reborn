@@ -62,28 +62,28 @@ class Quakecraft {
      * @type {QuakecraftModeStats}
      */
     this.solo = {
-        kills: data.kills - data.kills_teams || 0,
-        deaths: data.deaths - data.deaths_teams || 0,
-        KDRatio: divide((data.kills - data.kills_teams), (data.deaths - data.deaths_teams)),
-        wins: data.wins - data.wins_teams || 0,
-        distanceTravelled: data.distance_travelled - data.distance_travelled_teams || 0,
-        headshots: data.headshots - data.headshots_teams || 0,
-        shotsFired: data.shots_fired - data.shots_fired_teams || 0,
-        killstreaks: data.killstreaks - data.killstreaks_teams || 0,
+      kills: data.kills - data.kills_teams || 0,
+      deaths: data.deaths - data.deaths_teams || 0,
+      KDRatio: divide((data.kills - data.kills_teams), (data.deaths - data.deaths_teams)),
+      wins: data.wins - data.wins_teams || 0,
+      distanceTravelled: data.distance_travelled - data.distance_travelled_teams || 0,
+      headshots: data.headshots - data.headshots_teams || 0,
+      shotsFired: data.shots_fired - data.shots_fired_teams || 0,
+      killstreaks: data.killstreaks - data.killstreaks_teams || 0
     };
     /**
      * Teams
      * @type {QuakecraftModeStats}
      */
     this.teams = {
-        kills: data.kills_teams || 0,
-        deaths: data.deaths_teams || 0,
-        KDRatio: divide(data.kills_teams, data.deaths_teams),
-        wins: data.wins_teams || 0,
-        distanceTravelled: data.distance_travelled_teams || 0,
-        headshots: data.headshots_teams || 0,
-        shotsFired: data.shots_fired_teams || 0,
-        killstreaks: data.killstreaks_teams || 0,
+      kills: data.kills_teams || 0,
+      deaths: data.deaths_teams || 0,
+      KDRatio: divide(data.kills_teams, data.deaths_teams),
+      wins: data.wins_teams || 0,
+      distanceTravelled: data.distance_travelled_teams || 0,
+      headshots: data.headshots_teams || 0,
+      shotsFired: data.shots_fired_teams || 0,
+      killstreaks: data.killstreaks_teams || 0
     };
   }
 }

@@ -1,4 +1,3 @@
-const divide = require('../../utils/divide');
 /**
  * TurboKartRacers class
  */
