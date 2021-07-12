@@ -20,6 +20,11 @@ const Color = require('./Color');
 const Game = require('./Game');
 const PlayerCosmetics = require('./PlayerCosmetics');
 const { recursive } = require('../utils/removeSnakeCase');
+const TurboKartRacers = require('./MiniGames/TurboKartRacers');
+const Paintball = require('./MiniGames/Paintball');
+const Quakecraft = require('./MiniGames/Quakecraft');
+const Walls = require('./MiniGames/Walls');
+const Warlords = require('./MiniGames/Warlords');
 /**
  * Player class
  */
@@ -227,6 +232,11 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
       arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null),
+      paintball: (data.stats.Paintball ? new Paintball(data.stats.Paintball) : null),
+      quakecraft: (data.stats.Quake ? new Quakecraft(data.stats.Quake) : null),
+      turbokartracers: (data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null),
+      walls: (data.stats.Walls ? new Walls(data.stats.Walls) : null),
+      warlords: (data.stats.Battleground ? new Warlords(data.stats.Battleground) : null),
       pit: null
     } : null);
     /**
