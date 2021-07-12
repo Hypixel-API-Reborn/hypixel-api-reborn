@@ -21,8 +21,8 @@
     "lint:dev": "npm run eslint && npm run dtslint",
     "test": "mocha tests --exit",
     "test:dev": "nodenv --exec mocha tests -- --exit",
-    "docgen": "docgen -s src -o master.json",
-    "docgen:custom": "docgen -s src --custom docs/index.yml -o master.json",
+    "docgen": "docgen -s src -o ../docs/master.json",
+    "docgen:custom": "docgen -s src --custom docs/index.yml -o ../docs/master.json",
     "prepublishOnly": "npm run test:dev && npm run docgen:custom",
     "dtslint": "dtslint typings"
   },
