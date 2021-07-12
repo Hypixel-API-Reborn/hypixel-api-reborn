@@ -97,6 +97,5 @@ module.exports = Quakecraft;
  * @property {number} distanceTravelled Distance travelled
  * @property {number} headshots Headshots
  * @property {number} killstreaks Killstreaks
- * @property {number} highestKillstreak Highest killstreak
  * @property {number} shotsFired Shots fired
  */
