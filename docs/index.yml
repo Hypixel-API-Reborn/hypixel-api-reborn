@@ -26,6 +26,8 @@
       path: getBoosters.md
     - name: getServerInfo
       path: getServerInfo.md
+    - name: Error Handling
+      path: errorHandling.md
     # - name: getSkyblockProfiles
     #   path: getSkyblockProfiles.md
     # - name: getSkyblockMember
