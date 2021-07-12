@@ -33,7 +33,7 @@
   "dependencies": {
     "node-fetch": "^2.6.1",
     "object-path": "^0.11.5",
-    "prismarine-nbt": "^1.5.0",
+    "prismarine-nbt": "^1.6.0",
     "rss-parser": "^3.12.0"
   },
   "license": "MIT",
@@ -43,11 +43,11 @@
   },
   "publisher": "StavZ",
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
+    "@types/node": "^16.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
     "chai": "^4.3.4",
-    "dtslint": "^4.1.1",
+    "dtslint": "^4.1.2",
     "eslint": "^7.30.0",
     "eslint-config-google": "^0.14.0",
     "mocha": "^9.0.2",
