@@ -16,12 +16,12 @@ class Quakecraft {
      * Kills
      * @type {number}
      */
-    this.kills = data.kills || 0;
+    this.kills = ((data.kills || 0) + (data.kills_teams || 0));
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = data.deaths || 0;
+    this.deaths = ((data.deaths || 0) + (data.deaths_teams || 0));
     /**
      * Kill Death ratio
      * @type {number}
@@ -31,27 +31,27 @@ class Quakecraft {
      * Wins
      * @type {number}
      */
-    this.wins = data.wins || 0;
+    this.wins = ((data.wins || 0) + (data.wins_teams || 0));
     /**
      * Distance travelled
      * @type {number}
      */
-    this.distanceTravelled = data.distance_travelled || 0;
+    this.distanceTravelled = (data.distance_travelled + data.distance_travelled_teams) || 0;
     /**
      * Headshots
      * @type {number}
      */
-    this.headshots = data.headshots || 0;
+    this.headshots = ((data.headshots || 0) + (data.headshots_teams || 0));
     /**
      * Shots fired
      * @type {number}
      */
-    this.shotsFired = data.shots_fired || 0;
+    this.shotsFired = ((data.shots_fired || 0) + (data.shots_fired_teams || 0));
     /**
      * Kill streaks
      * @type {number}
      */
-    this.killstreaks = data.killstreaks || 0;
+    this.killstreaks = ((data.killstreaks || 0) + (data.killstreaks_teams || 0));
     /**
      * Highest killstreak
      * @type {number}
@@ -62,14 +62,14 @@ class Quakecraft {
      * @type {QuakecraftModeStats}
      */
     this.solo = {
-      kills: data.kills - data.kills_teams || 0,
-      deaths: data.deaths - data.deaths_teams || 0,
-      KDRatio: divide((data.kills - data.kills_teams), (data.deaths - data.deaths_teams)),
-      wins: data.wins - data.wins_teams || 0,
-      distanceTravelled: data.distance_travelled - data.distance_travelled_teams || 0,
-      headshots: data.headshots - data.headshots_teams || 0,
-      shotsFired: data.shots_fired - data.shots_fired_teams || 0,
-      killstreaks: data.killstreaks - data.killstreaks_teams || 0
+      kills: data.kills || 0,
+      deaths: data.deaths|| 0,
+      KDRatio: divide((data.kills), (data.deaths)),
+      wins: data.wins || 0,
+      distanceTravelled: data.distance_travelled || 0,
+      headshots: data.headshots || 0,
+      shotsFired: data.shots_fired || 0,
+      killstreaks: data.killstreaks || 0
     };
     /**
      * Teams
@@ -88,3 +88,15 @@ class Quakecraft {
   }
 }
 module.exports = Quakecraft;
+/**
+ * @typedef {object} QuakecraftModeStats
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} KDRatio Kill Death ratio
+ * @property {number} wins Wins
+ * @property {number} distanceTravelled Distance travelled
+ * @property {number} headshots Headshots
+ * @property {number} killstreaks Killstreaks
+ * @property {number} highestKillstreak Highest killstreak
+ * @property {number} shotsFired Shots fired
+ */
