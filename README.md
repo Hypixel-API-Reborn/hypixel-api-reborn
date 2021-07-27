@@ -10,7 +10,7 @@
 <img src="https://flat.badgen.net/npm/license/hypixel-api-reborn">
 <a href="https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"><img src="https://flat.badgen.net/github/stars/hypixel-api-reborn/hypixel-api-reborn"></a>
 <a href="https://www.npmjs.com/package/hypixel-api-reborn"><img src="https://nodei.co/npm/hypixel-api-reborn.png?compact=true"></a>
-<h2>This is the only Hypixel API wrapper for Node.js with intellisense support</h2>
+<h2>A feature-rich Hypixel API wrapper for Node.js</h2>
 <br>
 </div>
 
