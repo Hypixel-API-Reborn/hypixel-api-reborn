@@ -9,7 +9,7 @@
 
 # About
 
-Hypixel API • Reborn is feature-rich Hypixel API wrapper for Node.js/Typescript.
+Hypixel API • Reborn is a feature-rich Hypixel API wrapper for Node.js/Typescript.
 <br/>
 - 100% Promise-based. <br/>
 - Speedy and efficient. <br/>
