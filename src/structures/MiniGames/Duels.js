@@ -57,12 +57,12 @@ class Duels {
      * Kills
      * @type {number}
      */
-    this.kills = data.kills || 0;
+    this.kills = (((data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0)) + (data.mw_duel_kills || 0) + ((data.op_duel_kills || 0) + (data.op_doubles_kills || 0)) + (((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0))) + (data.sumo_duel_kills || 0) + (data.classic_duel_kills || 0) + (data.combo_duel_kills || 0) + ((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)) + (data.blitz_duel_kills || 0) + (data.potion_duel_kills || 0) + (data.bow_duel_kills || 0));
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = data.deaths || 0;
+    this.deaths = (((data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0)) + (data.mw_duel_deaths || 0) + ((data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0)) + ((data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)) + (data.sumo_duel_deaths || 0) + (data.classic_duel_deaths || 0) + (data.combo_duel_deaths || 0) + ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0)) + (data.blitz_duel_deaths || 0) + (data.potion_duel_deaths || 0) + (data.bow_duel_deaths || 0));
     /**
      * Kill Death ratio
      * @type {number}
@@ -89,12 +89,23 @@ class Duels {
      */
     this.playedGames = data.games_played_duels || 0;
     /**
+     * Current winstreak
+     * @type {number}
+     */
+    this.winstreak = data.current_winstreak || 0;
+    /**
+     * Best overall winstreak
+     * @type {number}
+     */
+    this.bestWinstreak = data.best_overall_winstreak || 0;
+    /**
      * UHC duels stats
      * @type {DuelsUHC}
      */
     this.uhc = {
       'overall': {
-        winstreak: (data.current_winstreak_mode_uhc_duel || 0) + (data.current_winstreak_mode_uhc_doubles || 0) + (data.current_winstreak_mode_uhc_four || 0) + (data.current_winstreak_mode_uhc_meetup || 0),
+        winstreak: data.current_uhc_winstreak || 0,
+        bestWinstreak: data.best_uhc_winstreak || 0,
         kills: (data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0),
         deaths: (data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0),
         KDRatio: divide((data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0), (data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0)),
@@ -105,6 +116,7 @@ class Duels {
       },
       '1v1': {
         winstreak: data.current_winstreak_mode_uhc_duel || 0,
+        bestWinstreak: data.best_winstreak_mode_uhc_duel || 0,
         kills: data.uhc_duel_kills || 0,
         deaths: data.uhc_duel_deaths || 0,
         KDRatio: divide(data.uhc_duel_kills, data.uhc_duel_deaths),
@@ -115,6 +127,7 @@ class Duels {
       },
       '2v2': {
         winstreak: data.current_winstreak_mode_uhc_doubles || 0,
+        bestWinstreak: data.best_winstreak_mode_uhc_doubles || 0,
         kills: data.uhc_doubles_kills || 0,
         deaths: data.uhc_doubles_deaths || 0,
         KDRatio: divide(data.uhc_doubles_kills, data.uhc_doubles_deaths),
@@ -125,6 +138,7 @@ class Duels {
       },
       '4v4': {
         winstreak: data.current_winstreak_mode_uhc_four || 0,
+        bestWinstreak: data.best_winstreak_mode_uhc_four || 0,
         kills: data.uhc_four_kills || 0,
         deaths: data.uhc_four_deaths || 0,
         KDRatio: divide(data.uhc_four_kills, data.uhc_four_deaths),
@@ -135,6 +149,7 @@ class Duels {
       },
       'meetup': {
         winstreak: data.current_winstreak_mode_uhc_meetup || 0,
+        bestWinstreak: data.best_winstreak_mode_uhc_meetup || 0,
         kills: data.uhc_meetup_kills || 0,
         deaths: data.uhc_meetup_deaths || 0,
         KDRatio: divide(data.uhc_meetup_kills, data.uhc_meetup_deaths),
@@ -144,8 +159,13 @@ class Duels {
         playedGames: data.uhc_meetup_rounds_played || 0
       }
     };
+    /**
+     * MegaWalls duels stats
+     * @type {DuelsModeStats}
+     */
     this.megawalls = {
       winstreak: data.current_winstreak_mode_mw_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_mw_duel || 0,
       kills: data.mw_duel_kills || 0,
       deaths: data.mw_duel_deaths || 0,
       KDRatio: divide(data.mw_duel_kills, data.mw_duel_deaths),
@@ -160,7 +180,8 @@ class Duels {
      */
     this.op = {
       'overall': {
-        winstreak: (data.current_winstreak_mode_op_duel || 0) + (data.current_winstreak_mode_op_doubles || 0),
+        winstreak: data.current_op_winstreak || 0,
+        bestWinstreak: data.best_op_winstreak || 0,
         kills: (data.op_duel_kills || 0) + (data.op_doubles_kills || 0),
         deaths: (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0),
         KDRatio: divide((data.op_duel_kills || 0) + (data.op_doubles_kills || 0), (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0)),
@@ -171,6 +192,7 @@ class Duels {
       },
       '1v1': {
         winstreak: data.current_winstreak_mode_op_duel || 0,
+        bestWinstreak: data.best_winstreak_mode_op_duel || 0,
         kills: data.op_duel_kills || 0,
         deaths: data.op_duel_deaths || 0,
         KDRatio: divide(data.op_duel_kills, data.op_duel_deaths),
@@ -181,6 +203,7 @@ class Duels {
       },
       '2v2': {
         winstreak: data.current_winstreak_mode_op_doubles || 0,
+        bestWinstreak: data.best_winstreak_mode_op_doubles || 0,
         kills: data.op_doubles_kills || 0,
         deaths: data.op_doubles_deaths || 0,
         KDRatio: divide(data.op_doubles_kills, data.op_doubles_deaths),
@@ -196,17 +219,19 @@ class Duels {
      */
     this.skywars = {
       'overall': {
-        winstreak: (data.current_winstreak_mode_sw_duel || 0) + (data.current_winstreak_mode_sw_doubles || 0),
-        kills: (data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0),
-        deaths: (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0),
+        winstreak: data.current_skywars_winstreak || 0,
+        bestWinstreak: data.best_skywars_winstreak || 0,
+        kills: ((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0)),
+        deaths: ((data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)),
         KDRatio: divide((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0), (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)),
-        wins: (data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0),
-        losses: (data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0),
+        wins: ((data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0)),
+        losses: ((data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0)),
         WLRatio: divide((data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0), (data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0)),
         playedGames: (data.sw_duel_rounds_played || 0) + (data.sw_doubles_rounds_played || 0)
       },
       '1v1': {
         winstreak: data.current_winstreak_mode_sw_duel || 0,
+        bestWinstreak: data.best_winstreak_mode_sw_duel || 0,
         kills: data.sw_duel_kills || 0,
         deaths: data.sw_duel_deaths || 0,
         KDRatio: divide(data.sw_duel_kills, data.sw_duel_deaths),
@@ -217,6 +242,7 @@ class Duels {
       },
       '2v2': {
         winstreak: data.current_winstreak_mode_sw_doubles || 0,
+        bestWinstreak: data.best_winstreak_mode_sw_doubles || 0,
         kills: data.sw_doubles_kills || 0,
         deaths: data.sw_doubles_deaths || 0,
         KDRatio: divide(data.sw_doubles_kills, data.sw_doubles_deaths),
@@ -232,6 +258,7 @@ class Duels {
      */
     this.sumo = {
       winstreak: data.current_winstreak_mode_sumo_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_sumo_duel || 0,
       kills: data.sumo_duel_kills || 0,
       deaths: data.sumo_duel_deaths || 0,
       KDRatio: divide(data.sumo_duel_kills, data.sumo_duel_deaths),
@@ -246,6 +273,7 @@ class Duels {
      */
     this.classic = {
       winstreak: data.current_winstreak_mode_classic_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_classic_duel || 0,
       kills: data.classic_duel_kills || 0,
       deaths: data.classic_duel_deaths || 0,
       KDRatio: divide(data.classic_duel_kills, data.classic_duel_deaths),
@@ -260,6 +288,7 @@ class Duels {
      */
     this.combo = {
       winstreak: data.current_winstreak_mode_combo_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_combo_duel || 0,
       kills: data.combo_duel_kills || 0,
       deaths: data.combo_duel_deaths || 0,
       KDRatio: divide(data.combo_duel_kills, data.combo_duel_deaths),
@@ -274,20 +303,22 @@ class Duels {
      */
     this.bridge = {
       'overall': {
-        winstreak: (data.current_winstreak_mode_bridge_duel || 0) + (data.current_winstreak_mode_bridge_doubles || 0) + (data.current_winstreak_mode_bridge_four || 0),
-        kills: ((data.bridge_duel_kills || data.bridge_duel_bridge_kills) || 0) + ((data.bridge_doubles_kills || data.bridge_doubles_bridge_kills) || 0) + ((data.bridge_four_kills || data.bridge_four_bridge_kills) || 0),
-        deaths: ((data.bridge_duel_deaths || data.bridge_duel_bridge_deaths) || 0) + ((data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths) || 0) + ((data.bridge_four_deaths || data.bridge_four_bridge_deaths) || 0),
-        KDRatio: divide(((data.bridge_duel_kills || data.bridge_duel_bridge_kills) || 0) + ((data.bridge_doubles_kills || data.bridge_doubles_bridge_kills) || 0) + ((data.bridge_four_kills || data.bridge_four_bridge_kills) || 0), ((data.bridge_duel_deaths || data.bridge_duel_bridge_deaths) || 0) + ((data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths) || 0) + ((data.bridge_four_deaths || data.bridge_four_bridge_deaths) || 0)),
-        wins: (data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_four_wins || 0),
-        losses: (data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_four_losses || 0),
-        WLRatio: divide((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_four_wins || 0), (data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_four_losses || 0)),
-        playedGames: (data.bridge_duel_rounds_played || 0) + (data.bridge_doubles_rounds_played || 0) + (data.bridge_four_rounds_played || 0)
+        winstreak: data.current_bridge_winstreak || 0,
+        bestWinstreak: data.best_bridge_winstreak || 0,
+        kills: ((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)),
+        deaths: ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0)),
+        KDRatio: divide(((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)), ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0))),
+        wins: ((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0)),
+        losses: ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0)),
+        WLRatio: divide(((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0)), ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0))),
+        playedGames: ((data.bridge_duel_rounds_played || 0) + (data.bridge_doubles_rounds_played || 0) + (data.bridge_2v2v2v2_rounds_played || 0) + (data.bridge_3v3v3v3_rounds_played || 0) + (data.bridge_four_rounds_played || 0))
       },
       '1v1': {
         winstreak: data.current_winstreak_mode_bridge_duel || 0,
-        kills: (data.bridge_duel_kills || data.bridge_duel_bridge_kills) || 0,
-        deaths: (data.bridge_duel_deaths || data.bridge_duel_bridge_deaths) || 0,
-        KDRatio: divide((data.bridge_duel_kills || data.bridge_duel_bridge_kills), (data.bridge_duel_deaths || data.bridge_duel_bridge_deaths)),
+        bestWinstreak: data.best_winstreak_mode_bridge_duel || 0,
+        kills: data.bridge_duel_bridge_kills || 0,
+        deaths: data.bridge_duel_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_duel_bridge_kills, data.bridge_duel_bridge_deaths),
         wins: data.bridge_duel_wins || 0,
         losses: data.bridge_duel_losses || 0,
         WLRatio: divide(data.bridge_duel_wins, data.bridge_duel_losses),
@@ -295,19 +326,43 @@ class Duels {
       },
       '2v2': {
         winstreak: data.current_winstreak_mode_bridge_doubles || 0,
-        kills: (data.bridge_doubles_kills || data.bridge_doubles_bridge_kills) || 0,
-        deaths: (data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths) || 0,
-        KDRatio: divide((data.bridge_doubles_kills || data.bridge_doubles_bridge_kills), (data.bridge_doubles_deaths || data.bridge_doubles_bridge_deaths)),
+        bestWinstreak: data.best_winstreak_mode_bridge_doubles || 0,
+        kills: data.bridge_doubles_bridge_kills || 0,
+        deaths: data.bridge_doubles_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_doubles_bridge_kills, data.bridge_doubles_bridge_deaths),
         wins: data.bridge_doubles_wins || 0,
         losses: data.bridge_doubles_losses || 0,
         WLRatio: divide(data.bridge_doubles_wins, data.bridge_doubles_losses),
         playedGames: data.bridge_doubles_rounds_played || 0
       },
+      '2v2v2v2': {
+        winstreak: data.current_winstreak_mode_bridge_2v2v2v2 || 0,
+        bestWinstreak: data.best_winstreak_mode_bridge_2v2v2v2 || 0,
+        kills: data.bridge_2v2v2v2_bridge_kills || 0,
+        deaths: data.bridge_2v2v2v2_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_2v2v2v2_bridge_kills, data.bridge_2v2v2v2_bridge_deaths),
+        wins: data.bridge_2v2v2v2_wins || 0,
+        losses: data.bridge_2v2v2v2_losses || 0,
+        WLRatio: divide(data.bridge_2v2v2v2_wins, data.bridge_2v2v2v2_losses),
+        playedGames: data.bridge_2v2v2v2_rounds_played || 0
+      },
+      '3v3v3v3': {
+        winstreak: data.current_winstreak_mode_bridge_3v3v3v3 || 0,
+        bestWinstreak: data.best_winstreak_mode_bridge_3v3v3v3 || 0,
+        kills: data.bridge_3v3v3v3_bridge_kills || 0,
+        deaths: data.bridge_3v3v3v3_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_3v3v3v3_bridge_kills, data.bridge_3v3v3v3_bridge_deaths),
+        wins: data.bridge_3v3v3v3_wins || 0,
+        losses: data.bridge_3v3v3v3_losses || 0,
+        WLRatio: divide(data.bridge_3v3v3v3_wins, data.bridge_3v3v3v3_losses),
+        playedGames: data.bridge_3v3v3v3_rounds_played || 0
+      },
       '4v4': {
         winstreak: data.current_winstreak_mode_bridge_four || 0,
-        kills: (data.bridge_four_kills || data.bridge_four_bridge_kills) || 0,
-        deaths: (data.bridge_four_deaths || data.bridge_four_bridge_deaths) || 0,
-        KDRatio: divide((data.bridge_four_kills || data.bridge_four_bridge_kills), (data.bridge_four_deaths || data.bridge_four_bridge_deaths)),
+        bestWinstreak: data.best_winstreak_mode_bridge_four || 0,
+        kills: data.bridge_four_bridge_kills || 0,
+        deaths: data.bridge_four_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_four_bridge_kills, data.bridge_four_bridge_deaths),
         wins: data.bridge_four_wins || 0,
         losses: data.bridge_four_losses || 0,
         WLRatio: divide(data.bridge_four_wins, data.bridge_four_losses),
@@ -320,6 +375,7 @@ class Duels {
      */
     this.blitz = {
       winstreak: data.current_winstreak_mode_blitz_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_blitz_duel || 0,
       kills: data.blitz_duel_kills || 0,
       deaths: data.blitz_duel_deaths || 0,
       KDRatio: divide(data.blitz_duel_kills, data.blitz_duel_deaths),
@@ -334,6 +390,7 @@ class Duels {
      */
     this.nodebuff = {
       winstreak: data.current_winstreak_mode_potion_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_potion_duel || 0,
       kills: data.potion_duel_kills || 0,
       deaths: data.potion_duel_deaths || 0,
       KDRatio: divide(data.potion_duel_kills, data.potion_duel_deaths),
@@ -348,6 +405,7 @@ class Duels {
      */
     this.bow = {
       winstreak: data.current_winstreak_mode_bow_duel || 0,
+      bestWinstreak: data.best_winstreak_mode_bow_duel || 0,
       kills: data.bow_duel_kills || 0,
       deaths: data.bow_duel_deaths || 0,
       KDRatio: divide(data.bow_duel_kills, data.bow_duel_deaths),
@@ -360,7 +418,8 @@ class Duels {
 }
 /**
  * @typedef {object} DuelsModeStats
- * @property {number} winstreak Winstreak
+ * @property {number} winstreak Current winstreak
+ * @property {number} bestWinstreak Best winstreak
  * @property {number} kills Kills
  * @property {number} deaths Deaths
  * @property {number} wins Wins
@@ -395,5 +454,7 @@ class Duels {
  * @property {DuelsModeStats} '1v1' The Bridge Duel 1v1 stats
  * @property {DuelsModeStats} '2v2' The Bridge Duel 2v2 stats
  * @property {DuelsModeStats} '4v4' The Bridge Duel 4v4 stats
+ * @property {DuelsModeStats} '2v2v2v2' The Bridge Duel 2v2v2v2 stats
+ * @property {DuelsModeStats} '3v3v3v3' The Bridge Duel 3v3v3v3 stats
  */
 module.exports = Duels;
