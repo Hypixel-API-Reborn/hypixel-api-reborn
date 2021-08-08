@@ -358,12 +358,12 @@ class Client extends EventEmitter {
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<SkyWarsRanked>}
    * @example
-   * hypixel.getRankedSkyWarsRating('gypu').then((ranked) => {
+   * hypixel.getRankedSkyWars('gypu').then((ranked) => {
    *   console.log(ranked.position); // 4
    * }).catch(console.log);
    * @example
    * // if player has no stats for current ranked season
-   * hypixel.getRankedSkyWarsRating('StavZDev').then((ranked) => {
+   * hypixel.getRankedSkyWars('StavZDev').then((ranked) => {
    *   console.log(ranked); // null
    * }).catch(console.log) // throws 404 error;
    */
