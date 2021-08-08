@@ -351,6 +351,23 @@ class Client extends EventEmitter {
    * .catch(console.log)
    */
   /**
+   * Allows you to get Ranked SkyWars data of a player
+   * @method
+   * @name Client#getRankedSkyWars
+   * @param {string} query Player nickname or uuid
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<SkyWarsRanked>}
+   * @example
+   * hypixel.getRankedSkyWarsRating('gypu').then((ranked) => {
+   *   console.log(ranked.position); // 4
+   * }).catch(console.log);
+   * @example
+   * // if player has no stats for current ranked season
+   * hypixel.getRankedSkyWarsRating('StavZDev').then((ranked) => {
+   *   console.log(ranked); // null
+   * }).catch(console.log) // throws 404 error;
+   */
+  /**
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}

@@ -7,6 +7,12 @@ module.exports = async function (query, options = { guild: false }) {
   query = await toUuid(query);
   const res = await this._makeRequest(`/player?uuid=${query}`);
   if (query && !res.player) throw new Error(Errors.PLAYER_HAS_NEVER_LOGGED);
-  res.player.guild = options.guild ? await getGuild.call(this, 'player', query) : null;
+  if (options.guild) {
+    const guild = await getGuild.call(this, 'player', query);
+    if (guild) {
+      Object.assign(guild, { me: guild.members.find((m) => m.uuid === query) });
+    }
+    res.player.guild = guild;
+  }
   return new Player(res.player, this);
 };

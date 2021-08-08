@@ -291,6 +291,11 @@ declare module 'hypixel-api-reborn' {
      */
     getAPIStatus(): Promise<APIStatus>;
     /**
+     * @description Allows you to get Ranked SkyWars data of a player
+     * @param query - player nickname or uuid
+     */
+    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked|null>;
+    /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
      */
@@ -377,6 +382,12 @@ declare module 'hypixel-api-reborn' {
     };
     getRecentGames(): Promise<RecentGame[]>;
     toString(): string;
+  }
+  class SkyWarsRanked {
+    constructor(data: Record<string, unknown>);
+    seasonKey: string;
+    rating: number;
+    position: number;
   }
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
@@ -834,6 +845,7 @@ declare module 'hypixel-api-reborn' {
     achievements: {
       winners: number, experienceKings: number, onlinePlayers: number
     };
+    me?: GuildMember;
     chatMuteUntilTimestamp: number;
     chatMuteUntil: Date;
     banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] };
