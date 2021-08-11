@@ -383,7 +383,7 @@ declare module 'hypixel-api-reborn' {
       arcade?: Arcade
     };
     getRecentGames(): Promise<RecentGame[]>;
-    recentGames?: null;
+    recentGames?: RecentGame[];
     toString(): string;
   }
   class SkyWarsRanked {
