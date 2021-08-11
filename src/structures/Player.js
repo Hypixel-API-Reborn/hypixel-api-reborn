@@ -31,9 +31,10 @@ const Warlords = require('./MiniGames/Warlords');
 class Player {
   /**
    * @param {object} data Player data
-   * @param {object} fakethis
+   * @param {object} fakethis Will be deprecated
+   * @param {Record<string, any>} extraPayload extra data requested alongside player
    */
-  constructor (data, fakethis) {
+  constructor (data, fakethis, extraPayload) {
     /**
      * Player nickname
      * @type {string}
@@ -208,16 +209,27 @@ class Player {
     /**
      * Player recent games
      * @return {Promise<Array<RecentGame>>}
+     * @deprecated
      */
     this.getRecentGames = function () {
       return getRecentGames.call(fakethis, this.uuid, this);
     };
     /**
+     * Player's Guild if requested in options
+     * @type {Guild|null}
+     */
+    this.guild = extraPayload?.guild || null;
+    /**
+     * Recent Games if requested in options
+     * @type {RecentGame[]|null}
+     */
+    this.recentGames = extraPayload?.recentGames || null;
+    /**
      * Player stats for each mini-game
      * @type {PlayerStats}
      */
     this.stats = (data.stats ? {
-      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
+      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars, extraPayload?.rankedSW || null) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
       uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
       speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),

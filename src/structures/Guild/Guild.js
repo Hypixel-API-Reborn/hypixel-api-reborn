@@ -9,8 +9,9 @@ const {getGuildLevel, parseHistory} = require('../../utils/guildExp');
 class Guild {
   /**
    * @param {data} data Guild data
+   * @param {string} [me] Player uuid used to search for this guild
    */
-  constructor (data) {
+  constructor (data, me = '') {
     /**
      * Guild ID
      * @type {string}
@@ -41,6 +42,11 @@ class Guild {
      * @type {Array<GuildMember>}
      */
     this.members = members(data);
+    /**
+     * Me, if a player UUID is used to get the guild
+     * @type {GuildMember|null}
+     */
+    this.me = this.members.find((member)=> member.uuid === me);
     /**
      * Guild ranks
      * @type {Array<GuildRank>}

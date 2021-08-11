@@ -33,7 +33,9 @@ export interface methodOptions {
   noCaching?: boolean;
 }
 export interface playerMethodOptions extends methodOptions {
+  currentRankedSW?: boolean;
   guild?: boolean;
+  recentGames?: boolean;
 }
 export interface skyblockMemberOptions extends methodOptions {
   fetchPlayer?: boolean;
@@ -381,12 +383,14 @@ declare module 'hypixel-api-reborn' {
       arcade?: Arcade
     };
     getRecentGames(): Promise<RecentGame[]>;
+    recentGames?: RecentGame[];
     toString(): string;
   }
   class SkyWarsRanked {
     constructor(data: Record<string, unknown>);
     seasonKey: string;
     rating: number;
+    date: Date;
     position: number;
   }
   class PlayerCosmetics {

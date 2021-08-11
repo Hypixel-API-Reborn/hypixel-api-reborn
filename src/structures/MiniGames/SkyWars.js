@@ -17,8 +17,9 @@ const generateStatsForMode = (data, mode) => {
 class SkyWars {
   /**
    * @param {object} data SkyWars data
+   * @param {object|null} extraRSWData Extra Ranked Skywars data, if any
    */
-  constructor (data) {
+  constructor (data, extraRSWData) {
     /**
      * Coins
      * @type {number}
@@ -204,7 +205,7 @@ class SkyWars {
       deaths: data.deaths_ranked || 0,
       KDRatio: divide(data.kills_ranked, data.deaths_ranked),
       WLRatio: divide(data.wins_ranked, data.losses_ranked),
-      ratings: getRankedPositions(data)
+      ratings: getRankedPositions(data, extraRSWData)
     };
     /**
      * Mega Skywars Stats
@@ -417,19 +418,26 @@ const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|ratin
 /**
  * gets ratings & positions on the leaderboard
  * @param {Object} data data
+ * @param {Object|null} extraRSWData extra data to be attached
  * @returns {SkywarsRankedStats} some map
  */
-function getRankedPositions (data) {
+function getRankedPositions (data, extraRSWData) {
   const map = new Map();
   const keys = Object.keys(data).map((key) => key.match(ratingRegex)).filter((x) => x);
   for (const key of keys) {
-    const computedKey = `${(key[1].length - 1 ? '' : '0')}${key[1]}-${key[2]}`;
+    let [property, month, year, type] = key;
+    month = parseInt(month, 10);
+    year = parseInt(year, 10);
+    const computedKey = `${month}_${year}`;
+    const initDate = new Date(1000 * 60 * 60 * 5);
     map.set(computedKey, {
       ...map.get(computedKey),
-      [key[3]]: parseInt(data[key[0]], 10) || 0,
-      date: new Date(new Date(1000 * 60 * 60 * 5).setFullYear(2000 + parseInt(key[2], 10), parseInt(key[1], 10) - 1, 1))
+      'seasonKey': computedKey,
+      [type]: parseInt(data[property], 10) || 0,
+      'date': new Date(initDate.setFullYear(2000 + year, month - 1, 1))
     });
   }
+  if (extraRSWData) map.set(extraRSWData.seasonKey, extraRSWData);
   return map;
 }
 
