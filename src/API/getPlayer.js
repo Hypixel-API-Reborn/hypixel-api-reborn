@@ -3,7 +3,7 @@ const toUuid = require('../utils/toUuid');
 const getGuild = require('./getGuild');
 const getRecentGames = require('./getRecentGames');
 const getRankedSkyWars = require('./getRankedSkyWars');
-module.exports = async function (query, options = { guild: false }) {
+module.exports = async function (query, options = { guild: false, recentGames: false, currentRankedSW: false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   const Player = require('../structures/Player');
   query = await toUuid(query);
