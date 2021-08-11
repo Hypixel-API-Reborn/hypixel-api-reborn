@@ -398,6 +398,8 @@ class Client extends EventEmitter {
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {boolean} [guild=false] Disable/Enable request for player's guild
+ * @property {boolean} [recentGames=false] Disable/Enable request for player's recent game
+ * @property {boolean} [currentRankedSW=false] Disable/Enable request for player's current ranked SkyWars rating. Previous ratings will always show mindless of this option.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**
