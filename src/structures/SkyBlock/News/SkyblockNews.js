@@ -1,5 +1,5 @@
 const dateRegExp = /(\d{1,2})(?:st|nd|rd|th|) ([A-z]+) (\d+)/;
-const versionRegExp = /v\d+(.\d+){1,}/;
+const versionRegExp = /^v\d+(\.\d+){1,}$/;
 /**
  * SkyblockNews
  */
@@ -61,8 +61,8 @@ function parseDate(stringDate) {
  * @returns {string | null}
  */
 function parseVer(stringVer) {
-  const matched = stringVer.match(versionRegExp)[0];
-  if (!matched) return null; // this shouldn't really happen
+  const matches = versionRegExp.test(stringVer);
+  if (!matches) return null; // this shouldn't really happen
   return matched;
 }
 module.exports = SkyblockNews;
