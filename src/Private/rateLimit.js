@@ -21,11 +21,11 @@ module.exports = class RateLimit {
   }
 
   sync (data) {
-    this.options.keyLimit = parseInt(data.get('ratelimit-limit')) || this.options.keyLimit;
-    this.requests = parseInt(data.get('ratelimit-remaining')) || this.requests;
-    if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (60 - parseInt(data.get('ratelimit-reset'))) != Math.round(this.lastResetHappenedAt / 1000)) {
+    this.options.keyLimit = parseInt(data.get('ratelimit-limit'), 10) || this.options.keyLimit;
+    this.requests = parseInt(data.get('ratelimit-remaining'), 10) || this.requests;
+    if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (60 - parseInt(data.get('ratelimit-reset'), 10)) !== Math.round(this.lastResetHappenedAt / 1000)) {
       clearTimeout(this.resetTimer);
-      this.resetTimer = setTimeout(this.reset.bind(this), parseInt(data.get('ratelimit-reset')) * 1000);
+      this.resetTimer = setTimeout(this.reset.bind(this), parseInt(data.get('ratelimit-reset'), 10) * 1000);
     }
   }
 

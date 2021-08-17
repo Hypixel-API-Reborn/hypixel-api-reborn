@@ -46,7 +46,7 @@ class Guild {
      * Me, if a player UUID is used to get the guild
      * @type {GuildMember|null}
      */
-    this.me = this.members.find((member)=> member.uuid === me);
+    this.me = this.members.find((member) => member.uuid === me);
     /**
      * Guild ranks
      * @type {Array<GuildRank>}
