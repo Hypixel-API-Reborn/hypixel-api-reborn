@@ -38,7 +38,7 @@ class Client extends EventEmitter {
      */
     this.cache = requests.cache;
     clients.push(this);
-    rateLimit.init(this.getKeyInfo(), this.options, this).then(()=>this.emit('ready'));
+    rateLimit.init(this.getKeyInfo(), this.options, this).then(() => this.emit('ready'));
   }
   /**
    * Private function - make request

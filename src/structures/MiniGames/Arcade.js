@@ -32,12 +32,12 @@ class Arcade {
      * Weekly coins
      * @type {number}
      */
-    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0);
+    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0, 10);
     /**
      * Monthly coins
      * @type {number}
      */
-    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0);
+    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0, 10);
     /**
      * Hints Disabled
      * @type {Boolean}
@@ -182,22 +182,22 @@ class BaseGame {
      * Wins
      * @type {?number}
      */
-    this.wins = parseInt(data['wins_' + gameName]) || 0;
+    this.wins = parseInt(data['wins_' + gameName], 10) || 0;
     /**
      * Kills, only available in combat games
      * @type {?number}
      */
-    this.kills = parseInt(data['kills_' + gameName]) || 0;
+    this.kills = parseInt(data['kills_' + gameName], 10) || 0;
     /**
      * Deaths, only available in combat games
      * @type {?number}
      */
-    this.deaths = parseInt(data['deaths_' + gameName]) || 0;
+    this.deaths = parseInt(data['deaths_' + gameName], 10) || 0;
     /**
      * Rounds Played, only available in Santa says, Simon Says, and HITW
      * @type {?number}
      */
-    this.roundsPlayed = parseInt(data['rounds_' + gameName]) || 0;
+    this.roundsPlayed = parseInt(data['rounds_' + gameName], 10) || 0;
   }
   /**
    * Extend BaseGame without creating a new class
@@ -244,12 +244,12 @@ class GalaxyWars {
      * Total weekly kills
      * @type {number}
      */
-    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0);
+    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0, 10);
     /**
      * Total Monthly kills
      * @type {number}
      */
-    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0);
+    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0, 10);
     /**
      * Attacker Kills
      * @type {number}

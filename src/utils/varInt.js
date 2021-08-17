@@ -7,7 +7,7 @@ function readVarInt(bytes) {
   let numRead = 0;
   let result = 0;
   do {
-    read = bytes[numRead];
+    const read = bytes[numRead];
     const value = (read & 0b01111111);
     result |= (value << (7 * numRead));
     numRead++;

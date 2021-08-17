@@ -48,7 +48,7 @@ class Game {
    * @type {GameId[]}
    */
   static get IDS() {
-    return games.map((x)=>x.id);
+    return games.map((x) => x.id);
   }
 
   /**
@@ -56,7 +56,7 @@ class Game {
    * @type {GameCode[]}
    */
   static get CODES() {
-    return games.map((x)=>x.code);
+    return games.map((x) => x.code);
   }
 
   /**
@@ -64,7 +64,7 @@ class Game {
    * @type {GameString[]}
    */
   static get NAMES() {
-    return games.map((x)=>x.name);
+    return games.map((x) => x.name);
   }
 }
 /**
