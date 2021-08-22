@@ -3,6 +3,7 @@
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const requests = new (require('./Private/requests'))();
+const updater = new (require('./Private/updater'))();
 const Errors = require('./Errors');
 const API = require('./API/index');
 const EventEmitter = require('events');
@@ -32,6 +33,9 @@ class Client extends EventEmitter {
     Object.keys(API).forEach((func) => Client.prototype[func] = function (...args) {
       return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(args[args.length - 1]) ? args[args.length - 1] : {}) }), ...this }, args);
     });
+    if (this.options.checkForUpdates) {
+      updater.checkForUpdates();
+    }
     /**
      * All cache entries
      * @type {Map<string,object>}
@@ -52,8 +56,8 @@ class Client extends EventEmitter {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
     if (useRateLimitManager) await rateLimit.rateLimitManager();
-    this.emit('outgoingRequest', url, {...options, headers: {...options.headers, ...this.options.headers}});
-    const result = await requests.request.call(this, url, {...options, headers: {...options.headers, ...this.options.headers}});
+    this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
+    const result = await requests.request.call(this, url, { ...options, headers: { ...options.headers, ...this.options.headers } });
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
@@ -386,6 +390,7 @@ class Client extends EventEmitter {
  * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
  * @prop {boolean} [silent=false] Don't automatically put warnings into console.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
+ * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  */
 /**
  * @typedef {object} MethodOptions

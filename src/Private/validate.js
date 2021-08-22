@@ -36,7 +36,9 @@ class Validation {
       rateLimit: options.rateLimit || 'AUTO',
       keyLimit: options.keyLimit || 120,
       syncWithHeaders: !!options.syncWithHeaders,
-      headers: options.headers || {}
+      headers: options.headers || {},
+      silent: !!options.silent,
+      checkForUpdates: !!options.checkForUpdates
     };
   }
 

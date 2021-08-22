@@ -27,6 +27,7 @@ export interface clientOptions {
   syncWithHeaders?: boolean;
   silent?: boolean;
   headers?: Record<string, unknown>;
+  checkForUpdates?: boolean;
 }
 export interface methodOptions {
   noCacheCheck?: boolean;
