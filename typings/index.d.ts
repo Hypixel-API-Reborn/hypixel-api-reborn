@@ -842,7 +842,7 @@ declare module 'hypixel-api-reborn' {
     createdAtTimestamp: number;
     createdAt: Date;
     joinable: boolean;
-    yListed: boolean;
+    publiclyListed: boolean;
     tag: string;
     tagColor: Color;
     legacyRank: number;
