@@ -319,9 +319,9 @@ declare module 'hypixel-api-reborn' {
     mcVersion: string;
     channel: string;
     lastLoginTimestamp: number;
-    lastLogin: Date;
+    lastLogin?: Date;
     lastLogoutTimestamp: number;
-    lastLogout: Date;
+    lastLogout?: Date;
     firstLoginTimestamp: number;
     firstLogin: Date;
     recentlyPlayedGame: Game;
