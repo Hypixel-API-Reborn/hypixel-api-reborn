@@ -2618,3 +2618,4 @@ declare module 'hypixel-api-reborn' {
     ping: number;
   }
 }
+
