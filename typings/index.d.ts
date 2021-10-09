@@ -2603,4 +2603,23 @@ declare module 'hypixel-api-reborn' {
     /**
      * @description Reads the bytes as a NBT tag
      */
-    // es
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    readNBT(): Promise<any[]>;
+  }
+  class ServerInfo {
+    constructor(data: Record<string, unknown>, ping: number)
+    protocolUsed: number;
+    versionInfo: string;
+    players: {
+      max: number;
+      online: number;
+      players: string[];
+    };
+    rawMOTD: string;
+    cleanMOTD: string;
+    textMOTD: string;
+    faviconB64: string;
+    favicon: Buffer;
+    ping: number;
+  }
+}
