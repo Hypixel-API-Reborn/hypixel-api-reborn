@@ -45,7 +45,7 @@ class TurboKartRacers {
      * Horn 
      * @type {string}
      */
-    this.horn = data.horn || 0;
+    this.horn = data.horn || 'DEFAULT';
     /**
      * Retro Map Plays 
      * @type {number}
