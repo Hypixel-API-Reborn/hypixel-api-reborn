@@ -27,13 +27,16 @@ export interface clientOptions {
   syncWithHeaders?: boolean;
   silent?: boolean;
   headers?: Record<string, unknown>;
+  checkForUpdates?: boolean;
 }
 export interface methodOptions {
   noCacheCheck?: boolean;
   noCaching?: boolean;
 }
 export interface playerMethodOptions extends methodOptions {
+  currentRankedSW?: boolean;
   guild?: boolean;
+  recentGames?: boolean;
 }
 export interface skyblockMemberOptions extends methodOptions {
   fetchPlayer?: boolean;
@@ -291,6 +294,11 @@ declare module 'hypixel-api-reborn' {
      */
     getAPIStatus(): Promise<APIStatus>;
     /**
+     * @description Allows you to get Ranked SkyWars data of a player
+     * @param query - player nickname or uuid
+     */
+    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked|null>;
+    /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
      */
@@ -311,9 +319,9 @@ declare module 'hypixel-api-reborn' {
     mcVersion: string;
     channel: string;
     lastLoginTimestamp: number;
-    lastLogin: Date;
+    lastLogin?: Date;
     lastLogoutTimestamp: number;
-    lastLogout: Date;
+    lastLogout?: Date;
     firstLoginTimestamp: number;
     firstLogin: Date;
     recentlyPlayedGame: Game;
@@ -376,7 +384,15 @@ declare module 'hypixel-api-reborn' {
       arcade?: Arcade
     };
     getRecentGames(): Promise<RecentGame[]>;
+    recentGames?: RecentGame[];
     toString(): string;
+  }
+  class SkyWarsRanked {
+    constructor(data: Record<string, unknown>);
+    seasonKey: string;
+    rating: number;
+    date: Date;
+    position: number;
   }
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
@@ -703,12 +719,6 @@ declare module 'hypixel-api-reborn' {
     silverTrophies: number;
     goldTrophies: number;
     boxPickups: number;
-    horn: string;
-    retroPlays: number;
-    hypixelgpPlays: number;
-    olympusPlays: number;
-    junglerushPlays: number;
-
   }
   class Walls {
     constructor(data: Record<string, unknown>);
@@ -832,7 +842,7 @@ declare module 'hypixel-api-reborn' {
     createdAtTimestamp: number;
     createdAt: Date;
     joinable: boolean;
-    yListed: boolean;
+    publiclyListed: boolean;
     tag: string;
     tagColor: Color;
     legacyRank: number;
@@ -840,6 +850,7 @@ declare module 'hypixel-api-reborn' {
     achievements: {
       winners: number, experienceKings: number, onlinePlayers: number
     };
+    me?: GuildMember;
     chatMuteUntilTimestamp: number;
     chatMuteUntil: Date;
     banner: { Base: string, Patterns: [{ Pattern: string, Color: string }] };
@@ -2242,9 +2253,12 @@ declare module 'hypixel-api-reborn' {
     losses: number;
     WLRatio: number;
     playedGames: number;
+    wintreak: number;
+    bestWinstreak: number;
     uhc: {
       overall: {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         KDRatio: number,
@@ -2255,6 +2269,7 @@ declare module 'hypixel-api-reborn' {
       },
       '1v1': {
         wintreak: number
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2265,6 +2280,7 @@ declare module 'hypixel-api-reborn' {
       },
       '2v2': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2275,6 +2291,7 @@ declare module 'hypixel-api-reborn' {
       },
       '4v4': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2285,6 +2302,7 @@ declare module 'hypixel-api-reborn' {
       },
       meetup: {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2297,6 +2315,7 @@ declare module 'hypixel-api-reborn' {
     op: {
       overall: {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         KDRatio: number,
@@ -2307,6 +2326,7 @@ declare module 'hypixel-api-reborn' {
       },
       '1v1': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2317,6 +2337,7 @@ declare module 'hypixel-api-reborn' {
       },
       '2v2': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2329,6 +2350,7 @@ declare module 'hypixel-api-reborn' {
     skywars: {
       overall: {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         KDRatio: number,
@@ -2339,6 +2361,7 @@ declare module 'hypixel-api-reborn' {
       },
       '1v1': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2349,6 +2372,7 @@ declare module 'hypixel-api-reborn' {
       },
       '2v2': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2360,6 +2384,7 @@ declare module 'hypixel-api-reborn' {
     };
     sumo: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2370,6 +2395,7 @@ declare module 'hypixel-api-reborn' {
     };
     classic: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2380,6 +2406,7 @@ declare module 'hypixel-api-reborn' {
     };
     combo: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2391,6 +2418,7 @@ declare module 'hypixel-api-reborn' {
     bridge: {
       overall: {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         KDRatio: number,
@@ -2401,6 +2429,7 @@ declare module 'hypixel-api-reborn' {
       },
       '1v1': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2411,6 +2440,7 @@ declare module 'hypixel-api-reborn' {
       },
       '2v2': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2421,6 +2451,7 @@ declare module 'hypixel-api-reborn' {
       },
       '4v4': {
         winstreak: number,
+        bestWinstreak: number,
         kills: number,
         deaths: number,
         wins: number,
@@ -2432,6 +2463,7 @@ declare module 'hypixel-api-reborn' {
     };
     megawalls: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2442,6 +2474,7 @@ declare module 'hypixel-api-reborn' {
     };
     blitz: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2452,6 +2485,7 @@ declare module 'hypixel-api-reborn' {
     };
     nodebuff: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2462,6 +2496,7 @@ declare module 'hypixel-api-reborn' {
     };
     bow: {
       winstreak: number,
+      bestWinstreak: number,
       kills: number,
       deaths: number,
       wins: number,
@@ -2563,23 +2598,4 @@ declare module 'hypixel-api-reborn' {
     /**
      * @description Reads the bytes as a NBT tag
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    readNBT(): Promise<any[]>;
-  }
-  class ServerInfo {
-    constructor(data: Record<string, unknown>, ping: number)
-    protocolUsed: number;
-    versionInfo: string;
-    players: {
-      max: number;
-      online: number;
-      players: string[];
-    };
-    rawMOTD: string;
-    cleanMOTD: string;
-    textMOTD: string;
-    faviconB64: string;
-    favicon: Buffer;
-    ping: number;
-  }
-}
+    // es
