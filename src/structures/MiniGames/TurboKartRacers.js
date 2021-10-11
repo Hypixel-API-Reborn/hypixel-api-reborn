@@ -43,7 +43,8 @@ class TurboKartRacers {
     this.boxPickups = data.box_pickups || 0;
     /**
      * Horn 
-     * @type {string}
+     * @type {'DEFAULT' | 'SHY' | 'ALIEN' | 'TAXI' | 'KLAXON' | 'TRICYCLE' | 'ALARM' | 'KLOON' | 'TEDDY' | 'TRUCK' | 'JERRY'}
+
      */
     this.horn = data.horn || 'DEFAULT';
     /**
