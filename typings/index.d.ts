@@ -719,7 +719,7 @@ declare module 'hypixel-api-reborn' {
     silverTrophies: number;
     goldTrophies: number;
     boxPickups: number;
-    horn: string;
+    horn: 'DEFAULT' | 'SHY' | 'ALIEN' | 'TAXI' | 'KLAXON' | 'TRICYCLE' | 'ALARM' | 'KLOON' | 'TEDDY' | 'TRUCK' | 'JERRY';
     retroPlays: number;
     hypixelgpPlays: number;
     olympusPlays: number;
