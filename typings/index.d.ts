@@ -2258,7 +2258,7 @@ declare module 'hypixel-api-reborn' {
     losses: number;
     WLRatio: number;
     playedGames: number;
-    wintreak: number;
+    winstreak: number;
     bestWinstreak: number;
     uhc: {
       overall: {
@@ -2273,7 +2273,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '1v1': {
-        wintreak: number
+        winstreak: number
         bestWinstreak: number,
         kills: number,
         deaths: number,
