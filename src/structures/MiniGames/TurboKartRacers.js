@@ -41,6 +41,32 @@ class TurboKartRacers {
      * @type {number}
      */
     this.boxPickups = data.box_pickups || 0;
+    /**
+     * Horn 
+     * @type {'DEFAULT' | 'SHY' | 'ALIEN' | 'TAXI' | 'KLAXON' | 'TRICYCLE' | 'ALARM' | 'KLOON' | 'TEDDY' | 'TRUCK' | 'JERRY'}
+
+     */
+    this.horn = data.horn || 'DEFAULT';
+    /**
+     * Retro Map Plays 
+     * @type {number}
+     */
+     this.retroPlays = data.retro_plays || 0;
+    /**
+     * Hypixel GP Map Plays 
+     * @type {number}
+     */
+    this.hypixelgpPlays = data.hypixelgp_plays || 0;
+    /**
+     * Olympus Map Plays 
+     * @type {number}
+     */
+     this.olympusPlays = data.olympus_plays || 0;
+    /**
+     * Jungle Rush Map Plays 
+     * @type {number}
+     */
+    this.junglerushPlays = data.junglerush_plays || 0;
   }
 }
 module.exports = TurboKartRacers;
