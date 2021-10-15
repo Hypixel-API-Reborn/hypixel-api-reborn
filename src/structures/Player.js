@@ -15,7 +15,6 @@ const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const Arcade = require('./MiniGames/Arcade');
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Pit = require('./MiniGames/Pit');
-const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 const PlayerCosmetics = require('./PlayerCosmetics');
@@ -31,10 +30,9 @@ const Warlords = require('./MiniGames/Warlords');
 class Player {
   /**
    * @param {object} data Player data
-   * @param {object} fakethis Will be deprecated
    * @param {Record<string, any>} extraPayload extra data requested alongside player
    */
-  constructor (data, fakethis, extraPayload) {
+  constructor (data, extraPayload) {
     /**
      * Player nickname
      * @type {string}
@@ -200,14 +198,6 @@ class Player {
      * @type {LevelProgress}
      */
     this.levelProgress = playerLevelProgress(data);
-    /**
-     * Player recent games
-     * @return {Promise<Array<RecentGame>>}
-     * @deprecated
-     */
-    this.getRecentGames = function () {
-      return getRecentGames.call(fakethis, this.uuid, this);
-    };
     /**
      * Player's Guild if requested in options
      * @type {Guild|null}
