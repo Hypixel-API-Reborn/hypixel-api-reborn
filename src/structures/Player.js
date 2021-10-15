@@ -111,12 +111,6 @@ class Player {
      */
     this.prefixColor = this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
     /**
-     * Player's guild. Guild option must be `true`. <br>
-     * Example: {@link Client#getPlayer}
-     * @type {Guild}
-     */
-    this.guild = data.guild ? data.guild : null;
-    /**
      * Player karma
      * @type {number}
      */
