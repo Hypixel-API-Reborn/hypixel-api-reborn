@@ -30,6 +30,7 @@ module.exports = {
   INVALID_HEADER_SYNC_OPTION: '[hypixel-api-reborn] Invalid Value for maxSyncHeaders : must be a boolean',
   INVALID_BURST_OPTION: '[hypixel-api-reborn] maxBurstRequests provided in Client options must be a number',
   NODE_VERSION_ERR: '[hypixel-api-reborn] You are using a version of Nodejs that doesn\'t support certain features we use. Please upgrade to version 14 or above.',
+  UPDATER_REQUEST_NOT_OK: '[hypixel-api-reborn] An error occured checking for updates.',
   CONNECTION_ERROR: '[hypixel-api-reborn] Failed to connect.',
   RATE_LIMIT_INIT_ERROR: '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to desynchronization.',
   MULTIPLE_INSTANCES: '[hypixel-api-reborn] Multiple instances of hypixel-api-reborn are found so we merged them for you. Please refrain from spawning multiple instances in the future. For more information, join our Discord Server https://discord.gg/NSEBNMM.',
