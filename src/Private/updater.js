@@ -5,10 +5,10 @@ const Errors = require('../Errors');
 class Updater {
   async checkForUpdates () {
     const currentVersion = require('../../package.json').version;
-    const request = await fetch('https://api.npms.io/v2/package/hypixel-api-reborn');
+    const request = await fetch('https://registry.npmjs.org/hypixel-api-reborn');
     if (!request.ok) return console.log(Errors.UPDATER_REQUEST_NOT_OK);
     const metadata = request.json();
-    const latestVersion = metadata.collected.metadata.version;
+    const latestVersion = metadata['dist-tags'].latest;
     const compare = this.compare(currentVersion, latestVersion);
     if (compare === -1) {
       this.notify(latestVersion);
