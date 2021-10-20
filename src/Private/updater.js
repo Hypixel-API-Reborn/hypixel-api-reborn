@@ -5,7 +5,7 @@ class Updater {
   async checkForUpdates () {
     const currentVersion = require('../../package.json').version;
     const metadata = await fetch('https://api.npms.io/v2/package/hypixel-api-reborn').then((r) => r.json());
-    const latestVersion = metadata.collected.metadata.version;
+    const latestVersion = metadata.message === "Internal server error" ? currentVersion : metadata.collected.metadata.version;
     const compare = this.compare(currentVersion, latestVersion);
     if (compare === -1) {
       this.notify(latestVersion);
