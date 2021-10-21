@@ -7,7 +7,7 @@ class Updater {
     const currentVersion = require('../../package.json').version;
     const request = await fetch('https://registry.npmjs.org/hypixel-api-reborn');
     if (!request.ok) return console.log(Errors.UPDATER_REQUEST_NOT_OK);
-    const metadata = request.json();
+    const metadata = await request.json();
     const latestVersion = metadata['dist-tags'].latest;
     const compare = this.compare(currentVersion, latestVersion);
     if (compare === -1) {
