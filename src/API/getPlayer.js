@@ -22,5 +22,5 @@ module.exports = async function (query, options = { guild: false, recentGames: f
     rankedSW = getRankedSkyWars.call(this, query);
   }
   [guild, recentGames, rankedSW] = await Promise.all([guild, recentGames, rankedSW]);
-  return new Player(res.player, this, {guild, recentGames, rankedSW});
+  return new Player(res.player, {guild, recentGames, rankedSW});
 };
