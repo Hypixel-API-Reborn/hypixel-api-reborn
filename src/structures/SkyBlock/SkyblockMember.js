@@ -2,6 +2,7 @@
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const { single } = require('../../utils/removeSnakeCase');
+const { rgbToHexColor } = require('../../utils/rgbToHexColor');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
@@ -82,6 +83,17 @@ class SkyblockMember {
         leggings: decoded[1].id ? new SkyblockInventoryItem(decoded[1]) : null,
         boots: decoded[0].id ? new SkyblockInventoryItem(decoded[0]) : null
       };
+      return armor;
+    };
+    /**
+     * Wardrobe contents
+     * @type {Promise<SkyblockMemberArmor>}
+     */
+    this.getWardrobe = async () => {
+      const base64 = data.m.wardrobe_contents.data;
+      const decoded = await decode(base64);
+      const armor = decoded.filter((item) => Object.keys(item).length !== 0)
+                    .map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
