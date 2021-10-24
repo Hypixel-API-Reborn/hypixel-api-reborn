@@ -2,7 +2,6 @@
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const { single } = require('../../utils/removeSnakeCase');
-const { rgbToHexColor } = require('../../utils/rgbToHexColor');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
