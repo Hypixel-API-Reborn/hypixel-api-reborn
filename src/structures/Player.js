@@ -283,14 +283,11 @@ function getRank (player) {
     rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '');
   } else if (player.rank && player.rank !== 'NORMAL') {
     switch (player.rank) {
-      case 'MODERATOR':
-        rank = 'Moderator';
-        break;
       case 'YOUTUBER':
         rank = 'YouTube';
         break;
-      case 'HELPER':
-        rank = 'Helper';
+      case 'GAME_MASTER':
+        rank = 'Game Master';
         break;
       case 'ADMIN':
         rank = 'Admin';
@@ -401,8 +398,7 @@ function parseClaimedRewards (data) {
  * * `MVP`
  * * `MVP+`
  * * `MVP++`
- * * `Helper`
- * * `Moderator`
+ * * `Game Master`
  * * `Admin`
  * * `YouTube`
  */
