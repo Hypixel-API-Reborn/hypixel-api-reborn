@@ -178,6 +178,18 @@ class BedWars {
      * @type {BedWarsModeStats}
      */
     this.castle = generateStatsForMode(data, 'castle');
+    /**
+     * BedWars Castle Stats
+     * @type {BedWarsModeStats}
+     */
+    this.lootChests = {
+      christmas: data.bedwars_christmas_boxes,
+      lunar: data.bedwars_lunar_boxes,
+      normal: data.bedwars_boxes,
+      easter: data.bedwars_easter_boxes,
+      halloween: data.bedwars_halloween_boxes,
+      total: (data.bedwars_christmas_boxes + data.bedwars_lunar_boxes + data.bedwars_boxes + data.bedwars_easter_boxes + data.bedwars_halloween_boxes) || 0
+    };
   }
 }
 /**
