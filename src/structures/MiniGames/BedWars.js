@@ -183,11 +183,11 @@ class BedWars {
      * @type {BedWarsModeStats}
      */
     this.lootChests = {
-      christmas: data.bedwars_christmas_boxes,
-      lunar: data.bedwars_lunar_boxes,
-      normal: data.bedwars_boxes,
-      easter: data.bedwars_easter_boxes,
-      halloween: data.bedwars_halloween_boxes,
+      christmas: data.bedwars_christmas_boxes || 0,
+      lunar: data.bedwars_lunar_boxes || 0,
+      normal: data.bedwars_boxes || 0,
+      easter: data.bedwars_easter_boxes || 0,
+      halloween: data.bedwars_halloween_boxes || 0,
       total: (data.bedwars_christmas_boxes + data.bedwars_lunar_boxes + data.bedwars_boxes + data.bedwars_easter_boxes + data.bedwars_halloween_boxes) || 0
     };
   }
