@@ -1888,6 +1888,15 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number,
       WLRatio: number,
       finalKDRatio: number,
+      lootChests: {
+        christmas: number,
+        lunar: number,
+        normal: number,
+        easter: number,
+        halloween: number,
+        golden: number,
+        total: number
+      };
       dream: {
         ultimate: {
           doubles: {
