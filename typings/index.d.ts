@@ -1894,6 +1894,7 @@ declare module 'hypixel-api-reborn' {
         normal: number,
         easter: number,
         halloween: number,
+        golden: number,
         total: number
       };
       dream: {
