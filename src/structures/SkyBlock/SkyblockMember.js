@@ -86,13 +86,14 @@ class SkyblockMember {
     };
     /**
      * Wardrobe contents
-     * @type {Promise<SkyblockMemberArmor>}
+     * @return {Promise<SkyblockMemberArmor[]>}
      */
     this.getWardrobe = async () => {
-      const base64 = data.m.wardrobe_contents.data;
+      const base64 = data.m?.wardrobe_contents?.data;
+      if (!base64) return [];
       const decoded = await decode(base64);
       const armor = decoded.filter((item) => Object.keys(item).length !== 0)
-                    .map((item) => new SkyblockInventoryItem(item));
+        .map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
