@@ -86,7 +86,7 @@ class SkyblockMember {
     };
     /**
      * Wardrobe contents
-     * @return {Promise<SkyblockMemberArmor[]>}
+     * @return {Promise<SkyblockMemberItem[]>}
      */
     this.getWardrobe = async () => {
       const base64 = data.m?.wardrobe_contents?.data;
