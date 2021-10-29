@@ -57,6 +57,7 @@ class SkyblockInventoryItem {
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
      */
+    // eslint-disable-next-line no-new-object
     this.gemstones = data.tag.ExtraAttributes.gems ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => new Object({
       type: gem[0].split('_')[0],
       quality: gem[1]
@@ -123,7 +124,7 @@ function parseGearScore (lore) {
 /**
  * @typedef {object} SkyblockItemGemstone
  * @property {string} type Gemstone type
- * @property {string} quality Gemstone quality (rough, flawed, fine, flawless, perfect) 
+ * @property {string} quality Gemstone quality (rough, flawed, fine, flawless, perfect)
  */
 
 module.exports = SkyblockInventoryItem;
