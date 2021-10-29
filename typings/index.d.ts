@@ -154,6 +154,7 @@ declare module 'hypixel-api-reborn' {
        */
       removeSnakeCaseString(str: string): string;
     },
+    rgbToHexColor(rgb: number[]): string,
     SkyblockUtils: {
       /**
        * @description Decodes base64 to skyblock inventory data
@@ -1511,6 +1512,7 @@ declare module 'hypixel-api-reborn' {
     getInventory(): Promise<SkyblockInventoryItem[]>;
     getEnderChest(): Promise<SkyblockInventoryItem[]>;
     getArmor(): Promise<{ helmet: SkyblockInventoryItem, chestplate: SkyblockInventoryItem, leggings: SkyblockInventoryItem, boots: SkyblockInventoryItem }>;
+    getWardrobe(): Promise<SkyblockInventoryItem[]>;
     getPetScore(): number;
     jacob: {
       medals: {
@@ -1540,7 +1542,13 @@ declare module 'hypixel-api-reborn' {
     lore: string;
     loreArray: string[];
     loreForEmbed: string;
+    color: string;
     enchantments: Record<string, unknown>;
+    reforge: string;
+    gemstones?: {
+      type?: string,
+      quality?: string
+    }[];
     anvilUses: number;
     damage: number;
     rarity: string;
