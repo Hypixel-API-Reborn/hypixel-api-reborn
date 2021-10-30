@@ -160,6 +160,40 @@ class Duels {
       }
     };
     /**
+     * @type {DuelsParkour}
+     */
+    this.parkour = {
+      deaths: data.parkour_eight_deaths || 0,
+      wins: data.parkour_eight_wins || 0,
+      losses: data.parkour_eight_losses || 0,
+      WLRatio: divide(data.parkour_eight_wins, data.parkour_eight_losses),
+      playedGames: data.parkour_eight_rounds_played || 0
+    };
+    /**
+     * @type {DuelsBoxing}
+     */
+    this.boxing = {
+      kills: data.boxing_duel_kills || 0,
+      wins: data.boxing_duel_wins || 0,
+      losses: data.boxing_duel_losses || 0,
+      WLRatio: divide(data.boxing_duel_wins, data.boxing_duel_losses),
+      playedGames: data.boxing_duel_rounds_played || 0,
+      meleeSwings: data.boxing_duel_melee_swings || 0,
+      meleeHits: data.boxing_duel_melee_hits || 0
+    };
+    /**
+     * @type {DuelsArena}
+     */
+    this.arena = {
+      kills: data.duel_arena_kills || 0,
+      deaths: data.duel_arena_deaths || 0,
+      KDRatio: divide(data.duel_arena_kills, data.duel_arena_deaths),
+      wins: data.duel_arena_wins || 0,
+      losses: data.duel_arena_losses || 0,
+      WLRatio: divide(data.duel_arena_wins, data.duel_arena_losses),
+      playedGames: data.duel_arena_rounds_played || 0
+    };
+    /**
      * MegaWalls duels stats
      * @type {DuelsModeStats}
      */
@@ -335,6 +369,17 @@ class Duels {
         WLRatio: divide(data.bridge_doubles_wins, data.bridge_doubles_losses),
         playedGames: data.bridge_doubles_rounds_played || 0
       },
+      '3v3': {
+        winstreak: data.current_winstreak_mode_bridge_threes || 0,
+        bestWinstreak: data.best_winstreak_mode_bridge_threes || 0,
+        kills: data.bridge_threes_bridge_kills || 0,
+        deaths: data.bridge_threes_bridge_deaths || 0,
+        KDRatio: divide(data.bridge_threes_bridge_kills, data.bridge_threes_bridge_deaths),
+        wins: data.bridge_threes_wins || 0,
+        losses: data.bridge_threes_losses || 0,
+        WLRatio: divide(data.bridge_threes_wins, data.bridge_threes_losses),
+        playedGames: data.bridge_threes_rounds_played || 0
+      },
       '2v2v2v2': {
         winstreak: data.current_winstreak_mode_bridge_2v2v2v2 || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_2v2v2v2 || 0,
@@ -367,6 +412,16 @@ class Duels {
         losses: data.bridge_four_losses || 0,
         WLRatio: divide(data.bridge_four_wins, data.bridge_four_losses),
         playedGames: data.bridge_four_rounds_played || 0
+      },
+      // eslint-disable-next-line quote-props
+      ctf: {
+        kills: data.capture_threes_bridge_kills || 0,
+        deaths: data.capture_threes_bridge_deaths || 0,
+        KDRatio: divide(data.capture_threes_bridge_kills, data.capture_threes_bridge_deaths),
+        wins: data.capture_threes_wins || 0,
+        losses: data.capture_threes_losses || 0,
+        WLRatio: divide(data.capture_threes_wins, data.capture_threes_losses),
+        playedGames: data.capture_threes_rounds_played || 0
       }
     };
     /**
@@ -429,6 +484,34 @@ class Duels {
  * @property {number} playedGames Played games
  */
 /**
+ * @typedef {object} DuelsParkour
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
+ */
+/**
+ * @typedef {object} DuelsBoxing
+ * @property {number} kills Kills
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
+ * @property {number} meleeSwings Melee swings
+ * @property {number} meleeHits Melee hits
+ */
+/**
+ * @typedef {object} DuelsArena
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} KDRatio Kill/Death ratio
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
+ */
+/**
  * @typedef {object} DuelsOP
  * @property {DuelsModeStats} overall Overall OP duel stats
  * @property {DuelsModeStats} '1v1' OP Duel 1v1 stats
@@ -453,8 +536,10 @@ class Duels {
  * @property {DuelsModeStats} overall Overall The Bridge duel stats
  * @property {DuelsModeStats} '1v1' The Bridge Duel 1v1 stats
  * @property {DuelsModeStats} '2v2' The Bridge Duel 2v2 stats
+ * @property {DuelsModeStats} '3v3' The Bridge Duel 3v3 stats
  * @property {DuelsModeStats} '4v4' The Bridge Duel 4v4 stats
  * @property {DuelsModeStats} '2v2v2v2' The Bridge Duel 2v2v2v2 stats
  * @property {DuelsModeStats} '3v3v3v3' The Bridge Duel 3v3v3v3 stats
+ * @property {DuelsModeStats} ctf The Bridge Capture The Flag duel 3v3 stats
  */
 module.exports = Duels;

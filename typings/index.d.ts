@@ -298,7 +298,7 @@ declare module 'hypixel-api-reborn' {
      * @description Allows you to get Ranked SkyWars data of a player
      * @param query - player nickname or uuid
      */
-    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked|null>;
+    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked | null>;
     /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
@@ -2277,6 +2277,30 @@ declare module 'hypixel-api-reborn' {
     playedGames: number;
     winstreak: number;
     bestWinstreak: number;
+    parkour: {
+      deaths: number,
+      wins: number,
+      losses: number,
+      WLRatio: number,
+      playedGames: number
+    };
+    boxing: {
+      kills: number,
+      wins: number,
+      losses: number,
+      playedGames: number,
+      meleeSwings: number,
+      meleeHits: number
+    };
+    arena: {
+      kills: number,
+      deaths: number,
+      KDRatio: number,
+      wins: number,
+      losses: number,
+      WLRatio: number,
+      playedGames: number,
+    }
     uhc: {
       overall: {
         winstreak: number,
@@ -2471,6 +2495,17 @@ declare module 'hypixel-api-reborn' {
         WLRatio: number,
         playedGames: number
       },
+      '3v3': {
+        winstreak: number,
+        bestWinstreak: number,
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
+        WLRatio: number,
+        playedGames: number
+      },
       '4v4': {
         winstreak: number,
         bestWinstreak: number,
@@ -2479,6 +2514,15 @@ declare module 'hypixel-api-reborn' {
         wins: number,
         losses: number,
         KDRatio: number,
+        WLRatio: number,
+        playedGames: number
+      },
+      ctf: {
+        kills: number,
+        deaths: number,
+        KDRatio: number,
+        wins: number,
+        losses: number,
         WLRatio: number,
         playedGames: number
       }
