@@ -99,6 +99,7 @@ declare module 'hypixel-api-reborn' {
     },
     Constants: {
       skyblock_year_0: 1.5602757e+12,
+      duels_divisions: [ { name: 'Rookie', key: 'rookie' }, { name: 'Iron', key: 'iron' }, { name: 'Gold', key: 'gold' }, { name: 'Diamond', key: 'diamond' }, { name: 'Master', key: 'master' }, { name: 'Legend', key: 'legend' }, { name: 'Grandmaster', key: 'grandmaster' }, { name: 'Godlike', key: 'godlike' }, { name: 'WORLD ELITE', key: 'world_elite' }, { name: 'WORLD MASTER', key: 'world_master' }, { name: 'WORLD\'S BEST', key: 'worlds_best' } ]
       leveling_xp: { 1: 50, 2: 125, 3: 200, 4: 300, 5: 500, 6: 750, 7: 1000, 8: 1500, 9: 2000, 10: 3500, 11: 5000, 12: 7500, 13: 10000, 14: 15000, 15: 20000, 16: 30000, 17: 50000, 18: 75000, 19: 100000, 20: 200000, 21: 300000, 22: 400000, 23: 500000, 24: 600000, 25: 700000, 26: 800000, 27: 900000, 28: 1000000, 29: 1100000, 30: 1200000, 31: 1300000, 32: 1400000, 33: 1500000, 34: 1600000, 35: 1700000, 36: 1800000, 37: 1900000, 38: 2000000, 39: 2100000, 40: 2200000, 41: 2300000, 42: 2400000, 43: 2500000, 44: 2600000, 45: 2750000, 46: 2900000, 47: 3100000, 48: 3400000, 49: 3700000, 50: 4000000 },
       xp_past_50: { 51: 4300000, 52: 4600000, 53: 4900000, 54: 5200000, 55: 5500000, 56: 5800000, 57: 6100000, 58: 6400000, 59: 6700000, 60: 7000000 },
       runecrafting_xp: { 1: 50, 2: 100, 3: 125, 4: 160, 5: 200, 6: 250, 7: 315, 8: 400, 9: 500, 10: 625, 11: 785, 12: 1000, 13: 1250, 14: 1600, 15: 2000, 16: 2465, 17: 3125, 18: 4000, 19: 5000, 20: 6200, 21: 7800, 22: 9800, 23: 12200, 24: 15300, 25: 19050 },
@@ -2266,7 +2267,7 @@ declare module 'hypixel-api-reborn' {
     };
   }
   class Duels {
-    title: string | null;
+    division?: string;
     coins: number;
     kills: number;
     deaths: number;
@@ -2278,6 +2279,7 @@ declare module 'hypixel-api-reborn' {
     winstreak: number;
     bestWinstreak: number;
     parkour: {
+      division?: string,
       deaths: number,
       wins: number,
       losses: number,
@@ -2285,6 +2287,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     boxing: {
+      division?: string,
       kills: number,
       wins: number,
       losses: number,
@@ -2300,9 +2303,21 @@ declare module 'hypixel-api-reborn' {
       losses: number,
       WLRatio: number,
       playedGames: number,
+    };
+    bowspleef: {
+      division?: string,
+      winstreak: number,
+      bestWinstreak: number,
+      bowShots: number,
+      deaths: number,
+      wins: number,
+      losses: number,
+      WLRatio: number,
+      playedGames: number
     }
     uhc: {
       overall: {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2314,6 +2329,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '1v1': {
+        division?: string,
         winstreak: number
         bestWinstreak: number,
         kills: number,
@@ -2325,6 +2341,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '2v2': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2336,6 +2353,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '4v4': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2347,6 +2365,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       meetup: {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2360,6 +2379,7 @@ declare module 'hypixel-api-reborn' {
     };
     op: {
       overall: {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2371,6 +2391,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '1v1': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2382,6 +2403,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '2v2': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2395,6 +2417,7 @@ declare module 'hypixel-api-reborn' {
     };
     skywars: {
       overall: {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2406,6 +2429,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '1v1': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2417,6 +2441,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '2v2': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2429,6 +2454,7 @@ declare module 'hypixel-api-reborn' {
       }
     };
     sumo: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2440,6 +2466,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     classic: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2451,6 +2478,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     combo: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2463,6 +2491,7 @@ declare module 'hypixel-api-reborn' {
     };
     bridge: {
       overall: {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2474,6 +2503,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '1v1': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2485,6 +2515,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '2v2': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2496,6 +2527,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '3v3': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2507,6 +2539,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       '4v4': {
+        division?: string,
         winstreak: number,
         bestWinstreak: number,
         kills: number,
@@ -2518,6 +2551,7 @@ declare module 'hypixel-api-reborn' {
         playedGames: number
       },
       ctf: {
+        division?: string,
         kills: number,
         deaths: number,
         KDRatio: number,
@@ -2528,6 +2562,7 @@ declare module 'hypixel-api-reborn' {
       }
     };
     megawalls: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2539,6 +2574,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     blitz: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2550,6 +2586,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     nodebuff: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,
@@ -2561,6 +2598,7 @@ declare module 'hypixel-api-reborn' {
       playedGames: number
     };
     bow: {
+      division?: string,
       winstreak: number,
       bestWinstreak: number,
       kills: number,

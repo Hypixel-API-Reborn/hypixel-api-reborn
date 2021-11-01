@@ -190,7 +190,11 @@ class Duels {
       meleeSwings: data.boxing_duel_melee_swings || 0,
       meleeHits: data.boxing_duel_melee_hits || 0
     };
+    /**
+     * @type {DuelsBowspleef}
+     */
     this.bowspleef = {
+      division: getDivision(data, 'tnt_games'),
       winstreak: data.current_tnt_games_winstreak || 0,
       bestWinstreak: data.best_tnt_games_winstreak || 0,
       bowShots: data.bowspleef_duel_bow_shots || 0,
@@ -538,6 +542,18 @@ class Duels {
  * @property {number} WLRatio Win/Loss ratio
  * @property {number} playedGames Played games
  * @property {number} goals Goals
+ */
+/**
+ * @typedef {object} DuelsBowspleef
+ * @property {string|null} division Division
+ * @property {number} winstreak Winstreak
+ * @property {number} bestWinstreak Best winstreak
+ * @property {number} bowShots Bow shots
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
  */
 /**
  * @typedef {object} BridgeCTFModeStats
