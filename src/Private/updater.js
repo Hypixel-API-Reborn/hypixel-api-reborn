@@ -20,8 +20,11 @@ class Updater {
     New version of hypixel-api-reborn is available!
     
     v${newVersion}
+    Changelog: https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/${newVersion}
 
-    npm i hypixel-api-reborn@${newVersion}.
+    \x1b[33mnpm i hypixel-api-reborn@${newVersion}\x1b[0m
+    or
+    \x1b[33myarn add hypixel-api-reborn@${newVersion}\x1b[0m
     
     `);
   }

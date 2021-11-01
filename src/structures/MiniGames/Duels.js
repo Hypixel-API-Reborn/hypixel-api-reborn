@@ -1,39 +1,41 @@
 /* eslint-disable max-len */
 const divide = require('../../utils/divide');
+const romanize = require('../../utils/romanize');
+// eslint-disable-next-line camelcase
+const { duels_divisions } = require('../../utils/Constants');
+
 /**
- * @param {string} string
- * @return {string}
+ * @param {object<string,any>} data
+ * @param {string|null} mode
+ * @returns {string|undefined}
  */
-function capitalize (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function getDivision (data, mode) {
+  for (const div of duels_divisions.slice().reverse()) {
+    const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
+    if (prestige !== undefined) {
+      return `${div.name} ${romanize(prestige)}`;
+    }
+  }
+  return null;
 }
-const numerals = {
-  1: 'I',
-  2: 'II',
-  3: 'III',
-  4: 'IV',
-  5: 'V',
-  6: 'VI',
-  7: 'VII',
-  8: 'VIII',
-  9: 'IX',
-  10: 'X'
-};
 /**
- * @param {object} data
- * @return {string|null}
+ * @param {object<string,any>} data
+ * @return {{kills:number,deaths:number}}
  */
-function cosmeticTitlePrestige (data) {
-  if (data.active_cosmetictitle === 'custom') {
-    if (!data.equipped_custom_titles) return null;
-    return `${data.equipped_custom_titles.replace(/§[0-9a-fl]{1}/g, '')}`;
+function getTotalKillsDeaths (data) {
+  let totalDeaths = 0;
+  let totalKills = 0;
+  for (const [k, v] of Object.entries(data)) {
+    if (k.includes('deaths') && k !== 'deaths') {
+      totalDeaths += v;
+    } else if (k.includes('kills') && k !== 'kills') {
+      totalKills += v;
+    }
   }
-  if (data.active_cosmetictitle) {
-    const prestige = data[`${data.active_cosmetictitle.split('_').reverse().join('_')}_title_prestige`] || 1;
-    return `${capitalize(data.active_cosmetictitle.split('_')[1])} ${capitalize(data.active_cosmetictitle.split('_')[0])} ${numerals[prestige]}`;
-  } else {
-    return null;
-  }
+  return {
+    kills: totalKills,
+    deaths: totalDeaths
+  };
 }
 /**
  * Duels class
@@ -49,20 +51,20 @@ class Duels {
      */
     this.coins = data.coins || 0;
     /**
-     * Cosmetic title
+     * All modes division
      * @type {string|null}
      */
-    this.title = cosmeticTitlePrestige(data);
+    this.division = getDivision(data);
     /**
      * Kills
      * @type {number}
      */
-    this.kills = (((data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0)) + (data.mw_duel_kills || 0) + ((data.op_duel_kills || 0) + (data.op_doubles_kills || 0)) + (((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0))) + (data.sumo_duel_kills || 0) + (data.classic_duel_kills || 0) + (data.combo_duel_kills || 0) + ((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)) + (data.blitz_duel_kills || 0) + (data.potion_duel_kills || 0) + (data.bow_duel_kills || 0));
+    this.kills = getTotalKillsDeaths(data).kills;
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = (((data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0)) + (data.mw_duel_deaths || 0) + ((data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0)) + ((data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)) + (data.sumo_duel_deaths || 0) + (data.classic_duel_deaths || 0) + (data.combo_duel_deaths || 0) + ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0)) + (data.blitz_duel_deaths || 0) + (data.potion_duel_deaths || 0) + (data.bow_duel_deaths || 0));
+    this.deaths = getTotalKillsDeaths(data).deaths;
     /**
      * Kill Death ratio
      * @type {number}
@@ -104,6 +106,7 @@ class Duels {
      */
     this.uhc = {
       'overall': {
+        division: getDivision(data, 'uhc'),
         winstreak: data.current_uhc_winstreak || 0,
         bestWinstreak: data.best_uhc_winstreak || 0,
         kills: (data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0),
@@ -115,6 +118,7 @@ class Duels {
         playedGames: (data.uhc_duel_rounds_played || 0) + (data.uhc_doubles_rounds_played || 0) + (data.uhc_four_rounds_played || 0) + (data.uhc_meetup_rounds_played || 0)
       },
       '1v1': {
+        division: getDivision(data, 'uhc'),
         winstreak: data.current_winstreak_mode_uhc_duel || 0,
         bestWinstreak: data.best_winstreak_mode_uhc_duel || 0,
         kills: data.uhc_duel_kills || 0,
@@ -126,6 +130,7 @@ class Duels {
         playedGames: data.uhc_duel_rounds_played || 0
       },
       '2v2': {
+        division: getDivision(data, 'uhc'),
         winstreak: data.current_winstreak_mode_uhc_doubles || 0,
         bestWinstreak: data.best_winstreak_mode_uhc_doubles || 0,
         kills: data.uhc_doubles_kills || 0,
@@ -137,6 +142,7 @@ class Duels {
         playedGames: data.uhc_doubles_rounds_played || 0
       },
       '4v4': {
+        division: getDivision(data, 'uhc'),
         winstreak: data.current_winstreak_mode_uhc_four || 0,
         bestWinstreak: data.best_winstreak_mode_uhc_four || 0,
         kills: data.uhc_four_kills || 0,
@@ -148,6 +154,7 @@ class Duels {
         playedGames: data.uhc_four_rounds_played || 0
       },
       'meetup': {
+        division: getDivision(data, 'uhc'),
         winstreak: data.current_winstreak_mode_uhc_meetup || 0,
         bestWinstreak: data.best_winstreak_mode_uhc_meetup || 0,
         kills: data.uhc_meetup_kills || 0,
@@ -163,6 +170,7 @@ class Duels {
      * @type {DuelsParkour}
      */
     this.parkour = {
+      division: getDivision(data, 'parkour'),
       deaths: data.parkour_eight_deaths || 0,
       wins: data.parkour_eight_wins || 0,
       losses: data.parkour_eight_losses || 0,
@@ -173,6 +181,7 @@ class Duels {
      * @type {DuelsBoxing}
      */
     this.boxing = {
+      division: getDivision(data, 'boxing'),
       kills: data.boxing_duel_kills || 0,
       wins: data.boxing_duel_wins || 0,
       losses: data.boxing_duel_losses || 0,
@@ -180,6 +189,16 @@ class Duels {
       playedGames: data.boxing_duel_rounds_played || 0,
       meleeSwings: data.boxing_duel_melee_swings || 0,
       meleeHits: data.boxing_duel_melee_hits || 0
+    };
+    this.bowspleef = {
+      winstreak: data.current_tnt_games_winstreak || 0,
+      bestWinstreak: data.best_tnt_games_winstreak || 0,
+      bowShots: data.bowspleef_duel_bow_shots || 0,
+      deaths: data.bowspleef_duel_deaths || 0,
+      wins: data.bowspleef_duel_wins || 0,
+      losses: data.bowspleef_duel_losses || 0,
+      WLRatio: divide((data.bowspleef_duel_wins || 0), (data.bowspleef_duel_losses || 0)),
+      playedGames: data.bowspleef_duel_rounds_played || 0
     };
     /**
      * @type {DuelsArena}
@@ -198,6 +217,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.megawalls = {
+      division: getDivision(data, 'mega_walls'),
       winstreak: data.current_winstreak_mode_mw_duel || 0,
       bestWinstreak: data.best_winstreak_mode_mw_duel || 0,
       kills: data.mw_duel_kills || 0,
@@ -214,6 +234,7 @@ class Duels {
      */
     this.op = {
       'overall': {
+        division: getDivision(data, 'op'),
         winstreak: data.current_op_winstreak || 0,
         bestWinstreak: data.best_op_winstreak || 0,
         kills: (data.op_duel_kills || 0) + (data.op_doubles_kills || 0),
@@ -225,6 +246,7 @@ class Duels {
         playedGames: (data.op_duel_rounds_played || 0) + (data.op_doubles_rounds_played || 0)
       },
       '1v1': {
+        division: getDivision(data, 'op'),
         winstreak: data.current_winstreak_mode_op_duel || 0,
         bestWinstreak: data.best_winstreak_mode_op_duel || 0,
         kills: data.op_duel_kills || 0,
@@ -236,6 +258,7 @@ class Duels {
         playedGames: data.op_duel_rounds_played || 0
       },
       '2v2': {
+        division: getDivision(data, 'op'),
         winstreak: data.current_winstreak_mode_op_doubles || 0,
         bestWinstreak: data.best_winstreak_mode_op_doubles || 0,
         kills: data.op_doubles_kills || 0,
@@ -253,6 +276,7 @@ class Duels {
      */
     this.skywars = {
       'overall': {
+        division: getDivision(data, 'skywars'),
         winstreak: data.current_skywars_winstreak || 0,
         bestWinstreak: data.best_skywars_winstreak || 0,
         kills: ((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0)),
@@ -264,6 +288,7 @@ class Duels {
         playedGames: (data.sw_duel_rounds_played || 0) + (data.sw_doubles_rounds_played || 0)
       },
       '1v1': {
+        division: getDivision(data, 'skywars'),
         winstreak: data.current_winstreak_mode_sw_duel || 0,
         bestWinstreak: data.best_winstreak_mode_sw_duel || 0,
         kills: data.sw_duel_kills || 0,
@@ -275,6 +300,7 @@ class Duels {
         playedGames: data.sw_duel_rounds_played || 0
       },
       '2v2': {
+        division: getDivision(data, 'skywars'),
         winstreak: data.current_winstreak_mode_sw_doubles || 0,
         bestWinstreak: data.best_winstreak_mode_sw_doubles || 0,
         kills: data.sw_doubles_kills || 0,
@@ -291,6 +317,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.sumo = {
+      division: getDivision(data, 'sumo'),
       winstreak: data.current_winstreak_mode_sumo_duel || 0,
       bestWinstreak: data.best_winstreak_mode_sumo_duel || 0,
       kills: data.sumo_duel_kills || 0,
@@ -306,6 +333,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.classic = {
+      division: getDivision(data, 'classic'),
       winstreak: data.current_winstreak_mode_classic_duel || 0,
       bestWinstreak: data.best_winstreak_mode_classic_duel || 0,
       kills: data.classic_duel_kills || 0,
@@ -321,6 +349,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.combo = {
+      division: getDivision(data, 'combo'),
       winstreak: data.current_winstreak_mode_combo_duel || 0,
       bestWinstreak: data.best_winstreak_mode_combo_duel || 0,
       kills: data.combo_duel_kills || 0,
@@ -337,17 +366,19 @@ class Duels {
      */
     this.bridge = {
       'overall': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_bridge_winstreak || 0,
         bestWinstreak: data.best_bridge_winstreak || 0,
-        kills: ((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)),
-        deaths: ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0)),
-        KDRatio: divide(((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0)), ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0))),
-        wins: ((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0)),
-        losses: ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0)),
-        WLRatio: divide(((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0)), ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0))),
-        playedGames: ((data.bridge_duel_rounds_played || 0) + (data.bridge_doubles_rounds_played || 0) + (data.bridge_2v2v2v2_rounds_played || 0) + (data.bridge_3v3v3v3_rounds_played || 0) + (data.bridge_four_rounds_played || 0))
+        kills: ((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0) + (data.bridge_threes_bridge_kills || 0) + (data.capture_threes_bridge_kills || 0)),
+        deaths: ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0) + (data.bridge_threes_bridge_deaths || 0) + (data.capture_threes_bridge_deaths || 0)),
+        KDRatio: divide(((data.bridge_duel_bridge_kills || 0) + (data.bridge_doubles_bridge_kills || 0) + (data.bridge_2v2v2v2_bridge_kills || 0) + (data.bridge_3v3v3v3_bridge_kills || 0) + (data.bridge_four_bridge_kills || 0) + (data.bridge_threes_bridge_kills || 0) + (data.capture_threes_bridge_kills || 0)), ((data.bridge_duel_bridge_deaths || 0) + (data.bridge_doubles_bridge_deaths || 0) + (data.bridge_2v2v2v2_bridge_deaths || 0) + (data.bridge_3v3v3v3_bridge_deaths || 0) + (data.bridge_four_bridge_deaths || 0) + (data.bridge_threes_bridge_deaths || 0) + (data.capture_threes_bridge_deaths || 0))),
+        wins: ((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0) + (data.bridge_threes_bridge_wins || 0) + (data.capture_threes_wins || 0)),
+        losses: ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0) + (data.bridge_threes_bridge_losses || 0) + (data.capture_threes_bridge_losses || 0)),
+        WLRatio: divide(((data.bridge_duel_wins || 0) + (data.bridge_doubles_wins || 0) + (data.bridge_2v2v2v2_wins || 0) + (data.bridge_3v3v3v3_wins || 0) + (data.bridge_four_wins || 0) + (data.bridge_threes_bridge_wins || 0) + (data.capture_threes_wins || 0)), ((data.bridge_duel_losses || 0) + (data.bridge_doubles_losses || 0) + (data.bridge_2v2v2v2_losses || 0) + (data.bridge_3v3v3v3_losses || 0) + (data.bridge_four_losses || 0) + (data.bridge_threes_bridge_losses || 0) + (data.capture_threes_bridge_losses || 0))),
+        playedGames: ((data.bridge_duel_rounds_played || 0) + (data.bridge_doubles_rounds_played || 0) + (data.bridge_2v2v2v2_rounds_played || 0) + (data.bridge_3v3v3v3_rounds_played || 0) + (data.bridge_four_rounds_played || 0) + (data.bridge_threes_bridge_rounds_played || 0) + (data.capture_threes_rounds_played || 0))
       },
       '1v1': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_duel || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_duel || 0,
         kills: data.bridge_duel_bridge_kills || 0,
@@ -359,6 +390,7 @@ class Duels {
         playedGames: data.bridge_duel_rounds_played || 0
       },
       '2v2': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_doubles || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_doubles || 0,
         kills: data.bridge_doubles_bridge_kills || 0,
@@ -370,6 +402,7 @@ class Duels {
         playedGames: data.bridge_doubles_rounds_played || 0
       },
       '3v3': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_threes || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_threes || 0,
         kills: data.bridge_threes_bridge_kills || 0,
@@ -381,6 +414,7 @@ class Duels {
         playedGames: data.bridge_threes_rounds_played || 0
       },
       '2v2v2v2': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_2v2v2v2 || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_2v2v2v2 || 0,
         kills: data.bridge_2v2v2v2_bridge_kills || 0,
@@ -392,6 +426,7 @@ class Duels {
         playedGames: data.bridge_2v2v2v2_rounds_played || 0
       },
       '3v3v3v3': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_3v3v3v3 || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_3v3v3v3 || 0,
         kills: data.bridge_3v3v3v3_bridge_kills || 0,
@@ -403,6 +438,7 @@ class Duels {
         playedGames: data.bridge_3v3v3v3_rounds_played || 0
       },
       '4v4': {
+        division: getDivision(data, 'bridge'),
         winstreak: data.current_winstreak_mode_bridge_four || 0,
         bestWinstreak: data.best_winstreak_mode_bridge_four || 0,
         kills: data.bridge_four_bridge_kills || 0,
@@ -415,12 +451,14 @@ class Duels {
       },
       // eslint-disable-next-line quote-props
       ctf: {
+        division: getDivision(data, 'bridge'),
         kills: data.capture_threes_bridge_kills || 0,
         deaths: data.capture_threes_bridge_deaths || 0,
         KDRatio: divide(data.capture_threes_bridge_kills, data.capture_threes_bridge_deaths),
         wins: data.capture_threes_wins || 0,
         losses: data.capture_threes_losses || 0,
         WLRatio: divide(data.capture_threes_wins, data.capture_threes_losses),
+        captures: data.capture_threes_captures || 0,
         playedGames: data.capture_threes_rounds_played || 0
       }
     };
@@ -429,6 +467,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.blitz = {
+      division: getDivision(data, 'blitz'),
       winstreak: data.current_winstreak_mode_blitz_duel || 0,
       bestWinstreak: data.best_winstreak_mode_blitz_duel || 0,
       kills: data.blitz_duel_kills || 0,
@@ -444,6 +483,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.nodebuff = {
+      division: getDivision(data, 'no_debuff'),
       winstreak: data.current_winstreak_mode_potion_duel || 0,
       bestWinstreak: data.best_winstreak_mode_potion_duel || 0,
       kills: data.potion_duel_kills || 0,
@@ -459,6 +499,7 @@ class Duels {
      * @type {DuelsModeStats}
      */
     this.bow = {
+      division: getDivision(data, 'bow'),
       winstreak: data.current_winstreak_mode_bow_duel || 0,
       bestWinstreak: data.best_winstreak_mode_bow_duel || 0,
       kills: data.bow_duel_kills || 0,
@@ -473,8 +514,9 @@ class Duels {
 }
 /**
  * @typedef {object} DuelsModeStats
- * @property {number} winstreak Current winstreak
- * @property {number} bestWinstreak Best winstreak
+ * @property {number|undefined} winstreak Current winstreak
+ * @property {number|undefined} bestWinstreak Best winstreak
+ * @property {string|null} division Division
  * @property {number} kills Kills
  * @property {number} deaths Deaths
  * @property {number} wins Wins
@@ -482,6 +524,32 @@ class Duels {
  * @property {number} KDRatio Kill/Death ratio
  * @property {number} WLRatio Win/Loss ratio
  * @property {number} playedGames Played games
+ */
+/**
+ * @typedef {object} BridgeModeStats
+ * @property {number|undefined} winstreak Current winstreak
+ * @property {number|undefined} bestWinstreak Best winstreak
+ * @property {string|null} division Division
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} KDRatio Kill/Death ratio
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
+ * @property {number} goals Goals
+ */
+/**
+ * @typedef {object} BridgeCTFModeStats
+ * @property {string|null} division Division
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} KDRatio Kill/Death ratio
+ * @property {number} WLRatio Win/Loss ratio
+ * @property {number} playedGames Played games
+ * @property {number} captures Captures
  */
 /**
  * @typedef {object} DuelsParkour
@@ -493,6 +561,7 @@ class Duels {
  */
 /**
  * @typedef {object} DuelsBoxing
+ * @property {string} division Division
  * @property {number} kills Kills
  * @property {number} wins Wins
  * @property {number} losses Losses
@@ -533,13 +602,13 @@ class Duels {
  */
 /**
  * @typedef {object} DuelsBridge
- * @property {DuelsModeStats} overall Overall The Bridge duel stats
- * @property {DuelsModeStats} '1v1' The Bridge Duel 1v1 stats
- * @property {DuelsModeStats} '2v2' The Bridge Duel 2v2 stats
- * @property {DuelsModeStats} '3v3' The Bridge Duel 3v3 stats
- * @property {DuelsModeStats} '4v4' The Bridge Duel 4v4 stats
- * @property {DuelsModeStats} '2v2v2v2' The Bridge Duel 2v2v2v2 stats
- * @property {DuelsModeStats} '3v3v3v3' The Bridge Duel 3v3v3v3 stats
- * @property {DuelsModeStats} ctf The Bridge Capture The Flag duel 3v3 stats
+ * @property {BridgeModeStats} overall Overall The Bridge duel stats
+ * @property {BridgeModeStats} '1v1' The Bridge Duel 1v1 stats
+ * @property {BridgeModeStats} '2v2' The Bridge Duel 2v2 stats
+ * @property {BridgeModeStats} '3v3' The Bridge Duel 3v3 stats
+ * @property {BridgeModeStats} '4v4' The Bridge Duel 4v4 stats
+ * @property {BridgeModeStats} '2v2v2v2' The Bridge Duel 2v2v2v2 stats
+ * @property {BridgeModeStats} '3v3v3v3' The Bridge Duel 3v3v3v3 stats
+ * @property {BridgeCTFModeStats} ctf The Bridge Capture The Flag duel 3v3 stats
  */
 module.exports = Duels;

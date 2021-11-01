@@ -1,6 +1,20 @@
 module.exports = {
   skyblock_year_0: 1.5602757e+12,
 
+  duels_divisions: [
+    { name: 'Rookie', key: 'rookie' },
+    { name: 'Iron', key: 'iron' },
+    { name: 'Gold', key: 'gold' },
+    { name: 'Diamond', key: 'diamond' },
+    { name: 'Master', key: 'master' },
+    { name: 'Legend', key: 'legend' },
+    { name: 'Grandmaster', key: 'grandmaster' },
+    { name: 'Godlike', key: 'godlike' },
+    { name: 'WORLD ELITE', key: 'world_elite' },
+    { name: 'WORLD MASTER', key: 'world_master' },
+    { name: 'WORLD\'S BEST', key: 'worlds_best' }
+  ],
+
   leveling_xp: {
     1: 50,
     2: 125,
