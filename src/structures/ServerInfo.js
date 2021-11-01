@@ -57,7 +57,7 @@ class ServerInfo {
      * Ping in ms
      * @type {number}
      */
-    this.ping = parseInt(ping);
+    this.ping = parseInt(ping, 10);
   }
   /**
    * toString override
