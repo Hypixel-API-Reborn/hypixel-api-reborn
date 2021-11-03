@@ -28,15 +28,17 @@
       path: getServerInfo.md
     - name: Error Handling
       path: errorHandling.md
-    # - name: getSkyblockProfiles
-    #   path: getSkyblockProfiles.md
-    # - name: getSkyblockMember
-    #   path: getSkyblockMember.md
-    # - name: getSkyblockBazaar
-    #   path: getSkyblockBazaar.md
-    # - name: getSkyblockAuctions
-    #   path: getSkyblockAuctions.md
-    # - name: getSkyblockAuctionsByPlayer
-    #   path: getSkyblockAuctionsByPlayer.md
-    # - name: getEndedSkyblockAuctions
-    #   path: getEndedSkyblockAuctions.md
+    - name: getSkyblockProfiles
+      path: getSkyblockProfiles.md
+    - name: getSkyblockMember
+      path: getSkyblockMember.md
+    - name: getSkyblockBazaar
+      path: getSkyblockBazaar.md
+    - name: getSkyblockAuctions
+      path: getSkyblockAuctions.md
+    - name: getSkyblockAuctionsByPlayer
+      path: getSkyblockAuctionsByPlayer.md
+    - name: getEndedSkyblockAuctions
+      path: getEndedSkyblockAuctions.md
+    - name: getRankedSkyWars
+      path: getRankedSkyWars.md

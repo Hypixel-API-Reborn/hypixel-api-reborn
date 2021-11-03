@@ -355,7 +355,7 @@ class Client extends EventEmitter {
    * .catch(console.log)
    */
   /**
-   * Allows you to get Ranked SkyWars data of a player
+   * Allows you to get Ranked SkyWars data for current season of a player
    * @method
    * @name Client#getRankedSkyWars
    * @param {string} query Player nickname or uuid
