@@ -86,6 +86,6 @@ console.log(data);
 ]
 ```
 ## Links
-- [getSkyblockAuctionsByPlayers](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctionsByPlayers)
+- [getSkyblockAuctionsByPlayer](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctionsByPlayer)
 - [Auction](https://hypixel.stavzdev.me/#/docs/main/master/class/Auction)
 - [Bid](https://hypixel.stavzdev.me/#/docs/main/master/class/Bid)
