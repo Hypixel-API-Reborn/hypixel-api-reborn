@@ -1018,13 +1018,13 @@ declare module 'hypixel-api-reborn' {
     uuid: string;
     player?: Player;
     profileName: string;
-    firstJoin: number;
-    lastSave: number;
-    lastDeath: number;
+    firstJoinTimestamp: number;
     firstJoinAt: Date;
     firstJoinHubTimestamp: number;
     firstJoinHubAt: Date;
+    lastSaveTimestamp: number;
     lastSaveAt: Date;
+    lastDeathTimestamp: number;
     lastDeathAt: Date;
     fairyExchanges: number;
     fairySouls: number;
@@ -1109,7 +1109,7 @@ declare module 'hypixel-api-reborn' {
         xpForNext: number,
         progress: number
       },
-      usedAchievementsApi?: boolean
+      usedAchievementApi?: boolean
     };
     slayer: {
       zombie: {
