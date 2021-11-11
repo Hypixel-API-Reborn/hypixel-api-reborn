@@ -17,7 +17,7 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
-export type SKYBLOCK_SKILL_DATA = {
+export interface SKYBLOCK_SKILL_DATA {
   xp: number,
   level: number,
   maxLevel: number,
@@ -27,7 +27,7 @@ export type SKYBLOCK_SKILL_DATA = {
 }
 export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
 export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
-export type SKYBLOCK_SLAYER_DATA = {
+export interface SKYBLOCK_SLAYER_DATA {
   xp: number,
   tier1: number,
   tier2: number,
@@ -362,7 +362,7 @@ declare module 'hypixel-api-reborn' {
       xpToNext: number,
       percent: number,
       percentRemaining: number
-    }
+    };
     isOnline: boolean;
     userLanguage: string;
     lastDailyReward?: Date;
@@ -2053,7 +2053,7 @@ declare module 'hypixel-api-reborn' {
           bedsBroken: number
         },
       }
-    }
+    };
   }
 
   class UHC {
@@ -2199,7 +2199,7 @@ declare module 'hypixel-api-reborn' {
       losses: number,
       WLRatio: number,
       playedGames: number
-    }
+    };
     uhc: {
       overall: {
         division?: string,
