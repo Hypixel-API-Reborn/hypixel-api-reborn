@@ -17,6 +17,24 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export interface SKYBLOCK_SKILL_DATA {
+  xp: number,
+  level: number,
+  maxLevel: number,
+  xpCurrent: number,
+  xpForNext: number,
+  progress: number,
+}
+export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
+export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
+export interface SKYBLOCK_SLAYER_DATA {
+  xp: number,
+  tier1: number,
+  tier2: number,
+  tier3: number,
+  tier4: number,
+  level: number
+}
 export interface clientOptions {
   cache?: boolean;
   cacheTime?: number;
@@ -344,7 +362,7 @@ declare module 'hypixel-api-reborn' {
       xpToNext: number,
       percent: number,
       percentRemaining: number
-    }
+    };
     isOnline: boolean;
     userLanguage: string;
     lastDailyReward?: Date;
@@ -1018,177 +1036,44 @@ declare module 'hypixel-api-reborn' {
     uuid: string;
     player?: Player;
     profileName: string;
-    firstJoin: number;
-    lastSave: number;
-    lastDeath: number;
+    firstJoinTimestamp: number;
     firstJoinAt: Date;
     firstJoinHubTimestamp: number;
     firstJoinHubAt: Date;
+    lastSaveTimestamp: number;
     lastSaveAt: Date;
+    lastDeathTimestamp: number;
     lastDeathAt: Date;
     fairyExchanges: number;
     fairySouls: number;
     skills: {
-      taming: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      farming: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      mining: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      combat: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      foraging: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      fishing: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      enchanting: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      alchemy: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      carpentry?: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      runecrafting?: {
-        xp: number,
-        level: number,
-        maxLevel: number,
-        xpCurrent: number,
-        xpForNext: number,
-        progress: number
-      },
-      usedAchievementsApi?: boolean
+      taming: SKYBLOCK_SKILL_DATA,
+      farming: SKYBLOCK_SKILL_DATA,
+      mining: SKYBLOCK_SKILL_DATA,
+      combat: SKYBLOCK_SKILL_DATA,
+      foraging: SKYBLOCK_SKILL_DATA,
+      fishing: SKYBLOCK_SKILL_DATA,
+      enchanting: SKYBLOCK_SKILL_DATA,
+      alchemy: SKYBLOCK_SKILL_DATA,
+      carpentry?: SKYBLOCK_SKILL_DATA,
+      runecrafting?: SKYBLOCK_SKILL_DATA,
+      usedAchievementApi?: boolean
     };
     slayer: {
-      zombie: {
-        xp: number,
-        tier1: number,
-        tier2: number,
-        tier3: number,
-        tier4: number,
-        level: number
-      },
-      spider: {
-        xp: number,
-        tier1: number,
-        tier2: number,
-        tier3: number,
-        tier4: number,
-        level: number
-      },
-      wolf: {
-        xp: number,
-        tier1: number,
-        tier2: number,
-        tier3: number,
-        tier4: number,
-        level: number
-      }
+      zombie: SKYBLOCK_SLAYER_DATA,
+      spider: SKYBLOCK_SLAYER_DATA,
+      wolf: SKYBLOCK_SLAYER_DATA
     };
     dungeons: {
       types: {
-        catacombs: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        }
+        catacombs: SKYBLOCK_DUNGEON_TYPE_DATA
       },
       classes: {
-        healer: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        },
-        mage: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        },
-        berserk: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        },
-        archer: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        },
-        tank: {
-          xp: number,
-          level: number,
-          maxLevel: number,
-          xpCurrent: number,
-          xpForNext: number,
-          progress: number
-        }
+        healer: SKYBLOCK_DUNGEON_CLASS_DATA,
+        mage: SKYBLOCK_DUNGEON_CLASS_DATA,
+        berserk: SKYBLOCK_DUNGEON_CLASS_DATA,
+        archer: SKYBLOCK_DUNGEON_CLASS_DATA,
+        tank: SKYBLOCK_DUNGEON_CLASS_DATA
       }
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -2168,7 +2053,7 @@ declare module 'hypixel-api-reborn' {
           bedsBroken: number
         },
       }
-    }
+    };
   }
 
   class UHC {
@@ -2314,7 +2199,7 @@ declare module 'hypixel-api-reborn' {
       losses: number,
       WLRatio: number,
       playedGames: number
-    }
+    };
     uhc: {
       overall: {
         division?: string,
