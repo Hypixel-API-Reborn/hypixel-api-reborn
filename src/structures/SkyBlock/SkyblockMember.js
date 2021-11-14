@@ -12,7 +12,7 @@ class SkyblockMember {
   /**
    * @param {object} data Skyblock member data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Skyblock member UUID
      * @type {string}
@@ -48,27 +48,27 @@ class SkyblockMember {
      * Timestamp when player first joined the SkyBlock Hub as Date
      * @type {Date}
      */
-    this.firstJoinHubAt = new Date(data.m.first_join_hub);
+    this.firstJoinHubAt = new Date(this.firstJoinTimestamp + data.m.first_join_hub);
     /**
      * Last save timestamp
      * @type {number}
      */
-    this.lastSave = data.m.last_save;
+    this.lastSaveTimestamp = data.m.last_save;
     /**
      * Last save timestamp as Date
      * @type {Date}
      */
     this.lastSaveAt = new Date(data.m.last_save);
     /**
+     * Last save timestamp
+     * @type {number}
+     */
+    this.lastDeathTimestamp = data.m.last_death;
+    /**
      * Last death timestamp as Date
      * @type {Date}
      */
     this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
-    /**
-     * Last save timestamp
-     * @type {number}
-     */
-    this.lastDeath = data.m.last_death;
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
@@ -82,6 +82,18 @@ class SkyblockMember {
         leggings: decoded[1].id ? new SkyblockInventoryItem(decoded[1]) : null,
         boots: decoded[0].id ? new SkyblockInventoryItem(decoded[0]) : null
       };
+      return armor;
+    };
+    /**
+     * Wardrobe contents
+     * @return {Promise<SkyblockMemberItem[]>}
+     */
+    this.getWardrobe = async () => {
+      const base64 = data.m?.wardrobe_contents?.data;
+      if (!base64) return [];
+      const decoded = await decode(base64);
+      const armor = decoded.filter((item) => Object.keys(item).length !== 0)
+        .map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
@@ -184,14 +196,14 @@ class SkyblockMember {
    * Skyblock Member pet score
    * @return {number}
    */
-  getPetScore () {
+  getPetScore() {
     return this.pets.reduce((acc, cur) => acc + (cur.petScore || 0), 0);
   }
   /**
    * UUID
    * @return {string}
    */
-  toString () {
+  toString() {
     return this.uuid;
   }
 }
@@ -199,7 +211,7 @@ class SkyblockMember {
  * @param {object} data
  * @return {object}
  */
-function getSkills (data) {
+function getSkills(data) {
   const skillsObject = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
     if (data.player) {
@@ -221,7 +233,7 @@ function getSkills (data) {
  * @param {object} data
  * @return {object}
  */
-function getSlayer (data) {
+function getSlayer(data) {
   if (!objectPath.has(data, 'slayer_bosses')) {
     return null;
   }
@@ -235,7 +247,7 @@ function getSlayer (data) {
  * @param {object} data
  * @return {object}
  */
-function getDungeons (data) {
+function getDungeons(data) {
   if (!objectPath.has(data, 'dungeons')) {
     return null;
   }
@@ -256,7 +268,7 @@ function getDungeons (data) {
  * @param {object} data
  * @return {jacobData}
  */
-function getJacobData (data) {
+function getJacobData(data) {
   if (!data.m.jacob2) {
     return {
       medals: {

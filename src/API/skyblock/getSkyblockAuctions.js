@@ -35,10 +35,6 @@ module.exports = async function (range, options = {}) {
   range = range.sort();
   const result = { auctions: [] };
   const fetches = [];
-  /**
-   * Failed Pages
-   * @type {number[]}
-   */
   const failedPages = [];
   if (options.noAuctions) return { info: options.noInfo ? null : (await getPage(range[1], { noAuctions: true })).info };
   for (let i = range[0]; i <= range[1]; i++) {

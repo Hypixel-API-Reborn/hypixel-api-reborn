@@ -1,6 +1,20 @@
 module.exports = {
   skyblock_year_0: 1.5602757e+12,
 
+  duels_divisions: [
+    { name: 'Rookie', key: 'rookie' },
+    { name: 'Iron', key: 'iron' },
+    { name: 'Gold', key: 'gold' },
+    { name: 'Diamond', key: 'diamond' },
+    { name: 'Master', key: 'master' },
+    { name: 'Legend', key: 'legend' },
+    { name: 'Grandmaster', key: 'grandmaster' },
+    { name: 'Godlike', key: 'godlike' },
+    { name: 'WORLD ELITE', key: 'world_elite' },
+    { name: 'WORLD MASTER', key: 'world_master' },
+    { name: 'WORLD\'S BEST', key: 'worlds_best' }
+  ],
+
   leveling_xp: {
     1: 50,
     2: 125,
@@ -784,7 +798,8 @@ module.exports = {
     { name: 'Duels', code: 'DUELS', id: 61 },
     { name: 'SkyBlock', code: 'SKYBLOCK', id: 63 },
     { name: 'The Pit', code: 'PIT', id: 64 },
-    { name: 'Replay', code: 'REPLAY', id: -1 },
+    { name: 'Replay', code: 'REPLAY', id: 65 },
+    { name: 'SMP', code: 'SMP', id: 67 },
     { name: 'Limbo', code: 'LIMBO', id: -2 },
     { name: 'Queue', code: 'QUEUE', id: -3 },
     { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },

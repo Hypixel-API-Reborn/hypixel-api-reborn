@@ -9,4 +9,4 @@ cache:
   directories:
     - node_modules
 script:
-    - npm run test:lint
+    - npm run eslint

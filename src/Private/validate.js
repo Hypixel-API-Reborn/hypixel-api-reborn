@@ -36,7 +36,9 @@ class Validation {
       rateLimit: options.rateLimit || 'AUTO',
       keyLimit: options.keyLimit || 120,
       syncWithHeaders: !!options.syncWithHeaders,
-      headers: options.headers || {}
+      headers: options.headers || {},
+      silent: !!options.silent,
+      checkForUpdates: options.checkForUpdates || false
     };
   }
 
@@ -89,7 +91,7 @@ class Validation {
    */
   validateNodeVersion() {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
-    if (nodeVersion < 12 ) throw new Error(Errors.NODE_VERSION_ERR);
+    if (nodeVersion < 12) throw new Error(Errors.NODE_VERSION_ERR);
   }
 }
 module.exports = Validation;

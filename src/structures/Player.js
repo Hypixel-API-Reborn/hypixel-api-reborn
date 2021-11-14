@@ -15,20 +15,24 @@ const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const Arcade = require('./MiniGames/Arcade');
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Pit = require('./MiniGames/Pit');
-const getRecentGames = require('../API/getRecentGames');
 const Color = require('./Color');
 const Game = require('./Game');
 const PlayerCosmetics = require('./PlayerCosmetics');
 const { recursive } = require('../utils/removeSnakeCase');
+const TurboKartRacers = require('./MiniGames/TurboKartRacers');
+const Paintball = require('./MiniGames/Paintball');
+const Quakecraft = require('./MiniGames/Quakecraft');
+const Walls = require('./MiniGames/Walls');
+const Warlords = require('./MiniGames/Warlords');
 /**
  * Player class
  */
 class Player {
   /**
    * @param {object} data Player data
-   * @param {object} fakethis
+   * @param {Record<string, any>} extraPayload extra data requested alongside player
    */
-  constructor (data, fakethis) {
+  constructor (data, extraPayload) {
     /**
      * Player nickname
      * @type {string}
@@ -98,18 +102,12 @@ class Player {
      * Player's plus color (must be a MVP+ rank)
      * @type {Color|null}
      */
-    this.plusColor = this.rank === 'MVP+' || this.rank === 'MVP++' ? (data.rankPlusColor ? new Color(data.rankPlusColor) : null) : null;
+    this.plusColor = this.rank === 'MVP+' || this.rank === 'MVP++' ? (data.rankPlusColor ? new Color(data.rankPlusColor) : new Color('RED')) : null;
     /**
      * MVP++ prefix color
      * @type {Color|null}
      */
     this.prefixColor = this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
-    /**
-     * Player's guild. Guild option must be `true`. <br>
-     * Example: {@link Client#getPlayer}
-     * @type {Guild}
-     */
-    this.guild = data.guild ? data.guild : null;
     /**
      * Player karma
      * @type {number}
@@ -201,18 +199,21 @@ class Player {
      */
     this.levelProgress = playerLevelProgress(data);
     /**
-     * Player recent games
-     * @return {Promise<Array<RecentGame>>}
+     * Player's Guild if requested in options
+     * @type {Guild|null}
      */
-    this.getRecentGames = function () {
-      return getRecentGames.call(fakethis, this.uuid, this);
-    };
+    this.guild = extraPayload?.guild || null;
+    /**
+     * Recent Games if requested in options
+     * @type {RecentGame[]|null}
+     */
+    this.recentGames = extraPayload?.recentGames || null;
     /**
      * Player stats for each mini-game
      * @type {PlayerStats}
      */
     this.stats = (data.stats ? {
-      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
+      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars, extraPayload?.rankedSW || null) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
       uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
       speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
@@ -227,6 +228,11 @@ class Player {
       blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
       arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
       arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null),
+      paintball: (data.stats.Paintball ? new Paintball(data.stats.Paintball) : null),
+      quakecraft: (data.stats.Quake ? new Quakecraft(data.stats.Quake) : null),
+      turbokartracers: (data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null),
+      walls: (data.stats.Walls ? new Walls(data.stats.Walls) : null),
+      warlords: (data.stats.Battleground ? new Warlords(data.stats.Battleground) : null),
       pit: null
     } : null);
     /**
@@ -277,14 +283,11 @@ function getRank (player) {
     rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '');
   } else if (player.rank && player.rank !== 'NORMAL') {
     switch (player.rank) {
-      case 'MODERATOR':
-        rank = 'Moderator';
-        break;
       case 'YOUTUBER':
         rank = 'YouTube';
         break;
-      case 'HELPER':
-        rank = 'Helper';
+      case 'GAME_MASTER':
+        rank = 'Game Master';
         break;
       case 'ADMIN':
         rank = 'Admin';
@@ -395,8 +398,7 @@ function parseClaimedRewards (data) {
  * * `MVP`
  * * `MVP+`
  * * `MVP++`
- * * `Helper`
- * * `Moderator`
+ * * `Game Master`
  * * `Admin`
  * * `YouTube`
  */

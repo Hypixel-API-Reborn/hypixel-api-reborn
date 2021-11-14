@@ -1,3 +1,5 @@
+const rgbToHexColor = require('../../utils/rgbToHexColor');
+
 /**
  * Item class
  */
@@ -37,10 +39,29 @@ class SkyblockInventoryItem {
      */
     this.loreForEmbed = this.lore.replace(/§([0-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
     /**
+     * Hexadecimal color code of armor
+     * @type {string}
+     */
+    this.color = data.tag.ExtraAttributes.color ? rgbToHexColor(data.tag.ExtraAttributes.color.split(':')) : null;
+    /**
      * Item enchantments
      * @type {object}
      */
     this.enchantments = data.tag.ExtraAttributes.enchantments ? data.tag.ExtraAttributes.enchantments : null;
+    /**
+     * Armor reforge
+     * @type {string}
+     */
+    this.reforge = data.tag.ExtraAttributes.modifier ? data.tag.ExtraAttributes.modifier : null;
+    /**
+     * Equipment gemstones (if any)
+     * @type {SkyblockItemGemstone}
+     */
+    // eslint-disable-next-line no-new-object
+    this.gemstones = data.tag.ExtraAttributes.gems ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => new Object({
+      type: gem[0].split('_')[0],
+      quality: gem[1]
+    })) : null;
     /**
      * Anvil uses
      * @type {number}
@@ -85,7 +106,7 @@ class SkyblockInventoryItem {
  * @return {string}
  */
 function parseRarity (stringContainingRarity) {
-  const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'SUPREME', 'SPECIAL', 'VERY SPECIAL'];
+  const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY SPECIAL'];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }
@@ -99,4 +120,11 @@ function parseGearScore (lore) {
     if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
   }
 }
+
+/**
+ * @typedef {object} SkyblockItemGemstone
+ * @property {string} type Gemstone type
+ * @property {string} quality Gemstone quality (rough, flawed, fine, flawless, perfect)
+ */
+
 module.exports = SkyblockInventoryItem;

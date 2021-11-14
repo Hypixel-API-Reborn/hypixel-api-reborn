@@ -57,12 +57,17 @@ module.exports = {
   Duels: require('./structures/MiniGames/Duels.js'),
   MegaWalls: require('./structures/MiniGames/MegaWalls.js'),
   MurderMystery: require('./structures/MiniGames/MurderMystery.js'),
+  Paintball: require('./structures/MiniGames/Paintball.js'),
+  Quakecraft: require('./structures/MiniGames/Quakecraft.js'),
   SkyWars: require('./structures/MiniGames/SkyWars.js'),
   SmashHeroes: require('./structures/MiniGames/SmashHeroes.js'),
   SpeedUHC: require('./structures/MiniGames/SpeedUHC.js'),
   TNTGames: require('./structures/MiniGames/TNTGames.js'),
+  TurboKartRacers: require('./structures/MiniGames/TurboKartRacers.js'),
   UHC: require('./structures/MiniGames/UHC.js'),
   VampireZ: require('./structures/MiniGames/VampireZ.js'),
+  Walls: require('./structures/MiniGames/Walls.js'),
+  Warlords: require('./structures/MiniGames/Warlords.js'),
 
   /* Leaderboards */
   Leaderboard: require('./structures/Leaderboard.js'),
