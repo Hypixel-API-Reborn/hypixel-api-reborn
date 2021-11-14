@@ -40,6 +40,7 @@ export interface clientOptions {
   cacheTime?: number;
   cacheSize?: number;
   cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
+  cacheHandler?: Record<string, Function>;
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
   keyLimit?: number;
   syncWithHeaders?: boolean;
