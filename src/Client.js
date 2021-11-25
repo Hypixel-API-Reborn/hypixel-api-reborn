@@ -2,8 +2,7 @@
 /* eslint-disable max-len */
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
-const requests = new (require('./Private/requests'))();
-const updater = new (require('./Private/updater'))();
+const Requests = require('./Private/requests');
 const Errors = require('./Errors');
 const API = require('./API/index');
 const EventEmitter = require('events');
@@ -18,6 +17,7 @@ class Client extends EventEmitter {
    */
   constructor (key, options = {}) {
     super();
+    this.requests = new Requests(this, options.cacheHandler);
     // eslint-disable-next-line no-console
     if (options && !options.silent) this.on('warn', console.warn);
     // Test to check for multiple instances of client
@@ -29,18 +29,23 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
-    // eslint-disable-next-line no-return-assign
-    Object.keys(API).forEach((func) => Client.prototype[func] = function (...args) {
-      return API[func].apply({ _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(args[args.length - 1]) ? args[args.length - 1] : {}) }), ...this }, args);
-    });
-    if (this.options.checkForUpdates) {
-      updater.checkForUpdates();
+    // eslint-disable-next-line guard-for-in
+    for (const func in API) {
+      Client.prototype[func] = function (...args) {
+        const lastArg = args[args.length - 1];
+        return API[func].apply(
+          {
+            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
+            ...this
+          },
+          args);
+      };
     }
     /**
      * All cache entries
      * @type {Map<string,object>}
      */
-    this.cache = requests.cache;
+    this.cache = this.requests.cache;
     clients.push(this);
     rateLimit.init(this.getKeyInfo(), this.options, this).then(() => this.emit('ready'));
   }
@@ -54,10 +59,10 @@ class Client extends EventEmitter {
    */
   async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && requests.cache.has(url)) return requests.cache.get(url);
+    if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return await this.requests.cache.get(url);
     if (useRateLimitManager) await rateLimit.rateLimitManager();
-    this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
-    const result = await requests.request.call(this, url, { ...options, headers: { ...options.headers, ...this.options.headers } });
+    this.emit('outgoingRequest', url, {...options, headers: {...options.headers, ...this.options.headers}});
+    const result = await this.requests.request.call(this.requests, url, {...options, headers: {...options.headers, ...this.options.headers}});
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
@@ -76,8 +81,7 @@ class Client extends EventEmitter {
    * // This example gets the first 100 friends of a player and gets their stats.
    * hypixel.once('ready',()=>{
    *  hypixel.getFriends('StavZDev')
-   *  .then(friends => friends.map(x=>x.uuid).slice(0, 100))
-   *  .then(hypixel.getPlayer)
+   *  .then(friends => friends.map(x=>x.uuid).slice(0, 100).map(hypixel.getPlayer))
    *  .catch(console.log);
    * })
    */
@@ -377,13 +381,14 @@ class Client extends EventEmitter {
    * @return {Promise<void|boolean[]>}
    */
   sweepCache (amount) {
-    return requests.sweepCache(amount);
+    return this.requests.sweepCache(amount);
   }
 }
 /**
  * @typedef {object} ClientOptions
  * @prop {boolean} [cache=false] Enable/Disable request caching.
  * @prop {number} [cacheTime=60] Amount of time in seconds to cache the requests.
+ * @prop {CacheHandler} [cacheHandler] Custom Cache Handler
  * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
  * @prop {boolean} [syncWithHeaders=false] Sync with headers rate limit information. Usually not necessary nor recommended ( because of latency )
  * @prop {number} [keyLimit=120] Key limit of your key.
@@ -391,6 +396,12 @@ class Client extends EventEmitter {
  * @prop {boolean} [silent=false] Don't automatically put warnings into console.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
  * @prop {boolean} [checkForUpdates=false] Enable/Disable check for new version of hypixel-api-reborn.
+ */
+/**
+ * @typedef {import('./Private/defeaultCache')} Cache
+ */
+/**
+ * @typedef {Cache} CacheHandler
  */
 /**
  * @typedef {object} MethodOptions

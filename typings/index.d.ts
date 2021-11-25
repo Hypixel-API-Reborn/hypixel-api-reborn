@@ -40,6 +40,7 @@ export interface clientOptions {
   cacheTime?: number;
   cacheSize?: number;
   cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[] };
+  cacheHandler?: CacheHandler & unknown;
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
   keyLimit?: number;
   syncWithHeaders?: boolean;
@@ -47,6 +48,16 @@ export interface clientOptions {
   headers?: Record<string, unknown>;
   checkForUpdates?: boolean;
 }
+type PromiseLike <T> = T | Promise<T>;
+type CacheHandler = {
+  set: (key: string, value: unknown) => PromiseLike<void>,
+  get: (key: string) => PromiseLike<unknown>,
+  has: (key: string) => PromiseLike<boolean>,
+  delete: (key: string) => PromiseLike<boolean>,
+  keys: () => PromiseLike<string[]>,
+  size: () => PromiseLike<number>,
+  clear: () => PromiseLike<void>,
+};
 export interface methodOptions {
   noCacheCheck?: boolean;
   noCaching?: boolean;
