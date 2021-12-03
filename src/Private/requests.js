@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
-const Cache = require('./defeaultCache');
+const Cache = require('./defaultCache');
 
 module.exports = class Requests {
   constructor(client, cache) {
