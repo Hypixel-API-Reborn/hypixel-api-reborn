@@ -3,6 +3,7 @@
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const Requests = require('./Private/requests');
+const updater = new (require('./Private/updater'))();
 const Errors = require('./Errors');
 const API = require('./API/index');
 const EventEmitter = require('events');
@@ -40,6 +41,10 @@ class Client extends EventEmitter {
           },
           args);
       };
+
+      if (this.options.checkForUpdates) {
+        updater.checkForUpdates();
+      }
     }
     /**
      * All cache entries
@@ -398,7 +403,7 @@ class Client extends EventEmitter {
  * @prop {boolean} [checkForUpdates=false] Enable/Disable check for new version of hypixel-api-reborn.
  */
 /**
- * @typedef {import('./Private/defeaultCache')} Cache
+ * @typedef {import('./Private/defaultCache')} Cache
  */
 /**
  * @typedef {Cache} CacheHandler
