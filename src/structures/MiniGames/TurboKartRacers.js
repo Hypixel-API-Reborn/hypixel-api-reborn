@@ -76,25 +76,25 @@ class TurboKartRacers {
      * @type {number}
      */
     this.retroBronzeTrophies = data.bronze_trophy_retro || 0;
-     /**
-     * Jungle Rush Map Plays 
-     * @type {number}
-     */
+    /**
+    * Jungle Rush Map Plays
+    * @type {number}
+    */
     this.retroSilverTrophies = data.silver_trophy_retro || 0;
     /**
-     * Jungle Rush Map Plays 
+     * Jungle Rush Map Plays
      * @type {number}
      */
-     this.retroGoldTrophies = data.gold_trophy_retro || 0;
+    this.retroGoldTrophies = data.gold_trophy_retro || 0;
     /**
      * hypixelgp Bronze Trophies
      * @type {number}
      */
     this.hypixelgpBronzeTrophies = data.bronze_trophy_hypixelgp || 0;
-     /**
-     * hypixelgp Silver Trophies
-     * @type {number}
-     */
+    /**
+    * hypixelgp Silver Trophies
+    * @type {number}
+    */
     this.hypixelgpSilverTrophies = data.silver_trophy_hypixelgp || 0;
     /**
      * hypixelgp Gold Trophies
@@ -106,10 +106,10 @@ class TurboKartRacers {
      * @type {number}
      */
     this.olympusBronzeTrophies = data.bronze_trophy_olympus || 0;
-     /**
-     * olympus Silver Trophies
-     * @type {number}
-     */
+    /**
+    * olympus Silver Trophies
+    * @type {number}
+    */
     this.olympusSilverTrophies = data.silver_trophy_olympus || 0;
     /**
      * olympus Gold Trophies
@@ -151,10 +151,10 @@ class TurboKartRacers {
      * @type {number}
      */
     this.bananaHitsReceived = data.banana_hits_received || 0;
-     /**
-     * Bananas Sent
-     * @type {number}
-     */
+    /**
+    * Bananas Sent
+    * @type {number}
+    */
     this.bananaHitsSent = data.banana_hits_sent || 0;
     /**
      * Blue Torpedos Hit
