@@ -755,6 +755,27 @@ declare module 'hypixel-api-reborn' {
     hypixelgpPlays: number;
     olympusPlays: number;
     junglerushPlays: number;
+    canyonPlays: number;
+    retroBronzeTrophies: number;
+    retroSilverTrophies: number;
+    retroGoldTrophies: number;
+    hypixelgpBronzeTrophies: number;
+    hypixelgpSilverTrophies: number;
+    hypixelgpGoldTrophies: number;
+    olympusBronzeTrophies: number;
+    olympusSilverTrophies: number;
+    olympusGoldTrophies: number;
+    junglerushBronzeTrophies: number;
+    junglerushSilverTrophies: number;
+    junglerushGoldTrophies: number;
+    canyonBronzeTrophies: number;
+    canyonSilverTrophies: number;
+    canyonGoldTrophies: number;
+    bananaHitsReceived: number;
+    bananaHitsSent: number;
+    blueTorpedoHit: number;
+    grandPrix: boolean;
+    grandPrixTokens: number;
   }
   class Walls {
     constructor(data: Record<string, unknown>);
