@@ -59,15 +59,18 @@ type CacheHandler = {
   clear: () => PromiseLike<void>,
 };
 export interface methodOptions {
+  raw?: boolean;
   noCacheCheck?: boolean;
   noCaching?: boolean;
 }
 export interface playerMethodOptions extends methodOptions {
+  raw?: boolean;
   currentRankedSW?: boolean;
   guild?: boolean;
   recentGames?: boolean;
 }
 export interface skyblockMemberOptions extends methodOptions {
+  raw?: boolean;
   fetchPlayer?: boolean;
 }
 export interface auctionsOptions extends methodOptions {
