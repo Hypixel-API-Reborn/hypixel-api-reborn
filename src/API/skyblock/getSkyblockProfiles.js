@@ -6,6 +6,7 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
   const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
+  if (res.raw) return res;
 
   if (!res.profiles || !res.profiles.length) {
     return [];

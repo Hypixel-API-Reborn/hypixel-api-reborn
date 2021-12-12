@@ -8,6 +8,7 @@ module.exports = async function (query, options = { guild: false, recentGames: f
   const Player = require('../structures/Player');
   query = await toUuid(query);
   const res = await this._makeRequest(`/player?uuid=${query}`);
+  if (res.raw) return res;
   if (query && !res.player) throw new Error(Errors.PLAYER_HAS_NEVER_LOGGED);
   let guild = null;
   let recentGames = null;
@@ -22,5 +23,5 @@ module.exports = async function (query, options = { guild: false, recentGames: f
     rankedSW = getRankedSkyWars.call(this, query);
   }
   [guild, recentGames, rankedSW] = await Promise.all([guild, recentGames, rankedSW]);
-  return new Player(res.player, {guild, recentGames, rankedSW});
+  return new Player(res.player, { guild, recentGames, rankedSW });
 };

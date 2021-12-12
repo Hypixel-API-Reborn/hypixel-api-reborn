@@ -27,6 +27,7 @@ module.exports = class Requests {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     parsedRes._headers = res.headers;
+    parsedRes.raw = !!options.raw;
     if (options.noCaching) return parsedRes;
     // split by question mark : first part is /path, remove /
     if (this.client.options.cache && this.client.options.cacheFilter(endpoint.split('?')[0].slice(1))) {

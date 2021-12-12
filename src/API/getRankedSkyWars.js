@@ -5,6 +5,7 @@ module.exports = async function (query) {
   const SkyWarsRanked = require('../structures/MiniGames/SkyWarsRanked');
   query = await toUuid(query);
   const res = await this._makeRequest(`/player/ranked/skywars?uuid=${query}`);
+  if (res.raw) return res;
   if (!res.result) return null;
   return new SkyWarsRanked(res.result);
 };

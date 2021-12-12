@@ -64,10 +64,10 @@ class Client extends EventEmitter {
    */
   async _makeRequest (options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return await this.requests.cache.get(url);
+    if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
     if (useRateLimitManager) await rateLimit.rateLimitManager();
-    this.emit('outgoingRequest', url, {...options, headers: {...options.headers, ...this.options.headers}});
-    const result = await this.requests.request.call(this.requests, url, {...options, headers: {...options.headers, ...this.options.headers}});
+    this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
+    const result = await this.requests.request.call(this.requests, url, { ...options, headers: { ...options.headers, ...this.options.headers } });
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
@@ -410,12 +410,14 @@ class Client extends EventEmitter {
  */
 /**
  * @typedef {object} MethodOptions
+ * @property {boolean} [raw=false] Raw data
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**
  * @typedef {object} PlayerMethodOptions
+ * @property {boolean} [raw=false] Raw data
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {boolean} [guild=false] Disable/Enable request for player's guild
@@ -425,6 +427,7 @@ class Client extends EventEmitter {
  */
 /**
  * @typedef {object} SkyblockMethodOptions
+ * @property {boolean} [raw=false] Raw data
  * @property {?boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {?boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {?boolean} [fetchPlayer=false] Disable/Enable player profile request for each member

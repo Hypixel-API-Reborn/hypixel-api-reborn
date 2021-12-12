@@ -2,6 +2,7 @@ const Errors = require('../Errors');
 module.exports = async function () {
   const Leaderboard = require('../structures/Leaderboard');
   const res = await this._makeRequest('/leaderboards');
+  if (res.raw) return res;
   if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
   const lbnames = Object.create(require('../utils/Constants').leaderboardNames);
   // eslint-disable-next-line guard-for-in

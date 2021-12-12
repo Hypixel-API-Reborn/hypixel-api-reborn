@@ -62,7 +62,7 @@ class Validation {
    */
   cacheSuboptions (input) {
     if (typeof input !== 'object' || input === null) return false;
-    if (!input.noCacheCheck && !input.noCaching) return false;
+    if (!input.noCacheCheck && !input.noCaching && !input.raw) return false;
     return true;
   }
 
@@ -89,7 +89,7 @@ class Validation {
    * @returns {void}
    * @private
    */
-  validateNodeVersion() {
+  validateNodeVersion () {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
     if (nodeVersion < 12) throw new Error(Errors.NODE_VERSION_ERR);
   }

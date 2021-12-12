@@ -5,6 +5,7 @@ const Errors = require('../../Errors');
 let _makeRequest;
 async function getPage (page = 0, options = {}) {
   const content = await _makeRequest(`/skyblock/auctions?page=${page}`, false);
+  if (res.raw) return res;
   const result = {};
   if (!options.noInfo) result.info = new AuctionInfo(content);
   if (options.raw) result.auctions = content.auctions;
