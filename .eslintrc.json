@@ -21,11 +21,14 @@
             "error",
             "never"
         ],
-        "valid-jsdoc": ["error", {
-            "requireParamDescription": false,
-            "requireReturnDescription": false,
-            "requireReturn": true
-        }],
+        "valid-jsdoc": [
+            "error",
+            {
+                "requireParamDescription": false,
+                "requireReturnDescription": false,
+                "requireReturn": true
+            }
+        ],
         "max-len": [
             "error",
             {
@@ -33,12 +36,21 @@
                 "ignoreUrls": true
             }
         ],
-		"indent": ["error", 2, { "SwitchCase": 1 }],
+        "indent": [
+            "error",
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
         "object-curly-spacing": "off",
         "space-before-function-paren": "off",
         "semi": "error",
         "no-console": "error",
         "@typescript-eslint/no-var-requires": "off",
-        "no-extra-semi": "error"
+        "no-extra-semi": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "off"
+        ]
     }
 }

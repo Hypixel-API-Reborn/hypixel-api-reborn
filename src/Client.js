@@ -402,8 +402,9 @@ class Client extends EventEmitter {
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
  * @prop {boolean} [checkForUpdates=false] Enable/Disable check for new version of hypixel-api-reborn.
  */
+const defaultCache = require('./Private/defaultCache.js');
 /**
- * @typedef {import('./Private/defaultCache')} Cache
+ * @typedef {defaultCache} Cache
  */
 /**
  * @typedef {Cache} CacheHandler
