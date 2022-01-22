@@ -59,6 +59,6 @@ console.log(profiles);
 ]
 ```
 ## Links
-- [getSkyblockProfiles](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getSkyblockProfiles)
+- [getSkyblockProfiles](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockProfiles)
 - [SkyblockProfile](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyblockProfile)
 - [SkyblockMember](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyblockMember)

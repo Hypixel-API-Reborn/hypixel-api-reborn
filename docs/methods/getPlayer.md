@@ -2,7 +2,7 @@
 Allows you to get statistics of player.
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/PlayerMethodOptions) (optional)
+- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/PlayerMethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -100,19 +100,19 @@ Player {
 }
 ```
 ## Links
-- [getPlayer](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getPlayer)
-- [Player](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Player)
-- [SkyWars](https://hypixel.stavzdev.xyz/#/docs/main/master/class/SkyWars)
-- [BedWars](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BedWars)
-- [UHC](https://hypixel.stavzdev.xyz/#/docs/main/master/class/UHC)
-- [Speed UHC](https://hypixel.stavzdev.xyz/#/docs/main/master/class/SpeedUHC)
-- [Murder Mystery](https://hypixel.stavzdev.xyz/#/docs/main/master/class/MurderMystery)
-- [Duels](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Duels)
-- [BuildBattle](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BuildBattle)
-- [MegaWalls](https://hypixel.stavzdev.xyz/#/docs/main/master/class/MegaWalls)
-- [Cops And Crims](https://hypixel.stavzdev.xyz/#/docs/main/master/class/CopsAndCrims)
-- [The TNT Games](https://hypixel.stavzdev.xyz/#/docs/main/master/class/TNTGames)
-- [Smash Heroes](https://hypixel.stavzdev.xyz/#/docs/main/master/class/ShashHeroes)
-- [VampireZ](https://hypixel.stavzdev.xyz/#/docs/main/master/class/VampireZ)
-- [Blitz Survival Games](https://hypixel.stavzdev.xyz/#/docs/main/master/class/BlitzSurvivalGames)
-- [Arena Brawl](https://hypixel.stavzdev.xyz/#/docs/main/master/class/ArenaBrawl)
+- [getPlayer](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getPlayer)
+- [Player](https://hypixel.stavzdev.me/#/docs/main/master/class/Player)
+- [SkyWars](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyWars)
+- [BedWars](https://hypixel.stavzdev.me/#/docs/main/master/class/BedWars)
+- [UHC](https://hypixel.stavzdev.me/#/docs/main/master/class/UHC)
+- [Speed UHC](https://hypixel.stavzdev.me/#/docs/main/master/class/SpeedUHC)
+- [Murder Mystery](https://hypixel.stavzdev.me/#/docs/main/master/class/MurderMystery)
+- [Duels](https://hypixel.stavzdev.me/#/docs/main/master/class/Duels)
+- [BuildBattle](https://hypixel.stavzdev.me/#/docs/main/master/class/BuildBattle)
+- [MegaWalls](https://hypixel.stavzdev.me/#/docs/main/master/class/MegaWalls)
+- [Cops And Crims](https://hypixel.stavzdev.me/#/docs/main/master/class/CopsAndCrims)
+- [The TNT Games](https://hypixel.stavzdev.me/#/docs/main/master/class/TNTGames)
+- [Smash Heroes](https://hypixel.stavzdev.me/#/docs/main/master/class/ShashHeroes)
+- [VampireZ](https://hypixel.stavzdev.me/#/docs/main/master/class/VampireZ)
+- [Blitz Survival Games](https://hypixel.stavzdev.me/#/docs/main/master/class/BlitzSurvivalGames)
+- [Arena Brawl](https://hypixel.stavzdev.me/#/docs/main/master/class/ArenaBrawl)

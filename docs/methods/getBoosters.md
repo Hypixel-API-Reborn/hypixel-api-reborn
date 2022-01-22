@@ -1,7 +1,7 @@
 # getBoosters
 Allows you to get all active boosters.
 ## Arguments
-- [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -53,5 +53,5 @@ console.log(boosters);
 ]
 ```
 ## Links
-- [getBoosters](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getBoosters)
-- [Booster](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Booster)
+- [getBoosters](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getBoosters)
+- [Booster](https://hypixel.stavzdev.me/#/docs/main/master/class/Booster)

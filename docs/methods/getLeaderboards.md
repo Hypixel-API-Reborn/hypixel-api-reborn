@@ -1,7 +1,7 @@
 # getLeaderboards
 Gets all leaderboards.
 ## Arguments
-- [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -155,5 +155,5 @@ console.log(leaderboards);
 }
 ```
 ## Links
-- [getLeaderboards](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getLeaderboards)
-- [Leaderboard](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Leaderboard)
+- [getLeaderboards](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getLeaderboards)
+- [Leaderboard](https://hypixel.stavzdev.me/#/docs/main/master/class/Leaderboard)

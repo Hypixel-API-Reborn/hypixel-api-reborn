@@ -2,7 +2,7 @@
 Allows you get player's list of friends.
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.xyz/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -51,5 +51,5 @@ console.log(friends); // if player doesn't exist will return null
 ]
 ```
 ## Links
-- [getFriends](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Client?scrollTo=getFriends)
-- [Friend](https://hypixel.stavzdev.xyz/#/docs/main/master/class/Friend)
+- [getFriends](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getFriends)
+- [Friend](https://hypixel.stavzdev.me/#/docs/main/master/class/Friend)
