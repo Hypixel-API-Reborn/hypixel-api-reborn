@@ -1014,7 +1014,7 @@ declare module 'hypixel-api-reborn' {
     weeklyExperience: number;
     mutedUntilTimestamp: number;
     mutedUntil: Date;
-    expHistory: { day: string, date: Date, exp: number, totalExp: number; }[][];
+    expHistory: { day: string, date: Date, exp: number, totalExp: number; }[];
   }
   class GuildRank {
     constructor(data: Record<string, unknown>);
