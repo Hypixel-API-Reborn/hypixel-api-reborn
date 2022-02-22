@@ -62,7 +62,7 @@ function parseDate(stringDate) {
  */
 function parseVer(stringVer) {
   const matches = versionRegExp.exec(stringVer);
-  if (!matches.length) return null; // this shouldn't really happen
+  if (!matches?.length) return null; // this shouldn't really happen
   return matches[0];
 }
 module.exports = SkyblockNews;
