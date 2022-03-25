@@ -51,6 +51,11 @@ class BedWars {
      */
     this.level = data.Experience ? getLevelForExp(data.Experience) : 0;
     /**
+     * Experience
+     * @type {number}
+     */
+     this.experience = data.Experience || 0;
+    /**
      * Prestige
      * @type {BedWarsPrestige}
      */

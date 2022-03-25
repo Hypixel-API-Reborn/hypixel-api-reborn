@@ -1675,6 +1675,7 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     coins: number;
     level: number;
+    experience: number;
     prestige: BEDWARS_PRESTIGE;
     playedGames: number;
     wins: number;
