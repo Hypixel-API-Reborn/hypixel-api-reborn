@@ -1,4 +1,4 @@
-const GameAchievements = require("./GameAchievements");
+const GameAchievements = require('./GameAchievements');
 
 /**
  * Achievement class

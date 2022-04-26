@@ -1,4 +1,4 @@
-const AchievementTier = require("./AchievementTier");
+const AchievementTier = require('./AchievementTier');
 
 /**
  * Achievement Class
@@ -42,14 +42,14 @@ class Achievement {
       local: parseFloat(data.gamePercentUnlocked) || 0,
       localPercentage: parseFloat(data.gamePercentUnlocked) * 100 || 0,
       global: data.globalPercentUnlocked,
-      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0,
+      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0
     };
     /**
      * ONLY AVAILABLE FOR TIERED
      * @type {AchievementTier|null}
      */
     this.tierInformation = this.type === 'TIERED' ? new AchievementTier(data.tiers) : null;
-    
+
     const {totalPoints, totalAmount} = this.type === 'TIERED' ? collectAll(this.tierInformation) : {};
     /**
      * Total points worth (sum of all tiers if tiered)
@@ -59,20 +59,20 @@ class Achievement {
     /**
      * Total amount required to reach max tier, only for tiered
      * @type {number|null}
-     */ 
+     */
     this.totalAmountRequired = this.type === 'TIERED' ? totalAmount : null;
   }
 }
 
 /**
- * @param {AchievementTier} data 
+ * @param {AchievementTier} data
  * @returns {number}
  */
 function collectAll(data) {
   const mTier = data.maxTier;
   let totalPoints = 0;
   let totalAmount = 0;
-  for (let i = 0;i < mTier;i++) {
+  for (let i = 0; i < mTier; i++) {
     totalPoints += data.getTier(mTier).pointsRewarded;
     totalAmount += data.getTier(mTier).amountRequired;
   }

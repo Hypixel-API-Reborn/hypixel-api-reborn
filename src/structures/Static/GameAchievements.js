@@ -1,9 +1,9 @@
-const Achievement = require("./Achievement");
+const Achievement = require('./Achievement');
 
 /**
  * Game achievements class
  */
- class GameAchievements {
+class GameAchievements {
   /**
    * @param {string} name game name
    * @param {object} data data

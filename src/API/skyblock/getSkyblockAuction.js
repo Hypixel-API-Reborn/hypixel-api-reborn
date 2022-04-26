@@ -6,15 +6,12 @@ module.exports = async function (type, query, includeItemBytes = false) {
   let parameters = '';
   if (type === 'PROFILE') {
     parameters = `profile=${query}`;
-  }
-  else if (type === 'PLAYER') {
+  } else if (type === 'PLAYER') {
     query = await toUuid(query);
     parameters = `player=${query}`;
-  }
-  else if (type === 'AUCTION') {
+  } else if (type === 'AUCTION') {
     parameters = `uuid=${query}`;
-  }
-  else throw new Error(Errors.BAD_AUCTION_FILTER);
+  } else throw new Error(Errors.BAD_AUCTION_FILTER);
   const res = await this._makeRequest(`/skyblock/auction?${parameters}`);
   if (res.raw) return res;
 

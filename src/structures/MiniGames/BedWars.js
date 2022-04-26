@@ -54,7 +54,7 @@ class BedWars {
      * Experience
      * @type {number}
      */
-     this.experience = data.Experience || 0;
+    this.experience = data.Experience || 0;
     /**
      * Prestige
      * @type {BedWarsPrestige}
