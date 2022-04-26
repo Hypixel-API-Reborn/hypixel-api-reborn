@@ -96,6 +96,8 @@ class Game {
  * * DUELS: `Duels`
  * * SKYBLOCK: `SkyBlock`
  * * PIT: `The Pit`
+ * * REPLAY: `Replay`
+ * * SMP: `SMP`
  */
 /**
  * @typedef {string} GameCode
@@ -126,6 +128,8 @@ class Game {
  * * DUELS
  * * SKYBLOCK
  * * PIT
+ * * REPLAY
+ * * SMP
  */
 /**
  * @typedef {number} GameId
