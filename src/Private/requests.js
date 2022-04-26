@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
-const fetch = require('node-fetch');
+const requireFetch = !globalThis.fetch;
+const externalFetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const Cache = require('./defaultCache');
@@ -15,7 +16,11 @@ module.exports = class Requests {
   }
   async request (endpoint, options = {}) {
     options.headers = {'API-Key': this.client.key, ...options.headers};
-    const res = await fetch(BASE_URL + endpoint, options);
+    const fetchMethod = requireFetch ? externalFetch : fetch;
+    /**
+     * @type {externalFetch.Response|Response}
+     */
+    const res = await fetchMethod(BASE_URL + endpoint, options);
     if (res.status >= 500 && res.status < 528) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`));
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
