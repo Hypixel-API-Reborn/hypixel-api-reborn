@@ -288,6 +288,22 @@ class Client extends EventEmitter {
    * .catch(console.log);
    */
   /**
+   * Allows you to get filtered skyblock auctions
+   * Using auction ID will return an array of at most 1 element
+   * @method
+   * @name Client#getSkyblockAuction
+   * @param {'PROFILE'|'PLAYER'|'AUCTION'} type - Filter to use
+   * @param {string} query - uuid of profile, player, or auction. IGN can be used as well
+   * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Auction[]>}
+   * @example
+   * hypixel.getSkyblockAuction('PLAYER', 'hypixel').then(auctions =>{
+   *   console.log(auctions[0].auctionId); // b0491da3e81c43c88fd287ea3b3eacc0
+   * })
+   * .catch(console.log);
+   */
+  /**
    * Allows you to get skyblock auctions
    * @method
    * @name Client#getSkyblockAuctions
@@ -301,8 +317,10 @@ class Client extends EventEmitter {
    * .catch(console.log);
    */
   /**
+   * DEPRECATION SOON : Use Client#getSkyblockAuction
    * Allows you to get player's skyblock auctions
    * @method
+   * @deprecated
    * @name Client#getSkyblockAuctionsByPlayer
    * @param {string} query - player nickname or uuid
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
