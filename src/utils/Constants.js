@@ -805,5 +805,20 @@ module.exports = {
     { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },
     { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5 },
     { name: 'Idle', code: 'IDLE', id: -6 }
+  ],
+  // NB : for static endpoint
+  gamesStatic: [
+    'arcade', 'arena',
+    'bedwars', 'hungergames',
+    'buildbattle', 'truecombat',
+    'duels', 'mcgo',
+    'murdermystery', 'paintball',
+    'quake', 'skyclash',
+    'skywars', 'supersmash',
+    'speeduhc', 'gingerbread',
+    'tntgames', 'uhc',
+    'vampirez', 'walls3',
+    'walls', 'battleground',
+    'woolgames'
   ]
 };

@@ -1,9 +1,8 @@
-const GameAchievements = require('./GameAchievements.js');
-
+const GameChallenges = require('./GameChallenges.js');
 /**
  * Achievement class
  */
-class Achievements {
+class Challenges {
   /**
    * @param {object} data data
    */
@@ -21,7 +20,7 @@ class Achievements {
     /**
      * @type {Record<StaticGameNames, GameChallenges>}
      */
-    this.achievementsPerGame = Object.fromEntries(Object.entries(data.achievements).map((game, data) => [game, new GameAchievements(game, data)]));
+    this.challengesPerGame = Object.fromEntries(Object.entries(data.challenges).map((game, data) => [game, new GameChallenges(game, data)]));
   }
 }
 
