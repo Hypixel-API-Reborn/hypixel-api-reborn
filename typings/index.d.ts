@@ -116,7 +116,9 @@ declare module 'hypixel-api-reborn' {
     RATE_LIMIT_INIT_ERROR: string,
     SOMETHING_WENT_WRONG: string,
     UUID_NICKNAME_MUST_BE_A_STRING: string,
-    MULTIPLE_INSTANCES: string;
+    MULTIPLE_INSTANCES: string,
+    UNEXPECTED_ERROR: string,
+    RATE_LIMIT_EXCEEDED: string;
   };
   const Utils: {
     arrayTools: {
