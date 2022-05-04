@@ -36,5 +36,7 @@ module.exports = {
   MULTIPLE_INSTANCES: '[hypixel-api-reborn] Multiple instances of hypixel-api-reborn are found so we merged them for you. Please refrain from spawning multiple instances in the future. For more information, join our Discord Server https://discord.gg/NSEBNMM.',
   INVALID_HEADERS: '[hypixel-api-reborn] Invalid Headers are provided in ClientOptions. For help join our Discord Server https://discord.gg/NSEBNMM',
   INVALID_CACHE_HANDLER: '[hypixel-api-reborn] An invalid cache handler is provideed. For help join our Discord Server https://discord.gg/NSEBNMM',
-  BAD_AUCTION_FILTER: '[hypixel-api-reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PLAYER", "AUCTION", "PROFILE", but got something else.'
+  BAD_AUCTION_FILTER: '[hypixel-api-reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PLAYER", "AUCTION", "PROFILE", but got something else.',
+  UNEXPECTED_ERROR: '[hypixel-api-reborn] The data provided to hypixel API is malformed and thus not recognized by hypixel, but this shouldn\'t be your fault. Please report this error in our Discord Server https://discord.gg/NSEBNMM or GitHub. ',
+  RATE_LIMIT_EXCEEDED: '[hypixel-api-reborn] The rate limitations on your API Key has been exceeded. There might be an outage (Check Hypixel\'s status page), or you simply did too many requests in a short time. Hint: Enable rate limit options! They can help you avoid this error! For help join our Discord Server https://discord.gg/NSEBNMM'
 };
