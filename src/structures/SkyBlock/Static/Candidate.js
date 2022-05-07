@@ -34,6 +34,13 @@ class Candidate {
      */
     this.votesReceived = parseInt(data.votes, 10) || 0;
   }
+  /**
+   * As string
+   * @return {string}
+   */
+  toString() {
+    return this.name;
+  }
 }
 
 module.exports = Candidate;

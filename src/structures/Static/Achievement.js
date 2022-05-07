@@ -62,6 +62,13 @@ class Achievement {
      */
     this.totalAmountRequired = this.type === 'TIERED' ? totalAmount : null;
   }
+  /**
+   * As string
+   * @return {string}
+   */
+  toString() {
+    return this.achievementName;
+  }
 }
 
 /**
