@@ -42,6 +42,31 @@ class TurboKartRacers {
      */
     this.boxPickups = data.box_pickups || 0;
     /**
+     * HypixelGP Box pickups
+     * @type {number}
+     */
+    this.hypixelgpBoxPickups = data.box_pickups_hypixelgp || 0;
+    /**
+     * Retro Box pickups
+     * @type {number}
+     */
+    this.retroBoxPickups = data.box_pickups_retro || 0;
+    /**
+     * Olympus Box pickups
+     * @type {number}
+     */
+    this.olympusBoxPickups = data.box_pickups_olympus || 0;
+    /**
+     * Canyon Box pickups
+     * @type {number}
+     */
+    this.canyonBoxPickups = data.box_pickups_canyon || 0;
+    /**
+     * Jungle Rusg Box pickups
+     * @type {number}
+     */
+    this.junglerushBoxPickups = data.box_pickups_junglerush || 0;
+    /**
      * Horn
      * @type {'DEFAULT' | 'SHY' | 'ALIEN' | 'TAXI' | 'KLAXON' | 'TRICYCLE' | 'ALARM' | 'KLOON' | 'TEDDY' | 'TRUCK' | 'JERRY'}
      */
