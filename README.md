@@ -15,7 +15,7 @@
 </div>
 
 ### Links
-[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel.stavzdev.me) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [PreMiD Presence](https://premid.app/store/presences/Hypixel%20API%20Reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
+[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
 
 #### Requirements
 
@@ -45,7 +45,7 @@ hypixel.getGuild('name', 'The Foundation').then(guild => {
   console.error(e);
 })
 ```
-For more examples go to our [documentation](https://hypixel.stavzdev.me/).
+For more examples go to our [documentation]([https://hypixel.stavzdev.me/](https://hypixel-api-reborn.github.io/)).
 ## Changelog
 [v10.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/10.0.0)
 

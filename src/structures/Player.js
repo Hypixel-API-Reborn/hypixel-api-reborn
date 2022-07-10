@@ -65,12 +65,12 @@ class Player {
     this.channel = data.channel || null;
     /**
      * Timestamp when player last logged in
-     * @type {number}
+     * @type {number|null}
      */
     this.firstLoginTimestamp = data.firstLogin || null;
     /**
      * Timestamp when player last logged in as Date
-     * @type {Date}
+     * @type {Date|null}
      */
     this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     /**
@@ -80,17 +80,17 @@ class Player {
     this.lastLoginTimestamp = data.lastLogin || null;
     /**
      * Timestamp when player first logged in
-     * @type {number}
+     * @type {number|null}
      */
     this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
     /**
      * Timestamp when player last logged out as Date
-     * @type {Date}
+     * @type {Date|null}
      */
     this.lastLogoutTimestamp = data.lastLogout || null;
     /**
      * Timestamp when player first logged in as Date
-     * @type {Date}
+     * @type {Date|null}
      */
     this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
     /**
