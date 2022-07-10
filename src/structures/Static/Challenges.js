@@ -28,4 +28,4 @@ class Challenges {
  * @typedef {import('../../utils/Constants.js').gamesStatic} StaticGameNames
  */
 
-module.exports = Achievements;
+module.exports = Challenges;
