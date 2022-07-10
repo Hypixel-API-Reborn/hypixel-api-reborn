@@ -22,7 +22,7 @@ class Quests {
      * Quests per game
      * @type {Record<StaticGameNames, GameQuests>}
      */
-    this.questsPerGame = Object.fromEntries(Object.entries(data.quests).map((game, data) => [game, new GameQuests(game, data)]));
+    this.questsPerGame = Object.fromEntries(Object.entries(data.quests).map(([game, data]) => [game, new GameQuests(game, data)]));
   }
 }
 

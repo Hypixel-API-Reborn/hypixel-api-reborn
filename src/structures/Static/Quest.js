@@ -4,10 +4,9 @@
 class Quest {
   /**
    * constructor
-   * @param {string} name Name of quest
    * @param {Object} data
    */
-  constructor(name, data) {
+  constructor(data) {
     /**
      * Name of quest, trimmed trailing spaces
      * @type {string}

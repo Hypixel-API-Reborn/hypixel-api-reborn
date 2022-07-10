@@ -22,7 +22,7 @@ class GuildAchievements {
      * Achievements
      * @type {Record<string, Achievement>}
      */
-    this.achievements = Object.fromEntries(Object.entries({...(data.tiered || {}), ...(data.one_time || {})}).map(([name, value])=>new Achievement(name, value)));
+    this.achievements = Object.fromEntries(Object.entries({...(data.tiered || {}), ...(data.one_time || {})}).map(([name, value])=>[name, new Achievement(name, value)]));
   }
 }
 

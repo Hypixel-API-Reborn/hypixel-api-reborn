@@ -31,7 +31,7 @@ class Achievement {
      */
     this.type = data.tiers ? 'TIERED' : 'ONE_TIME';
     /**
-     * ONLY AVAILABLE IN ONE TIME, last checked April 26th
+     * ONLY AVAILABLE IN PERSONAL ONE TIME ACHIEVEMENTS, last checked April 26th
      * Unlock rate of this achievement
      * Local : Fraction of players that have played the game and gotten this achievement (0 to 1 inclusive)
      * Global : Fraction of players that have played Hypixel and gotten this achievement (0 to 1 inclusive)
@@ -53,6 +53,7 @@ class Achievement {
     const {totalPoints, totalAmount} = this.type === 'TIERED' ? collectAll(this.tierInformation) : {};
     /**
      * Total points worth (sum of all tiers if tiered)
+     * This is always 0 for Guild Achievements
      * @type {number}
      */
     this.points = this.type === 'ONE_TIME' ? parseInt(data.points, 10) : totalPoints;
@@ -79,9 +80,9 @@ function collectAll(data) {
   const mTier = data.maxTier;
   let totalPoints = 0;
   let totalAmount = 0;
-  for (let i = 0; i < mTier; i++) {
-    totalPoints += data.getTier(mTier).pointsRewarded;
-    totalAmount += data.getTier(mTier).amountRequired;
+  for (let i = 1; i <= mTier; i++) {
+    totalPoints += data.getTier(i).pointsRewarded;
+    totalAmount += data.getTier(i).amountRequired;
   }
   return {totalPoints, totalAmount};
 }
