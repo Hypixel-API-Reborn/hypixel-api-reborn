@@ -19,7 +19,7 @@ class Achievements {
      */
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
     /**
-     * @type {Record<StaticGameNames, GameChallenges>}
+     * @type {Record<StaticGameNames, GameAchievements>}
      */
     this.achievementsPerGame = Object.fromEntries(Object.entries(data.achievements).map((game, data) => [game, new GameAchievements(game, data)]));
   }
