@@ -11,7 +11,7 @@ class GameAchievements {
   constructor (name, data) {
     /**
      * Name of game/category
-     * @type {TODO}
+     * @type {StaticGameNames}
      */
     this.category = name;
     /**
@@ -25,10 +25,13 @@ class GameAchievements {
      */
     this.totalLegacyPoints = parseInt(data.total_legacy_points, 10) || 0;
     /**
-     * @type {Achievement}
+     * @type {Achievement[]}
      */
     this.achievements = Object.entries({...(data.one_time || {}), ...(data.tiered || {})}).map(([name, data])=>new Achievement(name, data));
   }
 }
 
+/**
+ * @typedef {import('../../utils/Constants.js').gamesStatic} StaticGameNames
+ */
 module.exports = GameAchievements;

@@ -1,4 +1,8 @@
 /**
+ * @typedef {import('../../utils/Constants.js').gamesStatic} StaticGameNames
+ */
+
+/**
  * Game challenges class
  */
 class GameChallenges {
@@ -9,7 +13,7 @@ class GameChallenges {
   constructor (name, data) {
     /**
      * Name of game/category
-     * @type {TODO}
+     * @type {StaticGameNames}
      */
     this.category = name;
     /**
@@ -34,8 +38,8 @@ class GameChallenges {
  * @typedef {Object} ChallengeData
  * @property {string} id String ID of the challenge
  * @property {string} name String name of the challenge
- * @property {string} rewardType Type of reward. Always "MultipliedExperienceReward"
+ * @property {string} rewardType Type of reward. Always "MultipliedExperienceReward" here
  * @property {number} reward Amount of XP upon challenge completion, always 3360 XP.
  */
 
-module.exports = GameAchievements;
+module.exports = GameChallenges;
