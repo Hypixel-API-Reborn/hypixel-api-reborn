@@ -30,8 +30,10 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
+    Client.prototype.skyblock = {};
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
+      if (func === 'skyblock') continue;
       Client.prototype[func] = function (...args) {
         const lastArg = args[args.length - 1];
         return API[func].apply(
@@ -41,6 +43,18 @@ class Client extends EventEmitter {
           },
           args);
       };
+      // eslint-disable-next-line guard-for-in
+      for (const func in API.skyblock) {
+        Client.prototype.skyblock[func] = function (...args) {
+          const lastArg = args[args.length - 1];
+          return API.skyblock[func].apply(
+            {
+              _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
+              ...this
+            },
+            args);
+        };
+      }
 
       if (this.options.checkForUpdates) {
         updater.checkForUpdates();
