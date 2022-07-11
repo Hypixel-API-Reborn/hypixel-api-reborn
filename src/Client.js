@@ -36,7 +36,7 @@ class Client extends EventEmitter {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
-            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
           },
           args);
@@ -397,6 +397,73 @@ class Client extends EventEmitter {
    * hypixel.getRankedSkyWars('StavZDev').then((ranked) => {
    *   console.log(ranked); // null
    * }).catch(console.log) // throws 404 error;
+   */
+  /**
+   * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+   * @method
+   * @name Client#getAchievements
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Achievements>}
+   * @example
+   * hypixel.getAchievements().then((achievements) => {
+   *   console.log(achievements.achievementsPerGame.bedwars.achievements[0].name); // Gets the first bedwars' achievement's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+   * @method
+   * @name Client#getChallenges
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Challenges>}
+   * @example
+   * hypixel.getChallenges().then((challenges) => {
+   *   console.log(challenges.challengesPerGame.bedwars.challenges[0].name); // Gets the first bedwars' challenge's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+   * @method
+   * @name Client#getGuildAchievements
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<GuildAchievements>}
+   * @example
+   * hypixel.getGuildAchievements().then((achievements) => {
+   *   console.log(achievements.achievements[0].name); // Gets the first guild achievement's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel quests [NO KEY REQUIRED]
+   * @method
+   * @name Client#getQuests
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Quests>}
+   * @example
+   * hypixel.getQuests().then((quests) => {
+   *   console.log(quests.questsPerGame.bedwars[0].name); // Gets the first bedwars' quest's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel vanity companions [NO KEY REQUIRED]
+   * @method
+   * @name Client#getVanityCompanions
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<VanityCompanions>}
+   * @example
+   * hypixel.getVanityCompanions().then((companions) => {
+   *   console.log(companions.companions.length); // Gets the number of companions
+   *   console.log(companions.rarityColor.find(([name, color])=>name === 'LEGENDARY')?.color)); // 'GOLD'
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel vanity pets [NO KEY REQUIRED]
+   * @method
+   * @name Client#getVanityPets
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<VanityPets>}
+   * @example
+   * hypixel.getVanityPets().then((pets) => {
+   *   console.log(pets.pets.length); // Gets the number of pets
+   * }).catch(console.log);
    */
   /**
    * Delete x (by default all) cache entries
