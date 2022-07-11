@@ -7,7 +7,7 @@ class VanityPets {
   /**
    * @param {object} data data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Last time this resource was updated
      * @type {number}
@@ -27,7 +27,7 @@ class VanityPets {
      * Vanity Pets
      * @type {VanityPet[]}
      */
-    this.pets = (data.types || []).map((type)=>new VanityPet(type, this.rarityColors));
+    this.pets = (data.types || []).map((type) => new VanityPet(type, this.rarityColors));
   }
 }
 

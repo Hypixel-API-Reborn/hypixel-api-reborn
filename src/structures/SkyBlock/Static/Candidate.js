@@ -7,7 +7,7 @@ class Candidate {
    * @param {Object} data data
    * @param {boolean} [isMayor=false] if this candidate is the current mayor
    */
-  constructor(data, isMayor=false) {
+  constructor(data, isMayor = false) {
     /**
      * Mayor's name
      * @type {string}

@@ -10,7 +10,7 @@ class GameChallenges {
    * @param {string} name game name
    * @param {object} data data
    */
-  constructor (name, data) {
+  constructor(name, data) {
     /**
      * Name of game/category
      * @type {StaticGameNames}
@@ -21,12 +21,12 @@ class GameChallenges {
      */
     this.challenges = new Map();
 
-    data.forEach((challenge)=>{
+    data.forEach((challenge) => {
       const content = {
         id: challenge.id,
         name: challenge.name,
         reward: parseInt(challenge.rewards[0].amount, 10) || 0,
-        rewardType: challenge.rewards[0].type
+        rewardType: challenge.rewards[0].type,
       };
       this.challenges.set(challenge.id, content);
     });

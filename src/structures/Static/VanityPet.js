@@ -30,7 +30,7 @@ class VanityPet {
      * Associated color for this pet's rarity
      * @type {string?}
      */
-    this.associatedColor = rarityColor.find((x)=>x.name === this.rarity)?.color;
+    this.associatedColor = rarityColor.find((x) => x.name === this.rarity)?.color;
     /**
      * Packge in which you can find the pet
      * @type {string}
@@ -45,6 +45,5 @@ class VanityPet {
     return this.name;
   }
 }
-
 
 module.exports = VanityPet;

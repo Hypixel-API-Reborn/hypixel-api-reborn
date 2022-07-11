@@ -17,7 +17,7 @@ class VanityCompanions extends VanityPets {
      * Vanity Companions
      * @type {VanityCompanions[]}
      */
-    this.companions = (data.types || []).map((type)=>new VanityCompanion(type, this.rarityColors));
+    this.companions = (data.types || []).map((type) => new VanityCompanion(type, this.rarityColors));
   }
 }
 

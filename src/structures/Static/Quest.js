@@ -31,10 +31,10 @@ class Quest {
      * Objectives
      * @type {Objective[]}
      */
-    this.objectives = data.objectives.map((objective)=>({
+    this.objectives = data.objectives.map((objective) => ({
       id: objective.id,
       type: objective.type === 'IntegerObjective' ? 'Integer' : 'Boolean',
-      amountNeeded: parseInt(objective.integer || '1', 10)
+      amountNeeded: parseInt(objective.integer || '1', 10),
     }));
     /**
      * Rewards for this quest

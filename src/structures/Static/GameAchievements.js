@@ -8,7 +8,7 @@ class GameAchievements {
    * @param {string} name game name
    * @param {object} data data
    */
-  constructor (name, data) {
+  constructor(name, data) {
     /**
      * Name of game/category
      * @type {StaticGameNames}
@@ -27,7 +27,7 @@ class GameAchievements {
     /**
      * @type {Achievement[]}
      */
-    this.achievements = Object.entries({...(data.one_time || {}), ...(data.tiered || {})}).map(([name, data])=>new Achievement(name, data));
+    this.achievements = Object.entries({ ...(data.one_time || {}), ...(data.tiered || {}) }).map(([name, data]) => new Achievement(name, data));
   }
 }
 

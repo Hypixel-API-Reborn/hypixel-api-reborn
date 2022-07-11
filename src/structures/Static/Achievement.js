@@ -42,7 +42,7 @@ class Achievement {
       local: parseFloat(data.gamePercentUnlocked) || 0,
       localPercentage: parseFloat(data.gamePercentUnlocked) * 100 || 0,
       global: data.globalPercentUnlocked,
-      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0
+      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0,
     };
     /**
      * ONLY AVAILABLE FOR TIERED
@@ -50,7 +50,7 @@ class Achievement {
      */
     this.tierInformation = this.type === 'TIERED' ? new AchievementTier(data.tiers) : null;
 
-    const {totalPoints, totalAmount} = this.type === 'TIERED' ? collectAll(this.tierInformation) : {};
+    const { totalPoints, totalAmount } = this.type === 'TIERED' ? collectAll(this.tierInformation) : {};
     /**
      * Total points worth (sum of all tiers if tiered)
      * This is always 0 for Guild Achievements
@@ -84,6 +84,6 @@ function collectAll(data) {
     totalPoints += data.getTier(i).pointsRewarded;
     totalAmount += data.getTier(i).amountRequired;
   }
-  return {totalPoints, totalAmount};
+  return { totalPoints, totalAmount };
 }
 module.exports = Achievement;

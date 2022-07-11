@@ -15,9 +15,9 @@ class BingoData {
      */
     this.lastUpdatedTimestamp = parseInt(data.lastUpdated, 10);
     /**
-      * Last time this resource was updated, as Date
-      * @type {Date|null}
-      */
+     * Last time this resource was updated, as Date
+     * @type {Date|null}
+     */
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
     /**
      * Bingo ID
@@ -28,7 +28,7 @@ class BingoData {
      * Goals
      * @type {Bingo[]|null}
      */
-    this.goals = Array.isArray(data.goals) ? data.goals.map((goal, index)=>new Bingo(goal, index)) : null;
+    this.goals = Array.isArray(data.goals) ? data.goals.map((goal, index) => new Bingo(goal, index)) : null;
   }
   /**
    * Gets a goal on the bingo table by row and column
@@ -38,7 +38,7 @@ class BingoData {
    */
   getGoal(column, row) {
     if (!this.goals || this.goals.length < 1) return;
-    return this.goals.find((goal)=>goal.row === row && goal.column === column);
+    return this.goals.find((goal) => goal.row === row && goal.column === column);
   }
 }
 
