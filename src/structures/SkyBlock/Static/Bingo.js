@@ -46,6 +46,14 @@ class Bingo {
      */
     this.tiers = Array.isArray(data.tiers) ? data.tiers.map((x) => parseInt(x, 10) || 0) : null;
     /**
+     * Type of Bingo
+     * ONE_TIME means the goal doesn't have a specific amount
+     * ONE_TIER means the goal specifies 1 amount to achieve
+     * TIERED means the goal specifies more than 1 amount to achieve
+     * @type {'ONE_TIME'|'ONE_TIER'|'TIERED'}
+     */
+    this.type = this.tiers ? 'TIERED' : this.requiredAmount ? 'ONE_TIER' : 'ONE_TIME';
+    /**
      * Only available for TIERED bingos
      * Difference between each tier requirement, if it is constant
      * @type {number|null}
@@ -56,14 +64,6 @@ class Bingo {
      * @type {number|null}
      */
     this.requiredAmount = parseInt(data.requiredAmount, 10) ?? null;
-    /**
-     * Type of Bingo
-     * ONE_TIME means the goal doesn't have a specific amount
-     * ONE_TIER means the goal specifies 1 amount to achieve
-     * TIERED means the goal specifies more than 1 amount to achieve
-     * @type {'ONE_TIME'|'ONE_TIER'|'TIERED'}
-     */
-    this.type = this.tiers ? 'TIERED' : this.requiredAmount ? 'ONE_TIER' : 'ONE_TIME';
   }
   /**
    * As string
@@ -85,7 +85,8 @@ class Bingo {
     const hypotheticStep = this.tiers[1] - this.tiers[0];
     // Check if every 2 elements have the same step
     const isConstant = this.tiers.slice(1).every((el, index) => {
-      return hypotheticStep === this.tiers[index - 1] - el;
+      // NB. as the array being looped here has the first element cut off, there's no need doing [index - 1]
+      return hypotheticStep === el - this.tiers[index];
     });
     if (!isConstant) return null;
     return hypotheticStep;

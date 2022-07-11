@@ -44,7 +44,7 @@ function populateGoals(achieved, all) {
   const populatedAchieved = [];
   const unachieved = [];
   for (const goal of all) {
-    if (achieved.find((str) => str === goal.name)) populatedAchieved.push(goal);
+    if (achieved.find((str) => str === goal.id)) populatedAchieved.push(goal);
     else unachieved.push(goal);
   }
   populatedAchieved.unachievedGoals = unachieved;
@@ -58,7 +58,7 @@ function populateGoals(achieved, all) {
  * @typedef {Object} PlayerBingoDataPerEvent
  * @property {number} eventId ID of event
  * @property {number} points Points acquired
- * @property {boolean} enrichedGoals Whether the goals are enriched (populated with data from static skyblock bingp data)
+ * @property {boolean} enrichedGoals Whether the goals are enriched (populated with data from static skyblock bingo data)
  * @property {SpecialBingoArray|string[]} goalsCompleted Special Bingo Array if enrichedGoals is true. You can however always treat SpecialBingoArray as string[]
  */
 
