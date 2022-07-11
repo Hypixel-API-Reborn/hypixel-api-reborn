@@ -5,7 +5,7 @@ class AchievementTier {
   /**
    * @param {Record<string, number>[]} data data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Maximum tier reachable
      * getTier will be take any integer from 1 to this number (inclusive)
@@ -13,7 +13,7 @@ class AchievementTier {
      */
     this.maxTier = data.length;
     // Still make sure it is well sorted
-    this._tierInfo = data.sort(({tier: tierA}, {tier: tierB})=>Number(tierA) - Number(tierB));
+    this._tierInfo = data.sort(({ tier: tierA }, { tier: tierB }) => Number(tierA) - Number(tierB));
   }
   /**
    * Gets information for tier

@@ -8,7 +8,7 @@ class GameQuests {
    * @param {string} name game name
    * @param {object} data data
    */
-  constructor (name, data) {
+  constructor(name, data) {
     /**
      * Name of game
      * @type {StaticGameNames}
@@ -17,7 +17,7 @@ class GameQuests {
     /**
      * @type {Quest[]}
      */
-    this.quests = (data || []).map((x)=>new Quest(x));
+    this.quests = (data || []).map((x) => new Quest(x));
   }
 }
 

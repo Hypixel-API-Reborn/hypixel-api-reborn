@@ -7,7 +7,7 @@ class GuildAchievements {
   /**
    * @param {object} data data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Last time this resource was updated
      * @type {number}
@@ -22,9 +22,8 @@ class GuildAchievements {
      * Achievements
      * @type {Record<string, Achievement>}
      */
-    this.achievements = Object.fromEntries(Object.entries({...(data.tiered || {}), ...(data.one_time || {})}).map(([name, value])=>[name, new Achievement(name, value)]));
+    this.achievements = Object.fromEntries(Object.entries({ ...(data.tiered || {}), ...(data.one_time || {}) }).map(([name, value]) => [name, new Achievement(name, value)]));
   }
 }
-
 
 module.exports = GuildAchievements;

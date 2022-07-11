@@ -18,7 +18,7 @@ class PlayerBingo {
      * Data per event
      * @type {PlayerBingoDataPerEvent}
      */
-    this.dataPerEvent = events.map((eventData)=>{
+    this.dataPerEvent = events.map((eventData) => {
       let doneGoals = eventData.completed_goals;
       if (!Array.isArray(doneGoals)) doneGoals = [];
       const enrichable = parseInt(eventData.key, 10) === bingoData?.id;
@@ -44,7 +44,7 @@ function populateGoals(achieved, all) {
   const populatedAchieved = [];
   const unachieved = [];
   for (const goal of all) {
-    if (achieved.find((str)=>str === goal.name)) populatedAchieved.push(goal);
+    if (achieved.find((str) => str === goal.name)) populatedAchieved.push(goal);
     else unachieved.push(goal);
   }
   populatedAchieved.unachievedGoals = unachieved;

@@ -44,7 +44,7 @@ class Bingo {
      * Shows you the requirement for each tier of this achievement
      * @type {number[]}
      */
-    this.tiers = Array.isArray(data.tiers)? data.tiers.map((x)=>parseInt(x, 10) || 0): null;
+    this.tiers = Array.isArray(data.tiers) ? data.tiers.map((x) => parseInt(x, 10) || 0) : null;
     /**
      * Only available for TIERED bingos
      * Difference between each tier requirement, if it is constant
@@ -84,8 +84,8 @@ class Bingo {
     if (this.tiers.length < 2) return null;
     const hypotheticStep = this.tiers[1] - this.tiers[0];
     // Check if every 2 elements have the same step
-    const isConstant = this.tiers.slice(1).every((el, index)=> {
-      return hypotheticStep === this.tiers[index-1] - el;
+    const isConstant = this.tiers.slice(1).every((el, index) => {
+      return hypotheticStep === this.tiers[index - 1] - el;
     });
     if (!isConstant) return null;
     return hypotheticStep;
@@ -98,7 +98,7 @@ class Bingo {
  * @returns {number[]}
  */
 function parsePosition(position) {
-  const x = position % 5 + 1;
+  const x = (position % 5) + 1;
   const y = Math.floor(position / 5) + 1;
   return [x, y];
 }

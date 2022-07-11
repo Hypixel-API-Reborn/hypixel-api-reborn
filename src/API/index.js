@@ -20,16 +20,16 @@ module.exports = {
   getWatchdogStats: require('./getWatchdogStats.js'),
 
   skyblock: {
-    getEndedSkyblockAuctions: require('./skyblock/getEndedSkyblockAuctions.js'),
-    getSkyblockAuction: require('./skyblock/getSkyblockAuction.js'),
-    getSkyblockAuctions: require('./skyblock/getSkyblockAuctions.js'),
-    getSkyblockAuctionsByPlayer: require('./skyblock/getSkyblockAuctionsByPlayer.js'),
-    getSkyblockBazaar: require('./skyblock/getSkyblockBazaar.js'),
-    getSkyblockBingo: require('./skyblock/getSkyblockBingo.js'),
-    getSkyblockBingoByPlayer: require('./skyblock/getSkyblockBingoByPlayer.js'),
-    getSkyblockGovernment: require('./skyblock/getSkyblockGovernment.js'),
-    getSkyblockMember: require('./skyblock/getSkyblockMember.js'),
-    getSkyblockNews: require('./skyblock/getSkyblockNews.js'),
-    getSkyblockProfiles: require('./skyblock/getSkyblockProfiles.js')
+    getEndedAuctions: require('./skyblock/getEndedAuctions.js'),
+    getBingoByPlayer: require('./skyblock/getBingoByPlayer.js'),
+    getAuction: require('./skyblock/getAuction.js'),
+    getAuctions: require('./skyblock/getAuctions.js'),
+    getAuctionsByPlayer: require('./skyblock/getAuctionsByPlayer.js'),
+    getBazaar: require('./skyblock/getBazaar.js'),
+    getBingo: require('./skyblock/getBingo.js'),
+    getGovernment: require('./skyblock/getGovernment.js'),
+    getMember: require('./skyblock/getMember.js'),
+    getNews: require('./skyblock/getNews.js'),
+    getProfiles: require('./skyblock/getProfiles.js')
   }
 };

@@ -7,7 +7,7 @@ class Achievements {
   /**
    * @param {object} data data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Last time this resource was updated
      * @type {number}
