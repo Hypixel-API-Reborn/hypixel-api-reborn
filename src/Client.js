@@ -34,7 +34,7 @@ class Client extends EventEmitter {
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
       if (func === 'skyblock') continue;
-      Client.prototype[func] = function (...args) {
+      Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
@@ -43,22 +43,22 @@ class Client extends EventEmitter {
           },
           args);
       };
-      // eslint-disable-next-line guard-for-in
-      for (const func in API.skyblock) {
-        Client.prototype.skyblock[func] = function (...args) {
-          const lastArg = args[args.length - 1];
-          return API.skyblock[func].apply(
-            {
-              _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
-              ...this
-            },
-            args);
-        };
-      }
+    }
+    // eslint-disable-next-line guard-for-in
+    for (const func in API.skyblock) {
+      Client.prototype.skyblock[func] = (...args) => {
+        const lastArg = args[args.length - 1];
+        return API.skyblock[func].apply(
+          {
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
+            ...this
+          },
+          args);
+      };
+    }
 
-      if (this.options.checkForUpdates) {
-        updater.checkForUpdates();
-      }
+    if (this.options.checkForUpdates) {
+      updater.checkForUpdates();
     }
     /**
      * All cache entries
