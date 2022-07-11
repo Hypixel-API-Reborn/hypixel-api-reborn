@@ -1,6 +1,6 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
-const getSkyblockBingo = require('./getSkyblockBingo');
+const getSkyblockBingo = require('./getBingo');
 module.exports = async function (query, { fetchBingoData = false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   const PlayerBingo = require('../../structures/SkyBlock/PlayerBingo');
