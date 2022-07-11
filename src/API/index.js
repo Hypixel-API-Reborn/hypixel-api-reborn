@@ -21,12 +21,12 @@ module.exports = {
 
   skyblock: {
     getEndedSkyblockAuctions: require('./skyblock/getEndedSkyblockAuctions.js'),
-    getSKyblockBingoByPlayer: require('./skyblock/getSKyblockBingoByPlayer.js'),
     getSkyblockAuction: require('./skyblock/getSkyblockAuction.js'),
     getSkyblockAuctions: require('./skyblock/getSkyblockAuctions.js'),
     getSkyblockAuctionsByPlayer: require('./skyblock/getSkyblockAuctionsByPlayer.js'),
     getSkyblockBazaar: require('./skyblock/getSkyblockBazaar.js'),
     getSkyblockBingo: require('./skyblock/getSkyblockBingo.js'),
+    getSkyblockBingoByPlayer: require('./skyblock/getSkyblockBingoByPlayer.js'),
     getSkyblockGovernment: require('./skyblock/getSkyblockGovernment.js'),
     getSkyblockMember: require('./skyblock/getSkyblockMember.js'),
     getSkyblockNews: require('./skyblock/getSkyblockNews.js'),
