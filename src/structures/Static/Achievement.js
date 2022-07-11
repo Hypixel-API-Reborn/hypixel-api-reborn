@@ -42,7 +42,7 @@ class Achievement {
       local: parseFloat(data.gamePercentUnlocked) || 0,
       localPercentage: parseFloat(data.gamePercentUnlocked) * 100 || 0,
       global: data.globalPercentUnlocked,
-      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0,
+      globalPercentage: parseFloat(data.globalPercentUnlocked) * 100 || 0
     };
     /**
      * ONLY AVAILABLE FOR TIERED

@@ -26,7 +26,7 @@ class GameChallenges {
         id: challenge.id,
         name: challenge.name,
         reward: parseInt(challenge.rewards[0].amount, 10) || 0,
-        rewardType: challenge.rewards[0].type,
+        rewardType: challenge.rewards[0].type
       };
       this.challenges.set(challenge.id, content);
     });

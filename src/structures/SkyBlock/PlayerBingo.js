@@ -27,7 +27,7 @@ class PlayerBingo {
         eventId: parseInt(eventData.key, 10) || null,
         points: parseInt(eventData.points, 10) || 0,
         goalsCompleted: doneGoals,
-        enrichedGoals: enrichable,
+        enrichedGoals: enrichable
       };
     });
   }

@@ -25,7 +25,7 @@ class AchievementTier {
     const info = this._tierInfo[index];
     return {
       pointsRewarded: parseInt(info.points, 10) || 0,
-      amountRequired: parseInt(info.amount, 10) || 0,
+      amountRequired: parseInt(info.amount, 10) || 0
     };
   }
 }

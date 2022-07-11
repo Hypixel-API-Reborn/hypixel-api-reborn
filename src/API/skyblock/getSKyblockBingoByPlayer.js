@@ -7,7 +7,6 @@ module.exports = async function (query, { fetchBingoData = false }) {
   query = await toUuid(query);
   const res = await this._makeRequest(`/skyblock/uuid?player=${query}`);
   if (res.raw) return res;
-  console.log(res);
   let bingoData = null;
   if (fetchBingoData) bingoData = await getSkyblockBingo.call(this);
 
