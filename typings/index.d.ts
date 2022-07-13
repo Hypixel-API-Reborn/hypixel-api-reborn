@@ -19,6 +19,7 @@ export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' |
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
 export type BINGO_TYPE = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
 export type ACHIEVEMENT_TYPE = 'ONE_TIME' | 'TIERED';
+export type QUEST_TYPE = 'DAILY' | 'WEEKLY';
 export type GAME_STATIC = 'arcade' | 'arena' | 'bedwars' | 'hungergames' | 'buildbattle' | 'truecombat' | 'duels' | 'mcgo' | 'murdermystery' | 'paintball' | 'quake' | 'skyclash' | 'skywars' | 'supersmash' | 'speeduhc' | 'gingerbread' | 'tntgames' | 'uhc' | 'vampirez' | 'walls3' | 'walls' | 'battleground' | 'woolgames';
 export interface ChallengeData {
   id: string;
