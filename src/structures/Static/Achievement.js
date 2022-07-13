@@ -6,20 +6,20 @@ const AchievementTier = require('./AchievementTier');
 class Achievement {
   /**
    * constructor
-   * @param {string} name Name of achievement
+   * @param {string} achievementName Name of achievement
    * @param {Object} data
    */
-  constructor(name, data) {
+  constructor(achievementName, data) {
     /**
      * Name of achievement, trimmed trailing spaces
      * @type {string}
      */
-    this.achievementName = data.name.trim();
+    this.name = data.name.trim();
     /**
      * Code name of achievement
      * @type {string}
      */
-    this.achievementCodeName = name;
+    this.codeName = achievementName;
     /**
      * Description, trimmed trailing spaces
      * @type {string}

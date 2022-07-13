@@ -10,6 +10,10 @@ class VanityCompanion extends VanityPet {
    */
   constructor(...args) {
     super(...args);
+    /**
+     * Companion's name
+     * @type {string}
+     */
     this.name = this.name.replace('\\u0027', '\u0027');
   }
 }

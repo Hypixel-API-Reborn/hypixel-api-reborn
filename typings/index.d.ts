@@ -17,6 +17,24 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export type BINGO_TYPE = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
+export type ACHIEVEMENT_TYPE = 'ONE_TIME' | 'TIERED';
+export type GAME_STATIC = 'arcade' | 'arena' | 'bedwars' | 'hungergames' | 'buildbattle' | 'truecombat' | 'duels' | 'mcgo' | 'murdermystery' | 'paintball' | 'quake' | 'skyclash' | 'skywars' | 'supersmash' | 'speeduhc' | 'gingerbread' | 'tntgames' | 'uhc' | 'vampirez' | 'walls3' | 'walls' | 'battleground' | 'woolgames';
+export interface ChallengeData {
+  id: string;
+  name: string;
+  rewardType: string;
+  reward: number;
+}
+export interface Objective {
+  id: string;
+  type: 'Integer' | 'Boolean'
+  amountNeeded: number;
+}
+export interface QuestReward {
+  type: string;
+  amount: number;
+}
 export interface SKYBLOCK_SKILL_DATA {
   xp: number,
   level: number,
@@ -2648,5 +2666,113 @@ declare module 'hypixel-api-reborn' {
     faviconB64: string;
     favicon: Buffer;
     ping: number;
+  }
+  class Achievement {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    codeName: string;
+    description: string;
+    type: ACHIEVEMENT_TYPE;
+    rarity: {
+      local?: number,
+      localPercentage?: number,
+      global?: number,
+      globalPercentage?: number;
+    }
+    tierInformation?: AchievementTier;
+    points: number;
+    totalAmountRequired?: number;
+    toString(): string;
+  }
+  class AchievementTier {
+    constructor(data: Record<string, unknown>);
+    maxTier: number;
+    getTier(tier:number): {
+      pointsRewarded?: number,
+      amountRequired?: number
+    }
+  }
+  class Challenges {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    challengesPerGame: Record<GAME_STATIC, GameChallenges>
+  }
+  class GameAchievement {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    totalPoints: number;
+    totalLegacyPoints: number;
+    achievements: Achievement[];
+  }
+  class GameChallenges {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    challenges: Map<string, ChallengeData>;
+  }
+  class GameQuests {
+    constructor(data: Record<string, unknown>);
+    game: GAME_STATIC;
+    quests: Quest[];
+  }
+  class GuildAchievements {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    achievements: Record<string, Achievement>;
+  }
+  class Quest {
+    constructor(data: Record<string, unknown>);
+    questName: string;
+    questID: string;
+    description: string;
+    type: QUEST_TYPE;
+    objectives: Objective[];
+    rewards: QuestReward[];
+    toString(): string;
+  }
+  class Quests {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    questsPerGame: Record<GAME_STATIC, GameQuests>;
+  }
+  class VanityCompanion extends VanityPet {
+    constructor(data: Record<string, unknown>);
+    name: string
+  }
+  class VanityCompanions extends VanityPets {
+    constructor(data: Record<string, unknown>);
+    companions: VanityCompanion[];
+  }
+  class VanityPet {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    key: string;
+    rarity?: string;
+    associatedColor?: string;
+    package: string;
+    toString(): string;
+  }
+  class VanityPets {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    rarityColors: RarityColor[]
+    pets: VanityPet[];
+  }
+  class Bingo {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    id: string;
+    row?: number;
+    column?: number;
+    rawLore: string;
+    lore: string;
+    tiers: number[];
+    type: BINGO_TYPE;
+    tierStep?: number;
+    requiredAmount?: number;
+    toString(): string;
   }
 }
