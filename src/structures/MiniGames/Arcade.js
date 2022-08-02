@@ -329,15 +329,15 @@ class MiniWalls extends BaseGame {
   constructor (data) {
     super(data, 'mini_walls');
     /**
-     * Total Arrows Hit
+     * Total Arrow Hits
      * @type {number}
      */
-    this.arrowHits = data.arrow_hits_mini_walls || 0;
+    this.arrowHits = data.arrows_hit_mini_walls || 0;
     /**
-     * Total Arrow shot
+     * Total Arrow shots
      * @type {number}
      */
-    this.arrowShots = data.arrow_shots_mini_walls || 0;
+    this.arrowShots = data.arrows_shot_mini_walls || 0;
     /**
      * Bow Accuracy based on hits/shots
      * @type {number}
