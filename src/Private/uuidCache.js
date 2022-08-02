@@ -1,5 +1,7 @@
 /* eslint-disable require-jsdoc */
-const fetch = require('node-fetch');
+const requireFetch = !globalThis.fetch;
+const externalFetch = require('node-fetch');
+const fetch = requireFetch ? externalFetch : fetch;
 const cachedUuids = new Map();
 
 // TODO - use this for all cache models
@@ -28,6 +30,8 @@ function checkHit (query) {
 module.exports = async (url, query) => {
   if (checkHit(query || url)) return checkHit(query || url);
   const res = await fetch(url);
-  setTimeout(putCache, 0, res);
-  return await res.clone();
+  const response = await res.clone().json();
+  // Don't cache 5xx
+  if (response.error !== 'Internal Server Error' && response.status < 500) setTimeout(putCache, 0, res.clone());
+  return res;
 };
