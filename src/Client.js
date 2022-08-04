@@ -30,21 +30,35 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
+    Client.prototype.skyblock = {};
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
-      Client.prototype[func] = function (...args) {
+      if (func === 'skyblock') continue;
+      Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
-            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
           },
           args);
       };
+    }
+    // eslint-disable-next-line guard-for-in
+    for (const func in API.skyblock) {
+      Client.prototype.skyblock[func] = (...args) => {
+        const lastArg = args[args.length - 1];
+        return API.skyblock[func].apply(
+          {
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
+            ...this
+          },
+          args);
+      };
+    }
 
-      if (this.options.checkForUpdates) {
-        updater.checkForUpdates();
-      }
+    if (this.options.checkForUpdates) {
+      updater.checkForUpdates();
     }
     /**
      * All cache entries
@@ -288,6 +302,22 @@ class Client extends EventEmitter {
    * .catch(console.log);
    */
   /**
+   * Allows you to get filtered skyblock auctions
+   * Using auction ID will return an array of at most 1 element
+   * @method
+   * @name Client#getSkyblockAuction
+   * @param {'PROFILE'|'PLAYER'|'AUCTION'} type - Filter to use
+   * @param {string} query - uuid of profile, player, or auction. IGN can be used as well
+   * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Auction[]>}
+   * @example
+   * hypixel.getSkyblockAuction('PLAYER', 'hypixel').then(auctions =>{
+   *   console.log(auctions[0].auctionId); // b0491da3e81c43c88fd287ea3b3eacc0
+   * })
+   * .catch(console.log);
+   */
+  /**
    * Allows you to get skyblock auctions
    * @method
    * @name Client#getSkyblockAuctions
@@ -301,8 +331,10 @@ class Client extends EventEmitter {
    * .catch(console.log);
    */
   /**
+   * DEPRECATION SOON : Use Client#getSkyblockAuction
    * Allows you to get player's skyblock auctions
    * @method
+   * @deprecated
    * @name Client#getSkyblockAuctionsByPlayer
    * @param {string} query - player nickname or uuid
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
@@ -379,6 +411,73 @@ class Client extends EventEmitter {
    * hypixel.getRankedSkyWars('StavZDev').then((ranked) => {
    *   console.log(ranked); // null
    * }).catch(console.log) // throws 404 error;
+   */
+  /**
+   * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+   * @method
+   * @name Client#getAchievements
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Achievements>}
+   * @example
+   * hypixel.getAchievements().then((achievements) => {
+   *   console.log(achievements.achievementsPerGame.bedwars.achievements[0].name); // Gets the first bedwars' achievement's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+   * @method
+   * @name Client#getChallenges
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Challenges>}
+   * @example
+   * hypixel.getChallenges().then((challenges) => {
+   *   console.log(challenges.challengesPerGame.bedwars.challenges[0].name); // Gets the first bedwars' challenge's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+   * @method
+   * @name Client#getGuildAchievements
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<GuildAchievements>}
+   * @example
+   * hypixel.getGuildAchievements().then((achievements) => {
+   *   console.log(achievements.achievements[0].name); // Gets the first guild achievement's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel quests [NO KEY REQUIRED]
+   * @method
+   * @name Client#getQuests
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Quests>}
+   * @example
+   * hypixel.getQuests().then((quests) => {
+   *   console.log(quests.questsPerGame.bedwars[0].name); // Gets the first bedwars' quest's name
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel vanity companions [NO KEY REQUIRED]
+   * @method
+   * @name Client#getVanityCompanions
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<VanityCompanions>}
+   * @example
+   * hypixel.getVanityCompanions().then((companions) => {
+   *   console.log(companions.companions.length); // Gets the number of companions
+   *   console.log(companions.rarityColor.find(([name, color])=>name === 'LEGENDARY')?.color)); // 'GOLD'
+   * }).catch(console.log);
+   */
+  /**
+   * Allows you to get information about hypixel vanity pets [NO KEY REQUIRED]
+   * @method
+   * @name Client#getVanityPets
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<VanityPets>}
+   * @example
+   * hypixel.getVanityPets().then((pets) => {
+   *   console.log(pets.pets.length); // Gets the number of pets
+   * }).catch(console.log);
    */
   /**
    * Delete x (by default all) cache entries
