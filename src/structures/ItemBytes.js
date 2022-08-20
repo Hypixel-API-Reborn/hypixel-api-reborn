@@ -1,5 +1,4 @@
-const nbt = require('prismarine-nbt');
-const parseNbt = (require('util')).promisify(nbt.parse);
+const { decode } = require('../utils/SkyblockUtils');
 /**
  * Item Bytes class
  */
@@ -28,9 +27,7 @@ class ItemBytes {
    * @return {any[]}
    */
   async readNBT () {
-    let data = await parseNbt(this.bytesBuffer);
-    data = nbt.simplify(data);
-    return Array.from(data.i);
+    return await decode(this.bytesBuffer, true);
   }
 }
 module.exports = ItemBytes;
