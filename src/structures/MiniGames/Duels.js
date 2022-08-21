@@ -5,11 +5,11 @@ const romanize = require('../../utils/romanize');
 const { duels_divisions } = require('../../utils/Constants');
 
 /**
- * @param {object<string,any>} data
+ * @param {Record<string,any>} data
  * @param {string|null} mode
- * @returns {string|undefined}
+ * @returns {string|null}
  */
-function getDivision (data, mode) {
+function getDivision (data, mode = null) {
   for (const div of duels_divisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
     if (prestige !== undefined) {
@@ -19,7 +19,7 @@ function getDivision (data, mode) {
   return null;
 }
 /**
- * @param {object<string,any>} data
+ * @param {Record<string,any>} data
  * @return {{kills:number,deaths:number}}
  */
 function getTotalKillsDeaths (data) {
@@ -105,7 +105,7 @@ class Duels {
      * @type {DuelsUHC}
      */
     this.uhc = {
-      'overall': {
+      overall: {
         division: getDivision(data, 'uhc'),
         winstreak: data.current_uhc_winstreak || 0,
         bestWinstreak: data.best_uhc_winstreak || 0,
@@ -237,7 +237,7 @@ class Duels {
      * @type {DuelsOP}
      */
     this.op = {
-      'overall': {
+      overall: {
         division: getDivision(data, 'op'),
         winstreak: data.current_op_winstreak || 0,
         bestWinstreak: data.best_op_winstreak || 0,
@@ -279,7 +279,7 @@ class Duels {
      * @type {DuelsSkyWars}
      */
     this.skywars = {
-      'overall': {
+      overall: {
         division: getDivision(data, 'skywars'),
         winstreak: data.current_skywars_winstreak || 0,
         bestWinstreak: data.best_skywars_winstreak || 0,
@@ -369,7 +369,7 @@ class Duels {
      * @type {DuelsBridge}
      */
     this.bridge = {
-      'overall': {
+      overall: {
         division: getDivision(data, 'bridge'),
         winstreak: data.current_bridge_winstreak || 0,
         bestWinstreak: data.best_bridge_winstreak || 0,
@@ -518,8 +518,8 @@ class Duels {
 }
 /**
  * @typedef {object} DuelsModeStats
- * @property {number|undefined} winstreak Current winstreak
- * @property {number|undefined} bestWinstreak Best winstreak
+ * @property {number} winstreak Current winstreak
+ * @property {number} bestWinstreak Best winstreak
  * @property {string|null} division Division
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -531,8 +531,8 @@ class Duels {
  */
 /**
  * @typedef {object} BridgeModeStats
- * @property {number|undefined} winstreak Current winstreak
- * @property {number|undefined} bestWinstreak Best winstreak
+ * @property {number} winstreak Current winstreak
+ * @property {number} bestWinstreak Best winstreak
  * @property {string|null} division Division
  * @property {number} kills Kills
  * @property {number} deaths Deaths
@@ -541,7 +541,6 @@ class Duels {
  * @property {number} KDRatio Kill/Death ratio
  * @property {number} WLRatio Win/Loss ratio
  * @property {number} playedGames Played games
- * @property {number} goals Goals
  */
 /**
  * @typedef {object} DuelsBowspleef
@@ -569,6 +568,7 @@ class Duels {
  */
 /**
  * @typedef {object} DuelsParkour
+ * @property {string|null} division Division
  * @property {number} deaths Deaths
  * @property {number} wins Wins
  * @property {number} losses Losses
@@ -577,7 +577,7 @@ class Duels {
  */
 /**
  * @typedef {object} DuelsBoxing
- * @property {string} division Division
+ * @property {string|null} division Division
  * @property {number} kills Kills
  * @property {number} wins Wins
  * @property {number} losses Losses
