@@ -43,6 +43,7 @@
                 "SwitchCase": 1
             }
         ],
+        "quote-props": ["error", "as-needed"],
         "object-curly-spacing": "off",
         "space-before-function-paren": "off",
         "semi": "error",
