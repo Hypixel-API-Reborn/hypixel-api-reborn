@@ -7,10 +7,10 @@ class SimplifiedSkyblock {
    * @param {Object} data data
    */
   constructor (data) {
-    const formattedProfiles = Object.fromEntries(Object.entries(data?.profiles || {}).map(([key, val])=>[key, {
+    const formattedProfiles = Object.entries(data?.profiles || {}).map(([key, val])=>[key, {
       name: val.cute_name,
       id: val.profile_id
-    }]));
+    }]);
     /**
      * @type {SimplifiedSkyblockProfilesList<string, SimplifiedSkyblockProfile>}
      */
