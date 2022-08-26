@@ -40,7 +40,7 @@ class Pit {
      * Playtime in SECONDS
      * @type {number}
      */
-    this.playtime = (stats.playtimeMinutes || 0) * 60;
+    this.playtime = (stats.playtime_minutes || 0) * 60;
     /**
      * Times the played joined Pit
      * @type {number}
@@ -99,12 +99,12 @@ class Pit {
      * Damage received by arrow
      * @type {number}
      */
-    this.bowDamageReceived = stats.arrow_damage_received || 0;
+    this.bowDamageReceived = stats.bow_damage_received || 0;
     /**
      * Damage dealt with bow
      * @type {number}
      */
-    this.bowDamageDealt = stats.arrow_damage_dealt || 0;
+    this.bowDamageDealt = stats.bow_damage_dealt || 0;
     /**
      * Arrows hit
      * @type {number}
