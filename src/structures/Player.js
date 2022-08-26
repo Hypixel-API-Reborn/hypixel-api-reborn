@@ -234,7 +234,7 @@ class Player {
       turbokartracers: (data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null),
       walls: (data.stats.Walls ? new Walls(data.stats.Walls) : null),
       warlords: (data.stats.Battleground ? new Warlords(data.stats.Battleground) : null),
-      pit: null,
+      pit: (data.stats.Pit ? new Pit(data.stats.Pit) : null),
       skyblock: (data.stats.SkyBlock ? new SimplifiedSkyblock(data.stats.SkyBlock) : null)
     } : null);
     /**
