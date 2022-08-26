@@ -25,6 +25,7 @@ const Quakecraft = require('./MiniGames/Quakecraft');
 const Walls = require('./MiniGames/Walls');
 const Warlords = require('./MiniGames/Warlords');
 const SimplifiedSkyblock = require('./MiniGames/SimplifiedSkyblock');
+const WoolWars = require('./MiniGames/WoolWars');
 /**
  * Player class
  */
@@ -235,6 +236,7 @@ class Player {
       walls: (data.stats.Walls ? new Walls(data.stats.Walls) : null),
       warlords: (data.stats.Battleground ? new Warlords(data.stats.Battleground) : null),
       pit: (data.stats.Pit ? new Pit(data.stats.Pit) : null),
+      woolwars: (data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null),
       skyblock: (data.stats.SkyBlock ? new SimplifiedSkyblock(data.stats.SkyBlock) : null)
     } : null);
     /**
