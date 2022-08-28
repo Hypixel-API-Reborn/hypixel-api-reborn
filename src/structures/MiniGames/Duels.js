@@ -12,7 +12,7 @@ const { duels_divisions } = require('../../utils/Constants');
 function getDivision (data, mode = null) {
   for (const div of duels_divisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
-    if (prestige !== undefined) {
+    if (prestige) {
       return `${div.name} ${romanize(prestige)}`;
     }
   }
@@ -153,7 +153,7 @@ class Duels {
         WLRatio: divide(data.uhc_four_wins, data.uhc_four_losses),
         playedGames: data.uhc_four_rounds_played || 0
       },
-      'meetup': {
+      meetup: {
         division: getDivision(data, 'uhc'),
         winstreak: data.current_winstreak_mode_uhc_meetup || 0,
         bestWinstreak: data.best_winstreak_mode_uhc_meetup || 0,
