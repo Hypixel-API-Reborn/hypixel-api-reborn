@@ -432,9 +432,9 @@ function getRankedPositions (data, extraRSWData) {
     const initDate = new Date(1000 * 60 * 60 * 5);
     map.set(computedKey, {
       ...map.get(computedKey),
-      'seasonKey': computedKey,
+      seasonKey: computedKey,
       [type]: parseInt(data[property], 10) || 0,
-      'date': new Date(initDate.setFullYear(2000 + year, month - 1, 1))
+      date: new Date(initDate.setFullYear(2000 + year, month - 1, 1))
     });
   }
   if (extraRSWData) map.set(extraRSWData.seasonKey, extraRSWData);

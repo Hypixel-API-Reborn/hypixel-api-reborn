@@ -166,7 +166,7 @@ class Arcade {
      * Capture The Wool
      * @type {{kills: number, captures: number}}
      */
-    this.captureTheWool = { 'kills': data.arcade_ctw_slayer || 0, 'captures': data.arcade_ctw_oh_sheep || 0 };
+    this.captureTheWool = { kills: data.arcade_ctw_slayer || 0, captures: data.arcade_ctw_oh_sheep || 0 };
   }
 }
 /**
