@@ -101,6 +101,10 @@ export interface auctionsOptions extends methodOptions {
   race?: boolean;
   includeItemBytes?: boolean;
 }
+export interface RarityColor {
+  name: string;
+  color: string;
+}
 declare module 'hypixel-api-reborn' {
   const version: string;
   const Errors: {
@@ -437,10 +441,93 @@ declare module 'hypixel-api-reborn' {
       walls?: Walls,
       warlords?: Warlords,
       arcade?: Arcade;
+      pit?: Pit;
+      woolwars?: WoolWars;
+      skyblock?: SimplifiedSkyblock;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
     toString(): string;
+  }
+  class WoolWars {
+    static convertXPToLevel(exp: number): number;
+    static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
+    constructor(data: Record<string, unknown>);
+    layers: number;
+    xp: number;
+    exactLevel: number;
+    level: number;
+    coins: number;
+    selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
+    stats: {
+        overall: WoolWarsStats;
+        assault: WoolWarsStats;
+        tank: WoolWarsStats;
+        golem: WoolWarsStats;
+        swordsman: WoolWarsStats;
+        engineer: WoolWarsStats;
+        archer: WoolWarsStats;
+    };
+    ownedCosmetics: string[];
+    privateGamesConfig: PrivateGamesConfig;
+  }
+  type WoolWarsStats = {
+      roundWins: number;
+      gamesPlayed: number;
+      woolsPlaced: number;
+      blocksBroken: number;
+      placeBreakRatio: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      assists: number;
+      powerups: number;
+  }
+  type PrivateGamesConfig = {
+      one_hit_one_kill: boolean;
+      rainbow_wool: 'Enabled' | 'Disabled';
+      health_buff: string;
+      game_speed: string;
+      speed: string;
+      no_class: 'Enabled' | 'Disabled';
+  }
+  class Pit {
+    constructor(data: Record<string, unknown>);
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    maxKillStreak: number;
+    playtime: number;
+    joins: number;
+    damageReceived: number;
+    damageDealt: number;
+    damageRatio: number;
+    meleeDamageReceived: number;
+    meleeDamageDealt: number;
+    swordHits: number;
+    leftClicks: number;
+    meleeAccuracy: number;
+    meleeDamageRatio: number;
+    bowDamageReceived: number;
+    bowDamageDealt: number;
+    arrowsHit: number;
+    arrowsFired: number;
+    bowAccuracy: number;
+    bowDamageRatio: number;
+    goldenHeadsEaten: number;
+  }
+  class SimplifiedSkyblock {
+    constructor(data: Record<string, unknown>);
+    profiles: SimplifiedSkyblockProfilesList<string, SimplifiedSkyblockProfile>;
+  }
+  class SimplifiedSkyblockProfilesList<K, V> extends Map {
+    constructor(...args: SimplifiedSkyblockProfile[]);
+    getProfileByName(query: string): SimplifiedSkyblockProfile|null;
+  }
+  interface SimplifiedSkyblockProfile {
+    name: string;
+    id: string;
   }
   class SkyWarsRanked {
     constructor(data: Record<string, unknown>);
