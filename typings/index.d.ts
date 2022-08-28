@@ -101,6 +101,9 @@ export interface auctionsOptions extends methodOptions {
   race?: boolean;
   includeItemBytes?: boolean;
 }
+export interface playerBingoOptions extends methodOptions {
+  fetchBingoData?: boolean;
+}
 export interface RarityColor {
   name: string;
   color: string;
@@ -298,6 +301,17 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
     /**
+     * Allows you to get filtered skyblock auctions
+     * Using auction ID will return an array of at most 1 element
+     * @method
+     * @name Client#getSkyblockAuction
+     * @param type - Filter to use
+     * @param query - uuid of profile, player, or auction. IGN can be used as well
+     * @param includeItemBytes - include item bytes (optional)
+     * @param options - Options
+     */
+    getSkyblockAuction(type: 'PROFILE'|'PLAYER'|'AUCTION', query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
+    /**
      * @description Allows you to get all skyblock auctions
      * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
      * @param options Options
@@ -310,6 +324,7 @@ declare module 'hypixel-api-reborn' {
     getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: PartialAuction[]; }>;
     /**
      * @description Allows you to get all auctions of player
+     * @deprecated Use Client#getSkyblockAuction
      * @param query - player nickname or uuid
      * @param includeItemBytes - include item bytes (optional)
      */
@@ -318,6 +333,19 @@ declare module 'hypixel-api-reborn' {
      * @description Allows you to get list of products
      */
     getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+    /**
+     * @description Gets bingo data
+     */
+    getSkyblockBingo(options?: methodOptions): Promise<BingoData>;
+    /**
+     * @description Gets bingo data of a player
+     * @param query - UUID/IGN of player
+     */
+    getSkyblockBingoByPlayer(query: string, options?: playerBingoOptions): Promise<PlayerBingo>;
+    /**
+     * @description Gets data of skyblock government
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
     /**
      * @description Allows you to get skyblock news
      */
@@ -357,6 +385,30 @@ declare module 'hypixel-api-reborn' {
      * @param query - player nickname or uuid
      */
     getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked | null>;
+    /**
+     * @description Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+     */
+    getChallenges(options?: methodOptions): Promise<Challenges>;
+    /**
+     * @description Allows you to get information about hypixel quests [NO KEY REQUIRED]
+     */
+    getQuests(options?: methodOptions): Promise<Quests>;
+    /**
+     * @description Allows you to get information about hypixel vanity companions [NO KEY REQUIRED]
+     */
+    getVanityCompanions(options?: methodOptions): Promise<VanityCompanions>;
+    /**
+     * @description Allows you to get information about hypixel vanity pets [NO KEY REQUIRED]
+     */
+    getVanityPets(options?: methodOptions): Promise<VanityPets>;
+    /**
+     * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+     */
+    getAchievements(options?: methodOptions): Promise<Achievements>;
+    /**
+     * @description Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+     */
+    getGuildAchievements(options?: methodOptions): Promise<GuildAchievements>;
     /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
@@ -1108,6 +1160,46 @@ declare module 'hypixel-api-reborn' {
     pricePerUnit: number;
     totalPrice: number;
     orders: number;
+  }
+  class BingoData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    id: number | null;
+    goals: Bingo[] | null;
+    getGoal(column: number, row: number): Bingo | undefined;
+  }
+  class PlayerBingo {
+    constructor(data: Record<string, unknown>, bingoData: BingoData | null);
+    dataPerEvent: PlayerBingoDataPerEvent[];
+  }
+  type PlayerBingoDataPerEvent = {
+    eventId: number;
+    points: number;
+    enrichedGoals: boolean;
+    goalsCompleted: SpecialBingoArray | string[];
+  }
+  type SpecialBingoArray = Bingo[] & {
+    'unachievedGoals': Bingo[];
+  }
+  class GovernmentData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    lastElectionResults: Map<string, Candidate>;
+    mayor: Candidate;
+    runningYear: number;
+    currentElectionResults: Map<string, Candidate>;
+    currentElectionFor: number | null;
+  }
+  class Candidate {
+    constructor(data: Record<string, unknown>, isMayor?: boolean | undefined);
+    name: string;
+    keyBenefit: string;
+    perks: Record<'name' | 'description', string>[];
+    isMayor: boolean;
+    votesReceived: number;
+    toString(): string;
   }
   class WatchdogStats {
     constructor(data: Record<string, unknown>);

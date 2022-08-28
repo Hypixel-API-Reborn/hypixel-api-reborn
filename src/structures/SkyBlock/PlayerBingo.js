@@ -16,7 +16,7 @@ class PlayerBingo {
     const events = data.success && Array.isArray(data.events) ? data.events : [];
     /**
      * Data per event
-     * @type {PlayerBingoDataPerEvent}
+     * @type {PlayerBingoDataPerEvent[]}
      */
     this.dataPerEvent = events.map((eventData) => {
       let doneGoals = eventData.completed_goals;
