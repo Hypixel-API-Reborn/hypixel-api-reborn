@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 const constants = require('./Constants');
 module.exports = {
-  async decode (base64) {
+  async decode (base64, isBuffer=false) {
     const nbt = require('prismarine-nbt');
     const parseNbt = (require('util')).promisify(nbt.parse);
-    const buffer = Buffer.from(base64, 'base64');
+    const buffer = isBuffer ? base64 : Buffer.from(base64, 'base64');
     let data = await parseNbt(buffer);
     data = nbt.simplify(data);
     const newdata = [];

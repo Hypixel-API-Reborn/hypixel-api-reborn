@@ -2417,6 +2417,7 @@ declare module 'hypixel-api-reborn' {
       kills: number,
       wins: number,
       losses: number,
+      WLRatio: number,
       playedGames: number,
       meleeSwings: number,
       meleeHits: number;
@@ -2665,6 +2666,30 @@ declare module 'hypixel-api-reborn' {
         playedGames: number;
       },
       '4v4': {
+        division?: string,
+        winstreak: number,
+        bestWinstreak: number,
+        kills: number,
+        deaths: number,
+        wins: number,
+        losses: number,
+        KDRatio: number,
+        WLRatio: number,
+        playedGames: number;
+      },
+      '2v2v2v2': {
+        division?: string,
+        winstreak: number,
+        bestWinstreak: number,
+        kills: number,
+        deaths: number,
+        wins: number,
+        losses: number,
+        KDRatio: number,
+        WLRatio: number,
+        playedGames: number;
+      },
+      '3v3v3v3': {
         division?: string,
         winstreak: number,
         bestWinstreak: number,
