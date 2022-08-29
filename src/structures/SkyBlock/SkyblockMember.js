@@ -4,7 +4,6 @@ const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Co
 const { single } = require('../../utils/removeSnakeCase');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
-const objectPath = require('object-path');
 /**
  * Skyblock member class
  */
@@ -213,7 +212,7 @@ class SkyblockMember {
  */
 function getSkills(data) {
   const skillsObject = {};
-  if (!objectPath.has(data, 'experience_skill_foraging')) {
+  if (!('experience_skill_foraging' in data)) {
     if (data.player) {
       for (const [skill, achievement] of Object.entries(skills_achievements)) {
         skillsObject[skill] = getLevelByAchievement(data.player.achievements[achievement], skill);
