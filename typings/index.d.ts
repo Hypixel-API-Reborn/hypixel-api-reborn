@@ -276,7 +276,7 @@ declare module 'hypixel-api-reborn' {
      * @param searchParameter - 'name', 'player' or 'id'
      * @param query - guild name, player nickname or guild id
      */
-    getGuild(searchParameter: ('name' | 'player' | 'id'), query: string, options: methodOptions): Promise<Guild>;
+    getGuild(searchParameter: ('name' | 'player' | 'id'), query: string, options?: methodOptions): Promise<Guild>;
     /**
      * @description Allows you to get all friends of player
      * @param query - player nickname or uuid
