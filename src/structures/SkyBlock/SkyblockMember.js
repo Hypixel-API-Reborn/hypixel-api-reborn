@@ -233,7 +233,7 @@ function getSkills(data) {
  * @return {object}
  */
 function getSlayer(data) {
-  if (!objectPath.has(data, 'slayer_bosses')) {
+  if (!('slayer_bosses' in data)) {
     return null;
   }
   return {
@@ -247,7 +247,7 @@ function getSlayer(data) {
  * @return {object}
  */
 function getDungeons(data) {
-  if (!objectPath.has(data, 'dungeons')) {
+  if (!('dungeons' in data)) {
     return null;
   }
   return {
