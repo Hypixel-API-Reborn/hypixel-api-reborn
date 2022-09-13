@@ -240,7 +240,8 @@ function getSlayer(data) {
   return {
     zombie: getSlayerLevel(data.slayer_bosses.zombie),
     spider: getSlayerLevel(data.slayer_bosses.spider),
-    wolf: getSlayerLevel(data.slayer_bosses.wolf)
+    wolf: getSlayerLevel(data.slayer_bosses.wolf),
+    enderman: getSlayerLevel(data.slayer_bosses.enderman)
   };
 }
 /**
