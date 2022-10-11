@@ -2155,6 +2155,7 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     coins: number;
     kills: number;
+    killstreak: number;
     deaths: number;
     KDRatio: number;
     wins: number;
@@ -2162,6 +2163,31 @@ declare module 'hypixel-api-reborn' {
     WLRatio: number;
     playedGames: number;
     winstreak: number;
+    blocksBroken: number;
+    blocksPlaced: number;
+    quits: number;
+    itemsEnchanted: number;
+    assists: number;
+    solo : {
+      kills: number,
+      deaths: number,
+      wins: number,
+      losses: number,
+      playedGames: number,
+      winstreak: number,
+      killstreak: number;
+      assists: number;
+    }
+    team : {
+      kills: number,
+      deaths: number,
+      wins: number,
+      losses: number,
+      playedGames: number,
+      winstreak: number,
+      killstreak: number;
+      assists: number;
+    }
   }
   class MurderMystery {
     constructor(data: Record<string, unknown>);
