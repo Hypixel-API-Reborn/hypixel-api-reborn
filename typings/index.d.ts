@@ -2167,6 +2167,27 @@ declare module 'hypixel-api-reborn' {
     blocksPlaced: number;
     quits: number;
     itemsEnchanted: number;
+    assists: number;
+    solo : {
+      kills: number,
+      deaths: number,
+      wins: number,
+      losses: number,
+      playedGames: number,
+      winstreak: number,
+      killstreak: number;
+      assists: number;
+    }
+    team : {
+      kills: number,
+      deaths: number,
+      wins: number,
+      losses: number,
+      playedGames: number,
+      winstreak: number,
+      killstreak: number;
+      assists: number;
+    }
   }
   class MurderMystery {
     constructor(data: Record<string, unknown>);

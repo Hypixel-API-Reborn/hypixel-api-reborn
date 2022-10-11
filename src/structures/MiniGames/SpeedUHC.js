@@ -77,6 +77,40 @@ class SpeedUHC {
      * @type {number}
      */
      this.itemsEnchanted = data.items_enchanted || 0;
+    /**
+     * Assists
+     * @type {number}
+     */
+     this.assists = data.assists || 0;
+    /**
+     * Solo
+     * @type {SpeedUHCModeStats}
+     */
+     this.solo = {
+        kills: data.kills_solo || 0,
+        deaths: data.deaths_solo || 0,
+        wins: data.wins_solo || 0,
+        losses: data.losses_solo || 0,
+        playedGames: data.games_solo || 0,
+        winstreak: data.win_streak_solo || 0,
+        killstreak: data.killstreak_solo || 0,
+        assists: data.assists_solo || 0,
+     };
+    /**
+     * Team
+     * @type {SpeedUHCModeStats}
+     */
+      this.teams = {
+        kills: data.kills_team || 0,
+        deaths: data.deaths_team || 0,
+        wins: data.wins_team || 0,
+        losses: data.losses_team || 0,
+        playedGames: data.games_team || 0,
+        winstreak: data.win_streak_team || 0,
+        killstreak: data.killstreak_team || 0,
+        assists: data.assists_team || 0,
+      };
+
   }
 }
 module.exports = SpeedUHC;
