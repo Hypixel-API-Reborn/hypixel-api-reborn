@@ -52,6 +52,31 @@ class SpeedUHC {
      * @type {number}
      */
     this.winstreak = data.win_streak || 0;
+    /**
+     * Killstreak
+     * @type {number}
+     */
+     this.killstreak = data.killstreak || 0;
+    /**
+     * Blocks Broken
+     * @type {number}
+     */
+     this.blocksBroken = data.blocks_broken || 0;
+    /**
+     * Blocks Placed
+     * @type {number}
+     */
+     this.blocksPlaced = data.blocks_placed || 0;
+    /**
+     * Game Quits
+     * @type {number}
+     */
+     this.quits = data.quits || 0;
+    /**
+     * Items Enchanted
+     * @type {number}
+     */
+     this.itemsEnchanted = data.items_enchanted || 0;
   }
 }
 module.exports = SpeedUHC;
