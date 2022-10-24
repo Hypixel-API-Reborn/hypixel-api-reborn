@@ -256,10 +256,10 @@ class Player {
      * @type {RanksPurchaseTime}
      */
     this.ranksPurchaseTime = {
-      'VIP': data.levelUp_VIP ? new Date(data.levelUp_VIP) : null,
-      'VIP_PLUS': data.levelUp_VIP_PLUS ? new Date(data.levelUp_VIP_PLUS) : null,
-      'MVP': data.levelUp_MVP ? new Date(data.levelUp_MVP) : null,
-      'MVP_PLUS': data.levelUp_MVP_PLUS ? new Date(data.levelUp_MVP_PLUS) : null
+      VIP: data.levelUp_VIP ? new Date(data.levelUp_VIP) : null,
+      VIP_PLUS: data.levelUp_VIP_PLUS ? new Date(data.levelUp_VIP_PLUS) : null,
+      MVP: data.levelUp_MVP ? new Date(data.levelUp_MVP) : null,
+      MVP_PLUS: data.levelUp_MVP_PLUS ? new Date(data.levelUp_MVP_PLUS) : null
     };
   }
   /**
