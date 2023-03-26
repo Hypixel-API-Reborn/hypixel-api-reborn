@@ -1,7 +1,6 @@
 module.exports = {
   getAPIStatus: require('./getAPIStatus'),
   getBoosters: require('./getBoosters'),
-  getFriends: require('./getFriends'),
   getGameCounts: require('./getGameCounts'),
   getGuild: require('./getGuild'),
   getKeyInfo: require('./getKeyInfo'),

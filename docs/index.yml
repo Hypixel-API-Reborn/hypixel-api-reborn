@@ -10,8 +10,6 @@
       path: getPlayer.md
     - name: getGuild
       path: getGuild.md
-    - name: getFriends
-      path: getFriends.md
     - name: getStatus
       path: getStatus.md
     - name: getRecentGames
