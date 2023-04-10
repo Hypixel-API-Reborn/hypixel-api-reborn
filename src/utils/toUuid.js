@@ -9,7 +9,7 @@ module.exports = async (input) => {
   try {
     const res = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`, input);
     const parsedRes = await res.json();
-    if (res.status == 404) {
+    if (res.status === 404) {
       return Promise.reject(new Error(Errors.PLAYER_DOES_NOT_EXIST));
     }
     return parsedRes.id;
