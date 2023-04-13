@@ -34,7 +34,7 @@
     "node-fetch": "^2.6.1",
     "object-path": "^0.11.8",
     "prismarine-nbt": "^2.1.0",
-    "rss-parser": "^3.12.0"
+    "rss-parser": "^3.13.0"
   },
   "license": "MIT",
   "readme": "https://hypixel.stavzdev.me/",
