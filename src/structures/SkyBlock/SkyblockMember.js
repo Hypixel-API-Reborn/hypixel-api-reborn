@@ -78,7 +78,7 @@ class SkyblockMember {
 		 * Heart of the Mountain - MiningSkill
 		 * @returns {number}
 		 */
-		this.hotm = data.m.mining_core.experience;
+		this.hotm = data.m.mining_core?.experience ?? 0;
 		/**
 		 * Equipped armor
 		 * @return {Promise<SkyblockMemberArmor>}
