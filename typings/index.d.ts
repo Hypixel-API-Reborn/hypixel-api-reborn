@@ -1088,6 +1088,7 @@ declare module 'hypixel-api-reborn' {
     lastDeathAt: Date;
     fairyExchanges: number;
     fairySouls: number;
+    experience: number;
     skills: {
       taming: SKYBLOCK_SKILL_DATA,
       farming: SKYBLOCK_SKILL_DATA,
