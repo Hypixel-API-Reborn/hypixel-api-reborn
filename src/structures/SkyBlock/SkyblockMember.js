@@ -70,6 +70,11 @@ class SkyblockMember {
      */
     this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
     /**
+		 * Experience
+		 * @type {number}
+		 */
+		this.experience = data.m.leveling?.experience ?? 0;
+    /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
      */
