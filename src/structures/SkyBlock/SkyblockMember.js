@@ -83,7 +83,7 @@ class SkyblockMember {
 		 * Trophy fish amount of rewards
 		 * @returns {number}
 		 */
-		this.trophyFish = data.m.trophyFish?.rewards.length ?? 0;
+		this.trophyFish = data.m.trophy_fish?.rewards.length ?? 0;
 		/**
 		 * Equipped armor
 		 * @return {Promise<SkyblockMemberArmor>}
