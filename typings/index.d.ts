@@ -739,9 +739,7 @@ declare module "hypixel-api-reborn" {
 		/**
 		 * @description Allows you to get leaderboards of each mini-game
 		 */
-		getLeaderboards(
-			options?: methodOptions,
-		): Promise<{
+		getLeaderboards(options?: methodOptions): Promise<{
 			ARENA: Leaderboard[];
 			COPS_AND_CRIMS: Leaderboard[];
 			WARLORDS: Leaderboard[];
@@ -1715,6 +1713,7 @@ declare module "hypixel-api-reborn" {
 		fairySouls: number;
 		experience: number;
 		hotm: number;
+		trophyFish: number;
 		skills: {
 			taming: SKYBLOCK_SKILL_DATA;
 			farming: SKYBLOCK_SKILL_DATA;

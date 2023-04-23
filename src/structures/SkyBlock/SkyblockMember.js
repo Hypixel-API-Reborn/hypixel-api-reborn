@@ -80,6 +80,11 @@ class SkyblockMember {
 		 */
 		this.hotm = data.m.mining_core?.experience ?? 0;
 		/**
+		 * Trophy fish amount of rewards
+		 * @returns {number}
+		 */
+		this.trophyFish = data.m.trophyFish?.rewards.length ?? 0;
+		/**
 		 * Equipped armor
 		 * @return {Promise<SkyblockMemberArmor>}
 		 */
