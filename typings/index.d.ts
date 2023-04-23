@@ -1714,6 +1714,7 @@ declare module "hypixel-api-reborn" {
 		experience: number;
 		hotm: number;
 		trophyFish: number;
+		highestMagicalPower: number;
 		skills: {
 			taming: SKYBLOCK_SKILL_DATA;
 			farming: SKYBLOCK_SKILL_DATA;

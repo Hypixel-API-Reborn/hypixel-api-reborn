@@ -85,6 +85,11 @@ class SkyblockMember {
 		 */
 		this.trophyFish = data.m.trophy_fish?.rewards.length ?? 0;
 		/**
+		 * The highest magical power **Not current one**
+		 * @returns {number}
+		 */
+		this.highestMagicalPower = data.m.accessory_bag_storage?.highest_magical_power ?? 0;
+		/**
 		 * Equipped armor
 		 * @return {Promise<SkyblockMemberArmor>}
 		 */
