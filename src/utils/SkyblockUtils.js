@@ -114,7 +114,7 @@ module.exports = {
     let level = 0;
     for (const level_name in claimed_levels) {
       if (Object.prototype.hasOwnProperty.call(claimed_levels, level_name)) {
-        const _level = parseInt(level_name.split('_').pop(), 10);
+        const _level = parseInt(level_name.replace("_special", "").split('_').pop(), 10);
         if (_level > level) {
           level = _level;
         }
