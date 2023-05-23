@@ -417,11 +417,53 @@ declare module 'hypixel-api-reborn' {
       turbokartracers?: TurboKartRacers,
       walls?: Walls,
       warlords?: Warlords,
-      arcade?: Arcade;
+      arcade?: Arcade,
+      woolwars?: WoolWars;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
     toString(): string;
+  } class WoolWars {
+    static convertXPToLevel(exp: number): number;
+    static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
+    constructor(data: Record<string, unknown>);
+    layers: number;
+    xp: number;
+    exactLevel: number;
+    level: number;
+    coins: number;
+    selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
+    stats: {
+        overall: WoolWarsStats;
+        assault: WoolWarsStats;
+        tank: WoolWarsStats;
+        golem: WoolWarsStats;
+        swordsman: WoolWarsStats;
+        engineer: WoolWarsStats;
+        archer: WoolWarsStats;
+    };
+    ownedCosmetics: string[];
+    privateGamesConfig: PrivateGamesConfig;
+  }
+  type WoolWarsStats = {
+      roundWins: number;
+      gamesPlayed: number;
+      woolsPlaced: number;
+      blocksBroken: number;
+      placeBreakRatio: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      assists: number;
+      powerups: number;
+  }
+  type PrivateGamesConfig = {
+      one_hit_one_kill: boolean;
+      rainbow_wool: 'Enabled' | 'Disabled';
+      health_buff: string;
+      game_speed: string;
+      speed: string;
+      no_class: 'Enabled' | 'Disabled';
   }
   class SkyWarsRanked {
     constructor(data: Record<string, unknown>);
