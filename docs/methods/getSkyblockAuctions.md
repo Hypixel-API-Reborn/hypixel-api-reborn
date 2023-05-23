@@ -2,7 +2,7 @@
 Allows you to get skyblock auctions
 ## Arguments
 - "*", a page number, or an array with the start and the end page number (automatically sorted)
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/auctionsOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/auctionsOptions) (optional)
 
 ## Example usage
 ```js
@@ -122,7 +122,7 @@ console.log(data);
 }
 ```
 ## Links
-- [getSkyblockAuctions](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctions)
-- [AuctionInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/AuctionInfo)
-- [Auction](https://hypixel.stavzdev.me/#/docs/main/master/class/Auction)
-- [Bid](https://hypixel.stavzdev.me/#/docs/main/master/class/Bid)
+- [getSkyblockAuctions](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctions)
+- [AuctionInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/AuctionInfo)
+- [Auction](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Auction)
+- [Bid](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Bid)

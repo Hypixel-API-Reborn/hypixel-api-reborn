@@ -2,7 +2,7 @@
 Allows you to get Ranked SkyWars data for current season of a player
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -31,4 +31,4 @@ SkyWarsRanked {
 }
 ```
 ## Links
-- [SkyWarsRanked](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyWarsRanked)
+- [SkyWarsRanked](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyWarsRanked)

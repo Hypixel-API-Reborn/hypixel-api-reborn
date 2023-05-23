@@ -3,7 +3,7 @@ Allows you to get statistics of hypixel guild.
 ## Arguments
 - Search parameter. ('player', 'name' or 'id')
 - Player UUID/Nickname or Guild Name or Guild ID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -76,9 +76,9 @@ Guild {
 }
 ```
 ## Links
-- [getGuild](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getGuild)
-- [Guild](https://hypixel.stavzdev.me/#/docs/main/master/class/Guild)
-- [GuildMember](https://hypixel.stavzdev.me/#/docs/main/master/class/GuildMember)
-- [GuildRank](https://hypixel.stavzdev.me/#/docs/main/master/class/GuildRank)
-- [Color](https://hypixel.stavzdev.me/#/docs/main/master/class/Color)
-- [Game](https://hypixel.stavzdev.me/#/docs/main/master/class/Game)
+- [getGuild](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getGuild)
+- [Guild](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Guild)
+- [GuildMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/GuildMember)
+- [GuildRank](https://hypixel-api-reborn.github.io/#/docs/main/master/class/GuildRank)
+- [Color](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Color)
+- [Game](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Game)
