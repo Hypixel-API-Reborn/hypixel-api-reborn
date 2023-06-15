@@ -28,6 +28,11 @@ class SkyblockProfile {
      * @type {SkyblockMember}
      */
     this.me = this.members.find((x) => x.uuid === data.me);
+    /**
+     * Is the profile selected
+     * @type {boolean}
+     */
+    this.selected = data.selected
   }
   /**
    * Profile Name
