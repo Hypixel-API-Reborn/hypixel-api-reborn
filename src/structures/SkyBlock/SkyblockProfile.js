@@ -32,7 +32,7 @@ class SkyblockProfile {
      * Is the profile selected
      * @type {boolean}
      */
-    this.selected = data.selected
+    this.selected = data.selected;
   }
   /**
    * Profile Name
