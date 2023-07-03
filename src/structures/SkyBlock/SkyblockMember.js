@@ -262,6 +262,7 @@ function getSlayer(data) {
 		wolf: getSlayerLevel(data.slayer_bosses.wolf),
 		enderman: getSlayerLevel(data.slayer_bosses.enderman),
 		blaze: getSlayerLevel(data.slayer_bosses.blaze),
+		vampire: getSlayerLevel(data.slayer_bosses.vampire)
 	};
 }
 /**

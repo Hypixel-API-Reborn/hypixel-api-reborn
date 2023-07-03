@@ -1735,6 +1735,7 @@ declare module "hypixel-api-reborn" {
 			wolf: SKYBLOCK_SLAYER_DATA;
 			enderman: SKYBLOCK_SLAYER_DATA;
 			blaze: SKYBLOCK_SLAYER_DATA;
+			vampire: SKYBLOCK_SLAYER_DATA;
 		};
 		dungeons: {
 			types: {
