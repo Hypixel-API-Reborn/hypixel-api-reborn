@@ -131,6 +131,11 @@ class SkyblockMember {
 		 */
 		this.skills = getSkills(data.m);
 		/**
+		 * Bestiary of the user
+		 * @type {object}
+		 */
+		this.bestiary = getBestiary(data.m);
+		/**
 		 * Skyblock member slayer
 		 * @type {SkyblockMemberSlayer|null}
 		 */
@@ -247,6 +252,68 @@ function getSkills(data) {
 	}
 	if (data.player) skillsObject.usedAchievementApi = false;
 	return skillsObject;
+}
+/**
+ * @param {object} data 
+ * @returns {object}
+ */
+function getBestiary(data) {
+	const output = {};
+  
+	const userProfile = data;
+  
+	if (!("unlocked_coll_tiers" in userProfile) || !("collection" in userProfile)) {
+	  return output;
+	}
+  
+	const result = {
+	  level: 0,
+	  categories: {},
+	};
+  
+	let totalCollection = 0;
+	const bestiaryFamilies = {};
+	for (const [name, value] of Object.entries(userProfile.bestiary || {})) {
+	  if (name.startsWith("kills_family_")) {
+		bestiaryFamilies[name] = value;
+	  }
+	}
+  
+	for (const family of Object.keys(constants.bestiary)) {
+	  result.categories[family] = {};
+	  for (const mob of constants.bestiary[family].mobs) {
+		const mobName = mob.id.substring(13);
+  
+		const boss = mob.boss == true ? "boss" : "regular";
+  
+		const kills = bestiaryFamilies[mob.id] || 0;
+		const head = mob.head;
+		const itemId = mob.itemId;
+		const damage = mob.damage;
+		const name = mob.name;
+		const maxTier = mob.maxTier ?? 41;
+		const tier =
+		  constants.bestiarySkills[boss].filter((k) => k <= kills).length > maxTier
+			? maxTier
+			: constants.bestiarySkills[boss].filter((k) => k <= kills).length;
+		totalCollection += tier;
+  
+		result.categories[family][mobName] = {
+		  head: head,
+		  name: name,
+		  itemId: itemId,
+		  damage: damage,
+		  tier: tier,
+		  maxTier: maxTier,
+		  kills: kills,
+		};
+	  }
+	}
+	result.tiersUnlocked = totalCollection;
+	result.level = totalCollection / 10;
+	result.bonus = result.level.toFixed(0) * 2;
+  
+	return result;
 }
 /**
  * @param {object} data
