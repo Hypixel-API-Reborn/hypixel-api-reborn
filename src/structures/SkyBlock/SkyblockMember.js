@@ -5,6 +5,7 @@ const { single } = require("../../utils/removeSnakeCase");
 const SkyblockInventoryItem = require("./SkyblockInventoryItem");
 const SkyblockPet = require("./SkyblockPet");
 const objectPath = require("object-path");
+const constants = require("../../utils/Constants")
 /**
  * Skyblock member class
  */
