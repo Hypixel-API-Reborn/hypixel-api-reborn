@@ -1,7 +1,7 @@
 # getSkyblockBazaar
 Allows you to get list of products
 ## Arguments
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -50,6 +50,6 @@ console.log(products);
 ]
 ```
 ## Links
-- [getSkyblockBazaar](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockBazaar)
-- [Product](https://hypixel.stavzdev.me/#/docs/main/master/class/Product)
-- [Order](https://hypixel.stavzdev.me/#/docs/main/master/class/Order)
+- [getSkyblockBazaar](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockBazaar)
+- [Product](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Product)
+- [Order](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Order)

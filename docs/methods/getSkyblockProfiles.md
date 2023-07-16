@@ -2,7 +2,7 @@
 Allows you to get all skyblock profiles of player.
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/SkyblockMethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/SkyblockMethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -59,6 +59,6 @@ console.log(profiles);
 ]
 ```
 ## Links
-- [getSkyblockProfiles](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockProfiles)
-- [SkyblockProfile](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyblockProfile)
-- [SkyblockMember](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyblockMember)
+- [getSkyblockProfiles](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockProfiles)
+- [SkyblockProfile](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyblockProfile)
+- [SkyblockMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyblockMember)

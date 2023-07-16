@@ -51,6 +51,6 @@ APIStatus {
 }
 ```
 ## Links
-- [getAPIStatus](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getAPIStatus)
-- [APIStatus](https://hypixel.stavzdev.me/#/docs/main/master/class/APIStatus)
-- [APIIncident](https://hypixel.stavzdev.me/#/docs/main/master/class/APIIncident)
+- [getAPIStatus](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getAPIStatus)
+- [APIStatus](https://hypixel-api-reborn.github.io/#/docs/main/master/class/APIStatus)
+- [APIIncident](https://hypixel-api-reborn.github.io/#/docs/main/master/class/APIIncident)

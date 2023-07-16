@@ -1,7 +1,7 @@
 # getWatchdogStats
 Allows you to get statistics of watchdog, the server anticheat.
 ## Arguments
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -30,5 +30,5 @@ WatchdogStats {
 }
 ```
 ## Links
-- [getWatchdogStats](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getWatchdogStats)
-- [WatchdogStats](https://hypixel.stavzdev.me/#/docs/main/master/class/WatchdogStats)
+- [getWatchdogStats](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getWatchdogStats)
+- [WatchdogStats](https://hypixel-api-reborn.github.io/#/docs/main/master/class/WatchdogStats)

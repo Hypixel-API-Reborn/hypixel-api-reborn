@@ -39,5 +39,5 @@ ServerInfo {
 }
 ```
 ## Links
-- [getServerInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getServerInfo)
-- [ServerInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/ServerInfo)
+- [getServerInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getServerInfo)
+- [ServerInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/ServerInfo)
