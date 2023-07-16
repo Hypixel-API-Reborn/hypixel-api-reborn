@@ -46,6 +46,7 @@ module.exports = {
     let level = 0;
     let xpForNext = 0;
     for (let x = 1; x <= maxLevel; x++) {
+      if (!xpTable[x]) continue;
       xpTotal += xpTable[x];
       if (xpTotal > xp) {
         xpTotal -= xpTable[x];
