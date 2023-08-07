@@ -114,22 +114,23 @@ export type SkyblockRarity = "VERY_SPECIAL" | "SPECIAL" | "SUPREME" | "MYTHIC" |
 export type SOCIAL_MEDIA_ID = "YOUTUBE" | "DISCORD" | "HYPIXEL" | "TWITTER" | "INSTAGRAM" | "TWITCH";
 export type SKYWARS_KIT_TYPE = "basic" | "supporting" | "mining" | "defending" | "attacking" | "advanced" | "enderchest";
 export type SKYWARS_KIT_GAMEMODE = "solo" | "team";
-export type SKYBLOCK_BESTIARY = {
-	bonus: number;
-	level: number;
-	categories: {
-		catacombs: SKYBLOCK_BESTIARY_CATEGORY;
-		caverns: SKYBLOCK_BESTIARY_CATEGORY;
-		end: SKYBLOCK_BESTIARY_CATEGORY;
-		fortress: SKYBLOCK_BESTIARY_CATEGORY;
-		hub: SKYBLOCK_BESTIARY_CATEGORY;
-		park: SKYBLOCK_BESTIARY_CATEGORY;
-		private: SKYBLOCK_BESTIARY_CATEGORY;
-		spiders: SKYBLOCK_BESTIARY_CATEGORY;
-		spooky: SKYBLOCK_BESTIARY_CATEGORY;
-	};
-	tiersUnlocked: number;
-};
+// export type SKYBLOCK_BESTIARY = {
+// 	bonus: number;
+// 	level: number;
+// 	categories: {
+// 		catacombs: SKYBLOCK_BESTIARY_CATEGORY;
+// 		caverns: SKYBLOCK_BESTIARY_CATEGORY;
+// 		end: SKYBLOCK_BESTIARY_CATEGORY;
+// 		fortress: SKYBLOCK_BESTIARY_CATEGORY;
+// 		hub: SKYBLOCK_BESTIARY_CATEGORY;
+// 		park: SKYBLOCK_BESTIARY_CATEGORY;
+// 		private: SKYBLOCK_BESTIARY_CATEGORY;
+// 		spiders: SKYBLOCK_BESTIARY_CATEGORY;
+// 		spooky: SKYBLOCK_BESTIARY_CATEGORY;
+// 	};
+// 	tiersUnlocked: number;
+// };
+export type SKYBLOCK_BESTIARY = number;
 export interface SKYBLOCK_BESTIARY_CATEGORY {
 	[key: string]: { damage?: number; head: string; itemId?: string; kills: number; maxTier: number; name: string; tier: number };
 }
