@@ -205,7 +205,61 @@ class BedWars {
 function getBedWarsPrestige (level) {
   // eslint-disable-next-line max-len
   if (level >= 5000) return 'Eternal';
-  return ['Stone', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow', 'Iron Prime', 'Gold Prime', 'Diamond Prime', 'Emerald Prime', 'Sapphire Prime', 'Ruby Prime', 'Crystal Prime', 'Opal Prime', 'Amethyst Prime', 'Mirror', 'Light', 'Dawn', 'Dusk', 'Air', 'Wind', 'Nebula', 'Thunder', 'Earth', 'Water', 'Fire', 'Sunrise', 'Eclipse', 'Gamma', 'Majestic', 'Andesine', 'Marine', 'Element', 'Galaxy', 'Atomic', 'Sunset', 'Time', 'Winter', 'Obsidian', 'Spring', 'Ice', 'Summer', 'Spinel', 'Autumn', 'Mystic', 'Eternal'][Math.floor(level / 100)] || 'Eternal';
+  return (
+    [
+      'Stone',
+      'Iron',
+      'Gold',
+      'Diamond',
+      'Emerald',
+      'Sapphire',
+      'Ruby',
+      'Crystal',
+      'Opal',
+      'Amethyst',
+      'Rainbow',
+      'Iron Prime',
+      'Gold Prime',
+      'Diamond Prime',
+      'Emerald Prime',
+      'Sapphire Prime',
+      'Ruby Prime',
+      'Crystal Prime',
+      'Opal Prime',
+      'Amethyst Prime',
+      'Mirror',
+      'Light',
+      'Dawn',
+      'Dusk',
+      'Air',
+      'Wind',
+      'Nebula',
+      'Thunder',
+      'Earth',
+      'Water',
+      'Fire',
+      'Sunrise',
+      'Eclipse',
+      'Gamma',
+      'Majestic',
+      'Andesine',
+      'Marine',
+      'Element',
+      'Galaxy',
+      'Atomic',
+      'Sunset',
+      'Time',
+      'Winter',
+      'Obsidian',
+      'Spring',
+      'Ice',
+      'Summer',
+      'Spinel',
+      'Autumn',
+      'Mystic',
+      'Eternal'
+    ][Math.floor(level / 100)] || 'Eternal'
+  );
 }
 const EASY_LEVELS = 4;
 const EASY_LEVELS_XP = 7000;
