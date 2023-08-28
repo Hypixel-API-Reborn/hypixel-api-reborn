@@ -2,7 +2,7 @@
 Allows you to get all ended auctions in around the last 60 seconds
 ## Arguments
 - Boolean - include item bytes (`false` by default)
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -55,6 +55,6 @@ console.log(data);
 }
 ```
 ## Links
-- [getEndedSkyblockAuctions](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getEndedSkyblockAuctions)
-- [AuctionInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/AuctionInfo)
-- [Partial](https://hypixel.stavzdev.me/#/docs/main/master/class/PartialAuction)
+- [getEndedSkyblockAuctions](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getEndedSkyblockAuctions)
+- [AuctionInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/AuctionInfo)
+- [Partial](https://hypixel-api-reborn.github.io/#/docs/main/master/class/PartialAuction)

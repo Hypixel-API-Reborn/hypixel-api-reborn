@@ -1,7 +1,7 @@
 # getKeyInfo
 Gets Key information.
 ## Arguments
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -31,5 +31,5 @@ KeyInfo {
 }
 ```
 ## Links
-- [getKeyInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getKeyInfo)
-- [KeyInfo](https://hypixel.stavzdev.me/#/docs/main/master/class/KeyInfo)
+- [getKeyInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getKeyInfo)
+- [KeyInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/KeyInfo)

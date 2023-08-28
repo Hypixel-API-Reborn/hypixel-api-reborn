@@ -2,7 +2,7 @@
 Allows you to get the status of a player.
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -30,6 +30,6 @@ Status {
 }
 ```
 ## Links
-- [getStatus](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getStatus)
-- [Status](https://hypixel.stavzdev.me/#/docs/main/master/class/Status)
-- [Game](https://hypixel.stavzdev.me/#/docs/main/master/class/Game)
+- [getStatus](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getStatus)
+- [Status](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Status)
+- [Game](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Game)

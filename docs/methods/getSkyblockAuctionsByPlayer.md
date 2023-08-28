@@ -3,7 +3,7 @@ Allows you to get player's skyblock auctions
 ## Arguments
 - Player nickname or UUID
 - Boolean - include item bytes (`false` by default)
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -86,6 +86,6 @@ console.log(data);
 ]
 ```
 ## Links
-- [getSkyblockAuctionsByPlayer](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctionsByPlayer)
-- [Auction](https://hypixel.stavzdev.me/#/docs/main/master/class/Auction)
-- [Bid](https://hypixel.stavzdev.me/#/docs/main/master/class/Bid)
+- [getSkyblockAuctionsByPlayer](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctionsByPlayer)
+- [Auction](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Auction)
+- [Bid](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Bid)
