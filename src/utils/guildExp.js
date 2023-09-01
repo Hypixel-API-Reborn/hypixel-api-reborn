@@ -45,7 +45,7 @@ function getGuildLevel(exp) {
     2500000,
     2500000,
     2500000,
-    3000000,
+    3000000
   ];
 
   let level = 0;
@@ -54,8 +54,8 @@ function getGuildLevel(exp) {
     let need = 0;
     if (i >= EXP_NEEDED.length) {
       need = EXP_NEEDED[EXP_NEEDED.length - 1];
-    } else { 
-      need = EXP_NEEDED[i]; 
+    } else {
+      need = EXP_NEEDED[i];
     }
 
     if ((exp - need) < 0) {
