@@ -30,31 +30,42 @@ function parseDate(date) {
  * @return {number}
  */
 function getGuildLevel(exp) {
-  if (exp < 100000) {
-    return 0;
-  } else if (exp < 250000) {
-    return 1;
-  } else if (exp < 500000) {
-    return 2;
-  } else if (exp < 1000000) {
-    return 3;
-  } else if (exp < 1750000) {
-    return 4;
-  } else if (exp < 2750000) {
-    return 5;
-  } else if (exp < 4000000) {
-    return 6;
-  } else if (exp < 5500000) {
-    return 7;
-  } else if (exp < 7500000) {
-    return 8;
-  } else if (exp >= 7500000) {
-    if (exp < 15000000) {
-      return Math.floor((exp - 7500000) / 2500000) + 9;
-    } else {
-      return Math.floor((exp - 15000000) / 3000000) + 12;
+  const EXP_NEEDED = [
+    100000,
+    150000,
+    250000,
+    500000,
+    750000,
+    1000000,
+    1250000,
+    1500000,
+    2000000,
+    2500000,
+    2500000,
+    2500000,
+    2500000,
+    2500000,
+    3000000,
+  ];
+
+  let level = 0;
+
+  for (let i = 0; i <= 1000; i += 1) {
+    let need = 0;
+    if (i >= EXP_NEEDED.length) {
+      need = EXP_NEEDED[EXP_NEEDED.length - 1];
+    } else { 
+      need = EXP_NEEDED[i]; 
     }
+
+    if ((exp - need) < 0) {
+      return Math.round((level + (exp / need)) * 100) / 100;
+    }
+    level += 1;
+    exp -= need;
   }
+
+  return 1000;
 }
 
 /**
