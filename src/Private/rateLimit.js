@@ -23,7 +23,7 @@ module.exports = class RateLimit {
   sync (data) {
     this.options.keyLimit = parseInt(data.get('ratelimit-limit'), 10) || this.options.keyLimit;
     this.requests = parseInt(data.get('ratelimit-remaining'), 10) || this.requests;
-    if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (60 - parseInt(data.get('ratelimit-reset'), 10)) !== Math.round(this.lastResetHappenedAt / 1000)) {
+    if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (300 - parseInt(data.get('ratelimit-reset'), 10)) !== Math.round(this.lastResetHappenedAt / 1000)) {
       clearTimeout(this.resetTimer);
       this.resetTimer = setTimeout(this.reset.bind(this), parseInt(data.get('ratelimit-reset'), 10) * 1000);
     }
@@ -32,19 +32,19 @@ module.exports = class RateLimit {
   computeCooldownTime () {
     const overhead = this.requestQueue[1] <= Date.now() ? 0 : this.requestQueue[1] - Date.now();
     const multiplier = Math.floor(this.requests / this.options.keyLimit) + 1;
-    return overhead + (- overhead - Date.now() + 60000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier - this.requests);
+    return overhead + (- overhead - Date.now() + 300000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier - this.requests);
   }
 
   reset () {
     this.requests = this.requests - this.options.keyLimit;
     if (this.requests < 0) this.requests = 0;
     this.lastResetHappenedAt = Date.now();
-    this.resetTimer = setTimeout(this.reset.bind(this), 60000);
+    this.resetTimer = setTimeout(this.reset.bind(this), 300000);
     this.requestQueue = this.requestQueue.filter((x) => x >= Date.now());
   }
 
   rateLimitMonitor () {
-    this.resetTimer = setTimeout(this.reset.bind(this), 1000 * 60);
+    this.resetTimer = setTimeout(this.reset.bind(this), 1000 * 300);
   }
 
   init (keyInfo, options, client) {
@@ -62,7 +62,7 @@ module.exports = class RateLimit {
      * Cooldown
      * @type {number}
      */
-    this.cooldownTime = 60000 / this.options.keyLimit; // Initial value
+    this.cooldownTime = 300000 / this.options.keyLimit; // Initial value
     /**
      * Request Queue ( Array of timestamps )
      * @type {number[]}
@@ -76,7 +76,7 @@ module.exports = class RateLimit {
     return keyInfo
       .then((info) => {
         this.requests = info.requestsInPastMin;
-        this.lastResetHappenedAt = Date.now() - (60 - info.resetsAfter) * 1000; // Computed reset time
+        this.lastResetHappenedAt = Date.now() - (300 - info.resetsAfter) * 1000; // Computed reset time
         this.resetTimer = setTimeout(this.rateLimitMonitor.bind(this), 1000 * info.resetsAfter);
         this.initialized = 1;
       })
