@@ -72,6 +72,18 @@ class Client extends EventEmitter {
     return result;
   }
   /**
+   * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
+   * @event
+   * @name Client#ready
+   * @example
+   * // This example gets player's uuid.
+   * hypixel.once('ready',()=>{
+   *  hypixel.getPlayer('stavzdev')
+   *  .then(player => player.uuid)
+   *  .catch(console.log);
+   * })
+   */
+  /**
    * Emitted when a request is going to be sent
    * @event
    * @name Client#outgoingRequest
