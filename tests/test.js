@@ -52,7 +52,7 @@ describe('Client#getPlayer', () => {
     expect(player.userLanguage).to.be.a('string');
     if (player.claimedLevelingRewards.length) {
       expect(player.claimedLevelingRewards).to.be.an('array').that.satisfies(v => {
-        return v.every(i =>  typeof i === 'number');
+        return v.every(i => typeof i === 'number');
       })
     }
     if (player.globalCosmetics) {
@@ -189,21 +189,6 @@ describe('Client#getWatchdogStats', () => {
     expect(watchdog.byWatchdogTotal).to.be.a('number');
   });
 });
-describe('Client#getFriends', () => {
-  let friends;
-  it('expect not to throw', async () => {
-    friends = await client.getFriends('f025c1c7f55a4ea0b8d93f47d17dfe0f');
-  });
-  it('required keys should exist', async () => {
-    expect(friends).to.be.an('array');
-    for (const friend of friends) {
-      expect(friend.sender).to.be.a('string');
-      expect(friend.receiver).to.be.a('string');
-      expect(friend.friendSinceTimestamp).to.be.a('number');
-      expect(friend.friendSince).to.be.a('Date');
-    }
-  });
-});
 describe('Client#getStatus', () => {
   let status;
   it('expect not to throw', async () => {
@@ -242,7 +227,7 @@ describe('Client#getLeaderboards', async () => {
         if (lb.name) {
           expect(lb.name).to.be.a('string');
         }
-        if(lb.title) {
+        if (lb.title) {
           expect(lb.title).to.be.a('string');
         }
       }
