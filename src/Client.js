@@ -52,7 +52,7 @@ class Client extends EventEmitter {
      */
     this.cache = this.requests.cache;
     clients.push(this);
-    rateLimit.init(this.getKeyInfo(), this.options, this).then(() => this.emit('ready'));
+    rateLimit.init(this.getPlayer('52d9a36f66ce4cdf9a56ad9724ae9fb4'), this.options, this).then(() => this.emit('ready'));
   }
   /**
    * Private function - make request
@@ -220,19 +220,6 @@ class Client extends EventEmitter {
    * @example
    * hypixel.getAPIStatus().then(status => {
    *   console.log(status.incidents[0].link); // 'https://status.hypixel.net/incidents/zdd5gppdtcc3'
-   * }).catch(e => {
-   *   console.log(e);
-   * })
-   */
-  /**
-   * Gets Key information
-   * @method
-   * @name Client#getKeyInfo
-   * @param {MethodOptions} [options={}] Method options
-   * @return {Promise<KeyInfo>}
-   * @example
-   * hypixel.getKeyInfo().then(keyInfo => {
-   *   console.log(keyInfo.owner); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
    * }).catch(e => {
    *   console.log(e);
    * })

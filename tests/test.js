@@ -249,20 +249,6 @@ describe('Client#getLeaderboards', async () => {
     }
   });
 });
-describe('Client#getKeyInfo', async () => {
-  let keyinfo;
-  it('expect not to throw', async () => {
-    keyinfo = await client.getKeyInfo();
-  });
-  it('required keys should exist', () => {
-    expect(keyinfo.key).to.be.a('string');
-    expect(keyinfo.limitPerMinute).to.be.a('number');
-    expect(keyinfo.owner).to.be.a('string');
-    expect(keyinfo.requestsInPastMin).to.be.a('number');
-    expect(keyinfo.resetsAfter).to.be.a('number');
-    expect(keyinfo.totalRequests).to.be.a('number');
-  });
-});
 describe('Client#getSkyblockNews', async () => {
   let news;
   it('expect not to throw', async () => {
