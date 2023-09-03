@@ -8,7 +8,6 @@ module.exports = {
 
   Player: require('./structures/Player.js'),
   Game: require('./structures/Game.js'),
-  Friend: require('./structures/Friend.js'),
   Status: require('./structures/Status.js'),
   Color: require('./structures/Color.js'),
   KeyInfo: require('./structures/KeyInfo.js'),
