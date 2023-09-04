@@ -34,13 +34,9 @@ class Client extends EventEmitter {
     for (const func in API) {
       Client.prototype[func] = function (...args) {
         const lastArg = args[args.length - 1];
-        const https = require('https'); // or import https from 'https'
-        const agent = new https.Agent({
-          rejectUnauthorized: false
-        });
         return API[func].apply(
           {
-            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}), agent }),
+            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
             ...this
           },
           args

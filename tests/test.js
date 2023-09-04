@@ -23,9 +23,7 @@ const {
   Color,
   ServerInfo
 } = require('../src');
-const client = new Client('2069b2b6-a716-493f-afd5-d0b1f16b9923', {
-  cache: true
-});
+const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
