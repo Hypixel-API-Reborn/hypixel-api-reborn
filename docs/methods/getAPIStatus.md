@@ -1,24 +1,32 @@
 # getAPIStatus
+
 Allows you to get the Hypixel API's Status and past Incidents, no key needed.
+
 ## Arguments
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getAPIStatus().then(apistatus => {
-  console.log(apistatus);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getAPIStatus()
+  .then((apistatus) => {
+    console.log(apistatus);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const apistatus = await hypixel.getAPIStatus().catch(e => console.error(e));
+const apistatus = await hypixel.getAPIStatus().catch((e) => console.error(e));
 console.log(apistatus);
 ```
+
 ## Example response
+
 ```js
 APIStatus {
   sourceUrl: null,
@@ -50,7 +58,9 @@ APIStatus {
   ]
 }
 ```
+
 ## Links
+
 - [getAPIStatus](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getAPIStatus)
 - [APIStatus](https://hypixel-api-reborn.github.io/#/docs/main/master/class/APIStatus)
 - [APIIncident](https://hypixel-api-reborn.github.io/#/docs/main/master/class/APIIncident)

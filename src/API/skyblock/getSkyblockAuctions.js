@@ -3,7 +3,7 @@ const Auction = require('../../structures/SkyBlock/Auctions/Auction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 const Errors = require('../../Errors');
 let _makeRequest;
-async function getPage (page = 0, options = {}) {
+async function getPage(page = 0, options = {}) {
   const content = await _makeRequest(`/skyblock/auctions?page=${page}`, false);
   const result = {};
   if (!options.noInfo) result.info = new AuctionInfo(content);
@@ -12,7 +12,7 @@ async function getPage (page = 0, options = {}) {
   else result.auctions = content.auctions.map((x) => new Auction(x, options.includeItemBytes));
   return result;
 }
-async function noReject (promise, args = [], retries = 3, cooldown = 100) {
+async function noReject(promise, args = [], retries = 3, cooldown = 100) {
   try {
     const result = await promise.call(null, ...args);
     return result;

@@ -1,57 +1,40 @@
 {
-    "env": {
-        "commonjs": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "google",
-        "plugin:@typescript-eslint/recommended"
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["google", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "linebreak-style": "off",
+    "comma-dangle": ["error", "never"],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireParamDescription": false,
+        "requireReturnDescription": false,
+        "requireReturn": true
+      }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 2021
-    },
-    "plugins": [
-        "@typescript-eslint"
+    "max-len": [
+      "error",
+      {
+        "code": 210,
+        "ignoreUrls": true
+      }
     ],
-    "rules": {
-        "linebreak-style": "off",
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
-        "valid-jsdoc": [
-            "error",
-            {
-                "requireParamDescription": false,
-                "requireReturnDescription": false,
-                "requireReturn": true
-            }
-        ],
-        "max-len": [
-            "error",
-            {
-                "code": 210,
-                "ignoreUrls": true
-            }
-        ],
-        "indent": [
-            "error",
-            2,
-            {
-                "SwitchCase": 1
-            }
-        ],
-        "quote-props": ["error", "as-needed"],
-        "object-curly-spacing": "off",
-        "space-before-function-paren": "off",
-        "semi": "error",
-        "no-console": "error",
-        "@typescript-eslint/no-var-requires": "off",
-        "no-extra-semi": "error",
-        "@typescript-eslint/no-unused-vars": [
-            "off"
-        ]
-    }
+    "quote-props": ["error", "as-needed"],
+    "object-curly-spacing": "off",
+    "space-before-function-paren": "off",
+    "semi": "error",
+    "no-console": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "no-extra-semi": "error",
+    "@typescript-eslint/no-unused-vars": ["off"]
+  }
 }

@@ -14,11 +14,13 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
 
   const players = new Map();
   if (options.fetchPlayer) {
-    const uniqueUuids = [...new Set((res.profiles.map((profile) => Object.keys(profile.members)).flat()))];
-    await Promise.all(uniqueUuids.map(async (uuid) => {
-      const player = await getPlayer.call(this, uuid, options);
-      players.set(uuid, player);
-    }));
+    const uniqueUuids = [...new Set(res.profiles.map((profile) => Object.keys(profile.members)).flat())];
+    await Promise.all(
+      uniqueUuids.map(async (uuid) => {
+        const player = await getPlayer.call(this, uuid, options);
+        players.set(uuid, player);
+      })
+    );
   }
 
   const profiles = [];

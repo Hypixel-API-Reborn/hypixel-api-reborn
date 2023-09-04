@@ -6,7 +6,7 @@ class Warlords {
   /**
    * @param {object} data Warlords data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}

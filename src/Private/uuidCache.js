@@ -6,7 +6,7 @@ const cachedUuids = new Map();
 
 // TODO - use this for all cache models
 
-async function putCache (response) {
+async function putCache(response) {
   try {
     response = await response.json();
     cachedUuids.set(response.id, response.name);
@@ -15,13 +15,13 @@ async function putCache (response) {
     // F
   }
 }
-function deleteCache (id) {
+function deleteCache(id) {
   return cachedUuids.delete(id);
 }
-function response (obj) {
+function response(obj) {
   return new fetch.Response(JSON.stringify(obj));
 }
-function checkHit (query) {
+function checkHit(query) {
   if (cachedUuids.has(query)) return response({ id: query, name: cachedUuids.get(query) });
   const reverseSearch = Array.from(cachedUuids.entries()).find((pair) => pair[1].toLowerCase() === query.toLowerCase());
   if (reverseSearch) return response({ id: reverseSearch[0], name: query });

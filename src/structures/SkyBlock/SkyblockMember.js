@@ -92,8 +92,7 @@ class SkyblockMember {
       const base64 = data.m?.wardrobe_contents?.data;
       if (!base64) return [];
       const decoded = await decode(base64);
-      const armor = decoded.filter((item) => Object.keys(item).length !== 0)
-        .map((item) => new SkyblockInventoryItem(item));
+      const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
@@ -284,12 +283,10 @@ function getJacobData(data) {
     };
   }
   return {
-    medals: data.m.jacob2.medals_inv ?
-      { bronze: data.m.jacob2.medals_inv.bronze || 0, silver: data.m.jacob2.medals_inv.silver || 0, gold: data.m.jacob2.medals_inv.gold || 0 } :
-      { bronze: 0, silver: 0, gold: 0 },
-    perks: data.m.jacob2.perks ?
-      { doubleDrops: data.m.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0 } :
-      { doubleDrops: 0, farmingLevelCap: 0 },
+    medals: data.m.jacob2.medals_inv
+      ? { bronze: data.m.jacob2.medals_inv.bronze || 0, silver: data.m.jacob2.medals_inv.silver || 0, gold: data.m.jacob2.medals_inv.gold || 0 }
+      : { bronze: 0, silver: 0, gold: 0 },
+    perks: data.m.jacob2.perks ? { doubleDrops: data.m.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0 } : { doubleDrops: 0, farmingLevelCap: 0 },
     contests: data.m.jacob2.contests || {}
   };
 }

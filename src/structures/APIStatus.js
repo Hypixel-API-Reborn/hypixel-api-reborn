@@ -6,7 +6,7 @@ class APIStatus {
   /**
    * @param {object} data API status data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Source url
      * @type {string|null}

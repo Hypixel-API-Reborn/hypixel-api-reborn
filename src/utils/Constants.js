@@ -1,5 +1,5 @@
 module.exports = {
-  skyblock_year_0: 1.5602757e+12,
+  skyblock_year_0: 1.5602757e12,
 
   duels_divisions: [
     { name: 'Rookie', key: 'rookie' },
@@ -12,7 +12,7 @@ module.exports = {
     { name: 'Godlike', key: 'godlike' },
     { name: 'WORLD ELITE', key: 'world_elite' },
     { name: 'WORLD MASTER', key: 'world_master' },
-    { name: 'WORLD\'S BEST', key: 'worlds_best' }
+    { name: "WORLD'S BEST", key: 'worlds_best' }
   ],
 
   leveling_xp: {
@@ -109,18 +109,7 @@ module.exports = {
     25: 19050
   },
 
-  skills: [
-    'farming',
-    'mining',
-    'combat',
-    'foraging',
-    'fishing',
-    'enchanting',
-    'alchemy',
-    'taming',
-    'carpentry',
-    'runecrafting'
-  ],
+  skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'],
 
   skills_achievements: {
     farming: 'skyblockHarvester',
@@ -187,17 +176,17 @@ module.exports = {
     37: 5600000,
     38: 7200000,
     39: 9200000,
-    40: 1.2e+7,
-    41: 1.5e+7,
-    42: 1.9e+7,
-    43: 2.4e+7,
-    44: 3e+7,
-    45: 3.8e+7,
-    46: 4.8e+7,
-    47: 6e+7,
-    48: 7.5e+7,
-    49: 9.3e+7,
-    50: 1.1625e+8
+    40: 1.2e7,
+    41: 1.5e7,
+    42: 1.9e7,
+    43: 2.4e7,
+    44: 3e7,
+    45: 3.8e7,
+    46: 4.8e7,
+    47: 6e7,
+    48: 7.5e7,
+    49: 9.3e7,
+    50: 1.1625e8
   },
 
   slayer_xp: {
@@ -558,15 +547,11 @@ module.exports = {
     },
 
     carpentry_skill: {
-      1: {
-
-      }
+      1: {}
     },
 
     runecrafting_skill: {
-      1: {
-
-      }
+      1: {}
     },
 
     zombie_slayer: {
@@ -681,8 +666,7 @@ module.exports = {
       }
     }
   },
-  leaderboardNames:
-  {
+  leaderboardNames: {
     ARENA: 'ARENA',
     COPS_AND_CRIMS: 'MCGO',
     WARLORDS: 'BATTLEGROUND',
@@ -707,8 +691,7 @@ module.exports = {
     MEGA_WALLS: 'WALLS3',
     VAMPIREZ: 'VAMPIREZ'
   },
-  MiniGamesString:
-  {
+  MiniGamesString: {
     QUAKECRAFT: 'Quakecraft',
     WALLS: 'Walls',
     PAINTBALL: 'Paintball',

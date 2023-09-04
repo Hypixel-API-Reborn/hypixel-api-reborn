@@ -6,7 +6,7 @@ class Booster {
   /**
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Booster's purchaser's UUID
      * @type {String}
@@ -69,7 +69,7 @@ class Booster {
    * Beautiful format
    * @return {string}
    */
-  toString () {
+  toString() {
     return `${this.purchaser}'s booster in ${this.game}`;
   }
 }

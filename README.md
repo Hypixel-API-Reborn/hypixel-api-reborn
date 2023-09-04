@@ -1,4 +1,3 @@
-
 <div align="center">
 <img src="https://i.imgur.com/cDFoQZU.png?1">
 <h1>Hypixel API • Reborn</h1>
@@ -15,39 +14,52 @@
 </div>
 
 ### Links
-[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) | [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
+
+[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) |
+[GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
 
 #### Requirements
 
-**For Node.js users >= v14.x.x** <br>
-**For TypeScript users  >= v3.5**
+**For Node.js users >= v14.x.x** <br> **For TypeScript users >= v3.5**
 
 ### Installation & Usage
+
 ```shell
 npm i hypixel-api-reborn
 ```
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
 // getPlayer
-hypixel.getPlayer('StavZDev').then(player => {
-  console.log(player.level); // 141
-}).catch(e => {
-  console.error(e);
-})
+hypixel
+  .getPlayer('StavZDev')
+  .then((player) => {
+    console.log(player.level); // 141
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // getGuild
-hypixel.getGuild('name', 'The Foundation').then(guild => {
-  console.log(guild.level); // 111
-}).catch(e => {
-  console.error(e);
-})
+hypixel
+  .getGuild('name', 'The Foundation')
+  .then((guild) => {
+    console.log(guild.level); // 111
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 ```
+
 For more examples go to our [documentation](https://hypixel-api-reborn.github.io/).
+
 ## Changelog
+
 [v10.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/10.0.0)
 
 ### Try it now
+
 **[Code Sandbox](https://codesandbox.io/s/clever-babbage-xqmfw?file=/src/index.js)**

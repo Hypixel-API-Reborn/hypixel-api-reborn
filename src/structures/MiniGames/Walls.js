@@ -6,7 +6,7 @@ class Walls {
   /**
    * @param {object} data Walls data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -18,29 +18,29 @@ class Walls {
      */
     this.kills = data.kills || 0;
     /**
-      * Deaths
-      * @type {number}
-      */
+     * Deaths
+     * @type {number}
+     */
     this.deaths = data.deaths || 0;
     /**
-      * Kill Death ratio
-      * @type {number}
-      */
+     * Kill Death ratio
+     * @type {number}
+     */
     this.KDRatio = divide(this.kills, this.deaths);
     /**
-      * Wins
-      * @type {number}
-      */
+     * Wins
+     * @type {number}
+     */
     this.wins = data.wins || 0;
     /**
-      * Losses
-      * @type {number}
-      */
+     * Losses
+     * @type {number}
+     */
     this.losses = data.losses || 0;
     /**
-      * Win Loss ratio
-      * @type {number}
-      */
+     * Win Loss ratio
+     * @type {number}
+     */
     this.WLRatio = divide(this.wins, this.losses);
     /**
      * Assists

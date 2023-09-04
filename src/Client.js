@@ -34,12 +34,17 @@ class Client extends EventEmitter {
     for (const func in API) {
       Client.prototype[func] = function (...args) {
         const lastArg = args[args.length - 1];
+        const https = require('https'); // or import https from 'https'
+        const agent = new https.Agent({
+          rejectUnauthorized: false
+        });
         return API[func].apply(
           {
-            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
+            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}), agent }),
             ...this
           },
-          args);
+          args
+        );
       };
 
       if (this.options.checkForUpdates) {
@@ -64,7 +69,7 @@ class Client extends EventEmitter {
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
     const result = await this.requests.request.call(this.requests, url, { ...options, headers: { ...options.headers, ...this.options.headers } });

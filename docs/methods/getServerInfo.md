@@ -1,25 +1,34 @@
 # getServerInfo
+
 Sends a STATUS packet to hypixel and parses the return info
+
 ## Arguments
+
 - Repeats (Sends x amount of ping requests and gets the average. Should be between 1 and 10) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getServerInfo().then(serverInfo => {
-  console.log(serverInfo);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getServerInfo()
+  .then((serverInfo) => {
+    console.log(serverInfo);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const serverInfo = await hypixel.getServerInfo().catch(e => console.error(e));
+const serverInfo = await hypixel.getServerInfo().catch((e) => console.error(e));
 console.log(serverInfo);
 ```
+
 ## Example response
+
 ```js
 ServerInfo {
   protocolUsed: 736,
@@ -38,6 +47,8 @@ ServerInfo {
   ping: 163
 }
 ```
+
 ## Links
+
 - [getServerInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getServerInfo)
 - [ServerInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/ServerInfo)

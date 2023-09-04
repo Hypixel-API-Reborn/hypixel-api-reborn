@@ -2,7 +2,7 @@ const GuildMember = require('./GuildMember');
 const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
-const {getGuildLevel, parseHistory} = require('../../utils/guildExp');
+const { getGuildLevel, parseHistory } = require('../../utils/guildExp');
 /**
  * Guild class
  */
@@ -11,7 +11,7 @@ class Guild {
    * @param {data} data Guild data
    * @param {string} [me] Player uuid used to search for this guild
    */
-  constructor (data, me = '') {
+  constructor(data, me = '') {
     /**
      * Guild ID
      * @type {string}
@@ -166,7 +166,7 @@ class Guild {
    * The Guild Master of the guild as a GuildMember
    * @type {GuildMember}
    */
-  get guildMaster () {
+  get guildMaster() {
     return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
   }
 }
@@ -174,33 +174,35 @@ class Guild {
  * @param {object} data
  * @return {GuildMember[]}
  */
-function members (data) {
+function members(data) {
   return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
 }
 /**
  * @param {object} data
  * @return {GuildRank[]}
  */
-function ranks (data) {
+function ranks(data) {
   return data.ranks && data.ranks.length ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
 }
 /**
  * @param {object} data
  * @return {number}
  */
-function totalWeeklyGexp (data) {
-  return members(data).map((m) => m.weeklyExperience).reduce((acc, cur) => acc + cur);
+function totalWeeklyGexp(data) {
+  return members(data)
+    .map((m) => m.weeklyExperience)
+    .reduce((acc, cur) => acc + cur);
 }
 /**
  * @param {Object} data
  * @return {Array}
  */
-function calculateExpHistory (data) {
+function calculateExpHistory(data) {
   const finalObj = {};
   for (const day of Object.keys(data.members[0].expHistory)) {
     let gexp = 0;
     for (const member of data.members) {
-      gexp += (member.expHistory[day] || 0);
+      gexp += member.expHistory[day] || 0;
     }
     finalObj[day] = expLimit(gexp);
   }
@@ -212,7 +214,7 @@ function calculateExpHistory (data) {
  * @return {number}
  */
 function expLimit(exp) {
-  return exp > 2e5 ? (exp > 7e5 ? 2.5e5+Math.round(exp * 0.03) : 2e5 + Math.round((exp-2e5) / 10)) : exp;
+  return exp > 2e5 ? (exp > 7e5 ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
 }
 
 module.exports = Guild;
