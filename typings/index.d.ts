@@ -252,11 +252,6 @@ declare module 'hypixel-api-reborn' {
      */
     getGuild(searchParameter: ('name' | 'player' | 'id'), query: string, options: methodOptions): Promise<Guild>;
     /**
-     * @description Allows you to get all friends of player
-     * @param query - player nickname or uuid
-     */
-    getFriends(query: string, options?: methodOptions): Promise<Friend[]>;
-    /**
      * @description Allows you to get statistics of watchdog anticheat
      */
     getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
@@ -304,10 +299,6 @@ declare module 'hypixel-api-reborn' {
      * @param query - player nickname or uuid
      */
     getStatus(query: string, options?: methodOptions): Promise<Status>;
-    /**
-     * @description Allows you to get information about used API key
-     */
-    getKeyInfo(options?: methodOptions): Promise<KeyInfo>;
     /**
      * @description Allows you to get leaderboards of each mini-game
      */
@@ -1073,14 +1064,6 @@ declare module 'hypixel-api-reborn' {
     createdAtTimestamp: number;
     createdAt: Date;
     priority: number;
-  }
-  class Friend {
-    constructor(data: Record<string, unknown>);
-    sender: string;
-    receiver: string;
-    uuid: string;
-    friendSinceTimestamp: number;
-    friendSince: Date;
   }
   class Booster {
     constructor(data: Record<string, unknown>);

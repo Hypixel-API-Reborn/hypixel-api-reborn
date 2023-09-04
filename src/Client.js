@@ -16,7 +16,7 @@ class Client extends EventEmitter {
    * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
    * @param {ClientOptions} [options={}] Client options
    */
-  constructor (key, options = {}) {
+  constructor(key, options = {}) {
     super();
     this.requests = new Requests(this, options.cacheHandler);
     // eslint-disable-next-line no-console
@@ -52,7 +52,7 @@ class Client extends EventEmitter {
      */
     this.cache = this.requests.cache;
     clients.push(this);
-    rateLimit.init(this.getKeyInfo(), this.options, this).then(() => this.emit('ready'));
+    rateLimit.init(this.getPlayer('52d9a36f66ce4cdf9a56ad9724ae9fb4'), this.options, this).then(() => this.emit('ready'));
   }
   /**
    * Private function - make request
@@ -62,7 +62,7 @@ class Client extends EventEmitter {
    * @returns {Promise<Object>} Response
    * @private
    */
-  async _makeRequest (options, url, useRateLimitManager = true) {
+  async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
     if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
     if (useRateLimitManager) await rateLimit.rateLimitManager();
@@ -72,23 +72,23 @@ class Client extends EventEmitter {
     return result;
   }
   /**
+   * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
+   * @event
+   * @name Client#ready
+   * @example
+   * // This example gets player's uuid.
+   * hypixel.once('ready',()=>{
+   *  hypixel.getPlayer('stavzdev')
+   *  .then(player => player.uuid)
+   *  .catch(console.log);
+   * })
+   */
+  /**
    * Emitted when a request is going to be sent
    * @event
    * @name Client#outgoingRequest
    * @param {string} url URL
    * @param {object} [options] Options, if any
-   */
-  /**
-   * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
-   * @event
-   * @name Client#ready
-   * @example
-   * // This example gets the first 100 friends of a player and gets their stats.
-   * hypixel.once('ready',()=>{
-   *  hypixel.getFriends('StavZDev')
-   *  .then(friends => friends.map(x=>x.uuid).slice(0, 100).map(hypixel.getPlayer))
-   *  .catch(console.log);
-   * })
    */
   /**
    * Emitted when there is a warning.
@@ -139,20 +139,6 @@ class Client extends EventEmitter {
    * hypixel.getGuild('name', 'The Foundation').then(guild => {
    *   console.log(guild.level); // 111
    *   console.log(guild.id); // '52e5719284ae51ed0c716c69'
-   * }).catch(e => {
-   *   console.log(e);
-   * })
-   */
-  /**
-   * Allows you get player's list of friends
-   * @method
-   * @name Client#getFriends
-   * @param {string} query Player nickname or UUID
-   * @param {MethodOptions} [options={}] Method options
-   * @return {Promise<Array<Friend>>}
-   * @example
-   * hypixel.getFriends('StavZDev').then(friends => {
-   *   console.log(friends[0].friendSinceTimestamp); // 1528363745834
    * }).catch(e => {
    *   console.log(e);
    * })
@@ -220,19 +206,6 @@ class Client extends EventEmitter {
    * @example
    * hypixel.getAPIStatus().then(status => {
    *   console.log(status.incidents[0].link); // 'https://status.hypixel.net/incidents/zdd5gppdtcc3'
-   * }).catch(e => {
-   *   console.log(e);
-   * })
-   */
-  /**
-   * Gets Key information
-   * @method
-   * @name Client#getKeyInfo
-   * @param {MethodOptions} [options={}] Method options
-   * @return {Promise<KeyInfo>}
-   * @example
-   * hypixel.getKeyInfo().then(keyInfo => {
-   *   console.log(keyInfo.owner); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
    * }).catch(e => {
    *   console.log(e);
    * })
@@ -385,7 +358,7 @@ class Client extends EventEmitter {
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}
    */
-  sweepCache (amount) {
+  sweepCache(amount) {
     return this.requests.sweepCache(amount);
   }
 }
