@@ -2,7 +2,7 @@
 Allows you to get a player's skyblock member data from all their profiles
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -124,5 +124,5 @@ Map(1) {
 }
 ```
 ## Links
-- [getSkyblockMember](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getSkyblockMember)
-- [SkyblockMember](https://hypixel.stavzdev.me/#/docs/main/master/class/SkyblockMember)
+- [getSkyblockMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockMember)
+- [SkyblockMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyblockMember)

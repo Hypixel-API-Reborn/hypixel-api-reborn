@@ -2,7 +2,7 @@
 Allows you to get recent games of a player.
 ## Arguments
 - Player nickname or UUID
-- [Method options](https://hypixel.stavzdev.me/#/docs/main/master/typedef/MethodOptions) (optional)
+- [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
 ```js
@@ -38,5 +38,5 @@ console.log(recentGames); // if player doesn't exist will return null.
 ]
 ```
 ## Links
-- [getRecentGames](https://hypixel.stavzdev.me/#/docs/main/master/class/Client?scrollTo=getRecentGames)
-- [RecentGame](https://hypixel.stavzdev.me/#/docs/main/master/class/RecentGame)
+- [getRecentGames](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getRecentGames)
+- [RecentGame](https://hypixel-api-reborn.github.io/#/docs/main/master/class/RecentGame)

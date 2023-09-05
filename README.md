@@ -45,7 +45,7 @@ hypixel.getGuild('name', 'The Foundation').then(guild => {
   console.error(e);
 })
 ```
-For more examples go to our [documentation]([https://hypixel.stavzdev.me/](https://hypixel-api-reborn.github.io/)).
+For more examples go to our [documentation](https://hypixel-api-reborn.github.io/).
 ## Changelog
 [v10.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/10.0.0)
 

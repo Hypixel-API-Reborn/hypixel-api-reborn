@@ -10,16 +10,12 @@
       path: getPlayer.md
     - name: getGuild
       path: getGuild.md
-    - name: getFriends
-      path: getFriends.md
     - name: getStatus
       path: getStatus.md
     - name: getRecentGames
       path: getRecentGames.md
     - name: getWatchdogStats
       path: getWatchdogStats.md
-    - name: getKeyInfo
-      path: getKeyInfo.md
     - name: getLeaderboards
       path: getLeaderboards.md
     - name: getAPIStatus
