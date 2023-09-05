@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics, Pets, Pet, Color, ServerInfo } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
+const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics, Pets, Pet, Color, ServerInfo, WoolWars } = require('../src');
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
@@ -172,6 +172,10 @@ describe('Client#getPlayer', () => {
       }
       if (player.stats.arena) {
         expect(player.stats.arena).instanceOf(ArenaBrawl);
+      }
+      if (player.stats.woolwars) {
+        console.log(player.stats.woolwars);
+        expect(player.stats.woolwars).instanceOf(WoolWars);
       }
     }
   });
