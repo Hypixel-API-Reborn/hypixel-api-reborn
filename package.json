@@ -16,17 +16,17 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "eslint": "eslint src",
-    "eslint:fix": "eslint src --fix",
+    "eslint": "npx eslint src",
+    "eslint:fix": "npx eslint src --fix",
     "lint:dev": "npm run eslint && npm run dtslint",
-    "test": "mocha tests --exit",
-    "test:dev": "nodenv --exec mocha tests -- --exit",
-    "docgen": "docgen -s src -o ../docs/master.json",
-    "docgen:custom": "docgen -s src --custom docs/index.yml -o ../docs/master.json",
+    "test": "npx mocha tests --exit",
+    "test:dev": "npx nodenv --exec npx mocha tests -- --exit",
+    "docgen": "npx docgen -s src -o ../docs/master.json",
+    "docgen:custom": "npx docgen -s src --custom docs/index.yml -o ../docs/master.json",
     "prepublishOnly": "npm run test:dev && npm run docgen:custom",
-    "dtslint": "dtslint typings",
-    "prettier": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "dtslint": "npx dtslint typings",
+    "prettier": "npx prettier --write .",
+    "prettier:check": "npx prettier --check ."
   },
   "engines": {
     "node": ">=14.0.0"
