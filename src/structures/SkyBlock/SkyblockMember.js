@@ -217,34 +217,34 @@ class SkyblockMember {
      * @type {jacobData}
      */
     this.jacob = getJacobData(data);
-  }
-  /**
-   * Skyblock Member pet score
-   * @return {number}
-   */
-  getPetScore() {
-    const highestRarity = {};
-    for (const pet of data.m.pets) {
-      if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
-        highestRarity[pet.type] = Constants.pet_score[pet.tier];
-      }
-    }
-
-    const highestLevel = {};
-    for (const pet of pets) {
-      const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
-      const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
-
-      if (!(pet.type in highestLevel) || petLevel.level > highestLevel[pet.type]) {
-        if (petLevel.level < maxLevel) {
-          continue;
+    /**
+     * Skyblock Member pet score
+     * @return {number}
+     */
+    this.getPetScore = () => {
+      const highestRarity = {};
+      for (const pet of data.m.pets) {
+        if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
+          highestRarity[pet.type] = Constants.pet_score[pet.tier];
         }
-
-        highestLevel[pet.type] = 1;
       }
-    }
 
-    return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
+      const highestLevel = {};
+      for (const pet of pets) {
+        const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
+        const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
+
+        if (!(pet.type in highestLevel) || petLevel.level > highestLevel[pet.type]) {
+          if (petLevel.level < maxLevel) {
+            continue;
+          }
+
+          highestLevel[pet.type] = 1;
+        }
+      }
+
+      return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
+    };
   }
   /**
    * UUID
@@ -426,7 +426,6 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
 
   let xpForNext = Infinity;
 
-
   for (let i = 0; i < maxLevel; i++) {
     xpTotal += levels[i];
 
@@ -438,10 +437,8 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
     }
   }
 
-
   let xpCurrent = Math.floor(petExp - xpTotal);
   let progress;
-
 
   if (level < maxLevel) {
     xpForNext = Math.ceil(levels[level - 1]);
@@ -452,7 +449,6 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
     xpForNext = 0;
     progress = 1;
   }
-
 
   return {
     level,
