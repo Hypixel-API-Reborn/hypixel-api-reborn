@@ -224,7 +224,7 @@ class SkyblockMember {
    */
   getPetScore() {
     const highestRarity = {};
-    for (const pet of pets) {
+    for (const pet of data.m.pets) {
       if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
         highestRarity[pet.type] = Constants.pet_score[pet.tier];
       }
