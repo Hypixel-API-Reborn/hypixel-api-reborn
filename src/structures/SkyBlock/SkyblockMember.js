@@ -1,20 +1,12 @@
 /* eslint-disable camelcase */
-const {
-  decode,
-  getLevelByXp,
-  getLevelByAchievement,
-  getSlayerLevel
-} = require('../../utils/SkyblockUtils');
-const {
-  skyblock_year_0,
-  skills,
-  skills_achievements
-} = require('../../utils/Constants');
+const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
+const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const { single } = require('../../utils/removeSnakeCase');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
 const constants = require('../../utils/Constants');
+const Constants = require('../../utils/Constants');
 /**
  * Skyblock member class
  */
@@ -58,9 +50,7 @@ class SkyblockMember {
      * Timestamp when player first joined the SkyBlock Hub as Date
      * @type {Date}
      */
-    this.firstJoinHubAt = new Date(
-      this.firstJoinTimestamp + data.m.first_join_hub
-    );
+    this.firstJoinHubAt = new Date(this.firstJoinTimestamp + data.m.first_join_hub);
     /**
      * Last save timestamp
      * @type {number}
@@ -100,8 +90,7 @@ class SkyblockMember {
      * The highest magical power **Not current one**
      * @returns {number}
      */
-    this.highestMagicalPower =
-      data.m.accessory_bag_storage?.highest_magical_power ?? 0;
+    this.highestMagicalPower = data.m.accessory_bag_storage?.highest_magical_power ?? 0;
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
@@ -111,9 +100,7 @@ class SkyblockMember {
       const decoded = await decode(base64.data);
       const armor = {
         helmet: decoded[3].id ? new SkyblockInventoryItem(decoded[3]) : null,
-        chestplate: decoded[2].id
-          ? new SkyblockInventoryItem(decoded[2])
-          : null,
+        chestplate: decoded[2].id ? new SkyblockInventoryItem(decoded[2]) : null,
         leggings: decoded[1].id ? new SkyblockInventoryItem(decoded[1]) : null,
         boots: decoded[0].id ? new SkyblockInventoryItem(decoded[0]) : null
       };
@@ -127,9 +114,7 @@ class SkyblockMember {
       const base64 = data.m?.wardrobe_contents?.data;
       if (!base64) return [];
       const decoded = await decode(base64);
-      const armor = decoded
-        .filter((item) => Object.keys(item).length !== 0)
-        .map((item) => new SkyblockInventoryItem(item));
+      const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
@@ -226,9 +211,7 @@ class SkyblockMember {
      * Skyblock pets
      * @type {SkyblockPet[]}
      */
-    this.pets = data.m.pets
-      ? data.m.pets.map((pet) => new SkyblockPet(pet))
-      : [];
+    this.pets = data.m.pets ? data.m.pets.map((pet) => new SkyblockPet(pet)) : [];
     /**
      * Skyblock jacob data
      * @type {jacobData}
@@ -240,7 +223,28 @@ class SkyblockMember {
    * @return {number}
    */
   getPetScore() {
-    return this.pets.reduce((acc, cur) => acc + (cur.petScore || 0), 0);
+    const highestRarity = {};
+    for (const pet of pets) {
+      if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
+        highestRarity[pet.type] = Constants.pet_score[pet.tier];
+      }
+    }
+
+    const highestLevel = {};
+    for (const pet of pets) {
+      const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
+      const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
+
+      if (!(pet.type in highestLevel) || petLevel.level > highestLevel[pet.type]) {
+        if (petLevel.level < maxLevel) {
+          continue;
+        }
+
+        highestLevel[pet.type] = 1;
+      }
+    }
+
+    return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
   }
   /**
    * UUID
@@ -259,10 +263,7 @@ function getSkills(data) {
   if (!objectPath.has(data, 'experience_skill_foraging')) {
     if (data.player) {
       for (const [skill, achievement] of Object.entries(skills_achievements)) {
-        skillsObject[skill] = getLevelByAchievement(
-          data.player.achievements[achievement],
-          skill
-        );
+        skillsObject[skill] = getLevelByAchievement(data.player.achievements[achievement], skill);
       }
       skillsObject.usedAchievementApi = true;
       return skillsObject;
@@ -270,16 +271,7 @@ function getSkills(data) {
     return null;
   }
   for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(
-      data[`experience_skill_${skill}`],
-      skill,
-      skill === 'farming'
-        ? (data.jacob2 &&
-            data.jacob2.perks &&
-            data.jacob2.perks.farming_level_cap) ||
-            0
-        : null
-    );
+    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, skill === 'farming' ? (data.jacob2 && data.jacob2.perks && data.jacob2.perks.farming_level_cap) || 0 : null);
   }
   if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
@@ -299,12 +291,8 @@ function formatBestiaryMobs(userProfile, mobs) {
     }, 0);
 
     const maxKills = mob.cap;
-    const nextTierKills = mobBracket.find(
-      (tier) => totalKills < tier && tier <= maxKills
-    );
-    const tier = nextTierKills
-      ? mobBracket.indexOf(nextTierKills)
-      : mobBracket.indexOf(maxKills) + 1;
+    const nextTierKills = mobBracket.find((tier) => totalKills < tier && tier <= maxKills);
+    const tier = nextTierKills ? mobBracket.indexOf(nextTierKills) : mobBracket.indexOf(maxKills) + 1;
 
     output.push({
       tier: tier
@@ -331,21 +319,12 @@ function getBestiaryLevel(userProfile) {
 
       if (category === 'fishing') {
         for (const [key, value] of Object.entries(data)) {
-          output[category][key].mobs = formatBestiaryMobs(
-            userProfile,
-            value.mobs
-          );
-          tiersUnlocked += output[category][key].mobs.reduce(
-            (acc, cur) => acc + cur.tier,
-            0
-          );
+          output[category][key].mobs = formatBestiaryMobs(userProfile, value.mobs);
+          tiersUnlocked += output[category][key].mobs.reduce((acc, cur) => acc + cur.tier, 0);
         }
       } else {
         output[category].mobs = formatBestiaryMobs(userProfile, mobs);
-        tiersUnlocked += output[category].mobs.reduce(
-          (acc, cur) => acc + cur.tier,
-          0
-        );
+        tiersUnlocked += output[category].mobs.reduce((acc, cur) => acc + cur.tier, 0);
       }
     }
 
@@ -384,44 +363,14 @@ function getDungeons(data) {
   }
   return {
     types: {
-      catacombs: getLevelByXp(
-        data.dungeons.dungeon_types.catacombs
-          ? data.dungeons.dungeon_types.catacombs.experience
-          : null,
-        'dungeons'
-      )
+      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
     },
     classes: {
-      healer: getLevelByXp(
-        data.dungeons.player_classes.healer
-          ? data.dungeons.player_classes.healer.experience
-          : null,
-        'dungeons'
-      ),
-      mage: getLevelByXp(
-        data.dungeons.player_classes.mage
-          ? data.dungeons.player_classes.mage.experience
-          : null,
-        'dungeons'
-      ),
-      berserk: getLevelByXp(
-        data.dungeons.player_classes.berserk
-          ? data.dungeons.player_classes.berserk.experience
-          : null,
-        'dungeons'
-      ),
-      archer: getLevelByXp(
-        data.dungeons.player_classes.archer
-          ? data.dungeons.player_classes.archer.experience
-          : null,
-        'dungeons'
-      ),
-      tank: getLevelByXp(
-        data.dungeons.player_classes.tank
-          ? data.dungeons.player_classes.tank.experience
-          : null,
-        'dungeons'
-      )
+      healer: getLevelByXp(data.dungeons.player_classes.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
+      mage: getLevelByXp(data.dungeons.player_classes.mage ? data.dungeons.player_classes.mage.experience : null, 'dungeons'),
+      berserk: getLevelByXp(data.dungeons.player_classes.berserk ? data.dungeons.player_classes.berserk.experience : null, 'dungeons'),
+      archer: getLevelByXp(data.dungeons.player_classes.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
+      tank: getLevelByXp(data.dungeons.player_classes.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
     }
   };
 }
@@ -445,20 +394,72 @@ function getJacobData(data) {
     };
   }
   return {
-    medals: data.m.jacob2.medals_inv
-      ? {
-          bronze: data.m.jacob2.medals_inv.bronze || 0,
-          silver: data.m.jacob2.medals_inv.silver || 0,
-          gold: data.m.jacob2.medals_inv.gold || 0
-        }
-      : { bronze: 0, silver: 0, gold: 0 },
-    perks: data.m.jacob2.perks
-      ? {
-          doubleDrops: data.m.jacob2.perks.doubleDrops || 0,
-          farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0
-        }
-      : { doubleDrops: 0, farmingLevelCap: 0 },
+    medals: data.m.jacob2.medals_inv ?
+      {
+        bronze: data.m.jacob2.medals_inv.bronze || 0,
+        silver: data.m.jacob2.medals_inv.silver || 0,
+        gold: data.m.jacob2.medals_inv.gold || 0
+      } :
+      { bronze: 0, silver: 0, gold: 0 },
+    perks: data.m.jacob2.perks ?
+      {
+        doubleDrops: data.m.jacob2.perks.doubleDrops || 0,
+        farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0
+      } :
+      { doubleDrops: 0, farmingLevelCap: 0 },
     contests: data.m.jacob2.contests || {}
+  };
+}
+/**
+ * @param {number} petExp
+ * @param {string} offsetRarity
+ * @param {number} maxLevel
+ * @returns  {{level: number,xpCurrent: number,xpForNext: number,progress: any,xpMaxLevel: number}}
+ */
+function getPetLevel(petExp, offsetRarity, maxLevel) {
+  const rarityOffset = Constants.pet_rarity_offset[offsetRarity];
+  const levels = Constants.pet_levels.slice(rarityOffset, rarityOffset + maxLevel - 1);
+
+  const xpMaxLevel = levels.reduce((a, b) => a + b, 0);
+  let xpTotal = 0;
+  let level = 1;
+
+  let xpForNext = Infinity;
+
+
+  for (let i = 0; i < maxLevel; i++) {
+    xpTotal += levels[i];
+
+    if (xpTotal > petExp) {
+      xpTotal -= levels[i];
+      break;
+    } else {
+      level++;
+    }
+  }
+
+
+  let xpCurrent = Math.floor(petExp - xpTotal);
+  let progress;
+
+
+  if (level < maxLevel) {
+    xpForNext = Math.ceil(levels[level - 1]);
+    progress = Math.max(0, Math.min(xpCurrent / xpForNext, 1));
+  } else {
+    level = maxLevel;
+    xpCurrent = petExp - levels[maxLevel - 1];
+    xpForNext = 0;
+    progress = 1;
+  }
+
+
+  return {
+    level,
+    xpCurrent,
+    xpForNext,
+    progress,
+    xpMaxLevel
   };
 }
 /**
