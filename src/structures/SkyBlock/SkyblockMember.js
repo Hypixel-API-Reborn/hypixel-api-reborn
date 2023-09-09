@@ -230,7 +230,7 @@ class SkyblockMember {
       }
 
       const highestLevel = {};
-      for (const pet of pets) {
+      for (const pet of data.m.pets) {
         const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
         const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
 
