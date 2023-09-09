@@ -316,10 +316,13 @@ function getBestiaryLevel(userProfile) {
     let tiersUnlocked = 0;
     for (const [category, data] of Object.entries(constants.bestiary)) {
       const { mobs } = data;
+      output[category] = {};
 
       if (category === 'fishing') {
         for (const [key, value] of Object.entries(data)) {
-          output[category][key].mobs = formatBestiaryMobs(userProfile, value.mobs);
+          output[category][key] = {
+            mobs: formatBestiaryMobs(userProfile, value.mobs)
+          };
           tiersUnlocked += output[category][key].mobs.reduce((acc, cur) => acc + cur.tier, 0);
         }
       } else {
