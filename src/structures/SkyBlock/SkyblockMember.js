@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
+const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const { single } = require('../../utils/removeSnakeCase');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
@@ -85,7 +85,7 @@ class SkyblockMember {
      * Trophy fish amount of rewards
      * @returns {number}
      */
-    this.trophyFish = data.m.trophy_fish?.rewards.length ?? 0;
+    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
     /**
      * The highest magical power **Not current one**
      * @returns {number}

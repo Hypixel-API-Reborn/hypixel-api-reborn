@@ -161,5 +161,18 @@ module.exports = {
   getEffectiveHealth (health, defense) {
     if (defense <= 0) return health;
     return Math.round(health * (1 + defense / 100));
+  },
+  getTrophyFishRank(level) {
+    if (level === 1) {
+      return 'Bronze';
+    } else if (level === 2) {
+      return 'Silver';
+    } else if (level === 3) {
+      return 'Gold';
+    } else if (level === 4) {
+      return 'Diamond';
+    } else {
+      return 'Bronze';
+    }
   }
 };
