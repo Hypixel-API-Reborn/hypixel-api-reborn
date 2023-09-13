@@ -57,7 +57,7 @@ module.exports = {
     }
     const xpCurrent = Math.floor(xp - xpTotal);
     if (level < maxLevel) xpForNext = Math.ceil(xpTable[level + 1]);
-    const progress = Math.floor((Math.max(0, Math.min(xpCurrent / xpForNext, 1))) * 100);
+    const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100 * 10) / 10;
     return {
       xp,
       level,
