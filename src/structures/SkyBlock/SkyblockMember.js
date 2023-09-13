@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
-const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getTrophyFishRank } = require('../../utils/SkyblockUtils');
+const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
-const { single } = require('../../utils/removeSnakeCase');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
@@ -206,7 +205,7 @@ class SkyblockMember {
      * Skyblock member stats
      * @type {SkyblockMemberStats}
      */
-    this.stats = data.m.stats ? single(data.m.stats) : null;
+    this.stats = data.m.stats ? getMemberStats(data.m.stats) : null;
     /**
      * Skyblock pets
      * @type {SkyblockPet[]}

@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 const constants = require('./Constants');
 module.exports = {
-  async decode (base64, isBuffer=false) {
+  async decode(base64, isBuffer = false) {
     const nbt = require('prismarine-nbt');
-    const parseNbt = (require('util')).promisify(nbt.parse);
+    const parseNbt = require('util').promisify(nbt.parse);
     const buffer = isBuffer ? base64 : Buffer.from(base64, 'base64');
     let data = await parseNbt(buffer);
     data = nbt.simplify(data);
@@ -13,7 +13,7 @@ module.exports = {
     }
     return newdata;
   },
-  getLevelByXp (xp, type, levelCap) {
+  getLevelByXp(xp, type, levelCap) {
     let xpTable;
     switch (type) {
       case 'runecrafting':
@@ -28,9 +28,7 @@ module.exports = {
     let maxLevel = Math.max(...Object.keys(xpTable));
     if (constants.skills_cap[type] > maxLevel) {
       xpTable = Object.assign(constants.xp_past_50, xpTable);
-      maxLevel = typeof levelCap === 'number' ?
-        maxLevel + levelCap :
-        Math.max(...Object.keys(xpTable));
+      maxLevel = typeof levelCap === 'number' ? maxLevel + levelCap : Math.max(...Object.keys(xpTable));
     }
     if (isNaN(xp)) {
       return {
@@ -67,7 +65,7 @@ module.exports = {
       progress
     };
   },
-  getLevelByAchievement (achievementLevel, type) {
+  getLevelByAchievement(achievementLevel, type) {
     let xpTable = constants.leveling_xp;
     let maxLevel = Math.max(...Object.keys(xpTable));
     if (constants.skills_cap[type] > maxLevel && type in constants.skills_achievements) {
@@ -99,7 +97,7 @@ module.exports = {
       progress: 0
     };
   },
-  getSlayerLevel (slayer) {
+  getSlayerLevel(slayer) {
     if (!slayer) {
       return {
         xp: 0,
@@ -115,7 +113,7 @@ module.exports = {
     let level = 0;
     for (const level_name in claimed_levels) {
       if (Object.prototype.hasOwnProperty.call(claimed_levels, level_name)) {
-        const _level = parseInt(level_name.replace("_special", "").split('_').pop(), 10);
+        const _level = parseInt(level_name.replace('_special', '').split('_').pop(), 10);
         if (_level > level) {
           level = _level;
         }
@@ -131,7 +129,7 @@ module.exports = {
       level
     };
   },
-  getSlayerLevelByXp (xp) {
+  getSlayerLevelByXp(xp) {
     const { slayer_xp } = constants;
     const maxLevel = Math.max(...Object.keys(slayer_xp));
     let level = 0;
@@ -140,15 +138,20 @@ module.exports = {
     }
     return level;
   },
-  getBonusStat (level, skill, max, incremention) {
+  getBonusStat(level, skill, max, incremention) {
     const skill_stats = constants.bonus_stats[skill];
-    const steps = Object.keys(skill_stats).sort((a, b) => Number(a) - Number(b)).map((a) => Number(a));
+    const steps = Object.keys(skill_stats)
+      .sort((a, b) => Number(a) - Number(b))
+      .map((a) => Number(a));
     const bonus = Object.assign({}, constants.stat_template);
     for (let x = steps[0]; x <= max; x += incremention) {
       if (level < x) {
         break;
       }
-      const skill_step = steps.slice().reverse().find((a) => a <= x);
+      const skill_step = steps
+        .slice()
+        .reverse()
+        .find((a) => a <= x);
       const skill_bonus = skill_stats[skill_step];
       for (const skill in skill_bonus) {
         if (Object.prototype.hasOwnProperty.call(skill_bonus, skill)) {
@@ -158,9 +161,28 @@ module.exports = {
     }
     return bonus;
   },
-  getEffectiveHealth (health, defense) {
+  getEffectiveHealth(health, defense) {
     if (defense <= 0) return health;
     return Math.round(health * (1 + defense / 100));
+  },
+  getMemberStats(obg) {
+    return Object.keys(obj).reduce(
+      (result, currentKey) => {
+        const key = currentKey.replace(/_[a-z]/gi, (match) => match[1].toUpperCase());
+
+        if (currentKey.startsWith('kills') || currentKey.startsWith('deaths')) {
+          const category = currentKey.startsWith('kills') ? 'kills' : 'deaths';
+          const subKey = key === category ? 'total' : key;
+
+          result[category][subKey] = obj[currentKey];
+        } else {
+          result[key] = obj[currentKey];
+        }
+
+        return result;
+      },
+      { kills: {}, deaths: {} }
+    );
   },
   getTrophyFishRank(level) {
     if (level === 1) {
