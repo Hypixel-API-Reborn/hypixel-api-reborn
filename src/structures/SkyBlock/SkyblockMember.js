@@ -79,7 +79,7 @@ class SkyblockMember {
      * Heart of the Mountain - MiningSkill
      * @returns {number}
      */
-    this.hotm = data.m.mining_core?.experience ?? 0;
+    this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm', 7);
     /**
      * Trophy fish amount of rewards
      * @returns {number}

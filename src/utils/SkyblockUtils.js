@@ -22,11 +22,14 @@ module.exports = {
       case 'dungeons':
         xpTable = constants.dungeon_xp;
         break;
+      case 'hotm':
+        xpTable = constants.hotm_xp;
+        break;
       default:
         xpTable = constants.leveling_xp;
     }
     let maxLevel = Math.max(...Object.keys(xpTable));
-    if (constants.skills_cap[type] > maxLevel) {
+    if ((constants.skills_cap[type] ?? maxLevel) > maxLevel) {
       xpTable = Object.assign(constants.xp_past_50, xpTable);
       maxLevel = typeof levelCap === 'number' ? maxLevel + levelCap : Math.max(...Object.keys(xpTable));
     }
@@ -56,6 +59,7 @@ module.exports = {
     const xpCurrent = Math.floor(xp - xpTotal);
     if (level < maxLevel) xpForNext = Math.ceil(xpTable[level + 1]);
     const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100 * 10) / 10;
+
     return {
       xp,
       level,
