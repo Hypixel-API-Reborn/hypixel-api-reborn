@@ -55,7 +55,7 @@ module.exports = {
     }
     const xpCurrent = Math.floor(xp - xpTotal);
     if (level < maxLevel) xpForNext = Math.ceil(xpTable[level + 1]);
-    const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100);
+    const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100 * 10) / 10;
     return {
       xp,
       level,
@@ -183,5 +183,18 @@ module.exports = {
       },
       { kills: {}, deaths: {} }
     );
+  },
+  getTrophyFishRank(level) {
+    if (level === 1) {
+      return 'Bronze';
+    } else if (level === 2) {
+      return 'Silver';
+    } else if (level === 3) {
+      return 'Gold';
+    } else if (level === 4) {
+      return 'Diamond';
+    } else {
+      return 'Bronze';
+    }
   }
 };
