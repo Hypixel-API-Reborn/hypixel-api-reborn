@@ -165,7 +165,7 @@ module.exports = {
     if (defense <= 0) return health;
     return Math.round(health * (1 + defense / 100));
   },
-  getMemberStats(obg) {
+  getMemberStats(obj) {
     return Object.keys(obj).reduce(
       (result, currentKey) => {
         const key = currentKey.replace(/_[a-z]/gi, (match) => match[1].toUpperCase());
