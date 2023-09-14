@@ -178,7 +178,11 @@ module.exports = {
           const category = currentKey.startsWith('kills') ? 'kills' : 'deaths';
           const subKey = key === category ? 'total' : key;
 
-          result[category][subKey] = obj[currentKey];
+          result[category][
+            subKey.replace(category, (sub, _, key) => {
+              return key[sub.length].toLowerCase() + key.slice(sub.length + 1);
+            })
+          ] = obj[currentKey];
         } else {
           result[key] = obj[currentKey];
         }
