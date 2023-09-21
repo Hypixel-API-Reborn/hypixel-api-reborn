@@ -1,10 +1,11 @@
 /* eslint-disable camelcase */
-const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel } = require('../../utils/SkyblockUtils');
+const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
-const { single } = require('../../utils/removeSnakeCase');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
+const constants = require('../../utils/Constants');
+const Constants = require('../../utils/Constants');
 /**
  * Skyblock member class
  */
@@ -70,6 +71,26 @@ class SkyblockMember {
      */
     this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
     /**
+     * Experience
+     * @type {number}
+     */
+    this.experience = data.m.leveling?.experience ?? 0;
+    /**
+     * Heart of the Mountain - MiningSkill
+     * @returns {number}
+     */
+    this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm', 7);
+    /**
+     * Trophy fish amount of rewards
+     * @returns {number}
+     */
+    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
+    /**
+     * The highest magical power **Not current one**
+     * @returns {number}
+     */
+    this.highestMagicalPower = data.m.accessory_bag_storage?.highest_magical_power ?? 0;
+    /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
      */
@@ -92,8 +113,7 @@ class SkyblockMember {
       const base64 = data.m?.wardrobe_contents?.data;
       if (!base64) return [];
       const decoded = await decode(base64);
-      const armor = decoded.filter((item) => Object.keys(item).length !== 0)
-        .map((item) => new SkyblockInventoryItem(item));
+      const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
@@ -111,6 +131,11 @@ class SkyblockMember {
      * @type {SkyblockMemberSkills}
      */
     this.skills = getSkills(data.m);
+    /**
+     * Bestiary of the user
+     * @type {object}
+     */
+    this.bestiary = getBestiaryLevel(data.m);
     /**
      * Skyblock member slayer
      * @type {SkyblockMemberSlayer|null}
@@ -180,7 +205,7 @@ class SkyblockMember {
      * Skyblock member stats
      * @type {SkyblockMemberStats}
      */
-    this.stats = data.m.stats ? single(data.m.stats) : null;
+    this.stats = data.m.stats ? getMemberStats(data.m.stats) : null;
     /**
      * Skyblock pets
      * @type {SkyblockPet[]}
@@ -191,13 +216,34 @@ class SkyblockMember {
      * @type {jacobData}
      */
     this.jacob = getJacobData(data);
-  }
-  /**
-   * Skyblock Member pet score
-   * @return {number}
-   */
-  getPetScore() {
-    return this.pets.reduce((acc, cur) => acc + (cur.petScore || 0), 0);
+    /**
+     * Skyblock Member pet score
+     * @return {number}
+     */
+    this.getPetScore = () => {
+      const highestRarity = {};
+      for (const pet of data.m.pets) {
+        if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
+          highestRarity[pet.type] = Constants.pet_score[pet.tier];
+        }
+      }
+
+      const highestLevel = {};
+      for (const pet of data.m.pets) {
+        const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
+        const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
+
+        if (!(pet.type in highestLevel) || petLevel.level > highestLevel[pet.type]) {
+          if (petLevel.level < maxLevel) {
+            continue;
+          }
+
+          highestLevel[pet.type] = 1;
+        }
+      }
+
+      return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
+    };
   }
   /**
    * UUID
@@ -230,6 +276,69 @@ function getSkills(data) {
   return skillsObject;
 }
 /**
+ * @param {object} userProfile
+ * @param {object} mobs
+ * @returns {object}
+ */
+function formatBestiaryMobs(userProfile, mobs) {
+  const output = [];
+  for (const mob of mobs) {
+    const mobBracket = constants.bestiaryBrackets[mob.bracket];
+
+    const totalKills = mob.mobs.reduce((acc, cur) => {
+      return acc + (userProfile.bestiary.kills[cur] ?? 0);
+    }, 0);
+
+    const maxKills = mob.cap;
+    const nextTierKills = mobBracket.find((tier) => totalKills < tier && tier <= maxKills);
+    const tier = nextTierKills ? mobBracket.indexOf(nextTierKills) : mobBracket.indexOf(maxKills) + 1;
+
+    output.push({
+      tier: tier
+    });
+  }
+
+  return output;
+}
+
+/**
+ * @param {object} userProfile
+ * @returns {number | null}
+ */
+function getBestiaryLevel(userProfile) {
+  try {
+    if (userProfile.bestiary?.kills === undefined) {
+      return null;
+    }
+
+    const output = {};
+    let tiersUnlocked = 0;
+    for (const [category, data] of Object.entries(constants.bestiary)) {
+      const { mobs } = data;
+      output[category] = {};
+
+      if (category === 'fishing') {
+        for (const [key, value] of Object.entries(data)) {
+          output[category][key] = {
+            mobs: formatBestiaryMobs(userProfile, value.mobs)
+          };
+          tiersUnlocked += output[category][key].mobs.reduce((acc, cur) => acc + cur.tier, 0);
+        }
+      } else {
+        output[category].mobs = formatBestiaryMobs(userProfile, mobs);
+        tiersUnlocked += output[category].mobs.reduce((acc, cur) => acc + cur.tier, 0);
+      }
+    }
+
+    return tiersUnlocked / 10;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+    return null;
+  }
+}
+
+/**
  * @param {object} data
  * @return {object}
  */
@@ -240,7 +349,10 @@ function getSlayer(data) {
   return {
     zombie: getSlayerLevel(data.slayer_bosses.zombie),
     spider: getSlayerLevel(data.slayer_bosses.spider),
-    wolf: getSlayerLevel(data.slayer_bosses.wolf)
+    wolf: getSlayerLevel(data.slayer_bosses.wolf),
+    enderman: getSlayerLevel(data.slayer_bosses.enderman),
+    blaze: getSlayerLevel(data.slayer_bosses.blaze),
+    vampire: getSlayerLevel(data.slayer_bosses.vampire)
   };
 }
 /**
@@ -285,12 +397,67 @@ function getJacobData(data) {
   }
   return {
     medals: data.m.jacob2.medals_inv ?
-      { bronze: data.m.jacob2.medals_inv.bronze || 0, silver: data.m.jacob2.medals_inv.silver || 0, gold: data.m.jacob2.medals_inv.gold || 0 } :
+      {
+        bronze: data.m.jacob2.medals_inv.bronze || 0,
+        silver: data.m.jacob2.medals_inv.silver || 0,
+        gold: data.m.jacob2.medals_inv.gold || 0
+      } :
       { bronze: 0, silver: 0, gold: 0 },
     perks: data.m.jacob2.perks ?
-      { doubleDrops: data.m.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0 } :
+      {
+        doubleDrops: data.m.jacob2.perks.doubleDrops || 0,
+        farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0
+      } :
       { doubleDrops: 0, farmingLevelCap: 0 },
     contests: data.m.jacob2.contests || {}
+  };
+}
+/**
+ * @param {number} petExp
+ * @param {string} offsetRarity
+ * @param {number} maxLevel
+ * @returns  {{level: number,xpCurrent: number,xpForNext: number,progress: any,xpMaxLevel: number}}
+ */
+function getPetLevel(petExp, offsetRarity, maxLevel) {
+  const rarityOffset = Constants.pet_rarity_offset[offsetRarity];
+  const levels = Constants.pet_levels.slice(rarityOffset, rarityOffset + maxLevel - 1);
+
+  const xpMaxLevel = levels.reduce((a, b) => a + b, 0);
+  let xpTotal = 0;
+  let level = 1;
+
+  let xpForNext = Infinity;
+
+  for (let i = 0; i < maxLevel; i++) {
+    xpTotal += levels[i];
+
+    if (xpTotal > petExp) {
+      xpTotal -= levels[i];
+      break;
+    } else {
+      level++;
+    }
+  }
+
+  let xpCurrent = Math.floor(petExp - xpTotal);
+  let progress;
+
+  if (level < maxLevel) {
+    xpForNext = Math.ceil(levels[level - 1]);
+    progress = Math.max(0, Math.min(xpCurrent / xpForNext, 1));
+  } else {
+    level = maxLevel;
+    xpCurrent = petExp - levels[maxLevel - 1];
+    xpForNext = 0;
+    progress = 1;
+  }
+
+  return {
+    level,
+    xpCurrent,
+    xpForNext,
+    progress,
+    xpMaxLevel
   };
 }
 /**
