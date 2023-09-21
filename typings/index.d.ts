@@ -7,39 +7,168 @@
 import { EventEmitter } from 'events';
 
 export type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Game Master' | 'Admin' | 'EVENTS' | 'MCP' | 'MOJANG' | 'PIG+++';
-export type GAME_NAME = 'Quake Craft' | 'Walls' | 'Paintball' | 'Blitz Survival Games' | 'The TNT Games' | 'VampireZ' | 'Mega Walls' | 'Arcade' | 'Arena Walls' | 'UHC Champions' | 'Cops and Crims' | 'Warlords' | 'Smash Heroes' | 'Turbo Kart Racing' | 'Housing' | 'SkyWars' | 'Crazy Walls' | 'Speed UHC' | 'SkyClash' | 'Classic Games' | 'Prototype' | 'BedWars' | 'Murder Mystery' | 'Build Battle' | 'Duels' | 'SkyBlock' | 'The Pit' | 'Replay' | 'Limbo' | 'Queue' | 'Main Lobby' | 'Tournament Lobby' | 'Idle' | 'SMP';
+export type GAME_NAME =
+  | 'Quake Craft'
+  | 'Walls'
+  | 'Paintball'
+  | 'Blitz Survival Games'
+  | 'The TNT Games'
+  | 'VampireZ'
+  | 'Mega Walls'
+  | 'Arcade'
+  | 'Arena Walls'
+  | 'UHC Champions'
+  | 'Cops and Crims'
+  | 'Warlords'
+  | 'Smash Heroes'
+  | 'Turbo Kart Racing'
+  | 'Housing'
+  | 'SkyWars'
+  | 'Crazy Walls'
+  | 'Speed UHC'
+  | 'SkyClash'
+  | 'Classic Games'
+  | 'Prototype'
+  | 'BedWars'
+  | 'Murder Mystery'
+  | 'Build Battle'
+  | 'Duels'
+  | 'SkyBlock'
+  | 'The Pit'
+  | 'Replay'
+  | 'Limbo'
+  | 'Queue'
+  | 'Main Lobby'
+  | 'Tournament Lobby'
+  | 'Idle'
+  | 'SMP';
 export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | 65 | 67 | -1 | -2 | -3 | -4 | -5 | -6;
-export type GAME_CODE = 'QUAKECRAFT' | 'WALLS' | 'PAINTBALL' | 'SURVIVAL_GAMES' | 'TNTGAMES' | 'VAMPIREZ' | 'WALLS3' | 'ARCADE' | 'UHC' | 'MCGO' | 'BATTLEGROUND' | 'SUPER_SMASH' | 'GINGERBREAD' | 'HOUSING' | 'SKYWARS' | 'TRUE_COMBAT' | 'SPEED_UHC' | 'SKYCLASH' | 'LEGACY' | 'PROTOTYPE' | 'BEDWARS' | 'MURDER_MYSTERY' | 'BUILD_BATTLE' | 'DUELS' | 'SKYBLOCK' | 'PIT' | 'REPLAY' | 'LIMBO' | 'IDLE' | 'QUEUE' | 'MAIN_LOBBY' | 'TOURNAMENT_LOBBY' | 'SMP';
+export type GAME_CODE =
+  | 'QUAKECRAFT'
+  | 'WALLS'
+  | 'PAINTBALL'
+  | 'SURVIVAL_GAMES'
+  | 'TNTGAMES'
+  | 'VAMPIREZ'
+  | 'WALLS3'
+  | 'ARCADE'
+  | 'UHC'
+  | 'MCGO'
+  | 'BATTLEGROUND'
+  | 'SUPER_SMASH'
+  | 'GINGERBREAD'
+  | 'HOUSING'
+  | 'SKYWARS'
+  | 'TRUE_COMBAT'
+  | 'SPEED_UHC'
+  | 'SKYCLASH'
+  | 'LEGACY'
+  | 'PROTOTYPE'
+  | 'BEDWARS'
+  | 'MURDER_MYSTERY'
+  | 'BUILD_BATTLE'
+  | 'DUELS'
+  | 'SKYBLOCK'
+  | 'PIT'
+  | 'REPLAY'
+  | 'LIMBO'
+  | 'IDLE'
+  | 'QUEUE'
+  | 'MAIN_LOBBY'
+  | 'TOURNAMENT_LOBBY'
+  | 'SMP';
 export type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
 export type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
-export type BEDWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Iron Prime' | 'Gold Prime' | 'Diamond Prime' | 'Emerald Prime' | 'Sapphire Prime' | 'Ruby Prime' | 'Crystal Prime' | 'Opal Prime' | 'Amethyst Prime' | 'Mirror' | 'Light' | 'Dawn' | 'Dusk' | 'Air' | 'Wind' | 'Nebula' | 'Thunder' | 'Earth' | 'Water' | 'Fire' |'Sunrise' | 'Eclipse' | 'Gamma' | 'Majestic' | 'Andesine' | 'Marine' | 'Element' | 'Galaxy' | 'Atomic' | 'Sunset' | 'Time' | 'Winter' | 'Obsidian' | 'Spring' | 'Ice' | 'Summer' | 'Spinel' | 'Autumn' | 'Mystic' | 'Eternal' ;
+export type BEDWARS_PRESTIGE =
+  | 'Iron'
+  | 'Gold'
+  | 'Diamond'
+  | 'Emerald'
+  | 'Sapphire'
+  | 'Ruby'
+  | 'Crystal'
+  | 'Opal'
+  | 'Amethyst'
+  | 'Rainbow'
+  | 'Iron Prime'
+  | 'Gold Prime'
+  | 'Diamond Prime'
+  | 'Emerald Prime'
+  | 'Sapphire Prime'
+  | 'Ruby Prime'
+  | 'Crystal Prime'
+  | 'Opal Prime'
+  | 'Amethyst Prime'
+  | 'Mirror'
+  | 'Light'
+  | 'Dawn'
+  | 'Dusk'
+  | 'Air'
+  | 'Wind'
+  | 'Nebula'
+  | 'Thunder'
+  | 'Earth'
+  | 'Water'
+  | 'Fire'
+  | 'Sunrise'
+  | 'Eclipse'
+  | 'Gamma'
+  | 'Majestic'
+  | 'Andesine'
+  | 'Marine'
+  | 'Element'
+  | 'Galaxy'
+  | 'Atomic'
+  | 'Sunset'
+  | 'Time'
+  | 'Winter'
+  | 'Obsidian'
+  | 'Spring'
+  | 'Ice'
+  | 'Summer'
+  | 'Spinel'
+  | 'Autumn'
+  | 'Mystic'
+  | 'Eternal';
 export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export type SKYBLOCK_BESTIARY = number;
+export interface SKYBLOCK_BESTIARY_CATEGORY {
+  [key: string]: {
+    damage?: number;
+    head: string;
+    itemId?: string;
+    kills: number;
+    maxTier: number;
+    name: string;
+    tier: number;
+  };
+}
 export interface SKYBLOCK_SKILL_DATA {
-  xp: number,
-  level: number,
-  maxLevel: number,
-  xpCurrent: number,
-  xpForNext: number,
-  progress: number,
+  xp: number;
+  level: number;
+  maxLevel: number;
+  xpCurrent: number;
+  xpForNext: number;
+  progress: number;
 }
 export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
 export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
 export interface SKYBLOCK_SLAYER_DATA {
-  xp: number,
-  tier1: number,
-  tier2: number,
-  tier3: number,
-  tier4: number,
+  xp: number;
+  tier1: number;
+  tier2: number;
+  tier3: number;
+  tier4: number;
   level: number;
 }
 export interface clientOptions {
   cache?: boolean;
   cacheTime?: number;
   cacheSize?: number;
-  cacheFilter?: string | string[] | { 'whitelist': string | string[], 'blacklist': string | string[]; };
+  cacheFilter?: string | string[] | { whitelist: string | string[]; blacklist: string | string[] };
   cacheHandler?: CacheHandler & unknown;
   rateLimit?: 'HARD' | 'AUTO' | 'NONE';
   keyLimit?: number;
@@ -50,13 +179,13 @@ export interface clientOptions {
 }
 type PromiseLike<T> = T | Promise<T>;
 type CacheHandler = {
-  set: (key: string, value: unknown) => PromiseLike<void>,
-  get: (key: string) => PromiseLike<unknown>,
-  has: (key: string) => PromiseLike<boolean>,
-  delete: (key: string) => PromiseLike<boolean>,
-  keys: () => PromiseLike<string[]>,
-  size: () => PromiseLike<number>,
-  clear: () => PromiseLike<void>,
+  set: (key: string, value: unknown) => PromiseLike<void>;
+  get: (key: string) => PromiseLike<unknown>;
+  has: (key: string) => PromiseLike<boolean>;
+  delete: (key: string) => PromiseLike<boolean>;
+  keys: () => PromiseLike<string[]>;
+  size: () => PromiseLike<number>;
+  clear: () => PromiseLike<void>;
 };
 export interface methodOptions {
   raw?: boolean;
@@ -85,39 +214,39 @@ export interface auctionsOptions extends methodOptions {
 declare module 'hypixel-api-reborn' {
   const version: string;
   const Errors: {
-    CACHE_FILTER_INVALID: string,
-    CACHE_LIMIT_MUST_BE_A_NUMBER: string,
-    CACHE_TIME_MUST_BE_A_NUMBER: string,
-    CONNECTION_ERROR: string,
-    ERROR_CODE_CAUSE: string,
-    ERROR_STATUSTEXT: string,
-    GUILD_DOES_NOT_EXIST: string,
-    INVALID_API_KEY: string,
-    INVALID_GUILD_ID: string,
-    INVALID_GUILD_SEARCH_PARAMETER: string,
-    INVALID_OPTION_VALUE: string,
-    INVALID_KEY_LIMIT_OPTION: string,
-    INVALID_HEADER_SYNC_OPTION: string,
-    INVALID_BURST_OPTION: string,
-    INVALID_RATE_LIMIT_OPTION: string,
-    INVALID_RESPONSE_BODY: string,
-    KEY_MUST_BE_A_STRING: string,
-    MALFORMED_UUID: string,
-    NO_API_KEY: string,
-    NO_GUILD_QUERY: string,
-    NO_NICKNAME_UUID: string,
-    NO_UUID: string,
-    OPTIONS_MUST_BE_AN_OBJECT: string,
-    PAGE_INDEX_ERROR: string,
-    PLAYER_DISABLED_ENDPOINT: string,
-    PLAYER_DOES_NOT_EXIST: string,
-    PLAYER_HAS_NEVER_LOGGED: string,
-    PLAYER_IS_INACTIVE: string,
-    RATE_LIMIT_INIT_ERROR: string,
-    SOMETHING_WENT_WRONG: string,
-    UUID_NICKNAME_MUST_BE_A_STRING: string,
-    MULTIPLE_INSTANCES: string,
-    UNEXPECTED_ERROR: string,
+    CACHE_FILTER_INVALID: string;
+    CACHE_LIMIT_MUST_BE_A_NUMBER: string;
+    CACHE_TIME_MUST_BE_A_NUMBER: string;
+    CONNECTION_ERROR: string;
+    ERROR_CODE_CAUSE: string;
+    ERROR_STATUSTEXT: string;
+    GUILD_DOES_NOT_EXIST: string;
+    INVALID_API_KEY: string;
+    INVALID_GUILD_ID: string;
+    INVALID_GUILD_SEARCH_PARAMETER: string;
+    INVALID_OPTION_VALUE: string;
+    INVALID_KEY_LIMIT_OPTION: string;
+    INVALID_HEADER_SYNC_OPTION: string;
+    INVALID_BURST_OPTION: string;
+    INVALID_RATE_LIMIT_OPTION: string;
+    INVALID_RESPONSE_BODY: string;
+    KEY_MUST_BE_A_STRING: string;
+    MALFORMED_UUID: string;
+    NO_API_KEY: string;
+    NO_GUILD_QUERY: string;
+    NO_NICKNAME_UUID: string;
+    NO_UUID: string;
+    OPTIONS_MUST_BE_AN_OBJECT: string;
+    PAGE_INDEX_ERROR: string;
+    PLAYER_DISABLED_ENDPOINT: string;
+    PLAYER_DOES_NOT_EXIST: string;
+    PLAYER_HAS_NEVER_LOGGED: string;
+    PLAYER_IS_INACTIVE: string;
+    RATE_LIMIT_INIT_ERROR: string;
+    SOMETHING_WENT_WRONG: string;
+    UUID_NICKNAME_MUST_BE_A_STRING: string;
+    MULTIPLE_INSTANCES: string;
+    UNEXPECTED_ERROR: string;
     RATE_LIMIT_EXCEEDED: string;
   };
   const Utils: {
@@ -130,33 +259,456 @@ declare module 'hypixel-api-reborn' {
        * @description String to array<string>
        */
       strToArray(input: string): string[];
-    },
+    };
     Constants: {
-      skyblock_year_0: 1.5602757e+12,
-      duels_divisions: [{ name: 'Rookie', key: 'rookie'; }, { name: 'Iron', key: 'iron'; }, { name: 'Gold', key: 'gold'; }, { name: 'Diamond', key: 'diamond'; }, { name: 'Master', key: 'master'; }, { name: 'Legend', key: 'legend'; }, { name: 'Grandmaster', key: 'grandmaster'; }, { name: 'Godlike', key: 'godlike'; }, { name: 'WORLD ELITE', key: 'world_elite'; }, { name: 'WORLD MASTER', key: 'world_master'; }, { name: 'WORLD\'S BEST', key: 'worlds_best'; }];
-      leveling_xp: { 1: 50, 2: 125, 3: 200, 4: 300, 5: 500, 6: 750, 7: 1000, 8: 1500, 9: 2000, 10: 3500, 11: 5000, 12: 7500, 13: 10000, 14: 15000, 15: 20000, 16: 30000, 17: 50000, 18: 75000, 19: 100000, 20: 200000, 21: 300000, 22: 400000, 23: 500000, 24: 600000, 25: 700000, 26: 800000, 27: 900000, 28: 1000000, 29: 1100000, 30: 1200000, 31: 1300000, 32: 1400000, 33: 1500000, 34: 1600000, 35: 1700000, 36: 1800000, 37: 1900000, 38: 2000000, 39: 2100000, 40: 2200000, 41: 2300000, 42: 2400000, 43: 2500000, 44: 2600000, 45: 2750000, 46: 2900000, 47: 3100000, 48: 3400000, 49: 3700000, 50: 4000000; },
-      xp_past_50: { 51: 4300000, 52: 4600000, 53: 4900000, 54: 5200000, 55: 5500000, 56: 5800000, 57: 6100000, 58: 6400000, 59: 6700000, 60: 7000000; },
-      runecrafting_xp: { 1: 50, 2: 100, 3: 125, 4: 160, 5: 200, 6: 250, 7: 315, 8: 400, 9: 500, 10: 625, 11: 785, 12: 1000, 13: 1250, 14: 1600, 15: 2000, 16: 2465, 17: 3125, 18: 4000, 19: 5000, 20: 6200, 21: 7800, 22: 9800, 23: 12200, 24: 15300, 25: 19050; },
-      skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'],
-      skills_achievements: { farming: 'skyblockHarvester', mining: 'skyblockExcavator', combat: 'skyblockCombat', foraging: 'skyblockGatherer', fishing: 'skyblockAngler', enchanting: 'skyblockAugmentation', alchemy: 'skyblockConcoctor', taming: 'skyblockDomesticator'; },
-      skills_cap: { taming: 50, farming: 60, mining: 60, combat: 60, foraging: 50, fishing: 50, enchanting: 60, alchemy: 50, carpentry: 50, runecrafting: 25, dungeons: 50; },
-      dungeon_xp: { 1: 50, 2: 75, 3: 110, 4: 160, 5: 230, 6: 330, 7: 470, 8: 670, 9: 950, 10: 1340, 11: 1890, 12: 2665, 13: 3760, 14: 5260, 15: 7380, 16: 10300, 17: 14400, 18: 20000, 19: 27600, 20: 38000, 21: 52500, 22: 71500, 23: 97000, 24: 132000, 25: 180000, 26: 243000, 27: 328000, 28: 445000, 29: 600000, 30: 800000, 31: 1065000, 32: 1410000, 33: 1900000, 34: 2500000, 35: 3300000, 36: 4300000, 37: 5600000, 38: 7200000, 39: 9200000, 40: 1.2e+7, 41: 1.5e+7, 42: 1.9e+7, 43: 2.4e+7, 44: 3e+7, 45: 3.8e+7, 46: 4.8e+7, 47: 6e+7, 48: 7.5e+7, 49: 9.3e+7, 50: 1.1625e+8; },
-      slayer_xp: { 1: 5, 2: 15, 3: 200, 4: 1000, 5: 5000, 6: 20000, 7: 100000, 8: 400000, 9: 1000000; },
-      pet_score: { COMMON: 1, UNCOMMON: 2, RARE: 3, EPIC: 4, LEGENDARY: 5, MYTHIC: 6; },
-      base_stats: { damage: 0, health: 100, defense: 0, effective_health: 100, strength: 0, damage_increase: 0, speed: 100, crit_chance: 20, crit_damage: 50, intelligence: 0; },
-      stat_template: { damage: 0, health: 0, defense: 0, effective_health: 0, strength: 0, damage_increase: 0, speed: 0, crit_chance: 0, crit_damage: 0, intelligence: 0; },
-      bonus_stats: { taming_skill: { 1: { pet_luck: 1; }; }, fairy_souls: { 5: { health: 3, defense: 1, strength: 1, speed: 0; }, 10: { health: 3, defense: 1, strength: 1, speed: 0; }, 15: { health: 4, defense: 1, strength: 1, speed: 0; }, 20: { health: 4, defense: 1, strength: 1, speed: 0; }, 25: { health: 5, defense: 2, strength: 2, speed: 0; }, 30: { health: 5, defense: 1, strength: 1, speed: 0; }, 35: { health: 6, defense: 1, strength: 1, speed: 0; }, 40: { health: 6, defense: 1, strength: 1, speed: 0; }, 45: { health: 7, defense: 1, strength: 1, speed: 0; }, 50: { health: 7, defense: 2, strength: 2, speed: 1; }, 55: { health: 8, defense: 1, strength: 1, speed: 0; }, 60: { health: 8, defense: 1, strength: 1, speed: 0; }, 65: { health: 9, defense: 1, strength: 1, speed: 0; }, 70: { health: 9, defense: 1, strength: 1, speed: 0; }, 75: { health: 10, defense: 2, strength: 2, speed: 0; }, 80: { health: 10, defense: 1, strength: 1, speed: 0; }, 85: { health: 11, defense: 1, strength: 1, speed: 0; }, 90: { health: 11, defense: 1, strength: 1, speed: 0; }, 95: { health: 12, defense: 1, strength: 1, speed: 0; }, 100: { health: 12, defense: 2, strength: 2, speed: 1; }, 105: { health: 13, defense: 1, strength: 1, speed: 0; }, 110: { health: 13, defense: 1, strength: 1, speed: 0; }, 115: { health: 14, defense: 1, strength: 1, speed: 0; }, 120: { health: 14, defense: 1, strength: 1, speed: 0; }, 125: { health: 15, defense: 2, strength: 2, speed: 0; }, 130: { health: 15, defense: 1, strength: 1, speed: 0; }, 135: { health: 16, defense: 1, strength: 1, speed: 0; }, 140: { health: 16, defense: 1, strength: 1, speed: 0; }, 145: { health: 17, defense: 1, strength: 1, speed: 0; }, 150: { health: 17, defense: 2, strength: 2, speed: 1; }, 155: { health: 18, defense: 1, strength: 1, speed: 0; }, 160: { health: 18, defense: 1, strength: 1, speed: 0; }, 165: { health: 19, defense: 1, strength: 1, speed: 0; }, 170: { health: 19, defense: 1, strength: 1, speed: 0; }, 175: { health: 20, defense: 2, strength: 2, speed: 0; }, 180: { health: 20, defense: 1, strength: 1, speed: 0; }, 185: { health: 21, defense: 1, strength: 1, speed: 0; }, 190: { health: 21, defense: 1, strength: 1, speed: 0; }; }, farming_skill: { 1: { health: 2; }, 15: { health: 3; }, 20: { health: 4; }, 26: { health: 5; }; }, combat_skill: { 1: { crit_chance: 0.5, damage_increase: 0.04; }; }, mining_skill: { 1: { defense: 1; }, 15: { defense: 2; }; }, foraging_skill: { 1: { strength: 1; }, 15: { strength: 2; }; }, fishing_skill: { 1: { health: 2; }, 15: { health: 3; }, 20: { health: 4; }, 26: { health: 5; }; }, enchanting_skill: { 1: { intelligence: 1; }, 15: { intelligence: 2; }; }, alchemy_skill: { 1: { intelligence: 1; }, 15: { intelligence: 2; }; }, carpentry_skill: { 1: Record<string, never>; }, runecrafting_skill: { 1: Record<string, never>; }, zombie_slayer: { 1: { health: 2; }, 3: { health: 3; }, 5: { health: 4; }, 7: { health: 5; }, 9: { health: 6; }; }, spider_slayer: { 1: { crit_damage: 1; }, 5: { crit_damage: 2; }, 7: { crit_damage: 0, crit_chance: 1; }, 8: { crit_chance: 0, crit_damage: 3; }; }, wolf_slayer: { 1: { speed: 1; }, 2: { health: 2; }, 3: { speed: 1; }, 4: { health: 2; }, 5: { crit_damage: 1; }, 6: { health: 3; }, 7: { crit_damage: 2; }, 8: { speed: 1; }; }, enchantments: { sharpness: { 1: { damage_multiplicator: 0.05; }; }, ender: { 1: { damage_multiplicator: 0.12; }; }, giant_killer: { 1: { damage_multiplicator: 0.05; }; }, cubism: { 1: { damage_multiplicator: 0.1; }; }, impaling: { 1: { damage_multiplicator: 0.125; }; }, critical: { 1: { crit_damage: 10; }; }, first_strike: { 1: { damage_multiplicator: 0.25; }; }, power: { 1: { damage_multiplicator: 0.08; }; }; }; },
-      leaderboardNames: { ARENA: 'ARENA', COPS_AND_CRIMS: 'MCGO', WARLORDS: 'BATTLEGROUND', BLITZ_SURVIVAL_GAMES: 'SURVIVAL_GAMES', UHC: 'UHC', WALLS: 'WALLS', PROTOTYPE: 'PROTOTYPE', PAINTBALL: 'PAINTBALL', SKYWARS: 'SKYWARS', MURDER_MYSTERY: 'MURDER_MYSTERY', SMASH_HEROES: 'SUPER_SMASH', DUELS: 'DUELS', SPEED_UHC: 'SPEED_UHC', TNTGAMES: 'TNTGAMES', BEDWARS: 'BEDWARS', TURBO_KART_RACERS: 'GINGERBREAD', BUILD_BATTLE: 'BUILD_BATTLE', ARCADE: 'ARCADE', SKYCLASH: 'SKYCLASH', QUAKECRAFT: 'QUAKECRAFT', CRAZY_WALLS: 'TRUE_COMBAT', MEGA_WALLS: 'WALLS3', VAMPIREZ: 'VAMPIREZ'; },
-      MiniGamesString: { QUAKECRAFT: 'Quakecraft', WALLS: 'Walls', PAINTBALL: 'Paintball', SURVIVAL_GAMES: 'Blitz Survival Games', TNTGAMES: 'The TNT Games', VAMPIREZ: 'VampireZ', WALLS3: 'Mega Walls', ARCADE: 'Arcade', ARENA: 'Arena Brawl', MCGO: 'Cops and Crims', UHC: 'UHC Champions', BATTLEGROUND: 'Warlords', SUPER_SMASH: 'Smash Heroes', GINGERBREAD: 'Turbo Kart Racers', HOUSING: 'Housing', SKYWARS: 'SkyWars', TRUE_COMBAT: 'Crazy Walls', SPEED_UHC: 'Speed UHC', SKYCLASH: 'SkyClash', LEGACY: 'Classic Games', PROTOTYPE: 'Prototype', BEDWARS: 'BedWars', MURDER_MYSTERY: 'Murder Mystery', BUILD_BATTLE: 'Build Battle', DUELS: 'Duels', PIT: 'The Pit', SKYBLOCK: 'SkyBlock', REPLAY: 'Replay', LIMBO: 'Limbo', IDLE: 'Idle', QUEUE: 'Queue', MAIN_LOBBY: 'Main Lobby', TOURNAMENT_LOBBY: 'Tournament Lobby'; },
-      SkyWarsPrestigeIcons: { default: '⋆', angel_1: '★', angel_2: '☆', angel_3: '⁕', angel_4: '✶', angel_5: '✳', angel_6: '✴', angel_7: '✷', angel_8: '❋', angel_9: '✼', angel_10: '❂', angel_11: '❁', angel_12: '☬', iron_prestige: '✙', gold_prestige: '❤️', diamond_prestige: '☠', emerald_prestige: '✦', sapphire_prestige: '✌', ruby_prestige: '❦', crystal_prestige: '✵', opal_prestige: '❣', amethyst_prestige: '☯', rainbow_prestige: '✺', mythic_prestige: 'ಠ_ಠ', favor_of_the_angel_prestige: '⚔'; },
-      games: [{ name: 'Quake Craft', code: 'QUAKECRAFT', id: 2; }, { name: 'Walls', code: 'WALLS', id: 3; }, { name: 'Paintball', code: 'PAINTBALL', id: 4; }, { name: 'Blitz Survival Games', code: 'SURVIVAL_GAMES', id: 5; }, { name: 'The TNT Games', code: 'TNTGAMES', id: 6; }, { name: 'VampireZ', code: 'VAMPIREZ', id: 7; }, { name: 'Mega Walls', code: 'WALLS3', id: 13; }, { name: 'Arcade', code: 'ARCADE', id: 14; }, { name: 'Arena Brawl', code: 'ARENA', id: 17; }, { name: 'UHC Champions', code: 'UHC', id: 20; }, { name: 'Cops and Crims', code: 'MCGO', id: 21; }, { name: 'Warlords', code: 'BATTLEGROUND', id: 23; }, { name: 'Smash Heroes', code: 'SUPER_SMASH', id: 24; }, { name: 'Turbo Kart Racers', code: 'GINGERBREAD', id: 25; }, { name: 'Housing', code: 'HOUSING', id: 26; }, { name: 'SkyWars', code: 'SKYWARS', id: 51; }, { name: 'Crazy Walls', code: 'TRUE_COMBAT', id: 52; }, { name: 'Speed UHC', code: 'SPEED_UHC', id: 54; }, { name: 'SkyClash', code: 'SKYCLASH', id: 55; }, { name: 'Classic Games', code: 'LEGACY', id: 56; }, { name: 'Prototype', code: 'PROTOTYPE', id: 57; }, { name: 'BedWars', code: 'BEDWARS', id: 58; }, { name: 'Murder Mystery', code: 'MURDER_MYSTERY', id: 59; }, { name: 'Build Battle', code: 'BUILD_BATTLE', id: 60; }, { name: 'Duels', code: 'DUELS', id: 61; }, { name: 'SkyBlock', code: 'SKYBLOCK', id: 63; }, { name: 'The Pit', code: 'PIT', id: 64; }, { name: 'Replay', code: 'REPLAY', id: -1; }, { name: 'Limbo', code: 'LIMBO', id: -2; }, { name: 'Queue', code: 'QUEUE', id: -3; }, { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4; }, { name: 'Tournament Lobby', code: 'TOURNAMENT_LOBBY', id: -5; }, { name: 'Idle', code: 'IDLE', id: -6; }];
-    },
+      skyblock_year_0: 1.5602757e12;
+      duels_divisions: [
+        { name: 'Rookie'; key: 'rookie' },
+        { name: 'Iron'; key: 'iron' },
+        { name: 'Gold'; key: 'gold' },
+        { name: 'Diamond'; key: 'diamond' },
+        { name: 'Master'; key: 'master' },
+        { name: 'Legend'; key: 'legend' },
+        { name: 'Grandmaster'; key: 'grandmaster' },
+        { name: 'Godlike'; key: 'godlike' },
+        { name: 'WORLD ELITE'; key: 'world_elite' },
+        { name: 'WORLD MASTER'; key: 'world_master' },
+        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
+      ];
+      leveling_xp: {
+        1: 50;
+        2: 125;
+        3: 200;
+        4: 300;
+        5: 500;
+        6: 750;
+        7: 1000;
+        8: 1500;
+        9: 2000;
+        10: 3500;
+        11: 5000;
+        12: 7500;
+        13: 10000;
+        14: 15000;
+        15: 20000;
+        16: 30000;
+        17: 50000;
+        18: 75000;
+        19: 100000;
+        20: 200000;
+        21: 300000;
+        22: 400000;
+        23: 500000;
+        24: 600000;
+        25: 700000;
+        26: 800000;
+        27: 900000;
+        28: 1000000;
+        29: 1100000;
+        30: 1200000;
+        31: 1300000;
+        32: 1400000;
+        33: 1500000;
+        34: 1600000;
+        35: 1700000;
+        36: 1800000;
+        37: 1900000;
+        38: 2000000;
+        39: 2100000;
+        40: 2200000;
+        41: 2300000;
+        42: 2400000;
+        43: 2500000;
+        44: 2600000;
+        45: 2750000;
+        46: 2900000;
+        47: 3100000;
+        48: 3400000;
+        49: 3700000;
+        50: 4000000;
+      };
+      xp_past_50: {
+        51: 4300000;
+        52: 4600000;
+        53: 4900000;
+        54: 5200000;
+        55: 5500000;
+        56: 5800000;
+        57: 6100000;
+        58: 6400000;
+        59: 6700000;
+        60: 7000000;
+      };
+      runecrafting_xp: {
+        1: 50;
+        2: 100;
+        3: 125;
+        4: 160;
+        5: 200;
+        6: 250;
+        7: 315;
+        8: 400;
+        9: 500;
+        10: 625;
+        11: 785;
+        12: 1000;
+        13: 1250;
+        14: 1600;
+        15: 2000;
+        16: 2465;
+        17: 3125;
+        18: 4000;
+        19: 5000;
+        20: 6200;
+        21: 7800;
+        22: 9800;
+        23: 12200;
+        24: 15300;
+        25: 19050;
+      };
+      skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'];
+      skills_achievements: {
+        farming: 'skyblockHarvester';
+        mining: 'skyblockExcavator';
+        combat: 'skyblockCombat';
+        foraging: 'skyblockGatherer';
+        fishing: 'skyblockAngler';
+        enchanting: 'skyblockAugmentation';
+        alchemy: 'skyblockConcoctor';
+        taming: 'skyblockDomesticator';
+      };
+      skills_cap: {
+        taming: 50;
+        farming: 60;
+        mining: 60;
+        combat: 60;
+        foraging: 50;
+        fishing: 50;
+        enchanting: 60;
+        alchemy: 50;
+        carpentry: 50;
+        runecrafting: 25;
+        dungeons: 50;
+      };
+      dungeon_xp: {
+        1: 50;
+        2: 75;
+        3: 110;
+        4: 160;
+        5: 230;
+        6: 330;
+        7: 470;
+        8: 670;
+        9: 950;
+        10: 1340;
+        11: 1890;
+        12: 2665;
+        13: 3760;
+        14: 5260;
+        15: 7380;
+        16: 10300;
+        17: 14400;
+        18: 20000;
+        19: 27600;
+        20: 38000;
+        21: 52500;
+        22: 71500;
+        23: 97000;
+        24: 132000;
+        25: 180000;
+        26: 243000;
+        27: 328000;
+        28: 445000;
+        29: 600000;
+        30: 800000;
+        31: 1065000;
+        32: 1410000;
+        33: 1900000;
+        34: 2500000;
+        35: 3300000;
+        36: 4300000;
+        37: 5600000;
+        38: 7200000;
+        39: 9200000;
+        40: 1.2e7;
+        41: 1.5e7;
+        42: 1.9e7;
+        43: 2.4e7;
+        44: 3e7;
+        45: 3.8e7;
+        46: 4.8e7;
+        47: 6e7;
+        48: 7.5e7;
+        49: 9.3e7;
+        50: 1.1625e8;
+      };
+      slayer_xp: {
+        1: 5;
+        2: 15;
+        3: 200;
+        4: 1000;
+        5: 5000;
+        6: 20000;
+        7: 100000;
+        8: 400000;
+        9: 1000000;
+      };
+      pet_score: {
+        COMMON: 1;
+        UNCOMMON: 2;
+        RARE: 3;
+        EPIC: 4;
+        LEGENDARY: 5;
+        MYTHIC: 6;
+      };
+      base_stats: {
+        damage: 0;
+        health: 100;
+        defense: 0;
+        effective_health: 100;
+        strength: 0;
+        damage_increase: 0;
+        speed: 100;
+        crit_chance: 20;
+        crit_damage: 50;
+        intelligence: 0;
+      };
+      stat_template: {
+        damage: 0;
+        health: 0;
+        defense: 0;
+        effective_health: 0;
+        strength: 0;
+        damage_increase: 0;
+        speed: 0;
+        crit_chance: 0;
+        crit_damage: 0;
+        intelligence: 0;
+      };
+      bonus_stats: {
+        taming_skill: { 1: { pet_luck: 1 } };
+        fairy_souls: {
+          5: { health: 3; defense: 1; strength: 1; speed: 0 };
+          10: { health: 3; defense: 1; strength: 1; speed: 0 };
+          15: { health: 4; defense: 1; strength: 1; speed: 0 };
+          20: { health: 4; defense: 1; strength: 1; speed: 0 };
+          25: { health: 5; defense: 2; strength: 2; speed: 0 };
+          30: { health: 5; defense: 1; strength: 1; speed: 0 };
+          35: { health: 6; defense: 1; strength: 1; speed: 0 };
+          40: { health: 6; defense: 1; strength: 1; speed: 0 };
+          45: { health: 7; defense: 1; strength: 1; speed: 0 };
+          50: { health: 7; defense: 2; strength: 2; speed: 1 };
+          55: { health: 8; defense: 1; strength: 1; speed: 0 };
+          60: { health: 8; defense: 1; strength: 1; speed: 0 };
+          65: { health: 9; defense: 1; strength: 1; speed: 0 };
+          70: { health: 9; defense: 1; strength: 1; speed: 0 };
+          75: { health: 10; defense: 2; strength: 2; speed: 0 };
+          80: { health: 10; defense: 1; strength: 1; speed: 0 };
+          85: { health: 11; defense: 1; strength: 1; speed: 0 };
+          90: { health: 11; defense: 1; strength: 1; speed: 0 };
+          95: { health: 12; defense: 1; strength: 1; speed: 0 };
+          100: { health: 12; defense: 2; strength: 2; speed: 1 };
+          105: { health: 13; defense: 1; strength: 1; speed: 0 };
+          110: { health: 13; defense: 1; strength: 1; speed: 0 };
+          115: { health: 14; defense: 1; strength: 1; speed: 0 };
+          120: { health: 14; defense: 1; strength: 1; speed: 0 };
+          125: { health: 15; defense: 2; strength: 2; speed: 0 };
+          130: { health: 15; defense: 1; strength: 1; speed: 0 };
+          135: { health: 16; defense: 1; strength: 1; speed: 0 };
+          140: { health: 16; defense: 1; strength: 1; speed: 0 };
+          145: { health: 17; defense: 1; strength: 1; speed: 0 };
+          150: { health: 17; defense: 2; strength: 2; speed: 1 };
+          155: { health: 18; defense: 1; strength: 1; speed: 0 };
+          160: { health: 18; defense: 1; strength: 1; speed: 0 };
+          165: { health: 19; defense: 1; strength: 1; speed: 0 };
+          170: { health: 19; defense: 1; strength: 1; speed: 0 };
+          175: { health: 20; defense: 2; strength: 2; speed: 0 };
+          180: { health: 20; defense: 1; strength: 1; speed: 0 };
+          185: { health: 21; defense: 1; strength: 1; speed: 0 };
+          190: { health: 21; defense: 1; strength: 1; speed: 0 };
+        };
+        farming_skill: {
+          1: { health: 2 };
+          15: { health: 3 };
+          20: { health: 4 };
+          26: { health: 5 };
+        };
+        combat_skill: { 1: { crit_chance: 0.5; damage_increase: 0.04 } };
+        mining_skill: { 1: { defense: 1 }; 15: { defense: 2 } };
+        foraging_skill: { 1: { strength: 1 }; 15: { strength: 2 } };
+        fishing_skill: {
+          1: { health: 2 };
+          15: { health: 3 };
+          20: { health: 4 };
+          26: { health: 5 };
+        };
+        enchanting_skill: { 1: { intelligence: 1 }; 15: { intelligence: 2 } };
+        alchemy_skill: { 1: { intelligence: 1 }; 15: { intelligence: 2 } };
+        carpentry_skill: { 1: Record<string, never> };
+        runecrafting_skill: { 1: Record<string, never> };
+        zombie_slayer: {
+          1: { health: 2 };
+          3: { health: 3 };
+          5: { health: 4 };
+          7: { health: 5 };
+          9: { health: 6 };
+        };
+        spider_slayer: {
+          1: { crit_damage: 1 };
+          5: { crit_damage: 2 };
+          7: { crit_damage: 0; crit_chance: 1 };
+          8: { crit_chance: 0; crit_damage: 3 };
+        };
+        wolf_slayer: {
+          1: { speed: 1 };
+          2: { health: 2 };
+          3: { speed: 1 };
+          4: { health: 2 };
+          5: { crit_damage: 1 };
+          6: { health: 3 };
+          7: { crit_damage: 2 };
+          8: { speed: 1 };
+        };
+        enchantments: {
+          sharpness: { 1: { damage_multiplicator: 0.05 } };
+          ender: { 1: { damage_multiplicator: 0.12 } };
+          giant_killer: { 1: { damage_multiplicator: 0.05 } };
+          cubism: { 1: { damage_multiplicator: 0.1 } };
+          impaling: { 1: { damage_multiplicator: 0.125 } };
+          critical: { 1: { crit_damage: 10 } };
+          first_strike: { 1: { damage_multiplicator: 0.25 } };
+          power: { 1: { damage_multiplicator: 0.08 } };
+        };
+      };
+      leaderboardNames: {
+        ARENA: 'ARENA';
+        COPS_AND_CRIMS: 'MCGO';
+        WARLORDS: 'BATTLEGROUND';
+        BLITZ_SURVIVAL_GAMES: 'SURVIVAL_GAMES';
+        UHC: 'UHC';
+        WALLS: 'WALLS';
+        PROTOTYPE: 'PROTOTYPE';
+        PAINTBALL: 'PAINTBALL';
+        SKYWARS: 'SKYWARS';
+        MURDER_MYSTERY: 'MURDER_MYSTERY';
+        SMASH_HEROES: 'SUPER_SMASH';
+        DUELS: 'DUELS';
+        SPEED_UHC: 'SPEED_UHC';
+        TNTGAMES: 'TNTGAMES';
+        BEDWARS: 'BEDWARS';
+        TURBO_KART_RACERS: 'GINGERBREAD';
+        BUILD_BATTLE: 'BUILD_BATTLE';
+        ARCADE: 'ARCADE';
+        SKYCLASH: 'SKYCLASH';
+        QUAKECRAFT: 'QUAKECRAFT';
+        CRAZY_WALLS: 'TRUE_COMBAT';
+        MEGA_WALLS: 'WALLS3';
+        VAMPIREZ: 'VAMPIREZ';
+      };
+      MiniGamesString: {
+        QUAKECRAFT: 'Quakecraft';
+        WALLS: 'Walls';
+        PAINTBALL: 'Paintball';
+        SURVIVAL_GAMES: 'Blitz Survival Games';
+        TNTGAMES: 'The TNT Games';
+        VAMPIREZ: 'VampireZ';
+        WALLS3: 'Mega Walls';
+        ARCADE: 'Arcade';
+        ARENA: 'Arena Brawl';
+        MCGO: 'Cops and Crims';
+        UHC: 'UHC Champions';
+        BATTLEGROUND: 'Warlords';
+        SUPER_SMASH: 'Smash Heroes';
+        GINGERBREAD: 'Turbo Kart Racers';
+        HOUSING: 'Housing';
+        SKYWARS: 'SkyWars';
+        TRUE_COMBAT: 'Crazy Walls';
+        SPEED_UHC: 'Speed UHC';
+        SKYCLASH: 'SkyClash';
+        LEGACY: 'Classic Games';
+        PROTOTYPE: 'Prototype';
+        BEDWARS: 'BedWars';
+        MURDER_MYSTERY: 'Murder Mystery';
+        BUILD_BATTLE: 'Build Battle';
+        DUELS: 'Duels';
+        PIT: 'The Pit';
+        SKYBLOCK: 'SkyBlock';
+        REPLAY: 'Replay';
+        LIMBO: 'Limbo';
+        IDLE: 'Idle';
+        QUEUE: 'Queue';
+        MAIN_LOBBY: 'Main Lobby';
+        TOURNAMENT_LOBBY: 'Tournament Lobby';
+      };
+      SkyWarsPrestigeIcons: {
+        default: '⋆';
+        angel_1: '★';
+        angel_2: '☆';
+        angel_3: '⁕';
+        angel_4: '✶';
+        angel_5: '✳';
+        angel_6: '✴';
+        angel_7: '✷';
+        angel_8: '❋';
+        angel_9: '✼';
+        angel_10: '❂';
+        angel_11: '❁';
+        angel_12: '☬';
+        iron_prestige: '✙';
+        gold_prestige: '❤️';
+        diamond_prestige: '☠';
+        emerald_prestige: '✦';
+        sapphire_prestige: '✌';
+        ruby_prestige: '❦';
+        crystal_prestige: '✵';
+        opal_prestige: '❣';
+        amethyst_prestige: '☯';
+        rainbow_prestige: '✺';
+        mythic_prestige: 'ಠ_ಠ';
+        favor_of_the_angel_prestige: '⚔';
+      };
+      games: [
+        { name: 'Quake Craft'; code: 'QUAKECRAFT'; id: 2 },
+        { name: 'Walls'; code: 'WALLS'; id: 3 },
+        { name: 'Paintball'; code: 'PAINTBALL'; id: 4 },
+        { name: 'Blitz Survival Games'; code: 'SURVIVAL_GAMES'; id: 5 },
+        { name: 'The TNT Games'; code: 'TNTGAMES'; id: 6 },
+        { name: 'VampireZ'; code: 'VAMPIREZ'; id: 7 },
+        { name: 'Mega Walls'; code: 'WALLS3'; id: 13 },
+        { name: 'Arcade'; code: 'ARCADE'; id: 14 },
+        { name: 'Arena Brawl'; code: 'ARENA'; id: 17 },
+        { name: 'UHC Champions'; code: 'UHC'; id: 20 },
+        { name: 'Cops and Crims'; code: 'MCGO'; id: 21 },
+        { name: 'Warlords'; code: 'BATTLEGROUND'; id: 23 },
+        { name: 'Smash Heroes'; code: 'SUPER_SMASH'; id: 24 },
+        { name: 'Turbo Kart Racers'; code: 'GINGERBREAD'; id: 25 },
+        { name: 'Housing'; code: 'HOUSING'; id: 26 },
+        { name: 'SkyWars'; code: 'SKYWARS'; id: 51 },
+        { name: 'Crazy Walls'; code: 'TRUE_COMBAT'; id: 52 },
+        { name: 'Speed UHC'; code: 'SPEED_UHC'; id: 54 },
+        { name: 'SkyClash'; code: 'SKYCLASH'; id: 55 },
+        { name: 'Classic Games'; code: 'LEGACY'; id: 56 },
+        { name: 'Prototype'; code: 'PROTOTYPE'; id: 57 },
+        { name: 'BedWars'; code: 'BEDWARS'; id: 58 },
+        { name: 'Murder Mystery'; code: 'MURDER_MYSTERY'; id: 59 },
+        { name: 'Build Battle'; code: 'BUILD_BATTLE'; id: 60 },
+        { name: 'Duels'; code: 'DUELS'; id: 61 },
+        { name: 'SkyBlock'; code: 'SKYBLOCK'; id: 63 },
+        { name: 'The Pit'; code: 'PIT'; id: 64 },
+        { name: 'Replay'; code: 'REPLAY'; id: -1 },
+        { name: 'Limbo'; code: 'LIMBO'; id: -2 },
+        { name: 'Queue'; code: 'QUEUE'; id: -3 },
+        { name: 'Main Lobby'; code: 'MAIN_LOBBY'; id: -4 },
+        { name: 'Tournament Lobby'; code: 'TOURNAMENT_LOBBY'; id: -5 },
+        { name: 'Idle'; code: 'IDLE'; id: -6 }
+      ];
+    };
     /**
      * @description Divides a by b
      */
-    divide(a: number, b: number): number,
+    divide(a: number, b: number): number;
     guildExp: {
-      parseHistory(historyDate: Record<string, unknown>): { day: string, date: Date, exp: number, totalExp: number; }[];
+      parseHistory(historyDate: Record<string, unknown>): { day: string; date: Date; exp: number; totalExp: number }[];
       getGuildLevel(exp: number): number;
     };
     oscillation: {
@@ -188,8 +740,8 @@ declare module 'hypixel-api-reborn' {
        * @description Converts 'str_str' to 'strStr'
        */
       removeSnakeCaseString(str: string): string;
-    },
-    rgbToHexColor(rgb: number[]): string,
+    };
+    rgbToHexColor(rgb: number[]): string;
     SkyblockUtils: {
       /**
        * @description Decodes base64 to skyblock inventory data
@@ -202,11 +754,28 @@ declare module 'hypixel-api-reborn' {
       /**
        * @description Get level by achievement
        */
-      getLevelByAchievement(achievementLevel: number, type: string): { xp: number, level: number, maxLevel: number, xpCurrent: number, xpForNext: number, progress: number; };
+      getLevelByAchievement(
+        achievementLevel: number,
+        type: string
+      ): {
+        xp: number;
+        level: number;
+        maxLevel: number;
+        xpCurrent: number;
+        xpForNext: number;
+        progress: number;
+      };
       /**
        * @description Get slayer level
        */
-      getSlayerLevel(slayer: Record<string, unknown>): { xp: number, tier1: number, tier2: number, tier3: number, tier4: number, level: number; };
+      getSlayerLevel(slayer: Record<string, unknown>): {
+        xp: number;
+        tier1: number;
+        tier2: number;
+        tier3: number;
+        tier4: number;
+        level: number;
+      };
     };
     /**
      * Calls Mojang API for player's nickname by uuid
@@ -250,7 +819,7 @@ declare module 'hypixel-api-reborn' {
      * @param searchParameter - 'name', 'player' or 'id'
      * @param query - guild name, player nickname or guild id
      */
-    getGuild(searchParameter: ('name' | 'player' | 'id'), query: string, options: methodOptions): Promise<Guild>;
+    getGuild(searchParameter: 'name' | 'player' | 'id', query: string, options: methodOptions): Promise<Guild>;
     /**
      * @description Allows you to get statistics of watchdog anticheat
      */
@@ -274,12 +843,12 @@ declare module 'hypixel-api-reborn' {
      * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
      * @param options Options
      */
-    getSkyblockAuctions(page?: ('*' | number | [number, number]), options?: auctionsOptions): Promise<{ info?: AuctionInfo, auctions?: Auction[]; }>;
+    getSkyblockAuctions(page?: '*' | number | [number, number], options?: auctionsOptions): Promise<{ info?: AuctionInfo; auctions?: Auction[] }>;
     /**
      * @description Allows you to get all ended auctions in around the last 60 seconds
      * @param includeItemBytes - include item bytes (optional)
      */
-    getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo, auctions: PartialAuction[]; }>;
+    getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo; auctions: PartialAuction[] }>;
     /**
      * @description Allows you to get all auctions of player
      * @param query - player nickname or uuid
@@ -302,7 +871,31 @@ declare module 'hypixel-api-reborn' {
     /**
      * @description Allows you to get leaderboards of each mini-game
      */
-    getLeaderboards(options?: methodOptions): Promise<{ ARENA: Leaderboard[], COPS_AND_CRIMS: Leaderboard[], WARLORDS: Leaderboard[], BLITZ_SURVIVAL_GAMES: Leaderboard[], UHC: Leaderboard[], WALLS: Leaderboard[], PROTOTYPE: Leaderboard[], PAINTBALL: Leaderboard[], SKYWARS: Leaderboard[], MURDER_MYSTERY: Leaderboard[], SMASH_HEROES: Leaderboard[], DUELS: Leaderboard[], SPEED_UHC: Leaderboard[], TNTGAMES: Leaderboard[], BEDWARS: Leaderboard[], TURBO_KART_RACERS: Leaderboard[], BUILD_BATTLE: Leaderboard[], ARCADE: Leaderboard[], SKYCLASH: Leaderboard[], QUAKECRAFT: Leaderboard[], CRAZY_WALLS: Leaderboard[], MEGA_WALLS: Leaderboard[], VAMPIREZ: Leaderboard[]; }>;
+    getLeaderboards(options?: methodOptions): Promise<{
+      ARENA: Leaderboard[];
+      COPS_AND_CRIMS: Leaderboard[];
+      WARLORDS: Leaderboard[];
+      BLITZ_SURVIVAL_GAMES: Leaderboard[];
+      UHC: Leaderboard[];
+      WALLS: Leaderboard[];
+      PROTOTYPE: Leaderboard[];
+      PAINTBALL: Leaderboard[];
+      SKYWARS: Leaderboard[];
+      MURDER_MYSTERY: Leaderboard[];
+      SMASH_HEROES: Leaderboard[];
+      DUELS: Leaderboard[];
+      SPEED_UHC: Leaderboard[];
+      TNTGAMES: Leaderboard[];
+      BEDWARS: Leaderboard[];
+      TURBO_KART_RACERS: Leaderboard[];
+      BUILD_BATTLE: Leaderboard[];
+      ARCADE: Leaderboard[];
+      SKYCLASH: Leaderboard[];
+      QUAKECRAFT: Leaderboard[];
+      CRAZY_WALLS: Leaderboard[];
+      MEGA_WALLS: Leaderboard[];
+      VAMPIREZ: Leaderboard[];
+    }>;
     /**
      * @description Allows you to get recent games of a player
      */
@@ -359,15 +952,15 @@ declare module 'hypixel-api-reborn' {
     achievementPoints: number;
     totalExperience: number;
     level: number;
-    socialMedia: { name: string, link: string, id: SOCIAL_MEDIA_ID; }[];
+    socialMedia: { name: string; link: string; id: SOCIAL_MEDIA_ID }[];
     giftsSent?: number;
     giftBundlesSent?: number;
     giftBundlesReceived?: number;
     levelProgress: {
-      currentXP: number,
-      remainingXP: number,
-      xpToNext: number,
-      percent: number,
+      currentXP: number;
+      remainingXP: number;
+      xpToNext: number;
+      percent: number;
       percentRemaining: number;
     };
     isOnline: boolean;
@@ -382,32 +975,32 @@ declare module 'hypixel-api-reborn' {
     claimedLevelingRewards: number[];
     globalCosmetics: PlayerCosmetics;
     ranksPurchaseTime: {
-      'VIP': Date | null,
-      'VIP_PLUS': Date | null,
-      'MVP': Date | null,
-      'MVP_PLUS': Date | null;
+      VIP: Date | null;
+      VIP_PLUS: Date | null;
+      MVP: Date | null;
+      MVP_PLUS: Date | null;
     };
     guild?: Guild;
     stats?: {
-      skywars?: SkyWars,
-      bedwars?: BedWars,
-      uhc?: UHC,
-      speeduhc?: SpeedUHC,
-      murdermystery?: MurderMystery,
-      duels?: Duels,
-      buildbattle?: BuildBattle,
-      megawalls?: MegaWalls,
-      copsandcrims?: CopsAndCrims,
-      tntgames?: TNTGames,
-      smashheroes?: SmashHeroes,
-      vampirez?: VampireZ,
-      blitzsg?: BlitzSurvivalGames,
-      arena?: ArenaBrawl,
-      paintball?: Paintball,
-      quakecraft?: Quakecraft,
-      turbokartracers?: TurboKartRacers,
-      walls?: Walls,
-      warlords?: Warlords,
+      skywars?: SkyWars;
+      bedwars?: BedWars;
+      uhc?: UHC;
+      speeduhc?: SpeedUHC;
+      murdermystery?: MurderMystery;
+      duels?: Duels;
+      buildbattle?: BuildBattle;
+      megawalls?: MegaWalls;
+      copsandcrims?: CopsAndCrims;
+      tntgames?: TNTGames;
+      smashheroes?: SmashHeroes;
+      vampirez?: VampireZ;
+      blitzsg?: BlitzSurvivalGames;
+      arena?: ArenaBrawl;
+      paintball?: Paintball;
+      quakecraft?: Quakecraft;
+      turbokartracers?: TurboKartRacers;
+      walls?: Walls;
+      warlords?: Warlords;
       arcade?: Arcade,
       woolwars?: WoolWars;
     };
@@ -489,14 +1082,14 @@ declare module 'hypixel-api-reborn' {
     name: string;
     active: boolean;
     stats?: {
-      hunger: number | null,
-      lastFed: number | null,
-      lastFedAt: Date | null,
-      thirst: number | null,
-      lastDrank: number | null,
-      lastDrankAt: Date | null,
-      exercise: number | null,
-      lastExercised: number | null,
+      hunger: number | null;
+      lastFed: number | null;
+      lastFedAt: Date | null;
+      thirst: number | null;
+      lastDrank: number | null;
+      lastDrankAt: Date | null;
+      exercise: number | null;
+      lastExercised: number | null;
       lastExercisedAt: Date | null;
     };
     rawNickname: string | null;
@@ -545,53 +1138,192 @@ declare module 'hypixel-api-reborn' {
   class GameCounts {
     constructor(data: Record<string, unknown>);
     playerCount: number;
-    mainLobby: { players: number; };
-    tournamentLobby: { players: number; };
-    megaWalls: { players: number, modes: { standard: number, faceOff: number; }; };
-    classicGames: { players: number, modes: { paintball: number, walls: number, quakecraft: number, gingerbread: number, arena: number, vampirez: number; }; };
-    thePit: { players: number, modes: { pit: number; }; };
-    blitzSurvivalGames: { players: number, modes: { soloNormal: number, teamsNormal: number; }; };
-    duels: {
-      players: number, modes: { duelsBowspleefDuel: number, duelsBowDuel: number, duelsBridge_2v2v2v2: number, duelsMwDuel: number, duelsUhcFour: number, duelsUhcMeetup: number, duelsBridgeDoubles: number, duelsSwDoubles: number, duelsUhcDoubles: number, duelsBridgeFour: number, duelsBridge_3v3v3v3: number, duelsSumoDuel: number, duelsUhcDuel: number, duelsOpDoubles: number, duelsOpDuel: number, duelsMwDoubles: number, duelsBlitzDuel: number, duelsPotionDuel: number, duelsClassicDuel: number, duelsComboDuel: number, duelsBridgeDuel: number, duelsSwDuel: number; };
+    mainLobby: { players: number };
+    tournamentLobby: { players: number };
+    megaWalls: {
+      players: number;
+      modes: { standard: number; faceOff: number };
     };
-    uhcChampions: { players: number, modes: { teams: number, solo: number; }; };
-    speedUhc: { players: number, modes: { soloNormal: number; }; };
+    classicGames: {
+      players: number;
+      modes: {
+        paintball: number;
+        walls: number;
+        quakecraft: number;
+        gingerbread: number;
+        arena: number;
+        vampirez: number;
+      };
+    };
+    thePit: { players: number; modes: { pit: number } };
+    blitzSurvivalGames: {
+      players: number;
+      modes: { soloNormal: number; teamsNormal: number };
+    };
+    duels: {
+      players: number;
+      modes: {
+        duelsBowspleefDuel: number;
+        duelsBowDuel: number;
+        duelsBridge_2v2v2v2: number;
+        duelsMwDuel: number;
+        duelsUhcFour: number;
+        duelsUhcMeetup: number;
+        duelsBridgeDoubles: number;
+        duelsSwDoubles: number;
+        duelsUhcDoubles: number;
+        duelsBridgeFour: number;
+        duelsBridge_3v3v3v3: number;
+        duelsSumoDuel: number;
+        duelsUhcDuel: number;
+        duelsOpDoubles: number;
+        duelsOpDuel: number;
+        duelsMwDoubles: number;
+        duelsBlitzDuel: number;
+        duelsPotionDuel: number;
+        duelsClassicDuel: number;
+        duelsComboDuel: number;
+        duelsBridgeDuel: number;
+        duelsSwDuel: number;
+      };
+    };
+    uhcChampions: { players: number; modes: { teams: number; solo: number } };
+    speedUhc: { players: number; modes: { soloNormal: number } };
     theTntGames: {
-      players: number, modes: { pvprun: number, tntag: number, tntrun: number, bowspleef: number, capture: number; };
+      players: number;
+      modes: {
+        pvprun: number;
+        tntag: number;
+        tntrun: number;
+        bowspleef: number;
+        capture: number;
+      };
     };
     prototype: {
-      players: number, modes: { towerwarsSolo: number, towerwarsTeamOfTwo: number; };
+      players: number;
+      modes: { towerwarsSolo: number; towerwarsTeamOfTwo: number };
     };
     smashHeroes: {
-      players: number, modes: { '1v1Normal': number, friendsNormal: number, soloNormal: number, '2v2Normal': number, teamsNormal: number; };
+      players: number;
+      modes: {
+        '1v1Normal': number;
+        friendsNormal: number;
+        soloNormal: number;
+        '2v2Normal': number;
+        teamsNormal: number;
+      };
     };
     bedwars: {
-      players: number, modes: { bedwarsTwoFour: number, bedwarsFourFourRush: number, bedwarsEightOne: number, bedwarsEightTwoRush: number, bedwarsEightTwoVoidless: number, bedwarsEightTwoArmed: number, bedwarsEightTwo: number, bedwarsFourFour: number, bedwarsEightTwoLucky: number, bedwarsFourThree: number, bedwarsFourFourVoidless: number, bedwarsFourFourLucky: number, bedwarsEightTwoUltimate: number; };
+      players: number;
+      modes: {
+        bedwarsTwoFour: number;
+        bedwarsFourFourRush: number;
+        bedwarsEightOne: number;
+        bedwarsEightTwoRush: number;
+        bedwarsEightTwoVoidless: number;
+        bedwarsEightTwoArmed: number;
+        bedwarsEightTwo: number;
+        bedwarsFourFour: number;
+        bedwarsEightTwoLucky: number;
+        bedwarsFourThree: number;
+        bedwarsFourFourVoidless: number;
+        bedwarsFourFourLucky: number;
+        bedwarsEightTwoUltimate: number;
+      };
     };
     buildBattle: {
-      players: number, modes: { buildBattleSoloNormalLatest: number, buildBattleGuessTheBuild: number, buildBattleTeamsNormal: number, buildBattleSoloPro: number, buildBattleSoloNormal: number; };
+      players: number;
+      modes: {
+        buildBattleSoloNormalLatest: number;
+        buildBattleGuessTheBuild: number;
+        buildBattleTeamsNormal: number;
+        buildBattleSoloPro: number;
+        buildBattleSoloNormal: number;
+      };
     };
-    housing: { players: number; };
+    housing: { players: number };
     skywars: {
-      players: number, modes: { soloInsaneLucky: number, soloInsaneSlime: number, teamsInsaneSlime: number, teamsInsaneRush: number, teamsInsane: number, soloNormal: number, soloInsaneHuntersVsBeasts: number, rankedNormal: number, soloInsaneTntMadness: number, soloInsaneRush: number, soloInsane: number, teamsNormal: number, megaNormal: number; };
+      players: number;
+      modes: {
+        soloInsaneLucky: number;
+        soloInsaneSlime: number;
+        teamsInsaneSlime: number;
+        teamsInsaneRush: number;
+        teamsInsane: number;
+        soloNormal: number;
+        soloInsaneHuntersVsBeasts: number;
+        rankedNormal: number;
+        soloInsaneTntMadness: number;
+        soloInsaneRush: number;
+        soloInsane: number;
+        teamsNormal: number;
+        megaNormal: number;
+      };
     };
-    replay: { players: number, modes: { base: number; }; };
+    replay: { players: number; modes: { base: number } };
     skyblock: {
-      players: number, modes: { dungeonHub: number, mining_2: number, farming_2: number, farming_1: number, mining_3: number, combat_3: number, dynamic: number, combat_1: number, foraging_1: number, hub: number, dungeon: number, combat_2: number, mining_1: number; };
+      players: number;
+      modes: {
+        dungeonHub: number;
+        mining_2: number;
+        farming_2: number;
+        farming_1: number;
+        mining_3: number;
+        combat_3: number;
+        dynamic: number;
+        combat_1: number;
+        foraging_1: number;
+        hub: number;
+        dungeon: number;
+        combat_2: number;
+        mining_1: number;
+      };
     };
-    copsAndCrims: { players: number, modes: { normal: number, deathmatch: number; }; };
+    copsAndCrims: {
+      players: number;
+      modes: { normal: number; deathmatch: number };
+    };
     murderMystery: {
-      players: number, modes: { murderDoubleUp: number, murderInfection: number, murderAssassins: number, murderClassic: number; };
+      players: number;
+      modes: {
+        murderDoubleUp: number;
+        murderInfection: number;
+        murderAssassins: number;
+        murderClassic: number;
+      };
     };
     arcade: {
-      players: number, modes: { party: number, holeInTheWall: number, defender: number, miniWalls: number, simonSays: number, zombiesBadBlood: number, hideAndSeekPartyPooper: number, dayone: number, drawTheirThing: number, zombiesAlienArcadium: number, oneinthequiver: number, soccer: number, pvpCtw: number, ender: number, throwOut: number, starwars: number, dragonwars2: number, zombiesDeadEnd: number, farmHunt: number, hideAndSeekPropHunt: number; };
+      players: number;
+      modes: {
+        party: number;
+        holeInTheWall: number;
+        defender: number;
+        miniWalls: number;
+        simonSays: number;
+        zombiesBadBlood: number;
+        hideAndSeekPartyPooper: number;
+        dayone: number;
+        drawTheirThing: number;
+        zombiesAlienArcadium: number;
+        oneinthequiver: number;
+        soccer: number;
+        pvpCtw: number;
+        ender: number;
+        throwOut: number;
+        starwars: number;
+        dragonwars2: number;
+        zombiesDeadEnd: number;
+        farmHunt: number;
+        hideAndSeekPropHunt: number;
+      };
     };
     warlords: {
-      players: number, modes: { ctfMini: number, domination: number, teamDeathmatch: number; };
+      players: number;
+      modes: { ctfMini: number; domination: number; teamDeathmatch: number };
     };
-    limbo: { players: number; };
-    idle: { players: number; };
-    queue: { players: number; };
+    limbo: { players: number };
+    idle: { players: number };
+    queue: { players: number };
   }
   class KeyInfo {
     constructor(data: Record<string, unknown>);
@@ -635,7 +1367,7 @@ declare module 'hypixel-api-reborn' {
     oitq: OITQ;
     oneInTheQuiver: OITQ;
     zombies: Zombies;
-    captureTheWool: { kills: number; captures: number; };
+    captureTheWool: { kills: number; captures: number };
   }
   class BaseGame {
     constructor(data: Record<string, unknown>, gameName: string);
@@ -736,13 +1468,28 @@ declare module 'hypixel-api-reborn' {
     coins: number;
     mode: {
       '1v1': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
-      },
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+      };
       '2v2': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
-      },
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+      };
       '4v4': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
       };
     };
   }
@@ -773,10 +1520,24 @@ declare module 'hypixel-api-reborn' {
     killstreaks: number;
     highestKillstreak: number;
     solo: {
-      kills: number, deaths: number, KDRatio: number, wins: number, distanceTravelled: number, headshots: number, shotsFired: number, killstreaks: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
+      distanceTravelled: number;
+      headshots: number;
+      shotsFired: number;
+      killstreaks: number;
     };
     teams: {
-      kills: number, deaths: number, KDRatio: number, wins: number, distanceTravelled: number, headshots: number, shotsFired: number, killstreaks: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
+      distanceTravelled: number;
+      headshots: number;
+      shotsFired: number;
+      killstreaks: number;
     };
   }
   class TurboKartRacers {
@@ -852,20 +1613,36 @@ declare module 'hypixel-api-reborn' {
     winsSolo: number;
     winsTeam: number;
     kitStats: {
-      name: string, games: number, level: number, experience: number, prestige: number, kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number, timePlayed: number;
+      name: string;
+      games: number;
+      level: number;
+      experience: number;
+      prestige: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
+      timePlayed: number;
     }[];
   }
   class VampireZ {
     constructor(data: Record<string, unknown>);
     coins: number;
     human: {
-      kills: number, deaths: number, KDRatio: number, wins: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
     };
     zombie: {
       kills: number;
     };
     vampire: {
-      kills: number, deaths: number, KDRatio: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
     };
   }
   class SmashHeroes {
@@ -882,18 +1659,43 @@ declare module 'hypixel-api-reborn' {
     WLRatio: number;
     mode: {
       '1v1v1v1': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
-      },
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+      };
       '2v2': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
-      },
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
+      };
       '2v2v2': {
-        kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
       };
     };
     activeClass: string;
     heroStats: {
-      name: string, level: number, xp: number, prestige: number, games: number, kills: number, deaths: number, KDRatio: number, wins: number, losses: number, WLRatio: number;
+      name: string;
+      level: number;
+      xp: number;
+      prestige: number;
+      games: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
     }[];
   }
   class SkyblockNews {
@@ -910,19 +1712,35 @@ declare module 'hypixel-api-reborn' {
     winstreak: number;
     wins: number;
     tntrun: {
-      wins: number, deaths: number, record: number;
+      wins: number;
+      deaths: number;
+      record: number;
     };
     pvprun: {
-      kills: number, wins: number, deaths: number, KDRatio: number, record: number;
+      kills: number;
+      wins: number;
+      deaths: number;
+      KDRatio: number;
+      record: number;
     };
     tnttag: {
-      kills: number, wins: number, speed: number;
+      kills: number;
+      wins: number;
+      speed: number;
     };
     bowspleef: {
-      wins: number, tags: number, deaths: number;
+      wins: number;
+      tags: number;
+      deaths: number;
     };
     wizards: {
-      points: number, class: string, kills: number, assists: number, wins: number, deaths: number, KDRatio: number;
+      points: number;
+      class: string;
+      kills: number;
+      assists: number;
+      wins: number;
+      deaths: number;
+      KDRatio: number;
     };
   }
   class Status {
@@ -946,14 +1764,16 @@ declare module 'hypixel-api-reborn' {
     tag: string;
     tagColor: Color;
     legacyRank: number;
-    expHistory: { day: string, date: Date, exp: number, totalExp: number; }[];
+    expHistory: { day: string; date: Date; exp: number; totalExp: number }[];
     achievements: {
-      winners: number, experienceKings: number, onlinePlayers: number;
+      winners: number;
+      experienceKings: number;
+      onlinePlayers: number;
     };
     me?: GuildMember;
     chatMuteUntilTimestamp: number;
     chatMuteUntil: Date;
-    banner: { Base: string, Patterns: [{ Pattern: string, Color: string; }]; };
+    banner: { Base: string; Patterns: [{ Pattern: string; Color: string }] };
     preferredGames: Game[];
     members: GuildMember[];
     ranks: GuildRank[];
@@ -1019,13 +1839,13 @@ declare module 'hypixel-api-reborn' {
     sellSummary: Order[];
     buySummary: Order[];
     status: {
-      sellPrice: number,
-      buyPrice: number,
-      sellVolume: number,
-      buyVolume: number,
-      sellMovingWeek: number,
-      buyMovingWeek: number,
-      sellOrders: number,
+      sellPrice: number;
+      buyPrice: number;
+      sellVolume: number;
+      buyVolume: number;
+      sellMovingWeek: number;
+      buyMovingWeek: number;
+      sellOrders: number;
       buyOrders: number;
     };
   }
@@ -1054,7 +1874,7 @@ declare module 'hypixel-api-reborn' {
     weeklyExperience: number;
     mutedUntilTimestamp: number;
     mutedUntil: Date;
-    expHistory: { day: string, date: Date, exp: number, totalExp: number; }[];
+    expHistory: { day: string; date: Date; exp: number; totalExp: number }[];
   }
   class GuildRank {
     constructor(data: Record<string, unknown>);
@@ -1085,6 +1905,7 @@ declare module 'hypixel-api-reborn' {
     profileName: string;
     members: SkyblockMember[];
     me: SkyblockMember;
+    selected: boolean;
   }
   class SkyblockPet {
     constructor(data: Record<string, unknown>);
@@ -1113,371 +1934,388 @@ declare module 'hypixel-api-reborn' {
     lastDeathAt: Date;
     fairyExchanges: number;
     fairySouls: number;
+    experience: number;
+    hotm: SKYBLOCK_SKILL_DATA;
+    trophyFish: number;
+    highestMagicalPower: number;
     skills: {
-      taming: SKYBLOCK_SKILL_DATA,
-      farming: SKYBLOCK_SKILL_DATA,
-      mining: SKYBLOCK_SKILL_DATA,
-      combat: SKYBLOCK_SKILL_DATA,
-      foraging: SKYBLOCK_SKILL_DATA,
-      fishing: SKYBLOCK_SKILL_DATA,
-      enchanting: SKYBLOCK_SKILL_DATA,
-      alchemy: SKYBLOCK_SKILL_DATA,
-      carpentry?: SKYBLOCK_SKILL_DATA,
-      runecrafting?: SKYBLOCK_SKILL_DATA,
+      taming: SKYBLOCK_SKILL_DATA;
+      farming: SKYBLOCK_SKILL_DATA;
+      mining: SKYBLOCK_SKILL_DATA;
+      combat: SKYBLOCK_SKILL_DATA;
+      foraging: SKYBLOCK_SKILL_DATA;
+      fishing: SKYBLOCK_SKILL_DATA;
+      enchanting: SKYBLOCK_SKILL_DATA;
+      alchemy: SKYBLOCK_SKILL_DATA;
+      carpentry?: SKYBLOCK_SKILL_DATA;
+      runecrafting?: SKYBLOCK_SKILL_DATA;
       usedAchievementApi?: boolean;
     };
     slayer: {
-      zombie: SKYBLOCK_SLAYER_DATA,
-      spider: SKYBLOCK_SLAYER_DATA,
+      zombie: SKYBLOCK_SLAYER_DATA;
+      spider: SKYBLOCK_SLAYER_DATA;
       wolf: SKYBLOCK_SLAYER_DATA;
+      enderman: SKYBLOCK_SLAYER_DATA;
+      blaze: SKYBLOCK_SLAYER_DATA;
+      vampire: SKYBLOCK_SLAYER_DATA;
     };
+    bestiary: SKYBLOCK_BESTIARY;
     dungeons: {
       types: {
         catacombs: SKYBLOCK_DUNGEON_TYPE_DATA;
-      },
+      };
       classes: {
-        healer: SKYBLOCK_DUNGEON_CLASS_DATA,
-        mage: SKYBLOCK_DUNGEON_CLASS_DATA,
-        berserk: SKYBLOCK_DUNGEON_CLASS_DATA,
-        archer: SKYBLOCK_DUNGEON_CLASS_DATA,
+        healer: SKYBLOCK_DUNGEON_CLASS_DATA;
+        mage: SKYBLOCK_DUNGEON_CLASS_DATA;
+        berserk: SKYBLOCK_DUNGEON_CLASS_DATA;
+        archer: SKYBLOCK_DUNGEON_CLASS_DATA;
         tank: SKYBLOCK_DUNGEON_CLASS_DATA;
       };
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     collections: any;
     stats?: {
-      auctionsBids?: number,
-      auctionsBoughtCommon?: number,
-      auctionsBoughtEpic?: number,
-      auctionsBoughtLegendary?: number,
-      auctionsBoughtRare?: number,
-      auctionsBoughtSpecial?: number,
-      auctionsBoughtUncommon?: number,
-      auctionsCompleted?: number,
-      auctionsCreated?: number,
-      auctionsFees?: number,
-      auctionsGoldEarned?: number,
-      auctionsGoldSpent?: number,
-      auctionsHighestBid?: number,
-      auctionsNoBids?: number,
-      auctionsSoldCommon?: number,
-      auctionsSoldEpic?: number,
-      auctionsSoldLegendary?: number,
-      auctionsSoldRare?: number,
-      auctionsSoldSpecial?: number,
-      auctionsSoldUncommon?: number,
-      auctionsWon?: number,
-      chickenRaceBestTime_2?: number,
-      deaths?: number,
-      deathsBlaze?: number,
-      deathsCactus?: number,
-      deathsCatfish?: number,
-      deathsCorruptedProtector?: number,
-      deathsCryptDreadlord?: number,
-      deathsCryptLurker?: number,
-      deathsCryptSouleater?: number,
-      deathsDiamondGuy?: number,
-      deathsDiamondSkeleton?: number,
-      deathsDiamondZombie?: number,
-      deathsDungeonRespawningSkeleton?: number,
-      deathsEmeraldSlime?: number,
-      deathsEnderman?: number,
-      deathsEndermite?: number,
-      deathsFall?: number,
-      deathsFire?: number,
-      deathsFireballMagmaCube?: number,
-      deathsGaiaConstruct?: number,
-      deathsGeneratorMagmaCube?: number,
-      deathsGeneratorSlime?: number,
-      deathsHowlingSpirit?: number,
-      deathsKingMidas?: number,
-      deathsLapisZombie?: number,
-      deathsLiquidHotMagma?: number,
-      deathsLividClone?: number,
-      deathsLostAdventurer?: number,
-      deathsMagmaCube?: number,
-      deathsMagmaCubeBoss?: number,
-      deathsObsidianWither?: number,
-      deathsOldDragon?: number,
-      deathsOldWolf?: number,
-      deathsPlayer?: number,
-      deathsProfessor?: number,
-      deathsProfessorGuardianSummon?: number,
-      deathsProfessorMageGuardian?: number,
-      deathsProtectorDragon?: number,
-      deathsRandomSlime?: number,
-      deathsRedstonePigman?: number,
-      deathsRevenantZombie?: number,
-      deathsRuinWolf?: number,
-      deathsSadanStatue?: number,
-      deathsScaredSkeleton?: number,
-      deathsScarf?: number,
-      deathsScarfMage?: number,
-      deathsScarfWarrior?: number,
-      deathsSeaGuardian?: number,
-      deathsShadowAssassin?: number,
-      deathsSkeleton?: number,
-      deathsSkeletonEmperor?: number,
-      deathsSkeletonGrunt?: number,
-      deathsSkeletonMaster?: number,
-      deathsSkeletonSoldier?: number,
-      deathsSkeletor?: number,
-      deathsSniperSkeleton?: number,
-      deathsSoulOfTheAlpha?: number,
-      deathsSpider?: number,
-      deathsSpiderJockey?: number,
-      deathsSpiritBat?: number,
-      deathsSpiritRabbit?: number,
-      deathsStrongDragon?: number,
-      deathsSuffocation?: number,
-      deathsSuperiorDragon?: number,
-      deathsTarantulaSpider?: number,
-      deathsTentaclees?: number,
-      deathsTrap?: number,
-      deathsUnburriedZombie?: number,
-      deathsUnknown?: number,
-      deathsUnstableDragon?: number,
-      deathsVoid?: number,
-      deathsVoraciousSpider?: number,
-      deathsWatcher?: number,
-      deathsWatcherSummonUndead?: number,
-      deathsWeaverSpider?: number,
-      deathsWiseDragon?: number,
-      deathsWitherSkeleton?: number,
-      deathsWolf?: number,
-      deathsYoungDragon?: number,
-      deathsZealotEnderman?: number,
-      deathsZombie?: number,
-      deathsZombieDeep?: number,
-      deathsZombieGrunt?: number,
-      deathsZombieSoldier?: number,
-      dungeonHubCrystalCoreAnythingNoReturnBestTime?: number,
-      dungeonHubCrystalCoreAnythingWithReturnBestTime?: number,
-      dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number,
-      dungeonHubCrystalCoreNoPearlsNoReturnBestTime?: number,
-      dungeonHubCrystalCoreNoPearlsWithReturnBestTime?: number,
-      dungeonHubCrystalCoreNothingNoReturnBestTime?: number,
-      dungeonHubGiantMushroomAnythingNoReturnBestTime?: number,
-      dungeonHubGiantMushroomNoAbilitiesNoReturnBestTime?: number,
-      dungeonHubGiantMushroomNoPearlsNoReturnBestTime?: number,
-      dungeonHubGiantMushroomNothingNoReturnBestTime?: number,
-      dungeonHubPrecursorRuinsAnythingNoReturnBestTime?: number,
-      dungeonHubPrecursorRuinsNoAbilitiesNoReturnBestTime?: number,
-      dungeonHubPrecursorRuinsNoPearlsNoReturnBestTime?: number,
-      dungeonHubPrecursorRuinsNothingNoReturnBestTime?: number,
-      endRaceBestTime?: number,
-      enderCrystalsDestroyed?: number,
-      foragingRaceBestTime?: number,
-      giftsGiven?: number,
-      giftsReceived?: number,
-      highestCritDamage?: number,
-      highestCriticalDamage?: number,
-      itemsFished?: number,
-      itemsFishedLargeTreasure?: number,
-      itemsFishedNormal?: number,
-      itemsFishedTreasure?: number,
-      kills?: number,
-      killsBatPinata?: number,
-      killsBatSpooky?: number,
-      killsBattyWitch?: number,
-      killsBlaze?: number,
-      killsBlazeHigherOrLower?: number,
-      killsBlueShark?: number,
-      killsBonzoSummonUndead?: number,
-      killsBroodMotherCaveSpider?: number,
-      killsBroodMotherSpider?: number,
-      killsCarrotKing?: number,
-      killsCatfish?: number,
-      killsCaveSpider?: number,
-      killsCellarSpider?: number,
-      killsChicken?: number,
-      killsChickenDeep?: number,
-      killsCorruptedProtector?: number,
-      killsCow?: number,
-      killsCreeper?: number,
-      killsCryptDreadlord?: number,
-      killsCryptLurker?: number,
-      killsCryptSouleater?: number,
-      killsCryptTankZombie?: number,
-      killsCryptUndead?: number,
-      killsCryptUndeadAlexander?: number,
-      killsCryptUndeadApunch?: number,
-      killsCryptUndeadBernhard?: number,
-      killsCryptUndeadChristian?: number,
-      killsCryptUndeadCodenameB?: number,
-      killsCryptUndeadConnorlinfoot?: number,
-      killsCryptUndeadDctr?: number,
-      killsCryptUndeadFriedrich?: number,
-      killsCryptUndeadJayavarmen?: number,
-      killsCryptUndeadLikaos?: number,
-      killsCryptUndeadMarius?: number,
-      killsCryptUndeadNicholas?: number,
-      killsCryptUndeadNitroholic_?: number,
-      killsCryptUndeadPieter?: number,
-      killsCryptUndeadRelenter?: number,
-      killsCryptUndeadSfarnham?: number,
-      killsCryptUndeadValentin?: number,
-      killsCryptWitherskeleton?: number,
-      killsDasherSpider?: number,
-      killsDeepSeaProtector?: number,
-      killsDiamondGuy?: number,
-      killsDiamondSkeleton?: number,
-      killsDiamondZombie?: number,
-      killsDungeonRespawningSkeleton?: number,
-      killsDungeonRespawningSkeletonSkull?: number,
-      killsDungeonSecretBat?: number,
-      killsEmeraldSlime?: number,
-      killsEnderman?: number,
-      killsEndermite?: number,
-      killsFireballMagmaCube?: number,
-      killsForestIslandBat?: number,
-      killsFrostyTheSnowman?: number,
-      killsFrozenSteve?: number,
-      killsGaiaConstruct?: number,
-      killsGeneratorGhast?: number,
-      killsGeneratorMagmaCube?: number,
-      killsGeneratorSlime?: number,
-      killsGhast?: number,
-      killsGuardianDefender?: number,
-      killsGuardianEmperor?: number,
-      killsHorsemanBat?: number,
-      killsHorsemanHorse?: number,
-      killsHorsemanZombie?: number,
-      killsHowlingSpirit?: number,
-      killsInvisibleCreeper?: number,
-      killsJockeyShotSilverfish?: number,
-      killsJockeySkeleton?: number,
-      killsKingMidas?: number,
-      killsLapisZombie?: number,
-      killsLiquidHotMagma?: number,
-      killsLonelySpider?: number,
-      killsLostAdventurer?: number,
-      killsMagmaCube?: number,
-      killsMagmaCubeBoss?: number,
-      killsMinosHunter?: number,
-      killsMinotaur?: number,
-      killsNightRespawningSkeleton?: number,
-      killsNightSquid?: number,
-      killsNurseShark?: number,
-      killsObsidianWither?: number,
-      killsOldWolf?: number,
-      killsPackSpirit?: number,
-      killsParasite?: number,
-      killsPhantomSpirit?: number,
-      killsPig?: number,
-      killsPigman?: number,
-      killsPlayer?: number,
-      killsPondSquid?: number,
-      killsProfessorGuardianSummon?: number,
-      killsProtectorDragon?: number,
-      killsRabbit?: number,
-      killsRandomSlime?: number,
-      killsRedstonePigman?: number,
-      killsRespawningSkeleton?: number,
-      killsRevenantZombie?: number,
-      killsRuinWolf?: number,
-      killsScaredSkeleton?: number,
-      killsScarfArcher?: number,
-      killsScarfMage?: number,
-      killsScarfPriest?: number,
-      killsScarfWarrior?: number,
-      killsScaryJerry?: number,
-      killsSeaArcher?: number,
-      killsSeaGuardian?: number,
-      killsSeaLeech?: number,
-      killsSeaWalker?: number,
-      killsSeaWitch?: number,
-      killsShadowAssassin?: number,
-      killsSheep?: number,
-      killsSiameseLynx?: number,
-      killsSkeleton?: number,
-      killsSkeletonEmperor?: number,
-      killsSkeletonGrunt?: number,
-      killsSkeletonMaster?: number,
-      killsSkeletonSoldier?: number,
-      killsSkeletor?: number,
-      killsSlime?: number,
-      killsSniperSkeleton?: number,
-      killsSoulOfTheAlpha?: number,
-      killsSpider?: number,
-      killsSpiderJockey?: number,
-      killsSpiritBat?: number,
-      killsSpiritBull?: number,
-      killsSpiritChicken?: number,
-      killsSpiritMiniboss?: number,
-      killsSpiritRabbit?: number,
-      killsSpiritSheep?: number,
-      killsSpiritWolf?: number,
-      killsSplitterSpider?: number,
-      killsSplitterSpiderSilverfish?: number,
-      killsStrongDragon?: number,
-      killsSuperArcher?: number,
-      killsSuperTankZombie?: number,
-      killsTarantulaSpider?: number,
-      killsTentaclees?: number,
-      killsTigerShark?: number,
-      killsTrickOrTreater?: number,
-      killsUnburriedZombie?: number,
-      killsVoraciousSpider?: number,
-      killsWatcher?: number,
-      killsWatcherBonzo?: number,
-      killsWatcherSummonUndead?: number,
-      killsWaterHydra?: number,
-      killsWeaverSpider?: number,
-      killsWitch?: number,
-      killsWitchBat?: number,
-      killsWitherGourd?: number,
-      killsWitherSkeleton?: number,
-      killsWraith?: number,
-      killsZealotEnderman?: number,
-      killsZombie?: number,
-      killsZombieDeep?: number,
-      killsZombieGrunt?: number,
-      killsZombieKnight?: number,
-      killsZombieSoldier?: number,
-      killsZombieVillager?: number,
-      mostWinterCannonballsHit?: number,
-      mostWinterDamageDealt?: number,
-      mostWinterMagmaDamageDealt?: number,
-      mostWinterSnowballsHit?: number,
-      mythosBurrowsChainsComplete?: number,
-      mythosBurrowsChainsCompleteCommon?: number,
-      mythosBurrowsChainsCompleteRare?: number,
-      mythosBurrowsChainsCompleteNull?: number,
-      mythosBurrowsDugCombat?: number,
-      mythosBurrowsDugCombatCommon?: number,
-      mythosBurrowsDugCombatRare?: number,
-      mythosBurrowsDugCombatNull?: number,
-      mythosBurrowsDugNext?: number,
-      mythosBurrowsDugNextCommon?: number,
-      mythosBurrowsDugNextRare?: number,
-      mythosBurrowsDugNextNull?: number,
-      mythosBurrowsDugTreasure?: number,
-      mythosBurrowsDugTreasureCommon?: number,
-      mythosBurrowsDugTreasureRare?: number,
-      mythosBurrowsDugTreasureNull?: number,
-      mythosKills?: number,
-      petMilestoneOresMined?: number,
-      petMilestoneSeaCreaturesKilled?: number,
+      auctionsBids?: number;
+      auctionsBoughtCommon?: number;
+      auctionsBoughtEpic?: number;
+      auctionsBoughtLegendary?: number;
+      auctionsBoughtRare?: number;
+      auctionsBoughtSpecial?: number;
+      auctionsBoughtUncommon?: number;
+      auctionsCompleted?: number;
+      auctionsCreated?: number;
+      auctionsFees?: number;
+      auctionsGoldEarned?: number;
+      auctionsGoldSpent?: number;
+      auctionsHighestBid?: number;
+      auctionsNoBids?: number;
+      auctionsSoldCommon?: number;
+      auctionsSoldEpic?: number;
+      auctionsSoldLegendary?: number;
+      auctionsSoldRare?: number;
+      auctionsSoldSpecial?: number;
+      auctionsSoldUncommon?: number;
+      auctionsWon?: number;
+      chickenRaceBestTime_2?: number;
+      deaths: {
+        total?: number;
+        blaze?: number;
+        cactus?: number;
+        catfish?: number;
+        corruptedProtector?: number;
+        cryptDreadlord?: number;
+        cryptLurker?: number;
+        cryptSouleater?: number;
+        diamondGuy?: number;
+        diamondSkeleton?: number;
+        diamondZombie?: number;
+        dungeonRespawningSkeleton?: number;
+        emeraldSlime?: number;
+        enderman?: number;
+        endermite?: number;
+        fall?: number;
+        fire?: number;
+        fireballMagmaCube?: number;
+        gaiaConstruct?: number;
+        generatorMagmaCube?: number;
+        generatorSlime?: number;
+        howlingSpirit?: number;
+        kingMidas?: number;
+        lapisZombie?: number;
+        liquidHotMagma?: number;
+        lividClone?: number;
+        lostAdventurer?: number;
+        magmaCube?: number;
+        magmaCubeBoss?: number;
+        obsidianWither?: number;
+        oldDragon?: number;
+        oldWolf?: number;
+        player?: number;
+        professor?: number;
+        professorGuardianSummon?: number;
+        professorMageGuardian?: number;
+        protectorDragon?: number;
+        randomSlime?: number;
+        redstonePigman?: number;
+        revenantZombie?: number;
+        ruinWolf?: number;
+        sadanStatue?: number;
+        scaredSkeleton?: number;
+        scarf?: number;
+        scarfMage?: number;
+        scarfWarrior?: number;
+        seaGuardian?: number;
+        shadowAssassin?: number;
+        skeleton?: number;
+        skeletonEmperor?: number;
+        skeletonGrunt?: number;
+        skeletonMaster?: number;
+        skeletonSoldier?: number;
+        skeletor?: number;
+        sniperSkeleton?: number;
+        soulOfTheAlpha?: number;
+        spider?: number;
+        spiderJockey?: number;
+        spiritBat?: number;
+        spiritRabbit?: number;
+        strongDragon?: number;
+        suffocation?: number;
+        superiorDragon?: number;
+        tarantulaSpider?: number;
+        tentaclees?: number;
+        trap?: number;
+        unburriedZombie?: number;
+        unknown?: number;
+        unstableDragon?: number;
+        void?: number;
+        voraciousSpider?: number;
+        watcher?: number;
+        watcherSummonUndead?: number;
+        weaverSpider?: number;
+        wiseDragon?: number;
+        witherSkeleton?: number;
+        wolf?: number;
+        youngDragon?: number;
+        zealotEnderman?: number;
+        zombie?: number;
+        zombieDeep?: number;
+        zombieGrunt?: number;
+        zombieSoldier?: number;
+      },
+      dungeonHubCrystalCoreAnythingNoReturnBestTime?: number;
+      dungeonHubCrystalCoreAnythingWithReturnBestTime?: number;
+      dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number;
+      dungeonHubCrystalCoreNoPearlsNoReturnBestTime?: number;
+      dungeonHubCrystalCoreNoPearlsWithReturnBestTime?: number;
+      dungeonHubCrystalCoreNothingNoReturnBestTime?: number;
+      dungeonHubGiantMushroomAnythingNoReturnBestTime?: number;
+      dungeonHubGiantMushroomNoAbilitiesNoReturnBestTime?: number;
+      dungeonHubGiantMushroomNoPearlsNoReturnBestTime?: number;
+      dungeonHubGiantMushroomNothingNoReturnBestTime?: number;
+      dungeonHubPrecursorRuinsAnythingNoReturnBestTime?: number;
+      dungeonHubPrecursorRuinsNoAbilitiesNoReturnBestTime?: number;
+      dungeonHubPrecursorRuinsNoPearlsNoReturnBestTime?: number;
+      dungeonHubPrecursorRuinsNothingNoReturnBestTime?: number;
+      endRaceBestTime?: number;
+      enderCrystalsDestroyed?: number;
+      foragingRaceBestTime?: number;
+      giftsGiven?: number;
+      giftsReceived?: number;
+      highestCritDamage?: number;
+      highestCriticalDamage?: number;
+      itemsFished?: number;
+      itemsFishedLargeTreasure?: number;
+      itemsFishedNormal?: number;
+      itemsFishedTreasure?: number;
+      kills: {
+        total?: number;
+        batPinata?: number;
+        batSpooky?: number;
+        battyWitch?: number;
+        blaze?: number;
+        blazeHigherOrLower?: number;
+        blueShark?: number;
+        bonzoSummonUndead?: number;
+        broodMotherCaveSpider?: number;
+        broodMotherSpider?: number;
+        carrotKing?: number;
+        catfish?: number;
+        caveSpider?: number;
+        cellarSpider?: number;
+        chicken?: number;
+        chickenDeep?: number;
+        corruptedProtector?: number;
+        cow?: number;
+        creeper?: number;
+        cryptDreadlord?: number;
+        cryptLurker?: number;
+        cryptSouleater?: number;
+        cryptTankZombie?: number;
+        cryptUndead?: number;
+        cryptUndeadAlexander?: number;
+        cryptUndeadApunch?: number;
+        cryptUndeadBernhard?: number;
+        cryptUndeadChristian?: number;
+        cryptUndeadCodenameB?: number;
+        cryptUndeadConnorlinfoot?: number;
+        cryptUndeadDctr?: number;
+        cryptUndeadFriedrich?: number;
+        cryptUndeadJayavarmen?: number;
+        cryptUndeadLikaos?: number;
+        cryptUndeadMarius?: number;
+        cryptUndeadNicholas?: number;
+        cryptUndeadNitroholic_?: number;
+        cryptUndeadPieter?: number;
+        cryptUndeadRelenter?: number;
+        cryptUndeadSfarnham?: number;
+        cryptUndeadValentin?: number;
+        cryptWitherskeleton?: number;
+        dasherSpider?: number;
+        deepSeaProtector?: number;
+        diamondGuy?: number;
+        diamondSkeleton?: number;
+        diamondZombie?: number;
+        dungeonRespawningSkeleton?: number;
+        dungeonRespawningSkeletonSkull?: number;
+        dungeonSecretBat?: number;
+        emeraldSlime?: number;
+        enderman?: number;
+        endermite?: number;
+        fireballMagmaCube?: number;
+        forestIslandBat?: number;
+        frostyTheSnowman?: number;
+        frozenSteve?: number;
+        gaiaConstruct?: number;
+        generatorGhast?: number;
+        generatorMagmaCube?: number;
+        generatorSlime?: number;
+        ghast?: number;
+        guardianDefender?: number;
+        guardianEmperor?: number;
+        horsemanBat?: number;
+        horsemanHorse?: number;
+        horsemanZombie?: number;
+        howlingSpirit?: number;
+        invisibleCreeper?: number;
+        jockeyShotSilverfish?: number;
+        jockeySkeleton?: number;
+        kingMidas?: number;
+        lapisZombie?: number;
+        liquidHotMagma?: number;
+        lonelySpider?: number;
+        lostAdventurer?: number;
+        magmaCube?: number;
+        magmaCubeBoss?: number;
+        minosHunter?: number;
+        minotaur?: number;
+        nightRespawningSkeleton?: number;
+        nightSquid?: number;
+        nurseShark?: number;
+        obsidianWither?: number;
+        oldWolf?: number;
+        packSpirit?: number;
+        parasite?: number;
+        phantomSpirit?: number;
+        pig?: number;
+        pigman?: number;
+        player?: number;
+        pondSquid?: number;
+        professorGuardianSummon?: number;
+        protectorDragon?: number;
+        rabbit?: number;
+        randomSlime?: number;
+        redstonePigman?: number;
+        respawningSkeleton?: number;
+        revenantZombie?: number;
+        ruinWolf?: number;
+        scaredSkeleton?: number;
+        scarfArcher?: number;
+        scarfMage?: number;
+        scarfPriest?: number;
+        scarfWarrior?: number;
+        scaryJerry?: number;
+        seaArcher?: number;
+        seaGuardian?: number;
+        seaLeech?: number;
+        seaWalker?: number;
+        seaWitch?: number;
+        shadowAssassin?: number;
+        sheep?: number;
+        siameseLynx?: number;
+        skeleton?: number;
+        skeletonEmperor?: number;
+        skeletonGrunt?: number;
+        skeletonMaster?: number;
+        skeletonSoldier?: number;
+        skeletor?: number;
+        slime?: number;
+        sniperSkeleton?: number;
+        soulOfTheAlpha?: number;
+        spider?: number;
+        spiderJockey?: number;
+        spiritBat?: number;
+        spiritBull?: number;
+        spiritChicken?: number;
+        spiritMiniboss?: number;
+        spiritRabbit?: number;
+        spiritSheep?: number;
+        spiritWolf?: number;
+        splitterSpider?: number;
+        splitterSpiderSilverfish?: number;
+        strongDragon?: number;
+        superArcher?: number;
+        superTankZombie?: number;
+        tarantulaSpider?: number;
+        tentaclees?: number;
+        tigerShark?: number;
+        trickOrTreater?: number;
+        unburriedZombie?: number;
+        voraciousSpider?: number;
+        watcher?: number;
+        watcherBonzo?: number;
+        watcherSummonUndead?: number;
+        waterHydra?: number;
+        weaverSpider?: number;
+        witch?: number;
+        witchBat?: number;
+        witherGourd?: number;
+        witherSkeleton?: number;
+        wraith?: number;
+        zealotEnderman?: number;
+        zombie?: number;
+        zombieDeep?: number;
+        zombieGrunt?: number;
+        zombieKnight?: number;
+        zombieSoldier?: number;
+        zombieVillager?: number;
+      },
+      mostWinterCannonballsHit?: number;
+      mostWinterDamageDealt?: number;
+      mostWinterMagmaDamageDealt?: number;
+      mostWinterSnowballsHit?: number;
+      mythosBurrowsChainsComplete?: number;
+      mythosBurrowsChainsCompleteCommon?: number;
+      mythosBurrowsChainsCompleteRare?: number;
+      mythosBurrowsChainsCompleteNull?: number;
+      mythosBurrowsDugCombat?: number;
+      mythosBurrowsDugCombatCommon?: number;
+      mythosBurrowsDugCombatRare?: number;
+      mythosBurrowsDugCombatNull?: number;
+      mythosBurrowsDugNext?: number;
+      mythosBurrowsDugNextCommon?: number;
+      mythosBurrowsDugNextRare?: number;
+      mythosBurrowsDugNextNull?: number;
+      mythosBurrowsDugTreasure?: number;
+      mythosBurrowsDugTreasureCommon?: number;
+      mythosBurrowsDugTreasureRare?: number;
+      mythosBurrowsDugTreasureNull?: number;
+      mythosKills?: number;
+      petMilestoneOresMined?: number;
+      petMilestoneSeaCreaturesKilled?: number;
     };
     purse: number;
     pets: SkyblockPet[];
     getInventory(): Promise<SkyblockInventoryItem[]>;
     getEnderChest(): Promise<SkyblockInventoryItem[]>;
-    getArmor(): Promise<{ helmet: SkyblockInventoryItem, chestplate: SkyblockInventoryItem, leggings: SkyblockInventoryItem, boots: SkyblockInventoryItem; }>;
+    getArmor(): Promise<{
+      helmet: SkyblockInventoryItem;
+      chestplate: SkyblockInventoryItem;
+      leggings: SkyblockInventoryItem;
+      boots: SkyblockInventoryItem;
+    }>;
     getWardrobe(): Promise<SkyblockInventoryItem[]>;
     getPetScore(): number;
     jacob: {
       medals: {
-        bronze: number,
-        silver: number,
+        bronze: number;
+        silver: number;
         gold: number;
-      },
+      };
       perks: {
-        doubleDrops: number,
-        farmingLevelCap: number,
-      },
-      contests: Record<string, unknown>,
+        doubleDrops: number;
+        farmingLevelCap: number;
+      };
+      contests: Record<string, unknown>;
     };
   }
   class Color {
@@ -1499,7 +2337,7 @@ declare module 'hypixel-api-reborn' {
     enchantments: Record<string, unknown>;
     reforge: string;
     gemstones?: {
-      type?: string,
+      type?: string;
       quality?: string;
     }[];
     anvilUses: number;
@@ -1537,9 +2375,9 @@ declare module 'hypixel-api-reborn' {
     experience: number;
     level: number;
     levelProgress: {
-      currentLevelXp: number,
-      xpToNextLevel: number,
-      percent: number,
+      currentLevelXp: number;
+      xpToNextLevel: number;
+      percent: number;
       xpNextLevel: number;
     };
     levelFormatted: string;
@@ -1555,109 +2393,109 @@ declare module 'hypixel-api-reborn' {
     angelOfDeathLevel: number;
     solo: {
       overall: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        winstreak: number;
+        playedGames: number;
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       normal: {
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       insane: {
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
       };
     };
     team: {
       overall: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        winstreak: number;
+        playedGames: number;
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       normal: {
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       insane: {
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
       };
     };
     ranked: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      wins: number,
-      losses: number,
-      deaths: number,
-      KDRatio: number,
-      WLRatio: number,
-      ratings: Map<string, { rating: number, position: number, date: Date; }>;
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      wins: number;
+      losses: number;
+      deaths: number;
+      KDRatio: number;
+      WLRatio: number;
+      ratings: Map<string, { rating: number; position: number; date: Date }>;
     };
     mega: {
       overall: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        winstreak: number;
+        playedGames: number;
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       solo: {
-        playedGames: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        playedGames: number;
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
-      },
+      };
       doubles: {
-        playedGames: number,
-        kills: number,
-        wins: number,
-        losses: number,
-        deaths: number,
-        KDRatio: number,
+        playedGames: number;
+        kills: number;
+        wins: number;
+        losses: number;
+        deaths: number;
+        KDRatio: number;
         WLRatio: number;
       };
     };
     lab: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      wins: number,
-      losses: number,
-      deaths: number,
-      KDRatio: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      wins: number;
+      losses: number;
+      deaths: number;
+      KDRatio: number;
       WLRatio: number;
     };
     packages: SkywarsPackages;
@@ -1696,10 +2534,10 @@ declare module 'hypixel-api-reborn' {
     killsAsCrim: number;
     killsAsCop: number;
     deathmatch: {
-      kills: number,
-      deaths: number,
-      KDRatio: number,
-      killsAsCrim: number,
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      killsAsCrim: number;
       killsAsCop: number;
     };
   }
@@ -1718,408 +2556,408 @@ declare module 'hypixel-api-reborn' {
     deaths: number;
     finalDeaths: number;
     collectedItemsTotal: {
-      iron: number,
-      gold: number,
-      diamond: number,
+      iron: number;
+      gold: number;
+      diamond: number;
       emerald: number;
     };
     beds: {
-      lost: number,
-      broken: number,
+      lost: number;
+      broken: number;
       BLRatio: number;
     };
     avg: {
-      finalKills: number,
-      kills: number,
+      finalKills: number;
+      kills: number;
       bedsBroken: number;
     };
     KDRatio: number;
     finalKDRatio: number;
     WLRatio: number;
     solo: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      finalKills: number,
-      finalDeaths: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
       beds: {
-        broken: number,
-        lost: number,
+        broken: number;
+        lost: number;
         BLRatio: number;
-      },
+      };
       avg: {
-        kills: number,
-        finalKills: number,
+        kills: number;
+        finalKills: number;
         bedsBroken: number;
-      },
-      KDRatio: number,
-      WLRatio: number,
-      finalKDRatio: number,
+      };
+      KDRatio: number;
+      WLRatio: number;
+      finalKDRatio: number;
     };
     doubles: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      finalKills: number,
-      finalDeaths: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
       beds: {
-        broken: number,
-        lost: number,
+        broken: number;
+        lost: number;
         BLRatio: number;
-      },
+      };
       avg: {
-        kills: number,
-        finalKills: number,
+        kills: number;
+        finalKills: number;
         bedsBroken: number;
-      },
-      KDRatio: number,
-      WLRatio: number,
-      finalKDRatio: number,
+      };
+      KDRatio: number;
+      WLRatio: number;
+      finalKDRatio: number;
     };
     threes: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      finalKills: number,
-      finalDeaths: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
       beds: {
-        broken: number,
-        lost: number,
+        broken: number;
+        lost: number;
         BLRatio: number;
-      },
+      };
       avg: {
-        kills: number,
-        finalKills: number,
+        kills: number;
+        finalKills: number;
         bedsBroken: number;
-      },
-      KDRatio: number,
-      WLRatio: number,
-      finalKDRatio: number,
+      };
+      KDRatio: number;
+      WLRatio: number;
+      finalKDRatio: number;
     };
     fours: {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      finalKills: number,
-      finalDeaths: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
       beds: {
-        broken: number,
-        lost: number,
+        broken: number;
+        lost: number;
         BLRatio: number;
-      },
+      };
       avg: {
-        kills: number,
-        finalKills: number,
+        kills: number;
+        finalKills: number;
         bedsBroken: number;
-      },
-      KDRatio: number,
-      WLRatio: number,
-      finalKDRatio: number,
+      };
+      KDRatio: number;
+      WLRatio: number;
+      finalKDRatio: number;
     };
     '4v4': {
-      winstreak: number,
-      playedGames: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      finalKills: number,
-      finalDeaths: number,
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
       beds: {
-        broken: number,
-        lost: number,
+        broken: number;
+        lost: number;
         BLRatio: number;
-      },
+      };
       avg: {
-        kills: number,
-        finalKills: number,
+        kills: number;
+        finalKills: number;
         bedsBroken: number;
-      },
-      KDRatio: number,
-      WLRatio: number,
-      finalKDRatio: number,
+      };
+      KDRatio: number;
+      WLRatio: number;
+      finalKDRatio: number;
       lootChests: {
-        christmas: number,
-        lunar: number,
-        normal: number,
-        easter: number,
-        halloween: number,
-        golden: number,
+        christmas: number;
+        lunar: number;
+        normal: number;
+        easter: number;
+        halloween: number;
+        golden: number;
         total: number;
       };
       dream: {
         ultimate: {
           doubles: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
           fours: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
-        },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
+        };
         rush: {
           doubles: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
           fours: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
-        },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
+        };
         armed: {
           doubles: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
           fours: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
-        },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
+        };
         lucky: {
           doubles: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
           fours: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
-        },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
+        };
         voidless: {
           doubles: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
           fours: {
-            winstreak: number,
-            playedGames: number,
-            kills: number,
-            deaths: number,
-            wins: number,
-            losses: number,
-            finalKills: number,
-            finalDeaths: number,
+            winstreak: number;
+            playedGames: number;
+            kills: number;
+            deaths: number;
+            wins: number;
+            losses: number;
+            finalKills: number;
+            finalDeaths: number;
             beds: {
-              broken: number,
-              lost: number,
+              broken: number;
+              lost: number;
               BLRatio: number;
-            },
+            };
             avg: {
-              kills: number,
-              finalKills: number,
+              kills: number;
+              finalKills: number;
               bedsBroken: number;
-            },
-            KDRatio: number,
-            WLRatio: number,
-            finalKDRatio: number,
-          },
-        },
-      },
+            };
+            KDRatio: number;
+            WLRatio: number;
+            finalKDRatio: number;
+          };
+        };
+      };
       castle: {
-        winstreak: number,
-        playedGames: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        finalKills: number,
-        finalDeaths: number,
+        winstreak: number;
+        playedGames: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        finalKills: number;
+        finalDeaths: number;
         beds: {
-          broken: number,
-          lost: number,
+          broken: number;
+          lost: number;
           BLRatio: number;
-        },
+        };
         avg: {
-          kills: number,
-          finalKills: number,
+          kills: number;
+          finalKills: number;
           bedsBroken: number;
-        },
+        };
       };
     };
   }
@@ -2134,45 +2972,45 @@ declare module 'hypixel-api-reborn' {
     headsEaten: number;
     starLevel: number;
     solo: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     team: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     redVsBlue: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     noDiamond: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     brawl: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     brawlSolo: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
     brawlDuo: {
-      wins: number,
-      kills: number,
-      deaths: number,
+      wins: number;
+      kills: number;
+      deaths: number;
       headsEaten: number;
     };
   }
@@ -2193,26 +3031,26 @@ declare module 'hypixel-api-reborn' {
     quits: number;
     itemsEnchanted: number;
     assists: number;
-    solo : {
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      playedGames: number,
-      winstreak: number,
+    solo: {
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      playedGames: number;
+      winstreak: number;
       killstreak: number;
       assists: number;
-    }
-    team : {
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      playedGames: number,
-      winstreak: number,
+    };
+    team: {
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      playedGames: number;
+      winstreak: number;
       killstreak: number;
       assists: number;
-    }
+    };
   }
   class MurderMystery {
     constructor(data: Record<string, unknown>);
@@ -2224,24 +3062,24 @@ declare module 'hypixel-api-reborn' {
     winsAsDetective: number;
     wins: number;
     assassins: {
-      wins: number,
-      kills: number,
-      deaths: number,
-      KDRatio: number,
+      wins: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
       playedGames: number;
     };
     doubleUp: {
-      wins: number,
-      kills: number,
-      deaths: number,
-      KDRatio: number,
+      wins: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
       playedGames: number;
     };
     infection: {
-      wins: number,
-      kills: number,
-      deaths: number,
-      KDRatio: number,
+      wins: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
       playedGames: number;
     };
   }
@@ -2258,359 +3096,359 @@ declare module 'hypixel-api-reborn' {
     winstreak: number;
     bestWinstreak: number;
     parkour: {
-      division?: string,
-      deaths: number,
-      wins: number,
-      losses: number,
-      WLRatio: number,
+      division?: string;
+      deaths: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
       playedGames: number;
     };
     boxing: {
-      division?: string,
-      kills: number,
-      wins: number,
-      losses: number,
-      WLRatio: number,
-      playedGames: number,
-      meleeSwings: number,
+      division?: string;
+      kills: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
+      playedGames: number;
+      meleeSwings: number;
       meleeHits: number;
     };
     arena: {
-      kills: number,
-      deaths: number,
-      KDRatio: number,
-      wins: number,
-      losses: number,
-      WLRatio: number,
-      playedGames: number,
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
+      playedGames: number;
     };
     bowspleef: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      bowShots: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      bowShots: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      WLRatio: number;
       playedGames: number;
     };
     uhc: {
       overall: {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
-        playedGames: number;
-      },
-      '1v1': {
-        division?: string,
+        division?: string;
         winstreak: number;
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
+      '1v1': {
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
+        playedGames: number;
+      };
       '2v2': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '4v4': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       meetup: {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
       };
     };
     op: {
       overall: {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '1v1': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '2v2': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
       };
     };
     skywars: {
       overall: {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '1v1': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '2v2': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
       };
     };
     sumo: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     classic: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     combo: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     bridge: {
       overall: {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '1v1': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '2v2': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '3v3': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '4v4': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '2v2v2v2': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       '3v3v3v3': {
-        division?: string,
-        winstreak: number,
-        bestWinstreak: number,
-        kills: number,
-        deaths: number,
-        wins: number,
-        losses: number,
-        KDRatio: number,
-        WLRatio: number,
+        division?: string;
+        winstreak: number;
+        bestWinstreak: number;
+        kills: number;
+        deaths: number;
+        wins: number;
+        losses: number;
+        KDRatio: number;
+        WLRatio: number;
         playedGames: number;
-      },
+      };
       ctf: {
-        division?: string,
-        kills: number,
-        deaths: number,
-        KDRatio: number,
-        wins: number,
-        losses: number,
-        WLRatio: number,
+        division?: string;
+        kills: number;
+        deaths: number;
+        KDRatio: number;
+        wins: number;
+        losses: number;
+        WLRatio: number;
         playedGames: number;
       };
     };
     megawalls: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     blitz: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     nodebuff: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
     bow: {
-      division?: string,
-      winstreak: number,
-      bestWinstreak: number,
-      kills: number,
-      deaths: number,
-      wins: number,
-      losses: number,
-      KDRatio: number,
-      WLRatio: number,
+      division?: string;
+      winstreak: number;
+      bestWinstreak: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      KDRatio: number;
+      WLRatio: number;
       playedGames: number;
     };
   }
@@ -2622,9 +3460,9 @@ declare module 'hypixel-api-reborn' {
     totalVotes: number;
     totalWins: number;
     wins: {
-      solo: number,
-      team: number,
-      pro: number,
+      solo: number;
+      team: number;
+      pro: number;
       gtb: number;
     };
   }
@@ -2658,21 +3496,21 @@ declare module 'hypixel-api-reborn' {
     defenderKills: number;
     mode: {
       normal: {
-        kills: number,
-        deaths: number,
-        wins: number,
+        kills: number;
+        deaths: number;
+        wins: number;
         losses: number;
-      },
+      };
       faceoff: {
-        kills: number,
-        deaths: number,
-        wins: number,
+        kills: number;
+        deaths: number;
+        wins: number;
         losses: number;
-      },
+      };
       casualBrawl: {
-        kills: number,
-        deaths: number,
-        wins: number,
+        kills: number;
+        deaths: number;
+        wins: number;
         losses: number;
       };
     };
@@ -2726,4 +3564,3 @@ declare module 'hypixel-api-reborn' {
     ping: number;
   }
 }
-
