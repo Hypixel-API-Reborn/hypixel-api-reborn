@@ -22,11 +22,14 @@ module.exports = {
       case 'dungeons':
         xpTable = constants.dungeon_xp;
         break;
+      case 'hotm':
+        xpTable = constants.hotm_xp;
+        break;
       default:
         xpTable = constants.leveling_xp;
     }
     let maxLevel = Math.max(...Object.keys(xpTable));
-    if (constants.skills_cap[type] > maxLevel) {
+    if ((constants.skills_cap[type] ?? maxLevel) > maxLevel) {
       xpTable = Object.assign(constants.xp_past_50, xpTable);
       maxLevel = typeof levelCap === 'number' ? maxLevel + levelCap : Math.max(...Object.keys(xpTable));
     }
@@ -44,6 +47,7 @@ module.exports = {
     let level = 0;
     let xpForNext = 0;
     for (let x = 1; x <= maxLevel; x++) {
+      if (!xpTable[x]) continue;
       xpTotal += xpTable[x];
       if (xpTotal > xp) {
         xpTotal -= xpTable[x];
@@ -54,7 +58,8 @@ module.exports = {
     }
     const xpCurrent = Math.floor(xp - xpTotal);
     if (level < maxLevel) xpForNext = Math.ceil(xpTable[level + 1]);
-    const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100);
+    const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100 * 10) / 10;
+
     return {
       xp,
       level,
@@ -112,7 +117,7 @@ module.exports = {
     let level = 0;
     for (const level_name in claimed_levels) {
       if (Object.prototype.hasOwnProperty.call(claimed_levels, level_name)) {
-        const _level = parseInt(level_name.split('_').pop(), 10);
+        const _level = parseInt(level_name.replace('_special', '').split('_').pop(), 10);
         if (_level > level) {
           level = _level;
         }
@@ -163,5 +168,41 @@ module.exports = {
   getEffectiveHealth(health, defense) {
     if (defense <= 0) return health;
     return Math.round(health * (1 + defense / 100));
+  },
+  getMemberStats(obj) {
+    return Object.keys(obj).reduce(
+      (result, currentKey) => {
+        const key = currentKey.replace(/_[a-z]/gi, (match) => match[1].toUpperCase());
+
+        if (currentKey.startsWith('kills') || currentKey.startsWith('deaths')) {
+          const category = currentKey.startsWith('kills') ? 'kills' : 'deaths';
+          const subKey = key === category ? 'total' : key;
+
+          result[category][
+            subKey.replace(category, (sub, _, key) => {
+              return key[sub.length].toLowerCase() + key.slice(sub.length + 1);
+            })
+          ] = obj[currentKey];
+        } else {
+          result[key] = obj[currentKey];
+        }
+
+        return result;
+      },
+      { kills: {}, deaths: {} }
+    );
+  },
+  getTrophyFishRank(level) {
+    if (level === 1) {
+      return 'Bronze';
+    } else if (level === 2) {
+      return 'Silver';
+    } else if (level === 3) {
+      return 'Gold';
+    } else if (level === 4) {
+      return 'Diamond';
+    } else {
+      return 'Bronze';
+    }
   }
 };

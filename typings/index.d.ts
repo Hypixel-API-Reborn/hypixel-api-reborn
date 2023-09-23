@@ -134,6 +134,18 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export type SKYBLOCK_BESTIARY = number;
+export interface SKYBLOCK_BESTIARY_CATEGORY {
+  [key: string]: {
+    damage?: number;
+    head: string;
+    itemId?: string;
+    kills: number;
+    maxTier: number;
+    name: string;
+    tier: number;
+  };
+}
 export interface SKYBLOCK_SKILL_DATA {
   xp: number;
   level: number;
@@ -261,7 +273,7 @@ declare module 'hypixel-api-reborn' {
         { name: 'Godlike'; key: 'godlike' },
         { name: 'WORLD ELITE'; key: 'world_elite' },
         { name: 'WORLD MASTER'; key: 'world_master' },
-        { name: "WORLD'S BEST"; key: 'worlds_best' }
+        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
       ];
       leveling_xp: {
         1: 50;
@@ -315,7 +327,18 @@ declare module 'hypixel-api-reborn' {
         49: 3700000;
         50: 4000000;
       };
-      xp_past_50: { 51: 4300000; 52: 4600000; 53: 4900000; 54: 5200000; 55: 5500000; 56: 5800000; 57: 6100000; 58: 6400000; 59: 6700000; 60: 7000000 };
+      xp_past_50: {
+        51: 4300000;
+        52: 4600000;
+        53: 4900000;
+        54: 5200000;
+        55: 5500000;
+        56: 5800000;
+        57: 6100000;
+        58: 6400000;
+        59: 6700000;
+        60: 7000000;
+      };
       runecrafting_xp: {
         1: 50;
         2: 100;
@@ -354,7 +377,19 @@ declare module 'hypixel-api-reborn' {
         alchemy: 'skyblockConcoctor';
         taming: 'skyblockDomesticator';
       };
-      skills_cap: { taming: 50; farming: 60; mining: 60; combat: 60; foraging: 50; fishing: 50; enchanting: 60; alchemy: 50; carpentry: 50; runecrafting: 25; dungeons: 50 };
+      skills_cap: {
+        taming: 50;
+        farming: 60;
+        mining: 60;
+        combat: 60;
+        foraging: 50;
+        fishing: 50;
+        enchanting: 60;
+        alchemy: 50;
+        carpentry: 50;
+        runecrafting: 25;
+        dungeons: 50;
+      };
       dungeon_xp: {
         1: 50;
         2: 75;
@@ -407,10 +442,49 @@ declare module 'hypixel-api-reborn' {
         49: 9.3e7;
         50: 1.1625e8;
       };
-      slayer_xp: { 1: 5; 2: 15; 3: 200; 4: 1000; 5: 5000; 6: 20000; 7: 100000; 8: 400000; 9: 1000000 };
-      pet_score: { COMMON: 1; UNCOMMON: 2; RARE: 3; EPIC: 4; LEGENDARY: 5; MYTHIC: 6 };
-      base_stats: { damage: 0; health: 100; defense: 0; effective_health: 100; strength: 0; damage_increase: 0; speed: 100; crit_chance: 20; crit_damage: 50; intelligence: 0 };
-      stat_template: { damage: 0; health: 0; defense: 0; effective_health: 0; strength: 0; damage_increase: 0; speed: 0; crit_chance: 0; crit_damage: 0; intelligence: 0 };
+      slayer_xp: {
+        1: 5;
+        2: 15;
+        3: 200;
+        4: 1000;
+        5: 5000;
+        6: 20000;
+        7: 100000;
+        8: 400000;
+        9: 1000000;
+      };
+      pet_score: {
+        COMMON: 1;
+        UNCOMMON: 2;
+        RARE: 3;
+        EPIC: 4;
+        LEGENDARY: 5;
+        MYTHIC: 6;
+      };
+      base_stats: {
+        damage: 0;
+        health: 100;
+        defense: 0;
+        effective_health: 100;
+        strength: 0;
+        damage_increase: 0;
+        speed: 100;
+        crit_chance: 20;
+        crit_damage: 50;
+        intelligence: 0;
+      };
+      stat_template: {
+        damage: 0;
+        health: 0;
+        defense: 0;
+        effective_health: 0;
+        strength: 0;
+        damage_increase: 0;
+        speed: 0;
+        crit_chance: 0;
+        crit_damage: 0;
+        intelligence: 0;
+      };
       bonus_stats: {
         taming_skill: { 1: { pet_luck: 1 } };
         fairy_souls: {
@@ -453,18 +527,48 @@ declare module 'hypixel-api-reborn' {
           185: { health: 21; defense: 1; strength: 1; speed: 0 };
           190: { health: 21; defense: 1; strength: 1; speed: 0 };
         };
-        farming_skill: { 1: { health: 2 }; 15: { health: 3 }; 20: { health: 4 }; 26: { health: 5 } };
+        farming_skill: {
+          1: { health: 2 };
+          15: { health: 3 };
+          20: { health: 4 };
+          26: { health: 5 };
+        };
         combat_skill: { 1: { crit_chance: 0.5; damage_increase: 0.04 } };
         mining_skill: { 1: { defense: 1 }; 15: { defense: 2 } };
         foraging_skill: { 1: { strength: 1 }; 15: { strength: 2 } };
-        fishing_skill: { 1: { health: 2 }; 15: { health: 3 }; 20: { health: 4 }; 26: { health: 5 } };
+        fishing_skill: {
+          1: { health: 2 };
+          15: { health: 3 };
+          20: { health: 4 };
+          26: { health: 5 };
+        };
         enchanting_skill: { 1: { intelligence: 1 }; 15: { intelligence: 2 } };
         alchemy_skill: { 1: { intelligence: 1 }; 15: { intelligence: 2 } };
         carpentry_skill: { 1: Record<string, never> };
         runecrafting_skill: { 1: Record<string, never> };
-        zombie_slayer: { 1: { health: 2 }; 3: { health: 3 }; 5: { health: 4 }; 7: { health: 5 }; 9: { health: 6 } };
-        spider_slayer: { 1: { crit_damage: 1 }; 5: { crit_damage: 2 }; 7: { crit_damage: 0; crit_chance: 1 }; 8: { crit_chance: 0; crit_damage: 3 } };
-        wolf_slayer: { 1: { speed: 1 }; 2: { health: 2 }; 3: { speed: 1 }; 4: { health: 2 }; 5: { crit_damage: 1 }; 6: { health: 3 }; 7: { crit_damage: 2 }; 8: { speed: 1 } };
+        zombie_slayer: {
+          1: { health: 2 };
+          3: { health: 3 };
+          5: { health: 4 };
+          7: { health: 5 };
+          9: { health: 6 };
+        };
+        spider_slayer: {
+          1: { crit_damage: 1 };
+          5: { crit_damage: 2 };
+          7: { crit_damage: 0; crit_chance: 1 };
+          8: { crit_chance: 0; crit_damage: 3 };
+        };
+        wolf_slayer: {
+          1: { speed: 1 };
+          2: { health: 2 };
+          3: { speed: 1 };
+          4: { health: 2 };
+          5: { crit_damage: 1 };
+          6: { health: 3 };
+          7: { crit_damage: 2 };
+          8: { speed: 1 };
+        };
         enchantments: {
           sharpness: { 1: { damage_multiplicator: 0.05 } };
           ender: { 1: { damage_multiplicator: 0.12 } };
@@ -650,11 +754,28 @@ declare module 'hypixel-api-reborn' {
       /**
        * @description Get level by achievement
        */
-      getLevelByAchievement(achievementLevel: number, type: string): { xp: number; level: number; maxLevel: number; xpCurrent: number; xpForNext: number; progress: number };
+      getLevelByAchievement(
+        achievementLevel: number,
+        type: string
+      ): {
+        xp: number;
+        level: number;
+        maxLevel: number;
+        xpCurrent: number;
+        xpForNext: number;
+        progress: number;
+      };
       /**
        * @description Get slayer level
        */
-      getSlayerLevel(slayer: Record<string, unknown>): { xp: number; tier1: number; tier2: number; tier3: number; tier4: number; level: number };
+      getSlayerLevel(slayer: Record<string, unknown>): {
+        xp: number;
+        tier1: number;
+        tier2: number;
+        tier3: number;
+        tier4: number;
+        level: number;
+      };
     };
     /**
      * Calls Mojang API for player's nickname by uuid
@@ -880,11 +1001,53 @@ declare module 'hypixel-api-reborn' {
       turbokartracers?: TurboKartRacers;
       walls?: Walls;
       warlords?: Warlords;
-      arcade?: Arcade;
+      arcade?: Arcade,
+      woolwars?: WoolWars;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
     toString(): string;
+  } class WoolWars {
+    static convertXPToLevel(exp: number): number;
+    static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
+    constructor(data: Record<string, unknown>);
+    layers: number;
+    xp: number;
+    exactLevel: number;
+    level: number;
+    coins: number;
+    selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
+    stats: {
+        overall: WoolWarsStats;
+        assault: WoolWarsStats;
+        tank: WoolWarsStats;
+        golem: WoolWarsStats;
+        swordsman: WoolWarsStats;
+        engineer: WoolWarsStats;
+        archer: WoolWarsStats;
+    };
+    ownedCosmetics: string[];
+    privateGamesConfig: PrivateGamesConfig;
+  }
+  type WoolWarsStats = {
+      roundWins: number;
+      gamesPlayed: number;
+      woolsPlaced: number;
+      blocksBroken: number;
+      placeBreakRatio: number;
+      kills: number;
+      deaths: number;
+      KDRatio: number;
+      assists: number;
+      powerups: number;
+  }
+  type PrivateGamesConfig = {
+      one_hit_one_kill: boolean;
+      rainbow_wool: 'Enabled' | 'Disabled';
+      health_buff: string;
+      game_speed: string;
+      speed: string;
+      no_class: 'Enabled' | 'Disabled';
   }
   class SkyWarsRanked {
     constructor(data: Record<string, unknown>);
@@ -977,10 +1140,26 @@ declare module 'hypixel-api-reborn' {
     playerCount: number;
     mainLobby: { players: number };
     tournamentLobby: { players: number };
-    megaWalls: { players: number; modes: { standard: number; faceOff: number } };
-    classicGames: { players: number; modes: { paintball: number; walls: number; quakecraft: number; gingerbread: number; arena: number; vampirez: number } };
+    megaWalls: {
+      players: number;
+      modes: { standard: number; faceOff: number };
+    };
+    classicGames: {
+      players: number;
+      modes: {
+        paintball: number;
+        walls: number;
+        quakecraft: number;
+        gingerbread: number;
+        arena: number;
+        vampirez: number;
+      };
+    };
     thePit: { players: number; modes: { pit: number } };
-    blitzSurvivalGames: { players: number; modes: { soloNormal: number; teamsNormal: number } };
+    blitzSurvivalGames: {
+      players: number;
+      modes: { soloNormal: number; teamsNormal: number };
+    };
     duels: {
       players: number;
       modes: {
@@ -1012,7 +1191,13 @@ declare module 'hypixel-api-reborn' {
     speedUhc: { players: number; modes: { soloNormal: number } };
     theTntGames: {
       players: number;
-      modes: { pvprun: number; tntag: number; tntrun: number; bowspleef: number; capture: number };
+      modes: {
+        pvprun: number;
+        tntag: number;
+        tntrun: number;
+        bowspleef: number;
+        capture: number;
+      };
     };
     prototype: {
       players: number;
@@ -1020,7 +1205,13 @@ declare module 'hypixel-api-reborn' {
     };
     smashHeroes: {
       players: number;
-      modes: { '1v1Normal': number; friendsNormal: number; soloNormal: number; '2v2Normal': number; teamsNormal: number };
+      modes: {
+        '1v1Normal': number;
+        friendsNormal: number;
+        soloNormal: number;
+        '2v2Normal': number;
+        teamsNormal: number;
+      };
     };
     bedwars: {
       players: number;
@@ -1042,7 +1233,13 @@ declare module 'hypixel-api-reborn' {
     };
     buildBattle: {
       players: number;
-      modes: { buildBattleSoloNormalLatest: number; buildBattleGuessTheBuild: number; buildBattleTeamsNormal: number; buildBattleSoloPro: number; buildBattleSoloNormal: number };
+      modes: {
+        buildBattleSoloNormalLatest: number;
+        buildBattleGuessTheBuild: number;
+        buildBattleTeamsNormal: number;
+        buildBattleSoloPro: number;
+        buildBattleSoloNormal: number;
+      };
     };
     housing: { players: number };
     skywars: {
@@ -1082,10 +1279,18 @@ declare module 'hypixel-api-reborn' {
         mining_1: number;
       };
     };
-    copsAndCrims: { players: number; modes: { normal: number; deathmatch: number } };
+    copsAndCrims: {
+      players: number;
+      modes: { normal: number; deathmatch: number };
+    };
     murderMystery: {
       players: number;
-      modes: { murderDoubleUp: number; murderInfection: number; murderAssassins: number; murderClassic: number };
+      modes: {
+        murderDoubleUp: number;
+        murderInfection: number;
+        murderAssassins: number;
+        murderClassic: number;
+      };
     };
     arcade: {
       players: number;
@@ -1700,6 +1905,7 @@ declare module 'hypixel-api-reborn' {
     profileName: string;
     members: SkyblockMember[];
     me: SkyblockMember;
+    selected: boolean;
   }
   class SkyblockPet {
     constructor(data: Record<string, unknown>);
@@ -1728,6 +1934,10 @@ declare module 'hypixel-api-reborn' {
     lastDeathAt: Date;
     fairyExchanges: number;
     fairySouls: number;
+    experience: number;
+    hotm: SKYBLOCK_SKILL_DATA;
+    trophyFish: number;
+    highestMagicalPower: number;
     skills: {
       taming: SKYBLOCK_SKILL_DATA;
       farming: SKYBLOCK_SKILL_DATA;
@@ -1745,7 +1955,11 @@ declare module 'hypixel-api-reborn' {
       zombie: SKYBLOCK_SLAYER_DATA;
       spider: SKYBLOCK_SLAYER_DATA;
       wolf: SKYBLOCK_SLAYER_DATA;
+      enderman: SKYBLOCK_SLAYER_DATA;
+      blaze: SKYBLOCK_SLAYER_DATA;
+      vampire: SKYBLOCK_SLAYER_DATA;
     };
+    bestiary: SKYBLOCK_BESTIARY;
     dungeons: {
       types: {
         catacombs: SKYBLOCK_DUNGEON_TYPE_DATA;
@@ -1783,89 +1997,91 @@ declare module 'hypixel-api-reborn' {
       auctionsSoldUncommon?: number;
       auctionsWon?: number;
       chickenRaceBestTime_2?: number;
-      deaths?: number;
-      deathsBlaze?: number;
-      deathsCactus?: number;
-      deathsCatfish?: number;
-      deathsCorruptedProtector?: number;
-      deathsCryptDreadlord?: number;
-      deathsCryptLurker?: number;
-      deathsCryptSouleater?: number;
-      deathsDiamondGuy?: number;
-      deathsDiamondSkeleton?: number;
-      deathsDiamondZombie?: number;
-      deathsDungeonRespawningSkeleton?: number;
-      deathsEmeraldSlime?: number;
-      deathsEnderman?: number;
-      deathsEndermite?: number;
-      deathsFall?: number;
-      deathsFire?: number;
-      deathsFireballMagmaCube?: number;
-      deathsGaiaConstruct?: number;
-      deathsGeneratorMagmaCube?: number;
-      deathsGeneratorSlime?: number;
-      deathsHowlingSpirit?: number;
-      deathsKingMidas?: number;
-      deathsLapisZombie?: number;
-      deathsLiquidHotMagma?: number;
-      deathsLividClone?: number;
-      deathsLostAdventurer?: number;
-      deathsMagmaCube?: number;
-      deathsMagmaCubeBoss?: number;
-      deathsObsidianWither?: number;
-      deathsOldDragon?: number;
-      deathsOldWolf?: number;
-      deathsPlayer?: number;
-      deathsProfessor?: number;
-      deathsProfessorGuardianSummon?: number;
-      deathsProfessorMageGuardian?: number;
-      deathsProtectorDragon?: number;
-      deathsRandomSlime?: number;
-      deathsRedstonePigman?: number;
-      deathsRevenantZombie?: number;
-      deathsRuinWolf?: number;
-      deathsSadanStatue?: number;
-      deathsScaredSkeleton?: number;
-      deathsScarf?: number;
-      deathsScarfMage?: number;
-      deathsScarfWarrior?: number;
-      deathsSeaGuardian?: number;
-      deathsShadowAssassin?: number;
-      deathsSkeleton?: number;
-      deathsSkeletonEmperor?: number;
-      deathsSkeletonGrunt?: number;
-      deathsSkeletonMaster?: number;
-      deathsSkeletonSoldier?: number;
-      deathsSkeletor?: number;
-      deathsSniperSkeleton?: number;
-      deathsSoulOfTheAlpha?: number;
-      deathsSpider?: number;
-      deathsSpiderJockey?: number;
-      deathsSpiritBat?: number;
-      deathsSpiritRabbit?: number;
-      deathsStrongDragon?: number;
-      deathsSuffocation?: number;
-      deathsSuperiorDragon?: number;
-      deathsTarantulaSpider?: number;
-      deathsTentaclees?: number;
-      deathsTrap?: number;
-      deathsUnburriedZombie?: number;
-      deathsUnknown?: number;
-      deathsUnstableDragon?: number;
-      deathsVoid?: number;
-      deathsVoraciousSpider?: number;
-      deathsWatcher?: number;
-      deathsWatcherSummonUndead?: number;
-      deathsWeaverSpider?: number;
-      deathsWiseDragon?: number;
-      deathsWitherSkeleton?: number;
-      deathsWolf?: number;
-      deathsYoungDragon?: number;
-      deathsZealotEnderman?: number;
-      deathsZombie?: number;
-      deathsZombieDeep?: number;
-      deathsZombieGrunt?: number;
-      deathsZombieSoldier?: number;
+      deaths: {
+        total?: number;
+        blaze?: number;
+        cactus?: number;
+        catfish?: number;
+        corruptedProtector?: number;
+        cryptDreadlord?: number;
+        cryptLurker?: number;
+        cryptSouleater?: number;
+        diamondGuy?: number;
+        diamondSkeleton?: number;
+        diamondZombie?: number;
+        dungeonRespawningSkeleton?: number;
+        emeraldSlime?: number;
+        enderman?: number;
+        endermite?: number;
+        fall?: number;
+        fire?: number;
+        fireballMagmaCube?: number;
+        gaiaConstruct?: number;
+        generatorMagmaCube?: number;
+        generatorSlime?: number;
+        howlingSpirit?: number;
+        kingMidas?: number;
+        lapisZombie?: number;
+        liquidHotMagma?: number;
+        lividClone?: number;
+        lostAdventurer?: number;
+        magmaCube?: number;
+        magmaCubeBoss?: number;
+        obsidianWither?: number;
+        oldDragon?: number;
+        oldWolf?: number;
+        player?: number;
+        professor?: number;
+        professorGuardianSummon?: number;
+        professorMageGuardian?: number;
+        protectorDragon?: number;
+        randomSlime?: number;
+        redstonePigman?: number;
+        revenantZombie?: number;
+        ruinWolf?: number;
+        sadanStatue?: number;
+        scaredSkeleton?: number;
+        scarf?: number;
+        scarfMage?: number;
+        scarfWarrior?: number;
+        seaGuardian?: number;
+        shadowAssassin?: number;
+        skeleton?: number;
+        skeletonEmperor?: number;
+        skeletonGrunt?: number;
+        skeletonMaster?: number;
+        skeletonSoldier?: number;
+        skeletor?: number;
+        sniperSkeleton?: number;
+        soulOfTheAlpha?: number;
+        spider?: number;
+        spiderJockey?: number;
+        spiritBat?: number;
+        spiritRabbit?: number;
+        strongDragon?: number;
+        suffocation?: number;
+        superiorDragon?: number;
+        tarantulaSpider?: number;
+        tentaclees?: number;
+        trap?: number;
+        unburriedZombie?: number;
+        unknown?: number;
+        unstableDragon?: number;
+        void?: number;
+        voraciousSpider?: number;
+        watcher?: number;
+        watcherSummonUndead?: number;
+        weaverSpider?: number;
+        wiseDragon?: number;
+        witherSkeleton?: number;
+        wolf?: number;
+        youngDragon?: number;
+        zealotEnderman?: number;
+        zombie?: number;
+        zombieDeep?: number;
+        zombieGrunt?: number;
+        zombieSoldier?: number;
+      },
       dungeonHubCrystalCoreAnythingNoReturnBestTime?: number;
       dungeonHubCrystalCoreAnythingWithReturnBestTime?: number;
       dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number;
@@ -1891,166 +2107,168 @@ declare module 'hypixel-api-reborn' {
       itemsFishedLargeTreasure?: number;
       itemsFishedNormal?: number;
       itemsFishedTreasure?: number;
-      kills?: number;
-      killsBatPinata?: number;
-      killsBatSpooky?: number;
-      killsBattyWitch?: number;
-      killsBlaze?: number;
-      killsBlazeHigherOrLower?: number;
-      killsBlueShark?: number;
-      killsBonzoSummonUndead?: number;
-      killsBroodMotherCaveSpider?: number;
-      killsBroodMotherSpider?: number;
-      killsCarrotKing?: number;
-      killsCatfish?: number;
-      killsCaveSpider?: number;
-      killsCellarSpider?: number;
-      killsChicken?: number;
-      killsChickenDeep?: number;
-      killsCorruptedProtector?: number;
-      killsCow?: number;
-      killsCreeper?: number;
-      killsCryptDreadlord?: number;
-      killsCryptLurker?: number;
-      killsCryptSouleater?: number;
-      killsCryptTankZombie?: number;
-      killsCryptUndead?: number;
-      killsCryptUndeadAlexander?: number;
-      killsCryptUndeadApunch?: number;
-      killsCryptUndeadBernhard?: number;
-      killsCryptUndeadChristian?: number;
-      killsCryptUndeadCodenameB?: number;
-      killsCryptUndeadConnorlinfoot?: number;
-      killsCryptUndeadDctr?: number;
-      killsCryptUndeadFriedrich?: number;
-      killsCryptUndeadJayavarmen?: number;
-      killsCryptUndeadLikaos?: number;
-      killsCryptUndeadMarius?: number;
-      killsCryptUndeadNicholas?: number;
-      killsCryptUndeadNitroholic_?: number;
-      killsCryptUndeadPieter?: number;
-      killsCryptUndeadRelenter?: number;
-      killsCryptUndeadSfarnham?: number;
-      killsCryptUndeadValentin?: number;
-      killsCryptWitherskeleton?: number;
-      killsDasherSpider?: number;
-      killsDeepSeaProtector?: number;
-      killsDiamondGuy?: number;
-      killsDiamondSkeleton?: number;
-      killsDiamondZombie?: number;
-      killsDungeonRespawningSkeleton?: number;
-      killsDungeonRespawningSkeletonSkull?: number;
-      killsDungeonSecretBat?: number;
-      killsEmeraldSlime?: number;
-      killsEnderman?: number;
-      killsEndermite?: number;
-      killsFireballMagmaCube?: number;
-      killsForestIslandBat?: number;
-      killsFrostyTheSnowman?: number;
-      killsFrozenSteve?: number;
-      killsGaiaConstruct?: number;
-      killsGeneratorGhast?: number;
-      killsGeneratorMagmaCube?: number;
-      killsGeneratorSlime?: number;
-      killsGhast?: number;
-      killsGuardianDefender?: number;
-      killsGuardianEmperor?: number;
-      killsHorsemanBat?: number;
-      killsHorsemanHorse?: number;
-      killsHorsemanZombie?: number;
-      killsHowlingSpirit?: number;
-      killsInvisibleCreeper?: number;
-      killsJockeyShotSilverfish?: number;
-      killsJockeySkeleton?: number;
-      killsKingMidas?: number;
-      killsLapisZombie?: number;
-      killsLiquidHotMagma?: number;
-      killsLonelySpider?: number;
-      killsLostAdventurer?: number;
-      killsMagmaCube?: number;
-      killsMagmaCubeBoss?: number;
-      killsMinosHunter?: number;
-      killsMinotaur?: number;
-      killsNightRespawningSkeleton?: number;
-      killsNightSquid?: number;
-      killsNurseShark?: number;
-      killsObsidianWither?: number;
-      killsOldWolf?: number;
-      killsPackSpirit?: number;
-      killsParasite?: number;
-      killsPhantomSpirit?: number;
-      killsPig?: number;
-      killsPigman?: number;
-      killsPlayer?: number;
-      killsPondSquid?: number;
-      killsProfessorGuardianSummon?: number;
-      killsProtectorDragon?: number;
-      killsRabbit?: number;
-      killsRandomSlime?: number;
-      killsRedstonePigman?: number;
-      killsRespawningSkeleton?: number;
-      killsRevenantZombie?: number;
-      killsRuinWolf?: number;
-      killsScaredSkeleton?: number;
-      killsScarfArcher?: number;
-      killsScarfMage?: number;
-      killsScarfPriest?: number;
-      killsScarfWarrior?: number;
-      killsScaryJerry?: number;
-      killsSeaArcher?: number;
-      killsSeaGuardian?: number;
-      killsSeaLeech?: number;
-      killsSeaWalker?: number;
-      killsSeaWitch?: number;
-      killsShadowAssassin?: number;
-      killsSheep?: number;
-      killsSiameseLynx?: number;
-      killsSkeleton?: number;
-      killsSkeletonEmperor?: number;
-      killsSkeletonGrunt?: number;
-      killsSkeletonMaster?: number;
-      killsSkeletonSoldier?: number;
-      killsSkeletor?: number;
-      killsSlime?: number;
-      killsSniperSkeleton?: number;
-      killsSoulOfTheAlpha?: number;
-      killsSpider?: number;
-      killsSpiderJockey?: number;
-      killsSpiritBat?: number;
-      killsSpiritBull?: number;
-      killsSpiritChicken?: number;
-      killsSpiritMiniboss?: number;
-      killsSpiritRabbit?: number;
-      killsSpiritSheep?: number;
-      killsSpiritWolf?: number;
-      killsSplitterSpider?: number;
-      killsSplitterSpiderSilverfish?: number;
-      killsStrongDragon?: number;
-      killsSuperArcher?: number;
-      killsSuperTankZombie?: number;
-      killsTarantulaSpider?: number;
-      killsTentaclees?: number;
-      killsTigerShark?: number;
-      killsTrickOrTreater?: number;
-      killsUnburriedZombie?: number;
-      killsVoraciousSpider?: number;
-      killsWatcher?: number;
-      killsWatcherBonzo?: number;
-      killsWatcherSummonUndead?: number;
-      killsWaterHydra?: number;
-      killsWeaverSpider?: number;
-      killsWitch?: number;
-      killsWitchBat?: number;
-      killsWitherGourd?: number;
-      killsWitherSkeleton?: number;
-      killsWraith?: number;
-      killsZealotEnderman?: number;
-      killsZombie?: number;
-      killsZombieDeep?: number;
-      killsZombieGrunt?: number;
-      killsZombieKnight?: number;
-      killsZombieSoldier?: number;
-      killsZombieVillager?: number;
+      kills: {
+        total?: number;
+        batPinata?: number;
+        batSpooky?: number;
+        battyWitch?: number;
+        blaze?: number;
+        blazeHigherOrLower?: number;
+        blueShark?: number;
+        bonzoSummonUndead?: number;
+        broodMotherCaveSpider?: number;
+        broodMotherSpider?: number;
+        carrotKing?: number;
+        catfish?: number;
+        caveSpider?: number;
+        cellarSpider?: number;
+        chicken?: number;
+        chickenDeep?: number;
+        corruptedProtector?: number;
+        cow?: number;
+        creeper?: number;
+        cryptDreadlord?: number;
+        cryptLurker?: number;
+        cryptSouleater?: number;
+        cryptTankZombie?: number;
+        cryptUndead?: number;
+        cryptUndeadAlexander?: number;
+        cryptUndeadApunch?: number;
+        cryptUndeadBernhard?: number;
+        cryptUndeadChristian?: number;
+        cryptUndeadCodenameB?: number;
+        cryptUndeadConnorlinfoot?: number;
+        cryptUndeadDctr?: number;
+        cryptUndeadFriedrich?: number;
+        cryptUndeadJayavarmen?: number;
+        cryptUndeadLikaos?: number;
+        cryptUndeadMarius?: number;
+        cryptUndeadNicholas?: number;
+        cryptUndeadNitroholic_?: number;
+        cryptUndeadPieter?: number;
+        cryptUndeadRelenter?: number;
+        cryptUndeadSfarnham?: number;
+        cryptUndeadValentin?: number;
+        cryptWitherskeleton?: number;
+        dasherSpider?: number;
+        deepSeaProtector?: number;
+        diamondGuy?: number;
+        diamondSkeleton?: number;
+        diamondZombie?: number;
+        dungeonRespawningSkeleton?: number;
+        dungeonRespawningSkeletonSkull?: number;
+        dungeonSecretBat?: number;
+        emeraldSlime?: number;
+        enderman?: number;
+        endermite?: number;
+        fireballMagmaCube?: number;
+        forestIslandBat?: number;
+        frostyTheSnowman?: number;
+        frozenSteve?: number;
+        gaiaConstruct?: number;
+        generatorGhast?: number;
+        generatorMagmaCube?: number;
+        generatorSlime?: number;
+        ghast?: number;
+        guardianDefender?: number;
+        guardianEmperor?: number;
+        horsemanBat?: number;
+        horsemanHorse?: number;
+        horsemanZombie?: number;
+        howlingSpirit?: number;
+        invisibleCreeper?: number;
+        jockeyShotSilverfish?: number;
+        jockeySkeleton?: number;
+        kingMidas?: number;
+        lapisZombie?: number;
+        liquidHotMagma?: number;
+        lonelySpider?: number;
+        lostAdventurer?: number;
+        magmaCube?: number;
+        magmaCubeBoss?: number;
+        minosHunter?: number;
+        minotaur?: number;
+        nightRespawningSkeleton?: number;
+        nightSquid?: number;
+        nurseShark?: number;
+        obsidianWither?: number;
+        oldWolf?: number;
+        packSpirit?: number;
+        parasite?: number;
+        phantomSpirit?: number;
+        pig?: number;
+        pigman?: number;
+        player?: number;
+        pondSquid?: number;
+        professorGuardianSummon?: number;
+        protectorDragon?: number;
+        rabbit?: number;
+        randomSlime?: number;
+        redstonePigman?: number;
+        respawningSkeleton?: number;
+        revenantZombie?: number;
+        ruinWolf?: number;
+        scaredSkeleton?: number;
+        scarfArcher?: number;
+        scarfMage?: number;
+        scarfPriest?: number;
+        scarfWarrior?: number;
+        scaryJerry?: number;
+        seaArcher?: number;
+        seaGuardian?: number;
+        seaLeech?: number;
+        seaWalker?: number;
+        seaWitch?: number;
+        shadowAssassin?: number;
+        sheep?: number;
+        siameseLynx?: number;
+        skeleton?: number;
+        skeletonEmperor?: number;
+        skeletonGrunt?: number;
+        skeletonMaster?: number;
+        skeletonSoldier?: number;
+        skeletor?: number;
+        slime?: number;
+        sniperSkeleton?: number;
+        soulOfTheAlpha?: number;
+        spider?: number;
+        spiderJockey?: number;
+        spiritBat?: number;
+        spiritBull?: number;
+        spiritChicken?: number;
+        spiritMiniboss?: number;
+        spiritRabbit?: number;
+        spiritSheep?: number;
+        spiritWolf?: number;
+        splitterSpider?: number;
+        splitterSpiderSilverfish?: number;
+        strongDragon?: number;
+        superArcher?: number;
+        superTankZombie?: number;
+        tarantulaSpider?: number;
+        tentaclees?: number;
+        tigerShark?: number;
+        trickOrTreater?: number;
+        unburriedZombie?: number;
+        voraciousSpider?: number;
+        watcher?: number;
+        watcherBonzo?: number;
+        watcherSummonUndead?: number;
+        waterHydra?: number;
+        weaverSpider?: number;
+        witch?: number;
+        witchBat?: number;
+        witherGourd?: number;
+        witherSkeleton?: number;
+        wraith?: number;
+        zealotEnderman?: number;
+        zombie?: number;
+        zombieDeep?: number;
+        zombieGrunt?: number;
+        zombieKnight?: number;
+        zombieSoldier?: number;
+        zombieVillager?: number;
+      },
       mostWinterCannonballsHit?: number;
       mostWinterDamageDealt?: number;
       mostWinterMagmaDamageDealt?: number;
@@ -2079,7 +2297,12 @@ declare module 'hypixel-api-reborn' {
     pets: SkyblockPet[];
     getInventory(): Promise<SkyblockInventoryItem[]>;
     getEnderChest(): Promise<SkyblockInventoryItem[]>;
-    getArmor(): Promise<{ helmet: SkyblockInventoryItem; chestplate: SkyblockInventoryItem; leggings: SkyblockInventoryItem; boots: SkyblockInventoryItem }>;
+    getArmor(): Promise<{
+      helmet: SkyblockInventoryItem;
+      chestplate: SkyblockInventoryItem;
+      leggings: SkyblockInventoryItem;
+      boots: SkyblockInventoryItem;
+    }>;
     getWardrobe(): Promise<SkyblockInventoryItem[]>;
     getPetScore(): number;
     jacob: {

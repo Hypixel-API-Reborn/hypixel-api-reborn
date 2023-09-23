@@ -24,6 +24,7 @@ const Paintball = require('./MiniGames/Paintball');
 const Quakecraft = require('./MiniGames/Quakecraft');
 const Walls = require('./MiniGames/Walls');
 const Warlords = require('./MiniGames/Warlords');
+const WoolWars = require('./MiniGames/WoolWars');
 /**
  * Player class
  */
