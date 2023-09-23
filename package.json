@@ -20,7 +20,6 @@
     "eslint:fix": "npx eslint src --fix",
     "lint:dev": "npm run eslint && npm run dtslint",
     "test": "npx mocha tests --exit",
-    "test:dev": "npx nodenv --exec npx mocha tests -- --exit",
     "docgen": "npx docgen -s src -o ../docs/master.json",
     "docgen:custom": "npx docgen -s src --custom docs/index.yml -o ../docs/master.json",
     "prepublishOnly": "npm run test:dev && npm run docgen:custom",
