@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const {
   Client,
   Game,
@@ -25,6 +24,7 @@ const {
   ServerInfo,
   WoolWars
 } = require('../src');
+const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
