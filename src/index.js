@@ -67,6 +67,7 @@ module.exports = {
   VampireZ: require('./structures/MiniGames/VampireZ.js'),
   Walls: require('./structures/MiniGames/Walls.js'),
   Warlords: require('./structures/MiniGames/Warlords.js'),
+  WoolWars: require('./structures/MiniGames/WoolWars.js'),
 
   /* Leaderboards */
   Leaderboard: require('./structures/Leaderboard.js'),
