@@ -8,5 +8,6 @@
   "printWidth": 210,
   "useTabs": false,
   "tabWidth": 2,
-  "semi": true
+  "semi": true,
+  "endOfLine": "crlf"
 }

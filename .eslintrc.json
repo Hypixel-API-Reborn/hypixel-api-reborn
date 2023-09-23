@@ -4,7 +4,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["google", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": ["google", "plugin:@typescript-eslint/recommended", "eslint-config-prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021
