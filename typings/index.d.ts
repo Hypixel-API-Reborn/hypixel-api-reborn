@@ -1311,16 +1311,6 @@ declare module 'hypixel-api-reborn' {
     idle: { players: number };
     queue: { players: number };
   }
-  class KeyInfo {
-    constructor(data: Record<string, unknown>);
-    key: string;
-    owner: string;
-    limitPerMinute: number;
-    requestsInPastMin: number;
-    totalRequests: number;
-    resetsAfter: number;
-  }
-
   class Arcade {
     constructor(data?: Record<string, unknown>);
     lastTourneyAdTimestamp: number;
