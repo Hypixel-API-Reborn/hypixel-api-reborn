@@ -22,7 +22,6 @@
     "test": "npx mocha tests --exit",
     "docgen": "npx docgen -s src -o ../docs/master.json",
     "docgen:custom": "npx docgen -s src --custom docs/index.yml -o ../docs/master.json",
-    "prepublishOnly": "npm run test:dev && npm run docgen:custom",
     "dtslint": "npx dtslint typings",
     "prettier": "npx prettier --write src/ typings/",
     "prettier:check": "npx prettier --check src/ typings/"
