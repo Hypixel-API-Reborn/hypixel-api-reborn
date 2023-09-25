@@ -25,12 +25,14 @@ const {
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
-
 describe('Client#getPlayer', () => {
   let player;
   it('expect not to throw', async () => {
     player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f', { guild: true });
   }).timeout(5000);
+  it('should be an object', () => {
+    expect(player).to.be.an('object');
+  });
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
     expect(player.uuid).to.be.a('string');
