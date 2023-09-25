@@ -38,7 +38,7 @@ class WoolWars {
      * Selected class, or NONE if field isn't present in API for some reason
      * @type {'ASSAULT'|'TANK'|'GOLEM'|'SWORDSMAN'|'ENGINEER'|'ARCHER'|'NONE'}
      */
-    this.selectedClass = data.wool_wars.selected_class || 'NONE';
+    this.selectedClass = data.wool_wars?.selected_class || 'NONE';
     this.stats = {
       overall: WoolWars.generateStatsFor(data.wool_wars.stats, ''),
       assault: WoolWars.generateStatsFor(data.wool_wars.stats, 'assault'),
