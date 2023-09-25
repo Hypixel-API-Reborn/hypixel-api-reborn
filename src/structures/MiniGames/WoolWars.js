@@ -40,13 +40,13 @@ class WoolWars {
      */
     this.selectedClass = data.wool_wars?.selected_class || 'NONE';
     this.stats = {
-      overall: WoolWars.generateStatsFor(data.wool_wars.stats, ''),
-      assault: WoolWars.generateStatsFor(data.wool_wars.stats, 'assault'),
-      tank: WoolWars.generateStatsFor(data.wool_wars.stats, 'tank'),
-      golem: WoolWars.generateStatsFor(data.wool_wars.stats, 'golem'),
-      swordsman: WoolWars.generateStatsFor(data.wool_wars.stats, 'swordsman'),
-      engineer: WoolWars.generateStatsFor(data.wool_wars.stats, 'engineer'),
-      archer: WoolWars.generateStatsFor(data.wool_wars.stats, 'archer')
+      overall: WoolWars.generateStatsFor(data.wool_wars?.stats, ''),
+      assault: WoolWars.generateStatsFor(data.wool_wars?.stats, 'assault'),
+      tank: WoolWars.generateStatsFor(data.wool_wars?.stats, 'tank'),
+      golem: WoolWars.generateStatsFor(data.wool_wars?.stats, 'golem'),
+      swordsman: WoolWars.generateStatsFor(data.wool_wars?.stats, 'swordsman'),
+      engineer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'engineer'),
+      archer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'archer')
     };
     // Misc fields ig
     /**
