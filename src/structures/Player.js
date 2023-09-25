@@ -235,6 +235,7 @@ class Player {
           turbokartracers: data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null,
           walls: data.stats.Walls ? new Walls(data.stats.Walls) : null,
           warlords: data.stats.Battleground ? new Warlords(data.stats.Battleground) : null,
+          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null,
           pit: null
         }
       : null;
