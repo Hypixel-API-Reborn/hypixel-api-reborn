@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Tests
         env:
-          HYPIXEL_KEY: ${{ env.HYPIXEL_KEY }}
+          HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
         run: npm test
 
   build:
