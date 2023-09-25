@@ -21,7 +21,6 @@ const {
   Pets,
   Pet,
   Color,
-  ServerInfo,
   WoolWars
 } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
