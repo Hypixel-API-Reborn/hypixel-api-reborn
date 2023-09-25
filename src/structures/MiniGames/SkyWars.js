@@ -17,9 +17,8 @@ const generateStatsForMode = (data, mode) => {
 class SkyWars {
   /**
    * @param {object} data SkyWars data
-   * @param {object|null} extraRSWData Extra Ranked Skywars data, if any
    */
-  constructor(data, extraRSWData) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -114,7 +113,7 @@ class SkyWars {
      * Games Played ( Total )
      * @type {number}
      */
-    this.playedGames = (data.games_solo || 0) + (data.games_team || 0) + (data.games_ranked || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
+    this.playedGames = (data.games_solo || 0) + (data.games_team || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
     /**
      * Global Kill Death Ratio
      * @type {number}
@@ -157,7 +156,6 @@ class SkyWars {
     this.shardsInMode = {
       solo: data.shard_solo || 0,
       team: data.shard_team || 0,
-      ranked: data.shard_ranked || 0,
       mega: (data.shard_mega || 0) + (data.shard_mega_doubles || 0),
       lab: data.shard_lab || 0
     };
@@ -196,21 +194,6 @@ class SkyWars {
       },
       normal: generateStatsForMode(data, 'team_normal'),
       insane: generateStatsForMode(data, 'team_insane')
-    };
-    /**
-     * Ranked Skywars Stats
-     * @type {SkyWarsTotalModeStats}
-     */
-    this.ranked = {
-      winstreak: data.winstreak_ranked || 0,
-      playedGames: data.games_ranked || 0,
-      kills: data.kills_ranked || 0,
-      wins: data.wins_ranked || 0,
-      losses: data.losses_ranked || 0,
-      deaths: data.deaths_ranked || 0,
-      KDRatio: divide(data.kills_ranked, data.deaths_ranked),
-      WLRatio: divide(data.wins_ranked, data.losses_ranked),
-      ratings: getRankedPositions(data, extraRSWData)
     };
     /**
      * Mega Skywars Stats
@@ -331,17 +314,6 @@ class SkyWars {
  * @property {number} WLRatio Win Loss ratio
  */
 /**
- * @typedef {Object} SkywarsRankedStats
- * @extends SkywarsTotalModeStats
- * @property {Map<PseudoDate,SkywarsRankData>} ratings Ratings & leaderboard positions
- */
-/**
- * @typedef {Object} SkywarsRankData
- * @property {number} rating Rating of player ( if not found, this is set to 0 )
- * @property {number} position Position of player ( if not found, this is set to 0 )
- * @property {Date} date Parsed date
- */
-/**
  * @typedef {string} PseudoDate String date, in the format of MM-YY ( YY is 20YY )
  * @example `10-19` would be October 2019.
  */
@@ -420,33 +392,6 @@ function getSkyWarsLevelProgress(xp) {
   };
 }
 const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|rating)$/;
-/**
- * gets ratings & positions on the leaderboard
- * @param {Object} data data
- * @param {Object|null} extraRSWData extra data to be attached
- * @returns {SkywarsRankedStats} some map
- */
-function getRankedPositions(data, extraRSWData) {
-  const map = new Map();
-  const keys = Object.keys(data)
-    .map((key) => key.match(ratingRegex))
-    .filter((x) => x);
-  for (const key of keys) {
-    let [property, month, year, type] = key;
-    month = parseInt(month, 10);
-    year = parseInt(year, 10);
-    const computedKey = `${month}_${year}`;
-    const initDate = new Date(1000 * 60 * 60 * 5);
-    map.set(computedKey, {
-      ...map.get(computedKey),
-      seasonKey: computedKey,
-      [type]: parseInt(data[property], 10) || 0,
-      date: new Date(initDate.setFullYear(2000 + year, month - 1, 1))
-    });
-  }
-  if (extraRSWData) map.set(extraRSWData.seasonKey, extraRSWData);
-  return map;
-}
 
 /**
  * Skywars Packages - parses every package player has
