@@ -4,11 +4,7 @@ const romanize = require('../../utils/romanize');
 // eslint-disable-next-line camelcase
 const { duels_divisions } = require('../../utils/Constants');
 
-/**
- * @param {Record<string,any>} data
- * @param {string|null} mode
- * @returns {string|null}
- */
+// eslint-disable-next-line require-jsdoc
 function getDivision(data, mode = null) {
   for (const div of duels_divisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
@@ -18,10 +14,7 @@ function getDivision(data, mode = null) {
   }
   return null;
 }
-/**
- * @param {Record<string,any>} data
- * @return {{kills:number,deaths:number}}
- */
+// eslint-disable-next-line require-jsdoc
 function getTotalKillsDeaths(data) {
   let totalDeaths = 0;
   let totalKills = 0;

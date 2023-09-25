@@ -35,12 +35,7 @@ module.exports = async function (repeats) {
     });
   });
 };
-/**
- * Gets hypixel's ping
- * @param {number} amount Amount of times to ping
- * @param {net.Socket} cli Socket connected to hypixel
- * @returns {number}
- */
+// eslint-disable-next-line require-jsdoc
 async function getPing(amount, cli) {
   let pingSum = 0;
   for (let i = 0; i < amount; i++) {
@@ -49,11 +44,8 @@ async function getPing(amount, cli) {
   cli.destroy();
   return Math.round(pingSum / amount);
 }
-/**
- * Pings hypixel
- * @param {net.Socket} cli Client socket, connected to hypixel.
- * @returns {number} Ping
- */
+
+// eslint-disable-next-line require-jsdoc
 async function ping(cli) {
   await cli.write(packetsToSend[2]);
   const time = Date.now();
@@ -63,12 +55,8 @@ async function ping(cli) {
     });
   });
 }
-/**
- * Parses the MOTD & Server status
- * @param {string} stringJson Parseable JSON string
- * @param {number} ping Ping of the server
- * @returns {Object} Object
- */
+
+// eslint-disable-next-line require-jsdoc
 function parseData(stringJson, ping) {
   try {
     return new ServerInfo(JSON.parse(stringJson), ping);

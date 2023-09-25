@@ -526,11 +526,7 @@ class ZombiesStats {
     this.zombieKills = data[`zombie_kills_zombies${type}`] || 0;
   }
 }
-/**
- * Parses Kills in Zombie and return it as an object
- * @param {Object} data data from API
- * @returns {Object}
- */
+// eslint-disable-next-line require-jsdoc
 function parseZombiesKills(data) {
   const matches = Array.from(Object.keys(data))
     .map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/))

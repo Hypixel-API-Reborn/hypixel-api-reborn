@@ -87,10 +87,7 @@ class BlitzSurvivalGames {
     this.kitStats = generateKitStats(data);
   }
 }
-/**
- * @param {object} data
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function generateKitStats(data) {
   const stats = [];
   for (let i = 0; i < kits.length; i++) {

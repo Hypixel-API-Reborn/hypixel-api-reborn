@@ -43,12 +43,7 @@ class SkyblockProfile {
   }
 }
 
-/**
- * @private
- * @param {Array} members
- * @param {string} profileName
- * @return {Array}
- */
+// eslint-disable-next-line require-jsdoc
 function edit(members, profileName) {
   const edited = [];
   Object.keys(members).forEach((k) => {

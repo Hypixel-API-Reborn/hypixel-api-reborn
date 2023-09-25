@@ -39,7 +39,7 @@ module.exports = {
   Product: require('./structures/SkyBlock/Bazzar/Product.js'),
   Order: require('./structures/SkyBlock/Bazzar/Order.js'),
 
-  /** Skyblock News */
+  /* Skyblock News */
   SkyblockNews: require('./structures/SkyBlock/News/SkyblockNews'),
 
   /* Booster */
@@ -71,8 +71,8 @@ module.exports = {
   /* Leaderboards */
   Leaderboard: require('./structures/Leaderboard.js'),
 
-  /** Server Info */
-  ServerInfo: require('./structures/ServerInfo'),
+  /* Server Info */
+  ServerInfo: require('./structures/ServerInfo.js'),
 
   /* Errors */
   Errors: require('./Errors.js'),

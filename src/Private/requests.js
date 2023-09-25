@@ -4,13 +4,11 @@ const externalFetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const Cache = require('./defaultCache');
+const Client = require('../Client.js');
 
-module.exports = class Requests {
+class Requests {
   constructor(client, cache) {
     if (cache && !this.validateCustomCache()) throw new Error(Errors.INVALID_CACHE_HANDLER);
-    /**
-     * @type {Cache}
-     */
     this.cached = cache || new Cache();
     this.client = client;
   }
@@ -62,4 +60,6 @@ module.exports = class Requests {
   validateCustomCache(cache) {
     return !!(cache.set && cache.get && cache.delete && cache.keys);
   }
-};
+}
+
+module.exports = Requests;

@@ -170,33 +170,21 @@ class Guild {
     return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
   }
 }
-/**
- * @param {object} data
- * @return {GuildMember[]}
- */
+// eslint-disable-next-line require-jsdoc
 function members(data) {
   return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
 }
-/**
- * @param {object} data
- * @return {GuildRank[]}
- */
+// eslint-disable-next-line require-jsdoc
 function ranks(data) {
   return data.ranks && data.ranks.length ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
 }
-/**
- * @param {object} data
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function totalWeeklyGexp(data) {
   return members(data)
     .map((m) => m.weeklyExperience)
     .reduce((acc, cur) => acc + cur);
 }
-/**
- * @param {Object} data
- * @return {Array}
- */
+// eslint-disable-next-line require-jsdoc
 function calculateExpHistory(data) {
   const finalObj = {};
   for (const day of Object.keys(data.members[0].expHistory)) {
@@ -208,11 +196,7 @@ function calculateExpHistory(data) {
   }
   return parseHistory(finalObj);
 }
-/**
- * Calculates and returns the exp after daily limit
- * @param {number} exp Experience
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function expLimit(exp) {
   return exp > 2e5 ? (exp > 7e5 ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
 }

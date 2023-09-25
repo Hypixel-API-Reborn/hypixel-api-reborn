@@ -1,9 +1,5 @@
 const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
-/**
- * Parses exp history
- * @param {object} historyData History data from the API
- * @returns {ExpHistory[]} Array of ExpHistory
- */
+// eslint-disable-next-line require-jsdoc
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
@@ -21,22 +17,13 @@ function parseHistory(historyData) {
   }));
 }
 
-/**
- * Parses date
- * Because hypixel's oscillation precises that exp resets at 5 am UTC, the hour is set accordingly
- * @param {number[]} date Date from regexp
- * @returns {Date} Parsed Date
- */
+// eslint-disable-next-line require-jsdoc
 function parseDate(date) {
   date[1] -= 1;
   return new Date(Math.round(new Date(new Date().setUTCFullYear(...date)).setUTCHours(5, 0, 0) / 1000) * 1000);
 }
 
-/**
- * Converts guild exp to guild level ( possible rewrite )
- * @param {number} exp Experience
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getGuildLevel(exp) {
   const EXP_NEEDED = [100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000, 2500000, 3000000];
 

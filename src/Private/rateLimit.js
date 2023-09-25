@@ -3,7 +3,7 @@
 const Errors = require('../Errors');
 
 /* eslint-disable require-jsdoc */
-module.exports = class RateLimit {
+class RateLimit {
   constructor() {
     this.initialized = 0;
   }
@@ -48,30 +48,10 @@ module.exports = class RateLimit {
   }
 
   init(keyInfo, options, client) {
-    /**
-     * Rate limit Options
-     * @type {RLOptions}
-     */
     this.options = options;
-    /**
-     * Requests in past min
-     * @type {number}
-     */
     this.requests = 0;
-    /**
-     * Cooldown
-     * @type {number}
-     */
     this.cooldownTime = 300000 / this.options.keyLimit; // Initial value
-    /**
-     * Request Queue ( Array of timestamps )
-     * @type {number[]}
-     */
     this.requestQueue = [];
-    /**
-     * Client
-     * @type {Client}
-     */
     this.client = client;
     return keyInfo
       .then((info) => {
@@ -89,7 +69,8 @@ module.exports = class RateLimit {
       });
     // Still make the requests per min possible
   }
-};
+}
+module.exports = RateLimit;
 /**
  * @typedef {Object} RLOptions
  * @property {number} keyLimit Max request of key per min

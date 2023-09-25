@@ -44,22 +44,14 @@ class SkyblockNews {
     return this.title;
   }
 }
-/**
- * Parses a string date
- * @param {string} stringDate
- * @returns {Date | null}
- */
+// eslint-disable-next-line require-jsdoc
 function parseDate(stringDate) {
   const matched = stringDate.match(dateRegExp);
   if (!matched) return null;
   return new Date(matched.slice(1).join(' ')); // Ok this is lazy, but should work
 }
 
-/**
- * Parses the version from a string
- * @param {string} stringVer
- * @returns {string | null}
- */
+// eslint-disable-next-line require-jsdoc
 function parseVer(stringVer) {
   const matches = versionRegExp.exec(stringVer);
   if (!matches?.length) return null; // this shouldn't really happen
