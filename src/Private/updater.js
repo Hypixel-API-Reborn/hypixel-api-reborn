@@ -3,7 +3,7 @@
 const fetch = require('node-fetch');
 const Errors = require('../Errors');
 class Updater {
-  async checkForUpdates () {
+  async checkForUpdates() {
     const currentVersion = require('../../package.json').version;
     const request = await fetch('https://registry.npmjs.org/hypixel-api-reborn');
     if (!request.ok) return console.log(Errors.UPDATER_REQUEST_NOT_OK);
@@ -14,7 +14,7 @@ class Updater {
       this.notify(latestVersion);
     }
   }
-  notify (newVersion) {
+  notify(newVersion) {
     console.log(`
 
     New version of hypixel-api-reborn is available!
@@ -28,7 +28,7 @@ class Updater {
     
     `);
   }
-  compare (a, b) {
+  compare(a, b) {
     const pa = a.split('.');
     const pb = b.split('.');
     for (let i = 0; i < 3; i++) {

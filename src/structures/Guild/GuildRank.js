@@ -5,7 +5,7 @@ class GuildRank {
   /**
    * @param {data} data Guild rank data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Guild rank name
      * @type {String}
@@ -17,24 +17,24 @@ class GuildRank {
      */
     this.default = data.default;
     /**
-    * Guild rank tag that appears in guild chat. null if none
-    * @type {string|null}
-    */
+     * Guild rank tag that appears in guild chat. null if none
+     * @type {string|null}
+     */
     this.tag = data.tag ? data.tag : null;
     /**
-    * Timestamp this rank was created at
-    * @type {number}
-    */
+     * Timestamp this rank was created at
+     * @type {number}
+     */
     this.createdAtTimestamp = data.created ? data.created : data.createdAtTimestamp;
     /**
-    * Timestamp this rank was created at as Date
-    * @type {Date}
-    */
-    this.createdAt = new Date((data.created ? data.created : data.createdAtTimestamp));
+     * Timestamp this rank was created at as Date
+     * @type {Date}
+     */
+    this.createdAt = new Date(data.created ? data.created : data.createdAtTimestamp);
     /**
-    * Guild rank priority - Higher number = higher up in the hierarchy
-    * @type {number}
-    */
+     * Guild rank priority - Higher number = higher up in the hierarchy
+     * @type {number}
+     */
     this.priority = data.priority;
   }
   /**

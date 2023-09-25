@@ -1,27 +1,36 @@
 # getSkyblockMember
+
 Allows you to get a player's skyblock member data from all their profiles
+
 ## Arguments
+
 - Player nickname or UUID
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getSkyblockMember('StavZDev').then(map => {
-  console.log(map); // if player has no skyblock profiles will return an empty Map
-}).catch(e => {
-  console.error(e);
-  // if player doesn't exist will throw an error
-});
+hypixel
+  .getSkyblockMember('StavZDev')
+  .then((map) => {
+    console.log(map); // if player has no skyblock profiles will return an empty Map
+  })
+  .catch((e) => {
+    console.error(e);
+    // if player doesn't exist will throw an error
+  });
 
 // async/await
-const map = await hypixel.getSkyblockMember('StavZDev').catch(e => console.error(e));
+const map = await hypixel.getSkyblockMember('StavZDev').catch((e) => console.error(e));
 console.log(map);
 ```
+
 ## Example response
+
 ```js
 Map(1) {
   'Lime' => SkyblockMember {
@@ -123,6 +132,8 @@ Map(1) {
   }
 }
 ```
+
 ## Links
+
 - [getSkyblockMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockMember)
 - [SkyblockMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyblockMember)

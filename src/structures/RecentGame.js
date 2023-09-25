@@ -7,7 +7,7 @@ class RecentGame extends Game {
   /**
    * @param {object} data Recent game data
    */
-  constructor (data) {
+  constructor(data) {
     super(data.gameType);
     /**
      * Date as timestamp

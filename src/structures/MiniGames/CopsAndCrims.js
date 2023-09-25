@@ -6,7 +6,7 @@ class CopsAndCrims {
   /**
    * @param {object} data Cops and crims data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}

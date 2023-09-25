@@ -109,18 +109,7 @@ module.exports = {
     25: 19050
   },
 
-  skills: [
-    'farming',
-    'mining',
-    'combat',
-    'foraging',
-    'fishing',
-    'enchanting',
-    'alchemy',
-    'taming',
-    'carpentry',
-    'runecrafting'
-  ],
+  skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'],
 
   skills_achievements: {
     farming: 'skyblockHarvester',
@@ -241,21 +230,17 @@ module.exports = {
     MYTHIC: 20
   },
 
-  pet_levels: [100, 110, 120, 130, 145, 160, 175, 190, 210, 230, 250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800,
-    880, 960, 1050, 1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920, 3160, 3420, 3700, 4000, 4350,
-    4750, 5200, 5700, 6300, 7000, 7800, 8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300, 23200, 25200,
-    27400, 29800, 32400, 35200, 38200, 41400, 44800, 48400, 52200, 56200, 60400, 64800, 69400, 74200, 79200, 84700, 90700,
-    97200, 104200, 111700, 119700, 128200, 137200, 146700, 156700, 167700, 179700, 192700, 206700, 221700, 237700, 254700,
-    272700, 291700, 311700, 333700, 357700, 383700, 411700, 441700, 476700, 516700, 561700, 611700, 666700, 726700,
-    791700, 861700, 936700, 1016700, 1101700, 1191700, 1286700, 1386700, 1496700, 1616700, 1746700, 1886700, 0, 5555,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
-    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,],
+  pet_levels: [
+    100, 110, 120, 130, 145, 160, 175, 190, 210, 230, 250, 275, 300, 330, 360, 400, 440, 490, 540, 600, 660, 730, 800, 880, 960, 1050, 1150, 1260, 1380, 1510, 1650, 1800, 1960, 2130, 2310, 2500, 2700, 2920,
+    3160, 3420, 3700, 4000, 4350, 4750, 5200, 5700, 6300, 7000, 7800, 8700, 9700, 10800, 12000, 13300, 14700, 16200, 17800, 19500, 21300, 23200, 25200, 27400, 29800, 32400, 35200, 38200, 41400, 44800, 48400,
+    52200, 56200, 60400, 64800, 69400, 74200, 79200, 84700, 90700, 97200, 104200, 111700, 119700, 128200, 137200, 146700, 156700, 167700, 179700, 192700, 206700, 221700, 237700, 254700, 272700, 291700, 311700,
+    333700, 357700, 383700, 411700, 441700, 476700, 516700, 561700, 611700, 666700, 726700, 791700, 861700, 936700, 1016700, 1101700, 1191700, 1286700, 1386700, 1496700, 1616700, 1746700, 1886700, 0, 5555,
+    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
+    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
+    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
+    1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700, 1886700,
+    1886700, 1886700, 1886700, 1886700, 1886700, 1886700
+  ],
 
   base_stats: {
     damage: 0,
@@ -899,92 +884,28 @@ module.exports = {
           name: 'Slime',
           cap: 200,
 
-          mobs: [
-            'slime_1',
-            'slime_2',
-            'slime_3',
-            'slime_4',
-            'slime_5',
-            'slime_6',
-            'slime_7',
-            'slime_8',
-            'slime_9',
-            'slime_10',
-            'slime_11',
-            'slime_12',
-            'slime_13',
-            'slime_14',
-            'slime_15'
-          ],
+          mobs: ['slime_1', 'slime_2', 'slime_3', 'slime_4', 'slime_5', 'slime_6', 'slime_7', 'slime_8', 'slime_9', 'slime_10', 'slime_11', 'slime_12', 'slime_13', 'slime_14', 'slime_15'],
           bracket: 1
         },
         {
           name: 'Spider',
           cap: 200,
 
-          mobs: [
-            'spider_1',
-            'spider_2',
-            'spider_3',
-            'spider_4',
-            'spider_5',
-            'spider_6',
-            'spider_7',
-            'spider_8',
-            'spider_9',
-            'spider_10',
-            'spider_11',
-            'spider_12',
-            'spider_13',
-            'spider_14',
-            'spider_15'
-          ],
+          mobs: ['spider_1', 'spider_2', 'spider_3', 'spider_4', 'spider_5', 'spider_6', 'spider_7', 'spider_8', 'spider_9', 'spider_10', 'spider_11', 'spider_12', 'spider_13', 'spider_14', 'spider_15'],
           bracket: 1
         },
         {
           name: 'Witch',
           cap: 200,
 
-          mobs: [
-            'witch_1',
-            'witch_2',
-            'witch_3',
-            'witch_4',
-            'witch_5',
-            'witch_6',
-            'witch_7',
-            'witch_8',
-            'witch_9',
-            'witch_10',
-            'witch_11',
-            'witch_12',
-            'witch_13',
-            'witch_14',
-            'witch_15'
-          ],
+          mobs: ['witch_1', 'witch_2', 'witch_3', 'witch_4', 'witch_5', 'witch_6', 'witch_7', 'witch_8', 'witch_9', 'witch_10', 'witch_11', 'witch_12', 'witch_13', 'witch_14', 'witch_15'],
           bracket: 1
         },
         {
           name: 'Zombie',
           cap: 200,
 
-          mobs: [
-            'zombie_1',
-            'zombie_2',
-            'zombie_3',
-            'zombie_4',
-            'zombie_5',
-            'zombie_6',
-            'zombie_7',
-            'zombie_8',
-            'zombie_9',
-            'zombie_10',
-            'zombie_11',
-            'zombie_12',
-            'zombie_13',
-            'zombie_14',
-            'zombie_15'
-          ],
+          mobs: ['zombie_1', 'zombie_2', 'zombie_3', 'zombie_4', 'zombie_5', 'zombie_6', 'zombie_7', 'zombie_8', 'zombie_9', 'zombie_10', 'zombie_11', 'zombie_12', 'zombie_13', 'zombie_14', 'zombie_15'],
           bracket: 1
         }
       ]
@@ -1121,13 +1042,7 @@ module.exports = {
           name: 'Dasher Spider',
           cap: 10000,
 
-          mobs: [
-            'dasher_spider_50',
-            'dasher_spider_45',
-            'dasher_spider_42',
-            'dasher_spider_4',
-            'dasher_spider_6'
-          ],
+          mobs: ['dasher_spider_50', 'dasher_spider_45', 'dasher_spider_42', 'dasher_spider_4', 'dasher_spider_6'],
           bracket: 2
         },
         {
@@ -1148,14 +1063,7 @@ module.exports = {
           name: 'Silverfish',
           cap: 40000,
 
-          mobs: [
-            'jockey_shot_silverfish_3',
-            'splitter_spider_silverfish_2',
-            'splitter_spider_silverfish_45',
-            'splitter_spider_silverfish_42',
-            'splitter_spider_silverfish_50',
-            'jockey_shot_silverfish_42'
-          ],
+          mobs: ['jockey_shot_silverfish_3', 'splitter_spider_silverfish_2', 'splitter_spider_silverfish_45', 'splitter_spider_silverfish_42', 'splitter_spider_silverfish_50', 'jockey_shot_silverfish_42'],
           bracket: 1
         },
         {
@@ -1169,41 +1077,21 @@ module.exports = {
           name: 'Splitter Spider',
           cap: 10000,
 
-          mobs: [
-            'splitter_spider_2',
-            'splitter_spider_45',
-            'splitter_spider_42',
-            'splitter_spider_50',
-            'splitter_spider_4',
-            'splitter_spider_6'
-          ],
+          mobs: ['splitter_spider_2', 'splitter_spider_45', 'splitter_spider_42', 'splitter_spider_50', 'splitter_spider_4', 'splitter_spider_6'],
           bracket: 2
         },
         {
           name: 'Voracious Spider',
           cap: 40000,
 
-          mobs: [
-            'voracious_spider_50',
-            'voracious_spider_42',
-            'voracious_spider_45',
-            'voracious_spider_10'
-          ],
+          mobs: ['voracious_spider_50', 'voracious_spider_42', 'voracious_spider_45', 'voracious_spider_10'],
           bracket: 1
         },
         {
           name: 'Weaver Spider',
           cap: 10000,
 
-          mobs: [
-            'weaver_spider_3',
-            'weaver_spider_4',
-            'weaver_spider_5',
-            'weaver_spider_6',
-            'weaver_spider_42',
-            'weaver_spider_45',
-            'weaver_spider_50'
-          ],
+          mobs: ['weaver_spider_3', 'weaver_spider_4', 'weaver_spider_5', 'weaver_spider_6', 'weaver_spider_42', 'weaver_spider_45', 'weaver_spider_50'],
           bracket: 2
         }
       ]
@@ -1216,15 +1104,7 @@ module.exports = {
           name: 'Dragon',
           cap: 1000,
 
-          mobs: [
-            'protector_dragon_100',
-            'old_dragon_100',
-            'young_dragon_100',
-            'wise_dragon_100',
-            'superior_dragon_100',
-            'strong_dragon_100',
-            'unstable_dragon_100'
-          ],
+          mobs: ['protector_dragon_100', 'old_dragon_100', 'young_dragon_100', 'wise_dragon_100', 'superior_dragon_100', 'strong_dragon_100', 'unstable_dragon_100'],
           bracket: 5
         },
         {
@@ -1363,11 +1243,7 @@ module.exports = {
           name: 'Magma Cube',
           cap: 10000,
 
-          mobs: [
-            'pack_magma_cube_90',
-            'magma_cube_75',
-            'fireball_magma_cube_75'
-          ],
+          mobs: ['pack_magma_cube_90', 'magma_cube_75', 'fireball_magma_cube_75'],
           bracket: 3
         },
         {
@@ -1509,15 +1385,7 @@ module.exports = {
           name: 'Goblin Raiders',
           cap: 1000,
 
-          mobs: [
-            'goblin_weakling_melee_5',
-            'goblin_weakling_bow_5',
-            'goblin_creepertamer_90',
-            'goblin_creeper_20',
-            'goblin_battler_60',
-            'goblin_murderlover_150',
-            'goblin_golem_150'
-          ],
+          mobs: ['goblin_weakling_melee_5', 'goblin_weakling_bow_5', 'goblin_creepertamer_90', 'goblin_creeper_20', 'goblin_battler_60', 'goblin_murderlover_150', 'goblin_golem_150'],
           bracket: 4
         },
         {
@@ -1607,13 +1475,7 @@ module.exports = {
           name: 'Grunt',
           cap: 4000,
 
-          mobs: [
-            'team_treasurite_grunt_50',
-            'team_treasurite_viper_100',
-            'team_treasurite_wendy_100',
-            'team_treasurite_sebastian_100',
-            'team_treasurite_corleone_200'
-          ],
+          mobs: ['team_treasurite_grunt_50', 'team_treasurite_viper_100', 'team_treasurite_wendy_100', 'team_treasurite_sebastian_100', 'team_treasurite_corleone_200'],
           bracket: 3
         },
         {
@@ -1804,169 +1666,91 @@ module.exports = {
           name: 'Blazing Golem',
           cap: 300,
 
-          mobs: [
-            'blazing_golem_100',
-            'blazing_golem_200',
-            'blazing_golem_300',
-            'blazing_golem_400',
-            'blazing_golem_500'
-          ],
+          mobs: ['blazing_golem_100', 'blazing_golem_200', 'blazing_golem_300', 'blazing_golem_400', 'blazing_golem_500'],
           bracket: 3
         },
         {
           name: 'Blight',
           cap: 10000,
 
-          mobs: [
-            'blight_100',
-            'blight_200',
-            'blight_300',
-            'blight_400',
-            'blight_500'
-          ],
+          mobs: ['blight_100', 'blight_200', 'blight_300', 'blight_400', 'blight_500'],
           bracket: 3
         },
         {
           name: 'Dropship',
           cap: 300,
 
-          mobs: [
-            'dropship_100',
-            'dropship_200',
-            'dropship_300',
-            'dropship_400',
-            'dropship_500'
-          ],
+          mobs: ['dropship_100', 'dropship_200', 'dropship_300', 'dropship_400', 'dropship_500'],
           bracket: 3
         },
         {
           name: 'Explosive Imp',
           cap: 10000,
 
-          mobs: [
-            'explosive_imp_100',
-            'explosive_imp_200',
-            'explosive_imp_300',
-            'explosive_imp_400',
-            'explosive_imp_500'
-          ],
+          mobs: ['explosive_imp_100', 'explosive_imp_200', 'explosive_imp_300', 'explosive_imp_400', 'explosive_imp_500'],
           bracket: 3
         },
         {
           name: 'Inferno Magma Cube',
           cap: 10000,
 
-          mobs: [
-            'inferno_magma_cube_100',
-            'inferno_magma_cube_200',
-            'inferno_magma_cube_300',
-            'inferno_magma_cube_400',
-            'inferno_magma_cube_500'
-          ],
+          mobs: ['inferno_magma_cube_100', 'inferno_magma_cube_200', 'inferno_magma_cube_300', 'inferno_magma_cube_400', 'inferno_magma_cube_500'],
           bracket: 3
         },
         {
           name: 'Kuudra Berserker',
           cap: 10000,
 
-          mobs: [
-            'kuudra_berserker_100',
-            'kuudra_berserker_200',
-            'kuudra_berserker_300',
-            'kuudra_berserker_400',
-            'kuudra_berserker_500'
-          ],
+          mobs: ['kuudra_berserker_100', 'kuudra_berserker_200', 'kuudra_berserker_300', 'kuudra_berserker_400', 'kuudra_berserker_500'],
           bracket: 3
         },
         {
           name: 'Kuudra Follower',
           cap: 25000,
 
-          mobs: [
-            'kuudra_follower_100',
-            'kuudra_follower_200',
-            'kuudra_follower_300',
-            'kuudra_follower_400',
-            'kuudra_follower_500'
-          ],
+          mobs: ['kuudra_follower_100', 'kuudra_follower_200', 'kuudra_follower_300', 'kuudra_follower_400', 'kuudra_follower_500'],
           bracket: 2
         },
         {
           name: 'Kuudra Knocker',
           cap: 10000,
 
-          mobs: [
-            'kuudra_knocker_100',
-            'kuudra_knocker_200',
-            'kuudra_knocker_300',
-            'kuudra_knocker_400',
-            'kuudra_knocker_500'
-          ],
+          mobs: ['kuudra_knocker_100', 'kuudra_knocker_200', 'kuudra_knocker_300', 'kuudra_knocker_400', 'kuudra_knocker_500'],
           bracket: 3
         },
         {
           name: 'Kuudra Landmine',
           cap: 10000,
 
-          mobs: [
-            'kuudra_landmine_100',
-            'kuudra_landmine_200',
-            'kuudra_landmine_300',
-            'kuudra_landmine_400',
-            'kuudra_landmine_500'
-          ],
+          mobs: ['kuudra_landmine_100', 'kuudra_landmine_200', 'kuudra_landmine_300', 'kuudra_landmine_400', 'kuudra_landmine_500'],
           bracket: 3
         },
         {
           name: 'Kuudra Slasher',
           cap: 30,
 
-          mobs: [
-            'kuudra_slasher_100',
-            'kuudra_slasher_200',
-            'kuudra_slasher_300',
-            'kuudra_slasher_400',
-            'kuudra_slasher_500'
-          ],
+          mobs: ['kuudra_slasher_100', 'kuudra_slasher_200', 'kuudra_slasher_300', 'kuudra_slasher_400', 'kuudra_slasher_500'],
           bracket: 5
         },
         {
           name: 'Magma Follower',
           cap: 30,
 
-          mobs: [
-            'magma_follower_100',
-            'magma_follower_200',
-            'magma_follower_300',
-            'magma_follower_400',
-            'magma_follower_500'
-          ],
+          mobs: ['magma_follower_100', 'magma_follower_200', 'magma_follower_300', 'magma_follower_400', 'magma_follower_500'],
           bracket: 5
         },
         {
           name: 'Wandering Blaze',
           cap: 3000,
 
-          mobs: [
-            'wandering_blaze_100',
-            'wandering_blaze_200',
-            'wandering_blaze_300',
-            'wandering_blaze_400',
-            'wandering_blaze_500'
-          ],
+          mobs: ['wandering_blaze_100', 'wandering_blaze_200', 'wandering_blaze_300', 'wandering_blaze_400', 'wandering_blaze_500'],
           bracket: 4
         },
         {
           name: 'Wither Sentry',
           cap: 75,
 
-          mobs: [
-            'wither_sentry_100',
-            'wither_sentry_200',
-            'wither_sentry_300',
-            'wither_sentry_400',
-            'wither_sentry_500'
-          ],
+          mobs: ['wither_sentry_100', 'wither_sentry_200', 'wither_sentry_300', 'wither_sentry_400', 'wither_sentry_500'],
           bracket: 4
         }
       ]
@@ -2502,14 +2286,7 @@ module.exports = {
           name: 'Fels',
           cap: 25000,
 
-          mobs: [
-            'tentaclees_90',
-            'tentaclees_100',
-            'tentaclees_110',
-            'master_tentaclees_90',
-            'master_tentaclees_100',
-            'master_tentaclees_110'
-          ],
+          mobs: ['tentaclees_90', 'tentaclees_100', 'tentaclees_110', 'master_tentaclees_90', 'master_tentaclees_100', 'master_tentaclees_110'],
           bracket: 4
         },
         {
@@ -2639,26 +2416,14 @@ module.exports = {
           name: 'Mimic',
           cap: 1000,
 
-          mobs: [
-            'mimic_115',
-            'mimic_125',
-            'master_mimic_115',
-            'master_mimic_125'
-          ],
+          mobs: ['mimic_115', 'mimic_125', 'master_mimic_115', 'master_mimic_125'],
           bracket: 4
         },
         {
           name: 'Scared Skeleton',
           cap: 4000,
 
-          mobs: [
-            'scared_skeleton_42',
-            'scared_skeleton_62',
-            'scared_skeleton_72',
-            'master_scared_skeleton_42',
-            'master_scared_skeleton_62',
-            'master_scared_skeleton_72'
-          ],
+          mobs: ['scared_skeleton_42', 'scared_skeleton_62', 'scared_skeleton_72', 'master_scared_skeleton_42', 'master_scared_skeleton_62', 'master_scared_skeleton_72'],
           bracket: 3
         },
         {
@@ -2808,16 +2573,7 @@ module.exports = {
           name: 'Super Archer',
           cap: 10000,
 
-          mobs: [
-            'super_archer_90',
-            'super_archer_100',
-            'super_archer_110',
-            'super_archer_120',
-            'master_super_archer_90',
-            'master_super_archer_100',
-            'master_super_archer_110',
-            'master_super_archer_120'
-          ],
+          mobs: ['super_archer_90', 'super_archer_100', 'super_archer_110', 'super_archer_120', 'master_super_archer_90', 'master_super_archer_100', 'master_super_archer_110', 'master_super_archer_120'],
           bracket: 5
         },
         {
@@ -2965,28 +2721,14 @@ module.exports = {
           name: 'Zombie Commander',
           cap: 3000,
 
-          mobs: [
-            'zombie_commander_110',
-            'zombie_commander_120',
-            'master_zombie_commander_110',
-            'master_zombie_commander_120'
-          ],
+          mobs: ['zombie_commander_110', 'zombie_commander_120', 'master_zombie_commander_110', 'master_zombie_commander_120'],
           bracket: 4
         },
         {
           name: 'Zombie Grunt',
           cap: 4000,
 
-          mobs: [
-            'zombie_grunt_40',
-            'zombie_grunt_60',
-            'zombie_grunt_70',
-            'zombie_grunt_80',
-            'master_zombie_grunt_40',
-            'master_zombie_grunt_60',
-            'master_zombie_grunt_70',
-            'master_zombie_grunt_80'
-          ],
+          mobs: ['zombie_grunt_40', 'zombie_grunt_60', 'zombie_grunt_70', 'zombie_grunt_80', 'master_zombie_grunt_40', 'master_zombie_grunt_60', 'master_zombie_grunt_70', 'master_zombie_grunt_80'],
           bracket: 3
         },
         {
@@ -3036,34 +2778,12 @@ module.exports = {
     }
   },
   bestiaryBrackets: {
-    1: [
-      20, 40, 60, 100, 200, 400, 800, 1400, 2000, 3000, 6000, 12000, 20000,
-      30000, 40000, 50000, 60000, 72000, 86000, 100000, 200000, 400000, 600000,
-      800000, 1000000
-    ],
-    2: [
-      5, 10, 15, 25, 50, 100, 200, 350, 500, 750, 1500, 3000, 5000, 7500, 10000,
-      12500, 15000, 18000, 21500, 25000, 50000, 100000, 150000, 200000, 250000
-    ],
-    3: [
-      4, 8, 12, 16, 20, 40, 80, 140, 200, 300, 600, 1200, 2000, 3000, 4000,
-      5000, 6000, 7200, 8600, 10000, 20000, 40000, 60000, 80000, 100000
-    ],
-    4: [
-      2, 4, 6, 10, 15, 20, 25, 35, 50, 75, 150, 300, 500, 750, 1000, 1350, 1650,
-      2000, 2500, 3000, 5000, 10000, 15000, 20000, 25000
-    ],
-    5: [
-      1, 2, 3, 5, 7, 10, 15, 20, 25, 30, 60, 120, 200, 300, 400, 500, 600, 720,
-      860, 1000, 2000, 4000, 6000, 8000, 10000
-    ],
-    6: [
-      1, 2, 3, 5, 7, 9, 14, 17, 21, 25, 50, 80, 125, 175, 250, 325, 425, 525,
-      625, 750, 1500
-    ],
-    7: [
-      1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375,
-      500, 1000
-    ]
+    1: [20, 40, 60, 100, 200, 400, 800, 1400, 2000, 3000, 6000, 12000, 20000, 30000, 40000, 50000, 60000, 72000, 86000, 100000, 200000, 400000, 600000, 800000, 1000000],
+    2: [5, 10, 15, 25, 50, 100, 200, 350, 500, 750, 1500, 3000, 5000, 7500, 10000, 12500, 15000, 18000, 21500, 25000, 50000, 100000, 150000, 200000, 250000],
+    3: [4, 8, 12, 16, 20, 40, 80, 140, 200, 300, 600, 1200, 2000, 3000, 4000, 5000, 6000, 7200, 8600, 10000, 20000, 40000, 60000, 80000, 100000],
+    4: [2, 4, 6, 10, 15, 20, 25, 35, 50, 75, 150, 300, 500, 750, 1000, 1350, 1650, 2000, 2500, 3000, 5000, 10000, 15000, 20000, 25000],
+    5: [1, 2, 3, 5, 7, 10, 15, 20, 25, 30, 60, 120, 200, 300, 400, 500, 600, 720, 860, 1000, 2000, 4000, 6000, 8000, 10000],
+    6: [1, 2, 3, 5, 7, 9, 14, 17, 21, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500],
+    7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000]
   }
 };

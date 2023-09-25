@@ -6,7 +6,7 @@ class Status {
   /**
    * @param {object} data Status data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Player online status.<br>
      * <br>

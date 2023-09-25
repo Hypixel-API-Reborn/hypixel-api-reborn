@@ -5,7 +5,7 @@ class WatchdogStats {
   /**
    * @param {object} data Watchdog data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Total watchdog's bans
      * @type {number}

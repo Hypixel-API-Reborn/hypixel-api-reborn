@@ -6,7 +6,7 @@ class Game {
   /**
    * @param {GameId|GameCode} game Game ID or Game Code
    */
-  constructor (game) {
+  constructor(game) {
     /**
      * Input
      * @type {GameId|GameCode}
@@ -39,7 +39,7 @@ class Game {
    * Returns regular game name
    * @return {GameString}
    */
-  toString () {
+  toString() {
     return this.name;
   }
 

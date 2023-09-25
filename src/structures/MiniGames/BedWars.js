@@ -39,7 +39,7 @@ class BedWars {
   /**
    * @param {object} data BedWars data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -121,7 +121,7 @@ class BedWars {
       easter: data.bedwars_easter_boxes || 0,
       halloween: data.bedwars_halloween_boxes || 0,
       golden: data.bedwars_golden_boxes || 0,
-      total: (data.bedwars_christmas_boxes + data.bedwars_lunar_boxes + data.bedwars_boxes + data.bedwars_easter_boxes + data.bedwars_halloween_boxes + data.bedwars_golden_boxes) || 0
+      total: data.bedwars_christmas_boxes + data.bedwars_lunar_boxes + data.bedwars_boxes + data.bedwars_easter_boxes + data.bedwars_halloween_boxes + data.bedwars_golden_boxes || 0
     };
     /**
      * Beds lost/broken/BL Ratio
@@ -185,12 +185,16 @@ class BedWars {
      * BedWars Dream Mode Stats
      * @type {BedwarsDreamStats}
      */
-    this.dream = ['ultimate', 'rush', 'armed', 'lucky', 'voidless'].reduce((ac, mode) => ({
-      [mode]: {
-        doubles: generateStatsForMode(data, `eight_two_${mode}`),
-        fours: generateStatsForMode(data, `four_four_${mode}`)
-      }, ...ac
-    }), {});
+    this.dream = ['ultimate', 'rush', 'armed', 'lucky', 'voidless'].reduce(
+      (ac, mode) => ({
+        [mode]: {
+          doubles: generateStatsForMode(data, `eight_two_${mode}`),
+          fours: generateStatsForMode(data, `four_four_${mode}`)
+        },
+        ...ac
+      }),
+      {}
+    );
     /**
      * BedWars Castle Stats
      * @type {BedWarsModeStats}
@@ -202,7 +206,7 @@ class BedWars {
  * @param {number} level
  * @return {string}
  */
-function getBedWarsPrestige (level) {
+function getBedWarsPrestige(level) {
   // eslint-disable-next-line max-len
   if (level >= 5000) return 'Eternal';
   return (
@@ -271,7 +275,7 @@ const HIGHEST_PRESTIGE = 10;
  * @param {number} level
  * @return {number}
  */
-function getExpForLevel (level) {
+function getExpForLevel(level) {
   if (level === 0) return 0;
   const respectedLevel = getLevelRespectingPrestige(level);
   if (respectedLevel > EASY_LEVELS) return 5000;
@@ -291,7 +295,7 @@ function getExpForLevel (level) {
  * @param {number} level
  * @return {number}
  */
-function getLevelRespectingPrestige (level) {
+function getLevelRespectingPrestige(level) {
   if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
     return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
   } else {
@@ -302,10 +306,10 @@ function getLevelRespectingPrestige (level) {
  * @param {number} exp
  * @return {number}
  */
-function getLevelForExp (exp) {
+function getLevelForExp(exp) {
   const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
   let level = prestiges * LEVELS_PER_PRESTIGE;
-  let expWithoutPrestiges = exp - (prestiges * XP_PER_PRESTIGE);
+  let expWithoutPrestiges = exp - prestiges * XP_PER_PRESTIGE;
 
   for (let i = 1; i <= EASY_LEVELS; ++i) {
     const expForEasyLevel = getExpForLevel(i);

@@ -5,7 +5,7 @@ class KeyInfo {
   /**
    * @param {object} data Key data
    */
-  constructor (data) {
+  constructor(data) {
     const record = data.record;
     /**
      * API key

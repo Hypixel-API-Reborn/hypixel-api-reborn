@@ -33,7 +33,7 @@ class Player {
    * @param {object} data Player data
    * @param {Record<string, any>} extraPayload extra data requested alongside player
    */
-  constructor (data, extraPayload) {
+  constructor(data, extraPayload) {
     /**
      * Player nickname
      * @type {string}
@@ -213,30 +213,31 @@ class Player {
      * Player stats for each mini-game
      * @type {PlayerStats}
      */
-    this.stats = (data.stats ? {
-      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars, extraPayload?.rankedSW || null) : null),
-      bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
-      uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
-      speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
-      murdermystery: (data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null),
-      duels: (data.stats.Duels ? new Duels(data.stats.Duels) : null),
-      buildbattle: (data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null),
-      megawalls: (data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null),
-      copsandcrims: (data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null),
-      tntgames: (data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null),
-      smashheroes: (data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null),
-      vampirez: (data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null),
-      blitzsg: (data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null),
-      arena: (data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null),
-      arcade: (data.stats.Arcade ? new Arcade({...data.stats.Arcade, ...data.achievements}) : null),
-      paintball: (data.stats.Paintball ? new Paintball(data.stats.Paintball) : null),
-      quakecraft: (data.stats.Quake ? new Quakecraft(data.stats.Quake) : null),
-      turbokartracers: (data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null),
-      walls: (data.stats.Walls ? new Walls(data.stats.Walls) : null),
-      warlords: (data.stats.Battleground ? new Warlords(data.stats.Battleground) : null),
-      pit: null,
-      woolwars: (data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null)
-    } : null);
+    this.stats = data.stats
+      ? {
+          skywars: data.stats.SkyWars ? new SkyWars(data.stats.SkyWars, extraPayload?.rankedSW || null) : null,
+          bedwars: data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null,
+          uhc: data.stats.UHC ? new UHC(data.stats.UHC) : null,
+          speeduhc: data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null,
+          murdermystery: data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null,
+          duels: data.stats.Duels ? new Duels(data.stats.Duels) : null,
+          buildbattle: data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null,
+          megawalls: data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null,
+          copsandcrims: data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null,
+          tntgames: data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null,
+          smashheroes: data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null,
+          vampirez: data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null,
+          blitzsg: data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null,
+          arena: data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null,
+          arcade: data.stats.Arcade ? new Arcade({ ...data.stats.Arcade, ...data.achievements }) : null,
+          paintball: data.stats.Paintball ? new Paintball(data.stats.Paintball) : null,
+          quakecraft: data.stats.Quake ? new Quakecraft(data.stats.Quake) : null,
+          turbokartracers: data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null,
+          walls: data.stats.Walls ? new Walls(data.stats.Walls) : null,
+          warlords: data.stats.Battleground ? new Warlords(data.stats.Battleground) : null,
+          pit: null
+        }
+      : null;
     /**
      * User's current language
      * @type {string}
@@ -268,18 +269,18 @@ class Player {
    * Player Name ( at least last known to hypixel )
    * @return {string}
    */
-  toString () {
+  toString() {
     return this.nickname;
   }
 }
 
 /**
-* @async
-* @description Get player's rank
-* @param {object} player
-* @return {string}
-*/
-function getRank (player) {
+ * @async
+ * @description Get player's rank
+ * @param {object} player
+ * @return {string}
+ */
+function getRank(player) {
   let rank;
   if (player.prefix) {
     rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '');
@@ -319,7 +320,7 @@ function getRank (player) {
  * @param {number} exp
  * @return {number} Level rounded to the nearest cent
  */
-function getPlayerLevel (exp) {
+function getPlayerLevel(exp) {
   const base = 10000;
   const growth = 2500;
   const reversePqPrefix = -(base - 0.5 * growth) / growth;
@@ -334,9 +335,9 @@ function getPlayerLevel (exp) {
  * @param {object} player
  * @returns {number}
  */
-function xpToNextLevel (player) {
+function xpToNextLevel(player) {
   const lvl = getPlayerLevel(player.networkExp);
-  const xpToNext = (2500 * Math.floor(lvl)) + 5000;
+  const xpToNext = 2500 * Math.floor(lvl) + 5000;
   if (player.networkExp < 10000) return 10000;
   return xpToNext;
 }
@@ -344,24 +345,24 @@ function xpToNextLevel (player) {
  * @param {Player} player
  * @returns {number}
  */
-function levelToXP (player) {
+function levelToXP(player) {
   let level = Number(Math.floor(getPlayerLevel(player.networkExp)));
   level = level - 1;
   const xp = 1250 * level ** 2 + 8750 * level;
   return xp;
 }
 /**
-* Player Network level Progress
-* @param {Object} player player data
-* @returns {{xpToNext:number,currentXP:number,percent:number,remainingXP:number,percentRemaining:number}}
-*/
-function playerLevelProgress (player) {
+ * Player Network level Progress
+ * @param {Object} player player data
+ * @returns {{xpToNext:number,currentXP:number,percent:number,remainingXP:number,percentRemaining:number}}
+ */
+function playerLevelProgress(player) {
   const xpFromLevel = levelToXP(player);
-  let currentXP = (player.networkExp - xpFromLevel);
+  let currentXP = player.networkExp - xpFromLevel;
   const xpToNext = xpToNextLevel(player);
-  const remainingXP = (xpToNext - currentXP) + 2500;
+  const remainingXP = xpToNext - currentXP + 2500;
   currentXP = currentXP - 2500;
-  const percent = (Math.round(((currentXP / xpToNext) * 100) * 100) / 100);
+  const percent = Math.round((currentXP / xpToNext) * 100 * 100) / 100;
   const percentRemaining = Math.round((100 - percent) * 100) / 100;
   return {
     xpToNext,
@@ -375,22 +376,28 @@ function playerLevelProgress (player) {
  * @param {object} data
  * @return {Array<{name:string,link:string,id:string}>}
  */
-function getSocialMedia (data) {
+function getSocialMedia(data) {
   if (!data) return null;
   const links = data.links;
   const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Hypixel', 'Discord'];
   const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'HYPIXEL', 'DISCORD'];
   if (!links) return null;
-  return Object.keys(links).map((x) => upperNames.indexOf(x)).filter((x) => x !== -1).map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
+  return Object.keys(links)
+    .map((x) => upperNames.indexOf(x))
+    .filter((x) => x !== -1)
+    .map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
 /**
  *
  * @param {object} data
  * @returns {number[]}
  */
-function parseClaimedRewards (data) {
+function parseClaimedRewards(data) {
   if (!data) return null;
-  return Object.keys(data).map((x) => x.match(/levelingReward_(\d+)/)).filter((x) => x).map((x) => parseInt(x[1], 10));
+  return Object.keys(data)
+    .map((x) => x.match(/levelingReward_(\d+)/))
+    .filter((x) => x)
+    .map((x) => parseInt(x[1], 10));
 }
 /**
  * @typedef {string} PlayerRank

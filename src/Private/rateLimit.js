@@ -4,11 +4,11 @@ const Errors = require('../Errors');
 
 /* eslint-disable require-jsdoc */
 module.exports = class RateLimit {
-  constructor () {
+  constructor() {
     this.initialized = 0;
   }
 
-  async rateLimitManager () {
+  async rateLimitManager() {
     if (!this.initialized) return;
     this.requests++;
     this.requestQueue.unshift(Date.now());
@@ -20,7 +20,7 @@ module.exports = class RateLimit {
     return;
   }
 
-  sync (data) {
+  sync(data) {
     this.options.keyLimit = parseInt(data.get('ratelimit-limit'), 10) || this.options.keyLimit;
     this.requests = parseInt(data.get('ratelimit-remaining'), 10) || this.requests;
     if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (300 - parseInt(data.get('ratelimit-reset'), 10)) !== Math.round(this.lastResetHappenedAt / 1000)) {
@@ -29,13 +29,13 @@ module.exports = class RateLimit {
     }
   }
 
-  computeCooldownTime () {
+  computeCooldownTime() {
     const overhead = this.requestQueue[1] <= Date.now() ? 0 : this.requestQueue[1] - Date.now();
     const multiplier = Math.floor(this.requests / this.options.keyLimit) + 1;
-    return overhead + (- overhead - Date.now() + 300000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier - this.requests);
+    return overhead + (-overhead - Date.now() + 300000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier - this.requests);
   }
 
-  reset () {
+  reset() {
     this.requests = this.requests - this.options.keyLimit;
     if (this.requests < 0) this.requests = 0;
     this.lastResetHappenedAt = Date.now();
@@ -43,11 +43,11 @@ module.exports = class RateLimit {
     this.requestQueue = this.requestQueue.filter((x) => x >= Date.now());
   }
 
-  rateLimitMonitor () {
+  rateLimitMonitor() {
     this.resetTimer = setTimeout(this.reset.bind(this), 1000 * 300);
   }
 
-  init (keyInfo, options, client) {
+  init(keyInfo, options, client) {
     /**
      * Rate limit Options
      * @type {RLOptions}
