@@ -194,7 +194,6 @@ export interface methodOptions {
 }
 export interface playerMethodOptions extends methodOptions {
   raw?: boolean;
-  currentRankedSW?: boolean;
   guild?: boolean;
   recentGames?: boolean;
 }
@@ -914,11 +913,6 @@ declare module 'hypixel-api-reborn' {
      */
     getAPIStatus(): Promise<APIStatus>;
     /**
-     * @description Allows you to get Ranked SkyWars data of a player
-     * @param query - player nickname or uuid
-     */
-    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked | null>;
-    /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
      */
@@ -1050,13 +1044,6 @@ declare module 'hypixel-api-reborn' {
     speed: string;
     no_class: 'Enabled' | 'Disabled';
   };
-  class SkyWarsRanked {
-    constructor(data: Record<string, unknown>);
-    seasonKey: string;
-    rating: number;
-    date: Date;
-    position: number;
-  }
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
     allCosmetics: string[];
@@ -1253,7 +1240,6 @@ declare module 'hypixel-api-reborn' {
         teamsInsane: number;
         soloNormal: number;
         soloInsaneHuntersVsBeasts: number;
-        rankedNormal: number;
         soloInsaneTntMadness: number;
         soloInsaneRush: number;
         soloInsane: number;
@@ -1326,16 +1312,6 @@ declare module 'hypixel-api-reborn' {
     idle: { players: number };
     queue: { players: number };
   }
-  class KeyInfo {
-    constructor(data: Record<string, unknown>);
-    key: string;
-    owner: string;
-    limitPerMinute: number;
-    requestsInPastMin: number;
-    totalRequests: number;
-    resetsAfter: number;
-  }
-
   class Arcade {
     constructor(data?: Record<string, unknown>);
     lastTourneyAdTimestamp: number;
@@ -2447,17 +2423,6 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
       };
-    };
-    ranked: {
-      winstreak: number;
-      playedGames: number;
-      kills: number;
-      wins: number;
-      losses: number;
-      deaths: number;
-      KDRatio: number;
-      WLRatio: number;
-      ratings: Map<string, { rating: number; position: number; date: Date }>;
     };
     mega: {
       overall: {

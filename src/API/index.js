@@ -5,7 +5,6 @@ module.exports = {
   getGuild: require('./getGuild'),
   getLeaderboards: require('./getLeaderboards'),
   getPlayer: require('./getPlayer'),
-  getRankedSkyWars: require('./getRankedSkyWars'),
   getRecentGames: require('./getRecentGames'),
   getServerInfo: require('./getServerInfo'),
   getStatus: require('./getStatus'),

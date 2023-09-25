@@ -10,7 +10,6 @@ module.exports = {
   Game: require('./structures/Game.js'),
   Status: require('./structures/Status.js'),
   Color: require('./structures/Color.js'),
-  KeyInfo: require('./structures/KeyInfo.js'),
   Pet: require('./structures/Pet'),
   Pets: require('./structures/Pets'),
   PlayerCosmetics: require('./structures/PlayerCosmetics'),
@@ -67,6 +66,7 @@ module.exports = {
   VampireZ: require('./structures/MiniGames/VampireZ.js'),
   Walls: require('./structures/MiniGames/Walls.js'),
   Warlords: require('./structures/MiniGames/Warlords.js'),
+  WoolWars: require('./structures/MiniGames/WoolWars.js'),
 
   /* Leaderboards */
   Leaderboard: require('./structures/Leaderboard.js'),
