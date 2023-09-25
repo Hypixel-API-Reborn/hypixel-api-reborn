@@ -6,7 +6,7 @@ class ArenaBrawl {
   /**
    * @param {object} data ArenaBrawl data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -28,7 +28,7 @@ class ArenaBrawl {
  * @param {string} mode
  * @return {{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}
  */
-function generateModeStats (data, mode) {
+function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
     deaths: data[`deaths_${mode}`] || 0,

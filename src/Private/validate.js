@@ -11,7 +11,7 @@ class Validation {
    * @returns {void} Void
    * @private
    */
-  validateOptions (options) {
+  validateOptions(options) {
     if (typeof options.cacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
     if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
@@ -26,7 +26,7 @@ class Validation {
    * @returns {Object} Parsed cache options
    * @private
    */
-  parseOptions (options) {
+  parseOptions(options) {
     if (typeof options !== 'object' || options === null) throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     return {
       cache: options.cache || false,
@@ -48,7 +48,7 @@ class Validation {
    * @returns {string} Key
    * @private
    */
-  validateKey (key) {
+  validateKey(key) {
     if (!key) throw new Error(Errors.NO_API_KEY);
     if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
     return key;
@@ -60,7 +60,7 @@ class Validation {
    * @returns {boolean} Whether options are valid
    * @private
    */
-  cacheSuboptions (input) {
+  cacheSuboptions(input) {
     if (typeof input !== 'object' || input === null) return false;
     if (!input.noCacheCheck && !input.noCaching && !input.raw) return false;
     return true;
@@ -72,7 +72,7 @@ class Validation {
    * @returns {Function} Filter function
    * @private
    */
-  _handleFilter (filter) {
+  _handleFilter(filter) {
     if (!filter) return () => true;
     if (typeof filter === 'object' && !Array.isArray(filter)) {
       if (filter.whitelist && isStrArray(filter.whitelist)) return (x) => strToArray(filter.whitelist).includes(x);
@@ -89,7 +89,7 @@ class Validation {
    * @returns {void}
    * @private
    */
-  validateNodeVersion () {
+  validateNodeVersion() {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
     if (nodeVersion < 12) throw new Error(Errors.NODE_VERSION_ERR);
   }

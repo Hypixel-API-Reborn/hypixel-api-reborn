@@ -7,7 +7,7 @@ class BaseAuction {
    * @param {object} data Base auction data
    * @param {boolean} includeItemBytes
    */
-  constructor (data, includeItemBytes) {
+  constructor(data, includeItemBytes) {
     /**
      * Auction ID
      * @type {string|null}
@@ -32,7 +32,7 @@ class BaseAuction {
      * Item bytes
      * @type {ItemBytes|null}
      */
-    this.itemBytes = includeItemBytes ? (new ItemBytes(data.item_bytes) || null) : null;
+    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes) || null : null;
   }
   /**
    * Auction ID

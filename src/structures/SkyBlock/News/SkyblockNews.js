@@ -7,7 +7,7 @@ class SkyblockNews {
   /**
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Title
      * @type {string}

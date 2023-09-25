@@ -272,7 +272,7 @@ declare module 'hypixel-api-reborn' {
         { name: 'Godlike'; key: 'godlike' },
         { name: 'WORLD ELITE'; key: 'world_elite' },
         { name: 'WORLD MASTER'; key: 'world_master' },
-        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
+        { name: "WORLD'S BEST"; key: 'worlds_best' }
       ];
       leveling_xp: {
         1: 50;
@@ -995,13 +995,14 @@ declare module 'hypixel-api-reborn' {
       turbokartracers?: TurboKartRacers;
       walls?: Walls;
       warlords?: Warlords;
-      arcade?: Arcade,
+      arcade?: Arcade;
       woolwars?: WoolWars;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
     toString(): string;
-  } class WoolWars {
+  }
+  class WoolWars {
     static convertXPToLevel(exp: number): number;
     static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
     constructor(data: Record<string, unknown>);
@@ -1012,37 +1013,37 @@ declare module 'hypixel-api-reborn' {
     coins: number;
     selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
     stats: {
-        overall: WoolWarsStats;
-        assault: WoolWarsStats;
-        tank: WoolWarsStats;
-        golem: WoolWarsStats;
-        swordsman: WoolWarsStats;
-        engineer: WoolWarsStats;
-        archer: WoolWarsStats;
+      overall: WoolWarsStats;
+      assault: WoolWarsStats;
+      tank: WoolWarsStats;
+      golem: WoolWarsStats;
+      swordsman: WoolWarsStats;
+      engineer: WoolWarsStats;
+      archer: WoolWarsStats;
     };
     ownedCosmetics: string[];
     privateGamesConfig: PrivateGamesConfig;
   }
   type WoolWarsStats = {
-      roundWins: number;
-      gamesPlayed: number;
-      woolsPlaced: number;
-      blocksBroken: number;
-      placeBreakRatio: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      assists: number;
-      powerups: number;
-  }
+    roundWins: number;
+    gamesPlayed: number;
+    woolsPlaced: number;
+    blocksBroken: number;
+    placeBreakRatio: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    powerups: number;
+  };
   type PrivateGamesConfig = {
-      one_hit_one_kill: boolean;
-      rainbow_wool: 'Enabled' | 'Disabled';
-      health_buff: string;
-      game_speed: string;
-      speed: string;
-      no_class: 'Enabled' | 'Disabled';
-  }
+    one_hit_one_kill: boolean;
+    rainbow_wool: 'Enabled' | 'Disabled';
+    health_buff: string;
+    game_speed: string;
+    speed: string;
+    no_class: 'Enabled' | 'Disabled';
+  };
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
     allCosmetics: string[];
@@ -2057,7 +2058,7 @@ declare module 'hypixel-api-reborn' {
         zombieDeep?: number;
         zombieGrunt?: number;
         zombieSoldier?: number;
-      },
+      };
       dungeonHubCrystalCoreAnythingNoReturnBestTime?: number;
       dungeonHubCrystalCoreAnythingWithReturnBestTime?: number;
       dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number;
@@ -2244,7 +2245,7 @@ declare module 'hypixel-api-reborn' {
         zombieKnight?: number;
         zombieSoldier?: number;
         zombieVillager?: number;
-      },
+      };
       mostWinterCannonballsHit?: number;
       mostWinterDamageDealt?: number;
       mostWinterMagmaDamageDealt?: number;

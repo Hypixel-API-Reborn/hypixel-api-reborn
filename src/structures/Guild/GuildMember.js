@@ -1,4 +1,4 @@
-const {parseHistory} = require('../../utils/guildExp');
+const { parseHistory } = require('../../utils/guildExp');
 /**
  * GuildMember class
  */
@@ -6,7 +6,7 @@ class GuildMember {
   /**
    * @param {data} data Guild member data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Guild member UUID
      * @type {String}

@@ -7,7 +7,7 @@ class GameCounts {
   /**
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Player count in Main lobby
      * @name GameCounts#mainLobby

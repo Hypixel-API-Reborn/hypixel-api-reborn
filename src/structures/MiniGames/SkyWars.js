@@ -18,7 +18,7 @@ class SkyWars {
   /**
    * @param {object} data SkyWars data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -93,7 +93,12 @@ class SkyWars {
      * Formatted Level
      * @type {string}
      */
-    this.levelFormatted = data.levelFormatted ? (data.levelFormatted.replace(/§l/gm, '**').replace(/§([a-f]|[1-9])/gm, '').replace(/§r/gm, '')) : null;
+    this.levelFormatted = data.levelFormatted
+      ? data.levelFormatted
+          .replace(/§l/gm, '**')
+          .replace(/§([a-f]|[1-9])/gm, '')
+          .replace(/§r/gm, '')
+      : null;
     /**
      * Prestige
      * @type {SkyWarsPrestige}
@@ -202,8 +207,8 @@ class SkyWars {
         wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
         losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
         deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0),
-        KDRatio: divide(((data.kills_mega || 0) + (data.kills_mega_doubles || 0)), ((data.deaths_mega || 0) + (data.deaths_mega_doubles || 0))),
-        WLRatio: divide(((data.wins_mega || 0) + (data.wins_mega_doubles || 0)), ((data.losses_mega || 0) + (data.losses_mega_doubles || 0)))
+        KDRatio: divide((data.kills_mega || 0) + (data.kills_mega_doubles || 0), (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0)),
+        WLRatio: divide((data.wins_mega || 0) + (data.wins_mega_doubles || 0), (data.losses_mega || 0) + (data.losses_mega_doubles || 0))
       },
       solo: {
         playedGames: data.games_mega || 0,
@@ -329,7 +334,7 @@ module.exports = SkyWars;
  * @param {number} level
  * @return {string}
  */
-function getSkyWarsPrestige (level) {
+function getSkyWarsPrestige(level) {
   if (level >= 60) return 'Mythic';
   return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Iron';
 }
@@ -337,7 +342,7 @@ function getSkyWarsPrestige (level) {
  * @param {number} xp
  * @return {number}
  */
-function getSkyWarsLevel (xp) {
+function getSkyWarsLevel(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
   const level = totalXp.findIndex((x) => x * 10 - xp > 0);
@@ -347,7 +352,7 @@ function getSkyWarsLevel (xp) {
  * @param {number} xp
  * @return {{xpToNextLevel:number,percent:number,xpNextLevel:number}}
  */
-function getSkyWarsLevelProgress (xp) {
+function getSkyWarsLevelProgress(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
   let percent;
@@ -362,7 +367,7 @@ function getSkyWarsLevelProgress (xp) {
       } while (currentLevelXp >= 10000);
     }
     xpToNextLevel = 10000 - currentLevelXp;
-    percent = (Math.round(currentLevelXp) / 100);
+    percent = Math.round(currentLevelXp) / 100;
     const percentRemaining = Math.round((100 - percent) * 100) / 100;
     return {
       currentLevelXp,
@@ -374,11 +379,11 @@ function getSkyWarsLevelProgress (xp) {
   }
   const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
   for (let i = 0; i < xpToNextLvl.length; i++) {
-    if ((currentLevelXp - xpToNextLvl[i] * 10) < 0) break;
+    if (currentLevelXp - xpToNextLvl[i] * 10 < 0) break;
     currentLevelXp -= xpToNextLvl[i] * 10;
   }
   xpToNextLevel = totalXptoNextLevel - currentLevelXp;
-  percent = (Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100);
+  percent = Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100;
   return {
     currentLevelXp,
     xpToNextLevel,
@@ -396,7 +401,7 @@ class SkywarsPackages {
    * Constructor
    * @param {string[]} data data from API
    */
-  constructor (data) {
+  constructor(data) {
     // TODO : a lot more
     /**
      * Raw Packages, as received from the API
@@ -417,14 +422,20 @@ class SkywarsPackages {
      * Achievements included in packages, under the form of name0
      * @type {string[]}
      */
-    this.achievements = this.rawPackages.map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/)).filter((x) => x).map((x) => x.slice(1).join(''));
+    this.achievements = this.rawPackages
+      .map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/))
+      .filter((x) => x)
+      .map((x) => x.slice(1).join(''));
   }
   /**
    * Parses cages
    * @returns {string[]}
    */
-  _parseCages () {
-    return this.rawPackages.map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/)).filter((x) => x).map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
+  _parseCages() {
+    return this.rawPackages
+      .map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/))
+      .filter((x) => x)
+      .map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
   }
 }
 
@@ -436,7 +447,7 @@ class SkywarsKit {
    * Constructor
    * @param {string} kit Kit
    */
-  constructor (kit) {
+  constructor(kit) {
     /**
      * Kit data
      * @private
@@ -475,7 +486,7 @@ class SkywarsKits {
    * Constructor
    * @param {SkywarsKit[]} kits Potential Kits
    */
-  constructor (kits) {
+  constructor(kits) {
     this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
   }
   /**
@@ -484,8 +495,8 @@ class SkywarsKits {
    * @param {KitType} [type] Kits corresponding to this type
    * @returns {SkywarsKit[]}
    */
-  get (gameMode = '', type = '') {
-    return this.kits.filter((kit) => (kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type)));
+  get(gameMode = '', type = '') {
+    return this.kits.filter((kit) => kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type));
   }
 }
 

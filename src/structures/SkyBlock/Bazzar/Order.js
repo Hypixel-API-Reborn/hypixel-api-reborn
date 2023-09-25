@@ -5,7 +5,7 @@ class Order {
   /**
    * @param {object} data Order data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Amount
      * @type {number}
@@ -20,7 +20,7 @@ class Order {
      * Total price
      * @type {number}
      */
-    this.totalPrice = Math.round((this.amount * this.pricePerUnit) * 10) / 10;
+    this.totalPrice = Math.round(this.amount * this.pricePerUnit * 10) / 10;
     /**
      * Orders
      * @type {number}

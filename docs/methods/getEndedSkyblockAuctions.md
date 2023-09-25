@@ -1,26 +1,35 @@
 # getEndedSkyblockAuctions
+
 Allows you to get all ended auctions in around the last 60 seconds
+
 ## Arguments
+
 - Boolean - include item bytes (`false` by default)
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getEndedSkyblockAuctions().then(data => {
-  console.log(data);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getEndedSkyblockAuctions()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const data = await hypixel.getEndedSkyblockAuctions().catch(e => console.error(e));
+const data = await hypixel.getEndedSkyblockAuctions().catch((e) => console.error(e));
 console.log(data);
 ```
+
 ## Example response
+
 ```js
 {
   info: AuctionInfo {
@@ -54,7 +63,9 @@ console.log(data);
   ]
 }
 ```
+
 ## Links
+
 - [getEndedSkyblockAuctions](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getEndedSkyblockAuctions)
 - [AuctionInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/AuctionInfo)
 - [Partial](https://hypixel-api-reborn.github.io/#/docs/main/master/class/PartialAuction)

@@ -6,7 +6,7 @@ class AuctionInfo {
   /**
    * @param {object} data Auction info data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Page number
      * @type {number}
@@ -39,7 +39,7 @@ class AuctionInfo {
     this.age = parseInt(data._headers.get('age'), 10) || 0;
   }
 
-  _extend (name, value) {
+  _extend(name, value) {
     this[name] = value;
     return this;
   }

@@ -5,7 +5,7 @@ class Bid {
   /**
    * @param {object} data Bid data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Auction ID
      * @type {string|null}
