@@ -44,7 +44,7 @@ class Pet {
      * Last time the pet was fed ( Date )
      * @type {?Date}
      */
-    this.lastFedAt = this.lastFed ? new Date(this.stats.lastFed) : null;
+    this.lastFedAt = this.lastFed ? new Date(this.lastFed) : null;
     /**
      * Thirst value ( 100 is highest )
      * @type {?number}
@@ -59,7 +59,7 @@ class Pet {
      * Last time the pet drank ( Date )
      * @type {?Date}
      */
-    this.lastDrankAt = this.lastDrank ? new Date(this.stats.lastDrank) : null;
+    this.lastDrankAt = this.lastDrank ? new Date(this.lastDrank) : null;
     /**
      * Exercise/Entertainment value ( 100 is highest )
      * @type {?number}
@@ -74,7 +74,7 @@ class Pet {
      * Last time the pet exercised ( Date )
      * @type {?Date}
      */
-    this.lastExercisedAt = this.lastExercised ? new Date(this.stats.lastExerciced) : null;
+    this.lastExercisedAt = this.lastExercised ? new Date(this.lastExerciced) : null;
     /**
      * Raw Nickname, if any
      * @type {?string}
