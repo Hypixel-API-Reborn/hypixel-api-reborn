@@ -1,26 +1,35 @@
 # getSkyblockAuctions
+
 Allows you to get skyblock auctions
+
 ## Arguments
-- "*", a page number, or an array with the start and the end page number (automatically sorted)
+
+- "\*", a page number, or an array with the start and the end page number (automatically sorted)
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/auctionsOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getSkyblockAuctions(1).then(data => {
-  console.log(data);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getSkyblockAuctions(1)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const data = await hypixel.getSkyblockAuctions(1).catch(e => console.error(e));
+const data = await hypixel.getSkyblockAuctions(1).catch((e) => console.error(e));
 console.log(data);
 ```
+
 ## Example response
+
 ```js
 {
   auctions: [
@@ -121,7 +130,9 @@ console.log(data);
   }
 }
 ```
+
 ## Links
+
 - [getSkyblockAuctions](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctions)
 - [AuctionInfo](https://hypixel-api-reborn.github.io/#/docs/main/master/class/AuctionInfo)
 - [Auction](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Auction)

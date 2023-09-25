@@ -1,25 +1,34 @@
 # getLeaderboards
+
 Gets all leaderboards.
+
 ## Arguments
+
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getLeaderboards().then(leaderboards => {
-  console.log(leaderboards);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getLeaderboards()
+  .then((leaderboards) => {
+    console.log(leaderboards);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const leaderboards = await hypixel.getLeaderboards().catch(e => console.error(e));
+const leaderboards = await hypixel.getLeaderboards().catch((e) => console.error(e));
 console.log(leaderboards);
 ```
+
 ## Example response
+
 ```js
 {
   ARENA: [
@@ -154,6 +163,8 @@ console.log(leaderboards);
   ]
 }
 ```
+
 ## Links
+
 - [getLeaderboards](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getLeaderboards)
 - [Leaderboard](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Leaderboard)

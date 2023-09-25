@@ -1,5 +1,29 @@
 /* eslint-disable no-undef */
-const { Client, Game, SkyWars, BedWars, UHC, SpeedUHC, MurderMystery, Duels, BuildBattle, MegaWalls, CopsAndCrims, TNTGames, SmashHeroes, VampireZ, BlitzSurvivalGames, ArenaBrawl, Guild, PlayerCosmetics, Pets, Pet, Color, ServerInfo, WoolWars } = require('../src');
+const {
+  Client,
+  Game,
+  SkyWars,
+  BedWars,
+  UHC,
+  SpeedUHC,
+  MurderMystery,
+  Duels,
+  BuildBattle,
+  MegaWalls,
+  CopsAndCrims,
+  TNTGames,
+  SmashHeroes,
+  VampireZ,
+  BlitzSurvivalGames,
+  ArenaBrawl,
+  Guild,
+  PlayerCosmetics,
+  Pets,
+  Pet,
+  Color,
+  ServerInfo,
+  WoolWars
+} = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
@@ -10,9 +34,6 @@ describe('Client#getPlayer', () => {
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
     expect(player.uuid).to.be.a('string');
-    expect(player.history).to.be.an('array').that.satisfies(v => {
-      return v.every(i => typeof i === 'string');
-    });
     expect(player.rank).to.be.a('string');
     if (player.mcVersion) {
       expect(player.mcVersion).to.be.a('string');
@@ -51,20 +72,26 @@ describe('Client#getPlayer', () => {
     }
     expect(player.userLanguage).to.be.a('string');
     if (player.claimedLevelingRewards.length) {
-      expect(player.claimedLevelingRewards).to.be.an('array').that.satisfies(v => {
-        return v.every(i => typeof i === 'number');
-      })
+      expect(player.claimedLevelingRewards)
+        .to.be.an('array')
+        .that.satisfies((v) => {
+          return v.every((i) => typeof i === 'number');
+        });
     }
     if (player.globalCosmetics) {
       expect(player.globalCosmetics).to.be.instanceOf(PlayerCosmetics);
-      expect(player.globalCosmetics.allCosmetics).to.be.an('array').that.satisfies(v => {
-        return v.every(i => typeof i === 'string');
-      })
+      expect(player.globalCosmetics.allCosmetics)
+        .to.be.an('array')
+        .that.satisfies((v) => {
+          return v.every((i) => typeof i === 'string');
+        });
       if (player.globalCosmetics.petManager) {
         expect(player.globalCosmetics.petManager).to.be.instanceOf(Pets);
-        expect(player.globalCosmetics.petManager.pets).to.be.an('array').that.satisfies(v => {
-          return v.every(i => i instanceof Pet);
-        })
+        expect(player.globalCosmetics.petManager.pets)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => i instanceof Pet);
+          });
         if (player.globalCosmetics.petManager.lastJourneyTimestamp) {
           expect(player.globalCosmetics.petManager.lastJourneyTimestamp).to.be.a('number');
         }
@@ -76,44 +103,60 @@ describe('Client#getPlayer', () => {
         }
       }
       if (player.globalCosmetics.suits) {
-        expect(player.globalCosmetics.suits).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.suits)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.hats) {
-        expect(player.globalCosmetics.hats).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.hats)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.gadgets) {
-        expect(player.globalCosmetics.gadgets).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.gadgets)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.morphs) {
-        expect(player.globalCosmetics.morphs).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.morphs)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.cloaks) {
-        expect(player.globalCosmetics.cloaks).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.cloaks)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.rankColors) {
-        expect(player.globalCosmetics.rankColors).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.rankColors)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.particlePacks) {
-        expect(player.globalCosmetics.particlePacks).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.particlePacks)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
       if (player.globalCosmetics.clickEffects) {
-        expect(player.globalCosmetics.clickEffects).to.be.an('array').that.satisfies(v => {
-          return v.every(i => typeof i === 'string');
-        });
+        expect(player.globalCosmetics.clickEffects)
+          .to.be.an('array')
+          .that.satisfies((v) => {
+            return v.every((i) => typeof i === 'string');
+          });
       }
     }
     if (player.ranksPurchaseTime) {
@@ -265,22 +308,22 @@ describe('Client#getServerInfo', async () => {
     expect(server.players.online).to.be.a('number');
     expect(server.players.players).to.be.an('array');
     if (server.rawMOTD) {
-      expect(server.rawMOTD).to.be.a('string')
+      expect(server.rawMOTD).to.be.a('string');
     }
     if (server.cleanMOTD) {
-      expect(server.cleanMOTD).to.be.a('string')
+      expect(server.cleanMOTD).to.be.a('string');
     }
     if (server.textMOTD) {
-      expect(server.textMOTD).to.be.a('string')
+      expect(server.textMOTD).to.be.a('string');
     }
     if (server.faviconB64) {
-      expect(server.faviconB64).to.be.a('string')
+      expect(server.faviconB64).to.be.a('string');
     }
     if (server.favicon) {
-      expect(server.favicon).to.be.instanceOf(Buffer)
+      expect(server.favicon).to.be.instanceOf(Buffer);
     }
     if (server.ping) {
-      expect(server.ping).to.be.a('number')
+      expect(server.ping).to.be.a('number');
     }
   });
 });

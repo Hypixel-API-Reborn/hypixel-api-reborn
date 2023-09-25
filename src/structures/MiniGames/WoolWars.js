@@ -70,8 +70,8 @@ class WoolWars {
     const baseLevel = minimalExp.length;
     const baseExp = minimalExp[minimalExp.length - 1];
     const expToLevel100 = 49e4;
-    if (exp < baseExp) return minimalExp.findIndex((x)=>exp < x);
-    const theoreticalLevel = ((exp - baseExp) / 5e3) + baseLevel;
+    if (exp < baseExp) return minimalExp.findIndex((x) => exp < x);
+    const theoreticalLevel = (exp - baseExp) / 5e3 + baseLevel;
     if (theoreticalLevel > 100) return 100 + this.convertXPToLevel(exp - expToLevel100);
     return theoreticalLevel;
   }

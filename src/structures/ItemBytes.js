@@ -6,11 +6,11 @@ class ItemBytes {
   /**
    * @param {string} data base64 encoded bytes
    */
-  constructor (data) {
+  constructor(data) {
     /**
-   *  Item Bytes as Buffer
-   * @type {Buffer}
-   */
+     *  Item Bytes as Buffer
+     * @type {Buffer}
+     */
     this.bytesBuffer = Buffer.from(data, 'base64');
   }
 
@@ -18,7 +18,7 @@ class ItemBytes {
    * Returns Item Bytes in base64 encoded
    * @return {String}
    */
-  base64 () {
+  base64() {
     return this.bytesBuffer.toString('base64');
   }
 
@@ -26,7 +26,7 @@ class ItemBytes {
    * Returns NBT of Item Bytes
    * @return {any[]}
    */
-  async readNBT () {
+  async readNBT() {
     return await decode(this.bytesBuffer, true);
   }
 }

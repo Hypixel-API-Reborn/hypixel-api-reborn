@@ -6,7 +6,7 @@ class SpeedUHC {
   /**
    * @param {object} data Speed UHC data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}

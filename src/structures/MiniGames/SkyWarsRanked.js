@@ -5,7 +5,7 @@ class SkyWarsRanked {
   /**
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Ranked season key (e.g. 7_21 - July 2021)
      * @type {string}

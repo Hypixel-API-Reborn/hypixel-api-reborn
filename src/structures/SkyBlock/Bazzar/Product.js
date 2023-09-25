@@ -7,7 +7,7 @@ class Product {
   /**
    * @param {object} data Product data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Product ID
      * @type {string}

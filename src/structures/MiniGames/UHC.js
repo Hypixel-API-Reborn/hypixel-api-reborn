@@ -7,7 +7,7 @@ class UHC {
   /**
    * @param {object} data UHC data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -22,12 +22,26 @@ class UHC {
      * Kills
      * @type {number}
      */
-    this.kills = (data.kills || 0) + (data.kills_solo || 0) + (data['kills_red vs blue'] || 0) + (data['kills_no diamonds'] || 0) + (data.kills_brawl || 0) + (data['kills_solo brawl'] || 0) + (data['kills_duo brawl'] || 0);
+    this.kills =
+      (data.kills || 0) +
+      (data.kills_solo || 0) +
+      (data['kills_red vs blue'] || 0) +
+      (data['kills_no diamonds'] || 0) +
+      (data.kills_brawl || 0) +
+      (data['kills_solo brawl'] || 0) +
+      (data['kills_duo brawl'] || 0);
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = (data.deaths || 0) + (data.deaths_solo || 0) + (data['deaths_red vs blue'] || 0) + (data['deaths_no diamonds'] || 0) + (data.deaths_brawl || 0) + (data['deaths_solo brawl'] || 0) + (data['deaths_duo brawl'] || 0);
+    this.deaths =
+      (data.deaths || 0) +
+      (data.deaths_solo || 0) +
+      (data['deaths_red vs blue'] || 0) +
+      (data['deaths_no diamonds'] || 0) +
+      (data.deaths_brawl || 0) +
+      (data['deaths_solo brawl'] || 0) +
+      (data['deaths_duo brawl'] || 0);
     /**
      * Kill/Death ratio
      * @type {number}
@@ -37,12 +51,20 @@ class UHC {
      * Wins
      * @type {number}
      */
-    this.wins = (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
+    this.wins =
+      (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
     /**
      * Heads eaten
      * @type {number}
      */
-    this.headsEaten = (data.heads_eaten || 0) + (data.heads_eaten_solo || 0) + (data['heads_eaten_red vs blue'] || 0) + (data['heads_eaten_no diamonds'] || 0) + (data.heads_eaten_brawl || 0) + (data['heads_eaten_solo brawl'] || 0) + (data['heads_eaten_duo brawl'] || 0);
+    this.headsEaten =
+      (data.heads_eaten || 0) +
+      (data.heads_eaten_solo || 0) +
+      (data['heads_eaten_red vs blue'] || 0) +
+      (data['heads_eaten_no diamonds'] || 0) +
+      (data.heads_eaten_brawl || 0) +
+      (data['heads_eaten_solo brawl'] || 0) +
+      (data['heads_eaten_duo brawl'] || 0);
     /**
      * Star level
      * @type {number}
@@ -124,10 +146,12 @@ class UHC {
  * @param {object} data
  * @return {number}
  */
-function getStarLevel (data) {
-  const kills = (data.kills || 0) + (data.kills_solo || 0) + (data['kills_red vs blue'] || 0) + (data['kills_no diamonds'] || 0) + (data.kills_brawl || 0) + (data['kills_solo brawl'] || 0) + (data['kills_duo brawl'] || 0);
-  const wins = (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
-  const sum = ((kills * 1) + (wins * 10));
+function getStarLevel(data) {
+  const kills =
+    (data.kills || 0) + (data.kills_solo || 0) + (data['kills_red vs blue'] || 0) + (data['kills_no diamonds'] || 0) + (data.kills_brawl || 0) + (data['kills_solo brawl'] || 0) + (data['kills_duo brawl'] || 0);
+  const wins =
+    (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
+  const sum = kills * 1 + wins * 10;
   let starLevel = 1;
   const sums = [0, 1, 6, 21, 46, 96, 171, 271, 521, 1021, 1321, 1621, 1921, 2221, 2521, Infinity];
   starLevel += sums.map((x) => x * 10 - sum).findIndex((x) => x > 0) - 1;

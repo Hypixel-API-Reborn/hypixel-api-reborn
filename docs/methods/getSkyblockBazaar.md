@@ -1,25 +1,34 @@
 # getSkyblockBazaar
+
 Allows you to get list of products
+
 ## Arguments
+
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getSkyblockBazaar().then(products => {
-  console.log(products);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getSkyblockBazaar()
+  .then((products) => {
+    console.log(products);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const products = await hypixel.getSkyblockMember().catch(e => console.error(e));
+const products = await hypixel.getSkyblockMember().catch((e) => console.error(e));
 console.log(products);
 ```
+
 ## Example response
+
 ```js
 [
   Product {
@@ -49,7 +58,9 @@ console.log(products);
   ... 204 more items
 ]
 ```
+
 ## Links
+
 - [getSkyblockBazaar](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockBazaar)
 - [Product](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Product)
 - [Order](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Order)

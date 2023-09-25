@@ -1,25 +1,34 @@
 # getBoosters
+
 Allows you to get all active boosters.
+
 ## Arguments
+
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getBoosters().then(boosters => {
-  console.log(boosters);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getBoosters()
+  .then((boosters) => {
+    console.log(boosters);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const boosters = await hypixel.getBoosters().catch(e => console.error(e));
-console.log(boosters); 
+const boosters = await hypixel.getBoosters().catch((e) => console.error(e));
+console.log(boosters);
 ```
+
 ## Example response
+
 ```js
 [
   Booster {
@@ -52,6 +61,8 @@ console.log(boosters);
   ...
 ]
 ```
+
 ## Links
+
 - [getBoosters](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getBoosters)
 - [Booster](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Booster)

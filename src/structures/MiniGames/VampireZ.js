@@ -6,7 +6,7 @@ class VampireZ {
   /**
    * @param {object} data VampireZ data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}

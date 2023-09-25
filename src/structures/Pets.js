@@ -7,7 +7,7 @@ class Pets {
    * @param {string[]} pets Array of pets
    * @param {object} data data
    */
-  constructor (pets, data) {
+  constructor(pets, data) {
     /**
      * Array of pets
      * @type {Pet[]}

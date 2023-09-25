@@ -1,27 +1,36 @@
 # getSkyblockAuctions
+
 Allows you to get player's skyblock auctions
+
 ## Arguments
+
 - Player nickname or UUID
 - Boolean - include item bytes (`false` by default)
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getSkyblockAuctionsByPlayer('StavZDev').then(data => {
-  console.log(data);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getSkyblockAuctionsByPlayer('StavZDev')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const data = await hypixel.getSkyblockAuctionsByPlayer('StavZDev').catch(e => console.error(e));
+const data = await hypixel.getSkyblockAuctionsByPlayer('StavZDev').catch((e) => console.error(e));
 console.log(data);
 ```
+
 ## Example response
+
 ```js
 [
   Auction {
@@ -85,7 +94,9 @@ console.log(data);
   ... 153 more items
 ]
 ```
+
 ## Links
+
 - [getSkyblockAuctionsByPlayer](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getSkyblockAuctionsByPlayer)
 - [Auction](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Auction)
 - [Bid](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Bid)

@@ -6,7 +6,7 @@ class Quakecraft {
   /**
    * @param {object} data Quakecraft data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -16,12 +16,12 @@ class Quakecraft {
      * Kills
      * @type {number}
      */
-    this.kills = ((data.kills || 0) + (data.kills_teams || 0));
+    this.kills = (data.kills || 0) + (data.kills_teams || 0);
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = ((data.deaths || 0) + (data.deaths_teams || 0));
+    this.deaths = (data.deaths || 0) + (data.deaths_teams || 0);
     /**
      * Kill Death ratio
      * @type {number}
@@ -31,27 +31,27 @@ class Quakecraft {
      * Wins
      * @type {number}
      */
-    this.wins = ((data.wins || 0) + (data.wins_teams || 0));
+    this.wins = (data.wins || 0) + (data.wins_teams || 0);
     /**
      * Distance travelled
      * @type {number}
      */
-    this.distanceTravelled = (data.distance_travelled + data.distance_travelled_teams) || 0;
+    this.distanceTravelled = data.distance_travelled + data.distance_travelled_teams || 0;
     /**
      * Headshots
      * @type {number}
      */
-    this.headshots = ((data.headshots || 0) + (data.headshots_teams || 0));
+    this.headshots = (data.headshots || 0) + (data.headshots_teams || 0);
     /**
      * Shots fired
      * @type {number}
      */
-    this.shotsFired = ((data.shots_fired || 0) + (data.shots_fired_teams || 0));
+    this.shotsFired = (data.shots_fired || 0) + (data.shots_fired_teams || 0);
     /**
      * Kill streaks
      * @type {number}
      */
-    this.killstreaks = ((data.killstreaks || 0) + (data.killstreaks_teams || 0));
+    this.killstreaks = (data.killstreaks || 0) + (data.killstreaks_teams || 0);
     /**
      * Highest killstreak
      * @type {number}
@@ -63,8 +63,8 @@ class Quakecraft {
      */
     this.solo = {
       kills: data.kills || 0,
-      deaths: data.deaths|| 0,
-      KDRatio: divide((data.kills), (data.deaths)),
+      deaths: data.deaths || 0,
+      KDRatio: divide(data.kills, data.deaths),
       wins: data.wins || 0,
       distanceTravelled: data.distance_travelled || 0,
       headshots: data.headshots || 0,

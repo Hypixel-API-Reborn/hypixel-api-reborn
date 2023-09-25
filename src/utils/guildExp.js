@@ -7,9 +7,17 @@ const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
-    date: parseDate(x[0].match(dateRegExp).slice(1).map((x) => parseInt(x, 10))) || undefined,
+    date:
+      parseDate(
+        x[0]
+          .match(dateRegExp)
+          .slice(1)
+          .map((x) => parseInt(x, 10))
+      ) || undefined,
     exp: x[1] || 0,
-    totalExp: Object.values(historyData).slice(0, index + 1).reduce((pV, cV) => pV + cV, 0)
+    totalExp: Object.values(historyData)
+      .slice(0, index + 1)
+      .reduce((pV, cV) => pV + cV, 0)
   }));
 }
 
@@ -30,23 +38,7 @@ function parseDate(date) {
  * @return {number}
  */
 function getGuildLevel(exp) {
-  const EXP_NEEDED = [
-    100000,
-    150000,
-    250000,
-    500000,
-    750000,
-    1000000,
-    1250000,
-    1500000,
-    2000000,
-    2500000,
-    2500000,
-    2500000,
-    2500000,
-    2500000,
-    3000000
-  ];
+  const EXP_NEEDED = [100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000, 2500000, 3000000];
 
   let level = 0;
 
@@ -58,8 +50,8 @@ function getGuildLevel(exp) {
       need = EXP_NEEDED[i];
     }
 
-    if ((exp - need) < 0) {
-      return Math.round((level + (exp / need)) * 100) / 100;
+    if (exp - need < 0) {
+      return Math.round((level + exp / need) * 100) / 100;
     }
     level += 1;
     exp -= need;
@@ -75,4 +67,4 @@ function getGuildLevel(exp) {
  * @property {number} exp Experience of the day
  * @property {number} totalExp Experience earned from day 0 to this day
  */
-module.exports = {parseHistory, getGuildLevel};
+module.exports = { parseHistory, getGuildLevel };

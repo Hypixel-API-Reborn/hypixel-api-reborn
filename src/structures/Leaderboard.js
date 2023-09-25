@@ -5,7 +5,7 @@ class Leaderboard {
   /**
    * @param {object} data Leaderboard data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Leaderboard name
      * @type {string|null}
