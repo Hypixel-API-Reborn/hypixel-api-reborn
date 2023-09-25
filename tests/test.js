@@ -24,12 +24,12 @@ const {
   ServerInfo,
   WoolWars
 } = require('../src');
-const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
+const client = new Client("d86345d4-e246-49b7-8c73-3320c0113fff", { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
   it('expect not to throw', async () => {
-    player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f', { guild: true });
+    player = await client.getPlayer('stavzdev', { guild: true });
   }).timeout(5000);
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
