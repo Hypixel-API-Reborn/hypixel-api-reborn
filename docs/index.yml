@@ -36,5 +36,3 @@
       path: getSkyblockAuctionsByPlayer.md
     - name: getEndedSkyblockAuctions
       path: getEndedSkyblockAuctions.md
-    - name: getRankedSkyWars
-      path: getRankedSkyWars.md

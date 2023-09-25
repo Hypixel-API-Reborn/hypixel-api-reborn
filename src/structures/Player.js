@@ -214,7 +214,7 @@ class Player {
      * @type {PlayerStats}
      */
     this.stats = (data.stats ? {
-      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars, extraPayload?.rankedSW || null) : null),
+      skywars: (data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null),
       bedwars: (data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null),
       uhc: (data.stats.UHC ? new UHC(data.stats.UHC) : null),
       speeduhc: (data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null),
