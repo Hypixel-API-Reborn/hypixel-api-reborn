@@ -44,9 +44,8 @@ jobs:
 
       - name: Run Tests
         env:
-          HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
-        run: |
-          HYPIXEL_KEY="$HYPIXEL_KEY" npm run test
+          HYPIXEL_KEY: ${{ env.HYPIXEL_KEY }}
+        run: npm test
 
   build:
     runs-on: ubuntu-latest

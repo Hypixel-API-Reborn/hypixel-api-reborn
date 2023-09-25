@@ -9,5 +9,5 @@
   "useTabs": false,
   "tabWidth": 2,
   "semi": true,
-  "endOfLine": "crlf"
+  "endOfLine": "lf"
 }
