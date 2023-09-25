@@ -20,7 +20,8 @@ const {
   Pets,
   Pet,
   Color,
-  WoolWars
+  WoolWars,
+  Errors
 } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
@@ -2009,5 +2010,47 @@ describe('Client#getPlayer', () => {
       });
     });
   });
+  describe('Invalid Player', async () => {
+    describe('Invalid Username Test', async () => {
+      it('expect to throw', async () => {
+        try {
+          player = await client.getPlayer('ThisUsernameIsInvalid', { guild: true });
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.PLAYER_DOES_NOT_EXIST);
+        }
+      }).timeout(5000);
+    });
+    describe('Invalid UUID Test', async () => {
+      it('expect to throw', async () => {
+        try {
+          player = await client.getPlayer('this-is-not-a-valid-uuid', { guild: true });
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.PLAYER_DOES_NOT_EXIST);
+        }
+      }).timeout(5000);
+    });
+    describe('No input Test', async () => {
+      it('expect to throw', async () => {
+        try {
+          player = await client.getPlayer();
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.NO_NICKNAME_UUID);
+        }
+      }).timeout(5000);
+    });
+    describe('No input Test', async () => {
+      it('expect to throw', async () => {
+        try {
+          player = await client.getPlayer();
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.NO_NICKNAME_UUID);
+        }
+      }).timeout(5000);
+    });
+    3;
   });
 });
