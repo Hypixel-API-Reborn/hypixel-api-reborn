@@ -7,11 +7,7 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
   query = await toUuid(query);
   const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
   if (res.raw) return res;
-
-  if (!res.profiles || !res.profiles.length) {
-    throw new Error(Errors.NO_SKYBLOCK_PROFILES);
-  }
-
+  if (!res.profiles || !res.profiles.length) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
   const players = new Map();
   if (options.fetchPlayer) {
     const uniqueUuids = [...new Set(res.profiles.map((profile) => Object.keys(profile.members)).flat())];
