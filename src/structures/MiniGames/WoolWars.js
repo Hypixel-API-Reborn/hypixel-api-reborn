@@ -38,15 +38,15 @@ class WoolWars {
      * Selected class, or NONE if field isn't present in API for some reason
      * @type {'ASSAULT'|'TANK'|'GOLEM'|'SWORDSMAN'|'ENGINEER'|'ARCHER'|'NONE'}
      */
-    this.selectedClass = data.wool_wars.selected_class || 'NONE';
+    this.selectedClass = data.wool_wars?.selected_class || 'NONE';
     this.stats = {
-      overall: WoolWars.generateStatsFor(data.wool_wars.stats, ''),
-      assault: WoolWars.generateStatsFor(data.wool_wars.stats, 'assault'),
-      tank: WoolWars.generateStatsFor(data.wool_wars.stats, 'tank'),
-      golem: WoolWars.generateStatsFor(data.wool_wars.stats, 'golem'),
-      swordsman: WoolWars.generateStatsFor(data.wool_wars.stats, 'swordsman'),
-      engineer: WoolWars.generateStatsFor(data.wool_wars.stats, 'engineer'),
-      archer: WoolWars.generateStatsFor(data.wool_wars.stats, 'archer')
+      overall: WoolWars.generateStatsFor(data.wool_wars?.stats, ''),
+      assault: WoolWars.generateStatsFor(data.wool_wars?.stats, 'assault'),
+      tank: WoolWars.generateStatsFor(data.wool_wars?.stats, 'tank'),
+      golem: WoolWars.generateStatsFor(data.wool_wars?.stats, 'golem'),
+      swordsman: WoolWars.generateStatsFor(data.wool_wars?.stats, 'swordsman'),
+      engineer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'engineer'),
+      archer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'archer')
     };
     // Misc fields ig
     /**
@@ -70,8 +70,8 @@ class WoolWars {
     const baseLevel = minimalExp.length;
     const baseExp = minimalExp[minimalExp.length - 1];
     const expToLevel100 = 49e4;
-    if (exp < baseExp) return minimalExp.findIndex((x)=>exp < x);
-    const theoreticalLevel = ((exp - baseExp) / 5e3) + baseLevel;
+    if (exp < baseExp) return minimalExp.findIndex((x) => exp < x);
+    const theoreticalLevel = (exp - baseExp) / 5e3 + baseLevel;
     if (theoreticalLevel > 100) return 100 + this.convertXPToLevel(exp - expToLevel100);
     return theoreticalLevel;
   }

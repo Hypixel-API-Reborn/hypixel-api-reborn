@@ -194,7 +194,6 @@ export interface methodOptions {
 }
 export interface playerMethodOptions extends methodOptions {
   raw?: boolean;
-  currentRankedSW?: boolean;
   guild?: boolean;
   recentGames?: boolean;
 }
@@ -273,7 +272,7 @@ declare module 'hypixel-api-reborn' {
         { name: 'Godlike'; key: 'godlike' },
         { name: 'WORLD ELITE'; key: 'world_elite' },
         { name: 'WORLD MASTER'; key: 'world_master' },
-        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
+        { name: "WORLD'S BEST"; key: 'worlds_best' }
       ];
       leveling_xp: {
         1: 50;
@@ -914,11 +913,6 @@ declare module 'hypixel-api-reborn' {
      */
     getAPIStatus(): Promise<APIStatus>;
     /**
-     * @description Allows you to get Ranked SkyWars data of a player
-     * @param query - player nickname or uuid
-     */
-    getRankedSkyWars(query: string, options?: methodOptions): Promise<SkyWarsRanked | null>;
-    /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
      */
@@ -1001,13 +995,14 @@ declare module 'hypixel-api-reborn' {
       turbokartracers?: TurboKartRacers;
       walls?: Walls;
       warlords?: Warlords;
-      arcade?: Arcade,
+      arcade?: Arcade;
       woolwars?: WoolWars;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
     toString(): string;
-  } class WoolWars {
+  }
+  class WoolWars {
     static convertXPToLevel(exp: number): number;
     static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
     constructor(data: Record<string, unknown>);
@@ -1018,44 +1013,37 @@ declare module 'hypixel-api-reborn' {
     coins: number;
     selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
     stats: {
-        overall: WoolWarsStats;
-        assault: WoolWarsStats;
-        tank: WoolWarsStats;
-        golem: WoolWarsStats;
-        swordsman: WoolWarsStats;
-        engineer: WoolWarsStats;
-        archer: WoolWarsStats;
+      overall: WoolWarsStats;
+      assault: WoolWarsStats;
+      tank: WoolWarsStats;
+      golem: WoolWarsStats;
+      swordsman: WoolWarsStats;
+      engineer: WoolWarsStats;
+      archer: WoolWarsStats;
     };
     ownedCosmetics: string[];
     privateGamesConfig: PrivateGamesConfig;
   }
   type WoolWarsStats = {
-      roundWins: number;
-      gamesPlayed: number;
-      woolsPlaced: number;
-      blocksBroken: number;
-      placeBreakRatio: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      assists: number;
-      powerups: number;
-  }
+    roundWins: number;
+    gamesPlayed: number;
+    woolsPlaced: number;
+    blocksBroken: number;
+    placeBreakRatio: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    powerups: number;
+  };
   type PrivateGamesConfig = {
-      one_hit_one_kill: boolean;
-      rainbow_wool: 'Enabled' | 'Disabled';
-      health_buff: string;
-      game_speed: string;
-      speed: string;
-      no_class: 'Enabled' | 'Disabled';
-  }
-  class SkyWarsRanked {
-    constructor(data: Record<string, unknown>);
-    seasonKey: string;
-    rating: number;
-    date: Date;
-    position: number;
-  }
+    one_hit_one_kill: boolean;
+    rainbow_wool: 'Enabled' | 'Disabled';
+    health_buff: string;
+    game_speed: string;
+    speed: string;
+    no_class: 'Enabled' | 'Disabled';
+  };
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
     allCosmetics: string[];
@@ -1252,7 +1240,6 @@ declare module 'hypixel-api-reborn' {
         teamsInsane: number;
         soloNormal: number;
         soloInsaneHuntersVsBeasts: number;
-        rankedNormal: number;
         soloInsaneTntMadness: number;
         soloInsaneRush: number;
         soloInsane: number;
@@ -1325,16 +1312,6 @@ declare module 'hypixel-api-reborn' {
     idle: { players: number };
     queue: { players: number };
   }
-  class KeyInfo {
-    constructor(data: Record<string, unknown>);
-    key: string;
-    owner: string;
-    limitPerMinute: number;
-    requestsInPastMin: number;
-    totalRequests: number;
-    resetsAfter: number;
-  }
-
   class Arcade {
     constructor(data?: Record<string, unknown>);
     lastTourneyAdTimestamp: number;
@@ -2081,7 +2058,7 @@ declare module 'hypixel-api-reborn' {
         zombieDeep?: number;
         zombieGrunt?: number;
         zombieSoldier?: number;
-      },
+      };
       dungeonHubCrystalCoreAnythingNoReturnBestTime?: number;
       dungeonHubCrystalCoreAnythingWithReturnBestTime?: number;
       dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number;
@@ -2268,7 +2245,7 @@ declare module 'hypixel-api-reborn' {
         zombieKnight?: number;
         zombieSoldier?: number;
         zombieVillager?: number;
-      },
+      };
       mostWinterCannonballsHit?: number;
       mostWinterDamageDealt?: number;
       mostWinterMagmaDamageDealt?: number;
@@ -2446,17 +2423,6 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
       };
-    };
-    ranked: {
-      winstreak: number;
-      playedGames: number;
-      kills: number;
-      wins: number;
-      losses: number;
-      deaths: number;
-      KDRatio: number;
-      WLRatio: number;
-      ratings: Map<string, { rating: number; position: number; date: Date }>;
     };
     mega: {
       overall: {

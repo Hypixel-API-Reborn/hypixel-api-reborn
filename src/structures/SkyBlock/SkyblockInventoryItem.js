@@ -7,7 +7,7 @@ class SkyblockInventoryItem {
   /**
    * @param {object} data Item data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Item ID
      * @type {number}
@@ -57,11 +57,12 @@ class SkyblockInventoryItem {
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
      */
-    // eslint-disable-next-line no-new-object
-    this.gemstones = data.tag.ExtraAttributes.gems ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => new Object({
-      type: gem[0].split('_')[0],
-      quality: gem[1]
-    })) : null;
+    this.gemstones = data.tag.ExtraAttributes.gems
+      ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
+          // eslint-disable-next-line no-new-object
+          new Object({ type: gem[0].split('_')[0], quality: gem[1] });
+        })
+      : null;
     /**
      * Anvil uses
      * @type {number}
@@ -96,26 +97,19 @@ class SkyblockInventoryItem {
    * Item Name
    * @return {string}
    */
-  toString () {
+  toString() {
     return this.name;
   }
 }
-/**
- * parses rarity
- * @param {string} stringContainingRarity
- * @return {string}
- */
-function parseRarity (stringContainingRarity) {
+// eslint-disable-next-line require-jsdoc
+function parseRarity(stringContainingRarity) {
   const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY SPECIAL'];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }
 }
-/**
- * @param {string[]} lore
- * @return {number}
- */
-function parseGearScore (lore) {
+// eslint-disable-next-line require-jsdoc
+function parseGearScore(lore) {
   for (const line of lore) {
     if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
   }

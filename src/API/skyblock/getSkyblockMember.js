@@ -14,12 +14,15 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
   const memberByProfileName = new Map();
   for (const profile of res.profiles) {
     profile.members[query].player = player;
-    memberByProfileName.set(profile.cute_name, new SkyblockMember({
-      uuid: query,
-      profileName: profile.cute_name,
-      gameMode: profile.game_mode || null,
-      m: profile.members[query]
-    }));
+    memberByProfileName.set(
+      profile.cute_name,
+      new SkyblockMember({
+        uuid: query,
+        profileName: profile.cute_name,
+        gameMode: profile.game_mode || null,
+        m: profile.members[query]
+      })
+    );
   }
   return memberByProfileName;
 };

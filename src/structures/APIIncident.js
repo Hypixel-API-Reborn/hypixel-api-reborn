@@ -6,7 +6,7 @@ class APIIncident {
   /**
    * @param {object} data API incident data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Link to incident
      * @type {string|null}

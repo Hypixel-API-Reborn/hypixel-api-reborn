@@ -7,7 +7,7 @@ class Pet {
    * @param {string} name Name of pet
    * @param {object} data data
    */
-  constructor (name, data) {
+  constructor(name, data) {
     /**
      * Is Pet Favorite
      * @type {boolean}
@@ -29,61 +29,60 @@ class Pet {
      * Stats of the pet, if any
      * @type {object}
      */
-    this.stats = {};
     if (!stats) return; // don't parse stats because there is none.
     /**
      * Hunger value ( 100 is highest )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.hunger = stats.HUNGER ? stats.HUNGER.value : null;
+    this.hunger = stats.HUNGER ? stats.HUNGER.value : null;
     /**
      * Last time the pet was fed ( timestamp )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.lastFed = stats.HUNGER ? stats.HUNGER.timestamp : null;
+    this.lastFed = stats.HUNGER ? stats.HUNGER.timestamp : null;
     /**
      * Last time the pet was fed ( Date )
-     * @type {Date|null}
+     * @type {?Date}
      */
-    this.stats.lastFedAt = this.stats.lastFed ? new Date(this.stats.lastFed) : null;
+    this.lastFedAt = this.lastFed ? new Date(this.lastFed) : null;
     /**
      * Thirst value ( 100 is highest )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.thirst = stats.THIRST ? stats.THIRST.value : null;
+    this.thirst = stats.THIRST ? stats.THIRST.value : null;
     /**
      * Last time the pet drank ( timestamp )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.lastDrank = stats.THIRST ? stats.THIRST.timestamp : null;
+    this.lastDrank = stats.THIRST ? stats.THIRST.timestamp : null;
     /**
      * Last time the pet drank ( Date )
-     * @type {Date|null}
+     * @type {?Date}
      */
-    this.stats.lastDrankAt = this.stats.lastDrank ? new Date(this.stats.lastDrank) : null;
+    this.lastDrankAt = this.lastDrank ? new Date(this.lastDrank) : null;
     /**
      * Exercise/Entertainment value ( 100 is highest )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.exercise = stats.EXERCISE ? stats.EXERCISE.value : null;
+    this.exercise = stats.EXERCISE ? stats.EXERCISE.value : null;
     /**
      * Last time the pet was exercised ( timestamp )
-     * @type {number|null}
+     * @type {?number}
      */
-    this.stats.lastExercised = stats.EXERCISE ? stats.EXERCISE.timestamp : null;
+    this.lastExercised = stats.EXERCISE ? stats.EXERCISE.timestamp : null;
     /**
      * Last time the pet exercised ( Date )
-     * @type {Date|null}
+     * @type {?Date}
      */
-    this.stats.lastExercisedAt = this.stats.lastExercised ? new Date(this.stats.lastExerciced) : null;
+    this.lastExercisedAt = this.lastExercised ? new Date(this.lastExerciced) : null;
     /**
      * Raw Nickname, if any
-     * @type {string|null}
+     * @type {?string}
      */
     this.rawNickname = stats.name || null;
     /**
      * Nickname in plain text, if any
-     * @type {string|null}
+     * @type {?string}
      */
     this.nickname = stats.name ? stats.name.replace(/§([0-9]|[a-f])|§/gm, '') : null;
     /**

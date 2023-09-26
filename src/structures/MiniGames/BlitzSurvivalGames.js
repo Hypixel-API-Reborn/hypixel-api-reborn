@@ -1,19 +1,46 @@
 const divide = require('../../utils/divide');
 const kits = [
-  'arachnologist', 'archer', 'armorer',
-  'astronaut', 'baker', 'blaze',
-  'creepertamer', 'fisherman', 'horsetamer',
-  'hunter', 'knight', 'meatmaster',
-  'necromancer', 'pigman', 'reddragon',
-  'rogue', 'scout', 'slimeyslime',
-  'speleologist', 'tim', 'toxicologist',
-  'troll', 'wolftamer', 'paladin',
-  'shadow knight', 'hype train', 'jockey',
-  'reaper', 'golem', 'farmer',
-  'florist', 'snowman', 'guardian',
-  'warlock', 'viking', 'diver',
-  'ranger', 'donkeytamer', 'phoenix',
-  'warrior', 'rambo'
+  'arachnologist',
+  'archer',
+  'armorer',
+  'astronaut',
+  'baker',
+  'blaze',
+  'creepertamer',
+  'fisherman',
+  'horsetamer',
+  'hunter',
+  'knight',
+  'meatmaster',
+  'necromancer',
+  'pigman',
+  'reddragon',
+  'rogue',
+  'scout',
+  'slimeyslime',
+  'speleologist',
+  'tim',
+  'toxicologist',
+  'troll',
+  'wolftamer',
+  'paladin',
+  'shadow knight',
+  'hype train',
+  'jockey',
+  'reaper',
+  'golem',
+  'farmer',
+  'florist',
+  'snowman',
+  'guardian',
+  'warlock',
+  'viking',
+  'diver',
+  'ranger',
+  'donkeytamer',
+  'phoenix',
+  'warrior',
+  'rambo'
 ];
 /**
  * Blitz SG class
@@ -22,7 +49,7 @@ class BlitzSurvivalGames {
   /**
    * @param {object} data Blitz SG data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -60,18 +87,15 @@ class BlitzSurvivalGames {
     this.kitStats = generateKitStats(data);
   }
 }
-/**
- * @param {object} data
- * @return {object}
- */
-function generateKitStats (data) {
+// eslint-disable-next-line require-jsdoc
+function generateKitStats(data) {
   const stats = [];
   for (let i = 0; i < kits.length; i++) {
     if (data[kits[i]]) {
       stats.push({
         name: kits[i],
         games: data[`games_played_${kits[i]}`] || 0,
-        level: (data[kits[i]] + 1) || 1,
+        level: data[kits[i]] + 1 || 1,
         experience: data[`exp_${kits[i]}`] || 0,
         prestige: data[`p${kits[i]}`] || 0,
         kills: data[`kills_${kits[i]}`] || 0,
@@ -129,7 +153,7 @@ function generateKitStats (data) {
  * * `phoenix`
  * * `warrior`
  * * `rambo`
-*/
+ */
 /**
  * @typedef {object} BlitzSGKitStats
  * @property {BlitzSGKit} name Kit name
@@ -144,5 +168,5 @@ function generateKitStats (data) {
  * @property {number} losses Losses
  * @property {number} WLRatio Win Loss ratio
  * @property {number|null} timePlayed Time played
-*/
+ */
 module.exports = BlitzSurvivalGames;

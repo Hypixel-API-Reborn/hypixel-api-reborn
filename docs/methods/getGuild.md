@@ -1,27 +1,36 @@
 # getGuild
+
 Allows you to get statistics of hypixel guild.
+
 ## Arguments
+
 - Search parameter. ('player', 'name' or 'id')
 - Player UUID/Nickname or Guild Name or Guild ID
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/MethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getGuild('name', 'The Foundation').then(guild => {
-  console.log(guild.level); // 112
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getGuild('name', 'The Foundation')
+  .then((guild) => {
+    console.log(guild.level); // 112
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const guild = await hypixel.getGuild('player', 'StavZDev').catch(e => console.error(e));
+const guild = await hypixel.getGuild('player', 'StavZDev').catch((e) => console.error(e));
 console.log(guild); // null (player isn't in guild)
 ```
+
 ## Example response
+
 ```js
 Guild {
   id: '52e5719284ae51ed0c716c69',
@@ -75,7 +84,9 @@ Guild {
   ]
 }
 ```
+
 ## Links
+
 - [getGuild](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getGuild)
 - [Guild](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Guild)
 - [GuildMember](https://hypixel-api-reborn.github.io/#/docs/main/master/class/GuildMember)

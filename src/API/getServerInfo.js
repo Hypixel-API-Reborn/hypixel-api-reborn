@@ -2,11 +2,7 @@ const net = require('net');
 const Errors = require('../Errors');
 const ServerInfo = require('../structures/ServerInfo');
 const varInt = require('../utils/varInt');
-const packetsToSend = [
-  '1500E0050E6D632E6879706978656C2E6E657463DD01',
-  '0100',
-  '09010000000000000000'
-].map((x) => Buffer.from(x, 'hex')); // To avoid dependency hell, these are precompiled as hex.
+const packetsToSend = ['1500E0050E6D632E6879706978656C2E6E657463DD01', '0100', '09010000000000000000'].map((x) => Buffer.from(x, 'hex')); // To avoid dependency hell, these are precompiled as hex.
 module.exports = async function (repeats) {
   if (repeats < 0 || typeof repeats !== 'number') repeats = 3;
   if (repeats > 10) repeats = 10;
@@ -23,7 +19,12 @@ module.exports = async function (repeats) {
     cli.on('data', async (data) => {
       if (!aggregatedData) {
         const varIntBorder = data.findIndex((x) => x === 0x00) + 1;
-        dataLength = varInt(data.toString('hex', 0, varIntBorder).match(/(..)/g).map((x) => parseInt(x, 16)));
+        dataLength = varInt(
+          data
+            .toString('hex', 0, varIntBorder)
+            .match(/(..)/g)
+            .map((x) => parseInt(x, 16))
+        );
         dataLength -= varIntBorder * 8;
         aggregatedData += data.toString('utf-8', 5);
       } else aggregatedData += data.toString('utf-8');
@@ -34,13 +35,8 @@ module.exports = async function (repeats) {
     });
   });
 };
-/**
- * Gets hypixel's ping
- * @param {number} amount Amount of times to ping
- * @param {net.Socket} cli Socket connected to hypixel
- * @returns {number}
- */
-async function getPing (amount, cli) {
+// eslint-disable-next-line require-jsdoc
+async function getPing(amount, cli) {
   let pingSum = 0;
   for (let i = 0; i < amount; i++) {
     pingSum += await ping(cli);
@@ -48,12 +44,9 @@ async function getPing (amount, cli) {
   cli.destroy();
   return Math.round(pingSum / amount);
 }
-/**
- * Pings hypixel
- * @param {net.Socket} cli Client socket, connected to hypixel.
- * @returns {number} Ping
- */
-async function ping (cli) {
+
+// eslint-disable-next-line require-jsdoc
+async function ping(cli) {
   await cli.write(packetsToSend[2]);
   const time = Date.now();
   return new Promise((resolve) => {
@@ -62,13 +55,9 @@ async function ping (cli) {
     });
   });
 }
-/**
- * Parses the MOTD & Server status
- * @param {string} stringJson Parseable JSON string
- * @param {number} ping Ping of the server
- * @returns {Object} Object
- */
-function parseData (stringJson, ping) {
+
+// eslint-disable-next-line require-jsdoc
+function parseData(stringJson, ping) {
   try {
     return new ServerInfo(JSON.parse(stringJson), ping);
   } catch (e) {

@@ -6,7 +6,7 @@ class MegaWalls {
   /**
    * @param {object} data MegaWalls data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Selected class
      * @type {string}

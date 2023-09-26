@@ -7,7 +7,7 @@ class SkyblockProfile {
    * Skyblock profile data
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Skyblock profile ID
      * @type {string}
@@ -43,13 +43,8 @@ class SkyblockProfile {
   }
 }
 
-/**
- * @private
- * @param {Array} members
- * @param {string} profileName
- * @return {Array}
- */
-function edit (members, profileName) {
+// eslint-disable-next-line require-jsdoc
+function edit(members, profileName) {
   const edited = [];
   Object.keys(members).forEach((k) => {
     const m = members[k];

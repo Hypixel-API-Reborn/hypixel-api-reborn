@@ -39,7 +39,8 @@ class Client extends EventEmitter {
             _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
             ...this
           },
-          args);
+          args
+        );
       };
 
       if (this.options.checkForUpdates) {
@@ -64,7 +65,7 @@ class Client extends EventEmitter {
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && await this.requests.cache.has(url)) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
     const result = await this.requests.request.call(this.requests, url, { ...options, headers: { ...options.headers, ...this.options.headers } });
@@ -337,23 +338,6 @@ class Client extends EventEmitter {
    * .catch(console.log)
    */
   /**
-   * Allows you to get Ranked SkyWars data for current season of a player
-   * @method
-   * @name Client#getRankedSkyWars
-   * @param {string} query Player nickname or uuid
-   * @param {MethodOptions} [options={}] Options
-   * @return {Promise<SkyWarsRanked>}
-   * @example
-   * hypixel.getRankedSkyWars('gypu').then((ranked) => {
-   *   console.log(ranked.position); // 4
-   * }).catch(console.log);
-   * @example
-   * // if player has no stats for current ranked season
-   * hypixel.getRankedSkyWars('StavZDev').then((ranked) => {
-   *   console.log(ranked); // null
-   * }).catch(console.log) // throws 404 error;
-   */
-  /**
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}
@@ -396,7 +380,6 @@ const defaultCache = require('./Private/defaultCache.js');
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {boolean} [guild=false] Disable/Enable request for player's guild
  * @property {boolean} [recentGames=false] Disable/Enable request for player's recent game
- * @property {boolean} [currentRankedSW=false] Disable/Enable request for player's current ranked SkyWars rating. Previous ratings will always show mindless of this option.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**

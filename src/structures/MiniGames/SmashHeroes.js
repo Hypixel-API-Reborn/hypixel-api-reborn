@@ -6,7 +6,7 @@ class SmashHeroes {
   /**
    * @param {object} data SmashHeroes data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}
@@ -78,12 +78,8 @@ class SmashHeroes {
     this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
 }
-/**
- * @param {object} data
- * @param {string} mode
- * @return {object}
- */
-function generateModeStats (data, mode) {
+// eslint-disable-next-line require-jsdoc
+function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
     deaths: data[`deaths_${mode}`] || 0,
@@ -93,11 +89,8 @@ function generateModeStats (data, mode) {
     WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
   };
 }
-/**
- * @param {object} data
- * @return {object}
- */
-function generateHeroStats (data) {
+// eslint-disable-next-line require-jsdoc
+function generateHeroStats(data) {
   // eslint-disable-next-line no-useless-return
   const stats = [];
   for (const hero in data.class_stats) {

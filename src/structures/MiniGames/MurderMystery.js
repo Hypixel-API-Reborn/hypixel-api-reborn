@@ -6,7 +6,7 @@ class MurderMystery {
   /**
    * @param {object} data MurderMystery data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Coins
      * @type {number}

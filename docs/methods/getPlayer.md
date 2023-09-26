@@ -1,33 +1,45 @@
 # getPlayer
+
 Allows you to get statistics of player.
+
 ## Arguments
+
 - Player nickname or UUID
 - [Method options](https://hypixel-api-reborn.github.io/#/docs/main/master/typedef/PlayerMethodOptions) (optional)
 
 ## Example usage
+
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
 // https://stavzdev.is-inside.me/cCMiZdoy.gif
 
-hypixel.getPlayer('StavZDev').then(player => {
-  console.log(player);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getPlayer('StavZDev')
+  .then((player) => {
+    console.log(player);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 // async/await
-const player = await hypixel.getPlayer('StavZDev').catch(e => console.error(e));
-console.log(player); // if player doesn't exist will return null 
+const player = await hypixel.getPlayer('StavZDev').catch((e) => console.error(e));
+console.log(player); // if player doesn't exist will return null
 
 // include player's guild in Player
-hypixel.getPlayer('StavZDev', { guild: true }).then(player => {
-  console.log(player);
-}).catch(e => {
-  console.error(e);
-});
+hypixel
+  .getPlayer('StavZDev', { guild: true })
+  .then((player) => {
+    console.log(player);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 ```
+
 ## Example response
+
 ```js
 Player {
   nickname: 'StavZDev',
@@ -99,7 +111,9 @@ Player {
   }
 }
 ```
+
 ## Links
+
 - [getPlayer](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Client?scrollTo=getPlayer)
 - [Player](https://hypixel-api-reborn.github.io/#/docs/main/master/class/Player)
 - [SkyWars](https://hypixel-api-reborn.github.io/#/docs/main/master/class/SkyWars)

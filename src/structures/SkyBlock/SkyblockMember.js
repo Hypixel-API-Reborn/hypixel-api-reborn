@@ -4,7 +4,6 @@ const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Co
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
 const objectPath = require('object-path');
-const constants = require('../../utils/Constants');
 const Constants = require('../../utils/Constants');
 /**
  * Skyblock member class
@@ -77,17 +76,17 @@ class SkyblockMember {
     this.experience = data.m.leveling?.experience ?? 0;
     /**
      * Heart of the Mountain - MiningSkill
-     * @returns {number}
+     * @type {number}
      */
     this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm', 7);
     /**
      * Trophy fish amount of rewards
-     * @returns {number}
+     * @type {number}
      */
     this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
     /**
      * The highest magical power **Not current one**
-     * @returns {number}
+     * @type {number}
      */
     this.highestMagicalPower = data.m.accessory_bag_storage?.highest_magical_power ?? 0;
     /**
@@ -253,10 +252,7 @@ class SkyblockMember {
     return this.uuid;
   }
 }
-/**
- * @param {object} data
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function getSkills(data) {
   const skillsObject = {};
   if (!objectPath.has(data, 'experience_skill_foraging')) {
@@ -275,15 +271,11 @@ function getSkills(data) {
   if (data.player) skillsObject.usedAchievementApi = false;
   return skillsObject;
 }
-/**
- * @param {object} userProfile
- * @param {object} mobs
- * @returns {object}
- */
+// eslint-disable-next-line require-jsdoc
 function formatBestiaryMobs(userProfile, mobs) {
   const output = [];
   for (const mob of mobs) {
-    const mobBracket = constants.bestiaryBrackets[mob.bracket];
+    const mobBracket = Constants.bestiaryBrackets[mob.bracket];
 
     const totalKills = mob.mobs.reduce((acc, cur) => {
       return acc + (userProfile.bestiary.kills[cur] ?? 0);
@@ -301,10 +293,7 @@ function formatBestiaryMobs(userProfile, mobs) {
   return output;
 }
 
-/**
- * @param {object} userProfile
- * @returns {number | null}
- */
+// eslint-disable-next-line require-jsdoc
 function getBestiaryLevel(userProfile) {
   try {
     if (userProfile.bestiary?.kills === undefined) {
@@ -313,7 +302,7 @@ function getBestiaryLevel(userProfile) {
 
     const output = {};
     let tiersUnlocked = 0;
-    for (const [category, data] of Object.entries(constants.bestiary)) {
+    for (const [category, data] of Object.entries(Constants.bestiary)) {
       const { mobs } = data;
       output[category] = {};
 
@@ -338,10 +327,7 @@ function getBestiaryLevel(userProfile) {
   }
 }
 
-/**
- * @param {object} data
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
   if (!objectPath.has(data, 'slayer_bosses')) {
     return null;
@@ -355,10 +341,7 @@ function getSlayer(data) {
     vampire: getSlayerLevel(data.slayer_bosses.vampire)
   };
 }
-/**
- * @param {object} data
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function getDungeons(data) {
   if (!objectPath.has(data, 'dungeons')) {
     return null;
@@ -376,10 +359,7 @@ function getDungeons(data) {
     }
   };
 }
-/**
- * @param {object} data
- * @return {jacobData}
- */
+// eslint-disable-next-line require-jsdoc
 function getJacobData(data) {
   if (!data.m.jacob2) {
     return {
@@ -396,28 +376,14 @@ function getJacobData(data) {
     };
   }
   return {
-    medals: data.m.jacob2.medals_inv ?
-      {
-        bronze: data.m.jacob2.medals_inv.bronze || 0,
-        silver: data.m.jacob2.medals_inv.silver || 0,
-        gold: data.m.jacob2.medals_inv.gold || 0
-      } :
-      { bronze: 0, silver: 0, gold: 0 },
-    perks: data.m.jacob2.perks ?
-      {
-        doubleDrops: data.m.jacob2.perks.doubleDrops || 0,
-        farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0
-      } :
-      { doubleDrops: 0, farmingLevelCap: 0 },
+    medals: data.m.jacob2.medals_inv
+      ? { bronze: data.m.jacob2.medals_inv.bronze || 0, silver: data.m.jacob2.medals_inv.silver || 0, gold: data.m.jacob2.medals_inv.gold || 0 }
+      : { bronze: 0, silver: 0, gold: 0 },
+    perks: data.m.jacob2.perks ? { doubleDrops: data.m.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0 } : { doubleDrops: 0, farmingLevelCap: 0 },
     contests: data.m.jacob2.contests || {}
   };
 }
-/**
- * @param {number} petExp
- * @param {string} offsetRarity
- * @param {number} maxLevel
- * @returns  {{level: number,xpCurrent: number,xpForNext: number,progress: any,xpMaxLevel: number}}
- */
+// eslint-disable-next-line require-jsdoc
 function getPetLevel(petExp, offsetRarity, maxLevel) {
   const rarityOffset = Constants.pet_rarity_offset[offsetRarity];
   const levels = Constants.pet_levels.slice(rarityOffset, rarityOffset + maxLevel - 1);

@@ -6,7 +6,7 @@ class Booster {
   /**
    * @param {object} data
    */
-  constructor (data) {
+  constructor(data) {
     /**
      * Booster's purchaser's UUID
      * @type {String}
@@ -69,16 +69,12 @@ class Booster {
    * Beautiful format
    * @return {string}
    */
-  toString () {
+  toString() {
     return `${this.purchaser}'s booster in ${this.game}`;
   }
 }
 
-/**
- * Parses the type of the booster
- * @param {Object} data Data
- * @returns {string} Type of booster
- */
+// eslint-disable-next-line require-jsdoc
 function parseType(data) {
   if (data.stacked === true) return 'STACKED';
   if (!data.stacked) return 'QUEUED';

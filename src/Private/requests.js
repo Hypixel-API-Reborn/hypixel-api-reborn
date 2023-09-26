@@ -4,18 +4,16 @@ const externalFetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net';
 const Errors = require('../Errors');
 const Cache = require('./defaultCache');
+const Client = require('../Client.js');
 
-module.exports = class Requests {
+class Requests {
   constructor(client, cache) {
     if (cache && !this.validateCustomCache()) throw new Error(Errors.INVALID_CACHE_HANDLER);
-    /**
-     * @type {Cache}
-     */
     this.cached = cache || new Cache();
     this.client = client;
   }
-  async request (endpoint, options = {}) {
-    options.headers = {'API-Key': this.client.key, ...options.headers};
+  async request(endpoint, options = {}) {
+    options.headers = { 'API-Key': this.client.key, ...options.headers };
     const fetchMethod = requireFetch ? externalFetch : fetch;
     /**
      * @type {externalFetch.Response|Response}
@@ -25,7 +23,7 @@ module.exports = class Requests {
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
-    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, (parsedRes.cause || '')));
+    if (res.status === 400) throw new Error(Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || ''));
     if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
     if (res.status === 422) throw new Error(Errors.UNEXPECTED_ERROR);
     if (res.status === 429) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
@@ -38,7 +36,7 @@ module.exports = class Requests {
     if (options.noCaching) return parsedRes;
     // split by question mark : first part is /path, remove /
     if (this.client.options.cache && this.client.options.cacheFilter(endpoint.split('?')[0].slice(1))) {
-      if (this.client.options.cacheSize < await this.cached.size()) await this.cached.delete(Array.from(await this.cached.keys())[0]);
+      if (this.client.options.cacheSize < (await this.cached.size())) await this.cached.delete(Array.from(await this.cached.keys())[0]);
       await this.cached.delete(endpoint);
       await this.cached.set(endpoint, parsedRes);
       if (this.client.options.cacheTime >= 0) setTimeout(() => this.cached.delete(endpoint), 1000 * this.client.options.cacheTime);
@@ -46,16 +44,22 @@ module.exports = class Requests {
     return parsedRes;
   }
 
-  get cache () {
+  get cache() {
     return this.cached;
   }
 
-  async sweepCache (amount) {
-    if (!amount || amount >= await this.cached.size()) return await this.cached.clear();
-    return await Promise.all(Array.from(await this.cached.keys()).slice(await this.cached.size() - amount).map((x) => this.cached.delete(x)));
+  async sweepCache(amount) {
+    if (!amount || amount >= (await this.cached.size())) return await this.cached.clear();
+    return await Promise.all(
+      Array.from(await this.cached.keys())
+        .slice((await this.cached.size()) - amount)
+        .map((x) => this.cached.delete(x))
+    );
   }
 
   validateCustomCache(cache) {
     return !!(cache.set && cache.get && cache.delete && cache.keys);
   }
-};
+}
+
+module.exports = Requests;
