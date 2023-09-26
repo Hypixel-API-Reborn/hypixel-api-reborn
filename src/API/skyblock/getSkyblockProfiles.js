@@ -9,7 +9,7 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
   if (res.raw) return res;
 
   if (!res.profiles || !res.profiles.length) {
-    return [];
+    throw new Error(Errors.NO_SKYBLOCK_PROFILES);
   }
 
   const players = new Map();
