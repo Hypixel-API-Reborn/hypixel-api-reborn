@@ -23,11 +23,7 @@ class ArenaBrawl {
     };
   }
 }
-/**
- * @param {object} data
- * @param {string} mode
- * @return {{kills:number,deaths:number,KDRatio:number,wins:number,losses:number,WLRatio:number}}
- */
+// eslint-disable-next-line require-jsdoc
 function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,

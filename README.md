@@ -58,7 +58,7 @@ For more examples go to our [documentation](https://hypixel-api-reborn.github.io
 
 ## Changelog
 
-[v10.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/10.0.0)
+[v11.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/11.0.0)
 
 ### Try it now
 

@@ -330,28 +330,19 @@ class SkyWars {
  * @property {SkyWarsModeStats} doubles Mega Doubles Stats
  */
 module.exports = SkyWars;
-/**
- * @param {number} level
- * @return {string}
- */
+// eslint-disable-next-line require-jsdoc
 function getSkyWarsPrestige(level) {
   if (level >= 60) return 'Mythic';
   return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Iron';
 }
-/**
- * @param {number} xp
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getSkyWarsLevel(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
   const level = totalXp.findIndex((x) => x * 10 - xp > 0);
   return level; /* + (xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10*/
 }
-/**
- * @param {number} xp
- * @return {{xpToNextLevel:number,percent:number,xpNextLevel:number}}
- */
+// eslint-disable-next-line require-jsdoc
 function getSkyWarsLevelProgress(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10

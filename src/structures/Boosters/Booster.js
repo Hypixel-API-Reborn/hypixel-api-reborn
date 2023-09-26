@@ -74,11 +74,7 @@ class Booster {
   }
 }
 
-/**
- * Parses the type of the booster
- * @param {Object} data Data
- * @returns {string} Type of booster
- */
+// eslint-disable-next-line require-jsdoc
 function parseType(data) {
   if (data.stacked === true) return 'STACKED';
   if (!data.stacked) return 'QUEUED';

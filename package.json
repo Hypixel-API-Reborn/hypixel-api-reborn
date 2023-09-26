@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "10.0.0",
+  "version": "11.0.1",
   "description": "Feature-rich Hypixel API wrapper for Node.js",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",
@@ -22,7 +22,6 @@
     "test": "npx mocha tests --exit",
     "docgen": "npx docgen -s src -o ../docs/master.json",
     "docgen:custom": "npx docgen -s src --custom docs/index.yml -o ../docs/master.json",
-    "prepublishOnly": "npm run test:dev && npm run docgen:custom",
     "dtslint": "npx dtslint typings",
     "prettier": "npx prettier --write src/ typings/",
     "prettier:check": "npx prettier --check src/ typings/"

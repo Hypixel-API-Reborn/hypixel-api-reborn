@@ -101,21 +101,14 @@ class SkyblockInventoryItem {
     return this.name;
   }
 }
-/**
- * parses rarity
- * @param {string} stringContainingRarity
- * @return {string}
- */
+// eslint-disable-next-line require-jsdoc
 function parseRarity(stringContainingRarity) {
   const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY SPECIAL'];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }
 }
-/**
- * @param {string[]} lore
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function parseGearScore(lore) {
   for (const line of lore) {
     if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);

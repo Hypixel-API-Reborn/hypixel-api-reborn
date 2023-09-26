@@ -202,10 +202,7 @@ class BedWars {
     this.castle = generateStatsForMode(data, 'castle');
   }
 }
-/**
- * @param {number} level
- * @return {string}
- */
+// eslint-disable-next-line require-jsdoc
 function getBedWarsPrestige(level) {
   // eslint-disable-next-line max-len
   if (level >= 5000) return 'Eternal';
@@ -271,10 +268,7 @@ const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
 
-/**
- * @param {number} level
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getExpForLevel(level) {
   if (level === 0) return 0;
   const respectedLevel = getLevelRespectingPrestige(level);
@@ -291,10 +285,7 @@ function getExpForLevel(level) {
   }
   return 5000;
 }
-/**
- * @param {number} level
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getLevelRespectingPrestige(level) {
   if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
     return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
@@ -302,10 +293,7 @@ function getLevelRespectingPrestige(level) {
     return level % LEVELS_PER_PRESTIGE;
   }
 }
-/**
- * @param {number} exp
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getLevelForExp(exp) {
   const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
   let level = prestiges * LEVELS_PER_PRESTIGE;

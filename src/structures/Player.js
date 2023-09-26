@@ -275,12 +275,7 @@ class Player {
   }
 }
 
-/**
- * @async
- * @description Get player's rank
- * @param {object} player
- * @return {string}
- */
+// eslint-disable-next-line require-jsdoc
 function getRank(player) {
   let rank;
   if (player.prefix) {
@@ -317,10 +312,7 @@ function getRank(player) {
   }
   return rank;
 }
-/**
- * @param {number} exp
- * @return {number} Level rounded to the nearest cent
- */
+// eslint-disable-next-line require-jsdoc
 function getPlayerLevel(exp) {
   const base = 10000;
   const growth = 2500;
@@ -331,32 +323,21 @@ function getPlayerLevel(exp) {
   const level = Math.round(num * 100) / 100;
   return level;
 }
-/**
- * @description EXP to next player level.
- * @param {object} player
- * @returns {number}
- */
+// eslint-disable-next-line require-jsdoc
 function xpToNextLevel(player) {
   const lvl = getPlayerLevel(player.networkExp);
   const xpToNext = 2500 * Math.floor(lvl) + 5000;
   if (player.networkExp < 10000) return 10000;
   return xpToNext;
 }
-/**
- * @param {Player} player
- * @returns {number}
- */
+// eslint-disable-next-line require-jsdoc
 function levelToXP(player) {
   let level = Number(Math.floor(getPlayerLevel(player.networkExp)));
   level = level - 1;
   const xp = 1250 * level ** 2 + 8750 * level;
   return xp;
 }
-/**
- * Player Network level Progress
- * @param {Object} player player data
- * @returns {{xpToNext:number,currentXP:number,percent:number,remainingXP:number,percentRemaining:number}}
- */
+// eslint-disable-next-line require-jsdoc
 function playerLevelProgress(player) {
   const xpFromLevel = levelToXP(player);
   let currentXP = player.networkExp - xpFromLevel;
@@ -373,10 +354,7 @@ function playerLevelProgress(player) {
     percentRemaining
   };
 }
-/**
- * @param {object} data
- * @return {Array<{name:string,link:string,id:string}>}
- */
+// eslint-disable-next-line require-jsdoc
 function getSocialMedia(data) {
   if (!data) return null;
   const links = data.links;
@@ -388,11 +366,7 @@ function getSocialMedia(data) {
     .filter((x) => x !== -1)
     .map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
-/**
- *
- * @param {object} data
- * @returns {number[]}
- */
+// eslint-disable-next-line require-jsdoc
 function parseClaimedRewards(data) {
   if (!data) return null;
   return Object.keys(data)

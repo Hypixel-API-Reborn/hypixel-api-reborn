@@ -142,10 +142,7 @@ class UHC {
     };
   }
 }
-/**
- * @param {object} data
- * @return {number}
- */
+// eslint-disable-next-line require-jsdoc
 function getStarLevel(data) {
   const kills =
     (data.kills || 0) + (data.kills_solo || 0) + (data['kills_red vs blue'] || 0) + (data['kills_no diamonds'] || 0) + (data.kills_brawl || 0) + (data['kills_solo brawl'] || 0) + (data['kills_duo brawl'] || 0);

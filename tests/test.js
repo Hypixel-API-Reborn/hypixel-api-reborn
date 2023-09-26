@@ -216,7 +216,6 @@ describe('Client#getPlayer', () => {
         expect(player.stats.arena).instanceOf(ArenaBrawl);
       }
       if (player.stats.woolwars) {
-        console.log(player.stats.woolwars);
         expect(player.stats.woolwars).instanceOf(WoolWars);
       }
     }

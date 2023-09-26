@@ -78,11 +78,7 @@ class SmashHeroes {
     this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
 }
-/**
- * @param {object} data
- * @param {string} mode
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
@@ -93,10 +89,7 @@ function generateModeStats(data, mode) {
     WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
   };
 }
-/**
- * @param {object} data
- * @return {object}
- */
+// eslint-disable-next-line require-jsdoc
 function generateHeroStats(data) {
   // eslint-disable-next-line no-useless-return
   const stats = [];
