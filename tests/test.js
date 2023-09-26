@@ -23,12 +23,12 @@ const {
   Color,
   WoolWars
 } = require('../src');
-const client = new Client('e0a62eee-e3e6-4513-af8b-b4246694b457', { cache: true });
+const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
 describe('Client#getPlayer', () => {
   let player;
   it('expect not to throw', async () => {
-    player = await client.getPlayer('b45add7b081443909fb00aa9a3e15eb0', { guild: true });
+    player = await client.getPlayer('f025c1c7f55a4ea0b8d93f47d17dfe0f', { guild: true });
   }).timeout(5000);
   it('required keys should exist', () => {
     expect(player.nickname).to.be.a('string');
