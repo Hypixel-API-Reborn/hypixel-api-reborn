@@ -21,7 +21,8 @@ const {
   Pets,
   Pet,
   Color,
-  WoolWars
+  WoolWars,
+  SkyblockMember
 } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
@@ -297,9 +298,7 @@ describe('Client#getSkyblockNews', async () => {
 describe('Client#getSkyblockProfiles', async () => {
   let profiles;
   it('expect not to throw', async () => {
-    profiles = await client.getSkyblockProfiles('b45add7b081443909fb00aa9a3e15eb0');
-    console.log(profiles);
-    console.log(profiles.length);
+    profiles = await client.getSkyblockProfiles('f025c1c7f55a4ea0b8d93f47d17dfe0f');
   });
   it('should be an array', () => {
     expect(profiles).to.be.an('array');
