@@ -2051,6 +2051,5 @@ describe('Client#getPlayer', () => {
         }
       }).timeout(5000);
     });
-    3;
   });
 });
