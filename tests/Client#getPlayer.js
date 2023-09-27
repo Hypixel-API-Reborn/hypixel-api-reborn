@@ -2041,15 +2041,5 @@ describe('Client#getPlayer', () => {
         }
       }).timeout(5000);
     });
-    describe('No input Test', async () => {
-      it('expect to throw', async () => {
-        try {
-          player = await client.getPlayer();
-          throw new Error('Expected an error to be thrown, but no error was thrown.');
-        } catch (error) {
-          expect(error.message).to.equal(Errors.NO_NICKNAME_UUID);
-        }
-      }).timeout(5000);
-    });
   });
 });

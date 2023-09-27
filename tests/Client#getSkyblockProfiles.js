@@ -127,5 +127,17 @@ describe('Client#getSkyblockProfiles', async () => {
       });
     });
   });
-  describe('Invalid', async () => {});
+  describe('Invalid', async () => {
+    describe('Random (1)', async () => {
+      it('expect not to throw', async () => {
+        profiles = await client.getSkyblockProfiles('b45add7b081443909fb00aa9a3e15eb0');
+      });
+      it('should be an array', () => {
+        expect(profiles).to.be.an('array');
+      });
+      it('array should be empty', () => {
+        expect(profiles).to.be.empty;
+      });
+    });
+  });
 });

@@ -8,7 +8,6 @@ describe('Client#getGameCounts', async () => {
     gameCounts = await client.getGameCounts();
   });
   it('should be an object ', () => {
-    console.log(gameCounts);
     expect(gameCounts).to.be.an('object');
   });
   it('required keys should exist', () => {
