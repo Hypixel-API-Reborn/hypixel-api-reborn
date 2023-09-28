@@ -7,6 +7,9 @@ describe('Client#getWatchdogStats', () => {
   it('expect not to throw', async () => {
     watchdog = await client.getWatchdogStats();
   });
+  it('should be an object', () => {
+    expect(watchdog).to.be.an('object');
+  });
   it('required keys should exist', () => {
     expect(watchdog.byStaffRollingDay).to.be.a('number');
     expect(watchdog.byStaffTotal).to.be.a('number');

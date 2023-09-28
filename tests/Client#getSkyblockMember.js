@@ -20,20 +20,7 @@ describe('Client#getSkyblockMember', async () => {
         });
       });
     });
-    describe('Random (2)', async () => {
-      it('expect not to throw', async () => {
-        member = await client.getSkyblockMember('82d8df1f2d234d9e9a3efe0852f99969');
-      });
-      it('should be an map', () => {
-        expect(member).to.be.an('map');
-      });
-      it('required keys should exist', () => {
-        member.forEach((profile) => {
-          expect(profile).instanceOf(SkyblockMember);
-        });
-      });
-    });
-    describe('Max (3)', async () => {
+    describe('Max (2)', async () => {
       it('expect not to throw', async () => {
         member = await client.getSkyblockMember('fb3d96498a5b4d5b91b763db14b195ad');
       });

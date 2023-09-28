@@ -7,8 +7,10 @@ describe('Client#getSkyblockNews', async () => {
   it('expect not to throw', async () => {
     news = await client.getSkyblockNews();
   });
-  it('required keys should exist', () => {
+  it('Should be an array', () => {
     expect(news).to.be.an('array');
+  });
+  it('required keys should exist', () => {
     for (const record of news) {
       expect(record.title).to.be.a('string');
       expect(record.link).to.be.a('string');
