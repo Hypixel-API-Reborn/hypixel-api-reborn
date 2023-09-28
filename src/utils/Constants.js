@@ -756,7 +756,8 @@ module.exports = {
     IDLE: 'Idle',
     QUEUE: 'Queue',
     MAIN_LOBBY: 'Main Lobby',
-    TOURNAMENT_LOBBY: 'Tournament Lobby'
+    TOURNAMENT_LOBBY: 'Tournament Lobby',
+    WOOL_GAMES: 'Wool Wars'
   },
   SkyWarsPrestigeIcons: {
     default: '⋆',
@@ -815,6 +816,7 @@ module.exports = {
     { name: 'The Pit', code: 'PIT', id: 64 },
     { name: 'Replay', code: 'REPLAY', id: 65 },
     { name: 'SMP', code: 'SMP', id: 67 },
+    { name: 'Wool Wars', code: 'WOOL_GAMES', id: 68 },
     { name: 'Limbo', code: 'LIMBO', id: -2 },
     { name: 'Queue', code: 'QUEUE', id: -3 },
     { name: 'Main Lobby', code: 'MAIN_LOBBY', id: -4 },
