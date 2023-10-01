@@ -710,6 +710,22 @@ describe('Client#getGuild', async () => {
         }
       }).timeout(5000);
     });
+    describe('Player not in guild', async () => {
+      it('expect to throw', async () => {
+        player = await client.getGuild('player', '337a48bf57e944eb8acb83b885936e83');
+        expect(player).to.be.null;
+      }).timeout(5000);
+    });
+    describe('Guild id Test', async () => {
+      it('expect to throw', async () => {
+        try {
+          player = await client.getGuild('id', 'This is not a valid guild id');
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.INVALID_GUILD_ID);
+        }
+      }).timeout(5000);
+    });
     describe('No input Test', async () => {
       it('expect to throw', async () => {
         try {
