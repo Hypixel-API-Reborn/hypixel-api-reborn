@@ -123,7 +123,6 @@ describe('Client#getGuild', async () => {
           });
         });
       });
-
       describe('Guild Id', async () => {
         it('expect not to throw', async () => {
           guildId = await client.getGuild('id', '557c75d90cf2ce51d4a92368');

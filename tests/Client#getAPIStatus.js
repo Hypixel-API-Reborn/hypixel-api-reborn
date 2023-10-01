@@ -3,7 +3,7 @@ const { APIIncident } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
-describe('Client#getBoosters', async () => {
+describe('Client#getAPIStatus', async () => {
   let status;
   it('expect not to throw', async () => {
     status = await client.getAPIStatus();
