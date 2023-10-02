@@ -88,7 +88,7 @@ describe('Client#getSkyblockProfiles', async () => {
     });
   });
   describe('Invalid', async () => {
-    describe('Random (1)', async () => {
+    describe('Never played skyblock', async () => {
       it('expect not to throw', async () => {
         profiles = await client.getSkyblockProfiles('b45add7b081443909fb00aa9a3e15eb0');
       });

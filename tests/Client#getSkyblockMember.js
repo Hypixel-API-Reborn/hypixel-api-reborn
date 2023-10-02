@@ -35,7 +35,7 @@ describe('Client#getSkyblockMember', async () => {
     });
   });
   describe('Invalid', async () => {
-    describe('Random (1)', async () => {
+    describe('Never Played skyblock', async () => {
       it('expect not to throw', async () => {
         member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
       });
