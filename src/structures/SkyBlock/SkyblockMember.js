@@ -365,7 +365,7 @@ function getDungeons(data) {
   }
   return {
     types: {
-      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
+      catacombs: getLevelByXp(data.dungeons.dungeon_types?.catacombs?.experience ?? null, 'dungeons')
     },
     classes: {
       healer: getLevelByXp(data.dungeons.player_classes.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
