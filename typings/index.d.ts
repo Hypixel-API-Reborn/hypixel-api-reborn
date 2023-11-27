@@ -175,6 +175,7 @@ export interface SKYBLOCK_SLAYER_DATA {
   tier2: number;
   tier3: number;
   tier4: number;
+  tier5: number;
   level: number;
 }
 export interface clientOptions {
