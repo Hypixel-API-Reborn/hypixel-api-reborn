@@ -155,17 +155,15 @@ export interface SKYBLOCK_SKILL_DATA {
   progress: number;
 }
 export interface NETHER_ISLAND_PLAYER_DATA {
-  kuudra_completed_tiers: {
-    none: number;
-    hot: number;
-    burning: number;
-    fiery: number;
-    highest_wave_hot: number;
-    highest_wave_fiery: number;
-    infernal: number;
-    highest_wave_infernal: number;
-    highest_wave_burning: number;
-  };
+  none: number;
+  hot: number;
+  burning: number;
+  fiery: number;
+  highest_wave_hot: number;
+  highest_wave_fiery: number;
+  infernal: number;
+  highest_wave_infernal: number;
+  highest_wave_burning: number;
 }
 export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
 export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
