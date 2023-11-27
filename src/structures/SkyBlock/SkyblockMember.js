@@ -142,6 +142,11 @@ class SkyblockMember {
      */
     this.slayer = getSlayer(data.m);
     /**
+     * Skyblock member slayer
+     * @type {NetherIslandPlayerData|null}
+     */
+    this.kuudra = data.m.nether_island_player_data.kuudra_completed_tiers;
+    /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
      */
@@ -497,6 +502,18 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {SkyblockMemberSlayerLevel} zombie
  * @property {SkyblockMemberSlayerLevel} spider
  * @property {SkyblockMemberSlayerLevel} wolf
+ */
+/**
+ * @typedef {object} NetherIslandPlayerData
+ * @property {object} kuudra_completed_tiers
+ * @property {number} kuudra_completed_tiers.hot
+ * @property {number} kuudra_completed_tiers.burning
+ * @property {number} kuudra_completed_tiers.fiery
+ * @property {number} kuudra_completed_tiers.highest_wave_hot
+ * @property {number} kuudra_completed_tiers.highest_wave_fiery
+ * @property {number} kuudra_completed_tiers.infernal
+ * @property {number} kuudra_completed_tiers.highest_wave_infernal
+ * @property {number} kuudra_completed_tiers.highest_wave_burning
  */
 /**
  * @typedef {object} SkyblockMemberSlayerLevel
