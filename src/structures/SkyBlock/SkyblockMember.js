@@ -145,7 +145,7 @@ class SkyblockMember {
      * Skyblock member slayer
      * @type {NetherIslandPlayerData|null}
      */
-    this.kuudra = data.m.kuudra.nether_island_player_data.kuudra_completed_tiers;
+    this.kuudra = data.m.nether_island_player_data?.kuudra_completed_tiers;
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
