@@ -1935,7 +1935,14 @@ declare module 'hypixel-api-reborn' {
     kuudra: NETHER_ISLAND_PLAYER_DATA;
     dungeons: {
       types: {
-        catacombs: SKYBLOCK_DUNGEON_TYPE_DATA;
+        catacombs: {
+          experience: SKYBLOCK_DUNGEON_TYPE_DATA;
+          completions: { [name: string]: number };
+        };
+        master_catacombs: {
+          experience: SKYBLOCK_DUNGEON_TYPE_DATA;
+          completions: { [name: string]: number };
+        };
       };
       classes: {
         healer: SKYBLOCK_DUNGEON_CLASS_DATA;

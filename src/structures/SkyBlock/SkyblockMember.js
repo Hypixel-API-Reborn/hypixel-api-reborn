@@ -373,6 +373,10 @@ function getDungeons(data) {
       catacombs: {
         experience: getLevelByXp(data.dungeons.dungeon_types?.catacombs?.experience ?? null, 'dungeons'),
         completions: getCompletions(data.dungeons.dungeon_types?.catacombs?.tier_completions)
+      },
+      master_catacombs: {
+        experience: getLevelByXp(data.dungeons.dungeon_types?.catacombs?.experience ?? null, 'dungeons'),
+        completions: getCompletions(data.dungeons.dungeon_types?.master_catacombs?.tier_completions)
       }
     },
     classes: {
