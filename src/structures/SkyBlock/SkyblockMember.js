@@ -370,7 +370,10 @@ function getDungeons(data) {
   }
   return {
     types: {
-      catacombs: getLevelByXp(data.dungeons.dungeon_types?.catacombs?.experience ?? null, 'dungeons')
+      catacombs: {
+        experience: getLevelByXp(data.dungeons.dungeon_types?.catacombs?.experience ?? null, 'dungeons'),
+        completions: getCompletions(data.dungeons.dungeon_types?.catacombs?.tier_completions)
+      }
     },
     classes: {
       healer: getLevelByXp(data.dungeons.player_classes?.healer ?? null, 'dungeons'),
@@ -380,6 +383,21 @@ function getDungeons(data) {
       tank: getLevelByXp(data.dungeons.player_classes?.tank ?? null, 'dungeons')
     }
   };
+}
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @param {{[key: string]: number}} data
+ * @returns {{[key: string]: number}}
+ */
+function getCompletions(data) {
+  const completions = {};
+
+  // eslint-disable-next-line guard-for-in
+  for (const tier in data) {
+    completions[`Floor_${tier}`] = data[tier];
+  }
+
+  return completions;
 }
 /**
  * @param {object} data
