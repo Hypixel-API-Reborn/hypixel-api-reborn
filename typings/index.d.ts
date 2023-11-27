@@ -154,6 +154,19 @@ export interface SKYBLOCK_SKILL_DATA {
   xpForNext: number;
   progress: number;
 }
+export interface NETHER_ISLAND_PLAYER_DATA {
+  kuudra_completed_tiers: {
+    none: number;
+    hot: number;
+    burning: number;
+    fiery: number;
+    highest_wave_hot: number;
+    highest_wave_fiery: number;
+    infernal: number;
+    highest_wave_infernal: number;
+    highest_wave_burning: number;
+  };
+}
 export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
 export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
 export interface SKYBLOCK_SLAYER_DATA {
@@ -273,7 +286,7 @@ declare module 'hypixel-api-reborn' {
         { name: 'Godlike'; key: 'godlike' },
         { name: 'WORLD ELITE'; key: 'world_elite' },
         { name: 'WORLD MASTER'; key: 'world_master' },
-        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
+        { name: "WORLD'S BEST"; key: 'worlds_best' }
       ];
       leveling_xp: {
         1: 50;
@@ -1918,6 +1931,7 @@ declare module 'hypixel-api-reborn' {
       vampire: SKYBLOCK_SLAYER_DATA;
     };
     bestiary: SKYBLOCK_BESTIARY;
+    kuudra: NETHER_ISLAND_PLAYER_DATA;
     dungeons: {
       types: {
         catacombs: SKYBLOCK_DUNGEON_TYPE_DATA;
@@ -2039,7 +2053,7 @@ declare module 'hypixel-api-reborn' {
         zombieDeep?: number;
         zombieGrunt?: number;
         zombieSoldier?: number;
-      },
+      };
       dungeonHubCrystalCoreAnythingNoReturnBestTime?: number;
       dungeonHubCrystalCoreAnythingWithReturnBestTime?: number;
       dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime?: number;
@@ -2226,7 +2240,7 @@ declare module 'hypixel-api-reborn' {
         zombieKnight?: number;
         zombieSoldier?: number;
         zombieVillager?: number;
-      },
+      };
       mostWinterCannonballsHit?: number;
       mostWinterDamageDealt?: number;
       mostWinterMagmaDamageDealt?: number;
