@@ -82,7 +82,7 @@ class SkyblockMember {
     this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm', 7);
     /**
      * Trophy fish amount of rewards
-     * @returns {number}
+     * @returns {SkyBlockTrophyFish}
      */
     this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
     /**
@@ -493,6 +493,9 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {SkyblockInventoryItem|null} chestplate Chestplate
  * @property {SkyblockInventoryItem|null} leggings Leggings
  * @property {SkyblockInventoryItem|null} boots Boots
+ */
+/**
+ * @typedef {"Diamond"|"Gold"|"Silver"|"Bronze"} SkyBlockTrophyFish The Trophy Fish ranks
  */
 /**
  * @typedef {object} SkyblockMemberSkills

@@ -135,6 +135,7 @@ export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'I
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
 export type SKYBLOCK_BESTIARY = number;
+export type SKYBLOCK_TROPHY_FISH = 'Diamond' | 'Gold' | 'Silver' | 'Bronze';
 export interface SKYBLOCK_BESTIARY_CATEGORY {
   [key: string]: {
     damage?: number;
@@ -285,7 +286,7 @@ declare module 'hypixel-api-reborn' {
         { name: 'Godlike'; key: 'godlike' },
         { name: 'WORLD ELITE'; key: 'world_elite' },
         { name: 'WORLD MASTER'; key: 'world_master' },
-        { name: "WORLD'S BEST"; key: 'worlds_best' }
+        { name: 'WORLD\'S BEST'; key: 'worlds_best' }
       ];
       leveling_xp: {
         1: 50;
@@ -1906,7 +1907,7 @@ declare module 'hypixel-api-reborn' {
     fairySouls: number;
     experience: number;
     hotm: SKYBLOCK_SKILL_DATA;
-    trophyFish: number;
+    trophyFish: SKYBLOCK_TROPHY_FISH;
     highestMagicalPower: number;
     skills: {
       taming: SKYBLOCK_SKILL_DATA;
