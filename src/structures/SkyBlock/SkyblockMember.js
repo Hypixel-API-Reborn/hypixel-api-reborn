@@ -84,7 +84,7 @@ class SkyblockMember {
      * Trophy fish amount of rewards
      * @returns {SkyBlockTrophyFish}
      */
-    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
+    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards?.length ?? 0);
     /**
      * The highest magical power **Not current one**
      * @returns {number}
