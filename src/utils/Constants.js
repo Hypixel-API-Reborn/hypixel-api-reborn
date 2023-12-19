@@ -1085,6 +1085,72 @@ module.exports = {
         }
       ]
     },
+    garden: {
+      name: 'Garden',
+      
+      mobs: [
+        {
+          name: 'Beetle',
+          cap: 250,
+          mobs: ['pest_beetle_1'],
+          bracket: 6
+        },
+        {
+          name: 'Cricket',
+          cap: 250,
+          mobs: ['pest_cricket_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Earthworm',
+          cap: 250,
+          mobs: ['pest_worm_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Fly',
+          cap: 250,
+          mobs: ['pest_fly_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Locust',
+          cap: 250,
+          mobs: ['pest_locust_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Mite',
+          cap: 250,
+          mobs: ['pest_mite_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Mosquito',
+          cap: 250,
+          mobs: ['pest_mosquito_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Moth',
+          cap: 250,
+          mobs: ['pest_moth_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Rat',
+          cap: 250,
+          mobs: ['pest_rat_1'],
+          bracket: 6,
+        },
+        {
+          name: 'Slug',
+          cap: 250,
+          mobs: ['pest_slug_1'],
+          bracket: 6,
+        },
+      ],
+    },
     combat_1: {
       name: 'Spiders Den',
 
@@ -1318,20 +1384,6 @@ module.exports = {
           bracket: 4
         },
         {
-          name: 'Smoldering Blaze',
-          cap: 25000,
-
-          mobs: ['smoldering_blaze_95'],
-          bracket: 2
-        },
-        {
-          name: 'Millenia-Aged Blaze',
-          cap: 4000,
-
-          mobs: ['old_blaze_110'],
-          bracket: 3
-        },
-        {
           name: 'Flaming Spider',
           cap: 10000,
 
@@ -1347,9 +1399,16 @@ module.exports = {
         },
         {
           name: 'Ghast',
-          cap: 1000,
+          cap: 3000,
 
           mobs: ['ghast_85', 'dive_ghast_90'],
+          bracket: 4
+        },
+        {
+          name: 'Kada Knight',
+          cap: 3000,
+
+          mobs: ['kada_knight_90'],
           bracket: 4
         },
         {
@@ -1357,6 +1416,13 @@ module.exports = {
           cap: 1000,
 
           mobs: ['mage_outlaw_200'],
+          bracket: 5
+        },
+        {
+          name: 'Magma Boss',
+          cap: 1000,
+
+          mobs: ['magma_boss_500'],
           bracket: 5
         },
         {
@@ -1371,11 +1437,11 @@ module.exports = {
           bracket: 3
         },
         {
-          name: 'Magma Boss',
-          cap: 1000,
+          name: 'Magma Cube Rider',
+          cap: 3000,
 
-          mobs: ['magma_boss_500'],
-          bracket: 5
+          mobs: ['magma_cube_rider_90'],
+          bracket: 4
         },
         {
           name: 'Matcho',
@@ -1383,6 +1449,13 @@ module.exports = {
 
           mobs: ['matcho_100'],
           bracket: 5
+        },
+        {
+          name: 'Millenia-Aged Blaze',
+          cap: 4000,
+
+          mobs: ['old_blaze_110'],
+          bracket: 3
         },
         {
           name: 'Mushroom Bull',
@@ -1395,8 +1468,29 @@ module.exports = {
           name: 'Pigman',
           cap: 10000,
 
-          mobs: ['kada_knight_90', 'magma_cube_rider_90', 'pigman_12'],
+          mobs: ['pigman_12'],
           bracket: 3
+        },
+        {
+          name: 'Smoldering Blaze',
+          cap: 25000,
+
+          mobs: ['smoldering_blaze_95'],
+          bracket: 2
+        },
+        {
+          name: 'Tentacle',
+          cap: 1000,
+
+          mobs: ['hellwisp_100'],
+          bracket: 5
+        },
+        {
+          name: 'Vanquisher',
+          cap: 1000,
+
+          mobs: ['vanquisher_100'],
+          bracket: 5
         },
         {
           name: 'Wither Skeleton',
@@ -1412,20 +1506,6 @@ module.exports = {
           mobs: ['wither_spectre_70'],
           bracket: 3
         },
-        {
-          name: 'Tentacle',
-          cap: 1000,
-
-          mobs: ['hellwisp_100'],
-          bracket: 5
-        },
-        {
-          name: 'Vanquisher',
-          cap: 1000,
-
-          mobs: ['vanquisher_100'],
-          bracket: 5
-        }
       ]
     },
     mining_2: {
@@ -1556,7 +1636,7 @@ module.exports = {
         },
         {
           name: 'Treasure Hoarder',
-          cap: 3000,
+          cap: 4000,
 
           mobs: ['treasure_hoarder_70'],
           bracket: 3
@@ -3040,72 +3120,7 @@ module.exports = {
         }
       ]
     },
-    garden: {
-      name: 'Garden',
-      
-      mobs: [
-        {
-          name: 'Beetle',
-          cap: 250,
-          mobs: ['pest_beetle_1'],
-          bracket: 6
-        },
-        {
-          name: 'Cricket',
-          cap: 250,
-          mobs: ['pest_cricket_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Earthworm',
-          cap: 250,
-          mobs: ['pest_worm_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Fly',
-          cap: 250,
-          mobs: ['pest_fly_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Locust',
-          cap: 250,
-          mobs: ['pest_locust_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Mite',
-          cap: 250,
-          mobs: ['pest_mite_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Mosquito',
-          cap: 250,
-          mobs: ['pest_mosquito_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Moth',
-          cap: 250,
-          mobs: ['pest_moth_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Rat',
-          cap: 250,
-          mobs: ['pest_rat_1'],
-          bracket: 6,
-        },
-        {
-          name: 'Slug',
-          cap: 250,
-          mobs: ['pest_slug_1'],
-          bracket: 6,
-        },
-      ],
-    }
+    
   
   },
   bestiaryBrackets: {
