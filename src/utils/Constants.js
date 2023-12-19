@@ -1481,9 +1481,9 @@ module.exports = {
 
       mobs: [
         {
-          name: "Diamond Goblin",
+          name: 'Diamond Goblin',
           cap: 100,
-          mobs: ["goblin_500"],
+          mobs: ['goblin_500'],
           bracket: 7,
         },
         {
@@ -3041,70 +3041,71 @@ module.exports = {
       ]
     },
     garden: {
-      name: "Garden",
+      name: 'Garden',
+      
       mobs: [
         {
-          name: "Beetle",
+          name: 'Beetle',
           cap: 250,
-          mobs: ["pest_beetle_1"],
+          mobs: ['pest_beetle_1'],
+          bracket: 6
+        },
+        {
+          name: 'Cricket',
+          cap: 250,
+          mobs: ['pest_cricket_1'],
           bracket: 6,
         },
         {
-          name: "Cricket",
+          name: 'Earthworm',
           cap: 250,
-          mobs: ["pest_cricket_1"],
+          mobs: ['pest_worm_1'],
           bracket: 6,
         },
         {
-          name: "Earthworm",
+          name: 'Fly',
           cap: 250,
-          mobs: ["pest_worm_1"],
+          mobs: ['pest_fly_1'],
           bracket: 6,
         },
         {
-          name: "Fly",
+          name: 'Locust',
           cap: 250,
-          mobs: ["pest_fly_1"],
+          mobs: ['pest_locust_1'],
           bracket: 6,
         },
         {
-          name: "Locust",
+          name: 'Mite',
           cap: 250,
-          mobs: ["pest_locust_1"],
+          mobs: ['pest_mite_1'],
           bracket: 6,
         },
         {
-          name: "Mite",
+          name: 'Mosquito',
           cap: 250,
-          mobs: ["pest_mite_1"],
+          mobs: ['pest_mosquito_1'],
           bracket: 6,
         },
         {
-          name: "Mosquito",
+          name: 'Moth',
           cap: 250,
-          mobs: ["pest_mosquito_1"],
+          mobs: ['pest_moth_1'],
           bracket: 6,
         },
         {
-          name: "Moth",
+          name: 'Rat',
           cap: 250,
-          mobs: ["pest_moth_1"],
+          mobs: ['pest_rat_1'],
           bracket: 6,
         },
         {
-          name: "Rat",
+          name: 'Slug',
           cap: 250,
-          mobs: ["pest_rat_1"],
-          bracket: 6,
-        },
-        {
-          name: "Slug",
-          cap: 250,
-          mobs: ["pest_slug_1"],
+          mobs: ['pest_slug_1'],
           bracket: 6,
         },
       ],
-    },
+    }
   
   },
   bestiaryBrackets: {
