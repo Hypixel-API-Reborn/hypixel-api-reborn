@@ -1087,7 +1087,7 @@ module.exports = {
     },
     garden: {
       name: 'Garden',
-      
+
       mobs: [
         {
           name: 'Beetle',
@@ -3120,8 +3120,8 @@ module.exports = {
         }
       ]
     },
-    
-  
+
+
   },
   bestiaryBrackets: {
     1: [
