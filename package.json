@@ -1,6 +1,6 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "11.0.1",
+  "version": "11.1.0",
   "description": "Feature-rich Hypixel API wrapper for Node.js",
   "main": "./src/index.js",
   "types": "./typings/index.d.ts",
