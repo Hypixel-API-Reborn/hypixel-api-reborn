@@ -10,7 +10,11 @@ async function putCache(response) {
   try {
     response = await response.json();
     cachedUuids.set(response.id, response.name);
-    setTimeout(deleteCache, 1000 * 60 * 10, response.id);
+    if (this.client.options.uuidCacheTime >= 0) {
+      setTimeout(deleteCache, this.client.options.uuidCacheTime * 1000, response.id);
+    } else {
+      setTimeout(deleteCache, 1000 * 60 * 10, response.id);
+    }
   } catch (e) {
     // F
   }

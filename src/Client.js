@@ -350,6 +350,7 @@ class Client extends EventEmitter {
  * @typedef {object} ClientOptions
  * @prop {boolean} [cache=false] Enable/Disable request caching.
  * @prop {number} [cacheTime=60] Amount of time in seconds to cache the requests.
+ * @prop {number} [uuidCacheTime=600] Amount of time in seconds to cache uuids.
  * @prop {CacheHandler} [cacheHandler] Custom Cache Handler
  * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
  * @prop {boolean} [syncWithHeaders=false] Sync with headers rate limit information. Usually not necessary nor recommended ( because of latency )
