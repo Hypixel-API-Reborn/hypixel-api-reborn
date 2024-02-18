@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { SkyblockMember } = require('../src');
+const { SkyblockMember, Errors } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
@@ -36,15 +36,14 @@ describe('Client#getSkyblockMember', async () => {
   });
   describe('Invalid', async () => {
     describe('Never Played skyblock', async () => {
-      it('expect not to throw', async () => {
-        member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
-      });
-      it('should be an map', () => {
-        expect(member).to.be.an('map');
-      });
-      it('map should be empty', () => {
-        expect(member.size).to.be.equal(0);
-      });
+      it('expect to throw', async () => {
+        try {
+          member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
+          throw new Error('Expected an error to be thrown, but no error was thrown.');
+        } catch (error) {
+          expect(error.message).to.equal(Errors.NO_SKYBLOCK_PROFILES);
+        }
+      }).timeout(5000);
     });
   });
 });
