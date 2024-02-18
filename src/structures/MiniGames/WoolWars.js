@@ -83,7 +83,7 @@ class WoolWars {
    */
   static generateStatsFor(data, _class) {
     // N.B i called it _class instead of class because reserved keyword
-    const workingData = (_class ? data?.['classes'][_class] : data) || {};
+    const workingData = (_class ? data?.['classes']?.[_class] : data) || {};
     return {
       roundWins: workingData.wins || 0,
       gamesPlayed: workingData.games_played || 0,
