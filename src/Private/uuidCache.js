@@ -6,7 +6,6 @@ const cachedUuids = new Map();
 
 // TODO - use this for all cache models
 
-
 class UUIDCache {
   constructor(client) {
     this.client = client;
