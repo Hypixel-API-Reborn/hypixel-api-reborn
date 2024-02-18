@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 /* eslint-disable require-jsdoc */
+/* eslint-disable no-console */
 const fetch = require('node-fetch');
 const Errors = require('../Errors');
 class Updater {
@@ -11,22 +11,8 @@ class Updater {
     const latestVersion = metadata['dist-tags'].latest;
     const compare = this.compare(currentVersion, latestVersion);
     if (compare === -1) {
-      this.notify(latestVersion);
+      console.log(`New version of hypixel-api-reborn is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
     }
-  }
-  notify(newVersion) {
-    console.log(`
-
-    New version of hypixel-api-reborn is available!
-    
-    v${newVersion}
-    Changelog: https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/${newVersion}
-
-    \x1b[33mnpm i hypixel-api-reborn@${newVersion}\x1b[0m
-    or
-    \x1b[33myarn add hypixel-api-reborn@${newVersion}\x1b[0m
-    
-    `);
   }
   compare(a, b) {
     const pa = a.split('.');

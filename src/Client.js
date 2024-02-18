@@ -42,10 +42,10 @@ class Client extends EventEmitter {
           args
         );
       };
+    }
 
-      if (this.options.checkForUpdates) {
-        updater.checkForUpdates();
-      }
+    if (this.options.checkForUpdates) {
+      updater.checkForUpdates();
     }
     /**
      * All cache entries
@@ -357,7 +357,7 @@ class Client extends EventEmitter {
  * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
  * @prop {boolean} [silent=false] Don't automatically put warnings into console.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
- * @prop {boolean} [checkForUpdates=false] Enable/Disable check for new version of hypixel-api-reborn.
+ * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  */
 const defaultCache = require('./Private/defaultCache.js');
 /**
