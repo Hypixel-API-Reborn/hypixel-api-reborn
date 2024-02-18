@@ -21,7 +21,8 @@ const {
   Pets,
   Pet,
   Color,
-  WoolWars
+  WoolWars,
+  SkyblockMember
 } = require('../src');
 const client = new Client(process.env.HYPIXEL_KEY, { cache: true });
 const { expect } = require('chai');
@@ -292,6 +293,47 @@ describe('Client#getSkyblockNews', async () => {
       expect(record.date).instanceOf(Date);
       expect(record.rawDate).to.be.a('string');
     }
+  });
+});
+describe('Client#getSkyblockProfiles', async () => {
+  let profiles;
+  it('expect not to throw', async () => {
+    profiles = await client.getSkyblockProfiles('f025c1c7f55a4ea0b8d93f47d17dfe0f');
+  });
+  it('should be an array', () => {
+    expect(profiles).to.be.an('array');
+  });
+  it('required keys should exist', () => {
+    profiles.forEach((profile) => {
+      expect(profile.profileId).to.be.a('string');
+      expect(profile.profileName).to.be.oneOf([
+        'Apple',
+        'Banana',
+        'Blueberry',
+        'Coconut',
+        'Cucumber',
+        'Grapes',
+        'Kiwi',
+        'Lemon',
+        'Lime',
+        'Mango',
+        'Orange',
+        'Papaya',
+        'Pear',
+        'Peach',
+        'Pineapple',
+        'Pomegranate',
+        'Raspberry',
+        'Strawberry',
+        'Tomato',
+        'Watermelon',
+        'Zucchini'
+      ]);
+      profile.members.forEach((profile) => {
+        expect(profile).instanceOf(SkyblockMember);
+      });
+      expect(profile.me).instanceOf(SkyblockMember);
+    });
   });
 });
 describe('Client#getServerInfo', async () => {

@@ -7,9 +7,7 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
   query = await toUuid(query);
   const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
   if (res.raw) return res;
-  if (!res.profiles || !res.profiles.length) {
-    return new Map();
-  }
+  if (!res.profiles || !res.profiles.length) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
   const player = options.fetchPlayer ? await getPlayer.call(this, query, options) : null;
   const memberByProfileName = new Map();
   for (const profile of res.profiles) {
