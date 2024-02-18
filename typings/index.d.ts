@@ -41,8 +41,9 @@ export type GAME_NAME =
   | 'Main Lobby'
   | 'Tournament Lobby'
   | 'Idle'
-  | 'SMP';
-export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | 65 | 67 | -1 | -2 | -3 | -4 | -5 | -6;
+  | 'SMP'
+  | 'Wool Wars';
+export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | 65 | 67 | 68 | -1 | -2 | -3 | -4 | -5 | -6;
 export type GAME_CODE =
   | 'QUAKECRAFT'
   | 'WALLS'
@@ -76,7 +77,8 @@ export type GAME_CODE =
   | 'QUEUE'
   | 'MAIN_LOBBY'
   | 'TOURNAMENT_LOBBY'
-  | 'SMP';
+  | 'SMP'
+  | 'WOOL_GAMES';
 export type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
 export type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
 export type BEDWARS_PRESTIGE =
