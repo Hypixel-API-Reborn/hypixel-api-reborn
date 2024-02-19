@@ -60,16 +60,6 @@ class SkyWars {
      */
     this.wins = data.wins || 0;
     /**
-     * Loot Chests
-     * @type {number}
-     */
-    this.lootChests = data.skywars_chests || 0;
-    /**
-     * Opened Loot Chests
-     * @type {number}
-     */
-    this.openedLootChests = data.SkyWars_openedChests || 0;
-    /**
      * Heads
      * @type {number}
      */

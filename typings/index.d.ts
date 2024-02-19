@@ -2348,8 +2348,6 @@ declare module 'hypixel-api-reborn' {
     losses: number;
     deaths: number;
     wins: number;
-    lootChests: number;
-    openedLootChests: number;
     heads: number;
     experience: number;
     level: number;
@@ -2511,7 +2509,7 @@ declare module 'hypixel-api-reborn' {
   }
   class BedWars {
     constructor(data: Record<string, unknown>);
-    coins: number;
+    tokens: number;
     level: number;
     experience: number;
     prestige: BEDWARS_PRESTIGE;
@@ -2656,15 +2654,6 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number;
       WLRatio: number;
       finalKDRatio: number;
-      lootChests: {
-        christmas: number;
-        lunar: number;
-        normal: number;
-        easter: number;
-        halloween: number;
-        golden: number;
-        total: number;
-      };
       dream: {
         ultimate: {
           doubles: {
@@ -3022,7 +3011,7 @@ declare module 'hypixel-api-reborn' {
   }
   class MurderMystery {
     constructor(data: Record<string, unknown>);
-    coins: number;
+    tokens: number;
     playedGames: number;
     kills: number;
     deaths: number;
@@ -3053,7 +3042,7 @@ declare module 'hypixel-api-reborn' {
   }
   class Duels {
     division?: string;
-    coins: number;
+    tokens: number;
     kills: number;
     deaths: number;
     KDRatio: number;

@@ -8,10 +8,10 @@ class MurderMystery {
    */
   constructor(data) {
     /**
-     * Coins
+     * Tokens
      * @type {number}
      */
-    this.coins = data.coins || 0;
+    this.tokens = data.coins || 0;
     /**
      * Played games
      * @type {number}

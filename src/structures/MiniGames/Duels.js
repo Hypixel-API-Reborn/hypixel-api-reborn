@@ -39,10 +39,10 @@ class Duels {
    */
   constructor(data) {
     /**
-     * Coins
+     * Tokens
      * @type {number}
      */
-    this.coins = data.coins || 0;
+    this.tokens = data.coins || 0;
     /**
      * All modes division
      * @type {string|null}

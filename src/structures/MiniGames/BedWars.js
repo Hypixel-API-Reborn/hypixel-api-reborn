@@ -41,10 +41,10 @@ class BedWars {
    */
   constructor(data) {
     /**
-     * Coins
+     * Tokens
      * @type {number}
      */
-    this.coins = data.coins || 0;
+    this.tokens = data.coins || 0;
     /**
      * Level
      * @type {number}
@@ -109,19 +109,6 @@ class BedWars {
       gold: data.gold_resources_collected_bedwars || 0,
       diamond: data.diamond_resources_collected_bedwars || 0,
       emerald: data.emerald_resources_collected_bedwars || 0
-    };
-    /**
-     * Loot chests
-     * @type {BedWarsLootChests}
-     */
-    this.lootChests = {
-      christmas: data.bedwars_christmas_boxes || 0,
-      lunar: data.bedwars_lunar_boxes || 0,
-      normal: data.bedwars_boxes || 0,
-      easter: data.bedwars_easter_boxes || 0,
-      halloween: data.bedwars_halloween_boxes || 0,
-      golden: data.bedwars_golden_boxes || 0,
-      total: data.bedwars_christmas_boxes + data.bedwars_lunar_boxes + data.bedwars_boxes + data.bedwars_easter_boxes + data.bedwars_halloween_boxes + data.bedwars_golden_boxes || 0
     };
     /**
      * Beds lost/broken/BL Ratio
@@ -375,15 +362,6 @@ function getLevelForExp(exp) {
  * @property {number} gold Gold
  * @property {number} diamond Diamond
  * @property {number} emerald Emerald
- */
-/**
- * @typedef {object} BedWarsLootChests
- * @property {number} christmas Christmas chests
- * @property {number} halloween Halloween chests
- * @property {number} easter Easter chests
- * @property {number} christmas Christmas chests
- * @property {number} golden Golden chests
- * @property {number} normal Normal chests
  */
 /**
  * @typedef {object} BedWarsBeds
