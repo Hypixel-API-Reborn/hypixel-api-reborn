@@ -8,7 +8,7 @@ class GuildRank {
   constructor(data) {
     /**
      * Guild rank name
-     * @type {String}
+     * @type {string}
      */
     this.name = data.name;
     /**

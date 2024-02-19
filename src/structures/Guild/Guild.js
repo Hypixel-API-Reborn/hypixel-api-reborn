@@ -9,7 +9,7 @@ const { getGuildLevel, parseHistory } = require('../../utils/guildExp');
 class Guild {
   /**
    * @param {data} data Guild data
-   * @param {string} [me] Player uuid used to search for this guild
+   * @param {string} [me] Player uuid u#sed to search for this guild
    */
   constructor(data, me = '') {
     /**
@@ -19,22 +19,22 @@ class Guild {
     this.id = data._id;
     /**
      * Guild name
-     * @type {String}
+     * @type {string}
      */
     this.name = data.name;
     /**
      * Guild description
-     * @type {String}
+     * @type {string}
      */
     this.description = data.description ? data.description : null;
     /**
      * Guild experience
-     * @type {Number}
+     * @type {number}
      */
     this.experience = data.exp || 0;
     /**
      * Guild level
-     * @type {Number}
+     * @type {number}
      */
     this.level = getGuildLevel(this.experience);
     /**
@@ -86,7 +86,7 @@ class Guild {
     };
     /**
      * Date of guild creation as timestamp
-     * @type {String}
+     * @type {string}
      */
     this.createdAtTimestamp = data.created;
     /**

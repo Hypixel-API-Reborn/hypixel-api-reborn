@@ -9,12 +9,12 @@ class GuildMember {
   constructor(data) {
     /**
      * Guild member UUID
-     * @type {String}
+     * @type {string}
      */
     this.uuid = data.uuid;
     /**
      * Timestamp this member joined at
-     * @type {Number}
+     * @type {number}
      */
     this.joinedAtTimestamp = data.joined;
     /**
@@ -24,12 +24,12 @@ class GuildMember {
     this.joinedAt = new Date(data.joined);
     /**
      * The number of challenges completed that count towards the current quest
-     * @type {Number}
+     * @type {number}
      */
     this.questParticipation = data.questParticipation || 0;
     /**
      * Member's rank
-     * @type {String}
+     * @type {string}
      */
     this.rank = data.rank;
     /**
@@ -50,7 +50,7 @@ class GuildMember {
     this.expHistory = parseHistory(data.expHistory);
     /**
      * Experience per week, resets every Monday at 5 am UTC
-     * @type {Number}
+     * @type {number}
      */
     this.weeklyExperience = xpCheck ? Object.values(data.expHistory).reduce((pV, cV) => pV + cV, 0) : null;
   }

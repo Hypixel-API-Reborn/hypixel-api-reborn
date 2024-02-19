@@ -10,7 +10,7 @@ class ServerInfo {
   constructor(data, ping) {
     /**
      * Protocol used for retrieving info, should be 736
-     * @type {Number}
+     * @type {number}
      */
     this.protocolUsed = data.version.protocol || 736;
     /**

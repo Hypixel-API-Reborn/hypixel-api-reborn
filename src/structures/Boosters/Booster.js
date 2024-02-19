@@ -9,27 +9,27 @@ class Booster {
   constructor(data) {
     /**
      * Booster's purchaser's UUID
-     * @type {String}
+     * @type {string}
      */
     this.purchaser = data.purchaserUuid;
     /**
      * Booster's multiplier
-     * @type {Number}
+     * @type {number}
      */
     this.amount = data.amount;
     /**
      * Booster's length in seconds
-     * @type {Number}
+     * @type {number}
      */
     this.originalLength = data.originalLength;
     /**
      * Length remaining in seconds
-     * @type {Number}
+     * @type {number}
      */
     this.remaining = data.length;
     /**
      * Date activated timestamp
-     * @type {Number}
+     * @type {number}
      */
     this.activatedTimestamp = data.dateActivated;
     /**

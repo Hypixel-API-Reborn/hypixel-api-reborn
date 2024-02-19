@@ -40,12 +40,12 @@ class Arcade {
     this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0, 10);
     /**
      * Hints Disabled
-     * @type {Boolean}
+     * @type {boolean}
      */
     this.hintsDisabled = !data.hints;
     /**
      * Flash Disabled
-     * @type {Boolean}
+     * @type {boolean}
      */
     this.flashDisabled = !data.flash;
     /**

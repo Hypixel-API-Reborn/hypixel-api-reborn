@@ -2299,10 +2299,10 @@ declare module 'hypixel-api-reborn' {
   }
   class Color {
     constructor(color: string);
-    toString(): string;
-    toHex(): string;
-    toName(): string;
     toCode(): string;
+    toHex(): string;
+    toString(): string;
+    toInGameCode(): string;
   }
   class SkyblockInventoryItem {
     constructor(data: Record<string, unknown>);

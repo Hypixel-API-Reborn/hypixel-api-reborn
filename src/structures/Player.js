@@ -45,20 +45,10 @@ class Player {
      */
     this.uuid = data.uuid;
     /**
-     * Player nickname history known to Hypixel
-     * @type {Array<string>}
-     */
-    this.history = data.knownAliases;
-    /**
      * Player rank
      * @type {PlayerRank}
      */
     this.rank = getRank(data);
-    /**
-     * Player minecraft version
-     * @type {string|null}
-     */
-    this.mcVersion = data.mcVersionRp || null;
     /**
      * Current chat channel, usually ALL, PARTY, or GUILD
      * @type {string|null}
@@ -75,12 +65,12 @@ class Player {
      */
     this.firstLogin = data.firstLogin ? new Date(data.firstLogin) : null;
     /**
-     * Player's recently played game
+     * Timestamp when player last logged in as Date
      * @type {Game|null}
      */
     this.lastLoginTimestamp = data.lastLogin || null;
     /**
-     * Timestamp when player first logged in
+     * Timestamp when player first logged in unix
      * @type {number|null}
      */
     this.lastLogin = data.lastLogin ? new Date(data.lastLogin) : null;
@@ -90,8 +80,8 @@ class Player {
      */
     this.lastLogoutTimestamp = data.lastLogout || null;
     /**
-     * Timestamp when player first logged in as Date
-     * @type {Date|null}
+     * Timestamp when player first logged in unix
+     * @type {number|null}
      */
     this.lastLogout = data.lastLogout ? new Date(data.lastLogout) : null;
     /**
@@ -348,8 +338,8 @@ function playerLevelProgress(player) {
   const percentRemaining = Math.round((100 - percent) * 100) / 100;
   return {
     xpToNext,
-    currentXP,
     remainingXP,
+    currentXP,
     percent,
     percentRemaining
   };
@@ -413,6 +403,7 @@ function parseClaimedRewards(data) {
  * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
  * @property {ArenaBrawl|null} arena Arena Brawl
  * @property {Arcade|null} arcade Arcade
+ * @property {WoolWars|null} woolwars Wool Wars
  */
 /**
  * @typedef {Object} RanksPurchaseTime
