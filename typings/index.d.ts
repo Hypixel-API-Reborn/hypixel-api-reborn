@@ -168,7 +168,8 @@ export interface SKYBLOCK_SLAYER_DATA {
 }
 export interface clientOptions {
   cache?: boolean;
-  cacheTime?: number;
+  hypixelCacheTime?: number;
+  mojangCacheTime?: number;
   cacheSize?: number;
   cacheFilter?: string | string[] | { whitelist: string | string[]; blacklist: string | string[] };
   cacheHandler?: CacheHandler & unknown;

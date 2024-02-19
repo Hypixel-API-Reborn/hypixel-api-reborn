@@ -14,11 +14,7 @@ class UUIDCache {
     try {
       response = await response.json();
       cachedUuids.set(response.id, response.name);
-      if (this.client.options.uuidCacheTime >= 0) {
-        setTimeout(deleteCache, this.client.options.uuidCacheTime * 1000, response.id);
-      } else {
-        setTimeout(deleteCache, 1000 * 60 * 10, response.id);
-      }
+      setTimeout(deleteCache, this.client.options.mojangCacheTime * 1000 * 60, response.id);
     } catch (e) {
       // F
     }

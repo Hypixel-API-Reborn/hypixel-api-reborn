@@ -39,7 +39,7 @@ class Requests {
       if (this.client.options.cacheSize < (await this.cached.size())) await this.cached.delete(Array.from(await this.cached.keys())[0]);
       await this.cached.delete(endpoint);
       await this.cached.set(endpoint, parsedRes);
-      if (this.client.options.cacheTime >= 0) setTimeout(() => this.cached.delete(endpoint), 1000 * this.client.options.cacheTime);
+      if (this.client.options.hypixelCacheTime >= 0) setTimeout(() => this.cached.delete(endpoint), 1000 * this.client.options.hypixelCacheTime);
     }
     return parsedRes;
   }
