@@ -304,86 +304,86 @@ function getLevelForExp(exp) {
 // eslint-disable-next-line require-jsdoc
 function generateStatsForPractice(data) {
   return {
-    selected: data.practice.selected || 'NONE',
+    selected: data?.practice?.selected || 'NONE',
     bridging: {
-      blocksPlaced: data.practice.bridging.blocks_placed || 0,
+      blocksPlaced: data?.practice?.bridging?.blocks_placed ?? 0,
       attempts: {
-        failed: data.practice.bridging.failed_attempts || 0,
-        successful: data.practice.bridging.successful_attempts || 0,
-        total: data.practice.bridging.failed_attempts + data.practice.bridging.successful_attempts
+        failed: data?.practice?.bridging?.failed_attempts ?? 0,
+        successful: data?.practice?.bridging?.successful_attempts ?? 0,
+        total: data?.practice?.bridging?.failed_attempts + data?.practice?.bridging?.successful_attempts
       },
       records: {
         '30Blocks': {
           elevation: {
             none: {
-              straight: data.practice.records['bridging_distance_30:elevation_NONE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_30:elevation_NONE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_DIAGONAL:'] ?? 0
             },
             slight: {
-              straight: data.practice.records['bridging_distance_30:elevation_SLIGHT:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_30:elevation_SLIGHT:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
             },
             staircase: {
-              straight: data.practice.records['bridging_distance_30:elevation_STAIRCASE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_30:elevation_STAIRCASE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
             }
           }
         },
         '50Blocks': {
           elevation: {
             none: {
-              straight: data.practice.records['bridging_distance_50:elevation_NONE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_50:elevation_NONE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_DIAGONAL:'] ?? 0
             },
             slight: {
-              straight: data.practice.records['bridging_distance_50:elevation_SLIGHT:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_50:elevation_SLIGHT:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
             },
             staircase: {
-              straight: data.practice.records['bridging_distance_50:elevation_STAIRCASE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_50:elevation_STAIRCASE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
             }
           }
         },
         '100Blocks': {
           elevation: {
             none: {
-              straight: data.practice.records['bridging_distance_100:elevation_NONE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_100:elevation_NONE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_DIAGONAL:'] ?? 0
             },
             slight: {
-              straight: data.practice.records['bridging_distance_100:elevation_SLIGHT:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_100:elevation_SLIGHT:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
             },
             staircase: {
-              straight: data.practice.records['bridging_distance_100:elevation_STAIRCASE:angle_STRAIGHT'] || 0,
-              diagonal: data.practice.records['bridging_distance_100:elevation_STAIRCASE:angle_DIAGONAL'] || 0
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
             }
           }
         }
       }
     },
     fireballJumping: {
-      blocksPlaced: data.practice.fireball_jumping.blocks_placed || 0,
+      blocksPlaced: data?.practice?.fireball_jumping?.blocks_placed ?? 0,
       attempts: {
-        failed: data.practice.fireball_jumping.failed_attempts || 0,
-        successful: data.practice.fireball_jumping.successful_attempts || 0,
-        total: data.practice.fireball_jumping.failed_attempts + data.practice.fireball_jumping.successful_attempts
+        failed: data?.practice?.fireball_jumping?.failed_attempts ?? 0,
+        successful: data?.practice?.fireball_jumping?.successful_attempts ?? 0,
+        total: data?.practice?.fireball_jumping?.failed_attempts + data?.practice?.fireball_jumping?.successful_attempts
       }
     },
     pearlClutching: {
       attempts: {
-        failed: data.practice.pearl_clutching.failed_attempts || 0,
-        successful: data.practice.pearl_clutching.successful_attempts || 0,
-        total: data.practice.pearl_clutching.failed_attempts + data.practice.pearl_clutching.successful_attempts
+        failed: data?.practice?.pearl_clutching?.failed_attempts ?? 0,
+        successful: data?.practice?.pearl_clutching?.successful_attempts ?? 0,
+        total: data?.practice?.pearl_clutching?.failed_attempts + data?.practice?.pearl_clutching?.successful_attempts
       }
     },
     mlg: {
-      blocksPlaced: data.practice.mlg.blocks_placed || 0,
+      blocksPlaced: data?.practice?.mlg?.blocks_placed ?? 0,
       attempts: {
-        failed: data.practice.mlg.failed_attempts || 0,
-        successful: data.practice.mlg.successful_attempts || 0,
-        total: data.practice.mlg.failed_attempts + data.practice.mlg.successful_attempts
+        failed: data?.practice?.mlg?.failed_attempts ?? 0,
+        successful: data?.practice?.mlg?.successful_attempts ?? 0,
+        total: data?.practice?.mlg?.failed_attempts + data?.practice?.mlg?.successful_attempts
       }
     }
   };

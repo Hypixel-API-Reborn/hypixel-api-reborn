@@ -2654,266 +2654,350 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number;
       WLRatio: number;
       finalKDRatio: number;
-      dream: {
-        ultimate: {
-          doubles: {
-            winstreak: number;
-            playedGames: number;
-            kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
-            finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+    };
+    dream: {
+      ultimate: {
+        doubles: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
           };
-          fours: {
-            winstreak: number;
-            playedGames: number;
+          avg: {
             kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
             finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+            bedsBroken: number;
           };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
         };
-        rush: {
-          doubles: {
-            winstreak: number;
-            playedGames: number;
-            kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
-            finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+        fours: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
           };
-          fours: {
-            winstreak: number;
-            playedGames: number;
+          avg: {
             kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
             finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+            bedsBroken: number;
           };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
         };
-        armed: {
-          doubles: {
-            winstreak: number;
-            playedGames: number;
-            kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
-            finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+      };
+      rush: {
+        doubles: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
           };
-          fours: {
-            winstreak: number;
-            playedGames: number;
+          avg: {
             kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
             finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+            bedsBroken: number;
           };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
         };
-        lucky: {
-          doubles: {
-            winstreak: number;
-            playedGames: number;
-            kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
-            finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+        fours: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
           };
-          fours: {
-            winstreak: number;
-            playedGames: number;
+          avg: {
             kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
             finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+            bedsBroken: number;
           };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
         };
-        voidless: {
-          doubles: {
-            winstreak: number;
-            playedGames: number;
-            kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
-            finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
-            };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
-            };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+      };
+      armed: {
+        doubles: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
           };
-          fours: {
-            winstreak: number;
-            playedGames: number;
+          avg: {
             kills: number;
-            deaths: number;
-            wins: number;
-            losses: number;
             finalKills: number;
-            finalDeaths: number;
-            beds: {
-              broken: number;
-              lost: number;
-              BLRatio: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+        fours: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
+          };
+          avg: {
+            kills: number;
+            finalKills: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+      };
+      lucky: {
+        doubles: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
+          };
+          avg: {
+            kills: number;
+            finalKills: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+        fours: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
+          };
+          avg: {
+            kills: number;
+            finalKills: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+      };
+      voidless: {
+        doubles: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
+          };
+          avg: {
+            kills: number;
+            finalKills: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+        fours: {
+          winstreak: number;
+          playedGames: number;
+          kills: number;
+          deaths: number;
+          wins: number;
+          losses: number;
+          finalKills: number;
+          finalDeaths: number;
+          beds: {
+            broken: number;
+            lost: number;
+            BLRatio: number;
+          };
+          avg: {
+            kills: number;
+            finalKills: number;
+            bedsBroken: number;
+          };
+          KDRatio: number;
+          WLRatio: number;
+          finalKDRatio: number;
+        };
+      };
+    };
+    castle: {
+      winstreak: number;
+      playedGames: number;
+      kills: number;
+      deaths: number;
+      wins: number;
+      losses: number;
+      finalKills: number;
+      finalDeaths: number;
+      beds: {
+        broken: number;
+        lost: number;
+        BLRatio: number;
+      };
+      avg: {
+        kills: number;
+        finalKills: number;
+        bedsBroken: number;
+      };
+    };
+    practice: {
+      selected: string;
+      bridging: {
+        blocksPlaced: number;
+        attempts: {
+          failed: number;
+          successful: number;
+          total: number;
+        };
+        records: {
+          '30Blocks': {
+            elevation: {
+              none: {
+                straight: number;
+                diagonal: number;
+              };
+              slight: {
+                straight: number;
+                diagonal: number;
+              };
+              staircase: {
+                straight: number;
+                diagonal: number;
+              };
             };
-            avg: {
-              kills: number;
-              finalKills: number;
-              bedsBroken: number;
+          };
+          '50Blocks': {
+            elevation: {
+              none: {
+                straight: number;
+                diagonal: number;
+              };
+              slight: {
+                straight: number;
+                diagonal: number;
+              };
+              staircase: {
+                straight: number;
+                diagonal: number;
+              };
             };
-            KDRatio: number;
-            WLRatio: number;
-            finalKDRatio: number;
+          };
+          '100Blocks': {
+            elevation: {
+              none: {
+                straight: number;
+                diagonal: number;
+              };
+              slight: {
+                straight: number;
+                diagonal: number;
+              };
+              staircase: {
+                straight: number;
+                diagonal: number;
+              };
+            };
           };
         };
       };
-      castle: {
-        winstreak: number;
-        playedGames: number;
-        kills: number;
-        deaths: number;
-        wins: number;
-        losses: number;
-        finalKills: number;
-        finalDeaths: number;
-        beds: {
-          broken: number;
-          lost: number;
-          BLRatio: number;
+      fireballJumping: {
+        blocksPlaced: number;
+        attempts: {
+          failed: number;
+          successful: number;
+          total: number;
         };
-        avg: {
-          kills: number;
-          finalKills: number;
-          bedsBroken: number;
+      };
+      pearlClutching: {
+        attempts: {
+          failed: number;
+          successful: number;
+          total: number;
+        };
+      };
+      mlg: {
+        blocksPlaced: number;
+        attempts: {
+          failed: number;
+          successful: number;
+          total: number;
         };
       };
     };
