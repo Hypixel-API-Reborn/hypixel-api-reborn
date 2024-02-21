@@ -6,6 +6,7 @@ const { duels_divisions } = require('../../utils/Constants');
 
 // eslint-disable-next-line require-jsdoc
 function getDivision(data, mode = null) {
+  // eslint-disable-next-line camelcase
   for (const div of duels_divisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
     if (prestige) {

@@ -38,6 +38,7 @@ class SkyblockPet {
      * Skyblock Pet score
      * @type {number}
      */
+    // eslint-disable-next-line camelcase
     this.petScore = pet_score[data.tier] || 0;
     /**
      * Skyblock Pet held item
