@@ -14,6 +14,8 @@ module.exports = {
   getSkyblockAuctions: require('./skyblock/getSkyblockAuctions'),
   getSkyblockAuctionsByPlayer: require('./skyblock/getSkyblockAuctionsByPlayer'),
   getSkyblockBazaar: require('./skyblock/getSkyblockBazaar'),
+  getSkyblockBingo: require('./skyblock/getSkyblockBingo'),
+  getSkyblockBingoByPlayer: require('./skyblock/getSkyblockBingoByPlayer'),
   getSkyblockGovernment: require('./skyblock/getSkyblockGovernment'),
   getSkyblockMember: require('./skyblock/getSkyblockMember'),
   getSkyblockNews: require('./skyblock/getSkyblockNews'),
