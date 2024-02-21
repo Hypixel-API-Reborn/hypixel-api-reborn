@@ -13,7 +13,7 @@ class Requests {
   }
   async request(endpoint, options = {}) {
     options.headers = { 'API-Key': this.client.key, ...options.headers };
-    const fetchMethod = requireFetch ? await import('node-fetch').then({default: fetch}=>fetch) : fetch;
+    const fetchMethod = requireFetch ? await import('node-fetch').then(({default: fetch})=>fetch) : fetch;
     /**
      * @type {externalFetch.Response|Response}
      */
