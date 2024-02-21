@@ -27,6 +27,8 @@ module.exports = {
   SkyblockMember: require('./structures/SkyBlock/SkyblockMember.js'),
   SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem.js'),
   SkyblockPet: require('./structures/SkyBlock/SkyblockPet'),
+  SkyblockGovernment: require('./structures/Skyblock/Static/Government.js'),
+  SkyblockCandidate: require('./structures/Skyblock/Static/Candidate.js'),
 
   /* Skyblock Auctions */
   BaseAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),

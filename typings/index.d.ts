@@ -862,6 +862,10 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
     /**
+     * @description Gets data of skyblock government
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
+    /**
      * @description Allows you to get skyblock news
      */
     getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
@@ -1835,6 +1839,25 @@ declare module 'hypixel-api-reborn' {
     pricePerUnit: number;
     totalPrice: number;
     orders: number;
+  }
+  class GovernmentData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    lastElectionResults: Map<string, Candidate>;
+    mayor: Candidate;
+    runningYear: number;
+    currentElectionResults: Map<string, Candidate>;
+    currentElectionFor: number | null;
+  }
+  class Candidate {
+    constructor(data: Record<string, unknown>, isMayor?: boolean | undefined);
+    name: string;
+    keyBenefit: string;
+    perks: Record<'name' | 'description', string>[];
+    isMayor: boolean;
+    votesReceived: number;
+    toString(): string;
   }
   class WatchdogStats {
     constructor(data: Record<string, unknown>);

@@ -314,6 +314,13 @@ class Client extends EventEmitter {
    * .catch(console.log);
    */
   /**
+   * Allows you to get SB government
+   * @method
+   * @name Client#getSkyblockGovernment
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<Government>}
+   */
+  /**
    * Allows you to get skyblock news
    * @method
    * @name Client#getSkyblockNews
