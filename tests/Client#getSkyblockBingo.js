@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { SkyblockBingoData } = require('../src');
+const { BingoData } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
@@ -12,6 +12,6 @@ describe('Client#getSkyblockBingo', async () => {
     expect(bingo).to.be.an('object');
   });
   it('required keys should exist', () => {
-    expect(bingo).instanceOf(SkyblockBingoData);
+    expect(bingo).instanceOf(BingoData);
   });
 });

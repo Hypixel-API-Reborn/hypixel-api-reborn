@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { SkyblockGovernment } = require('../src/index.js');
+const { GovernmentData } = require('../src/index.js');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
@@ -12,6 +12,6 @@ describe('Client#getSkyblockGovernment', async () => {
     expect(government).to.be.an('object');
   });
   it('required keys should exist', () => {
-    expect(government).instanceOf(SkyblockGovernment);
+    expect(government).instanceOf(GovernmentData);
   });
 });
