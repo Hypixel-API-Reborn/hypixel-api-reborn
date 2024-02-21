@@ -32,7 +32,7 @@ class Validation {
     return {
       cache: options.cache || true,
       hypixelCacheTime: options.hypixelCacheTime || 60,
-      mojangCacheTime: options.mojangCacheTime || 10,
+      mojangCacheTime: options.mojangCacheTime || 600,
       cacheSize: (options.cacheSize === -1 ? Infinity : options.cacheSize) || Infinity,
       cacheFilter: typeof options.cacheFilter === 'function' ? options.cacheFilter : this._handleFilter(options.cacheFilter),
       rateLimit: options.rateLimit || 'AUTO',
