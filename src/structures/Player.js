@@ -13,8 +13,6 @@ const VampireZ = require('./MiniGames/VampireZ');
 const BlitzSurvivalGames = require('./MiniGames/BlitzSurvivalGames');
 const ArenaBrawl = require('./MiniGames/ArenaBrawl');
 const Arcade = require('./MiniGames/Arcade');
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Pit = require('./MiniGames/Pit');
 const Color = require('./Color');
 const Game = require('./Game');
 const PlayerCosmetics = require('./PlayerCosmetics');
@@ -225,8 +223,7 @@ class Player {
           turbokartracers: data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null,
           walls: data.stats.Walls ? new Walls(data.stats.Walls) : null,
           warlords: data.stats.Battleground ? new Warlords(data.stats.Battleground) : null,
-          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null,
-          pit: null
+          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null
         }
       : null;
     /**
