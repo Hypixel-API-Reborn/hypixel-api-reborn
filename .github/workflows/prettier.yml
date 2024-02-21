@@ -1,0 +1,31 @@
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: echo "Executing Prettier..."
+    - run: |
+           npm install
+           npm run prettier
+           git config --global user.email "hypixel-api-reborn@github.rofl"
+           git config --global user.name "PrettierBot"
+           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+           git pull github ${GITHUB_REF} --ff-only
+           git add .
+           git commit -m "Prettier applied"
+           git push github HEAD:${GITHUB_REF}
