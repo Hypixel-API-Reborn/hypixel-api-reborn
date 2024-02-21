@@ -1,6 +1,5 @@
 /* eslint-disable require-jsdoc */
 const requireFetch = !globalThis.fetch;
-const externalFetch = require('node-fetch');
 const BASE_URL = 'https://api.hypixel.net/v2';
 const Errors = require('../Errors');
 const Cache = require('./defaultCache');
@@ -14,7 +13,7 @@ class Requests {
   }
   async request(endpoint, options = {}) {
     options.headers = { 'API-Key': this.client.key, ...options.headers };
-    const fetchMethod = requireFetch ? externalFetch : fetch;
+    const fetchMethod = requireFetch ? await import('node-fetch').then({default: fetch}=>fetch) : fetch;
     /**
      * @type {externalFetch.Response|Response}
      */
