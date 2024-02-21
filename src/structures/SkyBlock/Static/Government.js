@@ -50,6 +50,13 @@ class GovernmentData {
      */
     this.currentElectionFor = parseInt(data.current.year, 10) || null;
   }
+  /**
+   * As string
+   * @return {string}
+   */
+  toString() {
+    return this.name;
+  }
 }
 
 module.exports = GovernmentData;

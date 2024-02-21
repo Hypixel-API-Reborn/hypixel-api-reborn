@@ -312,6 +312,20 @@ class Client extends EventEmitter {
    *   console.log(products[0].productId); // INK_SACK:3
    * })
    * .catch(console.log);
+   */ /**
+   * Allows you to get bingo data
+   * @method
+   * @name Client#getSkyblockBingo
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<BingoData>}
+   */
+  /**
+   * Allows you to get bingo data of a player
+   * @method
+   * @name Client#getSkyblockBingoByPlayer
+   * @param {string} query UUID / IGN of player
+   * @param {PlayerBingoOptions} [options={}] Options
+   * @return {Promise<PlayerBingo>}
    */
   /**
    * Allows you to get SB government
@@ -409,6 +423,14 @@ const defaultCache = require('./Private/defaultCache.js');
  * @property {number} [cooldown=100] Cooldown between each fetch, only works if race is unset or false;
  * @property {boolean} [race=false] Issues simultaneous requests to the API, instead of requesting then parsing one by one. Can largely increase speed at the cost of hogging bandwidth and memory
  * @property {boolean} [includeItemBytes=false] Whether to include item bytes in the result
+ * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
+ */
+/**
+ * @typedef {object} PlayerBingoOptions
+ * @property {boolean} [raw=false] Raw data
+ * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {boolean} [noCaching=false] Disable/Enable writing to cache
+ * @property {boolean} [fetchBingoData=false] Fetches bingo data to give more information
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 module.exports = Client;
