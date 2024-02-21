@@ -27,10 +27,10 @@ module.exports = {
   SkyblockMember: require('./structures/SkyBlock/SkyblockMember.js'),
   SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem.js'),
   SkyblockPet: require('./structures/SkyBlock/SkyblockPet'),
-  GovernmentData: require('./structures/Skyblock/Static/Government.js'),
+  GovernmentData: require('./structures/SkyBlock/Static/Government.js'),
   Candidate: require('./structures/Skyblock/Static/Candidate.js'),
-  BingoData: require('./structures/Skyblock/Static/BingoData.js'),
-  Bingo: require('./structures/Skyblock/Static/Bingo.js'),
+  BingoData: require('./structures/SkyBlock/Static/BingoData.js'),
+  Bingo: require('./structures/SkyBlock/Static/Bingo.js'),
 
   /* Skyblock Auctions */
   BaseAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),
