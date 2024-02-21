@@ -1,4 +1,4 @@
-const fetch = require('../Private/uuidCache');
+const fetch = require('../Private/uuidCache.js');
 const isUUID = require('./isUUID.js');
 const Errors = require('../Errors');
 
