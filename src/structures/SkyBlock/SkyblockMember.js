@@ -33,47 +33,32 @@ class SkyblockMember {
      * Timestamp when player first joined SkyBlock
      * @type {number}
      */
-    this.firstJoinTimestamp = data.m.first_join;
+    this.firstJoinTimestamp = data.m.profile.first_join;
     /**
      * Timestamp when player first joined SkyBlock as Date
      * @type {Date}
      */
-    this.firstJoinAt = new Date(data.m.first_join);
-    /**
-     * Timestamp when player first joined the SkyBlock Hub
-     * @type {number}
-     */
-    this.firstJoinHubTimestamp = data.m.first_join_hub;
-    /**
-     * Timestamp when player first joined the SkyBlock Hub as Date
-     * @type {Date}
-     */
-    this.firstJoinHubAt = new Date(this.firstJoinTimestamp + data.m.first_join_hub);
+    this.firstJoinAt = new Date(data.m.profile.first_join);
     /**
      * Last save timestamp
      * @type {number}
      */
-    this.lastSaveTimestamp = data.m.last_save;
-    /**
-     * Last save timestamp as Date
-     * @type {Date}
-     */
-    this.lastSaveAt = new Date(data.m.last_save);
-    /**
-     * Last save timestamp
-     * @type {number}
-     */
-    this.lastDeathTimestamp = data.m.last_death;
+    this.lastDeathTimestamp = data.m.player_data.last_death;
     /**
      * Last death timestamp as Date
      * @type {Date}
      */
-    this.lastDeathAt = new Date(skyblock_year_0 + data.m.last_death * 1000);
+    this.lastDeathAt = new Date(skyblock_year_0 + data.m.player_data.last_death * 1000);
     /**
      * Experience
      * @type {number}
      */
     this.experience = data.m.leveling?.experience ?? 0;
+    /**
+     * Skyblock Level
+     * @type {number}
+     */
+    this.level = data.m.leveling?.experience / 100 ?? 0;
     /**
      * Heart of the Mountain - MiningSkill
      * @type {number}
@@ -94,7 +79,7 @@ class SkyblockMember {
      * @return {Promise<SkyblockMemberArmor>}
      */
     this.getArmor = async () => {
-      const base64 = data.m.inv_armor;
+      const base64 = data.m.inventory.inv_armor;
       const decoded = await decode(base64.data);
       const armor = {
         helmet: decoded[3].id ? new SkyblockInventoryItem(decoded[3]) : null,
@@ -109,7 +94,7 @@ class SkyblockMember {
      * @return {Promise<SkyblockMemberItem[]>}
      */
     this.getWardrobe = async () => {
-      const base64 = data.m?.wardrobe_contents?.data;
+      const base64 = data.m?.inventory?.wardrobe_contents?.data;
       if (!base64) return [];
       const decoded = await decode(base64);
       const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
@@ -119,12 +104,12 @@ class SkyblockMember {
      * Collected fairy souls
      * @type {number}
      */
-    this.fairySouls = data.m.fairy_souls_collected || 0;
+    this.fairySouls = data.m.fairy_soul.total_collected || 0;
     /**
      * Amount of fairy soul exchanges
      * @type {number}
      */
-    this.fairyExchanges = data.m.fairyExchanges || 0;
+    this.fairyExchanges = data.m.fairy_soul.fairy_exchanges || 0;
     /**
      * Skyblock member skills
      * @type {SkyblockMemberSkills}
@@ -154,8 +139,9 @@ class SkyblockMember {
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
      */
+    // TODO fix enderchest fully broken :(
     this.getEnderChest = async () => {
-      const chest = data.m.ender_chest_contents;
+      const chest = data.m.inventory.ender_chest_contents;
       if (!chest) return [];
 
       try {
@@ -178,7 +164,7 @@ class SkyblockMember {
      * @return {Promise<SkyblockInventoryItem[]>}
      */
     this.getInventory = async () => {
-      let inventory = data.m.inv_contents;
+      let inventory = data.m.inventory.inv_contents;
       if (!inventory) return [];
 
       try {
@@ -199,17 +185,17 @@ class SkyblockMember {
      * Skyblock coins in purse
      * @type {number}
      */
-    this.purse = data.m.coin_purse || 0;
+    this.purse = data.m.currencies.coin_purse || 0;
     /**
      * Skyblock member stats
      * @type {SkyblockMemberStats}
      */
-    this.stats = data.m.stats ? getMemberStats(data.m.stats) : null;
+    this.stats = data.m.player_stats ? getMemberStats(data.m.player_stats) : null;
     /**
      * Skyblock pets
      * @type {SkyblockPet[]}
      */
-    this.pets = data.m.pets ? data.m.pets.map((pet) => new SkyblockPet(pet)) : [];
+    this.pets = data.m.pets_data.pets ? data.m.pets_data.pets.map((pet) => new SkyblockPet(pet)) : [];
     /**
      * Skyblock jacob data
      * @type {jacobData}
@@ -221,14 +207,14 @@ class SkyblockMember {
      */
     this.getPetScore = () => {
       const highestRarity = {};
-      for (const pet of data.m.pets) {
+      for (const pet of data.m.pets_data.pets) {
         if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
           highestRarity[pet.type] = Constants.pet_score[pet.tier];
         }
       }
 
       const highestLevel = {};
-      for (const pet of data.m.pets) {
+      for (const pet of data.m.pets_data.pets) {
         const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
         const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
 
@@ -255,20 +241,17 @@ class SkyblockMember {
 // eslint-disable-next-line require-jsdoc
 function getSkills(data) {
   const skillsObject = {};
-  if (!objectPath.has(data, 'experience_skill_foraging')) {
-    if (data.player) {
-      for (const [skill, achievement] of Object.entries(skills_achievements)) {
-        skillsObject[skill] = getLevelByAchievement(data.player.achievements[achievement], skill);
-      }
-      skillsObject.usedAchievementApi = true;
-      return skillsObject;
-    }
-    return null;
-  }
-  for (const skill of skills) {
-    skillsObject[skill] = getLevelByXp(data[`experience_skill_${skill}`], skill, skill === 'farming' ? (data.jacob2 && data.jacob2.perks && data.jacob2.perks.farming_level_cap) || 0 : null);
-  }
-  if (data.player) skillsObject.usedAchievementApi = false;
+  skillsObject['fishing'] = getLevelByXp(data?.player_data?.experience?.SKILL_FISHING ?? 0, 'fishing');
+  skillsObject['alchemy'] = getLevelByXp(data?.player_data?.experience?.SKILL_ALCHEMY ?? 0, 'alchemy');
+  skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
+  skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
+  // TODO make it check jacobs contest for farming level cap
+  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming');
+  skillsObject['enchanting'] = getLevelByXp(data?.player_data?.experience?.SKILL_ENCHANTING ?? 0, 'enchanting');
+  skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
+  skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
+  skillsObject['carpentry'] = getLevelByXp(data?.player_data?.experience?.SKILL_CARPENTRY ?? 0, 'carpentry');
+  skillsObject['combat'] = getLevelByXp(data?.player_data?.experience?.SKILL_COMBAT ?? 0, 'combat');
   return skillsObject;
 }
 // eslint-disable-next-line require-jsdoc
@@ -329,16 +312,13 @@ function getBestiaryLevel(userProfile) {
 
 // eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
-  if (!objectPath.has(data, 'slayer_bosses')) {
-    return null;
-  }
   return {
-    zombie: getSlayerLevel(data.slayer_bosses.zombie),
-    spider: getSlayerLevel(data.slayer_bosses.spider),
-    wolf: getSlayerLevel(data.slayer_bosses.wolf),
-    enderman: getSlayerLevel(data.slayer_bosses.enderman),
-    blaze: getSlayerLevel(data.slayer_bosses.blaze),
-    vampire: getSlayerLevel(data.slayer_bosses.vampire)
+    zombie: getSlayerLevel(data.slayer.slayer_bosses.zombie),
+    spider: getSlayerLevel(data.slayer.slayer_bosses.spider),
+    wolf: getSlayerLevel(data.slayer.slayer_bosses.wolf),
+    enderman: getSlayerLevel(data.slayer.slayer_bosses.enderman),
+    blaze: getSlayerLevel(data.slayer.slayer_bosses.blaze),
+    vampire: getSlayerLevel(data.slayer.slayer_bosses.vampire)
   };
 }
 // eslint-disable-next-line require-jsdoc
@@ -361,7 +341,7 @@ function getDungeons(data) {
 }
 // eslint-disable-next-line require-jsdoc
 function getJacobData(data) {
-  if (!data.m.jacob2) {
+  if (!data.m.jacobs_contest) {
     return {
       medals: {
         bronze: 0,
@@ -370,17 +350,20 @@ function getJacobData(data) {
       },
       perks: {
         doubleDrops: 0,
-        farmingLevelCap: 0
+        farmingLevelCap: 0,
+        personalBests: false
       },
       contests: {}
     };
   }
   return {
-    medals: data.m.jacob2.medals_inv
-      ? { bronze: data.m.jacob2.medals_inv.bronze || 0, silver: data.m.jacob2.medals_inv.silver || 0, gold: data.m.jacob2.medals_inv.gold || 0 }
+    medals: data.m.jacobs_contest.medals_inv
+      ? { bronze: data.m.jacobs_contest.medals_inv.bronze || 0, silver: data.m.jacobs_contest.medals_inv.silver || 0, gold: data.m.jacobs_contest.medals_inv.gold || 0 }
       : { bronze: 0, silver: 0, gold: 0 },
-    perks: data.m.jacob2.perks ? { doubleDrops: data.m.jacob2.perks.doubleDrops || 0, farmingLevelCap: data.m.jacob2.perks.farmingLevelCap || 0 } : { doubleDrops: 0, farmingLevelCap: 0 },
-    contests: data.m.jacob2.contests || {}
+    perks: data.m.jacobs_contest.perks
+      ? { doubleDrops: data.m.jacobs_contest.perks.double_drops || 0, farmingLevelCap: data.m.jacobs_contest.perks.farming_level_cap || 0, personalBests: data.m.jacobs_contest.perks.personal_bests || false }
+      : { doubleDrops: 0, farmingLevelCap: 0, personalBests: false },
+    contests: data.m.jacobs_contest.contests || {}
   };
 }
 // eslint-disable-next-line require-jsdoc
@@ -815,6 +798,7 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {object} perks Perks
  * @property {number} perks.doubleDrops Double drops
  * @property {number} perks.farmingLevelCap Farming level cap
+ * @property {boolean} perks.personalBests Personal Bests
  * @property {object} contests Contests
  */
 module.exports = SkyblockMember;

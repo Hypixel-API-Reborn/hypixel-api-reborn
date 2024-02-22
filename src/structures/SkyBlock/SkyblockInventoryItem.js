@@ -42,6 +42,7 @@ class SkyblockInventoryItem {
      * Hexadecimal color code of armor
      * @type {string}
      */
+    // TODO color returns null even if there is color or just errors
     this.color = data.tag.ExtraAttributes.color ? rgbToHexColor(data.tag.ExtraAttributes.color.split(':')) : null;
     /**
      * Item enchantments
@@ -57,6 +58,7 @@ class SkyblockInventoryItem {
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
      */
+    // TODO fix gemstones | returns "gemstones: [ undefined ]"
     this.gemstones = data.tag.ExtraAttributes.gems
       ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
           // eslint-disable-next-line no-new-object
