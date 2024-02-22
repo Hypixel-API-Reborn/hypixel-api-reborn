@@ -226,6 +226,50 @@ class SkyblockMember {
 
       return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
     };
+    /**
+     * Skyblock member equipment
+     * @return {Promise<SkyblockInventoryItem[]>}
+     */
+    this.getEquipment = async () => {
+      let equipment = data.m.inventory.equipment_contents;
+      if (!equipment) return [];
+
+      try {
+        equipment = await decode(equipment.data);
+        const edited = [];
+        for (let i = 0; i < equipment.length; i++) {
+          if (!equipment[i].id) {
+            continue;
+          }
+          edited.push(new SkyblockInventoryItem(equipment[i]));
+        }
+        return edited;
+      } catch (e) {
+        return e;
+      }
+    };
+    /**
+     * Skyblock member Personal Vault
+     * @return {Promise<SkyblockInventoryItem[]>}
+     */
+    this.getPersonalVault = async () => {
+      let vault = data.m.inventory.personal_vault_contents;
+      if (!vault) return [];
+
+      try {
+        vault = await decode(vault.data);
+        const edited = [];
+        for (let i = 0; i < vault.length; i++) {
+          if (!vault[i].id) {
+            continue;
+          }
+          edited.push(new SkyblockInventoryItem(vault[i]));
+        }
+        return edited;
+      } catch (e) {
+        return e;
+      }
+    };
   }
   /**
    * UUID

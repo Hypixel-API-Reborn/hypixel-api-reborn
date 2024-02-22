@@ -40,7 +40,7 @@ class SkyblockInventoryItem {
      * Hexadecimal color code of armor
      * @type {string|null}
      */
-    this.color = data.tag.ExtraAttributes.color ?? data.tag.display.color;
+    this.color = data.tag.ExtraAttributes.color ?? data.tag.display.color ?? null;
     /**
      * Item enchantments
      * @type {object}
@@ -106,9 +106,54 @@ class SkyblockInventoryItem {
     this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ? data.tag.ExtraAttributes.hot_potato_count : 0;
     /**
      * Is the item soulbound
-     * @type {number}
+     * @type {boolean}
      */
-    this.soulbound = data.tag.ExtraAttributes.donated_museum == 1;
+    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
+    /**
+     * Is the item recombobulated
+     * @type {boolean}
+     */
+    this.recombobulated = data.tag.ExtraAttributes.rarity_upgrades === 1;
+    /**
+     * Is the item soulbound
+     * @type {boolean}
+     */
+    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
+    /**
+     * Item attributes
+     * @type {object}
+     */
+    this.attributes = data.tag.ExtraAttributes.attributes ?? {};
+    /**
+     * Hecatomb runs
+     * @type {object}
+     */
+    this.hecatomb = data.tag.ExtraAttributes.hecatomb_s_runs ?? 0;
+    /**
+     * Champion xp
+     * @type {object}
+     */
+    this.champion = data.tag.ExtraAttributes.champion_combat_xp ?? 0;
+    /**
+     * Cultivating
+     * @type {object}
+     */
+    this.cultivating = data.tag.ExtraAttributes.farmed_cultivating ?? 0;
+    /**
+     * Expertise Kills
+     * @type {object}
+     */
+    this.expertise = data.tag.ExtraAttributes.expertise_kills ?? 0;
+    /**
+     * Compact blocks Mined
+     * @type {object}
+     */
+    this.compact = data.tag.ExtraAttributes.compact_blocks ?? 0;
+    /**
+     * Armadillos Blocks Walked
+     * @type {object}
+     */
+    this.compact = data.tag.ExtraAttributes.blocks_walked ?? 0;
   }
   /**
    * Item Name
