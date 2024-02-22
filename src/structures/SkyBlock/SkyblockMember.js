@@ -3,7 +3,6 @@ const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getMemberSt
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockPet = require('./SkyblockPet');
-const objectPath = require('object-path');
 const Constants = require('../../utils/Constants');
 /**
  * Skyblock member class
@@ -139,20 +138,18 @@ class SkyblockMember {
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
      */
-    // TODO fix enderchest fully broken :(
     this.getEnderChest = async () => {
-      const chest = data.m.inventory.ender_chest_contents;
+      let chest = data.m.inventory.ender_chest_contents;
       if (!chest) return [];
 
       try {
-        const enderChest = await decode(chest.data);
-
+        chest = await decode(chest.data);
         const edited = [];
-        for (let i = 0; i < enderChest.length; i++) {
-          if (!enderChest[i].id) {
+        for (let i = 0; i < chest.length; i++) {
+          if (!chest[i].id) {
             continue;
           }
-          edited.push(new SkyblockInventoryItem(enderChest[i]));
+          edited.push(new SkyblockInventoryItem(chest[i]));
         }
         return edited;
       } catch (e) {
@@ -245,8 +242,7 @@ function getSkills(data) {
   skillsObject['alchemy'] = getLevelByXp(data?.player_data?.experience?.SKILL_ALCHEMY ?? 0, 'alchemy');
   skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
   skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
-  // TODO make it check jacobs contest for farming level cap
-  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming');
+  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming', data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50);
   skillsObject['enchanting'] = getLevelByXp(data?.player_data?.experience?.SKILL_ENCHANTING ?? 0, 'enchanting');
   skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
   skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
@@ -323,9 +319,6 @@ function getSlayer(data) {
 }
 // eslint-disable-next-line require-jsdoc
 function getDungeons(data) {
-  if (!objectPath.has(data, 'dungeons')) {
-    return null;
-  }
   return {
     types: {
       catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
@@ -443,9 +436,11 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  */
 /**
  * @typedef {object} SkyblockMemberSlayer
- * @property {SkyblockMemberSlayerLevel} zombie
- * @property {SkyblockMemberSlayerLevel} spider
- * @property {SkyblockMemberSlayerLevel} wolf
+ * @property {SkyblockMemberSlayerLevel} zombie Zombie
+ * @property {SkyblockMemberSlayerLevel} spider Spider
+ * @property {SkyblockMemberSlayerLevel} wolf Wolf
+ * @property {SkyblockMemberSlayerLevel} blaze Blaze
+ * @property {SkyblockMemberSlayerLevel} vampire Vampire
  */
 /**
  * @typedef {object} SkyblockMemberSlayerLevel
@@ -458,8 +453,8 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  */
 /**
  * @typedef {object} SkyblockMemberDungeons
- * @property {object} types Dungeons types
- * @property {object} classes Dungeons classes
+ * @property {SkyblockMemberDungeonsTypes} types Dungeons types
+ * @property {SkyblockMemberDungeonsClasses} classes Dungeons classes
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsTypes

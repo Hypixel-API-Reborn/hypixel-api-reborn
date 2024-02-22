@@ -1,5 +1,3 @@
-const rgbToHexColor = require('../../utils/rgbToHexColor');
-
 /**
  * Item class
  */
@@ -40,10 +38,9 @@ class SkyblockInventoryItem {
     this.loreForEmbed = this.lore.replace(/§([0-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
     /**
      * Hexadecimal color code of armor
-     * @type {string}
+     * @type {string|null}
      */
-    // TODO color returns null even if there is color or just errors
-    this.color = data.tag.ExtraAttributes.color ? rgbToHexColor(data.tag.ExtraAttributes.color.split(':')) : null;
+    this.color = data.tag.display.color ? `#${data.tag.display.color.toString(16)}` : null;
     /**
      * Item enchantments
      * @type {object}
@@ -58,18 +55,12 @@ class SkyblockInventoryItem {
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
      */
-    // TODO fix gemstones | returns "gemstones: [ undefined ]"
     this.gemstones = data.tag.ExtraAttributes.gems
       ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
           // eslint-disable-next-line no-new-object
-          new Object({ type: gem[0].split('_')[0], quality: gem[1] });
+          return new Object({ type: gem[0].split('_')[0], quality: gem[1] });
         })
       : null;
-    /**
-     * Anvil uses
-     * @type {number}
-     */
-    this.anvilUses = data.tag.ExtraAttributes.anvil_uses ? data.tag.ExtraAttributes.anvil_uses : 0;
     /**
      * Damage
      * @type {number}
@@ -84,16 +75,40 @@ class SkyblockInventoryItem {
     this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
     /**
      * The amount of dungeon stars the item has (each star equates to a 10% stat boost while in dungeons)
-     * @author linearaccelerator
      * @type {number}
      */
-    this.dungeonStars = this.name.match(/(\u272a)/g) ? this.name.match(/(\u272a)/g).length : 0;
+    this.dungeonStars = data.tag.ExtraAttributes.upgrade_level ? data.tag.ExtraAttributes.upgrade_level : 0;
     /**
      * Dungeon gear score of the item (or null if not present)
      * @author linearaccelerator
      * @type {number}
      */
     this.gearScore = parseGearScore(this.loreArray) || null;
+    /**
+     * Amount of art of war books applied to the item
+     * @type {number}
+     */
+    this.artOfWar = data.tag.ExtraAttributes.art_of_war_count ? data.tag.ExtraAttributes.art_of_war_count : 0;
+    /**
+     * Rune
+     * @type {object}
+     */
+    this.rune = data.tag.ExtraAttributes.runes ? data.tag.ExtraAttributes.runes : null;
+    /**
+     * UUID of the item
+     * @type {string}
+     */
+    this.uuid = data.tag.ExtraAttributes.uuid ? data.tag.ExtraAttributes.uuid : '';
+    /**
+     * The amount of applied potato books
+     * @type {number}
+     */
+    this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ? data.tag.ExtraAttributes.hot_potato_count : 0;
+    /**
+     * Is the item soulbound
+     * @type {number}
+     */
+    this.soulbound = data.tag.ExtraAttributes.donated_museum == 1 ? true : false;
   }
   /**
    * Item Name
