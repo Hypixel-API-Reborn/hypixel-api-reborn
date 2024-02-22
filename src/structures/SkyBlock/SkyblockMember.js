@@ -103,12 +103,12 @@ class SkyblockMember {
      * Collected fairy souls
      * @type {number}
      */
-    this.fairySouls = data.m.fairy_soul.total_collected || 0;
+    this.fairySouls = data.m.fairy_soul.total_collected ?? 0;
     /**
      * Amount of fairy soul exchanges
      * @type {number}
      */
-    this.fairyExchanges = data.m.fairy_soul.fairy_exchanges || 0;
+    this.fairyExchanges = data.m.fairy_soul.fairy_exchanges ?? 0;
     /**
      * Skyblock member skills
      * @type {SkyblockMemberSkills}
@@ -182,7 +182,7 @@ class SkyblockMember {
      * Skyblock coins in purse
      * @type {number}
      */
-    this.purse = data.m.currencies.coin_purse || 0;
+    this.purse = data.m.currencies.coin_purse ?? 0;
     /**
      * Skyblock member stats
      * @type {SkyblockMemberStats}
@@ -309,12 +309,12 @@ function getBestiaryLevel(userProfile) {
 // eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
   return {
-    zombie: getSlayerLevel(data.slayer.slayer_bosses.zombie),
-    spider: getSlayerLevel(data.slayer.slayer_bosses.spider),
-    wolf: getSlayerLevel(data.slayer.slayer_bosses.wolf),
-    enderman: getSlayerLevel(data.slayer.slayer_bosses.enderman),
-    blaze: getSlayerLevel(data.slayer.slayer_bosses.blaze),
-    vampire: getSlayerLevel(data.slayer.slayer_bosses.vampire)
+    zombie: getSlayerLevel(data?.slayer?.slayer_bosses?.zombie),
+    spider: getSlayerLevel(data?.slayer?.slayer_bosses?.spider),
+    wolf: getSlayerLevel(data?.slayer?.slayer_bosses?.wolf),
+    enderman: getSlayerLevel(data?.slayer?.slayer_bosses?.enderman),
+    blaze: getSlayerLevel(data?.slayer?.slayer_bosses?.blaze),
+    vampire: getSlayerLevel(data?.slayer?.slayer_bosses?.vampire)
   };
 }
 // eslint-disable-next-line require-jsdoc
