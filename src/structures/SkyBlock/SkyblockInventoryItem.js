@@ -126,34 +126,34 @@ class SkyblockInventoryItem {
     this.attributes = data.tag.ExtraAttributes.attributes ?? {};
     /**
      * Hecatomb runs
-     * @type {object}
+     * @type {number}
      */
     this.hecatomb = data.tag.ExtraAttributes.hecatomb_s_runs ?? 0;
     /**
      * Champion xp
-     * @type {object}
+     * @type {number}
      */
     this.champion = data.tag.ExtraAttributes.champion_combat_xp ?? 0;
     /**
      * Cultivating
-     * @type {object}
+     * @type {number}
      */
     this.cultivating = data.tag.ExtraAttributes.farmed_cultivating ?? 0;
     /**
      * Expertise Kills
-     * @type {object}
+     * @type {number}
      */
     this.expertise = data.tag.ExtraAttributes.expertise_kills ?? 0;
     /**
      * Compact blocks Mined
-     * @type {object}
+     * @type {number}
      */
     this.compact = data.tag.ExtraAttributes.compact_blocks ?? 0;
     /**
      * Armadillos Blocks Walked
-     * @type {object}
+     * @type {number}
      */
-    this.compact = data.tag.ExtraAttributes.blocks_walked ?? 0;
+    this.blocksWalked = data.tag.ExtraAttributes.blocks_walked ?? 0;
   }
   /**
    * Item Name
