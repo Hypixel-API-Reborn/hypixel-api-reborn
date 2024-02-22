@@ -45,12 +45,12 @@ class SkyblockInventoryItem {
      * Item enchantments
      * @type {object}
      */
-    this.enchantments = data.tag.ExtraAttributes.enchantments ? data.tag.ExtraAttributes.enchantments : null;
+    this.enchantments = data.tag.ExtraAttributes.enchantments ?? null;
     /**
      * Armor reforge
      * @type {string}
      */
-    this.reforge = data.tag.ExtraAttributes.modifier ? data.tag.ExtraAttributes.modifier : null;
+    this.reforge = data.tag.ExtraAttributes.modifier ?? null;
     /**
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
@@ -88,7 +88,7 @@ class SkyblockInventoryItem {
      * UUID of the item
      * @type {string}
      */
-    this.uuid = data.tag.ExtraAttributes.uuid ? data.tag.ExtraAttributes.uuid : '';
+    this.uuid = data.tag.ExtraAttributes.uuid ?? '';
     /**
      * Is the item soulbound
      * @type {boolean}
@@ -98,17 +98,17 @@ class SkyblockInventoryItem {
      * Amount of art of war books applied to the item
      * @type {number}
      */
-    this.artOfWar = data.tag.ExtraAttributes.art_of_war_count ? data.tag.ExtraAttributes.art_of_war_count : 0;
+    this.artOfWar = data.tag.ExtraAttributes.art_of_war_count ?? 0;
     /**
      * Rune
      * @type {object}
      */
-    this.rune = data.tag.ExtraAttributes.runes ? data.tag.ExtraAttributes.runes : null;
+    this.rune = data.tag.ExtraAttributes.runes ?? null;
     /**
      * The amount of applied potato books
      * @type {number}
      */
-    this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ? data.tag.ExtraAttributes.hot_potato_count : 0;
+    this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ?? 0;
     /**
      * Is the item recombobulated
      * @type {boolean}
