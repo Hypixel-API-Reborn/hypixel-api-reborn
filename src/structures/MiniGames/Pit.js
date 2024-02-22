@@ -1,8 +1,10 @@
+const { decode } = require('../../utils/SkyblockUtils');
+const PitInventoryItem = require('./PitInventoryItem');
 const { divide } = require('../../utils');
 
 /**
  * Pit Class
- * TODO : Profile (inv, ender chest, armor), levels ( https://docs.google.com/spreadsheets/d/1ZnG7kv3dTZhsowr-8vK3kiJCFT-w-vJzY5lhJqLSSmc/edit#gid=0), Other minor stats
+ * TODO : Profile, levels ( https://docs.google.com/spreadsheets/d/1ZnG7kv3dTZhsowr-8vK3kiJCFT-w-vJzY5lhJqLSSmc/edit#gid=0), Other minor stats
  */
 class Pit {
   /**
@@ -130,5 +132,74 @@ class Pit {
      * @type {number}
      */
     this.goldenHeadsEaten = stats.ghead_eaten || 0;
+    /**
+     * Pit Player Inv
+     * @return {Promise<PitInventoryItem[]>}
+     */
+    this.getInventory = async () => {
+      let inventory = data.profile.inv_contents;
+      if (!inventory) return [];
+
+      try {
+        inventory = await decode(inventory.data);
+        const edited = [];
+        for (let i = 1; i < inventory.length; i++) {
+          if (!inventory[i].id) {
+            continue;
+          }
+          edited.push(new PitInventoryItem(inventory[i]));
+        }
+        return edited;
+      } catch (e) {
+        return e;
+      }
+    };
+    /**
+     * Pit Player Ender Chest
+     * @return {Promise<PitInventoryItem[]>}
+     */
+    this.getEnterChest = async () => {
+      let chest = data.profile.inv_enderchest;
+      if (!chest) return [];
+
+      try {
+        chest = await decode(chest.data);
+        const edited = [];
+        for (let i = 1; i < chest.length; i++) {
+          if (!chest[i].id) {
+            continue;
+          }
+          edited.push(new PitInventoryItem(chest[i]));
+        }
+        return edited;
+      } catch (e) {
+        return e;
+      }
+    };
+    /**
+     * Pit Player Armor
+     * @return {Promise<PitArmor>}
+     */
+    this.getArmor = async () => {
+      const base64 = data.profile.inv_armor;
+      const decoded = await decode(base64.data);
+      const armor = {
+        helmet: decoded[3].id ? new PitInventoryItem(decoded[3]) : null,
+        chestplate: decoded[2].id ? new PitInventoryItem(decoded[2]) : null,
+        leggings: decoded[1].id ? new PitInventoryItem(decoded[1]) : null,
+        boots: decoded[0].id ? new PitInventoryItem(decoded[0]) : null
+      };
+      return armor;
+    };
   }
 }
+
+/**
+ * @typedef {object} PitArmor Equipped armor
+ * @property {PitInventoryItem|null} helmet Helmet
+ * @property {PitInventoryItem|null} chestplate Chestplate
+ * @property {PitInventoryItem|null} leggings Leggings
+ * @property {PitInventoryItem|null} boots Boots
+ */
+
+module.exports = Pit;
