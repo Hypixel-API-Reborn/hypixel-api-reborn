@@ -77,7 +77,7 @@ class SkyblockInventoryItem {
      * The amount of dungeon stars the item has (each star equates to a 10% stat boost while in dungeons)
      * @type {number}
      */
-    this.dungeonStars = data.tag.ExtraAttributes.upgrade_level ? data.tag.ExtraAttributes.upgrade_level : 0;
+    this.dungeonStars = data.tag.ExtraAttributes.upgrade_level ?? 0;
     /**
      * Dungeon gear score of the item (or null if not present)
      * @author linearaccelerator
@@ -89,6 +89,11 @@ class SkyblockInventoryItem {
      * @type {string}
      */
     this.uuid = data.tag.ExtraAttributes.uuid ? data.tag.ExtraAttributes.uuid : '';
+    /**
+     * Is the item soulbound
+     * @type {boolean}
+     */
+    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
     /**
      * Amount of art of war books applied to the item
      * @type {number}
@@ -104,11 +109,6 @@ class SkyblockInventoryItem {
      * @type {number}
      */
     this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ? data.tag.ExtraAttributes.hot_potato_count : 0;
-    /**
-     * Is the item soulbound
-     * @type {boolean}
-     */
-    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
     /**
      * Is the item recombobulated
      * @type {boolean}
