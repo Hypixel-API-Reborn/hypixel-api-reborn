@@ -85,6 +85,11 @@ class SkyblockInventoryItem {
      */
     this.gearScore = parseGearScore(this.loreArray) || null;
     /**
+     * UUID of the item
+     * @type {string}
+     */
+    this.uuid = data.tag.ExtraAttributes.uuid ? data.tag.ExtraAttributes.uuid : '';
+    /**
      * Amount of art of war books applied to the item
      * @type {number}
      */
@@ -94,11 +99,6 @@ class SkyblockInventoryItem {
      * @type {object}
      */
     this.rune = data.tag.ExtraAttributes.runes ? data.tag.ExtraAttributes.runes : null;
-    /**
-     * UUID of the item
-     * @type {string}
-     */
-    this.uuid = data.tag.ExtraAttributes.uuid ? data.tag.ExtraAttributes.uuid : '';
     /**
      * The amount of applied potato books
      * @type {number}
@@ -114,11 +114,6 @@ class SkyblockInventoryItem {
      * @type {boolean}
      */
     this.recombobulated = data.tag.ExtraAttributes.rarity_upgrades === 1;
-    /**
-     * Is the item soulbound
-     * @type {boolean}
-     */
-    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
     /**
      * Item attributes
      * @type {object}
