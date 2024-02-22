@@ -32,22 +32,22 @@ class SkyblockMember {
      * Timestamp when player first joined SkyBlock
      * @type {number}
      */
-    this.firstJoinTimestamp = data.m.profile.first_join;
+    this.firstJoinTimestamp = data.m.profile?.first_join;
     /**
      * Timestamp when player first joined SkyBlock as Date
      * @type {Date}
      */
-    this.firstJoinAt = new Date(data.m.profile.first_join);
+    this.firstJoinAt = new Date(data.m.profile?.first_join);
     /**
      * Last save timestamp
      * @type {number}
      */
-    this.lastDeathTimestamp = data.m.player_data.last_death;
+    this.lastDeathTimestamp = data.m.player_data?.last_death;
     /**
      * Last death timestamp as Date
      * @type {Date}
      */
-    this.lastDeathAt = new Date(skyblock_year_0 + data.m.player_data.last_death * 1000);
+    this.lastDeathAt = new Date(skyblock_year_0 + data.m.player_data?.last_death * 1000);
     /**
      * Experience
      * @type {number}
@@ -57,7 +57,7 @@ class SkyblockMember {
      * Skyblock Level
      * @type {number}
      */
-    this.level = data.m.leveling?.experience / 100 ?? 0;
+    this.level = this.experience / 100 ?? 0;
     /**
      * Heart of the Mountain - MiningSkill
      * @type {number}
@@ -182,7 +182,7 @@ class SkyblockMember {
      * Skyblock coins in purse
      * @type {number}
      */
-    this.purse = data.m.currencies.coin_purse ?? 0;
+    this.purse = data.m?.currencies?.coin_purse ?? 0;
     /**
      * Skyblock member stats
      * @type {SkyblockMemberStats}
@@ -192,7 +192,7 @@ class SkyblockMember {
      * Skyblock pets
      * @type {SkyblockPet[]}
      */
-    this.pets = data.m.pets_data.pets ? data.m.pets_data.pets.map((pet) => new SkyblockPet(pet)) : [];
+    this.pets = data.m?.pets_data?.pets ? data.m.pets_data.pets.map((pet) => new SkyblockPet(pet)) : [];
     /**
      * Skyblock jacob data
      * @type {jacobData}
@@ -321,14 +321,14 @@ function getSlayer(data) {
 function getDungeons(data) {
   return {
     types: {
-      catacombs: getLevelByXp(data.dungeons.dungeon_types.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
+      catacombs: getLevelByXp(data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
     },
     classes: {
-      healer: getLevelByXp(data.dungeons.player_classes.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
-      mage: getLevelByXp(data.dungeons.player_classes.mage ? data.dungeons.player_classes.mage.experience : null, 'dungeons'),
-      berserk: getLevelByXp(data.dungeons.player_classes.berserk ? data.dungeons.player_classes.berserk.experience : null, 'dungeons'),
-      archer: getLevelByXp(data.dungeons.player_classes.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
-      tank: getLevelByXp(data.dungeons.player_classes.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
+      healer: getLevelByXp(data.dungeons?.player_classes?.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
+      mage: getLevelByXp(data.dungeons?.player_classes?.mage ? data.dungeons.player_classes.mage.experience : null, 'dungeons'),
+      berserk: getLevelByXp(data.dungeons?.player_classes?.berserk ? data.dungeons.player_classes.berserk.experience : null, 'dungeons'),
+      archer: getLevelByXp(data.dungeons?.player_classes?.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
+      tank: getLevelByXp(data.dungeons?.player_classes?.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
     }
   };
 }
