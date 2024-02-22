@@ -40,7 +40,7 @@ class SkyblockInventoryItem {
      * Hexadecimal color code of armor
      * @type {string|null}
      */
-    this.color = data.tag.display.color ? `#${data.tag.display.color.toString(16)}` : null;
+    this.color = data.tag.ExtraAttributes.color ?? data.tag.display.color;
     /**
      * Item enchantments
      * @type {object}
@@ -108,7 +108,7 @@ class SkyblockInventoryItem {
      * Is the item soulbound
      * @type {number}
      */
-    this.soulbound = data.tag.ExtraAttributes.donated_museum == 1 ? true : false;
+    this.soulbound = data.tag.ExtraAttributes.donated_museum == 1;
   }
   /**
    * Item Name

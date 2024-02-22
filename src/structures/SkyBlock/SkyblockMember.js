@@ -308,6 +308,9 @@ function getBestiaryLevel(userProfile) {
 
 // eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
+  if (data?.slayer?.slayer_bosses === undefined) {
+    return;
+  }
   return {
     zombie: getSlayerLevel(data?.slayer?.slayer_bosses?.zombie),
     spider: getSlayerLevel(data?.slayer?.slayer_bosses?.spider),
