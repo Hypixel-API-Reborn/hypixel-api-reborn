@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 const requireFetch = !globalThis.fetch;
-const externalFetch = require('node-fetch');
+const externalFetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const fetch = requireFetch ? externalFetch : globalThis.fetch;
 const cachedUuids = new Map();
 

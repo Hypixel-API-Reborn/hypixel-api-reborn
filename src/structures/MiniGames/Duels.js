@@ -621,6 +621,7 @@ class Duels {
  * @property {number} KDRatio Kill/Death ratio
  * @property {number} WLRatio Win/Loss ratio
  * @property {number} playedGames Played games
+ * @property {number} goals Goals
  */
 /**
  * @typedef {object} DuelsBowspleef
