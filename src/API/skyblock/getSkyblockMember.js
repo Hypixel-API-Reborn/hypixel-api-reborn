@@ -18,7 +18,8 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
         uuid: query,
         profileName: profile.cute_name,
         gameMode: profile.game_mode || null,
-        m: profile.members[query]
+        m: profile.members[query],
+        banking: profile.banking
       })
     );
   }

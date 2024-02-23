@@ -2,8 +2,9 @@
 const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
-const SkyblockPet = require('./SkyblockPet');
 const Constants = require('../../utils/Constants');
+const SkyblockPet = require('./SkyblockPet');
+const skyhelper = require('skyhelper-networth');
 /**
  * Skyblock member class
  */
@@ -199,6 +200,16 @@ class SkyblockMember {
      */
     this.jacob = getJacobData(data);
     /**
+     * Highest critical damage
+     * @type {number}
+     */
+    this.highestCriticalDamage = data.m.highest_critical_damage ?? 0;
+    /**
+     * Highest damage
+     * @type {number}
+     */
+    this.highestDamage = data.m.highest_damage ?? 0;
+    /**
      * Skyblock Member pet score
      * @return {number}
      */
@@ -266,6 +277,22 @@ class SkyblockMember {
           edited.push(new SkyblockInventoryItem(vault[i]));
         }
         return edited;
+      } catch (e) {
+        return e;
+      }
+    };
+    /**
+     * Skyblock member networth (Credit to skyhelper-networth package)
+     * @return {object}
+     */
+    this.getNetworth = async () => {
+      try {
+        const nw = await skyhelper.getNetworth(data.m, data.banking.balance ?? 0, {
+          onlyNetworth: true,
+          v2Endpoint: true,
+          cache: true
+        });
+        return nw;
       } catch (e) {
         return e;
       }
