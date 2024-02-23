@@ -2313,18 +2313,30 @@ declare module 'hypixel-api-reborn' {
     lore: string;
     loreArray: string[];
     loreForEmbed: string;
-    color: string;
+    color: string | null;
     enchantments: Record<string, unknown>;
     reforge: string;
     gemstones?: {
       type?: string;
       quality?: string;
     }[];
-    anvilUses: number;
     damage: number;
     rarity: string;
     dungeonStars: number;
     gearScore: number;
+    uuid: string;
+    soulbound: boolean;
+    artOfWar: number;
+    rune: object;
+    hotPotatoBooks: number;
+    recombobulated: boolean;
+    attributes: object;
+    hecatomb: number;
+    champion: number;
+    cultivating: number;
+    expertise: number;
+    compact: number;
+    blocksWalked: number;
     toString(): string;
   }
   class Game {

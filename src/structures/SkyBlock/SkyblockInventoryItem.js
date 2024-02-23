@@ -43,7 +43,7 @@ class SkyblockInventoryItem {
     this.color = data.tag.ExtraAttributes.color ?? data.tag.display.color ?? null;
     /**
      * Item enchantments
-     * @type {object}
+     * @type {Record<string, number>}
      */
     this.enchantments = data.tag.ExtraAttributes.enchantments ?? null;
     /**

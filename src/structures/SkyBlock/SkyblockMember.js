@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-const { decode, getLevelByXp, getLevelByAchievement, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
-const { skyblock_year_0, skills, skills_achievements } = require('../../utils/Constants');
+const { decode, getLevelByXp, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
+const { skyblock_year_0 } = require('../../utils/Constants');
 const Constants = require('../../utils/Constants');
 const SkyblockPet = require('./SkyblockPet');
 const skyhelper = require('skyhelper-networth');
@@ -154,7 +154,7 @@ class SkyblockMember {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -176,7 +176,7 @@ class SkyblockMember {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -256,7 +256,7 @@ class SkyblockMember {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -278,7 +278,7 @@ class SkyblockMember {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -294,7 +294,7 @@ class SkyblockMember {
         });
         return nw;
       } catch (e) {
-        return e;
+        return [];
       }
     };
   }
@@ -379,9 +379,7 @@ function getBestiaryLevel(userProfile) {
 
 // eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
-  if (data?.slayer?.slayer_bosses === undefined) {
-    return;
-  }
+  if (!data?.slayer?.slayer_bosses) return;
   return {
     zombie: getSlayerLevel(data?.slayer?.slayer_bosses?.zombie),
     spider: getSlayerLevel(data?.slayer?.slayer_bosses?.spider),
@@ -859,15 +857,18 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {number|undefined} petMilestoneSeaCreaturesKilled
  */
 /**
+ * @typedef {object} jacobDataPerks
+ * @property {number} doubleDrops Double drops
+ * @property {number} farmingLevelCap Farming level cap
+ * @property {boolean} personalBests Personal Bests
+ */
+/**
  * @typedef {object} jacobData
  * @property {object} medals Medals
  * @property {number} medals.bronze Bronze medals
  * @property {number} medals.silver Silver medals
  * @property {number} medals.gold Gold medals
- * @property {object} perks Perks
- * @property {number} perks.doubleDrops Double drops
- * @property {number} perks.farmingLevelCap Farming level cap
- * @property {boolean} perks.personalBests Personal Bests
+ * @property {jacobDataPerks} perks Perks
  * @property {object} contests Contests
  */
 module.exports = SkyblockMember;
