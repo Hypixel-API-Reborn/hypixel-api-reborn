@@ -283,7 +283,7 @@ class SkyblockMember {
     };
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
-     * @return {object}
+     * @return {skyhelper.NetworthResult}
      */
     this.getNetworth = async () => {
       try {
