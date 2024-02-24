@@ -42,7 +42,7 @@ class Validation {
       syncWithHeaders: !!options.syncWithHeaders,
       headers: options.headers || {},
       silent: !!options.silent,
-      checkForUpdates: options.checkForUpdates ?? true,
+      checkForUpdates: options.checkForUpdates ?? true
     };
   }
 
