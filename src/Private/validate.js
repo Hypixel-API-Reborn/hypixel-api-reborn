@@ -19,6 +19,8 @@ class Validation {
     if (typeof options.keyLimit !== 'number') throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
     if (typeof options.syncWithHeaders !== 'boolean') throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
     if (typeof options.headers !== 'object') throw new Error(Errors.INVALID_HEADERS);
+    if (typeof options.silent !== 'boolean') throw new Error(Errors.INVALID_SILENT_OPTION);
+    if (typeof options.checkForUpdates !== 'boolean') throw new Error(Errors.INVALID_UPDATE_OPTION);
   }
 
   /**
@@ -40,7 +42,7 @@ class Validation {
       syncWithHeaders: !!options.syncWithHeaders,
       headers: options.headers || {},
       silent: !!options.silent,
-      checkForUpdates: options.checkForUpdates || true
+      checkForUpdates: options.checkForUpdates ?? true,
     };
   }
 

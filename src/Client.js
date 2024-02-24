@@ -45,7 +45,11 @@ class Client extends EventEmitter {
     }
 
     if (this.options.checkForUpdates) {
-      updater.checkForUpdates();
+      try {
+        await updater.checkForUpdates();
+      } catch {
+        console.warn('[hypixel-api-reborn] Error whilst checking for updates!');
+      }
     }
     /**
      * All cache entries
