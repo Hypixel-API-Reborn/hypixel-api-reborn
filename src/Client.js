@@ -56,7 +56,7 @@ class Client extends EventEmitter {
      */
     this.cache = this.requests.cache;
     clients.push(this);
-    rateLimit.init(this.getPlayer('52d9a36f66ce4cdf9a56ad9724ae9fb4'), this.options, this).then(() => this.emit('ready'));
+    rateLimit.init(this.getGameCounts(), this.options, this).then(() => this.emit('ready'));
   }
   /**
    * Private function - make request
