@@ -3014,6 +3014,8 @@ declare module 'hypixel-api-reborn' {
         };
       };
     };
+    slumberTickets: number;
+    totalSlumberTickets: number;
   }
 
   class UHC {

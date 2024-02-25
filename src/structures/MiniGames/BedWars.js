@@ -192,6 +192,16 @@ class BedWars {
      * @type {BedWarsPracticeStats}
      */
     this.practice = generateStatsForPractice(data);
+    /**
+     * Bedwars Slumber Tickets
+     * @type {number}
+     */
+    this.slumberTickets = data.slumber?.tickets ?? 0;
+    /**
+     * Bedwars Slumber Total Tickets
+     * @type {number}
+     */
+    this.totalSlumberTicket = data.slumber?.total_tickets ?? 0;
   }
 }
 // eslint-disable-next-line require-jsdoc
