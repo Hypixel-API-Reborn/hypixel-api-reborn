@@ -45,7 +45,7 @@ class Client extends EventEmitter {
     }
 
     if (this.options.checkForUpdates) {
-      updater.checkForUpdates().catch(()=>{
+      updater.checkForUpdates().catch(() => {
         // eslint-disable-next-line no-console
         if (!this.options.silent) console.warn('[hypixel-api-reborn] Error whilst checking for updates!');
       });
