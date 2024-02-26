@@ -26,7 +26,7 @@ class Guild {
      * Guild description
      * @type {string}
      */
-    this.description = data.description ? data.description : null;
+    this.description = data.description ?? null;
     /**
      * Guild experience
      * @type {number}
@@ -98,7 +98,7 @@ class Guild {
      * Whether this guild can be joined using /g join
      * @type {boolean}
      */
-    this.joinable = data.joinable ? data.joinable : false;
+    this.joinable = data.joinable ?? false;
     /**
      * Whether this guild is listed in the Guild Finder
      * @type {boolean}
@@ -108,22 +108,22 @@ class Guild {
      * Timestamp guild chat will be unmuted at.
      * @type {number|null}
      */
-    this.chatMuteUntilTimestamp = data.chatMute ? data.chatMute : null;
+    this.chatMuteUntilTimestamp = data.chatMute ?? null;
     /**
      * Timestamp guild chat will be unmuted at as Date.
      * @type {Date|null}
      */
-    this.chatMuteUntil = data.chatMute ? new Date(data.chatMute) : null;
+    this.chatMuteUntil = new Date(data.chatMute) ?? null;
     /**
      * Timestamp guild chat will be unmuted at.
      * @type {Array<{ Pattern: string, Color: string }>}
      */
-    this.banner = data.banner ? data.banner : null;
+    this.banner = data.banner ?? null;
     /**
      * Guild tag
      * @type {string}
      */
-    this.tag = data.tag ? data.tag : null;
+    this.tag = data.tag ?? null;
     /**
      * Guild tag color
      * @type {Color}
@@ -145,9 +145,9 @@ class Guild {
      * @type {{winners: number, experienceKings: number, onlinePlayers: number}}
      */
     this.achievements = {
-      winners: data.achievements ? data.achievements.WINNERS : 0,
-      experienceKings: data.achievements ? data.achievements.EXPERIENCE_KINGS : 0,
-      onlinePlayers: data.achievements ? data.achievements.ONLINE_PLAYERS : 0
+      winners: data.achievements.WINNERS ?? 0,
+      experienceKings: data.achievements.EXPERIENCE_KINGS ?? 0,
+      onlinePlayers: data.achievements.ONLINE_PLAYERS ?? 0
     };
     /**
      * Guild preferred games

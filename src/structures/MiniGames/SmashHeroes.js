@@ -70,7 +70,7 @@ class SmashHeroes {
      * Active class
      * @type {string}
      */
-    this.activeClass = data.active_class ? data.active_class : null;
+    this.activeClass = data.active_class ?? null;
     /**
      * Stats for each class
      * @type {SmashHeroesClassStats[]|null}
