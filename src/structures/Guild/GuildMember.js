@@ -36,7 +36,7 @@ class GuildMember {
      * Timestamp this member will be unmuted at ( if muted )
      * @type {Number|null}
      */
-    this.mutedUntilTimestamp = data.mutedTill ? data.mutedTill : null;
+    this.mutedUntilTimestamp = data.mutedTill ?? null;
     /**
      * Timestamp this member will be unmuted at as Date ( if muted )
      * @type {Date|null}

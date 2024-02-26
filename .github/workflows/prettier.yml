@@ -19,8 +19,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "Docs Updater[bot]"
+          git config --global user.name "Prettier Updater[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "style(prettier): run prettier on all files (auto-commit)"
           git push origin master
-
