@@ -3,8 +3,8 @@ const { decode, getLevelByXp, getSlayerLevel, getMemberStats, getTrophyFishRank 
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const { skyblock_year_0 } = require('../../utils/Constants');
 const Constants = require('../../utils/Constants');
-const SkyblockPet = require('./SkyblockPet');
 const skyhelper = require('skyhelper-networth');
+const SkyblockPet = require('./SkyblockPet');
 /**
  * Skyblock member class
  */
@@ -40,16 +40,6 @@ class SkyblockMember {
      */
     this.firstJoinAt = new Date(data.m.profile?.first_join);
     /**
-     * Last save timestamp
-     * @type {number}
-     */
-    this.lastDeathTimestamp = data.m.player_data?.last_death;
-    /**
-     * Last death timestamp as Date
-     * @type {Date}
-     */
-    this.lastDeathAt = new Date(skyblock_year_0 + data.m.player_data?.last_death * 1000);
-    /**
      * Experience
      * @type {number}
      */
@@ -74,6 +64,61 @@ class SkyblockMember {
      * @type {number}
      */
     this.highestMagicalPower = data.m.accessory_bag_storage?.highest_magical_power ?? 0;
+    /**
+     * Collected fairy souls
+     * @type {number}
+     */
+    this.fairySouls = data.m?.fairy_soul?.total_collected ?? 0;
+    /**
+     * Amount of fairy soul exchanges
+     * @type {number}
+     */
+    this.fairyExchanges = data.m?.fairy_soul?.fairy_exchanges ?? 0;
+    /**
+     * Skyblock member skills
+     * @type {SkyblockMemberSkills}
+     */
+    this.skills = getSkills(data.m);
+    /**
+     * Bestiary of the user
+     * @type {object}
+     */
+    this.bestiary = getBestiaryLevel(data.m);
+    /**
+     * Skyblock member slayer
+     * @type {SkyblockMemberSlayer|null}
+     */
+    this.slayer = getSlayer(data.m);
+    /**
+     * Skyblock member dungeons
+     * @type {SkyblockMemberDungeons|null}
+     */
+    this.dungeons = getDungeons(data.m);
+    /**
+     * Skyblock member collections
+     * @type {object}
+     */
+    this.collections = data.m.collection ? data.m.collection : null;
+    /**
+     * Skyblock coins in purse
+     * @type {number}
+     */
+    this.purse = data.m?.currencies?.coin_purse ?? 0;
+    /**
+     * Skyblock member stats
+     * @type {SkyblockMemberStats}
+     */
+    this.stats = data.m.player_stats ? getMemberStats(data.m.player_stats) : null;
+    /**
+     * Skyblock pets
+     * @type {SkyblockPet[]}
+     */
+    this.pets = data.m?.pets_data?.pets ? data.m.pets_data.pets.map((pet) => new SkyblockPet(pet)) : [];
+    /**
+     * Skyblock jacob data
+     * @type {jacobData}
+     */
+    this.jacob = getJacobData(data);
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
@@ -100,41 +145,6 @@ class SkyblockMember {
       const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
-    /**
-     * Collected fairy souls
-     * @type {number}
-     */
-    this.fairySouls = data.m.fairy_soul.total_collected ?? 0;
-    /**
-     * Amount of fairy soul exchanges
-     * @type {number}
-     */
-    this.fairyExchanges = data.m.fairy_soul.fairy_exchanges ?? 0;
-    /**
-     * Skyblock member skills
-     * @type {SkyblockMemberSkills}
-     */
-    this.skills = getSkills(data.m);
-    /**
-     * Bestiary of the user
-     * @type {object}
-     */
-    this.bestiary = getBestiaryLevel(data.m);
-    /**
-     * Skyblock member slayer
-     * @type {SkyblockMemberSlayer|null}
-     */
-    this.slayer = getSlayer(data.m);
-    /**
-     * Skyblock member dungeons
-     * @type {SkyblockMemberDungeons|null}
-     */
-    this.dungeons = getDungeons(data.m);
-    /**
-     * Skyblock member collections
-     * @type {object}
-     */
-    this.collections = data.m.collection ? data.m.collection : null;
     /**
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
@@ -180,36 +190,6 @@ class SkyblockMember {
       }
     };
     /**
-     * Skyblock coins in purse
-     * @type {number}
-     */
-    this.purse = data.m?.currencies?.coin_purse ?? 0;
-    /**
-     * Skyblock member stats
-     * @type {SkyblockMemberStats}
-     */
-    this.stats = data.m.player_stats ? getMemberStats(data.m.player_stats) : null;
-    /**
-     * Skyblock pets
-     * @type {SkyblockPet[]}
-     */
-    this.pets = data.m?.pets_data?.pets ? data.m.pets_data.pets.map((pet) => new SkyblockPet(pet)) : [];
-    /**
-     * Skyblock jacob data
-     * @type {jacobData}
-     */
-    this.jacob = getJacobData(data);
-    /**
-     * Highest critical damage
-     * @type {number}
-     */
-    this.highestCriticalDamage = data.m.highest_critical_damage ?? 0;
-    /**
-     * Highest damage
-     * @type {number}
-     */
-    this.highestDamage = data.m.highest_damage ?? 0;
-    /**
      * Skyblock Member pet score
      * @return {number}
      */
@@ -247,14 +227,13 @@ class SkyblockMember {
 
       try {
         equipment = await decode(equipment.data);
-        const edited = [];
-        for (let i = 0; i < equipment.length; i++) {
-          if (!equipment[i].id) {
-            continue;
-          }
-          edited.push(new SkyblockInventoryItem(equipment[i]));
-        }
-        return edited;
+        const playerEquipment = {
+          gauntlet: equipment[3].id ? new SkyblockInventoryItem(equipment[3]) : null,
+          belt: equipment[2].id ? new SkyblockInventoryItem(equipment[2]) : null,
+          cloak: equipment[1].id ? new SkyblockInventoryItem(equipment[1]) : null,
+          necklace: equipment[0].id ? new SkyblockInventoryItem(equipment[0]) : null
+        };
+        return playerEquipment;
       } catch (e) {
         return [];
       }
@@ -309,16 +288,18 @@ class SkyblockMember {
 // eslint-disable-next-line require-jsdoc
 function getSkills(data) {
   const skillsObject = {};
-  skillsObject['fishing'] = getLevelByXp(data?.player_data?.experience?.SKILL_FISHING ?? 0, 'fishing');
-  skillsObject['alchemy'] = getLevelByXp(data?.player_data?.experience?.SKILL_ALCHEMY ?? 0, 'alchemy');
-  skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
-  skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
-  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming', data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50);
-  skillsObject['enchanting'] = getLevelByXp(data?.player_data?.experience?.SKILL_ENCHANTING ?? 0, 'enchanting');
-  skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
-  skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
-  skillsObject['carpentry'] = getLevelByXp(data?.player_data?.experience?.SKILL_CARPENTRY ?? 0, 'carpentry');
   skillsObject['combat'] = getLevelByXp(data?.player_data?.experience?.SKILL_COMBAT ?? 0, 'combat');
+  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming', data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50);
+  skillsObject['fishing'] = getLevelByXp(data?.player_data?.experience?.SKILL_FISHING ?? 0, 'fishing');
+  skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
+  skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
+  skillsObject['enchanting'] = getLevelByXp(data?.player_data?.experience?.SKILL_ENCHANTING ?? 0, 'enchanting');
+  skillsObject['alchemy'] = getLevelByXp(data?.player_data?.experience?.SKILL_ALCHEMY ?? 0, 'alchemy');
+  skillsObject['carpentry'] = getLevelByXp(data?.player_data?.experience?.SKILL_CARPENTRY ?? 0, 'carpentry');
+  skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
+  skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
+  const levels = Object.values(skillsObject).map((skill) => skill.level);
+  skillsObject['average'] = levels.reduce((a, b) => a + b, 0) / levels.length;
   return skillsObject;
 }
 // eslint-disable-next-line require-jsdoc
@@ -475,7 +456,14 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
   };
 }
 /**
- * @typedef {object} SkyblockMemberArmor Equipped armor
+ * @typedef {object} SkyblockMemberEquipment
+ * @property {SkyblockInventoryItem|null} gauntlet Gauntlet
+ * @property {SkyblockInventoryItem|null} belt Belt
+ * @property {SkyblockInventoryItem|null} cloak Cloak
+ * @property {SkyblockInventoryItem|null} necklace Necklace
+ */
+/**
+ * @typedef {object} SkyblockMemberArmor
  * @property {SkyblockInventoryItem|null} helmet Helmet
  * @property {SkyblockInventoryItem|null} chestplate Chestplate
  * @property {SkyblockInventoryItem|null} leggings Leggings
@@ -483,16 +471,17 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  */
 /**
  * @typedef {object} SkyblockMemberSkills
- * @property {SkyblockSkillLevel} farming Farming skill
- * @property {SkyblockSkillLevel} mining Mining skill
  * @property {SkyblockSkillLevel} combat Combat skill
- * @property {SkyblockSkillLevel} foraging Foraging skills
+ * @property {SkyblockSkillLevel} farming Farming skill
  * @property {SkyblockSkillLevel} fishing Fishing skill
+ * @property {SkyblockSkillLevel} mining Mining skill
+ * @property {SkyblockSkillLevel} foraging Foraging skills
  * @property {SkyblockSkillLevel} enchanting Enchanting skill
  * @property {SkyblockSkillLevel} alchemy Alchemy skill
- * @property {SkyblockSkillLevel} taming Taming skill
  * @property {SkyblockSkillLevel} carpentry Carpentry skill
  * @property {SkyblockSkillLevel} runecrafting Runecrafting skill
+ * @property {SkyblockSkillLevel} taming Taming skill
+ * @property {number} average Average skill level
  */
 /**
  * @typedef {object} SkyblockSkillLevel
@@ -505,6 +494,7 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {number} xpCurrent Current XP
  * @property {number} xpForNext XP for next level
  * @property {number} progress Progress
+ * @property {boolean} cosmetic Cosmetic
  */
 /**
  * @typedef {object} SkyblockMemberSlayer
@@ -521,6 +511,7 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {number} tier2 Tier 2
  * @property {number} tier3 Tier 3
  * @property {number} tier4 Tier 4
+ * @property {number} tier5 Tier 5
  * @property {number} level Level
  */
 /**

@@ -40,7 +40,8 @@ module.exports = {
         maxLevel,
         xpCurrent: 0,
         xpForNext: xpTable[1],
-        progress: 0
+        progress: 0,
+        cosmetic: type === 'runecrafting' || type === 'social' ? true : false
       };
     }
     let xpTotal = 0;
@@ -61,12 +62,13 @@ module.exports = {
     const progress = Math.floor(Math.max(0, Math.min(xpCurrent / xpForNext, 1)) * 100 * 10) / 10;
 
     return {
-      xp,
-      level,
-      maxLevel,
-      xpCurrent,
-      xpForNext,
-      progress
+      xp: xp,
+      level: level,
+      maxLevel: maxLevel,
+      xpCurrent: xpCurrent,
+      xpForNext: xpForNext,
+      progress: progress,
+      cosmetic: type === 'runecrafting' || type === 'social' ? true : false
     };
   },
   getLevelByAchievement(achievementLevel, type) {

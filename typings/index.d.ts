@@ -4,6 +4,7 @@
 /* eslint-disable max-len */
 // Minimum TypeScript Version: 3.6
 
+import { NetworthResult } from 'skyhelper-networth';
 import { EventEmitter } from 'events';
 
 export type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Game Master' | 'Admin' | 'EVENTS' | 'MCP' | 'MOJANG' | 'PIG+++';
@@ -155,15 +156,15 @@ export interface SKYBLOCK_SKILL_DATA {
   xpCurrent: number;
   xpForNext: number;
   progress: number;
+  cosmetic: boolean;
 }
-export type SKYBLOCK_DUNGEON_CLASS_DATA = SKYBLOCK_SKILL_DATA;
-export type SKYBLOCK_DUNGEON_TYPE_DATA = SKYBLOCK_SKILL_DATA;
 export interface SKYBLOCK_SLAYER_DATA {
   xp: number;
   tier1: number;
   tier2: number;
   tier3: number;
   tier4: number;
+  tier5: number;
   level: number;
 }
 export interface clientOptions {
@@ -1904,33 +1905,30 @@ declare module 'hypixel-api-reborn' {
     uuid: string;
     player?: Player;
     profileName: string;
+    profileId: string;
     firstJoinTimestamp: number;
     firstJoinAt: Date;
-    firstJoinHubTimestamp: number;
-    firstJoinHubAt: Date;
-    lastSaveTimestamp: number;
-    lastSaveAt: Date;
-    lastDeathTimestamp: number;
-    lastDeathAt: Date;
-    fairyExchanges: number;
-    fairySouls: number;
     experience: number;
+    level: number;
     hotm: SKYBLOCK_SKILL_DATA;
-    trophyFish: number;
+    trophyFish: string;
     highestMagicalPower: number;
+    fairySouls: number;
+    fairyExchanges: number;
     skills: {
-      taming: SKYBLOCK_SKILL_DATA;
-      farming: SKYBLOCK_SKILL_DATA;
-      mining: SKYBLOCK_SKILL_DATA;
       combat: SKYBLOCK_SKILL_DATA;
-      foraging: SKYBLOCK_SKILL_DATA;
+      farming: SKYBLOCK_SKILL_DATA;
       fishing: SKYBLOCK_SKILL_DATA;
+      mining: SKYBLOCK_SKILL_DATA;
+      foraging: SKYBLOCK_SKILL_DATA;
       enchanting: SKYBLOCK_SKILL_DATA;
       alchemy: SKYBLOCK_SKILL_DATA;
-      carpentry?: SKYBLOCK_SKILL_DATA;
-      runecrafting?: SKYBLOCK_SKILL_DATA;
-      usedAchievementApi?: boolean;
+      carpentry: SKYBLOCK_SKILL_DATA;
+      runecrafting: SKYBLOCK_SKILL_DATA;
+      taming: SKYBLOCK_SKILL_DATA;
+      average: number;
     };
+    bestiary: SKYBLOCK_BESTIARY;
     slayer: {
       zombie: SKYBLOCK_SLAYER_DATA;
       spider: SKYBLOCK_SLAYER_DATA;
@@ -1939,21 +1937,21 @@ declare module 'hypixel-api-reborn' {
       blaze: SKYBLOCK_SLAYER_DATA;
       vampire: SKYBLOCK_SLAYER_DATA;
     };
-    bestiary: SKYBLOCK_BESTIARY;
     dungeons: {
       types: {
-        catacombs: SKYBLOCK_DUNGEON_TYPE_DATA;
+        catacombs: SKYBLOCK_SKILL_DATA;
       };
       classes: {
-        healer: SKYBLOCK_DUNGEON_CLASS_DATA;
-        mage: SKYBLOCK_DUNGEON_CLASS_DATA;
-        berserk: SKYBLOCK_DUNGEON_CLASS_DATA;
-        archer: SKYBLOCK_DUNGEON_CLASS_DATA;
-        tank: SKYBLOCK_DUNGEON_CLASS_DATA;
+        healer: SKYBLOCK_SKILL_DATA;
+        mage: SKYBLOCK_SKILL_DATA;
+        berserk: SKYBLOCK_SKILL_DATA;
+        archer: SKYBLOCK_SKILL_DATA;
+        tank: SKYBLOCK_SKILL_DATA;
       };
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     collections: any;
+    purse: number;
     stats?: {
       auctionsBids?: number;
       auctionsBoughtCommon?: number;
@@ -2273,18 +2271,7 @@ declare module 'hypixel-api-reborn' {
       petMilestoneOresMined?: number;
       petMilestoneSeaCreaturesKilled?: number;
     };
-    purse: number;
     pets: SkyblockPet[];
-    getInventory(): Promise<SkyblockInventoryItem[]>;
-    getEnderChest(): Promise<SkyblockInventoryItem[]>;
-    getArmor(): Promise<{
-      helmet: SkyblockInventoryItem;
-      chestplate: SkyblockInventoryItem;
-      leggings: SkyblockInventoryItem;
-      boots: SkyblockInventoryItem;
-    }>;
-    getWardrobe(): Promise<SkyblockInventoryItem[]>;
-    getPetScore(): number;
     jacob: {
       medals: {
         bronze: number;
@@ -2294,9 +2281,28 @@ declare module 'hypixel-api-reborn' {
       perks: {
         doubleDrops: number;
         farmingLevelCap: number;
+        personalBests: boolean;
       };
-      contests: Record<string, unknown>;
+      contests: Record<string, object>;
     };
+    getArmor(): Promise<{
+      helmet: SkyblockInventoryItem;
+      chestplate: SkyblockInventoryItem;
+      leggings: SkyblockInventoryItem;
+      boots: SkyblockInventoryItem;
+    }>;
+    getWardrobe(): Promise<SkyblockInventoryItem[]>;
+    getEnderChest(): Promise<SkyblockInventoryItem[]>;
+    getInventory(): Promise<SkyblockInventoryItem[]>;
+    getPetScore(): number;
+    getEquipment(): Promise<{
+      gauntlet: SkyblockInventoryItem;
+      belt: SkyblockInventoryItem;
+      cloak: SkyblockInventoryItem;
+      necklace: SkyblockInventoryItem;
+    }>;
+    getPersonalVault(): Promise<SkyblockInventoryItem[]>;
+    getNetworth(): Promise<NetworthResult>;
   }
   class Color {
     constructor(color: string);
