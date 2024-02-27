@@ -265,6 +265,11 @@ class SkyblockMember {
     };
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
+     * @return {object|nuull}
+     */
+    this.museum = data.museum ?? null;
+    /**
+     * Skyblock member networth (Credit to skyhelper-networth package)
      * @return {skyhelper.NetworthResult}
      */
     this.getNetworth = async () => {
@@ -273,7 +278,7 @@ class SkyblockMember {
           onlyNetworth: true,
           v2Endpoint: true,
           cache: true,
-          museumData: data.museum.raw
+          museumData: data.museum?.raw ?? {}
         });
         return nw;
       } catch (e) {
