@@ -1,7 +1,5 @@
-/* eslint-disable camelcase */
 const { decode, getLevelByXp, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
-const { skyblock_year_0 } = require('../../utils/Constants');
 const Constants = require('../../utils/Constants');
 const skyhelper = require('skyhelper-networth');
 const SkyblockPet = require('./SkyblockPet');
@@ -29,6 +27,11 @@ class SkyblockMember {
      * @type {string}
      */
     this.profileName = data.profileName;
+    /**
+     * Skyblock member's profile id
+     * @type {string}
+     */
+    this.profileId = data.profileId;
     /**
      * Timestamp when player first joined SkyBlock
      * @type {number}
@@ -269,7 +272,8 @@ class SkyblockMember {
         const nw = await skyhelper.getNetworth(data.m, data.banking.balance ?? 0, {
           onlyNetworth: true,
           v2Endpoint: true,
-          cache: true
+          cache: true,
+          museumData: data.museum.raw
         });
         return nw;
       } catch (e) {

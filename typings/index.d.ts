@@ -1906,6 +1906,7 @@ declare module 'hypixel-api-reborn' {
     player?: Player;
     profileName: string;
     profileId: string;
+    profileId: string;
     firstJoinTimestamp: number;
     firstJoinAt: Date;
     experience: number;
