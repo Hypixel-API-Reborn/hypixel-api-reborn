@@ -3602,7 +3602,6 @@ declare module 'hypixel-api-reborn' {
     startTimestamp: number;
     author: string;
     HTMLContent: string;
-    TextContent: string;
     snippet: string;
     guid: string;
     categories: string[];
