@@ -67,7 +67,7 @@ class TNTGames {
      */
     this.wizards = {
       points: data.points_capture || 0,
-      class: data.capture_class ? data.capture_class : null,
+      class: data.capture_class ?? null,
       kills: data.kills_capture || 0,
       assists: data.assists_capture || 0,
       wins: data.wins_capture || 0,

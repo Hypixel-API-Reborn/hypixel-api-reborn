@@ -20,7 +20,7 @@ class GuildRank {
      * Guild rank tag that appears in guild chat. null if none
      * @type {string|null}
      */
-    this.tag = data.tag ? data.tag : null;
+    this.tag = data.tag ?? null;
     /**
      * Timestamp this rank was created at
      * @type {number}
