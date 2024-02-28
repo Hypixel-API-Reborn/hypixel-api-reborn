@@ -444,7 +444,15 @@ class Duels {
           (data.bridge_3v3v3v3_rounds_played || 0) +
           (data.bridge_four_rounds_played || 0) +
           (data.bridge_threes_bridge_rounds_played || 0) +
-          (data.capture_threes_rounds_played || 0)
+          (data.capture_threes_rounds_played || 0),
+        goals:
+          (data.bridge_duel_goals || 0) +
+          (data.bridge_doubles_goals || 0) +
+          (data.bridge_2v2v2v2_goals || 0) +
+          (data.bridge_3v3v3v3_goals || 0) +
+          (data.bridge_four_goals || 0) +
+          (data.bridge_threes_bridge_goals || 0) +
+          (data.capture_threes_goals || 0)
       },
       '1v1': {
         division: getDivision(data, 'bridge'),
@@ -456,7 +464,8 @@ class Duels {
         wins: data.bridge_duel_wins || 0,
         losses: data.bridge_duel_losses || 0,
         WLRatio: divide(data.bridge_duel_wins, data.bridge_duel_losses),
-        playedGames: data.bridge_duel_rounds_played || 0
+        playedGames: data.bridge_duel_rounds_played || 0,
+        goals: data.bridge_duel_goals || 0
       },
       '2v2': {
         division: getDivision(data, 'bridge'),
@@ -468,7 +477,8 @@ class Duels {
         wins: data.bridge_doubles_wins || 0,
         losses: data.bridge_doubles_losses || 0,
         WLRatio: divide(data.bridge_doubles_wins, data.bridge_doubles_losses),
-        playedGames: data.bridge_doubles_rounds_played || 0
+        playedGames: data.bridge_doubles_rounds_played || 0,
+        goals: data.bridge_doubles_goals || 0
       },
       '3v3': {
         division: getDivision(data, 'bridge'),
@@ -480,7 +490,8 @@ class Duels {
         wins: data.bridge_threes_wins || 0,
         losses: data.bridge_threes_losses || 0,
         WLRatio: divide(data.bridge_threes_wins, data.bridge_threes_losses),
-        playedGames: data.bridge_threes_rounds_played || 0
+        playedGames: data.bridge_threes_rounds_played || 0,
+        goals: data.bridge_threes_goals || 0
       },
       '2v2v2v2': {
         division: getDivision(data, 'bridge'),
@@ -492,7 +503,8 @@ class Duels {
         wins: data.bridge_2v2v2v2_wins || 0,
         losses: data.bridge_2v2v2v2_losses || 0,
         WLRatio: divide(data.bridge_2v2v2v2_wins, data.bridge_2v2v2v2_losses),
-        playedGames: data.bridge_2v2v2v2_rounds_played || 0
+        playedGames: data.bridge_2v2v2v2_rounds_played || 0,
+        goals: data.bridge_2v2v2v2_goals || 0
       },
       '3v3v3v3': {
         division: getDivision(data, 'bridge'),
@@ -504,7 +516,8 @@ class Duels {
         wins: data.bridge_3v3v3v3_wins || 0,
         losses: data.bridge_3v3v3v3_losses || 0,
         WLRatio: divide(data.bridge_3v3v3v3_wins, data.bridge_3v3v3v3_losses),
-        playedGames: data.bridge_3v3v3v3_rounds_played || 0
+        playedGames: data.bridge_3v3v3v3_rounds_played || 0,
+        goals: data.bridge_3v3v3v3_goals || 0
       },
       '4v4': {
         division: getDivision(data, 'bridge'),
@@ -516,7 +529,8 @@ class Duels {
         wins: data.bridge_four_wins || 0,
         losses: data.bridge_four_losses || 0,
         WLRatio: divide(data.bridge_four_wins, data.bridge_four_losses),
-        playedGames: data.bridge_four_rounds_played || 0
+        playedGames: data.bridge_four_rounds_played || 0,
+        goals: data.bridge_four_goals || 0
       },
       // eslint-disable-next-line quote-props
       ctf: {
@@ -528,7 +542,8 @@ class Duels {
         losses: data.capture_threes_losses || 0,
         WLRatio: divide(data.capture_threes_wins, data.capture_threes_losses),
         captures: data.capture_threes_captures || 0,
-        playedGames: data.capture_threes_rounds_played || 0
+        playedGames: data.capture_threes_rounds_played || 0,
+        goals: data.capture_threes_goals || 0
       }
     };
     /**
@@ -606,6 +621,7 @@ class Duels {
  * @property {number} KDRatio Kill/Death ratio
  * @property {number} WLRatio Win/Loss ratio
  * @property {number} playedGames Played games
+ * @property {number} goals Goals
  */
 /**
  * @typedef {object} DuelsBowspleef

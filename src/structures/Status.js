@@ -23,12 +23,12 @@ class Status {
      * Game mode
      * @type {string|null}
      */
-    this.mode = data.mode ? data.mode : null;
+    this.mode = data.mode ?? null;
     /**
      * Map
      * @type {string|null}
      */
-    this.map = data.map ? data.map : null;
+    this.map = data.map ?? null;
   }
   /**
    * Online Status

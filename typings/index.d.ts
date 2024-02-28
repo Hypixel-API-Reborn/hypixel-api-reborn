@@ -3025,6 +3025,8 @@ declare module 'hypixel-api-reborn' {
         };
       };
     };
+    slumberTickets: number;
+    totalSlumberTickets: number;
   }
 
   class UHC {
@@ -3384,6 +3386,7 @@ declare module 'hypixel-api-reborn' {
         losses: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '1v1': {
         division?: string;
@@ -3396,6 +3399,7 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '2v2': {
         division?: string;
@@ -3408,6 +3412,7 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '3v3': {
         division?: string;
@@ -3420,6 +3425,7 @@ declare module 'hypixel-api-reborn' {
         losses: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '4v4': {
         division?: string;
@@ -3432,6 +3438,7 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '2v2v2v2': {
         division?: string;
@@ -3444,6 +3451,7 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       '3v3v3v3': {
         division?: string;
@@ -3456,6 +3464,7 @@ declare module 'hypixel-api-reborn' {
         KDRatio: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
       ctf: {
         division?: string;
@@ -3466,6 +3475,7 @@ declare module 'hypixel-api-reborn' {
         losses: number;
         WLRatio: number;
         playedGames: number;
+        goals: number;
       };
     };
     megawalls: {
@@ -3596,7 +3606,6 @@ declare module 'hypixel-api-reborn' {
     startTimestamp: number;
     author: string;
     HTMLContent: string;
-    TextContent: string;
     snippet: string;
     guid: string;
     categories: string[];

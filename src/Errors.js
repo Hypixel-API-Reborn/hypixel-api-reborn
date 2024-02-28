@@ -41,5 +41,7 @@ module.exports = {
     "[hypixel-api-reborn] The data provided to hypixel API is malformed and thus not recognized by hypixel, but this shouldn't be your fault. Please report this error in our Discord Server https://discord.gg/NSEBNMM or GitHub. ",
   RATE_LIMIT_EXCEEDED:
     "[hypixel-api-reborn] The rate limitations on your API Key has been exceeded. There might be an outage (Check Hypixel's status page), or you simply did too many requests in a short time. Hint: Enable rate limit options! They can help you avoid this error! For help join our Discord Server https://discord.gg/NSEBNMM",
-  NO_SKYBLOCK_PROFILES: '[hypixel-api-reborn] The player has no skyblock profiles.'
+  NO_SKYBLOCK_PROFILES: '[hypixel-api-reborn] The player has no skyblock profiles.',
+  INVALID_SILENT_OPTION: '[hypixel-api-reborn] Invalid Value for silent : must be a boolean',
+  INVALID_UPDATE_OPTION: '[hypixel-api-reborn] Invalid Value for silent : must be a boolean'
 };

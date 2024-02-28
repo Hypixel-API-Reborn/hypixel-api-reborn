@@ -43,12 +43,6 @@ class APIIncident {
      */
     this.snippet = data.contentSnippet || null;
     /**
-     * Content as plain text
-     * The parsing might be faulty!
-     * @type {string|null}
-     */
-    this.TextContent = (data.content || '').replace(/<[^>]+>/g, '') || null;
-    /**
      * GUID
      * @type {string|null}
      */
@@ -64,14 +58,14 @@ class APIIncident {
      * @type {boolean}
      * @version >6.0.1
      */
-    this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -');
+    this.isResolved = this.HTMLContent.includes('Resolved -') || this.HTMLContent.includes('Completed -');
   }
   /**
-   * Text Content
+   * HTML Content
    * @return {string}
    */
   toString() {
-    return this.TextContent;
+    return this.HTMLContent;
   }
 }
 

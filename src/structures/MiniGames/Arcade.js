@@ -14,16 +14,6 @@ class Arcade {
    */
   constructor(data = {}) {
     /**
-     * Last Tournament Advertisement as timestamp, only appears when a tournament is announced
-     * @type {number}
-     */
-    this.lastTourneyAdTimestamp = data.lastTourneyAd || undefined;
-    /**
-     * Last Tournament Advertisement as Date, only appears when a tournament is announced
-     * @type {Date}
-     */
-    this.lastTourneyAdAt = this.lastTourneyAdTimestamp ? new Date(data.lastTourneyAd) : undefined;
-    /**
      * Amount of coins
      * @type {number}
      */

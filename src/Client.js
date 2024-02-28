@@ -45,7 +45,10 @@ class Client extends EventEmitter {
     }
 
     if (this.options.checkForUpdates) {
-      updater.checkForUpdates();
+      updater.checkForUpdates().catch(() => {
+        // eslint-disable-next-line no-console
+        if (!this.options.silent) console.warn('[hypixel-api-reborn] Error whilst checking for updates!');
+      });
     }
     /**
      * All cache entries
@@ -53,7 +56,7 @@ class Client extends EventEmitter {
      */
     this.cache = this.requests.cache;
     clients.push(this);
-    rateLimit.init(this.getPlayer('52d9a36f66ce4cdf9a56ad9724ae9fb4'), this.options, this).then(() => this.emit('ready'));
+    rateLimit.init(this.getGameCounts(), this.options, this).then(() => this.emit('ready'));
   }
   /**
    * Private function - make request

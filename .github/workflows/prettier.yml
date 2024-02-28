@@ -1,0 +1,25 @@
+name: Write Prettier
+
+on:
+  workflow_dispatch:
+
+jobs:
+  WritePrettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Prettier
+        run: npm run prettier
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Prettier Updater[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "style(prettier): run prettier on all files (auto-commit)"
+          git push origin master
