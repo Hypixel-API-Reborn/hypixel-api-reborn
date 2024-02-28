@@ -58,14 +58,14 @@ class APIIncident {
      * @type {boolean}
      * @version >6.0.1
      */
-    this.isResolved = this.TextContent.includes('Resolved -') || this.TextContent.includes('Completed -');
+    this.isResolved = this.HTMLContent.includes('Resolved -') || this.HTMLContent.includes('Completed -');
   }
   /**
-   * Text Content
+   * HTML Content
    * @return {string}
    */
   toString() {
-    return this.TextContent;
+    return this.HTMLContent;
   }
 }
 
