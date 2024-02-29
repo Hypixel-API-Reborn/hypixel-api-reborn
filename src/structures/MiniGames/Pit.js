@@ -8,7 +8,6 @@ const {
 
 /**
  * Pit Class
- * TODO : Profile, levels ( https://docs.google.com/spreadsheets/d/1ZnG7kv3dTZhsowr-8vK3kiJCFT-w-vJzY5lhJqLSSmc/edit#gid=0), Other minor stats
  */
 class Pit {
   /**
