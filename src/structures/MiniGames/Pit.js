@@ -1,6 +1,10 @@
 const { decode } = require('../../utils/SkyblockUtils');
 const PitInventoryItem = require('./PitInventoryItem');
+const { calcLevel } = require('../../utils/PitUtils');
 const { divide } = require('../../utils');
+const {
+  pit: { Levels, Prestiges }
+} = require('../../utils/Constants');
 
 /**
  * Pit Class
@@ -13,6 +17,21 @@ class Pit {
    */
   constructor(data) {
     const stats = data.pit_stats_ptl || {};
+    /**
+     * Prestige
+     * @type {number}
+     */
+    this.prestige = data.profile?.prestiges?.[data.profile?.prestiges?.length - 1].index || 0;
+    /**
+     * Xp
+     * @type {number}
+     */
+    this.xp = data.profile?.xp || 0;
+    /**
+     * Level
+     * @type {number}
+     */
+    this.level = calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ?? 0;
     /**
      * Kills
      * @type {number}
