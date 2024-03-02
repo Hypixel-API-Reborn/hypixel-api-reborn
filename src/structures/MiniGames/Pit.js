@@ -1,6 +1,5 @@
 const { decode } = require('../../utils/SkyblockUtils');
 const PitInventoryItem = require('./PitInventoryItem');
-const { calcLevel } = require('../../utils/PitUtils');
 const { divide } = require('../../utils');
 const {
   pit: { Levels, Prestiges }
