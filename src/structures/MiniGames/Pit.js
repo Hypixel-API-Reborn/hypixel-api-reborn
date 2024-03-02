@@ -30,7 +30,7 @@ class Pit {
      * Level
      * @type {number}
      */
-    this.level = calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ?? 0;
+    this.level = Pit.calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ?? 0;
     /**
      * Kills
      * @type {number}
@@ -169,7 +169,7 @@ class Pit {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -191,7 +191,7 @@ class Pit {
         }
         return edited;
       } catch (e) {
-        return e;
+        return [];
       }
     };
     /**
@@ -209,6 +209,30 @@ class Pit {
       };
       return armor;
     };
+  }
+  // Credit https://github.com/PitPanda/PitPandaProduction/blob/b1971f56ea1aa8c829b722cbb33247c96591c0cb/structures/Pit.js
+  /**
+   * Converts XP to Level
+   * @param {number} prestige Prestige Level
+   * @param {number} xp Current xp into the prestige
+   * @return {number}
+   */
+  static calcLevel(prestige, xp) {
+    const multiplier = Prestiges[prestige].Multiplier;
+    let level = 0;
+    while (xp > 0 && level < 120) {
+      const levelXp = Levels[Math.floor(level / 10)].Xp * multiplier;
+      if (xp >= levelXp * 10) {
+        xp -= levelXp * 10;
+        level += 10;
+      } else {
+        const gain = Math.floor(xp / levelXp);
+        level += gain;
+        xp -= gain * levelXp;
+        xp = 0;
+      }
+    }
+    return level;
   }
 }
 
