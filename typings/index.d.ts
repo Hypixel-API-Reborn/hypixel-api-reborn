@@ -1904,6 +1904,7 @@ declare module 'hypixel-api-reborn' {
     constructor(data: Record<string, unknown>);
     uuid: string;
     player?: Player;
+    museum?: object;
     profileName: string;
     profileId: string;
     firstJoinTimestamp: number;
@@ -1926,6 +1927,7 @@ declare module 'hypixel-api-reborn' {
       carpentry: SKYBLOCK_SKILL_DATA;
       runecrafting: SKYBLOCK_SKILL_DATA;
       taming: SKYBLOCK_SKILL_DATA;
+      social: SKYBLOCK_SKILL_DATA;
       average: number;
     };
     bestiary: SKYBLOCK_BESTIARY;

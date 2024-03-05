@@ -23,6 +23,12 @@ class SkyblockMember {
      */
     this.player = data.m.player || null;
     /**
+     * Skyblock member networth (Credit to skyhelper-networth package)
+     * If `getMuseum` option is `true`.
+     * @type {object|null}
+     */
+    this.museum = data.museum ?? null;
+    /**
      * Skyblock member's profile name
      * @type {string}
      */
@@ -265,11 +271,6 @@ class SkyblockMember {
     };
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
-     * @return {object|nuull}
-     */
-    this.museum = data.museum ?? null;
-    /**
-     * Skyblock member networth (Credit to skyhelper-networth package)
      * @return {skyhelper.NetworthResult}
      */
     this.getNetworth = async () => {
@@ -493,6 +494,7 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {SkyblockSkillLevel} carpentry Carpentry skill
  * @property {SkyblockSkillLevel} runecrafting Runecrafting skill
  * @property {SkyblockSkillLevel} taming Taming skill
+ * @property {SkyblockSkillLevel} social Social skill
  * @property {number} average Average skill level
  */
 /**
