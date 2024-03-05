@@ -1,5 +1,3 @@
-const rgbToHexColor = require('../../utils/rgbToHexColor');
-
 /**
  * Item class
  */
@@ -40,19 +38,19 @@ class SkyblockInventoryItem {
     this.loreForEmbed = this.lore.replace(/§([0-9]|[a-f])|§/gm, '').replace(/<br>/gm, '\n');
     /**
      * Hexadecimal color code of armor
-     * @type {string}
+     * @type {string|null}
      */
-    this.color = data.tag.ExtraAttributes.color ? rgbToHexColor(data.tag.ExtraAttributes.color.split(':')) : null;
+    this.color = data.tag.ExtraAttributes.color ?? data.tag.display.color ?? null;
     /**
      * Item enchantments
-     * @type {object}
+     * @type {Record<string, number>}
      */
-    this.enchantments = data.tag.ExtraAttributes.enchantments ? data.tag.ExtraAttributes.enchantments : null;
+    this.enchantments = data.tag.ExtraAttributes.enchantments ?? null;
     /**
      * Armor reforge
      * @type {string}
      */
-    this.reforge = data.tag.ExtraAttributes.modifier ? data.tag.ExtraAttributes.modifier : null;
+    this.reforge = data.tag.ExtraAttributes.modifier ?? null;
     /**
      * Equipment gemstones (if any)
      * @type {SkyblockItemGemstone}
@@ -60,14 +58,9 @@ class SkyblockInventoryItem {
     this.gemstones = data.tag.ExtraAttributes.gems
       ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
           // eslint-disable-next-line no-new-object
-          new Object({ type: gem[0].split('_')[0], quality: gem[1] });
+          return new Object({ type: gem[0].split('_')[0], quality: gem[1] });
         })
       : null;
-    /**
-     * Anvil uses
-     * @type {number}
-     */
-    this.anvilUses = data.tag.ExtraAttributes.anvil_uses ? data.tag.ExtraAttributes.anvil_uses : 0;
     /**
      * Damage
      * @type {number}
@@ -82,16 +75,80 @@ class SkyblockInventoryItem {
     this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
     /**
      * The amount of dungeon stars the item has (each star equates to a 10% stat boost while in dungeons)
-     * @author linearaccelerator
      * @type {number}
      */
-    this.dungeonStars = this.name.match(/(\u272a)/g) ? this.name.match(/(\u272a)/g).length : 0;
+    this.dungeonStars = data.tag.ExtraAttributes.upgrade_level ?? 0;
     /**
      * Dungeon gear score of the item (or null if not present)
      * @author linearaccelerator
      * @type {number}
      */
     this.gearScore = parseGearScore(this.loreArray) || null;
+    /**
+     * UUID of the item
+     * @type {string}
+     */
+    this.uuid = data.tag.ExtraAttributes.uuid ?? '';
+    /**
+     * Is the item soulbound
+     * @type {boolean}
+     */
+    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
+    /**
+     * Amount of art of war books applied to the item
+     * @type {number}
+     */
+    this.artOfWar = data.tag.ExtraAttributes.art_of_war_count ?? 0;
+    /**
+     * Rune
+     * @type {object}
+     */
+    this.rune = data.tag.ExtraAttributes.runes ?? null;
+    /**
+     * The amount of applied potato books
+     * @type {number}
+     */
+    this.hotPotatoBooks = data.tag.ExtraAttributes.hot_potato_count ?? 0;
+    /**
+     * Is the item recombobulated
+     * @type {boolean}
+     */
+    this.recombobulated = data.tag.ExtraAttributes.rarity_upgrades === 1;
+    /**
+     * Item attributes
+     * @type {object}
+     */
+    this.attributes = data.tag.ExtraAttributes.attributes ?? {};
+    /**
+     * Hecatomb runs
+     * @type {number}
+     */
+    this.hecatomb = data.tag.ExtraAttributes.hecatomb_s_runs ?? 0;
+    /**
+     * Champion xp
+     * @type {number}
+     */
+    this.champion = data.tag.ExtraAttributes.champion_combat_xp ?? 0;
+    /**
+     * Cultivating
+     * @type {number}
+     */
+    this.cultivating = data.tag.ExtraAttributes.farmed_cultivating ?? 0;
+    /**
+     * Expertise Kills
+     * @type {number}
+     */
+    this.expertise = data.tag.ExtraAttributes.expertise_kills ?? 0;
+    /**
+     * Compact blocks Mined
+     * @type {number}
+     */
+    this.compact = data.tag.ExtraAttributes.compact_blocks ?? 0;
+    /**
+     * Armadillos Blocks Walked
+     * @type {number}
+     */
+    this.blocksWalked = data.tag.ExtraAttributes.blocks_walked ?? 0;
   }
   /**
    * Item Name
