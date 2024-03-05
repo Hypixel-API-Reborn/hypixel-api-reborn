@@ -307,7 +307,10 @@ function getSkills(data) {
   skillsObject['carpentry'] = getLevelByXp(data?.player_data?.experience?.SKILL_CARPENTRY ?? 0, 'carpentry');
   skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
   skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
-  const levels = Object.values(skillsObject).map((skill) => skill.level);
+  skillsObject['social'] = getLevelByXp(data?.player_data?.experience?.SKILL_SOCIAL ?? 0, 'social');
+  const levels = Object.values(skillsObject)
+    .filter((skill) => skill.cosmetic !== true)
+    .map((skill) => skill.level);
   skillsObject['average'] = levels.reduce((a, b) => a + b, 0) / levels.length;
   return skillsObject;
 }

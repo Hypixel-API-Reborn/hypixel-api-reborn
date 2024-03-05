@@ -25,6 +25,9 @@ module.exports = {
       case 'hotm':
         xpTable = constants.hotm_xp;
         break;
+      case 'social':
+        xpTable = constants.social_xp;
+        break;
       default:
         xpTable = constants.leveling_xp;
     }
