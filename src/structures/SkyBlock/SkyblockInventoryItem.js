@@ -27,7 +27,7 @@ class SkyblockInventoryItem {
      * Item lore
      * @type {string}
      */
-    this.lore = data.tag.display.Lore.join('<br>');
+    this.lore = data.tag.display.Lore.join('\n');
     /**
      * Item lore
      * @type {string[]}

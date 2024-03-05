@@ -25,7 +25,7 @@ class PitInventoryItem {
      * Item lore
      * @type {string|null}
      */
-    this.lore = data?.tag?.display?.Lore ? data.tag.display.Lore.join('<br>') : null;
+    this.lore = data?.tag?.display?.Lore ? data.tag.display.Lore.join('\n') : null;
     /**
      * Item lore
      * @type {string[]|[]}
