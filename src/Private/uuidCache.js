@@ -12,11 +12,18 @@ module.exports = async (url, query) => {
   const res = await fetch(url);
   const data = await res.json();
   // Don't cache 4xx
-  if (res.status < 400) {
-    cache.set(query.toLowerCase(), { id: data.id, name: data.name }, 60 * 60 * 24);
-    cache.set(data.id.toLowerCase(), { id: data.id, name: data.name }, 60 * 60 * 24);
+  if (res.status > 400) {
+    return {
+      status: res.status,
+      id: null,
+      name: null
+    };
   }
+  cache.set(query.toLowerCase(), { status: res.status, id: data.id, name: data.name }, 60 * 60 * 24);
+  cache.set(data.id.toLowerCase(), { status: res.status, id: data.id, name: data.name }, 60 * 60 * 24);
+
   return {
+    status: res.status,
     id: data.id,
     name: data.name
   };

@@ -8,6 +8,9 @@ module.exports = async (input) => {
   if (isUUID(input)) return input.replace(/-/g, '');
   try {
     const res = await fetch(`https://api.mojang.com/users/profiles/minecraft/${input}`, input);
+    if (res.status === 404) {
+      return Promise.reject(new Error(Errors.PLAYER_DOES_NOT_EXIST));
+    }
     return res.id;
   } catch {
     throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
