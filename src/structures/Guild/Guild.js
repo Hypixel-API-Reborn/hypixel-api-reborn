@@ -26,7 +26,7 @@ class Guild {
      * Guild description
      * @type {string}
      */
-    this.description = data.description ?? null;
+    this.description = data.description ?? '';
     /**
      * Guild experience
      * @type {number}

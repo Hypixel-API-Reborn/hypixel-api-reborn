@@ -12,7 +12,6 @@ Allows you to get a player's skyblock member data from all their profiles
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
-// https://stavzdev.is-inside.me/cCMiZdoy.gif
 
 hypixel
   .getSkyblockMember('StavZDev')

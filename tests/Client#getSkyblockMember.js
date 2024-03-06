@@ -3,33 +3,48 @@ const { SkyblockMember, Errors } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
-describe('Client#getSkyblockMember', async () => {
-  let member;
+const uuids = [
+  'f025c1c7f55a4ea0b8d93f47d17dfe0f',
+  '52d9a36f66ce4cdf9a56ad9724ae9fb4',
+  '4982eac19ae7422891b61a17a74c87a2',
+  'f17d5ae1ed1f4dc9833339b56024640c',
+  '3b76b69ae5134296a730ed49171ad6f8',
+  '14727faefbdc4aff848cd2713eb9939e'
+];
 
+const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
+
+describe('Client#getSkyblockMember', async () => {
   describe('Valid', async () => {
-    describe('Random (1)', async () => {
-      it('expect not to throw', async () => {
-        member = await client.getSkyblockMember('f025c1c7f55a4ea0b8d93f47d17dfe0f');
-      });
-      it('should be an map', () => {
-        expect(member).to.be.an('map');
-      });
-      it('required keys should exist', () => {
-        member.forEach((profile) => {
-          expect(profile).instanceOf(SkyblockMember);
+    uuids.forEach((uuid) => {
+      let member;
+      describe(`UUID Test ${uuids.indexOf(uuid) + 1}`, async () => {
+        it('expect not to throw', async () => {
+          member = await client.getSkyblockMember(uuid);
+        });
+        it('should be an map', () => {
+          expect(member).to.be.an('map');
+        });
+        it('required keys should exist', () => {
+          member.forEach((profile) => {
+            expect(profile).instanceOf(SkyblockMember);
+          });
         });
       });
     });
-    describe('Max (2)', async () => {
-      it('expect not to throw', async () => {
-        member = await client.getSkyblockMember('fb3d96498a5b4d5b91b763db14b195ad');
-      });
-      it('should be an map', () => {
-        expect(member).to.be.an('map');
-      });
-      it('required keys should exist', () => {
-        member.forEach((profile) => {
-          expect(profile).instanceOf(SkyblockMember);
+    usernames.forEach((username) => {
+      let member;
+      describe(`Username Test ${uuids.indexOf(username) + 1}`, async () => {
+        it('expect not to throw', async () => {
+          member = await client.getSkyblockMember(username);
+        });
+        it('should be an map', () => {
+          expect(member).to.be.an('map');
+        });
+        it('required keys should exist', () => {
+          member.forEach((profile) => {
+            expect(profile).instanceOf(SkyblockMember);
+          });
         });
       });
     });

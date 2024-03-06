@@ -11,7 +11,6 @@ Sends a STATUS packet to hypixel and parses the return info
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
-// https://stavzdev.is-inside.me/cCMiZdoy.gif
 
 hypixel
   .getServerInfo()

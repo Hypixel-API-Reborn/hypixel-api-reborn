@@ -6,6 +6,6 @@ _Description_
 - [ ] I've added jsdoc and typings.
 - [ ] I've fixed bug. (_optional_ you can mention a issue if there is one)
 - [ ] I've corrected the spelling in README, documentation, etc.
-- [ ] I've tested my code. (`npm run test`)
+- [ ] I've tested my code. (`npm run tests`)
 - [ ] I've check for issues. (`npm run eslint`)
 - [ ] I've fixed my formatting. (`npm run prettier`)
