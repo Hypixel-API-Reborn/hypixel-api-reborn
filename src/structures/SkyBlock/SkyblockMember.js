@@ -228,7 +228,7 @@ class SkyblockMember {
     };
     /**
      * Skyblock member equipment
-     * @return {Promise<SkyblockInventoryItem[]>}
+     * @return {Promise<SkyblockMemberEquipment>}
      */
     this.getEquipment = async () => {
       let equipment = data.m.inventory.equipment_contents;
@@ -271,7 +271,7 @@ class SkyblockMember {
     };
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
-     * @return {skyhelper.NetworthResult}
+     * @return {Promise<skyhelper.NetworthResult>}
      */
     this.getNetworth = async () => {
       try {
