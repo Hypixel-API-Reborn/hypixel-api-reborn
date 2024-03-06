@@ -20,8 +20,6 @@ module.exports = async (url, query, cacheTime) => {
     };
   }
 
-  console.log(cacheTime)
-
   cache.set(query.toLowerCase(), { status: res.status, id: data.id, name: data.name }, cacheTime);
   cache.set(data.id.toLowerCase(), { status: res.status, id: data.id, name: data.name }, cacheTime);
 
