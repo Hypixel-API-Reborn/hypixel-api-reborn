@@ -12,7 +12,6 @@ Allows you to get recent games of a player.
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
-// https://stavzdev.is-inside.me/cCMiZdoy.gif
 
 hypixel
   .getRecentGames('StavZDev')
