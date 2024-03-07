@@ -13,7 +13,7 @@ const clients = [];
  */
 class Client extends EventEmitter {
   /**
-   * @param {string} key API key [(?)](https://stavzdev.is-inside.me/cCMiZdoy.gif)
+   * @param {string} key API key
    * @param {ClientOptions} [options={}] Client options
    */
   constructor(key, options = {}) {
@@ -192,7 +192,7 @@ class Client extends EventEmitter {
    * @method
    * @name Client#getSkyblockMember
    * @param {string} query Player nickname or UUID
-   * @param {MethodOptions} [options={}] Method options
+   * @param {SkyblockMethodOptions} [options={}] Method options
    * @return {Promise<Map<string,SkyblockMember>>}
    * @example
    * hypixel.getSkyblockMember('StavZDev').then(member => {
@@ -201,6 +201,14 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   */
+  /**
+   * Allows you to get a player's skyblock profile museum
+   * @method
+   * @name Client#getSkyblockMuseum
+   * @param {string} query Player nickname or UUID
+   * @param {string} profileId Profile ID
+   * @return {Promise<SkyblockMuseum>}
    */
   /**
    * Allows you to get the Hypixel API's Status and past Incidents, no key needed.
@@ -385,6 +393,7 @@ class Client extends EventEmitter {
  * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  */
 const defaultCache = require('./Private/defaultCache.js');
+const SkyblockMuseum = require('./structures/SkyBlock/SkyblockMuseum.js');
 /**
  * @typedef {defaultCache} Cache
  */
@@ -409,9 +418,10 @@ const defaultCache = require('./Private/defaultCache.js');
  */
 /**
  * @typedef {object} SkyblockMethodOptions
- * @property {boolean} [raw=false] Raw data
- * @property {?boolean} [noCacheCheck=false] Disable/Enable cache checking
- * @property {?boolean} [noCaching=false] Disable/Enable writing to cache
+ * @property {boolean} [fetchPlayer=false] Raw data
+ * @property {boolean} [getMuseum=false] Raw data
+ * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
+ * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {?boolean} [fetchPlayer=false] Disable/Enable player profile request for each member
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */

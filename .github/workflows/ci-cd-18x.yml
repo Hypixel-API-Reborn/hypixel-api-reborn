@@ -43,7 +43,7 @@ jobs:
         run: npm i
 
       - name: Run Tests
-        run: npm test
+        run: npm run tests
         env:
           HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
 

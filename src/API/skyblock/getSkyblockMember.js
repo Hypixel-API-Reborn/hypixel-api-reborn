@@ -1,8 +1,9 @@
 const Errors = require('../../Errors');
 const toUuid = require('../../utils/toUuid');
 const getPlayer = require('../getPlayer');
-module.exports = async function (query, options = { fetchPlayer: false }) {
+module.exports = async function (query, options = { fetchPlayer: false, getMuseum: false }) {
   const SkyblockMember = require('../../structures/SkyBlock/SkyblockMember');
+  const getSkyblockMuseum = require('../skyblock/getSkyblockMuseum');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   query = await toUuid(query);
   const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
@@ -18,7 +19,11 @@ module.exports = async function (query, options = { fetchPlayer: false }) {
         uuid: query,
         profileName: profile.cute_name,
         gameMode: profile.game_mode || null,
-        m: profile.members[query]
+        m: profile.members[query],
+        banking: profile.banking,
+        profileId: profile.profile_id,
+        communityUpgrades: profile.community_upgrades,
+        museum: options.getMuseum ? await getSkyblockMuseum.call(this, query, profile.profile_id) : null
       })
     );
   }

@@ -9,7 +9,6 @@ Allows you to get the Hypixel API's Status and past Incidents, no key needed.
 ```js
 const Hypixel = require('hypixel-api-reborn');
 const hypixel = new Hypixel.Client('API-KEY');
-// https://stavzdev.is-inside.me/cCMiZdoy.gif
 
 hypixel
   .getAPIStatus()
