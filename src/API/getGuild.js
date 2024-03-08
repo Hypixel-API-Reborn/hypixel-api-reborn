@@ -6,7 +6,7 @@ module.exports = async function (searchParameter, query) {
   const Guild = require('../structures/Guild/Guild');
   if (searchParameter === 'id' && !isGuildID(query)) throw new Error(Errors.INVALID_GUILD_ID);
   const isPlayerQuery = searchParameter === 'player';
-  if (isPlayerQuery) query = await toUuid(query, this.options.mojangCacheTime);
+  if (isPlayerQuery) query = await toUuid(query);
   if (!['id', 'name', 'player'].includes(searchParameter)) throw new Error(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   const res = await this._makeRequest(`/guild?${searchParameter}=${encodeURI(query)}`);
   if (res.raw) return res;
