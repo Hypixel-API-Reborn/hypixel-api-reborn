@@ -30,7 +30,6 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
-    global.options = this.options;
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
       Client.prototype[func] = function (...args) {
