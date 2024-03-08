@@ -7,7 +7,7 @@ const cache = new NodeCache();
 
 // TODO - use this for all cache models
 
-module.exports = async (url, query) => {
+module.exports = async (url, query, cacheTime) => {
   if (cache.has(query.toLowerCase())) return cache.get(query.toLowerCase());
   const res = await fetch(url);
   const data = await res.json();
@@ -20,8 +20,8 @@ module.exports = async (url, query) => {
     };
   }
 
-  cache.set(query.toLowerCase(), { status: res.status, id: data.id, name: data.name }, global.options.mojangCacheTime);
-  cache.set(data.id.toLowerCase(), { status: res.status, id: data.id, name: data.name }, global.options.mojangCacheTime);
+  cache.set(query.toLowerCase(), { status: res.status, id: data.id, name: data.name }, cacheTime);
+  cache.set(data.id.toLowerCase(), { status: res.status, id: data.id, name: data.name }, cacheTime);
 
   return {
     status: res.status,
