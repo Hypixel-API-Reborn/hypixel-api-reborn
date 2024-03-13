@@ -137,6 +137,48 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export type BINGO_TYPE = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
+export type ACHIEVEMENT_TYPE = 'ONE_TIME' | 'TIERED';
+export type QUEST_TYPE = 'DAILY' | 'WEEKLY';
+export type GAME_STATIC =
+  | 'arcade'
+  | 'arena'
+  | 'bedwars'
+  | 'hungergames'
+  | 'buildbattle'
+  | 'truecombat'
+  | 'duels'
+  | 'mcgo'
+  | 'murdermystery'
+  | 'paintball'
+  | 'quake'
+  | 'skyclash'
+  | 'skywars'
+  | 'supersmash'
+  | 'speeduhc'
+  | 'gingerbread'
+  | 'tntgames'
+  | 'uhc'
+  | 'vampirez'
+  | 'walls3'
+  | 'walls'
+  | 'battleground'
+  | 'woolgames';
+export interface ChallengeData {
+  id: string;
+  name: string;
+  rewardType: string;
+  reward: number;
+}
+export interface Objective {
+  id: string;
+  type: 'Integer' | 'Boolean';
+  amountNeeded: number;
+}
+export interface QuestReward {
+  type: string;
+  amount: number;
+}
 export type SKYBLOCK_BESTIARY = number;
 export interface SKYBLOCK_BESTIARY_CATEGORY {
   [key: string]: {
@@ -213,6 +255,9 @@ export interface auctionsOptions extends methodOptions {
   cooldown?: number;
   race?: boolean;
   includeItemBytes?: boolean;
+}
+export interface playerBingoOptions extends methodOptions {
+  fetchBingoData?: boolean;
 }
 declare module 'hypixel-api-reborn' {
   const version: string;
@@ -863,10 +908,18 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
     /**
+     * @description Gets bingo data
+     */
+    getSkyblockBingo(options?: methodOptions): Promise<BingoData>;
+    /**
+     * @description Gets bingo data of a player
+     * @param query - UUID/IGN of player
+     */
+    getSkyblockBingoByPlayer(query: string, options?: playerBingoOptions): Promise<PlayerBingo>;
+    /**
      * @description Gets data of skyblock government
      */
-    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
-    /**
+    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>; /**
      * @description Allows you to get skyblock news
      */
     getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
@@ -920,6 +973,30 @@ declare module 'hypixel-api-reborn' {
      * @description Parses the RSS feed from status.hypixel.net
      */
     getAPIStatus(): Promise<APIStatus>;
+    /**
+     * @description Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+     */
+    getChallenges(options?: methodOptions): Promise<Challenges>;
+    /**
+     * @description Allows you to get information about hypixel quests [NO KEY REQUIRED]
+     */
+    getQuests(options?: methodOptions): Promise<Quests>;
+    /**
+     * @description Allows you to get information about hypixel vanity companions [NO KEY REQUIRED]
+     */
+    getVanityCompanions(options?: methodOptions): Promise<VanityCompanions>;
+    /**
+     * @description Allows you to get information about hypixel vanity pets [NO KEY REQUIRED]
+     */
+    getVanityPets(options?: methodOptions): Promise<VanityPets>;
+    /**
+     * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+     */
+    getAchievements(options?: methodOptions): Promise<Achievements>;
+    /**
+     * @description Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+     */
+    getGuildAchievements(options?: methodOptions): Promise<GuildAchievements>;
     /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
@@ -1841,6 +1918,27 @@ declare module 'hypixel-api-reborn' {
     totalPrice: number;
     orders: number;
   }
+  class BingoData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    id: number | null;
+    goals: Bingo[] | null;
+    getGoal(column: number, row: number): Bingo | undefined;
+  }
+  class PlayerBingo {
+    constructor(data: Record<string, unknown>, bingoData: BingoData | null);
+    dataPerEvent: PlayerBingoDataPerEvent[];
+  }
+  type PlayerBingoDataPerEvent = {
+    eventId: number;
+    points: number;
+    enrichedGoals: boolean;
+    goalsCompleted: SpecialBingoArray | string[];
+  };
+  type SpecialBingoArray = Bingo[] & {
+    unachievedGoals: Bingo[];
+  };
   class GovernmentData {
     constructor(data: Record<string, unknown>);
     lastUpdatedTimestamp: number;
@@ -3656,5 +3754,89 @@ declare module 'hypixel-api-reborn' {
     faviconB64: string;
     favicon: Buffer;
     ping: number;
+  }
+  class Achievement {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    codeName: string;
+    description: string;
+    type: ACHIEVEMENT_TYPE;
+    rarity: {
+      local?: number;
+      localPercentage?: number;
+      global?: number;
+      globalPercentage?: number;
+    };
+    tierInformation?: AchievementTier;
+    points: number;
+    totalAmountRequired?: number;
+    toString(): string;
+  }
+  class AchievementTier {
+    constructor(data: Record<string, unknown>);
+    maxTier: number;
+    getTier(tier: number): {
+      pointsRewarded?: number;
+      amountRequired?: number;
+    };
+  }
+  class Challenges {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    challengesPerGame: Record<GAME_STATIC, GameChallenges>;
+  }
+  class GameAchievement {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    totalPoints: number;
+    totalLegacyPoints: number;
+    achievements: Achievement[];
+  }
+  class GameChallenges {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    challenges: Map<string, ChallengeData>;
+  }
+  class GameQuests {
+    constructor(data: Record<string, unknown>);
+    game: GAME_STATIC;
+    quests: Quest[];
+  }
+  class GuildAchievements {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    achievements: Record<string, Achievement>;
+  }
+  class Quest {
+    constructor(data: Record<string, unknown>);
+    questName: string;
+    questID: string;
+    description: string;
+    type: QUEST_TYPE;
+    objectives: Objective[];
+    rewards: QuestReward[];
+    toString(): string;
+  }
+  class Quests {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    questsPerGame: Record<GAME_STATIC, GameQuests>;
+  }
+  class Bingo {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    id: string;
+    row?: number;
+    column?: number;
+    rawLore: string;
+    lore: string;
+    tiers: number[];
+    type: BINGO_TYPE;
+    tierStep?: number;
+    requiredAmount?: number;
+    toString(): string;
   }
 }
