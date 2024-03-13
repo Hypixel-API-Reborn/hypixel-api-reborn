@@ -2,7 +2,7 @@
 const requireFetch = !globalThis.fetch;
 const externalFetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const fetch = requireFetch ? externalFetch : globalThis.fetch;
-const BASE_URL = 'http://localhost:14004/hypixel';
+const BASE_URL = 'https://api.hypixel.net/v2';
 const Errors = require('../Errors');
 const Cache = require('./defaultCache');
 const Client = require('../Client.js');
