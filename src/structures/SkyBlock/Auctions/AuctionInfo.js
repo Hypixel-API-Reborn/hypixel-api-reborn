@@ -51,4 +51,5 @@ class AuctionInfo {
     return `${this.page} / ${this.totalPages}`;
   }
 }
+
 module.exports = AuctionInfo;

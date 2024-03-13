@@ -32,11 +32,26 @@ class Client extends EventEmitter {
     validate.validateOptions(this.options);
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
-      Client.prototype[func] = function (...args) {
+      if (func === 'skyblock') continue;
+      Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
-            _makeRequest: this._makeRequest.bind(this, { ...(validate.cacheSuboptions(lastArg) ? lastArg : {}) }),
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
+            ...this
+          },
+          args
+        );
+      };
+    }
+    Client.prototype.skyblock = {};
+    // eslint-disable-next-line guard-for-in
+    for (const func in API.skyblock) {
+      Client.prototype.skyblock[func] = (...args) => {
+        const lastArg = args[args.length - 1];
+        return API.skyblock[func].apply(
+          {
+            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
           },
           args

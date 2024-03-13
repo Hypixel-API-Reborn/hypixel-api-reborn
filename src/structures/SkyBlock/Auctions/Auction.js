@@ -1,5 +1,5 @@
-const Bid = require('./Bid');
 const BaseAuction = require('./BaseAuction');
+const Bid = require('./Bid');
 /**
  * Auction class
  */
@@ -89,6 +89,7 @@ class Auction extends BaseAuction {
     return this.item;
   }
 }
+
 /**
  * @typedef {string} Rarity
  * * `VERY_SPECIAL`
@@ -101,4 +102,5 @@ class Auction extends BaseAuction {
  * * `UNCOMMON`
  * * `COMMON`
  */
+
 module.exports = Auction;

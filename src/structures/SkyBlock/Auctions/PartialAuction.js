@@ -22,4 +22,5 @@ class PartialAuction extends BaseAuction {
     this.price = parseInt(data.price, 10) || 0;
   }
 }
+
 module.exports = PartialAuction;

@@ -1,4 +1,4 @@
-const getSkyblockBingo = require('./getSkyblockBingo');
+const getBingo = require('./getBingo');
 const toUuid = require('../../utils/toUuid');
 const Errors = require('../../Errors');
 module.exports = async function (query, { fetchBingoData = false }) {
@@ -8,7 +8,7 @@ module.exports = async function (query, { fetchBingoData = false }) {
   const res = await this._makeRequest(`/skyblock/uuid?player=${query}`);
   if (res.raw) return res;
   let bingoData = null;
-  if (fetchBingoData) bingoData = await getSkyblockBingo.call(this);
+  if (fetchBingoData) bingoData = await getBingo.call(this);
 
   return new PlayerBingo(data, bingoData);
 };
