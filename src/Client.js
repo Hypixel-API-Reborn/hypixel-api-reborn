@@ -343,7 +343,7 @@ class Client extends EventEmitter {
    * @method
    * @name Client#getSkyblockGovernment
    * @param {MethodOptions} [options={}] Options
-   * @return {Promise<Government>}
+   * @return {Promise<GovernmentData>}
    */
   /**
    * Allows you to get skyblock news

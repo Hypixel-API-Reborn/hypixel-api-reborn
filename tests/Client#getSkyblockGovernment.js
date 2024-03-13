@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { GovernmentData } = require('../src/index.js');
+const { Candidate } = require('../src/index.js');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
@@ -12,6 +12,15 @@ describe('Client#getSkyblockGovernment', async () => {
     expect(government).to.be.an('object');
   });
   it('required keys should exist', () => {
-    expect(government).instanceOf(GovernmentData);
+    expect(government.lastUpdatedTimestamp).to.be.a('number');
+    expect(government.lastUpdatedAt).to.be.a('date');
+    government.lastElectionResults.forEach((mayor) => {
+      expect(mayor).instanceOf(Candidate);
+    });
+    expect(government.mayor).instanceOf(Candidate);
+    expect(government.runningYear).to.be.a('number');
+    government.currentElectionResults.forEach((mayor) => {
+      expect(mayor).instanceOf(Candidate);
+    });
   });
 });

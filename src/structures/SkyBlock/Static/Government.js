@@ -25,7 +25,12 @@ class GovernmentData {
      * Sorted ascendingly by votes received
      * @type {Map<string, Candidate>}
      */
-    this.lastElectionResults = new Map(lastElectionResults.sort((a, b) => a.votes - b.votes).map((x) => [x.name, x]));
+    this.lastElectionResults = new Map(
+      lastElectionResults
+        .sort((a, b) => a.votesReceived - b.votesReceived)
+        .reverse()
+        .map((x) => [x.name, x])
+    );
     /**
      * The mayor
      * @type {Candidate}
@@ -43,7 +48,12 @@ class GovernmentData {
      * RESULTS MIGHT BE TEMPORARY
      * @type {Map<string, Candidate>}
      */
-    this.currentElectionResults = new Map(thisElection.sort((a, b) => a.votes - b.votes).map((x) => [x.name, x]));
+    this.currentElectionResults = new Map(
+      thisElection
+        .sort((a, b) => a.votesReceived - b.votesReceived)
+        .reverse()
+        .map((x) => [x.name, x])
+    );
     /**
      * The year the current election will be effective for
      * @type {number|null}
@@ -51,11 +61,11 @@ class GovernmentData {
     this.currentElectionFor = parseInt(data.current.year, 10) || null;
   }
   /**
-   * As string
+   * Current Mayor
    * @return {string}
    */
   toString() {
-    return this.name;
+    return this.mayor.name;
   }
 }
 

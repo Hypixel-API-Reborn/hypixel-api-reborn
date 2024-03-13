@@ -14,6 +14,10 @@ module.exports = {
   Pets: require('./structures/Pets'),
   PlayerCosmetics: require('./structures/PlayerCosmetics'),
 
+  /* Challenges */
+  Challenges: require('./structures/Static/Challenges.js'),
+  GameChallenges: require('./structures/Static/GameChallenges.js'),
+
   /* Watchdog */
   WatchdogStats: require('./structures/Watchdog/Stats.js'),
 
