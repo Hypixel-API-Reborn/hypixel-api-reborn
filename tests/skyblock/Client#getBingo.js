@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
-const { BingoData } = require('../src');
-const { client } = require('./Client.js');
+const { BingoData } = require('../../src');
+const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#getSkyblockBingo', async () => {
+describe('Client#skyblock.getBingo', async () => {
   let bingo;
   it('expect not to throw', async () => {
-    bingo = await client.getSkyblockBingo();
+    bingo = await client.skyblock.getBingo();
   });
   it('should be an objecct', () => {
     expect(bingo).to.be.an('object');

@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
-const { Candidate } = require('../src/index.js');
-const { client } = require('./Client.js');
+const { Candidate } = require('../../src/index.js');
+const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#getSkyblockGovernment', async () => {
+describe('Client#skyblock.getGovernment', async () => {
   let government;
   it('expect not to throw', async () => {
-    government = await client.getSkyblockGovernment();
+    government = await client.skyblock.getGovernment();
   });
   it('should be an objecct', () => {
     expect(government).to.be.an('object');
