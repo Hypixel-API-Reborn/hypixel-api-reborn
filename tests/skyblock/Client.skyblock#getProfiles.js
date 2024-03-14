@@ -14,7 +14,7 @@ const uuids = [
 
 const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
 
-describe('Client#skyblock.getProfiles', async () => {
+describe('Client.skyblock#getProfiles', async () => {
   describe('Valid', async () => {
     uuids.forEach((uuid) => {
       describe(`UUID Test ${uuids.indexOf(uuid) + 1}`, async () => {

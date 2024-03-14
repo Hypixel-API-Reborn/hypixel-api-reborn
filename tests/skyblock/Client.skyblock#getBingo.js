@@ -3,7 +3,7 @@ const { BingoData } = require('../../src');
 const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#skyblock.getBingo', async () => {
+describe('Client.skyblock#getBingo', async () => {
   let bingo;
   it('expect not to throw', async () => {
     bingo = await client.skyblock.getBingo();

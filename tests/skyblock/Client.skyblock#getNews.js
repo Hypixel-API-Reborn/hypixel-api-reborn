@@ -2,7 +2,7 @@
 const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#skyblock.getNews', async () => {
+describe('Client.skyblock#getNews', async () => {
   let news;
   it('expect not to throw', async () => {
     news = await client.skyblock.getNews();

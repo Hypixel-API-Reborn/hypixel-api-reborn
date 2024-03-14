@@ -191,7 +191,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get all skyblock profiles of player
    * @method
-   * @name Client#getSkyblockProfiles
+   * @name Client.skyblock#getProfiles
    * @param {string} query Player nickname or UUID
    * @param {SkyblockMethodOptions} [options={}] Method options
    * @return {Promise<Array<SkyblockProfile>>}
@@ -205,7 +205,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get a player's skyblock member data from all their profiles
    * @method
-   * @name Client#getSkyblockMember
+   * @name Client.skyblock#getMember
    * @param {string} query Player nickname or UUID
    * @param {SkyblockMethodOptions} [options={}] Method options
    * @return {Promise<Map<string,SkyblockMember>>}
@@ -220,7 +220,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get a player's skyblock profile museum
    * @method
-   * @name Client#getSkyblockMuseum
+   * @name Client.skyblock#getMuseum
    * @param {string} query Player nickname or UUID
    * @param {string} profileId Profile ID
    * @return {Promise<SkyblockMuseum>}
@@ -290,7 +290,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get skyblock auctions
    * @method
-   * @name Client#getSkyblockAuctions
+   * @name Client.skyblock#getAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {auctionsOptions} [options={}] Options
    * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
@@ -303,7 +303,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get player's skyblock auctions
    * @method
-   * @name Client#getSkyblockAuctionsByPlayer
+   * @name Client.skyblock#getAuctionsByPlayer
    * @param {string} query - player nickname or uuid
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
    * @param {MethodOptions} [options={}] Options
@@ -330,7 +330,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get list of products
    * @method
-   * @name Client#getSkyblockBazaar
+   * @name Client.skyblock#getBazaar
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<Product[]>}
    * @example
@@ -341,14 +341,14 @@ class Client extends EventEmitter {
    */ /**
    * Allows you to get bingo data
    * @method
-   * @name Client#getSkyblockBingo
+   * @name Client.skyblock#getBingo
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<BingoData>}
    */
   /**
    * Allows you to get bingo data of a player
    * @method
-   * @name Client#getSkyblockBingoByPlayer
+   * @name Client.skyblock#getBingoByPlayer
    * @param {string} query UUID / IGN of player
    * @param {PlayerBingoOptions} [options={}] Options
    * @return {Promise<PlayerBingo>}
@@ -356,14 +356,14 @@ class Client extends EventEmitter {
   /**
    * Allows you to get SB government
    * @method
-   * @name Client#getSkyblockGovernment
+   * @name Client.skyblock#getGovernment
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<GovernmentData>}
    */
   /**
    * Allows you to get skyblock news
    * @method
-   * @name Client#getSkyblockNews
+   * @name Client.skyblock#getNews
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<SkyblockNews[]>}
    * @example

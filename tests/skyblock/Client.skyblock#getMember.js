@@ -14,7 +14,7 @@ const uuids = [
 
 const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
 
-describe('Client#skyblock.getMember', async () => {
+describe('Client.skyblock#getMember', async () => {
   describe('Valid', async () => {
     uuids.forEach((uuid) => {
       let member;

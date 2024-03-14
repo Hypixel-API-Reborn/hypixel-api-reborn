@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-const { Candidate } = require('../../src/index.js');
+const { Candidate } = require('../../src');
 const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#skyblock.getGovernment', async () => {
+describe('Client.skyblock#getGovernment', async () => {
   let government;
   it('expect not to throw', async () => {
     government = await client.skyblock.getGovernment();
