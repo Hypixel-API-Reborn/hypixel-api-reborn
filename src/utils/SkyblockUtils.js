@@ -202,7 +202,7 @@ module.exports = {
     } else if (level === 4) {
       return 'Diamond';
     } else {
-      return 'Bronze';
+      return 'Zero';
     }
   }
 };
