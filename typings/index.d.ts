@@ -1081,9 +1081,53 @@ declare module 'hypixel-api-reborn' {
       warlords?: Warlords;
       arcade?: Arcade;
       woolwars?: WoolWars;
+      pit?: Pit;
     };
     getRecentGames(): Promise<RecentGame[]>;
     recentGames?: RecentGame[];
+    toString(): string;
+  }
+  class Pit {
+    static calcLevel(prestige: number, xp: number): number;
+    constructor(data: Record<string, unknown>);
+    prestige: number;
+    xp: number;
+    level: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    maxKillStreak: number;
+    playtime: number;
+    joins: number;
+    damageReceived: number;
+    damageDealt: number;
+    damageRatio: number;
+    meleeDamageReceived: number;
+    meleeDamageDealt: number;
+    swordHits: number;
+    leftClicks: number;
+    meleeAccuracy: number;
+    meleeDamageRatio: number;
+    bowDamageReceived: number;
+    bowDamageDealt: number;
+    arrowsHit: number;
+    arrowsFired: number;
+    bowAccuracy: number;
+    bowDamageRatio: number;
+    goldenHeadsEaten: number;
+    getInventory(): Promise<SkyblockInventoryItem[]>;
+    getEnterChest(): Promise<SkyblockInventoryItem[]>;
+    getArmor(): Promise<SkyblockInventoryItem[]>;
+  }
+  class PitInventoryItem {
+    constructor(data: Record<string, unknown>);
+    itemId: number;
+    count: number;
+    name: string | null;
+    lore: string | null;
+    loreArray: string[] | [];
+    extraAttributes: string | null;
     toString(): string;
   }
   class WoolWars {
