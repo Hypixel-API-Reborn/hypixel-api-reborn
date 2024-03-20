@@ -397,7 +397,7 @@ describe('Client#getGuild', async () => {
     });
     describe('Player not in guild', async () => {
       it('expect to throw', async () => {
-        player = await client.getGuild('player', '337a48bf57e944eb8acb83b885936e83');
+        player = await client.getGuild('player', '49e9ffd075e6413395ba96051b3fea84');
         expect(player).to.be.null;
       }).timeout(5000);
     });
