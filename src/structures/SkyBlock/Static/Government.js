@@ -41,24 +41,26 @@ class GovernmentData {
      * @type {number}
      */
     this.runningYear = parseInt(data.mayor.election.year, 10) || 0;
-    const thisElection = data.current.candidates.map((x) => new Candidate(x, x.name === data.mayor.name));
+    const thisElection = data.current?.candidates.map((x) => new Candidate(x, x.name === data.mayor.name)) || null;
     /**
      * Current elections, valid for next year
      * Sorted ascendingly by votes received
      * RESULTS MIGHT BE TEMPORARY
-     * @type {Map<string, Candidate>}
+     * @type {Map<string, Candidate>|null}
      */
-    this.currentElectionResults = new Map(
-      thisElection
-        .sort((a, b) => a.votesReceived - b.votesReceived)
-        .reverse()
-        .map((x) => [x.name, x])
-    );
+    this.currentElectionResults = thisElection
+      ? new Map(
+          thisElection
+            .sort((a, b) => a.votesReceived - b.votesReceived)
+            .reverse()
+            .map((x) => [x.name, x])
+        )
+      : null;
     /**
      * The year the current election will be effective for
      * @type {number|null}
      */
-    this.currentElectionFor = parseInt(data.current.year, 10) || null;
+    this.currentElectionFor = parseInt(data.current?.year, 10) || null;
   }
   /**
    * Current Mayor

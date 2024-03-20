@@ -19,8 +19,12 @@ describe('Client.skyblock#getGovernment', async () => {
     });
     expect(government.mayor).instanceOf(Candidate);
     expect(government.runningYear).to.be.a('number');
-    government.currentElectionResults.forEach((mayor) => {
-      expect(mayor).instanceOf(Candidate);
-    });
+    expect(government.currentElectionResults).to.be.oneOf([null, 'map']);
+    if (government.currentElectionResults) {
+      government.currentElectionResults.forEach((mayor) => {
+        expect(mayor).instanceOf(Candidate);
+      });
+    }
+    expect(government.currentElectionFor).to.be.oneOf(['number', null]);
   });
 });

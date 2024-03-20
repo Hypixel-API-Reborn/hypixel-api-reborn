@@ -1993,7 +1993,7 @@ declare module 'hypixel-api-reborn' {
     lastElectionResults: Map<string, Candidate>;
     mayor: Candidate;
     runningYear: number;
-    currentElectionResults: Map<string, Candidate>;
+    currentElectionResults: Map<string, Candidate> | null;
     currentElectionFor: number | null;
   }
   class Candidate {
