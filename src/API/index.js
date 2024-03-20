@@ -22,6 +22,7 @@ module.exports = {
     getBingo: require('./skyblock/getBingo.js'),
     getBingoByPlayer: require('./skyblock/getBingoByPlayer.js'),
     getEndedAuctions: require('./skyblock/getEndedAuctions.js'),
+    getFireSales: require('./skyblock/getFireSales.js'),
     getGovernment: require('./skyblock/getGovernment.js'),
     getMember: require('./skyblock/getMember.js'),
     getMuseum: require('./skyblock/getMuseum.js'),

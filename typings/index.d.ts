@@ -927,6 +927,10 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
     /**
+     * @description Gets data of skyblock government
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<FireSale[]>;
+    /**
      * @description Allows you to get skyblock news
      */
     getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
@@ -1999,6 +2003,17 @@ declare module 'hypixel-api-reborn' {
     perks: Record<'name' | 'description', string>[];
     isMayor: boolean;
     votesReceived: number;
+    toString(): string;
+  }
+  class FireSale {
+    constructor(data: Record<string, unknown>);
+    itemId: string;
+    startTimestamp: number;
+    startAt: Date;
+    endTimestamp: number;
+    endAt: Date;
+    amount: number;
+    price: number;
     toString(): string;
   }
   class WatchdogStats {

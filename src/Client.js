@@ -361,6 +361,13 @@ class Client extends EventEmitter {
    * @return {Promise<GovernmentData>}
    */
   /**
+   * Allows you to get SB government
+   * @method
+   * @name Client.skyblock#getFireSale
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<FireSale[]>}
+   */
+  /**
    * Allows you to get skyblock news
    * @method
    * @name Client.skyblock#getNews

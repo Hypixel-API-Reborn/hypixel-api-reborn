@@ -42,6 +42,7 @@ module.exports = {
   Auction: require('./structures/SkyBlock/Auctions/Auction.js'),
   AuctionInfo: require('./structures/SkyBlock/Auctions/AuctionInfo.js'),
   Bid: require('./structures/SkyBlock/Auctions/Bid.js'),
+  FireSale: require('./structures/SkyBlock/Static/FireSale.js'),
 
   /* Skyblock Bazaar */
   Product: require('./structures/SkyBlock/Bazzar/Product.js'),
