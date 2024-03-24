@@ -16,10 +16,10 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "eslint": "npx eslint src/ typings/",
-    "eslint:fix": "npx eslint src/ typings/ --fix",
+    "lint": "npx eslint src/ typings/",
+    "lint:fix": "npx eslint src/ typings/ --fix",
     "lint:dev": "npm run eslint && npm run dtslint",
-    "tests": "npx mocha tests --exit",
+    "tests": "npx mocha tests --exit --recursive",
     "docgen": "npx docgen -s src -o ./master.json",
     "dtslint": "npx dtslint typings",
     "prettier": "npx prettier --write src/ typings/",

@@ -46,3 +46,4 @@ testing/
 changelog.md
 master.json
 .env
+.vscode/settings.json

@@ -42,4 +42,5 @@ class BaseAuction {
     return this.auctionId;
   }
 }
+
 module.exports = BaseAuction;

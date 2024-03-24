@@ -45,4 +45,5 @@ class Bid {
     return `${this.bidder} bid ${this.amount} coins`;
   }
 }
+
 module.exports = Bid;

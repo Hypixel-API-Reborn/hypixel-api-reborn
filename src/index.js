@@ -14,6 +14,10 @@ module.exports = {
   Pets: require('./structures/Pets'),
   PlayerCosmetics: require('./structures/PlayerCosmetics'),
 
+  /* Challenges */
+  Challenges: require('./structures/Static/Challenges.js'),
+  GameChallenges: require('./structures/Static/GameChallenges.js'),
+
   /* Watchdog */
   WatchdogStats: require('./structures/Watchdog/Stats.js'),
 
@@ -27,6 +31,10 @@ module.exports = {
   SkyblockMember: require('./structures/SkyBlock/SkyblockMember.js'),
   SkyblockInventoryItem: require('./structures/SkyBlock/SkyblockInventoryItem.js'),
   SkyblockPet: require('./structures/SkyBlock/SkyblockPet'),
+  GovernmentData: require('./structures/SkyBlock/Static/Government.js'),
+  Candidate: require('./structures/SkyBlock/Static/Candidate.js'),
+  BingoData: require('./structures/SkyBlock/Static/BingoData.js'),
+  Bingo: require('./structures/SkyBlock/Static/Bingo.js'),
 
   /* Skyblock Auctions */
   BaseAuction: require('./structures/SkyBlock/Auctions/BaseAuction.js'),
@@ -34,6 +42,7 @@ module.exports = {
   Auction: require('./structures/SkyBlock/Auctions/Auction.js'),
   AuctionInfo: require('./structures/SkyBlock/Auctions/AuctionInfo.js'),
   Bid: require('./structures/SkyBlock/Auctions/Bid.js'),
+  FireSale: require('./structures/SkyBlock/Static/FireSale.js'),
 
   /* Skyblock Bazaar */
   Product: require('./structures/SkyBlock/Bazzar/Product.js'),

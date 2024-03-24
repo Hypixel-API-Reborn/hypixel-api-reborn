@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const { SkyblockMember, Errors } = require('../src');
-const { client } = require('./Client.js');
+const { SkyblockMember, Errors } = require('../../src');
+const { client } = require('../Client.js');
 const { expect } = require('chai');
 
 const uuids = [
@@ -14,13 +14,13 @@ const uuids = [
 
 const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
 
-describe('Client#getSkyblockProfiles', async () => {
+describe('Client.skyblock#getProfiles', async () => {
   describe('Valid', async () => {
     uuids.forEach((uuid) => {
       describe(`UUID Test ${uuids.indexOf(uuid) + 1}`, async () => {
         let profiles;
         it('expect not to throw', async () => {
-          profiles = await client.getSkyblockProfiles(uuid);
+          profiles = await client.skyblock.getProfiles(uuid);
         });
         it('should be an array', () => {
           expect(profiles).to.be.an('array');
@@ -64,7 +64,7 @@ describe('Client#getSkyblockProfiles', async () => {
       describe(`Username Test ${usernames.indexOf(username) + 1}`, async () => {
         let profiles;
         it('expect not to throw', async () => {
-          profiles = await client.getSkyblockProfiles(username);
+          profiles = await client.skyblock.getProfiles(username);
         });
         it('should be an array', () => {
           expect(profiles).to.be.an('array');
@@ -108,7 +108,7 @@ describe('Client#getSkyblockProfiles', async () => {
     describe('Never played skyblock', async () => {
       it('expect to throw', async () => {
         try {
-          member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
+          member = await client.skyblock.getProfiles('b45add7b081443909fb00aa9a3e15eb0');
           throw new Error('Expected an error to be thrown, but no error was thrown.');
         } catch (error) {
           expect(error.message).to.equal(Errors.NO_SKYBLOCK_PROFILES);

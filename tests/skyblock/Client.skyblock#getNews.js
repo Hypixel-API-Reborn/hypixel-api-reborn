@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-const { client } = require('./Client.js');
+const { client } = require('../Client.js');
 const { expect } = require('chai');
 
-describe('Client#getSkyblockNews', async () => {
+describe('Client.skyblock#getNews', async () => {
   let news;
   it('expect not to throw', async () => {
-    news = await client.getSkyblockNews();
+    news = await client.skyblock.getNews();
   });
   it('Should be an array', () => {
     expect(news).to.be.an('array');

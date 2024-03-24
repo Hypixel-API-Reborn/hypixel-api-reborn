@@ -1,7 +1,7 @@
 /* eslint-disable indent */
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 /* eslint-disable require-jsdoc */
-/* eslint-disable max-len */
 // Minimum TypeScript Version: 3.6
 
 import { NetworthResult } from 'skyhelper-networth';
@@ -137,6 +137,48 @@ export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' |
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
 export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
+export type BINGO_TYPE = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
+export type ACHIEVEMENT_TYPE = 'ONE_TIME' | 'TIERED';
+export type QUEST_TYPE = 'DAILY' | 'WEEKLY';
+export type GAME_STATIC =
+  | 'arcade'
+  | 'arena'
+  | 'bedwars'
+  | 'hungergames'
+  | 'buildbattle'
+  | 'truecombat'
+  | 'duels'
+  | 'mcgo'
+  | 'murdermystery'
+  | 'paintball'
+  | 'quake'
+  | 'skyclash'
+  | 'skywars'
+  | 'supersmash'
+  | 'speeduhc'
+  | 'gingerbread'
+  | 'tntgames'
+  | 'uhc'
+  | 'vampirez'
+  | 'walls3'
+  | 'walls'
+  | 'battleground'
+  | 'woolgames';
+export interface ChallengeData {
+  id: string;
+  name: string;
+  rewardType: string;
+  reward: number;
+}
+export interface Objective {
+  id: string;
+  type: 'Integer' | 'Boolean';
+  amountNeeded: number;
+}
+export interface QuestReward {
+  type: string;
+  amount: number;
+}
 export type SKYBLOCK_BESTIARY = number;
 export interface SKYBLOCK_BESTIARY_CATEGORY {
   [key: string]: {
@@ -213,6 +255,9 @@ export interface auctionsOptions extends methodOptions {
   cooldown?: number;
   race?: boolean;
   includeItemBytes?: boolean;
+}
+export interface playerBingoOptions extends methodOptions {
+  fetchBingoData?: boolean;
 }
 declare module 'hypixel-api-reborn' {
   const version: string;
@@ -822,7 +867,7 @@ declare module 'hypixel-api-reborn' {
      * @param searchParameter - 'name', 'player' or 'id'
      * @param query - guild name, player nickname or guild id
      */
-    getGuild(searchParameter: 'name' | 'player' | 'id', query: string, options: methodOptions): Promise<Guild>;
+    getGuild(searchParameter: 'name' | 'player' | 'id', query: string, options?: methodOptions): Promise<Guild>;
     /**
      * @description Allows you to get statistics of watchdog anticheat
      */
@@ -842,13 +887,19 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
     /**
-     * @description Allows you to get all skyblock auctions
-     * @param page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
-     * @param options Options
+     * Allows you to get filtered skyblock auctions
+     * Using auction ID will return an array of at most 1 element
+     * @method
+     * @name Client#getSkyblockAuction
+     * @param type - Filter to use
+     * @param query - uuid of profile, player, or auction. IGN can be used as well
+     * @param includeItemBytes - include item bytes (optional)
+     * @param options - Options
      */
-    getSkyblockAuctions(page?: '*' | number | [number, number], options?: auctionsOptions): Promise<{ info?: AuctionInfo; auctions?: Auction[] }>;
-    /**
-     * @description Allows you to get all ended auctions in around the last 60 seconds
+    getSkyblockAuction(type: 'PROFILE' | 'PLAYER' | 'AUCTION', query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>; /**
+     * @description Allows you to get all auctions of player
+     * @deprecated Use Client#getSkyblockAuction
+     * @param query - player nickname or uuid
      * @param includeItemBytes - include item bytes (optional)
      */
     getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo; auctions: PartialAuction[] }>;
@@ -862,6 +913,23 @@ declare module 'hypixel-api-reborn' {
      * @description Allows you to get list of products
      */
     getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+    /**
+     * @description Gets bingo data
+     */
+    getSkyblockBingo(options?: methodOptions): Promise<BingoData>;
+    /**
+     * @description Gets bingo data of a player
+     * @param query - UUID/IGN of player
+     */
+    getSkyblockBingoByPlayer(query: string, options?: playerBingoOptions): Promise<PlayerBingo>;
+    /**
+     * @description Gets data of skyblock government
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
+    /**
+     * @description Gets data of skyblock government
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<FireSale[]>;
     /**
      * @description Allows you to get skyblock news
      */
@@ -916,6 +984,22 @@ declare module 'hypixel-api-reborn' {
      * @description Parses the RSS feed from status.hypixel.net
      */
     getAPIStatus(): Promise<APIStatus>;
+    /**
+     * @description Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+     */
+    getChallenges(options?: methodOptions): Promise<Challenges>;
+    /**
+     * @description Allows you to get information about hypixel quests [NO KEY REQUIRED]
+     */
+    getQuests(options?: methodOptions): Promise<Quests>;
+    /**
+     * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+     */
+    getAchievements(options?: methodOptions): Promise<Achievements>;
+    /**
+     * @description Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+     */
+    getGuildAchievements(options?: methodOptions): Promise<GuildAchievements>;
     /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
@@ -1880,6 +1964,57 @@ declare module 'hypixel-api-reborn' {
     pricePerUnit: number;
     totalPrice: number;
     orders: number;
+  }
+  class BingoData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    id: number | null;
+    goals: Bingo[] | null;
+    getGoal(column: number, row: number): Bingo | undefined;
+  }
+  class PlayerBingo {
+    constructor(data: Record<string, unknown>, bingoData: BingoData | null);
+    dataPerEvent: PlayerBingoDataPerEvent[];
+  }
+  type PlayerBingoDataPerEvent = {
+    eventId: number;
+    points: number;
+    enrichedGoals: boolean;
+    goalsCompleted: SpecialBingoArray | string[];
+  };
+  type SpecialBingoArray = Bingo[] & {
+    unachievedGoals: Bingo[];
+  };
+  class GovernmentData {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date | null;
+    lastElectionResults: Map<string, Candidate>;
+    mayor: Candidate;
+    runningYear: number;
+    currentElectionResults: Map<string, Candidate> | null;
+    currentElectionFor: number | null;
+  }
+  class Candidate {
+    constructor(data: Record<string, unknown>, isMayor?: boolean | undefined);
+    name: string;
+    keyBenefit: string;
+    perks: Record<'name' | 'description', string>[];
+    isMayor: boolean;
+    votesReceived: number;
+    toString(): string;
+  }
+  class FireSale {
+    constructor(data: Record<string, unknown>);
+    itemId: string;
+    startTimestamp: number;
+    startAt: Date;
+    endTimestamp: number;
+    endAt: Date;
+    amount: number;
+    price: number;
+    toString(): string;
   }
   class WatchdogStats {
     constructor(data: Record<string, unknown>);
@@ -3677,5 +3812,282 @@ declare module 'hypixel-api-reborn' {
     faviconB64: string;
     favicon: Buffer;
     ping: number;
+  }
+
+  class Achievements {
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    achievementsPerGame: {
+      arcade: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      arena: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      bedwars: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      blitz: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      buildbattle: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      christmas2017: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      copsandcrims: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      duels: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      easter: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      general: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      gingerbread: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      halloween2017: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      housing: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      murdermystery: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      paintball: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      pit: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      quake: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      skyblock: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      skyclash: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      skywars: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      speeduhc: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      summer: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      supersmash: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      tntgames: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      truecombat: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      uhc: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      vampirez: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      walls: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      walls3: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      warlords: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+      woolgames: {
+        category: string;
+        totalPoints: number;
+        totalLegacyPoints: number;
+        achievements: Achievement[];
+      };
+    };
+  }
+  class Achievement {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    codeName: string;
+    description: string;
+    type: ACHIEVEMENT_TYPE;
+    rarity: {
+      local?: number;
+      localPercentage?: number;
+      global?: number;
+      globalPercentage?: number;
+    };
+    tierInformation?: AchievementTier;
+    points: number;
+    totalAmountRequired?: number;
+    toString(): string;
+  }
+  class AchievementTier {
+    constructor(data: Record<string, unknown>);
+    maxTier: number;
+    getTier(tier: number): {
+      pointsRewarded?: number;
+      amountRequired?: number;
+    };
+  }
+  class Challenges {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    challengesPerGame: Record<GAME_STATIC, GameChallenges>;
+  }
+  class GameAchievement {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    totalPoints: number;
+    totalLegacyPoints: number;
+    achievements: Achievement[];
+  }
+  class GameChallenges {
+    constructor(data: Record<string, unknown>);
+    category: GAME_STATIC;
+    challenges: Map<string, ChallengeData>;
+  }
+  class GameQuests {
+    constructor(data: Record<string, unknown>);
+    game: GAME_STATIC;
+    quests: Quest[];
+  }
+  class GuildAchievements {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    achievements: Record<string, Achievement>;
+  }
+  class Quest {
+    constructor(data: Record<string, unknown>);
+    questName: string;
+    questID: string;
+    description: string;
+    type: QUEST_TYPE;
+    objectives: Objective[];
+    rewards: QuestReward[];
+    toString(): string;
+  }
+  class Quests {
+    constructor(data: Record<string, unknown>);
+    lastUpdatedTimestamp: number;
+    lastUpdatedAt: Date;
+    questsPerGame: Record<GAME_STATIC, GameQuests>;
+  }
+  class Bingo {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    id: string;
+    row?: number;
+    column?: number;
+    rawLore: string;
+    lore: string;
+    tiers: number[];
+    type: BINGO_TYPE;
+    tierStep?: number;
+    requiredAmount?: number;
+    toString(): string;
   }
 }

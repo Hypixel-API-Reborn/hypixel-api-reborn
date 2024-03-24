@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const { SkyblockMember, Errors } = require('../src');
-const { client } = require('./Client.js');
+const { SkyblockMember, Errors } = require('../../src');
+const { client } = require('../Client.js');
 const { expect } = require('chai');
 
 const uuids = [
@@ -14,13 +14,13 @@ const uuids = [
 
 const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
 
-describe('Client#getSkyblockMember', async () => {
+describe('Client.skyblock#getMember', async () => {
   describe('Valid', async () => {
     uuids.forEach((uuid) => {
       let member;
       describe(`UUID Test ${uuids.indexOf(uuid) + 1}`, async () => {
         it('expect not to throw', async () => {
-          member = await client.getSkyblockMember(uuid);
+          member = await client.skyblock.getMember(uuid);
         });
         it('should be an map', () => {
           expect(member).to.be.an('map');
@@ -34,9 +34,9 @@ describe('Client#getSkyblockMember', async () => {
     });
     usernames.forEach((username) => {
       let member;
-      describe(`Username Test ${uuids.indexOf(username) + 1}`, async () => {
+      describe(`Username Test ${usernames.indexOf(username) + 1}`, async () => {
         it('expect not to throw', async () => {
-          member = await client.getSkyblockMember(username);
+          member = await client.skyblock.getMember(username);
         });
         it('should be an map', () => {
           expect(member).to.be.an('map');
@@ -53,7 +53,7 @@ describe('Client#getSkyblockMember', async () => {
     describe('Never Played skyblock', async () => {
       it('expect to throw', async () => {
         try {
-          member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
+          member = await client.skyblock.getMember('b45add7b081443909fb00aa9a3e15eb0');
           throw new Error('Expected an error to be thrown, but no error was thrown.');
         } catch (error) {
           expect(error.message).to.equal(Errors.NO_SKYBLOCK_PROFILES);
