@@ -72,10 +72,7 @@ class Achievement {
   }
 }
 
-/**
- * @param {AchievementTier} data
- * @returns {number}
- */
+// eslint-disable-next-line require-jsdoc
 function collectAll(data) {
   const mTier = data.maxTier;
   let totalPoints = 0;

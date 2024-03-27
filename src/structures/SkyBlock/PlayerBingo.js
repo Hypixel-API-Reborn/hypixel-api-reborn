@@ -33,13 +33,7 @@ class PlayerBingo {
   }
 }
 
-/**
- * Populate goals
- * For compatibility and lazy handling, uncompleted goals will be hidden in a property
- * @param {string[]} achieved achieved goals
- * @param {Bingo[]} all All goals
- * @returns {Bingo[]}
- */
+// eslint-disable-next-line require-jsdoc
 function populateGoals(achieved, all) {
   const populatedAchieved = [];
   const unachieved = [];
