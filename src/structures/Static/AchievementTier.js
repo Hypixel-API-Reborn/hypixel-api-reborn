@@ -3,7 +3,7 @@
  */
 class AchievementTier {
   /**
-   * @param {Record<string, number>[]} data data
+   * @param {Record<string, number>} data
    */
   constructor(data) {
     /**

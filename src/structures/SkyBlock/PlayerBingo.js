@@ -1,6 +1,6 @@
 /**
- * @typedef {import('./Static/BingoData.js')} BingoData
- * @typedef {import('./Static/Bingo.js')} Bingo
+ * @typedef {require('./Static/BingoData.js')} BingoData
+ * @typedef {require('./Static/Bingo.js')} Bingo
  */
 
 /**
@@ -38,7 +38,7 @@ class PlayerBingo {
  * For compatibility and lazy handling, uncompleted goals will be hidden in a property
  * @param {string[]} achieved achieved goals
  * @param {Bingo[]} all All goals
- * @returns {SpecialBingoArray}
+ * @returns {Bingo[]}
  */
 function populateGoals(achieved, all) {
   const populatedAchieved = [];
@@ -52,14 +52,11 @@ function populateGoals(achieved, all) {
 }
 
 /**
- * @typedef {Bingo[] & {'unachievedGoals': Bingo[]}} SpecialBingoArray
- */
-/**
  * @typedef {Object} PlayerBingoDataPerEvent
  * @property {number} eventId ID of event
  * @property {number} points Points acquired
  * @property {boolean} enrichedGoals Whether the goals are enriched (populated with data from static skyblock bingp data)
- * @property {SpecialBingoArray|string[]} goalsCompleted Special Bingo Array if enrichedGoals is true. You can however always treat SpecialBingoArray as string[]
+ * @property {Bingo[]|string[]} goalsCompleted Special Bingo Array if enrichedGoals is true. You can however always treat SpecialBingoArray as string[]
  */
 
 module.exports = PlayerBingo;
