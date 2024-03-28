@@ -53,7 +53,7 @@ describe('Client#getSkyblockMember', async () => {
     describe('Never Played skyblock', async () => {
       it('expect to throw', async () => {
         try {
-          member = await client.skyblock.getMember('b45add7b081443909fb00aa9a3e15eb0');
+          member = await client.getSkyblockMember('b45add7b081443909fb00aa9a3e15eb0');
           throw new Error('Expected an error to be thrown, but no error was thrown.');
         } catch (error) {
           expect(error.message).to.equal(Errors.NO_SKYBLOCK_PROFILES);

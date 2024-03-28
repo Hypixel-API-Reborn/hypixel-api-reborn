@@ -5,7 +5,7 @@ const { expect } = require('chai');
 describe('Client#getSkyblockNews', async () => {
   let news;
   it('expect not to throw', async () => {
-    news =await client.getSkyblockNews();
+    news = await client.getSkyblockNews();
   });
   it('Should be an array', () => {
     expect(news).to.be.an('array');
