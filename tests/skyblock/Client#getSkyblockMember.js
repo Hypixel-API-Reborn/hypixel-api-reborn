@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { SkyblockMember, Errors } = require('../../src');
+const { SkyblockMember, Errors } = require('../../src/index.js');
 const { client } = require('../Client.js');
 const { expect } = require('chai');
 
@@ -14,13 +14,13 @@ const uuids = [
 
 const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
 
-describe('Client.skyblock#getMember', async () => {
+describe('Client#getSkyblockMember', async () => {
   describe('Valid', async () => {
     uuids.forEach((uuid) => {
       let member;
       describe(`UUID Test ${uuids.indexOf(uuid) + 1}`, async () => {
         it('expect not to throw', async () => {
-          member = await client.skyblock.getMember(uuid);
+          member = await client.getSkyblockMember(uuid);
         });
         it('should be an map', () => {
           expect(member).to.be.an('map');
@@ -36,7 +36,7 @@ describe('Client.skyblock#getMember', async () => {
       let member;
       describe(`Username Test ${usernames.indexOf(username) + 1}`, async () => {
         it('expect not to throw', async () => {
-          member = await client.skyblock.getMember(username);
+          member = await client.getSkyblockMember(username);
         });
         it('should be an map', () => {
           expect(member).to.be.an('map');
