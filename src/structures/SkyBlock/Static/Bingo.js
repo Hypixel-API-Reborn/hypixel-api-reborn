@@ -92,11 +92,7 @@ class Bingo {
   }
 }
 
-/**
- * Parses row and col from position, assuming bingo table is 5x5
- * @param {number} position Position
- * @returns {number[]}
- */
+// eslint-disable-next-line require-jsdoc
 function parsePosition(position) {
   const x = (position % 5) + 1;
   const y = Math.floor(position / 5) + 1;

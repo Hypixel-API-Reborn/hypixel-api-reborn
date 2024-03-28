@@ -25,8 +25,4 @@ class Achievements {
   }
 }
 
-/**
- * @typedef {import('../../utils/Constants.js').gamesStatic} StaticGameNames
- */
-
 module.exports = Achievements;

@@ -32,24 +32,9 @@ class Client extends EventEmitter {
     validate.validateOptions(this.options);
     // eslint-disable-next-line guard-for-in
     for (const func in API) {
-      if (func === 'skyblock') continue;
       Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
         return API[func].apply(
-          {
-            _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
-            ...this
-          },
-          args
-        );
-      };
-    }
-    Client.prototype.skyblock = {};
-    // eslint-disable-next-line guard-for-in
-    for (const func in API.skyblock) {
-      Client.prototype.skyblock[func] = (...args) => {
-        const lastArg = args[args.length - 1];
-        return API.skyblock[func].apply(
           {
             _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
@@ -191,7 +176,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get all skyblock profiles of player
    * @method
-   * @name Client.skyblock#getProfiles
+   * @name Client#getSkyblockProfiles
    * @param {string} query Player nickname or UUID
    * @param {SkyblockMethodOptions} [options={}] Method options
    * @return {Promise<Array<SkyblockProfile>>}
@@ -205,7 +190,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get a player's skyblock member data from all their profiles
    * @method
-   * @name Client.skyblock#getMember
+   * @name Client#getSkyblockMember
    * @param {string} query Player nickname or UUID
    * @param {SkyblockMethodOptions} [options={}] Method options
    * @return {Promise<Map<string,SkyblockMember>>}
@@ -220,7 +205,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get a player's skyblock profile museum
    * @method
-   * @name Client.skyblock#getMuseum
+   * @name Client#getSkyblockMuseum
    * @param {string} query Player nickname or UUID
    * @param {string} profileId Profile ID
    * @return {Promise<SkyblockMuseum>}
@@ -290,7 +275,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get skyblock auctions
    * @method
-   * @name Client.skyblock#getAuctions
+   * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {auctionsOptions} [options={}] Options
    * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
@@ -303,7 +288,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get player's skyblock auctions
    * @method
-   * @name Client.skyblock#getAuctionsByPlayer
+   * @name Client#getSkyblockAuctionsByPlayer
    * @param {string} query - player nickname or uuid
    * @param {boolean} [includeItemBytes=false] - include item bytes (optional)
    * @param {MethodOptions} [options={}] Options
@@ -330,7 +315,7 @@ class Client extends EventEmitter {
   /**
    * Allows you to get list of products
    * @method
-   * @name Client.skyblock#getBazaar
+   * @name Client#getSkyblockBazaar
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<Product[]>}
    * @example
@@ -341,14 +326,14 @@ class Client extends EventEmitter {
    */ /**
    * Allows you to get bingo data
    * @method
-   * @name Client.skyblock#getBingo
+   * @name Client#getSkyblockBingo
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<BingoData>}
    */
   /**
    * Allows you to get bingo data of a player
    * @method
-   * @name Client.skyblock#getBingoByPlayer
+   * @name Client#getSkyblockBingoByPlayer
    * @param {string} query UUID / IGN of player
    * @param {PlayerBingoOptions} [options={}] Options
    * @return {Promise<PlayerBingo>}
@@ -356,21 +341,21 @@ class Client extends EventEmitter {
   /**
    * Allows you to get SB government
    * @method
-   * @name Client.skyblock#getGovernment
+   * @name Client#getSkyblockGovernment
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<GovernmentData>}
    */
   /**
    * Allows you to get SB government
    * @method
-   * @name Client.skyblock#getFireSale
+   * @name Client#getSkyblockFireSale
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<FireSale[]>}
    */
   /**
    * Allows you to get skyblock news
    * @method
-   * @name Client.skyblock#getNews
+   * @name Client#getSkyblockNews
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<SkyblockNews[]>}
    * @example
@@ -415,7 +400,6 @@ class Client extends EventEmitter {
  * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  */
 const defaultCache = require('./Private/defaultCache.js');
-const SkyblockMuseum = require('./structures/SkyBlock/SkyblockMuseum.js');
 /**
  * @typedef {defaultCache} Cache
  */

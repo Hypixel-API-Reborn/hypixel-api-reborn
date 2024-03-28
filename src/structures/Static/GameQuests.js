@@ -21,7 +21,4 @@ class GameQuests {
   }
 }
 
-/**
- * @typedef {import('../../utils/Constants.js').gamesStatic} StaticGameNames
- */
 module.exports = GameQuests;
