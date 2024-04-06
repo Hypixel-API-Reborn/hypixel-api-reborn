@@ -1,3 +1,4 @@
+const Perk = require('./Perk');
 /**
  * Candidate class
  */
@@ -20,9 +21,9 @@ class Candidate {
     this.keyBenefit = data.key;
     /**
      * Perks
-     * @type {Record<'name'|'description',string>[]}
+     * @type {Perk[]}
      */
-    this.perks = data.perks;
+    this.perks = data.perks.map((x) => new Perk(x));
     /**
      * If this candidate is the current mayor
      * @type {boolean}
