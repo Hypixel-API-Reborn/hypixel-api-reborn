@@ -2,12 +2,12 @@ const fetch = require('../Private/uuidCache.js');
 const isUUID = require('./isUUID.js');
 const Errors = require('../Errors');
 
-module.exports = async (input, cacheTime = 600, useThirdPartyAPI = "") => {
+module.exports = async (input, cacheTime = 600, useThirdPartyAPI = '') => {
   if (!input) throw new Error(Errors.NO_NICKNAME_UUID);
   if (typeof input !== 'string') throw new Error(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
   if (isUUID(input)) return input.replace(/-/g, '');
   try {
-    const customUrl = useThirdPartyAPI === true ? "https://api.minetools.eu/uuid/" : useThirdPartyAPI;
+    const customUrl = useThirdPartyAPI === true ? 'https://api.minetools.eu/uuid/' : useThirdPartyAPI;
     const url = useThirdPartyAPI ? `${customUrl}${input}` : `https://api.mojang.com/users/profiles/minecraft/${input}`;
     const res = await fetch(url, input, cacheTime);
     if (res.status === 404) {
@@ -18,7 +18,7 @@ module.exports = async (input, cacheTime = 600, useThirdPartyAPI = "") => {
     return res.id;
   } catch {
     // 2nd Try
-    if (!useThirdPartyAPI) return this(input, cacheTime, true);
+    if (!useThirdPartyAPI) return module.exports(input, cacheTime, true);
     throw new Error(Errors.PLAYER_DOES_NOT_EXIST);
   }
 };
