@@ -7,7 +7,20 @@
 import { NetworthResult } from 'skyhelper-networth';
 import { EventEmitter } from 'events';
 
-export type PLAYER_RANK = 'Default' | 'VIP' | 'VIP+' | 'MVP' | 'MVP+' | 'MVP++' | 'YouTube' | 'Game Master' | 'Admin' | 'EVENTS' | 'MCP' | 'MOJANG' | 'PIG+++';
+export type PLAYER_RANK =
+  | 'Default'
+  | 'VIP'
+  | 'VIP+'
+  | 'MVP'
+  | 'MVP+'
+  | 'MVP++'
+  | 'YouTube'
+  | 'Game Master'
+  | 'Admin'
+  | 'EVENTS'
+  | 'MCP'
+  | 'MOJANG'
+  | 'PIG+++';
 export type GAME_NAME =
   | 'Quake Craft'
   | 'Walls'
@@ -44,7 +57,43 @@ export type GAME_NAME =
   | 'Idle'
   | 'SMP'
   | 'Wool Wars';
-export type GAME_ID = 2 | 3 | 4 | 5 | 6 | 7 | 13 | 14 | 17 | 20 | 21 | 23 | 24 | 25 | 26 | 51 | 52 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 63 | 64 | 65 | 67 | 68 | -1 | -2 | -3 | -4 | -5 | -6;
+export type GAME_ID =
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 13
+  | 14
+  | 17
+  | 20
+  | 21
+  | 23
+  | 24
+  | 25
+  | 26
+  | 51
+  | 52
+  | 54
+  | 55
+  | 56
+  | 57
+  | 58
+  | 59
+  | 60
+  | 61
+  | 63
+  | 64
+  | 65
+  | 67
+  | 68
+  | -1
+  | -2
+  | -3
+  | -4
+  | -5
+  | -6;
 export type GAME_CODE =
   | 'QUAKECRAFT'
   | 'WALLS'
@@ -80,8 +129,44 @@ export type GAME_CODE =
   | 'TOURNAMENT_LOBBY'
   | 'SMP'
   | 'WOOL_GAMES';
-export type SKYWARS_PRESTIGE = 'Iron' | 'Gold' | 'Diamond' | 'Emerald' | 'Sapphire' | 'Ruby' | 'Crystal' | 'Opal' | 'Amethyst' | 'Rainbow' | 'Mythic';
-export type SKYWARS_PRESTIGE_ICON = '⋆' | '★' | '☆' | '⁕' | '✶' | '✳' | '✴' | '✷' | '❋' | '✼' | '❂' | '❁' | '☬' | '✙' | '❤️' | '☠' | '✦' | '✌' | '❦' | '✵' | '❣' | '☯' | '✺' | 'ಠ_ಠ' | '⚔';
+export type SKYWARS_PRESTIGE =
+  | 'Iron'
+  | 'Gold'
+  | 'Diamond'
+  | 'Emerald'
+  | 'Sapphire'
+  | 'Ruby'
+  | 'Crystal'
+  | 'Opal'
+  | 'Amethyst'
+  | 'Rainbow'
+  | 'Mythic';
+export type SKYWARS_PRESTIGE_ICON =
+  | '⋆'
+  | '★'
+  | '☆'
+  | '⁕'
+  | '✶'
+  | '✳'
+  | '✴'
+  | '✷'
+  | '❋'
+  | '✼'
+  | '❂'
+  | '❁'
+  | '☬'
+  | '✙'
+  | '❤️'
+  | '☠'
+  | '✦'
+  | '✌'
+  | '❦'
+  | '✵'
+  | '❣'
+  | '☯'
+  | '✺'
+  | 'ಠ_ಠ'
+  | '⚔';
 export type BEDWARS_PRESTIGE =
   | 'Iron'
   | 'Gold'
@@ -133,9 +218,25 @@ export type BEDWARS_PRESTIGE =
   | 'Autumn'
   | 'Mystic'
   | 'Eternal';
-export type SkyblockRarity = 'VERY_SPECIAL' | 'SPECIAL' | 'SUPREME' | 'MYTHIC' | 'LEGENDARY' | 'EPIC' | 'RARE' | 'UNCOMMON' | 'COMMON';
+export type SkyblockRarity =
+  | 'VERY_SPECIAL'
+  | 'SPECIAL'
+  | 'SUPREME'
+  | 'MYTHIC'
+  | 'LEGENDARY'
+  | 'EPIC'
+  | 'RARE'
+  | 'UNCOMMON'
+  | 'COMMON';
 export type SOCIAL_MEDIA_ID = 'YOUTUBE' | 'DISCORD' | 'HYPIXEL' | 'TWITTER' | 'INSTAGRAM' | 'TWITCH';
-export type SKYWARS_KIT_TYPE = 'basic' | 'supporting' | 'mining' | 'defending' | 'attacking' | 'advanced' | 'enderchest';
+export type SKYWARS_KIT_TYPE =
+  | 'basic'
+  | 'supporting'
+  | 'mining'
+  | 'defending'
+  | 'attacking'
+  | 'advanced'
+  | 'enderchest';
 export type SKYWARS_KIT_GAMEMODE = 'solo' | 'team';
 export type BINGO_TYPE = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
 export type ACHIEVEMENT_TYPE = 'ONE_TIME' | 'TIERED';
@@ -414,7 +515,18 @@ declare module 'hypixel-api-reborn' {
         24: 15300;
         25: 19050;
       };
-      skills: ['farming', 'mining', 'combat', 'foraging', 'fishing', 'enchanting', 'alchemy', 'taming', 'carpentry', 'runecrafting'];
+      skills: [
+        'farming',
+        'mining',
+        'combat',
+        'foraging',
+        'fishing',
+        'enchanting',
+        'alchemy',
+        'taming',
+        'carpentry',
+        'runecrafting'
+      ];
       skills_achievements: {
         farming: 'skyblockHarvester';
         mining: 'skyblockExcavator';
@@ -896,13 +1008,21 @@ declare module 'hypixel-api-reborn' {
      * @param includeItemBytes - include item bytes (optional)
      * @param options - Options
      */
-    getSkyblockAuction(type: 'PROFILE' | 'PLAYER' | 'AUCTION', query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>; /**
+    getSkyblockAuction(
+      type: 'PROFILE' | 'PLAYER' | 'AUCTION',
+      query: string,
+      includeItemBytes?: boolean,
+      options?: methodOptions
+    ): Promise<Auction[]>; /**
      * @description Allows you to get all auctions of player
      * @deprecated Use Client#getSkyblockAuction
      * @param query - player nickname or uuid
      * @param includeItemBytes - include item bytes (optional)
      */
-    getEndedSkyblockAuctions(includeItemBytes?: boolean, options?: methodOptions): Promise<{ info: AuctionInfo; auctions: PartialAuction[] }>;
+    getEndedSkyblockAuctions(
+      includeItemBytes?: boolean,
+      options?: methodOptions
+    ): Promise<{ info: AuctionInfo; auctions: PartialAuction[] }>;
     /**
      * @description Allows you to get all auctions of player
      * @param query - player nickname or uuid
@@ -1658,7 +1778,18 @@ declare module 'hypixel-api-reborn' {
     silverTrophies: number;
     goldTrophies: number;
     boxPickups: number;
-    horn: 'DEFAULT' | 'SHY' | 'ALIEN' | 'TAXI' | 'KLAXON' | 'TRICYCLE' | 'ALARM' | 'KLOON' | 'TEDDY' | 'TRUCK' | 'JERRY';
+    horn:
+      | 'DEFAULT'
+      | 'SHY'
+      | 'ALIEN'
+      | 'TAXI'
+      | 'KLAXON'
+      | 'TRICYCLE'
+      | 'ALARM'
+      | 'KLOON'
+      | 'TEDDY'
+      | 'TRUCK'
+      | 'JERRY';
     retroPlays: number;
     hypixelgpPlays: number;
     olympusPlays: number;

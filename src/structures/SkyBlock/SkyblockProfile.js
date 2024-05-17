@@ -12,27 +12,55 @@ class SkyblockProfile {
      * Skyblock profile ID
      * @type {string}
      */
-    this.profileId = data.profile_id;
+    this.profileId = data.profileId;
     /**
      * Skyblock profile name
      * @type {string}
      */
-    this.profileName = data.profile_name;
+    this.profileName = data.profileName;
+    /**
+     * Profile's gamemode
+     * @type {string|null}
+     */
+    this.gameMode = data.gameMode;
+    /**
+     * Profile's banking
+     * @type {object}
+     */
+    this.banking = data.banking;
+    /**
+     * Profile's community upgrades
+     * @type {object}
+     */
+    this.communityUpgrades = data.communityUpgrades;
+    /**
+     * Profile is selected
+     * @type {boolean}
+     */
+    this.selected = data.selected;
     /**
      * Skyblock profile members
      * @type {SkyblockMember[]}
      */
-    this.members = edit(data.members, this.profileName).map((m) => new SkyblockMember(m));
+    this.members = Object.keys(data.members).map(
+      (uuid) =>
+        new SkyblockMember({
+          uuid: uuid,
+          profileId: this.profileId,
+          profileName: this.profileName,
+          gameMode: this.gameMode,
+          m: data.members[uuid],
+          banking: this.banking,
+          communityUpgrades: this.communityUpgrades,
+          museum: null,
+          selected: this.selected
+        })
+    );
     /**
      * Queried player's member stats
      * @type {SkyblockMember}
      */
-    this.me = this.members.find((x) => x.uuid === data.me);
-    /**
-     * Is the profile selected
-     * @type {boolean}
-     */
-    this.selected = data.selected;
+    this.me = this.members.find((x) => x.uuid === data.uuid);
   }
   /**
    * Profile Name
@@ -41,20 +69,6 @@ class SkyblockProfile {
   toString() {
     return this.profileName;
   }
-}
-
-// eslint-disable-next-line require-jsdoc
-function edit(members, profileName) {
-  const edited = [];
-  Object.keys(members).forEach((k) => {
-    const m = members[k];
-    edited.push({
-      uuid: k,
-      profileName,
-      m
-    });
-  });
-  return edited;
 }
 
 module.exports = SkyblockProfile;

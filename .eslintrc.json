@@ -1,40 +1,24 @@
 {
-  "env": {
-    "commonjs": true,
-    "es2021": true,
-    "node": true
-  },
   "extends": ["google", "plugin:@typescript-eslint/recommended", "eslint-config-prettier"],
+  "env": { "commonjs": true, "es2021": true, "node": true },
+  "parserOptions": { "ecmaVersion": 2021 },
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2021
-  },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "linebreak-style": "off",
-    "comma-dangle": ["error", "never"],
     "valid-jsdoc": [
       "error",
-      {
-        "requireParamDescription": false,
-        "requireReturnDescription": false,
-        "requireReturn": true
-      }
+      { "requireParamDescription": false, "requireReturnDescription": false, "requireReturn": true }
     ],
-    "max-len": [
-      "error",
-      {
-        "code": 210,
-        "ignoreUrls": true
-      }
-    ],
-    "quote-props": ["error", "as-needed"],
-    "object-curly-spacing": "off",
-    "space-before-function-paren": "off",
-    "semi": "error",
-    "no-console": "error",
+    "max-len": ["error", { "code": 120, "ignoreUrls": true, "ignoreComments": true }],
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "quote-props": ["error", "as-needed"],
+    "space-before-function-paren": "off",
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": "off",
+    "linebreak-style": "off",
     "no-extra-semi": "error",
-    "@typescript-eslint/no-unused-vars": ["off"]
+    "no-console": "error",
+    "semi": "error"
   }
 }

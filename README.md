@@ -15,8 +15,11 @@
 
 ### Links
 
-[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) | [NPM](https://www.npmjs.com/package/hypixel-api-reborn) |
-[GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) | [ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) | [CLI](https://github.com/Hypixel-API-Reborn/cli)
+[Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) |
+[NPM](https://www.npmjs.com/package/hypixel-api-reborn) |
+[GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) |
+[ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) |
+[CLI](https://github.com/Hypixel-API-Reborn/cli)
 
 #### Requirements
 

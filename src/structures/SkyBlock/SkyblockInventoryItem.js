@@ -20,7 +20,8 @@ class SkyblockInventoryItem {
      * Item name
      * @type {string}
      */
-    this.name = data.tag.display.Name !== null ? data.tag.display.Name.toString().replace(/§([1-9]|[a-f])|§/gm, '') : null;
+    this.name =
+      data.tag.display.Name !== null ? data.tag.display.Name.toString().replace(/§([1-9]|[a-f])|§/gm, '') : null;
     /**
      * Item lore
      * @type {string}
@@ -160,7 +161,17 @@ class SkyblockInventoryItem {
 }
 // eslint-disable-next-line require-jsdoc
 function parseRarity(stringContainingRarity) {
-  const rarityArray = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY SPECIAL'];
+  const rarityArray = [
+    'COMMON',
+    'UNCOMMON',
+    'RARE',
+    'EPIC',
+    'LEGENDARY',
+    'MYTHIC',
+    'DIVINE',
+    'SPECIAL',
+    'VERY SPECIAL'
+  ];
   for (const rarity of rarityArray) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }

@@ -27,7 +27,9 @@ class GameAchievements {
     /**
      * @type {Achievement[]}
      */
-    this.achievements = Object.entries({ ...(data.one_time || {}), ...(data.tiered || {}) }).map(([name, data]) => new Achievement(name, data));
+    this.achievements = Object.entries({ ...(data.one_time || {}), ...(data.tiered || {}) }).map(
+      ([name, data]) => new Achievement(name, data)
+    );
   }
 }
 

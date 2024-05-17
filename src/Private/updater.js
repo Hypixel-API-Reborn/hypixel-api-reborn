@@ -6,14 +6,16 @@ const fetch = requireFetch ? externalFetch : globalThis.fetch;
 const Errors = require('../Errors');
 class Updater {
   async checkForUpdates() {
-    const currentVersion = require('../../package.json').version;
+    const version = require('../../package.json').version;
     const request = await fetch('https://registry.npmjs.org/hypixel-api-reborn');
     if (!request.ok) return console.log(Errors.UPDATER_REQUEST_NOT_OK);
     const metadata = await request.json();
-    const latestVersion = metadata['dist-tags'].latest;
-    const compare = this.compare(currentVersion, latestVersion);
+    const latest = metadata['dist-tags'].latest;
+    const compare = this.compare(version, latest);
     if (compare === -1) {
-      console.log(`New version of hypixel-api-reborn is available! Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+      console.log(
+        `New version of hypixel-api-reborn is available! Current version: ${version}, Latest version: ${latest}`
+      );
     }
   }
   compare(a, b) {

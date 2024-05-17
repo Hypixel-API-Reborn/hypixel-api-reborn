@@ -2,7 +2,9 @@ const net = require('net');
 const Errors = require('../Errors');
 const ServerInfo = require('../structures/ServerInfo');
 const varInt = require('../utils/varInt');
-const packetsToSend = ['1500E0050E6D632E6879706978656C2E6E657463DD01', '0100', '09010000000000000000'].map((x) => Buffer.from(x, 'hex')); // To avoid dependency hell, these are precompiled as hex.
+const packetsToSend = ['1500E0050E6D632E6879706978656C2E6E657463DD01', '0100', '09010000000000000000'].map((x) =>
+  Buffer.from(x, 'hex')
+); // To avoid dependency hell, these are precompiled as hex.
 module.exports = async function (repeats) {
   if (repeats < 0 || typeof repeats !== 'number') repeats = 3;
   if (repeats > 10) repeats = 10;

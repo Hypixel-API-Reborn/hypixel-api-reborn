@@ -29,12 +29,16 @@ module.exports = async function (query, options = { fetchPlayer: false, getMuseu
     }
 
     profiles.push({
-      profile_id: res.profiles[i].profile_id,
-      profile_name: res.profiles[i].cute_name,
-      members: res.profiles[i].members,
-      me: query,
+      uuid: query,
+      profileId: res.profiles[i].profile_id,
+      profileName: res.profiles[i].cute_name,
+      gameMode: res.profiles[i].game_mode || null,
+      m: res.profiles[i].members[query],
+      banking: res.profiles[i].banking,
+      communityUpgrades: res.profiles[i].community_upgrades,
+      museum: options.getMuseum ? await getSkyblockMuseum.call(this, query, res.profiles[i].profile_id) : null,
       selected: res.profiles[i].selected,
-      museum: options.getMuseum ? await getSkyblockMuseum.call(this, query, res.profiles[i].profile_id) : null
+      members: res.profiles[i].members
     });
   }
 

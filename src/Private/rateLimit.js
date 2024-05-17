@@ -23,7 +23,11 @@ class RateLimit {
   sync(data) {
     this.options.keyLimit = parseInt(data.get('ratelimit-limit'), 10) || this.options.keyLimit;
     this.requests = parseInt(data.get('ratelimit-remaining'), 10) || this.requests;
-    if (data.get('ratelimit-reset') && Math.round(Date.now() / 1000) - (300 - parseInt(data.get('ratelimit-reset'), 10)) !== Math.round(this.lastResetHappenedAt / 1000)) {
+    if (
+      data.get('ratelimit-reset') &&
+      Math.round(Date.now() / 1000) - (300 - parseInt(data.get('ratelimit-reset'), 10)) !==
+        Math.round(this.lastResetHappenedAt / 1000)
+    ) {
       clearTimeout(this.resetTimer);
       this.resetTimer = setTimeout(this.reset.bind(this), parseInt(data.get('ratelimit-reset'), 10) * 1000);
     }
@@ -32,7 +36,11 @@ class RateLimit {
   computeCooldownTime() {
     const overhead = this.requestQueue[1] <= Date.now() ? 0 : this.requestQueue[1] - Date.now();
     const multiplier = Math.floor(this.requests / this.options.keyLimit) + 1;
-    return overhead + (-overhead - Date.now() + 300000 * multiplier + this.lastResetHappenedAt) / (this.options.keyLimit * multiplier - this.requests);
+    return (
+      overhead +
+      (-overhead - Date.now() + 300000 * multiplier + this.lastResetHappenedAt) /
+        (this.options.keyLimit * multiplier - this.requests)
+    );
   }
 
   reset() {

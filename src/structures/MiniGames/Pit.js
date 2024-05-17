@@ -29,7 +29,9 @@ class Pit {
      * Level
      * @type {number}
      */
-    this.level = Pit.calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ?? 0;
+    this.level =
+      Pit.calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ??
+      0;
     /**
      * Kills
      * @type {number}

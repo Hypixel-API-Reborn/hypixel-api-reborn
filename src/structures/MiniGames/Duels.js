@@ -103,19 +103,51 @@ class Duels {
         division: getDivision(data, 'uhc'),
         winstreak: data.current_uhc_winstreak || 0,
         bestWinstreak: data.best_uhc_winstreak || 0,
-        kills: (data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0),
-        deaths: (data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0),
+        kills:
+          (data.uhc_duel_kills || 0) +
+          (data.uhc_doubles_kills || 0) +
+          (data.uhc_four_kills || 0) +
+          (data.uhc_meetup_kills || 0),
+        deaths:
+          (data.uhc_duel_deaths || 0) +
+          (data.uhc_doubles_deaths || 0) +
+          (data.uhc_four_deaths || 0) +
+          (data.uhc_meetup_deaths || 0),
         KDRatio: divide(
-          (data.uhc_duel_kills || 0) + (data.uhc_doubles_kills || 0) + (data.uhc_four_kills || 0) + (data.uhc_meetup_kills || 0),
-          (data.uhc_duel_deaths || 0) + (data.uhc_doubles_deaths || 0) + (data.uhc_four_deaths || 0) + (data.uhc_meetup_deaths || 0)
+          (data.uhc_duel_kills || 0) +
+            (data.uhc_doubles_kills || 0) +
+            (data.uhc_four_kills || 0) +
+            (data.uhc_meetup_kills || 0),
+          (data.uhc_duel_deaths || 0) +
+            (data.uhc_doubles_deaths || 0) +
+            (data.uhc_four_deaths || 0) +
+            (data.uhc_meetup_deaths || 0)
         ),
-        wins: (data.uhc_duel_wins || 0) + (data.uhc_doubles_wins || 0) + (data.uhc_four_wins || 0) + (data.uhc_meetup_wins || 0),
-        losses: (data.uhc_duel_losses || 0) + (data.uhc_doubles_losses || 0) + (data.uhc_four_losses || 0) + (data.uhc_meetup_losses || 0),
+        wins:
+          (data.uhc_duel_wins || 0) +
+          (data.uhc_doubles_wins || 0) +
+          (data.uhc_four_wins || 0) +
+          (data.uhc_meetup_wins || 0),
+        losses:
+          (data.uhc_duel_losses || 0) +
+          (data.uhc_doubles_losses || 0) +
+          (data.uhc_four_losses || 0) +
+          (data.uhc_meetup_losses || 0),
         WLRatio: divide(
-          (data.uhc_duel_wins || 0) + (data.uhc_doubles_wins || 0) + (data.uhc_four_wins || 0) + (data.uhc_meetup_wins || 0),
-          (data.uhc_duel_losses || 0) + (data.uhc_doubles_losses || 0) + (data.uhc_four_losses || 0) + (data.uhc_meetup_losses || 0)
+          (data.uhc_duel_wins || 0) +
+            (data.uhc_doubles_wins || 0) +
+            (data.uhc_four_wins || 0) +
+            (data.uhc_meetup_wins || 0),
+          (data.uhc_duel_losses || 0) +
+            (data.uhc_doubles_losses || 0) +
+            (data.uhc_four_losses || 0) +
+            (data.uhc_meetup_losses || 0)
         ),
-        playedGames: (data.uhc_duel_rounds_played || 0) + (data.uhc_doubles_rounds_played || 0) + (data.uhc_four_rounds_played || 0) + (data.uhc_meetup_rounds_played || 0)
+        playedGames:
+          (data.uhc_duel_rounds_played || 0) +
+          (data.uhc_doubles_rounds_played || 0) +
+          (data.uhc_four_rounds_played || 0) +
+          (data.uhc_meetup_rounds_played || 0)
       },
       '1v1': {
         division: getDivision(data, 'uhc'),
@@ -243,10 +275,16 @@ class Duels {
         bestWinstreak: data.best_op_winstreak || 0,
         kills: (data.op_duel_kills || 0) + (data.op_doubles_kills || 0),
         deaths: (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0),
-        KDRatio: divide((data.op_duel_kills || 0) + (data.op_doubles_kills || 0), (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0)),
+        KDRatio: divide(
+          (data.op_duel_kills || 0) + (data.op_doubles_kills || 0),
+          (data.op_duel_deaths || 0) + (data.op_doubles_deaths || 0)
+        ),
         wins: (data.op_duel_wins || 0) + (data.op_doubles_wins || 0),
         losses: (data.op_duel_losses || 0) + (data.op_doubles_losses || 0),
-        WLRatio: divide((data.op_duel_wins || 0) + (data.op_doubles_wins || 0), (data.op_duel_losses || 0) + (data.op_doubles_losses || 0)),
+        WLRatio: divide(
+          (data.op_duel_wins || 0) + (data.op_doubles_wins || 0),
+          (data.op_duel_losses || 0) + (data.op_doubles_losses || 0)
+        ),
         playedGames: (data.op_duel_rounds_played || 0) + (data.op_doubles_rounds_played || 0)
       },
       '1v1': {
@@ -285,10 +323,16 @@ class Duels {
         bestWinstreak: data.best_skywars_winstreak || 0,
         kills: (data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0),
         deaths: (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0),
-        KDRatio: divide((data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0), (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)),
+        KDRatio: divide(
+          (data.sw_duel_kills || 0) + (data.sw_doubles_kills || 0),
+          (data.sw_duel_deaths || 0) + (data.sw_doubles_deaths || 0)
+        ),
         wins: (data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0),
         losses: (data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0),
-        WLRatio: divide((data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0), (data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0)),
+        WLRatio: divide(
+          (data.sw_duel_wins || 0) + (data.sw_doubles_wins || 0),
+          (data.sw_duel_losses || 0) + (data.sw_doubles_losses || 0)
+        ),
         playedGames: (data.sw_duel_rounds_played || 0) + (data.sw_doubles_rounds_played || 0)
       },
       '1v1': {

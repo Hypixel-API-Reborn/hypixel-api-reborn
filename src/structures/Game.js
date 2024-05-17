@@ -12,7 +12,9 @@ class Game {
      * @type {GameId|GameCode}
      */
     this.game = game.toString().toLowerCase();
-    const result = games.find((g) => g.code.toLowerCase() === this.game || g.id.toString() === this.game || g.name.toLowerCase() === this.game);
+    const result = games.find(
+      (g) => g.code.toLowerCase() === this.game || g.id.toString() === this.game || g.name.toLowerCase() === this.game
+    );
     /**
      * ID of game
      * @type {GameId}

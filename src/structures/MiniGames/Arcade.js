@@ -52,22 +52,34 @@ class Arcade {
      * Easter Simulator stats
      * @type {EasterSimulator}
      */
-    this.easterSimulator = new BaseGame(data, 'easter_simulator').extend('eggsFound', data.eggs_found_easter_simulator || 0);
+    this.easterSimulator = new BaseGame(data, 'easter_simulator').extend(
+      'eggsFound',
+      data.eggs_found_easter_simulator || 0
+    );
     /**
      * Grinch Simulator stats
      * @type {GrinchSimulator}
      */
-    this.grinchSimulator = new BaseGame(data, 'grinch_simulator_v2').extend('giftsFound', data.gifts_grinch_simulator_v2 || 0);
+    this.grinchSimulator = new BaseGame(data, 'grinch_simulator_v2').extend(
+      'giftsFound',
+      data.gifts_grinch_simulator_v2 || 0
+    );
     /**
      * Scuba Simulator stats
      * @type {ScubaSimulator}
      */
-    this.scubaSimulator = new BaseGame(data, 'scuba_simulator').extend('itemsFound', data.items_found_scuba_simulator || 0);
+    this.scubaSimulator = new BaseGame(data, 'scuba_simulator').extend(
+      'itemsFound',
+      data.items_found_scuba_simulator || 0
+    );
     /**
      * Santa Simulator stats
      * @type {SantaSimulator}
      */
-    this.santaSimulator = new BaseGame(data, 'santa_simulator').extend('giftsDelivered', data.delivered_santa_simulator || 0);
+    this.santaSimulator = new BaseGame(data, 'santa_simulator').extend(
+      'giftsDelivered',
+      data.delivered_santa_simulator || 0
+    );
     /**
      * Santa Says stats
      * @type {BaseGame}
@@ -146,7 +158,10 @@ class Arcade {
      * OITQ / One In The Quiver stats
      * @type {OITQ}
      */
-    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend('bountyKills', data.bounty_kills_oneinthequiver || 0);
+    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend(
+      'bountyKills',
+      data.bounty_kills_oneinthequiver || 0
+    );
     /**
      * Zombies
      * @type {Zombies}
