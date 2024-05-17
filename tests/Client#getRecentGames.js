@@ -26,7 +26,20 @@ describe('Client#getRecentGames', async () => {
       it('required keys should exist', () => {
         if (recentGames.length === 0) return;
         recentGames.forEach((game) => {
-          expect(game).to.have.keys(['game', 'id', 'code', 'name', 'found', 'dateTimestamp', 'date', 'mode', 'map', 'ongoing', 'endedAt', 'endedTimestamp']);
+          expect(game).to.have.keys([
+            'game',
+            'id',
+            'code',
+            'name',
+            'found',
+            'dateTimestamp',
+            'date',
+            'mode',
+            'map',
+            'ongoing',
+            'endedAt',
+            'endedTimestamp'
+          ]);
           expect(game.game).to.be.a('string');
           expect(game.id).to.be.a('number');
           expect(game.code).to.be.a('string');
@@ -55,7 +68,20 @@ describe('Client#getRecentGames', async () => {
       it('required keys should exist', () => {
         if (recentGames.length === 0) return;
         recentGames.forEach((game) => {
-          expect(game).to.have.keys(['game', 'id', 'code', 'name', 'found', 'dateTimestamp', 'date', 'mode', 'map', 'ongoing', 'endedAt', 'endedTimestamp']);
+          expect(game).to.have.keys([
+            'game',
+            'id',
+            'code',
+            'name',
+            'found',
+            'dateTimestamp',
+            'date',
+            'mode',
+            'map',
+            'ongoing',
+            'endedAt',
+            'endedTimestamp'
+          ]);
           expect(game.game).to.be.a('string');
           expect(game.id).to.be.a('number');
           expect(game.code).to.be.a('string');

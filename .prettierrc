@@ -5,9 +5,9 @@
   "bracketSpacing": true,
   "proseWrap": "always",
   "singleQuote": true,
-  "printWidth": 210,
+  "printWidth": 120,
+  "endOfLine": "lf",
   "useTabs": false,
   "tabWidth": 2,
-  "semi": true,
-  "endOfLine": "lf"
+  "semi": true
 }

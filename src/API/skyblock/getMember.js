@@ -17,13 +17,14 @@ module.exports = async function (query, options = { fetchPlayer: false, getMuseu
       profile.cute_name,
       new SkyblockMember({
         uuid: query,
+        profileId: profile.profile_id,
         profileName: profile.cute_name,
         gameMode: profile.game_mode || null,
         m: profile.members[query],
         banking: profile.banking,
-        profileId: profile.profile_id,
         communityUpgrades: profile.community_upgrades,
-        museum: options.getMuseum ? await getSkyblockMuseum.call(this, query, profile.profile_id) : null
+        museum: options.getMuseum ? await getSkyblockMuseum.call(this, query, profile.profile_id) : null,
+        selected: profile.selected
       })
     );
   }

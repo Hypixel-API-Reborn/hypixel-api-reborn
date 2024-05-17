@@ -20,7 +20,9 @@ class Challenges {
     /**
      * @type {Record<StaticGameNames, GameChallenges>}
      */
-    this.challengesPerGame = Object.fromEntries(Object.entries(data.challenges).map(([game, data]) => [game, new GameChallenges(game, data)]));
+    this.challengesPerGame = Object.fromEntries(
+      Object.entries(data.challenges).map(([game, data]) => [game, new GameChallenges(game, data)])
+    );
   }
 }
 

@@ -1,4 +1,10 @@
-const { decode, getLevelByXp, getSlayerLevel, getMemberStats, getTrophyFishRank } = require('../../utils/SkyblockUtils');
+const {
+  decode,
+  getLevelByXp,
+  getSlayerLevel,
+  getMemberStats,
+  getTrophyFishRank
+} = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const Constants = require('../../utils/Constants');
 const skyhelper = require('skyhelper-networth');
@@ -17,17 +23,26 @@ class SkyblockMember {
      */
     this.uuid = data.uuid;
     /**
-     * Skyblock member's player profile<br>
+     * Skyblock member's player profile
      * If `fetchPlayer` option is `true`.
      * @type {Player|null}
      */
     this.player = data.m.player || null;
     /**
-     * Skyblock member networth (Credit to skyhelper-networth package)
      * If `getMuseum` option is `true`.
      * @type {object|null}
      */
     this.museum = data.museum ?? null;
+    /**
+     * Profile's gamemode
+     * @type {string|null}
+     */
+    this.gameMode = data.gameMode;
+    /**
+     * Profile is selected
+     * @type {boolean}
+     */
+    this.selected = data.selected;
     /**
      * Skyblock member's profile name
      * @type {string}
@@ -151,7 +166,9 @@ class SkyblockMember {
       const base64 = data.m?.inventory?.wardrobe_contents?.data;
       if (!base64) return [];
       const decoded = await decode(base64);
-      const armor = decoded.filter((item) => Object.keys(item).length !== 0).map((item) => new SkyblockInventoryItem(item));
+      const armor = decoded
+        .filter((item) => Object.keys(item).length !== 0)
+        .map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
     /**
@@ -224,7 +241,9 @@ class SkyblockMember {
         }
       }
 
-      return Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0);
+      return (
+        Object.values(highestRarity).reduce((a, b) => a + b, 0) + Object.values(highestLevel).reduce((a, b) => a + b, 0)
+      );
     };
     /**
      * Skyblock member equipment
@@ -299,7 +318,11 @@ class SkyblockMember {
 function getSkills(data) {
   const skillsObject = {};
   skillsObject['combat'] = getLevelByXp(data?.player_data?.experience?.SKILL_COMBAT ?? 0, 'combat');
-  skillsObject['farming'] = getLevelByXp(data?.player_data?.experience?.SKILL_FARMING ?? 0, 'farming', data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50);
+  skillsObject['farming'] = getLevelByXp(
+    data?.player_data?.experience?.SKILL_FARMING ?? 0,
+    'farming',
+    data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50
+  );
   skillsObject['fishing'] = getLevelByXp(data?.player_data?.experience?.SKILL_FISHING ?? 0, 'fishing');
   skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
   skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
@@ -387,14 +410,32 @@ function getSlayer(data) {
 function getDungeons(data) {
   return {
     types: {
-      catacombs: getLevelByXp(data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null, 'dungeons')
+      catacombs: getLevelByXp(
+        data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null,
+        'dungeons'
+      )
     },
     classes: {
-      healer: getLevelByXp(data.dungeons?.player_classes?.healer ? data.dungeons.player_classes.healer.experience : null, 'dungeons'),
-      mage: getLevelByXp(data.dungeons?.player_classes?.mage ? data.dungeons.player_classes.mage.experience : null, 'dungeons'),
-      berserk: getLevelByXp(data.dungeons?.player_classes?.berserk ? data.dungeons.player_classes.berserk.experience : null, 'dungeons'),
-      archer: getLevelByXp(data.dungeons?.player_classes?.archer ? data.dungeons.player_classes.archer.experience : null, 'dungeons'),
-      tank: getLevelByXp(data.dungeons?.player_classes?.tank ? data.dungeons.player_classes.tank.experience : null, 'dungeons')
+      healer: getLevelByXp(
+        data.dungeons?.player_classes?.healer ? data.dungeons.player_classes.healer.experience : null,
+        'dungeons'
+      ),
+      mage: getLevelByXp(
+        data.dungeons?.player_classes?.mage ? data.dungeons.player_classes.mage.experience : null,
+        'dungeons'
+      ),
+      berserk: getLevelByXp(
+        data.dungeons?.player_classes?.berserk ? data.dungeons.player_classes.berserk.experience : null,
+        'dungeons'
+      ),
+      archer: getLevelByXp(
+        data.dungeons?.player_classes?.archer ? data.dungeons.player_classes.archer.experience : null,
+        'dungeons'
+      ),
+      tank: getLevelByXp(
+        data.dungeons?.player_classes?.tank ? data.dungeons.player_classes.tank.experience : null,
+        'dungeons'
+      )
     }
   };
 }
@@ -417,10 +458,18 @@ function getJacobData(data) {
   }
   return {
     medals: data.m.jacobs_contest.medals_inv
-      ? { bronze: data.m.jacobs_contest.medals_inv.bronze || 0, silver: data.m.jacobs_contest.medals_inv.silver || 0, gold: data.m.jacobs_contest.medals_inv.gold || 0 }
+      ? {
+          bronze: data.m.jacobs_contest.medals_inv.bronze || 0,
+          silver: data.m.jacobs_contest.medals_inv.silver || 0,
+          gold: data.m.jacobs_contest.medals_inv.gold || 0
+        }
       : { bronze: 0, silver: 0, gold: 0 },
     perks: data.m.jacobs_contest.perks
-      ? { doubleDrops: data.m.jacobs_contest.perks.double_drops || 0, farmingLevelCap: data.m.jacobs_contest.perks.farming_level_cap || 0, personalBests: data.m.jacobs_contest.perks.personal_bests || false }
+      ? {
+          doubleDrops: data.m.jacobs_contest.perks.double_drops || 0,
+          farmingLevelCap: data.m.jacobs_contest.perks.farming_level_cap || 0,
+          personalBests: data.m.jacobs_contest.perks.personal_bests || false
+        }
       : { doubleDrops: 0, farmingLevelCap: 0, personalBests: false },
     contests: data.m.jacobs_contest.contests || {}
   };

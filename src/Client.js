@@ -68,10 +68,14 @@ class Client extends EventEmitter {
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url)))
+      return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
-    const result = await this.requests.request.call(this.requests, url, { ...options, headers: { ...options.headers, ...this.options.headers } });
+    const result = await this.requests.request.call(this.requests, url, {
+      ...options,
+      headers: { ...options.headers, ...this.options.headers }
+    });
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
@@ -146,6 +150,11 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * // async/await
+   * const guild = await hypixel.getGuild('name', 'The Foundation').catch(console.log);
+   * console.log(guild.level); // 111
+   * console.log(guild.id); // '52e5719284ae51ed0c716c69'
    */
   /**
    * Allows you to get statistics of watchdog, the server anticheat
@@ -159,6 +168,10 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * // async/await
+   * const watchdog = await hypixel.getWatchdogStats().catch(console.log);
+   * console.log(watchdog.byWatchdogTotal); // 5931897
    */
   /**
    * Allows you to get all active boosters
@@ -172,6 +185,10 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * // async/await
+   * const boosters = await hypixel.getBoosters().catch(console.log);
+   * console.log(boosters[0].purchaser); // '978ddb705a8e43618e41749178c020b0'
    */
   /**
    * Allows you to get all skyblock profiles of player
@@ -186,6 +203,9 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * const profiles = await hypixel.getSkyblockProfiles('StavZDev').catch(console.log);
+   * console.log(profiles[0].members[0].uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
    */
   /**
    * Allows you to get a player's skyblock member data from all their profiles
@@ -201,6 +221,9 @@ class Client extends EventEmitter {
    * }).catch(e => {
    *   console.log(e);
    * })
+   * @example
+   * const member = await hypixel.getSkyblockMember('StavZDev').catch(console.log);
+   * console.log(member.get('Cucumber').uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
    */
   /**
    * Allows you to get a player's skyblock profile museum

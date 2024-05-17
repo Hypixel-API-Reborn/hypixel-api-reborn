@@ -64,7 +64,9 @@ class Guild {
      * @return {Array<GuildRank>}
      */
     this.getRanksByNewest = function () {
-      return this.ranks.length ? this.ranks.map((r) => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt) : null;
+      return this.ranks.length
+        ? this.ranks.map((r) => new GuildRank(r)).sort((a, b) => b.createdAt - a.createdAt)
+        : null;
     };
     /**
      * A map containing all guild members, keyed by their uuids
@@ -176,7 +178,9 @@ function members(data) {
 }
 // eslint-disable-next-line require-jsdoc
 function ranks(data) {
-  return data.ranks && data.ranks.length ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority) : [];
+  return data.ranks && data.ranks.length
+    ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority)
+    : [];
 }
 // eslint-disable-next-line require-jsdoc
 function totalWeeklyGexp(data) {

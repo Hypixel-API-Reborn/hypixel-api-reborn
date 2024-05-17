@@ -1,5 +1,6 @@
 // eslint-disable-next-line require-jsdoc
-const single = (obj) => Object.keys(obj).reduce((pV, cV) => ({ ...pV, [cV.replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: obj[cV] }), {});
+const single = (obj) =>
+  Object.keys(obj).reduce((pV, cV) => ({ ...pV, [cV.replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: obj[cV] }), {});
 // eslint-disable-next-line require-jsdoc
 function validateJSON(obj) {
   return typeof obj === 'object' && JSON.stringify(obj)[0] === '{';
@@ -7,7 +8,13 @@ function validateJSON(obj) {
 // eslint-disable-next-line require-jsdoc
 function recursive(obj, lowerCase = false) {
   if (!validateJSON(obj)) return obj;
-  return Object.keys(obj).reduce((pV, cV) => ({ ...pV, [(lowerCase ? cV : cV.toLowerCase()).replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: recursive(obj[cV]) }), {});
+  return Object.keys(obj).reduce(
+    (pV, cV) => ({
+      ...pV,
+      [(lowerCase ? cV : cV.toLowerCase()).replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: recursive(obj[cV])
+    }),
+    {}
+  );
 }
 // eslint-disable-next-line require-jsdoc
 function removeSnakeCaseString(str) {

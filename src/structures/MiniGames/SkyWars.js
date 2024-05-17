@@ -103,7 +103,12 @@ class SkyWars {
      * Games Played ( Total )
      * @type {number}
      */
-    this.playedGames = (data.games_solo || 0) + (data.games_team || 0) + (data.games_mega || 0) + (data.games_mega_doubles || 0) + (data.games_lab || 0);
+    this.playedGames =
+      (data.games_solo || 0) +
+      (data.games_team || 0) +
+      (data.games_mega || 0) +
+      (data.games_mega_doubles || 0) +
+      (data.games_lab || 0);
     /**
      * Global Kill Death Ratio
      * @type {number}
@@ -197,8 +202,14 @@ class SkyWars {
         wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
         losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
         deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0),
-        KDRatio: divide((data.kills_mega || 0) + (data.kills_mega_doubles || 0), (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0)),
-        WLRatio: divide((data.wins_mega || 0) + (data.wins_mega_doubles || 0), (data.losses_mega || 0) + (data.losses_mega_doubles || 0))
+        KDRatio: divide(
+          (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
+          (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0)
+        ),
+        WLRatio: divide(
+          (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
+          (data.losses_mega || 0) + (data.losses_mega_doubles || 0)
+        )
       },
       solo: {
         playedGames: data.games_mega || 0,
@@ -323,7 +334,11 @@ module.exports = SkyWars;
 // eslint-disable-next-line require-jsdoc
 function getSkyWarsPrestige(level) {
   if (level >= 60) return 'Mythic';
-  return ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][Math.floor(level / 5)] || 'Iron';
+  return (
+    ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][
+      Math.floor(level / 5)
+    ] || 'Iron'
+  );
 }
 // eslint-disable-next-line require-jsdoc
 function getSkyWarsLevel(xp) {

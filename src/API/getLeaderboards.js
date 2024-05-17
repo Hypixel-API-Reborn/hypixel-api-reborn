@@ -7,7 +7,9 @@ module.exports = async function () {
   const lbnames = Object.create(require('../utils/Constants').leaderboardNames);
   // eslint-disable-next-line guard-for-in
   for (const name in lbnames) {
-    lbnames[name] = res.leaderboards[lbnames[name]].length ? res.leaderboards[lbnames[name]].map((lb) => new Leaderboard(lb)) : [];
+    lbnames[name] = res.leaderboards[lbnames[name]].length
+      ? res.leaderboards[lbnames[name]].map((lb) => new Leaderboard(lb))
+      : [];
   }
   return lbnames;
 };

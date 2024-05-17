@@ -92,12 +92,18 @@ class Player {
      * Player's plus color (must be a MVP+ rank)
      * @type {Color|null}
      */
-    this.plusColor = this.rank === 'MVP+' || this.rank === 'MVP++' ? (data.rankPlusColor ? new Color(data.rankPlusColor) : new Color('RED')) : null;
+    this.plusColor =
+      this.rank === 'MVP+' || this.rank === 'MVP++'
+        ? data.rankPlusColor
+          ? new Color(data.rankPlusColor)
+          : new Color('RED')
+        : null;
     /**
      * MVP++ prefix color
      * @type {Color|null}
      */
-    this.prefixColor = this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
+    this.prefixColor =
+      this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
     /**
      * Player karma
      * @type {number}

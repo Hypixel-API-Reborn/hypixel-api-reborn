@@ -32,7 +32,16 @@
     "one-variable-per-declaration": [true, "ignore-for-loop"],
     "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
     "prefer-template": [true, "allow-single-concat"],
-    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type", "check-typecast"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ],
     "align": false,
     "arrow-parens": false,
     "arrow-return-shorthand": true,

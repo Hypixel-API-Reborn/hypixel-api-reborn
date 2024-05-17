@@ -52,7 +52,13 @@ class UHC {
      * @type {number}
      */
     this.wins =
-      (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
+      (data.wins || 0) +
+      (data.wins_solo || 0) +
+      (data['wins_red vs blue'] || 0) +
+      (data['wins_no diamonds'] || 0) +
+      (data.wins_brawl || 0) +
+      (data['wins_solo brawl'] || 0) +
+      (data['wins_duo brawl'] || 0);
     /**
      * Heads eaten
      * @type {number}
@@ -145,9 +151,21 @@ class UHC {
 // eslint-disable-next-line require-jsdoc
 function getStarLevel(data) {
   const kills =
-    (data.kills || 0) + (data.kills_solo || 0) + (data['kills_red vs blue'] || 0) + (data['kills_no diamonds'] || 0) + (data.kills_brawl || 0) + (data['kills_solo brawl'] || 0) + (data['kills_duo brawl'] || 0);
+    (data.kills || 0) +
+    (data.kills_solo || 0) +
+    (data['kills_red vs blue'] || 0) +
+    (data['kills_no diamonds'] || 0) +
+    (data.kills_brawl || 0) +
+    (data['kills_solo brawl'] || 0) +
+    (data['kills_duo brawl'] || 0);
   const wins =
-    (data.wins || 0) + (data.wins_solo || 0) + (data['wins_red vs blue'] || 0) + (data['wins_no diamonds'] || 0) + (data.wins_brawl || 0) + (data['wins_solo brawl'] || 0) + (data['wins_duo brawl'] || 0);
+    (data.wins || 0) +
+    (data.wins_solo || 0) +
+    (data['wins_red vs blue'] || 0) +
+    (data['wins_no diamonds'] || 0) +
+    (data.wins_brawl || 0) +
+    (data['wins_solo brawl'] || 0) +
+    (data['wins_duo brawl'] || 0);
   const sum = kills * 1 + wins * 10;
   let starLevel = 1;
   const sums = [0, 1, 6, 21, 46, 96, 171, 271, 521, 1021, 1321, 1621, 1921, 2221, 2521, Infinity];

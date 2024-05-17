@@ -66,7 +66,9 @@ class MegaWalls {
      * Final deaths
      * @type {number}
      */
-    this.finalDeaths = isNaN((data.final_deaths || 0) + (data.finalDeaths || 0)) ? 0 : Math.floor((data.final_deaths || 0) + (data.finalDeaths || 0));
+    this.finalDeaths = isNaN((data.final_deaths || 0) + (data.finalDeaths || 0))
+      ? 0
+      : Math.floor((data.final_deaths || 0) + (data.finalDeaths || 0));
     /**
      * Final Kill Death ratio
      * @type {number}

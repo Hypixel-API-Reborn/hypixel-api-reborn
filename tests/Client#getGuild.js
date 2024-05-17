@@ -108,7 +108,9 @@ describe('Client#getGuild', async () => {
               guildName.banner['Patterns'].forEach((pattern) => {
                 expect(pattern).to.be.a('object');
                 expect(pattern['Pattern']).to.be.a('string');
-                expect(pattern['Color']).that.satisfies((value) => typeof value === 'number' || typeof value === 'string');
+                expect(pattern['Color']).that.satisfies(
+                  (value) => typeof value === 'number' || typeof value === 'string'
+                );
               });
             }
             if (guildName.tag) expect(guildName.tag).to.be.a('string');
@@ -223,7 +225,9 @@ describe('Client#getGuild', async () => {
               guildId.banner['Patterns'].forEach((pattern) => {
                 expect(pattern).to.be.a('object');
                 expect(pattern['Pattern']).to.be.a('string');
-                expect(pattern['Color']).that.satisfies((value) => typeof value === 'number' || typeof value === 'string');
+                expect(pattern['Color']).that.satisfies(
+                  (value) => typeof value === 'number' || typeof value === 'string'
+                );
               });
             }
             if (guildId.tag) expect(guildId.tag).to.be.a('string');
@@ -337,7 +341,9 @@ describe('Client#getGuild', async () => {
               guildPlayer.banner['Patterns'].forEach((pattern) => {
                 expect(pattern).to.be.a('object');
                 expect(pattern['Pattern']).to.be.a('string');
-                expect(pattern['Color']).that.satisfies((value) => typeof value === 'number' || typeof value === 'string');
+                expect(pattern['Color']).that.satisfies(
+                  (value) => typeof value === 'number' || typeof value === 'string'
+                );
               });
             }
             if (guildPlayer.tag) expect(guildPlayer.tag).to.be.a('string');
