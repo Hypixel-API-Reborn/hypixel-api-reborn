@@ -5,7 +5,7 @@ module.exports = async function (query, playerData) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   const RecentGame = require('../structures/RecentGame');
 
-  query = await toUuid(query, this.options.mojangCacheTime);
+  query = await toUuid(query, this.options.mojangCacheTime, this.options.useThirdPartyAPI);
 
   const res = await this._makeRequest(`/recentgames?uuid=${query}`);
   if (res.raw) return res;

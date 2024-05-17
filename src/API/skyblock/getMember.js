@@ -5,7 +5,7 @@ module.exports = async function (query, options = { fetchPlayer: false, getMuseu
   const SkyblockMember = require('../../structures/SkyBlock/SkyblockMember');
   const getSkyblockMuseum = require('../skyblock/getMuseum');
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
-  query = await toUuid(query, this.options.mojangCacheTime);
+  query = await toUuid(query, this.options.mojangCacheTime, this.options.useThirdPartyAPI);
   const res = await this._makeRequest(`/skyblock/profiles?uuid=${query}`);
   if (res.raw) return res;
   if (!res.profiles || !res.profiles.length) throw new Error(Errors.NO_SKYBLOCK_PROFILES);

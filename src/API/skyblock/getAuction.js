@@ -7,7 +7,7 @@ module.exports = async function (type, query, includeItemBytes = false) {
   if (type === 'PROFILE') {
     filter = 'profile';
   } else if (type === 'PLAYER') {
-    query = await toUuid(query);
+    query = await toUuid(query, this.options.mojangCacheTime, this.options.useThirdPartyAPI);
     filter = 'player';
   } else if (type === 'AUCTION') {
     filter = 'uuid';

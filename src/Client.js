@@ -68,8 +68,9 @@ class Client extends EventEmitter {
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url)))
+    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) {
       return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    }
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
     const result = await this.requests.request.call(this.requests, url, {
@@ -421,6 +422,7 @@ class Client extends EventEmitter {
  * @prop {boolean} [silent=false] Don't automatically put warnings into console.
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request.
  * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
+ * @prop {boolean|string} [useThirdPartyAPI=false] Enable/Disable Mojang Third Party API
  */
 const defaultCache = require('./Private/defaultCache.js');
 /**

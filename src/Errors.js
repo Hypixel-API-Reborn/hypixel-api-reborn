@@ -60,6 +60,7 @@ module.exports = {
   NO_SKYBLOCK_PROFILES: '[hypixel-api-reborn] The player has no skyblock profiles.',
   INVALID_SILENT_OPTION: '[hypixel-api-reborn] Invalid Value for silent : must be a boolean',
   INVALID_UPDATE_OPTION: '[hypixel-api-reborn] Invalid Value for update : must be a boolean',
+  INVALID_THIRD_PARTY_API_OPTION: '[hypixel-api-reborn] Invalid Third Party API option : must be a boolean or string',
   BAD_AUCTION_FILTER:
     '[hypixel-api-reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PLAYER", "AUCTION", "PROFILE", but got something else.'
 };
