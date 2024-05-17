@@ -5,7 +5,7 @@ const getRecentGames = require('./getRecentGames');
 module.exports = async function (query, options = { guild: false, recentGames: false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
   const Player = require('../structures/Player');
-  query = await toUuid(query, this.options.mojangCacheTime);
+  query = await toUuid(query, this.options.mojangCacheTime, this.options.useThirdPartyAPI);
   const res = await this._makeRequest(`/player?uuid=${query}`);
   if (res.raw) return res;
   if (query && !res.player) throw new Error(Errors.PLAYER_HAS_NEVER_LOGGED);

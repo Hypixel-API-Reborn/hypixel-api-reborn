@@ -8,7 +8,7 @@ module.exports = async (input, cacheTime = 600, useThirdPartyAPI = '') => {
   if (isUUID(input)) return input.replace(/-/g, '');
   try {
     const customUrl = useThirdPartyAPI === true ? 'https://api.minetools.eu/uuid/' : useThirdPartyAPI;
-    const url = useThirdPartyAPI ? `${customUrl}${input}` : `https://api.mojang.com/users/profiles/minecraft/${input}`;
+    const url = useThirdPartyAPI ? `${customUrl}${input}` : `https://mowojang.matdoes.dev/${input}`;
     const res = await fetch(url, input, cacheTime);
     if (res.status === 404) {
       return Promise.reject(new Error(Errors.PLAYER_DOES_NOT_EXIST));

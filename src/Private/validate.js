@@ -15,13 +15,17 @@ class Validation {
     if (typeof options.hypixelCacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.mojangCacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
     if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
-    if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit))
+    if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) {
       throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
+    }
     if (typeof options.keyLimit !== 'number') throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
     if (typeof options.syncWithHeaders !== 'boolean') throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
     if (typeof options.headers !== 'object') throw new Error(Errors.INVALID_HEADERS);
     if (typeof options.silent !== 'boolean') throw new Error(Errors.INVALID_SILENT_OPTION);
     if (typeof options.checkForUpdates !== 'boolean') throw new Error(Errors.INVALID_UPDATE_OPTION);
+    if (!['boolean', 'string'].includes(typeof options.useThirdPartyAPI)) {
+      throw new Error(Errors.INVALID_THIRD_PARTY_API_OPTION);
+    }
   }
 
   /**
@@ -44,7 +48,8 @@ class Validation {
       syncWithHeaders: !!options.syncWithHeaders,
       headers: options.headers ?? {},
       silent: !!options.silent,
-      checkForUpdates: options.checkForUpdates ?? true
+      checkForUpdates: options.checkForUpdates ?? true,
+      useThirdPartyAPI: options.useThirdPartyAPI ?? false
     };
   }
 

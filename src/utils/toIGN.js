@@ -9,8 +9,8 @@ module.exports = async (input, useThirdPartyAPI = '') => {
   else throw new Error(Errors.MALFORMED_UUID);
   try {
     const customUrl = useThirdPartyAPI === true ? 'https://api.minetools.eu/uuid/' : useThirdPartyAPI;
-    const url = useThirdPartyAPI ? `${customUrl}${input}` : `https://api.mojang.com/users/profiles/minecraft/${input}`;
-    const res = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${input}`, input);
+    const url = useThirdPartyAPI ? `${customUrl}${input}` : `https://mowojang.matdoes.dev/${input}`;
+    const res = await fetch(url, input);
     const parsedRes = await res.json();
     if (parsedRes.error) {
       return Promise.reject(new Error(Errors.MALFORMED_UUID));

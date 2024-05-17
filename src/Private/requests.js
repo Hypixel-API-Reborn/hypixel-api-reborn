@@ -19,17 +19,19 @@ class Requests {
      * @type {externalFetch.Response|Response}
      */
     const res = await fetch(BASE_URL + endpoint, options);
-    if (res.status >= 500 && res.status < 528)
+    if (res.status >= 500 && res.status < 528) {
       throw new Error(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
+    }
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
-    if (res.status === 400)
+    if (res.status === 400) {
       throw new Error(
         Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || '')
       );
+    }
     if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
     if (res.status === 422) throw new Error(Errors.UNEXPECTED_ERROR);
     if (res.status === 429) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
@@ -42,12 +44,14 @@ class Requests {
     if (options.noCaching) return parsedRes;
     // split by question mark : first part is /path, remove /
     if (this.client.options.cache && this.client.options.cacheFilter(endpoint.split('?')[0].slice(1))) {
-      if (this.client.options.cacheSize < (await this.cached.size()))
+      if (this.client.options.cacheSize < (await this.cached.size())) {
         await this.cached.delete(Array.from(await this.cached.keys())[0]);
+      }
       await this.cached.delete(endpoint);
       await this.cached.set(endpoint, parsedRes);
-      if (this.client.options.hypixelCacheTime >= 0)
+      if (this.client.options.hypixelCacheTime >= 0) {
         setTimeout(() => this.cached.delete(endpoint), 1000 * this.client.options.hypixelCacheTime);
+      }
     }
     return parsedRes;
   }

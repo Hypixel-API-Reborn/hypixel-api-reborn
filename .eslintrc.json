@@ -19,6 +19,7 @@
     "linebreak-style": "off",
     "no-extra-semi": "error",
     "no-console": "error",
+    "curly": "error",
     "semi": "error"
   }
 }
