@@ -20,7 +20,7 @@
     "lint:fix": "npx eslint src/ typings/ --fix",
     "lint:dev": "npm run eslint && npm run dtslint",
     "tests": "npx mocha tests --exit --recursive",
-    "docgen": "npx docgen -s src -o ./master.json",
+    "docgen": " npx docgen -s src/ --custom docs/index.yml -o ./master.json",
     "dtslint": "npx dtslint typings",
     "prettier": "npx prettier --write src/ typings/",
     "prettier:check": "npx prettier --check src/ typings/"
