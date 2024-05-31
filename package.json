@@ -16,14 +16,12 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint": "npx eslint src/ typings/",
-    "lint:fix": "npx eslint src/ typings/ --fix",
-    "lint:dev": "npm run eslint && npm run dtslint",
+    "lint": "npx eslint  --cache src/ typings/",
+    "lint:fix": "npx eslint  --cache src/ typings/ --fix",
     "tests": "npx mocha tests --exit --recursive",
     "docgen": " npx docgen -s src/ --custom docs/index.yml -o ./master.json",
-    "dtslint": "npx dtslint typings",
-    "prettier": "npx prettier --write src/ typings/",
-    "prettier:check": "npx prettier --check src/ typings/"
+    "prettier": "npx prettier --cache --write src/ typings/",
+    "prettier:check": "npx prettier --cache --check src/ typings/"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -32,7 +30,6 @@
   "dependencies": {
     "node-cache": "^5.1.2",
     "node-fetch": "^3.3.2",
-    "object-path": "^0.11.8",
     "prismarine-nbt": "^2.5.0",
     "rss-parser": "^3.13.0",
     "skyhelper-networth": "^1.19.0"
@@ -49,7 +46,6 @@
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "chai": "^4.3.4",
-    "dtslint": "^4.2.1",
     "eslint": "^8.56.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.1.0",

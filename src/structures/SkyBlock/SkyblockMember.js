@@ -142,7 +142,12 @@ class SkyblockMember {
      * Skyblock jacob data
      * @type {jacobData}
      */
-    this.jacob = getJacobData(data);
+    this.jacob = getJacobData(data.m);
+    /**
+     * Skyblock Chocolate Factory
+     * @type {chocolateFactoryData}
+     */
+    this.chocolate = getChocolateFactory(data.m);
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
@@ -393,7 +398,6 @@ function getBestiaryLevel(userProfile) {
     return null;
   }
 }
-
 // eslint-disable-next-line require-jsdoc
 function getSlayer(data) {
   if (!data?.slayer?.slayer_bosses) return;
@@ -441,7 +445,7 @@ function getDungeons(data) {
 }
 // eslint-disable-next-line require-jsdoc
 function getJacobData(data) {
-  if (!data.m.jacobs_contest) {
+  if (!data.jacobs_contest) {
     return {
       medals: {
         bronze: 0,
@@ -457,21 +461,88 @@ function getJacobData(data) {
     };
   }
   return {
-    medals: data.m.jacobs_contest.medals_inv
+    medals: data.jacobs_contest.medals_inv
       ? {
-          bronze: data.m.jacobs_contest.medals_inv.bronze || 0,
-          silver: data.m.jacobs_contest.medals_inv.silver || 0,
-          gold: data.m.jacobs_contest.medals_inv.gold || 0
+          bronze: data.jacobs_contest.medals_inv.bronze || 0,
+          silver: data.jacobs_contest.medals_inv.silver || 0,
+          gold: data.jacobs_contest.medals_inv.gold || 0
         }
       : { bronze: 0, silver: 0, gold: 0 },
-    perks: data.m.jacobs_contest.perks
+    perks: data.jacobs_contest.perks
       ? {
-          doubleDrops: data.m.jacobs_contest.perks.double_drops || 0,
-          farmingLevelCap: data.m.jacobs_contest.perks.farming_level_cap || 0,
-          personalBests: data.m.jacobs_contest.perks.personal_bests || false
+          doubleDrops: data.jacobs_contest.perks.double_drops || 0,
+          farmingLevelCap: data.jacobs_contest.perks.farming_level_cap || 0,
+          personalBests: data.jacobs_contest.perks.personal_bests || false
         }
       : { doubleDrops: 0, farmingLevelCap: 0, personalBests: false },
-    contests: data.m.jacobs_contest.contests || {}
+    contests: data.jacobs_contest.contests || {}
+  };
+}
+// eslint-disable-next-line require-jsdoc
+function getChocolateFactory(data) {
+  if (!data.events.easter) {
+    return {
+      employees: {
+        bro: 0,
+        cousin: 0,
+        sis: 0,
+        father: 0,
+        grandma: 0,
+        dog: 0,
+        uncle: 0
+      },
+      chocolate: {
+        current: 0,
+        total: 0,
+        sincePrestige: 0
+      },
+      timeTower: {
+        charges: 0,
+        level: 0
+      },
+      upgrades: {
+        click: 0,
+        multiplier: 0,
+        rabbitRarity: 0
+      },
+      goldenClick: {
+        amount: 0,
+        year: 0
+      },
+      barnCapacity: 0,
+      prestige: 0
+    };
+  }
+  return {
+    employees: {
+      bro: data.events.easter.employees.rabbit_bro || 0,
+      cousin: data.events.easter.employees.rabbit_cousin || 0,
+      sis: data.events.easter.employees.rabbit_sis || 0,
+      father: data.events.easter.employees.rabbit_father || 0,
+      grandma: data.events.easter.employees.rabbit_grandma || 0,
+      dog: data.events.easter.employees.rabbit_dog || 0,
+      uncle: data.events.easter.employees.rabbit_uncle || 0
+    },
+    chocolate: {
+      current: data.events.easter.chocolate || 0,
+      total: data.events.easter.total_chocolate || 0,
+      sincePrestige: data.events.easter.chocolate_since_prestige || 0
+    },
+    timeTower: {
+      charges: data.events.easter.time_tower.charges || 0,
+      level: data.events.easter.time_tower.level || 0
+    },
+    upgrades: {
+      click: data.events.easter.click_upgrades || 0,
+      multiplier: data.events.easter.chocolate_multiplier_upgrades || 0,
+      rabbitRarity: data.events.easter.rabbit_rarity_upgrades || 0
+    },
+    goldenClick: {
+      amount: data.events.easter.golden_click_amount || 0,
+      year: data.events.easter.golden_click_year || 0
+    },
+    barnCapacity: data.events.easter.rabbit_barn_capacity_level || 0,
+    prestige: data.events.easter.chocolate_level || 0
   };
 }
 // eslint-disable-next-line require-jsdoc
@@ -917,12 +988,57 @@ function getPetLevel(petExp, offsetRarity, maxLevel) {
  * @property {boolean} personalBests Personal Bests
  */
 /**
+ * @typedef {object} jacobDataMedals
+ * @property {number} gold gold medals
+ * @property {number} silver silver medals
+ * @property {number} bronze bronze medals
+ */
+/**
  * @typedef {object} jacobData
- * @property {object} medals Medals
- * @property {number} medals.bronze Bronze medals
- * @property {number} medals.silver Silver medals
- * @property {number} medals.gold Gold medals
+ * @property {jacobDataMedals} medals Medals
  * @property {jacobDataPerks} perks Perks
  * @property {object} contests Contests
+ */
+/**
+ * @typedef {object} chocolateFactoryDataEmployees
+ * @property {number} bro bro employee level
+ * @property {number} cousin cousin employee level
+ * @property {number} sis sis employee level
+ * @property {number} father father employee level
+ * @property {number} grandma grandma employee level
+ * @property {number} dog dog employee level
+ * @property {number} uncle uncle employee level
+ */
+/**
+ * @typedef {object} chocolateFactoryDataChocolate
+ * @property {number} count amount of current chocolate
+ * @property {number} total total amount of chocolate
+ * @property {number} sincePrestige amount of chocolate since prestige
+ */
+/**
+ * @typedef {object} chocolateFactoryDataTimeTower
+ * @property {number} charge amount of charges in the time tower
+ * @property {number} level level of the time tower
+ */
+/**
+ * @typedef {object} chocolateFactoryDataUpgrades
+ * @property {number} click amount of click upgrades
+ * @property {number} multiplier amount of multiplier upgrades
+ * @property {number} rabbitRarity amount of rabbit rarity upgrades
+ */
+/**
+ * @typedef {object} chocolateFactoryDataGoldenClick
+ * @property {number} amount amount of golden clicks
+ * @property {number} year year
+ */
+/**
+ * @typedef {object} chocolateFactoryData
+ * @property {chocolateFactoryDataEmployees} employees Employees
+ * @property {chocolateFactoryDataChocolate} chocolate Chocolate
+ * @property {chocolateFactoryDataTimeTower} timeTower Time Tower
+ * @property {chocolateFactoryDataUpgrades} upgrades Upgrades
+ * @property {chocolateFactoryDataGoldenClick} goldenClick Golden Click
+ * @property {number} barnCapacity Barn Capacity
+ * @property {number} prestige Prestige
  */
 module.exports = SkyblockMember;
