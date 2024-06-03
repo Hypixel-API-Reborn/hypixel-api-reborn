@@ -5,6 +5,7 @@ const regex = /https:\/\/status.hypixel.net\/incidents\/([a-z0-9]+)/;
 class APIIncident {
   /**
    * @param {object} data API incident data
+   * @example
    */
   constructor(data) {
     /**
@@ -16,7 +17,7 @@ class APIIncident {
      * Timestamp when investigation was started as Date object
      * @type {object|null}
      */
-    this.start = new Date(data.pubDate) || null;
+    this.start = data.pubDate ? new Date(data.pubDate) : null;
     /**
      * Formatted timestamp when investigation was started
      * @type {string|null}
@@ -56,13 +57,13 @@ class APIIncident {
      * Whether the incident is resolved/completed or not
      * @author linearaccelerator
      * @type {boolean}
-     * @version >6.0.1
      */
     this.isResolved = this.HTMLContent.includes('Resolved -') || this.HTMLContent.includes('Completed -');
   }
   /**
    * HTML Content
    * @return {string}
+   * @example
    */
   toString() {
     return this.HTMLContent;

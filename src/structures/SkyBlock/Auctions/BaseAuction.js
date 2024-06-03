@@ -6,6 +6,7 @@ class BaseAuction {
   /**
    * @param {object} data Base auction data
    * @param {boolean} includeItemBytes
+   * @example
    */
   constructor(data, includeItemBytes) {
     /**
@@ -32,11 +33,12 @@ class BaseAuction {
      * Item bytes
      * @type {ItemBytes|null}
      */
-    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes) || null : null;
+    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes) : null;
   }
   /**
    * Auction ID
    * @return {string}
+   * @example
    */
   toString() {
     return this.auctionId;

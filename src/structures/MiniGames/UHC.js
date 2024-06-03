@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const divide = require('../../utils/divide');
 /**
  * UHC class
@@ -6,6 +5,7 @@ const divide = require('../../utils/divide');
 class UHC {
   /**
    * @param {object} data UHC data
+   * @example
    */
   constructor(data) {
     /**
@@ -148,7 +148,7 @@ class UHC {
     };
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getStarLevel(data) {
   const kills =
     (data.kills || 0) +

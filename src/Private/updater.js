@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 /* eslint-disable no-console */
 const requireFetch = !globalThis.fetch;
 const externalFetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));

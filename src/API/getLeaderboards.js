@@ -5,7 +5,7 @@ module.exports = async function () {
   if (res.raw) return res;
   if (!res.leaderboards) throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.'));
   const lbnames = Object.create(require('../utils/Constants').leaderboardNames);
-  // eslint-disable-next-line guard-for-in
+
   for (const name in lbnames) {
     lbnames[name] = res.leaderboards[lbnames[name]].length
       ? res.leaderboards[lbnames[name]].map((lb) => new Leaderboard(lb))

@@ -31,6 +31,7 @@ class Player {
   /**
    * @param {object} data Player data
    * @param {Record<string, any>} extraPayload extra data requested alongside player
+   * @example
    */
   constructor(data, extraPayload) {
     /**
@@ -158,7 +159,7 @@ class Player {
      * Last time player claimed the daily reward
      * @type {Date | null}
      */
-    this.lastDailyReward = new Date(data.lastAdsenseGenerateTime) || null;
+    this.lastDailyReward = data.lastAdsenseGenerateTime ? new Date(data.lastAdsenseGenerateTime) : null;
     /**
      * Last time player claimed the daily reward, as timestamp
      * @type {number | null}
@@ -249,7 +250,7 @@ class Player {
      * Global Cosmetics a player owns
      * @type {PlayerCosmetics}
      */
-    this.globalCosmetics = new PlayerCosmetics(data) || null;
+    this.globalCosmetics = data ? new PlayerCosmetics(data) : null;
     /**
      * Time at which the ranks were purchased. Can be all null if bought a long time ago, and some values can be null if player bought directly a rank above that
      * @type {RanksPurchaseTime}
@@ -264,13 +265,14 @@ class Player {
   /**
    * Player Name ( at least last known to hypixel )
    * @return {string}
+   * @example
    */
   toString() {
     return this.nickname;
   }
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getRank(player) {
   let rank;
   if (player.prefix) {
@@ -307,7 +309,7 @@ function getRank(player) {
   }
   return rank;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getPlayerLevel(exp) {
   const base = 10000;
   const growth = 2500;
@@ -318,21 +320,21 @@ function getPlayerLevel(exp) {
   const level = Math.round(num * 100) / 100;
   return level;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function xpToNextLevel(player) {
   const lvl = getPlayerLevel(player.networkExp);
   const xpToNext = 2500 * Math.floor(lvl) + 5000;
   if (player.networkExp < 10000) return 10000;
   return xpToNext;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function levelToXP(player) {
   let level = Number(Math.floor(getPlayerLevel(player.networkExp)));
   level = level - 1;
   const xp = 1250 * level ** 2 + 8750 * level;
   return xp;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function playerLevelProgress(player) {
   const xpFromLevel = levelToXP(player);
   let currentXP = player.networkExp - xpFromLevel;
@@ -349,7 +351,7 @@ function playerLevelProgress(player) {
     percentRemaining
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSocialMedia(data) {
   if (!data) return null;
   const links = data.links;
@@ -361,7 +363,7 @@ function getSocialMedia(data) {
     .filter((x) => x !== -1)
     .map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseClaimedRewards(data) {
   if (!data) return null;
   return Object.keys(data)

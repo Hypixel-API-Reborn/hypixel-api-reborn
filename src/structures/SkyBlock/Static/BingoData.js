@@ -7,6 +7,7 @@ class BingoData {
   /**
    * constructor
    * @param {Object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -35,6 +36,7 @@ class BingoData {
    * @param {number} column Column number (starts at 1)
    * @param {number} row Row number (starts at 1)
    * @returns {Bingo|undefined}
+   * @example
    */
   getGoal(column, row) {
     if (!this.goals || this.goals.length < 1) return;

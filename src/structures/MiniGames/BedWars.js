@@ -38,6 +38,7 @@ const generateStatsForMode = (data, mode) => {
 class BedWars {
   /**
    * @param {object} data BedWars data
+   * @example
    */
   constructor(data) {
     /**
@@ -204,9 +205,8 @@ class BedWars {
     this.totalSlumberTicket = data.slumber?.total_tickets ?? 0;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getBedWarsPrestige(level) {
-  // eslint-disable-next-line max-len
   if (level >= 5000) return 'Eternal';
   return (
     [
@@ -270,7 +270,7 @@ const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getExpForLevel(level) {
   if (level === 0) return 0;
   const respectedLevel = getLevelRespectingPrestige(level);
@@ -287,7 +287,7 @@ function getExpForLevel(level) {
   }
   return 5000;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getLevelRespectingPrestige(level) {
   if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
     return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
@@ -295,7 +295,7 @@ function getLevelRespectingPrestige(level) {
     return level % LEVELS_PER_PRESTIGE;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getLevelForExp(exp) {
   const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
   let level = prestiges * LEVELS_PER_PRESTIGE;
@@ -311,7 +311,7 @@ function getLevelForExp(exp) {
   }
   return level + Math.floor(expWithoutPrestiges / 5000);
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function generateStatsForPractice(data) {
   return {
     selected: data?.practice?.selected || 'NONE',
@@ -323,7 +323,7 @@ function generateStatsForPractice(data) {
         total: data?.practice?.bridging?.failed_attempts + data?.practice?.bridging?.successful_attempts
       },
       records: {
-        '30Blocks': {
+        blocks30: {
           elevation: {
             none: {
               straight: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_STRAIGHT:'] ?? 0,
@@ -339,7 +339,7 @@ function generateStatsForPractice(data) {
             }
           }
         },
-        '50Blocks': {
+        blocks50: {
           elevation: {
             none: {
               straight: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_STRAIGHT:'] ?? 0,
@@ -355,7 +355,7 @@ function generateStatsForPractice(data) {
             }
           }
         },
-        '100Blocks': {
+        blocks100: {
           elevation: {
             none: {
               straight: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_STRAIGHT:'] ?? 0,
@@ -523,9 +523,9 @@ function generateStatsForPractice(data) {
  */
 /**
  * @typedef {Object} BedWarsPracticeRecords
- * @property {BedWarsPracticeRecord} 30Blocks 30 Blocks
- * @property {BedWarsPracticeRecord} 50Blocks 50 Blocks
- * @property {BedWarsPracticeRecord} 100Blocks 100 Blocks
+ * @property {BedWarsPracticeRecord} blocks30 30 Blocks
+ * @property {BedWarsPracticeRecord} blocks50 50 Blocks
+ * @property {BedWarsPracticeRecord} blocks100 100 Blocks
  */
 /**
  * @typedef {Object} BedWarsPracticeBridging

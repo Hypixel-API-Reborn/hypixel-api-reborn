@@ -10,6 +10,7 @@ class Guild {
   /**
    * @param {data} data Guild data
    * @param {string} [me] Player uuid u#sed to search for this guild
+   * @example
    */
   constructor(data, me = '') {
     /**
@@ -62,6 +63,7 @@ class Guild {
      * An array containing all guild ranks sorted by newest
      * @author linearaccelerator
      * @return {Array<GuildRank>}
+     * @example
      */
     this.getRanksByNewest = function () {
       return this.ranks.length
@@ -72,6 +74,7 @@ class Guild {
      * A map containing all guild members, keyed by their uuids
      * @author linearaccelerator
      * @return {Map<string, GuildMember>}
+     * @example
      */
     this.getMemberUUIDMap = function () {
       return this.members.length ? new Map(this.members.map((m) => [m.uuid, m])) : null;
@@ -81,6 +84,7 @@ class Guild {
      * @author linearaccelerator
      * @param {number} priority - The priority of the guild rank
      * @return {GuildRank}
+     * @example
      */
     this.getRankByPriority = function (priority) {
       if (!this.ranks.length || !this.ranks.some((r) => r.priority === priority)) return null;
@@ -115,7 +119,7 @@ class Guild {
      * Timestamp guild chat will be unmuted at as Date.
      * @type {Date|null}
      */
-    this.chatMuteUntil = new Date(data.chatMute) ?? null;
+    this.chatMuteUntil = data.chatMute ? new Date(data.chatMute) : null;
     /**
      * Timestamp guild chat will be unmuted at.
      * @type {Array<{ Pattern: string, Color: string }>}
@@ -160,6 +164,7 @@ class Guild {
   /**
    * Guild name
    * @return {string}
+   * @example
    */
   toString() {
     return this.name;
@@ -172,23 +177,23 @@ class Guild {
     return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function members(data) {
   return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function ranks(data) {
   return data.ranks && data.ranks.length
     ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority)
     : [];
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function totalWeeklyGexp(data) {
   return members(data)
     .map((m) => m.weeklyExperience)
     .reduce((acc, cur) => acc + cur);
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function calculateExpHistory(data) {
   const finalObj = {};
   for (const day of Object.keys(data.members[0].expHistory)) {
@@ -200,7 +205,7 @@ function calculateExpHistory(data) {
   }
   return parseHistory(finalObj);
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function expLimit(exp) {
   return exp > 2e5 ? (exp > 7e5 ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
 }

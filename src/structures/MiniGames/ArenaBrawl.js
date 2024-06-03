@@ -5,6 +5,7 @@ const divide = require('../../utils/divide');
 class ArenaBrawl {
   /**
    * @param {object} data ArenaBrawl data
+   * @example
    */
   constructor(data) {
     /**
@@ -23,7 +24,7 @@ class ArenaBrawl {
     };
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,

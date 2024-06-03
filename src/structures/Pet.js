@@ -6,6 +6,7 @@ class Pet {
   /**
    * @param {string} name Name of pet
    * @param {object} data data
+   * @example
    */
   constructor(name, data) {
     /**

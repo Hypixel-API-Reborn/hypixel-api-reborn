@@ -13,6 +13,7 @@
 class Cache {
   /**
    * Constructor
+   * @example
    */
   constructor() {
     this.storage = new Map();
@@ -22,6 +23,7 @@ class Cache {
    * @param {string} key String key
    * @param {*} value Any value
    * @return {boolean}
+   * @example
    */
   set(key, value) {
     return this.storage.set(key, value);
@@ -31,6 +33,7 @@ class Cache {
    * This doesn't have to return boolean, just a truthy/falsy value
    * @param {string} key String key
    * @return {boolean} Whether this key exists
+   * @example
    */
   has(key) {
     return this.storage.has(key);
@@ -39,6 +42,7 @@ class Cache {
    * Gets an entry, return a nullish value if not found
    * @param {string} key String key
    * @return {*}
+   * @example
    */
   get(key) {
     return this.storage.get(key);
@@ -47,6 +51,7 @@ class Cache {
    * Deletes an entry
    * @param {string} key String key
    * @return {boolean} Preferably, returns a boolean to check if the deletion is actually successful
+   * @example
    */
   delete(key) {
     return this.storage.delete(key);
@@ -54,6 +59,7 @@ class Cache {
   /**
    * Returns Array of string (not an iterator preferably, it can break)
    * @return {string[]}
+   * @example
    */
   keys() {
     return Array.from(this.storage.keys());
@@ -61,6 +67,7 @@ class Cache {
   /**
    * Returns size of cache
    * @return {number}
+   * @example
    */
   size() {
     return this.storage.size;
@@ -68,6 +75,7 @@ class Cache {
   /**
    * Clears cache
    * @return {void}
+   * @example
    */
   clear() {
     this.storage.clear();

@@ -5,6 +5,7 @@ const divide = require('../../utils/divide');
 class SmashHeroes {
   /**
    * @param {object} data SmashHeroes data
+   * @example
    */
   constructor(data) {
     /**
@@ -78,7 +79,7 @@ class SmashHeroes {
     this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function generateModeStats(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
@@ -89,9 +90,8 @@ function generateModeStats(data, mode) {
     WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function generateHeroStats(data) {
-  // eslint-disable-next-line no-useless-return
   const stats = [];
   for (const hero in data.class_stats) {
     if (Object.prototype.hasOwnProperty.call(data.class_stats, hero)) {

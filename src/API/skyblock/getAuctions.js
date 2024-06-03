@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 const Auction = require('../../structures/SkyBlock/Auctions/Auction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 const Errors = require('../../Errors');
@@ -16,11 +16,13 @@ async function noReject(promise, args = [], retries = 3, cooldown = 100) {
   try {
     const result = await promise.call(null, ...args);
     return result;
-  } catch (e) {
+  } catch {
     if (retries) {
       await new Promise((resolve) => setTimeout(resolve, cooldown));
       return await noReject(promise, args, retries - 1, cooldown);
-    } else return null;
+    } else {
+      return null;
+    }
   }
 }
 module.exports = async function (range, options = {}) {
@@ -49,7 +51,9 @@ module.exports = async function (range, options = {}) {
       if (resp) {
         result.auctions = result.auctions.concat(resp.auctions);
         if (resp.info) result.info = resp.info;
-      } else failedPages.push(i);
+      } else {
+        failedPages.push(i);
+      }
     }
   }
   if (fetches.length) {

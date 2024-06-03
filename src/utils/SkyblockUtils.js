@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 const constants = require('./Constants');
 module.exports = {
   async decode(base64, isBuffer = false) {

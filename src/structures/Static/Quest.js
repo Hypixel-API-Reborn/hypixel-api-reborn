@@ -5,6 +5,7 @@ class Quest {
   /**
    * constructor
    * @param {Object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -45,6 +46,7 @@ class Quest {
   /**
    * As string
    * @return {string}
+   * @example
    */
   toString() {
     return this.questName;

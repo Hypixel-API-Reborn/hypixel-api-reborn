@@ -4,6 +4,7 @@
 class Color {
   /**
    * @param {ColorCode} color Color code
+   * @example
    */
   constructor(color) {
     this.color = color;
@@ -12,6 +13,7 @@ class Color {
   /**
    * Returns regular color name
    * @return {ColorString}
+   * @example
    */
   toString() {
     const ColorStrings = {
@@ -38,6 +40,7 @@ class Color {
   /**
    * Returns color HEX code
    * @return {ColorHex}
+   * @example
    */
   toHex() {
     const ColorHex = {
@@ -64,6 +67,7 @@ class Color {
   /**
    * Returns color code
    * @return {ColorCode}
+   * @example
    */
   toCode() {
     return this.color;
@@ -72,6 +76,7 @@ class Color {
   /**
    * Returns color code
    * @return {InGameCode}
+   * @example
    */
   toInGameCode() {
     const InGameCodes = {

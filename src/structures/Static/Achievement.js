@@ -8,6 +8,7 @@ class Achievement {
    * constructor
    * @param {string} achievementName Name of achievement
    * @param {Object} data
+   * @example
    */
   constructor(achievementName, data) {
     /**
@@ -66,13 +67,14 @@ class Achievement {
   /**
    * As string
    * @return {string}
+   * @example
    */
   toString() {
     return this.achievementName;
   }
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function collectAll(data) {
   const mTier = data.maxTier;
   let totalPoints = 0;

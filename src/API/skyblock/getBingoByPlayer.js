@@ -1,5 +1,5 @@
-const getBingo = require('./getBingo');
 const toUuid = require('../../utils/toUuid');
+const getBingo = require('./getBingo');
 const Errors = require('../../Errors');
 module.exports = async function (query, { fetchBingoData = false }) {
   if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
@@ -9,6 +9,5 @@ module.exports = async function (query, { fetchBingoData = false }) {
   if (res.raw) return res;
   let bingoData = null;
   if (fetchBingoData) bingoData = await getBingo.call(this);
-
-  return new PlayerBingo(data, bingoData);
+  return new PlayerBingo(res, bingoData);
 };

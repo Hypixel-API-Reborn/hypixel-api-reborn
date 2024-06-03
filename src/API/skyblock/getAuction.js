@@ -11,7 +11,9 @@ module.exports = async function (type, query, includeItemBytes = false) {
     filter = 'player';
   } else if (type === 'AUCTION') {
     filter = 'uuid';
-  } else throw new Error(Errors.BAD_AUCTION_FILTER);
+  } else {
+    throw new Error(Errors.BAD_AUCTION_FILTER);
+  }
   const res = await this._makeRequest(`/skyblock/auction?${filter}=${query}`);
   if (res.raw) return res;
 

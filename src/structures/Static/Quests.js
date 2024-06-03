@@ -6,6 +6,7 @@ const GameQuests = require('./GameQuests.js');
 class Quests {
   /**
    * @param {object} data data
+   * @example
    */
   constructor(data) {
     /**

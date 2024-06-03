@@ -29,7 +29,9 @@ module.exports = async function (repeats) {
         );
         dataLength -= varIntBorder * 8;
         aggregatedData += data.toString('utf-8', 5);
-      } else aggregatedData += data.toString('utf-8');
+      } else {
+        aggregatedData += data.toString('utf-8');
+      }
 
       if (dataLength >= aggregatedData.length) return;
       cli.removeAllListeners('data'); // Remove this listener
@@ -37,7 +39,7 @@ module.exports = async function (repeats) {
     });
   });
 };
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 async function getPing(amount, cli) {
   let pingSum = 0;
   for (let i = 0; i < amount; i++) {
@@ -47,7 +49,7 @@ async function getPing(amount, cli) {
   return Math.round(pingSum / amount);
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 async function ping(cli) {
   await cli.write(packetsToSend[2]);
   const time = Date.now();
@@ -58,11 +60,11 @@ async function ping(cli) {
   });
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseData(stringJson, ping) {
   try {
     return new ServerInfo(JSON.parse(stringJson), ping);
-  } catch (e) {
+  } catch {
     return undefined;
   }
 }

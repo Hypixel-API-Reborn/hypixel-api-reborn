@@ -6,6 +6,7 @@ const { removeSnakeCaseString } = require('../utils/removeSnakeCase');
 class PlayerCosmetics {
   /**
    * @param {object} data data
+   * @example
    */
   constructor(data) {
     /**

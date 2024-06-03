@@ -1,4 +1,4 @@
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function readVarInt(bytes) {
   let numRead = 0;
   let result = 0;

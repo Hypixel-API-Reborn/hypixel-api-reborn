@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 // Minimum TypeScript Version: 3.6
 
 import { NetworthResult } from 'skyhelper-networth';

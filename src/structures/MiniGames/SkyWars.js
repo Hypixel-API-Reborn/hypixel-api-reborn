@@ -17,6 +17,7 @@ const generateStatsForMode = (data, mode) => {
 class SkyWars {
   /**
    * @param {object} data SkyWars data
+   * @example
    */
   constructor(data) {
     /**
@@ -331,7 +332,7 @@ class SkyWars {
  * @property {SkyWarsModeStats} doubles Mega Doubles Stats
  */
 module.exports = SkyWars;
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSkyWarsPrestige(level) {
   if (level >= 60) return 'Mythic';
   return (
@@ -340,14 +341,14 @@ function getSkyWarsPrestige(level) {
     ] || 'Iron'
   );
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSkyWarsLevel(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
   const level = totalXp.findIndex((x) => x * 10 - xp > 0);
   return level; /* + (xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10*/
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSkyWarsLevelProgress(xp) {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
   const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
@@ -387,7 +388,6 @@ function getSkyWarsLevelProgress(xp) {
     xpNextLevel: totalXptoNextLevel
   };
 }
-const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|rating)$/;
 
 /**
  * Skywars Packages - parses every package player has
@@ -396,6 +396,7 @@ class SkywarsPackages {
   /**
    * Constructor
    * @param {string[]} data data from API
+   * @example
    */
   constructor(data) {
     // TODO : a lot more
@@ -426,6 +427,7 @@ class SkywarsPackages {
   /**
    * Parses cages
    * @returns {string[]}
+   * @example
    */
   _parseCages() {
     return this.rawPackages
@@ -442,6 +444,7 @@ class SkywarsKit {
   /**
    * Constructor
    * @param {string} kit Kit
+   * @example
    */
   constructor(kit) {
     /**
@@ -481,6 +484,7 @@ class SkywarsKits {
   /**
    * Constructor
    * @param {SkywarsKit[]} kits Potential Kits
+   * @example
    */
   constructor(kits) {
     this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
@@ -490,6 +494,7 @@ class SkywarsKits {
    * @param {KitGameModes} [gameMode] Kits in said game mode
    * @param {KitType} [type] Kits corresponding to this type
    * @returns {SkywarsKit[]}
+   * @example
    */
   get(gameMode = '', type = '') {
     return this.kits.filter((kit) => kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type));

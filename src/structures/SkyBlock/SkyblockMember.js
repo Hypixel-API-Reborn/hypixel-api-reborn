@@ -15,6 +15,7 @@ const SkyblockPet = require('./SkyblockPet');
 class SkyblockMember {
   /**
    * @param {object} data Skyblock member data
+   * @example
    */
   constructor(data) {
     /**
@@ -72,7 +73,7 @@ class SkyblockMember {
      * Skyblock Level
      * @type {number}
      */
-    this.level = this.experience / 100 ?? 0;
+    this.level = this.experience ? this.experience / 100 : 0;
     /**
      * Heart of the Mountain - MiningSkill
      * @type {number}
@@ -151,6 +152,7 @@ class SkyblockMember {
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
+     * @example
      */
     this.getArmor = async () => {
       const base64 = data.m.inventory.inv_armor;
@@ -166,6 +168,7 @@ class SkyblockMember {
     /**
      * Wardrobe contents
      * @return {Promise<SkyblockMemberItem[]>}
+     * @example
      */
     this.getWardrobe = async () => {
       const base64 = data.m?.inventory?.wardrobe_contents?.data;
@@ -179,6 +182,7 @@ class SkyblockMember {
     /**
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
+     * @example
      */
     this.getEnderChest = async () => {
       let chest = data.m.inventory.ender_chest_contents;
@@ -194,13 +198,14 @@ class SkyblockMember {
           edited.push(new SkyblockInventoryItem(chest[i]));
         }
         return edited;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Skyblock member inventory
      * @return {Promise<SkyblockInventoryItem[]>}
+     * @example
      */
     this.getInventory = async () => {
       let inventory = data.m.inventory.inv_contents;
@@ -216,13 +221,14 @@ class SkyblockMember {
           edited.push(new SkyblockInventoryItem(inventory[i]));
         }
         return edited;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Skyblock Member pet score
      * @return {number}
+     * @example
      */
     this.getPetScore = () => {
       const highestRarity = {};
@@ -253,6 +259,7 @@ class SkyblockMember {
     /**
      * Skyblock member equipment
      * @return {Promise<SkyblockMemberEquipment>}
+     * @example
      */
     this.getEquipment = async () => {
       let equipment = data.m.inventory.equipment_contents;
@@ -267,13 +274,14 @@ class SkyblockMember {
           necklace: equipment[0].id ? new SkyblockInventoryItem(equipment[0]) : null
         };
         return playerEquipment;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Skyblock member Personal Vault
      * @return {Promise<SkyblockInventoryItem[]>}
+     * @example
      */
     this.getPersonalVault = async () => {
       let vault = data.m.inventory.personal_vault_contents;
@@ -289,13 +297,14 @@ class SkyblockMember {
           edited.push(new SkyblockInventoryItem(vault[i]));
         }
         return edited;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
      * @return {Promise<skyhelper.NetworthResult>}
+     * @example
      */
     this.getNetworth = async () => {
       try {
@@ -306,7 +315,7 @@ class SkyblockMember {
           museumData: data.museum?.raw ?? {}
         });
         return nw;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
@@ -314,12 +323,13 @@ class SkyblockMember {
   /**
    * UUID
    * @return {string}
+   * @example
    */
   toString() {
     return this.uuid;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSkills(data) {
   const skillsObject = {};
   skillsObject['combat'] = getLevelByXp(data?.player_data?.experience?.SKILL_COMBAT ?? 0, 'combat');
@@ -343,7 +353,7 @@ function getSkills(data) {
   skillsObject['average'] = levels.reduce((a, b) => a + b, 0) / levels.length;
   return skillsObject;
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function formatBestiaryMobs(userProfile, mobs) {
   const output = [];
   for (const mob of mobs) {
@@ -365,7 +375,7 @@ function formatBestiaryMobs(userProfile, mobs) {
   return output;
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getBestiaryLevel(userProfile) {
   try {
     if (userProfile.bestiary?.kills === undefined) {
@@ -398,7 +408,7 @@ function getBestiaryLevel(userProfile) {
     return null;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getSlayer(data) {
   if (!data?.slayer?.slayer_bosses) return;
   return {
@@ -410,7 +420,7 @@ function getSlayer(data) {
     vampire: getSlayerLevel(data?.slayer?.slayer_bosses?.vampire)
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getDungeons(data) {
   return {
     types: {
@@ -443,7 +453,7 @@ function getDungeons(data) {
     }
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getJacobData(data) {
   if (!data.jacobs_contest) {
     return {
@@ -478,7 +488,7 @@ function getJacobData(data) {
     contests: data.jacobs_contest.contests || {}
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getChocolateFactory(data) {
   if (!data.events.easter) {
     return {
@@ -545,7 +555,7 @@ function getChocolateFactory(data) {
     prestige: data.events.easter.chocolate_level || 0
   };
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getPetLevel(petExp, offsetRarity, maxLevel) {
   const rarityOffset = Constants.pet_rarity_offset[offsetRarity];
   const levels = Constants.pet_levels.slice(rarityOffset, rarityOffset + maxLevel - 1);

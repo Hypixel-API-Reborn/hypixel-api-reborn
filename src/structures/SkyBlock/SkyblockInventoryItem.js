@@ -4,6 +4,7 @@
 class SkyblockInventoryItem {
   /**
    * @param {object} data Item data
+   * @example
    */
   constructor(data) {
     /**
@@ -58,7 +59,6 @@ class SkyblockInventoryItem {
      */
     this.gemstones = data.tag.ExtraAttributes.gems
       ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
-          // eslint-disable-next-line no-new-object
           return new Object({ type: gem[0].split('_')[0], quality: gem[1] });
         })
       : null;
@@ -71,7 +71,6 @@ class SkyblockInventoryItem {
      * What rarity the item has, as an uppercase string
      * @author linearaccelerator
      * @type {string}
-     * @version >6.0.1
      */
     this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
     /**
@@ -154,12 +153,13 @@ class SkyblockInventoryItem {
   /**
    * Item Name
    * @return {string}
+   * @example
    */
   toString() {
     return this.name;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseRarity(stringContainingRarity) {
   const rarityArray = [
     'COMMON',
@@ -176,7 +176,7 @@ function parseRarity(stringContainingRarity) {
     if (stringContainingRarity.includes(rarity)) return rarity;
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseGearScore(lore) {
   for (const line of lore) {
     if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);

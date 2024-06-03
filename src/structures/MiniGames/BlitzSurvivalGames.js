@@ -48,6 +48,7 @@ const kits = [
 class BlitzSurvivalGames {
   /**
    * @param {object} data Blitz SG data
+   * @example
    */
   constructor(data) {
     /**
@@ -87,7 +88,7 @@ class BlitzSurvivalGames {
     this.kitStats = generateKitStats(data);
   }
 }
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function generateKitStats(data) {
   const stats = [];
   for (let i = 0; i < kits.length; i++) {

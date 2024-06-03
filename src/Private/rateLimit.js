@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable camelcase */
 const Errors = require('../Errors');
 
-/* eslint-disable require-jsdoc */
 class RateLimit {
   constructor() {
     this.initialized = 0;

@@ -1,5 +1,5 @@
 const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseHistory(historyData) {
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
@@ -17,13 +17,13 @@ function parseHistory(historyData) {
   }));
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseDate(date) {
   date[1] -= 1;
   return new Date(Math.round(new Date(new Date().setUTCFullYear(...date)).setUTCHours(5, 0, 0) / 1000) * 1000);
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getGuildLevel(exp) {
   const EXP_NEEDED = [
     100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000,

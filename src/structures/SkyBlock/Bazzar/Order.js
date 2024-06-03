@@ -4,6 +4,7 @@
 class Order {
   /**
    * @param {object} data Order data
+   * @example
    */
   constructor(data) {
     /**
@@ -30,6 +31,7 @@ class Order {
   /**
    * Price as string
    * @return {string}
+   * @example
    */
   toString() {
     return this.totalPrice;

@@ -7,6 +7,7 @@ class WoolWars {
   /**
    * Constructor
    * @param {Record<string,unknown>} data Data from API
+   * @example
    */
   constructor(data) {
     /**
@@ -64,6 +65,7 @@ class WoolWars {
    * Converts XP to Level
    * @param {number} exp xp
    * @return {number}
+   * @example
    */
   static convertXPToLevel(exp) {
     const minimalExp = [0, 1e3, 3e3, 6e3, 1e4, 15e3]; // NB: progression is 1k, 2k, 3k, 4k, 5k
@@ -80,6 +82,7 @@ class WoolWars {
    * @param {Record<string, unknwon>} data data
    * @param {string} [_class=''] Class
    * @return {WoolWarsStats}
+   * @example
    */
   static generateStatsFor(data, _class) {
     // N.B i called it _class instead of class because reserved keyword

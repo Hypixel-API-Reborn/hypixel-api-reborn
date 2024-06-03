@@ -1,5 +1,3 @@
-/* eslint-disable require-jsdoc */
-/* eslint-disable max-len */
 const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
 const Requests = require('./Private/requests');
@@ -15,6 +13,7 @@ class Client extends EventEmitter {
   /**
    * @param {string} key API key
    * @param {ClientOptions} [options={}] Client options
+   * @example
    */
   constructor(key, options = {}) {
     super();
@@ -30,7 +29,7 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
-    // eslint-disable-next-line guard-for-in
+
     for (const func in API) {
       Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
@@ -65,6 +64,7 @@ class Client extends EventEmitter {
    * @param {boolean} [useRateLimitManager=true] Use rate limit
    * @returns {Promise<Object>} Response
    * @private
+   * @example
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
@@ -82,7 +82,7 @@ class Client extends EventEmitter {
   }
   /**
    * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
-   * @event
+   * @event ready
    * @name Client#ready
    * @example
    * // This example gets player's uuid.
@@ -94,14 +94,14 @@ class Client extends EventEmitter {
    */
   /**
    * Emitted when a request is going to be sent
-   * @event
+   * @event outgoingRequest
    * @name Client#outgoingRequest
    * @param {string} url URL
    * @param {object} [options] Options, if any
    */
   /**
    * Emitted when there is a warning.
-   * @event
+   * @event warn
    * @name Client#warn
    * @param {string} error Warning Message
    */
@@ -404,6 +404,7 @@ class Client extends EventEmitter {
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}
+   * @example
    */
   sweepCache(amount) {
     return this.requests.sweepCache(amount);
@@ -424,6 +425,7 @@ class Client extends EventEmitter {
  * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  * @prop {boolean|string} [useThirdPartyAPI=false] Enable/Disable Mojang Third Party API
  */
+// eslint-disable-next-line no-unused-vars
 const defaultCache = require('./Private/defaultCache.js');
 /**
  * @typedef {defaultCache} Cache

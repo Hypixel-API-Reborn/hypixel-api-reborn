@@ -5,6 +5,7 @@ const GameChallenges = require('./GameChallenges.js');
 class Challenges {
   /**
    * @param {object} data data
+   * @example
    */
   constructor(data) {
     /**

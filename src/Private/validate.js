@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 const Errors = require('../Errors');
 const { isStrArray, strToArray } = require('../utils/arrayTools');
 /**
@@ -10,6 +9,7 @@ class Validation {
    * @param {Object} options Global Cache Options to be validated
    * @returns {void} Void
    * @private
+   * @example
    */
   validateOptions(options) {
     if (typeof options.hypixelCacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
@@ -33,6 +33,7 @@ class Validation {
    * @param {Object} options Options to be parsed
    * @returns {Object} Parsed cache options
    * @private
+   * @example
    */
   parseOptions(options) {
     if (typeof options !== 'object' || options === null) throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
@@ -58,6 +59,7 @@ class Validation {
    * @param {string} key API Key
    * @returns {string} Key
    * @private
+   * @example
    */
   validateKey(key) {
     if (!key) throw new Error(Errors.NO_API_KEY);
@@ -70,6 +72,7 @@ class Validation {
    * @param {Object} input Cache options
    * @returns {boolean} Whether options are valid
    * @private
+   * @example
    */
   cacheSuboptions(input) {
     if (typeof input !== 'object' || input === null) return false;
@@ -82,6 +85,7 @@ class Validation {
    * @param {*} filter FilterResolvable to be parsed
    * @returns {Function} Filter function
    * @private
+   * @example
    */
   _handleFilter(filter) {
     if (!filter) return () => true;
@@ -99,6 +103,7 @@ class Validation {
    * -12 will return an error; -14 will result in a warning
    * @returns {void}
    * @private
+   * @example
    */
   validateNodeVersion() {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);

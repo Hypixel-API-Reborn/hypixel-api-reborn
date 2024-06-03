@@ -5,6 +5,7 @@ const { games } = require('../utils/Constants');
 class Game {
   /**
    * @param {GameId|GameCode} game Game ID or Game Code
+   * @example
    */
   constructor(game) {
     /**
@@ -40,6 +41,7 @@ class Game {
   /**
    * Returns regular game name
    * @return {GameString}
+   * @example
    */
   toString() {
     return this.name;

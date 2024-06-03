@@ -5,6 +5,7 @@ const Game = require('../Game');
 class Booster {
   /**
    * @param {object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -68,13 +69,14 @@ class Booster {
   /**
    * Beautiful format
    * @return {string}
+   * @example
    */
   toString() {
     return `${this.purchaser}'s booster in ${this.game}`;
   }
 }
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function parseType(data) {
   if (data.stacked === true) return 'STACKED';
   if (!data.stacked) return 'QUEUED';
