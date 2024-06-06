@@ -1,3 +1,9 @@
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parsePosition(position) {
+  const x = (position % 5) + 1;
+  const y = Math.floor(position / 5) + 1;
+  return [x, y];
+}
 /**
  * Bingo class
  */
@@ -82,9 +88,9 @@ class Bingo {
    * @example
    */
   getTierStep() {
-    if (this.type !== 'TIERED') return null;
+    if ('TIERED' !== this.type) return null;
     // No step possible
-    if (this.tiers.length < 2) return null;
+    if (2 > this.tiers.length) return null;
     const hypotheticStep = this.tiers[1] - this.tiers[0];
     // Check if every 2 elements have the same step
     const isConstant = this.tiers.slice(1).every((el, index) => {
@@ -93,13 +99,6 @@ class Bingo {
     if (!isConstant) return null;
     return hypotheticStep;
   }
-}
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-function parsePosition(position) {
-  const x = (position % 5) + 1;
-  const y = Math.floor(position / 5) + 1;
-  return [x, y];
 }
 
 module.exports = Bingo;

@@ -1,9 +1,12 @@
-const single = (obj) =>
+const single = (obj) => {
   Object.keys(obj).reduce((pV, cV) => ({ ...pV, [cV.replace(/_[a-z]/gi, (x) => x[1].toUpperCase())]: obj[cV] }), {});
+};
+
 // eslint-disable-next-line jsdoc/require-jsdoc
 function validateJSON(obj) {
-  return typeof obj === 'object' && JSON.stringify(obj)[0] === '{';
+  return 'object' === typeof obj && '{' === JSON.stringify(obj)[0];
 }
+
 // eslint-disable-next-line jsdoc/require-jsdoc
 function recursive(obj, lowerCase = false) {
   if (!validateJSON(obj)) return obj;
@@ -15,11 +18,13 @@ function recursive(obj, lowerCase = false) {
     {}
   );
 }
+
 // eslint-disable-next-line jsdoc/require-jsdoc
 function removeSnakeCaseString(str) {
-  if (typeof str !== 'string') return null;
+  if ('string' !== typeof str) return null;
   return str.toLowerCase().replace(/_[a-z]/gi, (x) => x[1].toUpperCase());
 }
+
 module.exports = {
   single,
   recursive,

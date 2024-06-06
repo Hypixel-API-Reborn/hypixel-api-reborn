@@ -1,4 +1,4 @@
-const { pet_score } = require('../../utils/Constants');
+const { petScore } = require('../../utils/Constants');
 /**
  * Skyblock Pet class
  */
@@ -39,7 +39,7 @@ class SkyblockPet {
      * @type {number}
      */
 
-    this.petScore = pet_score[data.tier] || 0;
+    this.petScore = petScore[data.tier] || 0;
     /**
      * Skyblock Pet held item
      * @type {string|null}

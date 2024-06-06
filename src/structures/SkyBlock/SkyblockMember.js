@@ -1,14 +1,22 @@
 const {
-  decode,
-  getLevelByXp,
-  getSlayerLevel,
+  getTrophyFishRank,
   getMemberStats,
-  getTrophyFishRank
+  getLevelByXp,
+  decode,
+  getSkills,
+  getBestiaryLevel,
+  getSlayer,
+  getDungeons,
+  getJacobData,
+  getChocolateFactory,
+  getPetLevel
 } = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const Constants = require('../../utils/Constants');
 const skyhelper = require('skyhelper-networth');
 const SkyblockPet = require('./SkyblockPet');
+const Player = require('../Player');
+
 /**
  * Skyblock member class
  */
@@ -167,7 +175,7 @@ class SkyblockMember {
     };
     /**
      * Wardrobe contents
-     * @return {Promise<SkyblockMemberItem[]>}
+     * @return {Promise<SkyblockInventoryItem[]>}
      * @example
      */
     this.getWardrobe = async () => {
@@ -175,7 +183,7 @@ class SkyblockMember {
       if (!base64) return [];
       const decoded = await decode(base64);
       const armor = decoded
-        .filter((item) => Object.keys(item).length !== 0)
+        .filter((item) => 0 !== Object.keys(item).length)
         .map((item) => new SkyblockInventoryItem(item));
       return armor;
     };
@@ -233,14 +241,14 @@ class SkyblockMember {
     this.getPetScore = () => {
       const highestRarity = {};
       for (const pet of data.m.pets_data.pets) {
-        if (!(pet.type in highestRarity) || Constants.pet_score[pet.tier] > highestRarity[pet.type]) {
-          highestRarity[pet.type] = Constants.pet_score[pet.tier];
+        if (!(pet.type in highestRarity) || Constants.petScore[pet.tier] > highestRarity[pet.type]) {
+          highestRarity[pet.type] = Constants.petScore[pet.tier];
         }
       }
 
       const highestLevel = {};
       for (const pet of data.m.pets_data.pets) {
-        const maxLevel = pet.type === 'GOLDEN_DRAGON' ? 200 : 100;
+        const maxLevel = 'GOLDEN_DRAGON' === pet.type ? 200 : 100;
         const petLevel = getPetLevel(pet.exp, pet.tier, maxLevel);
 
         if (!(pet.type in highestLevel) || petLevel.level > highestLevel[pet.type]) {
@@ -328,275 +336,6 @@ class SkyblockMember {
   toString() {
     return this.uuid;
   }
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getSkills(data) {
-  const skillsObject = {};
-  skillsObject['combat'] = getLevelByXp(data?.player_data?.experience?.SKILL_COMBAT ?? 0, 'combat');
-  skillsObject['farming'] = getLevelByXp(
-    data?.player_data?.experience?.SKILL_FARMING ?? 0,
-    'farming',
-    data?.m?.jacobs_contest?.perks?.farming_level_cap ?? 0 + 50
-  );
-  skillsObject['fishing'] = getLevelByXp(data?.player_data?.experience?.SKILL_FISHING ?? 0, 'fishing');
-  skillsObject['mining'] = getLevelByXp(data?.player_data?.experience?.SKILL_MINING ?? 0, 'mining');
-  skillsObject['foraging'] = getLevelByXp(data?.player_data?.experience?.SKILL_FORAGING ?? 0, 'foraging');
-  skillsObject['enchanting'] = getLevelByXp(data?.player_data?.experience?.SKILL_ENCHANTING ?? 0, 'enchanting');
-  skillsObject['alchemy'] = getLevelByXp(data?.player_data?.experience?.SKILL_ALCHEMY ?? 0, 'alchemy');
-  skillsObject['carpentry'] = getLevelByXp(data?.player_data?.experience?.SKILL_CARPENTRY ?? 0, 'carpentry');
-  skillsObject['runecrafting'] = getLevelByXp(data?.player_data?.experience?.SKILL_RUNECRAFTING ?? 0, 'runecrafting');
-  skillsObject['taming'] = getLevelByXp(data?.player_data?.experience?.SKILL_TAMING ?? 0, 'taming');
-  skillsObject['social'] = getLevelByXp(data?.player_data?.experience?.SKILL_SOCIAL ?? 0, 'social');
-  const levels = Object.values(skillsObject)
-    .filter((skill) => skill.cosmetic !== true)
-    .map((skill) => skill.level);
-  skillsObject['average'] = levels.reduce((a, b) => a + b, 0) / levels.length;
-  return skillsObject;
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function formatBestiaryMobs(userProfile, mobs) {
-  const output = [];
-  for (const mob of mobs) {
-    const mobBracket = Constants.bestiaryBrackets[mob.bracket];
-
-    const totalKills = mob.mobs.reduce((acc, cur) => {
-      return acc + (userProfile.bestiary.kills[cur] ?? 0);
-    }, 0);
-
-    const maxKills = mob.cap;
-    const nextTierKills = mobBracket.find((tier) => totalKills < tier && tier <= maxKills);
-    const tier = nextTierKills ? mobBracket.indexOf(nextTierKills) : mobBracket.indexOf(maxKills) + 1;
-
-    output.push({
-      tier: tier
-    });
-  }
-
-  return output;
-}
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getBestiaryLevel(userProfile) {
-  try {
-    if (userProfile.bestiary?.kills === undefined) {
-      return null;
-    }
-
-    const output = {};
-    let tiersUnlocked = 0;
-    for (const [category, data] of Object.entries(Constants.bestiary)) {
-      const { mobs } = data;
-      output[category] = {};
-
-      if (category === 'fishing') {
-        for (const [key, value] of Object.entries(data)) {
-          output[category][key] = {
-            mobs: formatBestiaryMobs(userProfile, value.mobs)
-          };
-          tiersUnlocked += output[category][key].mobs.reduce((acc, cur) => acc + cur.tier, 0);
-        }
-      } else {
-        output[category].mobs = formatBestiaryMobs(userProfile, mobs);
-        tiersUnlocked += output[category].mobs.reduce((acc, cur) => acc + cur.tier, 0);
-      }
-    }
-
-    return tiersUnlocked / 10;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-    return null;
-  }
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getSlayer(data) {
-  if (!data?.slayer?.slayer_bosses) return;
-  return {
-    zombie: getSlayerLevel(data?.slayer?.slayer_bosses?.zombie),
-    spider: getSlayerLevel(data?.slayer?.slayer_bosses?.spider),
-    wolf: getSlayerLevel(data?.slayer?.slayer_bosses?.wolf),
-    enderman: getSlayerLevel(data?.slayer?.slayer_bosses?.enderman),
-    blaze: getSlayerLevel(data?.slayer?.slayer_bosses?.blaze),
-    vampire: getSlayerLevel(data?.slayer?.slayer_bosses?.vampire)
-  };
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getDungeons(data) {
-  return {
-    types: {
-      catacombs: getLevelByXp(
-        data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null,
-        'dungeons'
-      )
-    },
-    classes: {
-      healer: getLevelByXp(
-        data.dungeons?.player_classes?.healer ? data.dungeons.player_classes.healer.experience : null,
-        'dungeons'
-      ),
-      mage: getLevelByXp(
-        data.dungeons?.player_classes?.mage ? data.dungeons.player_classes.mage.experience : null,
-        'dungeons'
-      ),
-      berserk: getLevelByXp(
-        data.dungeons?.player_classes?.berserk ? data.dungeons.player_classes.berserk.experience : null,
-        'dungeons'
-      ),
-      archer: getLevelByXp(
-        data.dungeons?.player_classes?.archer ? data.dungeons.player_classes.archer.experience : null,
-        'dungeons'
-      ),
-      tank: getLevelByXp(
-        data.dungeons?.player_classes?.tank ? data.dungeons.player_classes.tank.experience : null,
-        'dungeons'
-      )
-    }
-  };
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getJacobData(data) {
-  if (!data.jacobs_contest) {
-    return {
-      medals: {
-        bronze: 0,
-        silver: 0,
-        gold: 0
-      },
-      perks: {
-        doubleDrops: 0,
-        farmingLevelCap: 0,
-        personalBests: false
-      },
-      contests: {}
-    };
-  }
-  return {
-    medals: data.jacobs_contest.medals_inv
-      ? {
-          bronze: data.jacobs_contest.medals_inv.bronze || 0,
-          silver: data.jacobs_contest.medals_inv.silver || 0,
-          gold: data.jacobs_contest.medals_inv.gold || 0
-        }
-      : { bronze: 0, silver: 0, gold: 0 },
-    perks: data.jacobs_contest.perks
-      ? {
-          doubleDrops: data.jacobs_contest.perks.double_drops || 0,
-          farmingLevelCap: data.jacobs_contest.perks.farming_level_cap || 0,
-          personalBests: data.jacobs_contest.perks.personal_bests || false
-        }
-      : { doubleDrops: 0, farmingLevelCap: 0, personalBests: false },
-    contests: data.jacobs_contest.contests || {}
-  };
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getChocolateFactory(data) {
-  if (!data.events.easter) {
-    return {
-      employees: {
-        bro: 0,
-        cousin: 0,
-        sis: 0,
-        father: 0,
-        grandma: 0,
-        dog: 0,
-        uncle: 0
-      },
-      chocolate: {
-        current: 0,
-        total: 0,
-        sincePrestige: 0
-      },
-      timeTower: {
-        charges: 0,
-        level: 0
-      },
-      upgrades: {
-        click: 0,
-        multiplier: 0,
-        rabbitRarity: 0
-      },
-      goldenClick: {
-        amount: 0,
-        year: 0
-      },
-      barnCapacity: 0,
-      prestige: 0
-    };
-  }
-  return {
-    employees: {
-      bro: data.events.easter.employees.rabbit_bro || 0,
-      cousin: data.events.easter.employees.rabbit_cousin || 0,
-      sis: data.events.easter.employees.rabbit_sis || 0,
-      father: data.events.easter.employees.rabbit_father || 0,
-      grandma: data.events.easter.employees.rabbit_grandma || 0,
-      dog: data.events.easter.employees.rabbit_dog || 0,
-      uncle: data.events.easter.employees.rabbit_uncle || 0
-    },
-    chocolate: {
-      current: data.events.easter.chocolate || 0,
-      total: data.events.easter.total_chocolate || 0,
-      sincePrestige: data.events.easter.chocolate_since_prestige || 0
-    },
-    timeTower: {
-      charges: data.events.easter.time_tower.charges || 0,
-      level: data.events.easter.time_tower.level || 0
-    },
-    upgrades: {
-      click: data.events.easter.click_upgrades || 0,
-      multiplier: data.events.easter.chocolate_multiplier_upgrades || 0,
-      rabbitRarity: data.events.easter.rabbit_rarity_upgrades || 0
-    },
-    goldenClick: {
-      amount: data.events.easter.golden_click_amount || 0,
-      year: data.events.easter.golden_click_year || 0
-    },
-    barnCapacity: data.events.easter.rabbit_barn_capacity_level || 0,
-    prestige: data.events.easter.chocolate_level || 0
-  };
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function getPetLevel(petExp, offsetRarity, maxLevel) {
-  const rarityOffset = Constants.pet_rarity_offset[offsetRarity];
-  const levels = Constants.pet_levels.slice(rarityOffset, rarityOffset + maxLevel - 1);
-
-  const xpMaxLevel = levels.reduce((a, b) => a + b, 0);
-  let xpTotal = 0;
-  let level = 1;
-
-  let xpForNext = Infinity;
-
-  for (let i = 0; i < maxLevel; i++) {
-    xpTotal += levels[i];
-
-    if (xpTotal > petExp) {
-      xpTotal -= levels[i];
-      break;
-    } else {
-      level++;
-    }
-  }
-
-  let xpCurrent = Math.floor(petExp - xpTotal);
-  let progress;
-
-  if (level < maxLevel) {
-    xpForNext = Math.ceil(levels[level - 1]);
-    progress = Math.max(0, Math.min(xpCurrent / xpForNext, 1));
-  } else {
-    level = maxLevel;
-    xpCurrent = petExp - levels[maxLevel - 1];
-    xpForNext = 0;
-    progress = 1;
-  }
-
-  return {
-    level,
-    xpCurrent,
-    xpForNext,
-    progress,
-    xpMaxLevel
-  };
 }
 /**
  * @typedef {object} SkyblockMemberEquipment

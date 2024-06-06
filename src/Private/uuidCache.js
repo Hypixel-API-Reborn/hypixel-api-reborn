@@ -11,7 +11,7 @@ module.exports = async (url, query, cacheTime) => {
   const res = await fetch(url);
   const data = await res.json();
   // Don't cache 4xx
-  if (res.status >= 400) {
+  if (400 <= res.status) {
     return {
       status: res.status,
       id: null,

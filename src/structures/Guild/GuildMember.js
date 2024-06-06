@@ -1,4 +1,4 @@
-const { parseHistory } = require('../../utils/guildExp');
+const { parseHistory } = require('../../utils/Guild');
 /**
  * GuildMember class
  */
@@ -43,7 +43,7 @@ class GuildMember {
      * @type {Date|null}
      */
     this.mutedUntil = data.mutedTill ? new Date(data.mutedTill) : null;
-    const xpCheck = data.expHistory && typeof Object.values(data.expHistory)[0] === 'number';
+    const xpCheck = data.expHistory && 'number' === typeof Object.values(data.expHistory)[0];
     /**
      * Experience history per day, resets at 5 am UTC
      * @type {Array<ExpHistory>}

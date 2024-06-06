@@ -27,14 +27,14 @@ class Quest {
      * Type of quest
      * @type {'DAILY'|'WEEKLY'}
      */
-    this.type = data.requirements?.[0].type === 'DailyResetQuestRequirement' ? 'DAILY' : 'WEEKLY';
+    this.type = 'DailyResetQuestRequirement' === data.requirements?.[0].type ? 'DAILY' : 'WEEKLY';
     /**
      * Objectives
      * @type {Objective[]}
      */
     this.objectives = data.objectives.map((objective) => ({
       id: objective.id,
-      type: objective.type === 'IntegerObjective' ? 'Integer' : 'Boolean',
+      type: 'IntegerObjective' === objective.type ? 'Integer' : 'Boolean',
       amountNeeded: parseInt(objective.integer || '1', 10)
     }));
     /**

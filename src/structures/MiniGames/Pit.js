@@ -31,7 +31,7 @@ class Pit {
      * @type {number}
      */
     this.level =
-      Pit.calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ??
+      Pit.calcLevel(this.prestige, 0 < this.prestige ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ??
       0;
     /**
      * Kills
@@ -226,7 +226,7 @@ class Pit {
   static calcLevel(prestige, xp) {
     const multiplier = Prestiges[prestige].Multiplier;
     let level = 0;
-    while (xp > 0 && level < 120) {
+    while (0 < xp && 120 > level) {
       const levelXp = Levels[Math.floor(level / 10)].Xp * multiplier;
       if (xp >= levelXp * 10) {
         xp -= levelXp * 10;
@@ -234,7 +234,6 @@ class Pit {
       } else {
         const gain = Math.floor(xp / levelXp);
         level += gain;
-        xp -= gain * levelXp;
         xp = 0;
       }
     }

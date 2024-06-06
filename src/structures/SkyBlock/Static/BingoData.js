@@ -39,7 +39,7 @@ class BingoData {
    * @example
    */
   getGoal(column, row) {
-    if (!this.goals || this.goals.length < 1) return;
+    if (!this.goals || 1 > this.goals.length) return;
     return this.goals.find((goal) => goal.row === row && goal.column === column);
   }
 }

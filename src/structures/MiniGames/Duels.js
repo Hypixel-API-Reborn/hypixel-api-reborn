@@ -1,11 +1,10 @@
-const divide = require('../../utils/divide');
+const { duelsDivisions } = require('../../utils/Constants');
 const romanize = require('../../utils/romanize');
-
-const { duels_divisions } = require('../../utils/Constants');
+const divide = require('../../utils/divide');
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 function getDivision(data, mode = null) {
-  for (const div of duels_divisions.slice().reverse()) {
+  for (const div of duelsDivisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
     if (prestige) {
       return `${div.name} ${romanize(prestige)}`;
@@ -13,14 +12,15 @@ function getDivision(data, mode = null) {
   }
   return null;
 }
+
 // eslint-disable-next-line jsdoc/require-jsdoc
 function getTotalKillsDeaths(data) {
   let totalDeaths = 0;
   let totalKills = 0;
   for (const [k, v] of Object.entries(data)) {
-    if (k.includes('deaths') && k !== 'deaths') {
+    if (k.includes('deaths') && 'deaths' !== k) {
       totalDeaths += v;
-    } else if (k.includes('kills') && k !== 'kills') {
+    } else if (k.includes('kills') && 'kills' !== k) {
       totalKills += v;
     }
   }

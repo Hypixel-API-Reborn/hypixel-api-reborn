@@ -16,8 +16,8 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint": "npx eslint  --cache src/",
-    "lint:fix": "npx eslint  --cache src/ --fix",
+    "lint": "npx eslint --cache src/",
+    "lint:fix": "npx eslint --cache src/ --fix",
     "tests": "npx mocha tests --exit --recursive",
     "docgen": " npx docgen -s src/ --custom docs/index.yml -o ./master.json",
     "prettier": "npx prettier --cache --write src/ typings/",

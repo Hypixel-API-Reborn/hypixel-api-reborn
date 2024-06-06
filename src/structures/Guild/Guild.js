@@ -1,8 +1,8 @@
+const { getGuildLevel, ranks, members, totalWeeklyGexp, calculateExpHistory } = require('../../utils/Guild');
 const GuildMember = require('./GuildMember');
 const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
-const { getGuildLevel, parseHistory } = require('../../utils/guildExp');
 /**
  * Guild class
  */
@@ -17,6 +17,8 @@ class Guild {
      * Guild ID
      * @type {string}
      */
+
+    // eslint-disable-next-line no-underscore-dangle
     this.id = data._id;
     /**
      * Guild name
@@ -109,7 +111,7 @@ class Guild {
      * Whether this guild is listed in the Guild Finder
      * @type {boolean}
      */
-    this.publiclyListed = !!data.publiclyListed;
+    this.publiclyListed = Boolean(data.publiclyListed);
     /**
      * Timestamp guild chat will be unmuted at.
      * @type {number|null}
@@ -174,40 +176,8 @@ class Guild {
    * @type {GuildMember}
    */
   get guildMaster() {
-    return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
+    return this.members.find((member) => 'Guild Master' === member.rank || 'GUILDMASTER' === member.rank);
   }
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function members(data) {
-  return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function ranks(data) {
-  return data.ranks && data.ranks.length
-    ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority)
-    : [];
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function totalWeeklyGexp(data) {
-  return members(data)
-    .map((m) => m.weeklyExperience)
-    .reduce((acc, cur) => acc + cur);
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function calculateExpHistory(data) {
-  const finalObj = {};
-  for (const day of Object.keys(data.members[0].expHistory)) {
-    let gexp = 0;
-    for (const member of data.members) {
-      gexp += member.expHistory[day] || 0;
-    }
-    finalObj[day] = expLimit(gexp);
-  }
-  return parseHistory(finalObj);
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function expLimit(exp) {
-  return exp > 2e5 ? (exp > 7e5 ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
 }
 
 module.exports = Guild;

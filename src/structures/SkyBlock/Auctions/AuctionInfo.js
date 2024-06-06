@@ -36,6 +36,8 @@ class AuctionInfo {
      * Age
      * @type {number}
      */
+
+    // eslint-disable-next-line no-underscore-dangle
     this.age = parseInt(data._headers.get('age'), 10) || 0;
   }
 

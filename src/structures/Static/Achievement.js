@@ -1,5 +1,17 @@
 const AchievementTier = require('./AchievementTier');
 
+// eslint-disable-next-line jsdoc/require-jsdoc
+function collectAll(data) {
+  const mTier = data.maxTier;
+  let totalPoints = 0;
+  let totalAmount = 0;
+  for (let i = 1; i <= mTier; i++) {
+    totalPoints += data.getTier(i).pointsRewarded;
+    totalAmount += data.getTier(i).amountRequired;
+  }
+  return { totalPoints, totalAmount };
+}
+
 /**
  * Achievement Class
  */
@@ -49,20 +61,20 @@ class Achievement {
      * ONLY AVAILABLE FOR TIERED
      * @type {AchievementTier|null}
      */
-    this.tierInformation = this.type === 'TIERED' ? new AchievementTier(data.tiers) : null;
+    this.tierInformation = 'TIERED' === this.type ? new AchievementTier(data.tiers) : null;
 
-    const { totalPoints, totalAmount } = this.type === 'TIERED' ? collectAll(this.tierInformation) : {};
+    const { totalPoints, totalAmount } = 'TIERED' === this.type ? collectAll(this.tierInformation) : {};
     /**
      * Total points worth (sum of all tiers if tiered)
      * This is always 0 for Guild Achievements
      * @type {number}
      */
-    this.points = this.type === 'ONE_TIME' ? parseInt(data.points, 10) : totalPoints;
+    this.points = 'ONE_TIME' === this.type ? parseInt(data.points, 10) : totalPoints;
     /**
      * Total amount required to reach max tier, only for tiered
      * @type {number|null}
      */
-    this.totalAmountRequired = this.type === 'TIERED' ? totalAmount : null;
+    this.totalAmountRequired = 'TIERED' === this.type ? totalAmount : null;
   }
   /**
    * As string
@@ -74,15 +86,4 @@ class Achievement {
   }
 }
 
-// eslint-disable-next-line jsdoc/require-jsdoc
-function collectAll(data) {
-  const mTier = data.maxTier;
-  let totalPoints = 0;
-  let totalAmount = 0;
-  for (let i = 1; i <= mTier; i++) {
-    totalPoints += data.getTier(i).pointsRewarded;
-    totalAmount += data.getTier(i).amountRequired;
-  }
-  return { totalPoints, totalAmount };
-}
 module.exports = Achievement;

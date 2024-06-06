@@ -1,179 +1,16 @@
 // IMPORTANT : a lot of the properties from the API seem to be nonsense
 
-const divide = require('../../utils/divide');
-const { weekAB, monthAB } = require('../../utils/oscillation');
 const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
+const { weekAB, monthAB } = require('../../utils/oscillation');
+const divide = require('../../utils/divide');
 
-/**
- * Arcade class
- */
-class Arcade {
-  /**
-   * Constructor
-   * @param {Object} data Data from the API
-   * @example
-   */
-  constructor(data = {}) {
-    /**
-     * Amount of coins
-     * @type {number}
-     */
-    this.coins = data.coins || 0;
-    /**
-     * Weekly coins
-     * @type {number}
-     */
-    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0, 10);
-    /**
-     * Monthly coins
-     * @type {number}
-     */
-    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0, 10);
-    /**
-     * Hints Disabled
-     * @type {boolean}
-     */
-    this.hintsDisabled = !data.hints;
-    /**
-     * Flash Disabled
-     * @type {boolean}
-     */
-    this.flashDisabled = !data.flash;
-    /**
-     * Draw their thing stats
-     * @type {BaseGame}
-     */
-    this.drawTheirThing = new BaseGame(data, 'draw_their_thing');
-    /**
-     * Dragon wars "2" stats
-     * @type {BaseGame}
-     */
-    this.dragonWars = new BaseGame(data, 'dragonwars2');
-    /**
-     * Easter Simulator stats
-     * @type {EasterSimulator}
-     */
-    this.easterSimulator = new BaseGame(data, 'easter_simulator').extend(
-      'eggsFound',
-      data.eggs_found_easter_simulator || 0
-    );
-    /**
-     * Grinch Simulator stats
-     * @type {GrinchSimulator}
-     */
-    this.grinchSimulator = new BaseGame(data, 'grinch_simulator_v2').extend(
-      'giftsFound',
-      data.gifts_grinch_simulator_v2 || 0
-    );
-    /**
-     * Scuba Simulator stats
-     * @type {ScubaSimulator}
-     */
-    this.scubaSimulator = new BaseGame(data, 'scuba_simulator').extend(
-      'itemsFound',
-      data.items_found_scuba_simulator || 0
-    );
-    /**
-     * Santa Simulator stats
-     * @type {SantaSimulator}
-     */
-    this.santaSimulator = new BaseGame(data, 'santa_simulator').extend(
-      'giftsDelivered',
-      data.delivered_santa_simulator || 0
-    );
-    /**
-     * Santa Says stats
-     * @type {BaseGame}
-     */
-    this.santaSays = new BaseGame(data, 'santa_says');
-    /**
-     * Simon Says stats
-     * @type {BaseGame}
-     */
-    this.simonSays = new BaseGame(data, 'simon_says');
-    /**
-     * Farm Hunt stats
-     * @type {BaseGame}
-     */
-    this.farmHunt = new BaseGame(data, 'farm_hunt');
-    /**
-     * Hole in the Wall stats
-     * @type {HITW}
-     */
-    this.holeInTheWall = new HITW(data, 'hole_in_the_wall');
-    /**
-     * Mini Walls stats
-     * @type {MiniWalls}
-     */
-    this.miniWalls = new MiniWalls(data); // needs extension
-    /**
-     * Party games (1) stats
-     * @type {BaseGame}
-     */
-    this.partyGames = new BaseGame(data, 'party');
-    /**
-     * Party Games 2 stats ( legacy )
-     * @type {BaseGame}
-     * @deprecated
-     */
-    this.partyGames2 = new BaseGame(data, 'party_2');
-    /**
-     * Party Games 3 stats ( legacy )
-     * @type {BaseGame}
-     * @deprecated
-     */
-    this.partyGames3 = new BaseGame(data, 'party_3');
-    /**
-     * Throw out stats
-     * @type {BaseGame}
-     */
-    this.throwOut = new BaseGame(data, 'throw_out');
-    /**
-     * Soccer stats
-     * @type {Soccer}
-     */
-    this.soccer = new Soccer(data);
-    /**
-     * Hypixel Sports stats
-     * @type {BaseGame}
-     * @deprecated
-     */
-    this.hypixelSports = new BaseGame(data, 'hypixel_sports');
-    /**
-     * Ender Spleef stats
-     * @type {BaseGame}
-     */
-    this.enderSpleef = new BaseGame(data, 'ender');
-    /**
-     * Blocking dead ( previously known as DayOne ) stats
-     * @type {BlockingDead}
-     */
-    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone || 0);
-    /**
-     * Galaxy Wars stats
-     * @type {GalaxyWars}
-     */
-    this.galaxyWars = new GalaxyWars(data);
-    // Lenient parsing
-    /**
-     * OITQ / One In The Quiver stats
-     * @type {OITQ}
-     */
-    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend(
-      'bountyKills',
-      data.bounty_kills_oneinthequiver || 0
-    );
-    /**
-     * Zombies
-     * @type {Zombies}
-     */
-    this.zombies = new Zombies(data);
-    /**
-     * Capture The Wool
-     * @type {{kills: number, captures: number}}
-     */
-    this.captureTheWool = { kills: data.arcade_ctw_slayer || 0, captures: data.arcade_ctw_oh_sheep || 0 };
-  }
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parseZombiesKills(data) {
+  const matches = Array.from(Object.keys(data))
+    .map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/))
+    .filter((x) => x);
+  // From entries might be broken
+  return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
 }
 /**
  * Most basic game class, used by all arcade games
@@ -373,101 +210,6 @@ class MiniWalls extends BaseGame {
   }
 }
 /**
- * Zombies - Overall stats
- */
-class Zombies {
-  /**
-   * Constructor
-   * @param {Object} data Data from API
-   * @example
-   */
-  constructor(data) {
-    /**
-     * Overall Stats
-     * @type {ZombiesStats}
-     */
-    this.overall = new ZombiesStats(data);
-    /**
-     * Stats for Dead End
-     * @type {ZombieMap}
-     */
-    this.deadEnd = new ZombieMap(data, 'deadend');
-    /**
-     * Stats for Bad Blood
-     * @type {ZombieMap}
-     */
-    this.badBlood = new ZombieMap(data, 'badblood');
-    /**
-     * Stats for Alien Arcadium
-     * @type {ZombieMap}
-     */
-    this.alienArcadium = new ZombieMap(data, 'alienarcadium');
-    /**
-     * Kills By Zombie
-     * @type {Record<string,number>}
-     */
-    this.killsByZombie = parseZombiesKills(data);
-    /**
-     * Bullets Hit
-     * @type {number}
-     */
-    this.bulletsHit = data.bullets_hit_zombies || 0;
-    /**
-     * Bullets Shot
-     * @type {number}
-     */
-    this.bulletsShot = data.bullets_shot_zombies || 0;
-    /**
-     * Gun Accuracy
-     * @type {number}
-     */
-    this.gunAccuracy = divide(this.bulletsHit, this.bulletsShot);
-    /**
-     * Headshots
-     * @type {number}
-     */
-    this.headshots = data.headshots_zombies || 0;
-    /**
-     * Headshot Accuracy
-     * @type {number}
-     */
-    this.headshotAccuracy = divide(this.headshots, this.bulletsShot);
-  }
-}
-/**
- * Zombie stats by map
- */
-class ZombieMap {
-  /**
-   * Constructor
-   * @param {Object} data Data from API
-   * @param {string} mapName String map name
-   * @example
-   */
-  constructor(data, mapName) {
-    /**
-     * Normal mode
-     * @type {ZombiesStats}
-     */
-    this.normal = new ZombiesStats(data, `${mapName}_normal`);
-    /**
-     * Hard mode ( parties only )
-     * @type {ZombiesStats}
-     */
-    this.hard = new ZombiesStats(data, `${mapName}_hard`);
-    /**
-     * RIP mode ( parties only )
-     * @type {ZombiesStats}
-     */
-    this.rip = new ZombiesStats(data, `${mapName}_rip`);
-    /**
-     * Overall ( 3 modes combined )
-     * @type {ZombiesStats}
-     */
-    this.overall = new ZombiesStats(data, mapName);
-  }
-}
-/**
  * Zombies - Stats by Map + Difficulty
  */
 class ZombiesStats {
@@ -541,13 +283,273 @@ class ZombiesStats {
     this.zombieKills = data[`zombie_kills_zombies${type}`] || 0;
   }
 }
-// eslint-disable-next-line jsdoc/require-jsdoc
-function parseZombiesKills(data) {
-  const matches = Array.from(Object.keys(data))
-    .map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/))
-    .filter((x) => x);
-  // From entries might be broken
-  return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
+/**
+ * Zombie stats by map
+ */
+class ZombieMap {
+  /**
+   * Constructor
+   * @param {Object} data Data from API
+   * @param {string} mapName String map name
+   * @example
+   */
+  constructor(data, mapName) {
+    /**
+     * Normal mode
+     * @type {ZombiesStats}
+     */
+    this.normal = new ZombiesStats(data, `${mapName}_normal`);
+    /**
+     * Hard mode ( parties only )
+     * @type {ZombiesStats}
+     */
+    this.hard = new ZombiesStats(data, `${mapName}_hard`);
+    /**
+     * RIP mode ( parties only )
+     * @type {ZombiesStats}
+     */
+    this.rip = new ZombiesStats(data, `${mapName}_rip`);
+    /**
+     * Overall ( 3 modes combined )
+     * @type {ZombiesStats}
+     */
+    this.overall = new ZombiesStats(data, mapName);
+  }
+}
+/**
+ * Zombies - Overall stats
+ */
+class Zombies {
+  /**
+   * Constructor
+   * @param {Object} data Data from API
+   * @example
+   */
+  constructor(data) {
+    /**
+     * Overall Stats
+     * @type {ZombiesStats}
+     */
+    this.overall = new ZombiesStats(data);
+    /**
+     * Stats for Dead End
+     * @type {ZombieMap}
+     */
+    this.deadEnd = new ZombieMap(data, 'deadend');
+    /**
+     * Stats for Bad Blood
+     * @type {ZombieMap}
+     */
+    this.badBlood = new ZombieMap(data, 'badblood');
+    /**
+     * Stats for Alien Arcadium
+     * @type {ZombieMap}
+     */
+    this.alienArcadium = new ZombieMap(data, 'alienarcadium');
+    /**
+     * Kills By Zombie
+     * @type {Record<string,number>}
+     */
+    this.killsByZombie = parseZombiesKills(data);
+    /**
+     * Bullets Hit
+     * @type {number}
+     */
+    this.bulletsHit = data.bullets_hit_zombies || 0;
+    /**
+     * Bullets Shot
+     * @type {number}
+     */
+    this.bulletsShot = data.bullets_shot_zombies || 0;
+    /**
+     * Gun Accuracy
+     * @type {number}
+     */
+    this.gunAccuracy = divide(this.bulletsHit, this.bulletsShot);
+    /**
+     * Headshots
+     * @type {number}
+     */
+    this.headshots = data.headshots_zombies || 0;
+    /**
+     * Headshot Accuracy
+     * @type {number}
+     */
+    this.headshotAccuracy = divide(this.headshots, this.bulletsShot);
+  }
+}
+
+/**
+ * Arcade class
+ */
+class Arcade {
+  /**
+   * Constructor
+   * @param {Object} data Data from the API
+   * @example
+   */
+  constructor(data = {}) {
+    /**
+     * Amount of coins
+     * @type {number}
+     */
+    this.coins = data.coins || 0;
+    /**
+     * Weekly coins
+     * @type {number}
+     */
+    this.weeklyCoins = parseInt(data[`weekly_coins_${weekAB()}`] || 0, 10);
+    /**
+     * Monthly coins
+     * @type {number}
+     */
+    this.monthlyCoins = parseInt(data[`monthly_coins_${monthAB()}`] || 0, 10);
+    /**
+     * Hints Disabled
+     * @type {boolean}
+     */
+    this.hintsDisabled = !data.hints;
+    /**
+     * Flash Disabled
+     * @type {boolean}
+     */
+    this.flashDisabled = !data.flash;
+    /**
+     * Draw their thing stats
+     * @type {BaseGame}
+     */
+    this.drawTheirThing = new BaseGame(data, 'draw_their_thing');
+    /**
+     * Dragon wars "2" stats
+     * @type {BaseGame}
+     */
+    this.dragonWars = new BaseGame(data, 'dragonwars2');
+    /**
+     * Easter Simulator stats
+     * @type {EasterSimulator}
+     */
+    this.easterSimulator = new BaseGame(data, 'easter_simulator').extend(
+      'eggsFound',
+      data.eggs_found_easter_simulator || 0
+    );
+    /**
+     * Grinch Simulator stats
+     * @type {GrinchSimulator}
+     */
+    this.grinchSimulator = new BaseGame(data, 'grinch_simulator_v2').extend(
+      'giftsFound',
+      data.gifts_grinch_simulator_v2 || 0
+    );
+    /**
+     * Scuba Simulator stats
+     * @type {ScubaSimulator}
+     */
+    this.scubaSimulator = new BaseGame(data, 'scuba_simulator').extend(
+      'itemsFound',
+      data.items_found_scuba_simulator || 0
+    );
+    /**
+     * Santa Simulator stats
+     * @type {SantaSimulator}
+     */
+    this.santaSimulator = new BaseGame(data, 'santa_simulator').extend(
+      'giftsDelivered',
+      data.delivered_santa_simulator || 0
+    );
+    /**
+     * Santa Says stats
+     * @type {BaseGame}
+     */
+    this.santaSays = new BaseGame(data, 'santa_says');
+    /**
+     * Simon Says stats
+     * @type {BaseGame}
+     */
+    this.simonSays = new BaseGame(data, 'simon_says');
+    /**
+     * Farm Hunt stats
+     * @type {BaseGame}
+     */
+    this.farmHunt = new BaseGame(data, 'farm_hunt');
+    /**
+     * Hole in the Wall stats
+     * @type {HITW}
+     */
+    this.holeInTheWall = new HITW(data, 'hole_in_the_wall');
+    /**
+     * Mini Walls stats
+     * @type {MiniWalls}
+     */
+    // TODO needs extension
+    this.miniWalls = new MiniWalls(data);
+    /**
+     * Party games (1) stats
+     * @type {BaseGame}
+     */
+    this.partyGames = new BaseGame(data, 'party');
+    /**
+     * Party Games 2 stats ( legacy )
+     * @type {BaseGame}
+     * @deprecated
+     */
+    this.partyGames2 = new BaseGame(data, 'party_2');
+    /**
+     * Party Games 3 stats ( legacy )
+     * @type {BaseGame}
+     * @deprecated
+     */
+    this.partyGames3 = new BaseGame(data, 'party_3');
+    /**
+     * Throw out stats
+     * @type {BaseGame}
+     */
+    this.throwOut = new BaseGame(data, 'throw_out');
+    /**
+     * Soccer stats
+     * @type {Soccer}
+     */
+    this.soccer = new Soccer(data);
+    /**
+     * Hypixel Sports stats
+     * @type {BaseGame}
+     * @deprecated
+     */
+    this.hypixelSports = new BaseGame(data, 'hypixel_sports');
+    /**
+     * Ender Spleef stats
+     * @type {BaseGame}
+     */
+    this.enderSpleef = new BaseGame(data, 'ender');
+    /**
+     * Blocking dead ( previously known as DayOne ) stats
+     * @type {BlockingDead}
+     */
+    this.blockingDead = new BaseGame(data, 'dayone').extend('headshots', data.headshots_dayone || 0);
+    /**
+     * Galaxy Wars stats
+     * @type {GalaxyWars}
+     */
+    this.galaxyWars = new GalaxyWars(data);
+    // Lenient parsing
+    /**
+     * OITQ / One In The Quiver stats
+     * @type {OITQ}
+     */
+    this.oitq = this.oneInTheQuiver = new BaseGame(data, 'oneinthequiver').extend(
+      'bountyKills',
+      data.bounty_kills_oneinthequiver || 0
+    );
+    /**
+     * Zombies
+     * @type {Zombies}
+     */
+    this.zombies = new Zombies(data);
+    /**
+     * Capture The Wool
+     * @type {{kills: number, captures: number}}
+     */
+    this.captureTheWool = { kills: data.arcade_ctw_slayer || 0, captures: data.arcade_ctw_oh_sheep || 0 };
+  }
 }
 /**
  * @typedef {Object} EasterSimulator

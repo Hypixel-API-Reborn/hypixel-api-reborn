@@ -1,6 +1,6 @@
 module.exports = (num) => {
   if (isNaN(num)) return NaN;
-  const digits = String(+num).split('');
+  const digits = String(Number(num)).split('');
   const key = [
     '',
     'C',
@@ -36,7 +36,7 @@ module.exports = (num) => {
   let roman = '';
   let i = 3;
   while (i--) {
-    roman = (key[+digits.pop() + i * 10] || '') + roman;
+    roman = (key[Number(digits.pop()) + i * 10] || '') + roman;
   }
-  return Array(+digits.join('') + 1).join('M') + roman;
+  return Array(Number(digits.join('')) + 1).join('M') + roman;
 };

@@ -17,7 +17,7 @@ class Requests {
      * @type {externalFetch.Response|Response}
      */
     const res = await fetch(BASE_URL + endpoint, options);
-    if (res.status >= 500 && res.status < 528) {
+    if (500 <= res.status && 528 > res.status) {
       throw new Error(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
@@ -25,20 +25,21 @@ class Requests {
     const parsedRes = await res.json().catch(() => {
       throw new Error(Errors.INVALID_RESPONSE_BODY);
     });
-    if (res.status === 400) {
+    if (400 === res.status) {
       throw new Error(
         Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || '')
       );
     }
-    if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
-    if (res.status === 422) throw new Error(Errors.UNEXPECTED_ERROR);
-    if (res.status === 429) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
-    if (res.status !== 200) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
+    if (403 === res.status) throw new Error(Errors.INVALID_API_KEY);
+    if (422 === res.status) throw new Error(Errors.UNEXPECTED_ERROR);
+    if (429 === res.status) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
+    if (200 !== res.status) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     if (!parsedRes.success) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
+    // eslint-disable-next-line no-underscore-dangle
     parsedRes._headers = res.headers;
-    parsedRes.raw = !!options.raw;
+    parsedRes.raw = Boolean(options.raw);
     if (options.noCaching) return parsedRes;
     // split by question mark : first part is /path, remove /
     if (this.client.options.cache && this.client.options.cacheFilter(endpoint.split('?')[0].slice(1))) {
@@ -47,7 +48,7 @@ class Requests {
       }
       await this.cached.delete(endpoint);
       await this.cached.set(endpoint, parsedRes);
-      if (this.client.options.hypixelCacheTime >= 0) {
+      if (0 <= this.client.options.hypixelCacheTime) {
         setTimeout(() => this.cached.delete(endpoint), 1000 * this.client.options.hypixelCacheTime);
       }
     }
@@ -68,7 +69,7 @@ class Requests {
   }
 
   validateCustomCache(cache) {
-    return !!(cache.set && cache.get && cache.delete && cache.keys);
+    return Boolean(cache.set && cache.get && cache.delete && cache.keys);
   }
 }
 

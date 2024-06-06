@@ -14,7 +14,7 @@ class AchievementTier {
      */
     this.maxTier = data.length;
     // Still make sure it is well sorted
-    this._tierInfo = data.sort(({ tier: tierA }, { tier: tierB }) => Number(tierA) - Number(tierB));
+    this.tierInfo = data.sort(({ tier: tierA }, { tier: tierB }) => Number(tierA) - Number(tierB));
   }
   /**
    * Gets information for tier
@@ -24,7 +24,7 @@ class AchievementTier {
    */
   getTier(tier) {
     const index = tier - 1;
-    const info = this._tierInfo[index];
+    const info = this.tierInfo[index];
     return {
       pointsRewarded: parseInt(info.points, 10) || 0,
       amountRequired: parseInt(info.amount, 10) || 0

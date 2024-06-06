@@ -7,7 +7,7 @@ function readVarInt(bytes) {
     const value = read & 0b01111111;
     result |= value << (7 * numRead);
     numRead++;
-    if (numRead > 5) {
+    if (5 < numRead) {
       return NaN;
     }
   } while (numRead < bytes.length);

@@ -1,5 +1,19 @@
 const dateRegExp = /(\d{1,2})(?:st|nd|rd|th|) ([A-z]+) (\d+)/;
 const versionRegExp = /v\d+(\.\d+){1,}/;
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parseDate(stringDate) {
+  const matched = stringDate.match(dateRegExp);
+  if (!matched) return null;
+  return new Date(matched.slice(1).join(' '));
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parseVer(stringVer) {
+  const matches = versionRegExp.exec(stringVer);
+  if (!matches?.length) return null;
+  return matches[0];
+}
 /**
  * SkyblockNews
  */
@@ -44,18 +58,5 @@ class SkyblockNews {
   toString() {
     return this.title;
   }
-}
-// eslint-disable-next-line jsdoc/require-jsdoc
-function parseDate(stringDate) {
-  const matched = stringDate.match(dateRegExp);
-  if (!matched) return null;
-  return new Date(matched.slice(1).join(' ')); // Ok this is lazy, but should work
-}
-
-// eslint-disable-next-line jsdoc/require-jsdoc
-function parseVer(stringVer) {
-  const matches = versionRegExp.exec(stringVer);
-  if (!matches?.length) return null; // this shouldn't really happen
-  return matches[0];
 }
 module.exports = SkyblockNews;

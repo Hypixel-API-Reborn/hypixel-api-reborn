@@ -35,7 +35,7 @@ class Game {
      * Whether the game is found
      * @type {boolean}
      */
-    this.found = !!result;
+    this.found = Boolean(result);
   }
 
   /**

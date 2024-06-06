@@ -49,7 +49,6 @@ class WoolWars {
       engineer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'engineer'),
       archer: WoolWars.generateStatsFor(data.wool_wars?.stats, 'archer')
     };
-    // Misc fields ig
     /**
      * Owned Cosmetics
      * @type {string[]}
@@ -68,25 +67,27 @@ class WoolWars {
    * @example
    */
   static convertXPToLevel(exp) {
-    const minimalExp = [0, 1e3, 3e3, 6e3, 1e4, 15e3]; // NB: progression is 1k, 2k, 3k, 4k, 5k
+    const minimalExp = [0, 1e3, 3e3, 6e3, 1e4, 15e3];
     const baseLevel = minimalExp.length;
     const baseExp = minimalExp[minimalExp.length - 1];
     const expToLevel100 = 49e4;
     if (exp < baseExp) return minimalExp.findIndex((x) => exp < x);
     const theoreticalLevel = (exp - baseExp) / 5e3 + baseLevel;
-    if (theoreticalLevel > 100) return 100 + this.convertXPToLevel(exp - expToLevel100);
+    if (100 < theoreticalLevel) return 100 + this.convertXPToLevel(exp - expToLevel100);
     return theoreticalLevel;
   }
   /**
    * Generates stats per class/overall
-   * @param {Record<string, unknwon>} data data
+   * @param {Record<string, any>} data data
    * @param {string} [_class=''] Class
    * @return {WoolWarsStats}
    * @example
    */
   static generateStatsFor(data, _class) {
     // N.B i called it _class instead of class because reserved keyword
-    const workingData = (_class ? data?.['classes']?.[_class] : data) || {};
+
+    // eslint-disable-next-line no-underscore-dangle
+    const workingData = (_class ? data?.classes?.[_class] : data) || {};
     return {
       roundWins: workingData.wins || 0,
       gamesPlayed: workingData.games_played || 0,

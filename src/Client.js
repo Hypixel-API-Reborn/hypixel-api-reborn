@@ -1,11 +1,37 @@
-const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
-const Requests = require('./Private/requests');
+const validate = new (require('./Private/validate'))();
 const updater = new (require('./Private/updater'))();
+const Requests = require('./Private/requests');
+const EventEmitter = require('events');
 const Errors = require('./Errors');
 const API = require('./API/index');
-const EventEmitter = require('events');
 const clients = [];
+
+/* eslint-disable */
+const Player = require('./structures/Player');
+const Guild = require('./structures/Guild/Guild');
+const WatchdogStats = require('./structures/Watchdog/Stats');
+const Booster = require('./structures/Boosters/Booster');
+const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
+const SkyblockMember = require('./structures/SkyBlock/SkyblockMember');
+const SkyblockMuseum = require('./structures/SkyBlock/SkyblockMuseum');
+const APIStatus = require('./structures/APIStatus');
+const Leaderboard = require('./structures/Leaderboard');
+const ServerInfo = require('./structures/ServerInfo');
+const RecentGame = require('./structures/RecentGame');
+const Status = require('./structures/Status');
+const Auction = require('./structures/SkyBlock/Auctions/Auction');
+const AuctionInfo = require('./structures/SkyBlock/Auctions/AuctionInfo');
+const PartialAuction = require('./structures/SkyBlock/Auctions/PartialAuction');
+const Product = require('./structures/SkyBlock/Bazzar/Product');
+const BingoData = require('./structures/SkyBlock/Static/BingoData');
+const PlayerBingo = require('./structures/SkyBlock/PlayerBingo');
+const GovernmentData = require('./structures/SkyBlock/Static/Government');
+const FireSale = require('./structures/SkyBlock/Static/FireSale');
+const SkyblockNews = require('./structures/SkyBlock/News/SkyblockNews');
+const GameCounts = require('./structures/GameCounts');
+/* eslint-enable */
+
 /**
  * Client class
  */
@@ -35,6 +61,7 @@ class Client extends EventEmitter {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
+            // eslint-disable-next-line no-underscore-dangle
             _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
           },
@@ -68,8 +95,8 @@ class Client extends EventEmitter {
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) {
-      return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    if ('/key' !== url && !options.noCacheCheck && (await this.requests.cache.has(url))) {
+      return Object.assign(await this.requests.cache.get(url), { raw: Boolean(options.raw) });
     }
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
@@ -77,6 +104,7 @@ class Client extends EventEmitter {
       ...options,
       headers: { ...options.headers, ...this.options.headers }
     });
+    // eslint-disable-next-line no-underscore-dangle
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
@@ -140,7 +168,7 @@ class Client extends EventEmitter {
    * Allows you to get statistics of hypixel guild
    * @method
    * @name Client#getGuild
-   * @param {id|name|player} searchParameter Search for guild by id, name or player (if player is in guild)
+   * @param {'id'|'name'|'player'} searchParameter Search for guild by id, name or player (if player is in guild)
    * @param {string} query Guild ID, Guild name or player uuid/nickname
    * @param {MethodOptions} [options={}] Method options
    * @return {Promise<Guild>}
@@ -347,7 +375,8 @@ class Client extends EventEmitter {
    *   console.log(products[0].productId); // INK_SACK:3
    * })
    * .catch(console.log);
-   */ /**
+   */
+  /**
    * Allows you to get bingo data
    * @method
    * @name Client#getSkyblockBingo
@@ -416,7 +445,7 @@ class Client extends EventEmitter {
  * @prop {number} [hypixelCacheTime=60] Amount of time in seconds to cache the hypixel api requests.
  * @prop {number} [mojangCacheTime=600] Amount of time in seconds to cache the mojang api requests.
  * @prop {CacheHandler} [cacheHandler] Custom Cache Handler
- * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
+ * @prop {'AUTO'|'HARD'|'NONE'} [rateLimit='AUTO'] Rate limit mode.
  * @prop {boolean} [syncWithHeaders=false] Sync with headers rate limit information. Usually not necessary nor recommended ( because of latency )
  * @prop {number} [keyLimit=60] Key limit of your key.
  * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
