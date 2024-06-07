@@ -480,7 +480,7 @@ function getJacobData(data) {
 }
 // eslint-disable-next-line require-jsdoc
 function getChocolateFactory(data) {
-  if (!data.events.easter) {
+  if (!data?.events?.easter) {
     return {
       employees: {
         bro: 0,
@@ -515,34 +515,34 @@ function getChocolateFactory(data) {
   }
   return {
     employees: {
-      bro: data.events.easter.employees.rabbit_bro || 0,
-      cousin: data.events.easter.employees.rabbit_cousin || 0,
-      sis: data.events.easter.employees.rabbit_sis || 0,
-      father: data.events.easter.employees.rabbit_father || 0,
-      grandma: data.events.easter.employees.rabbit_grandma || 0,
-      dog: data.events.easter.employees.rabbit_dog || 0,
-      uncle: data.events.easter.employees.rabbit_uncle || 0
+      bro: data?.events?.easter?.employees?.rabbit_bro || 0,
+      cousin: data?.events?.easter?.employees?.rabbit_cousin || 0,
+      sis: data?.events?.easter?.employees?.rabbit_sis || 0,
+      father: data?.events?.easter?.employees?.rabbit_father || 0,
+      grandma: data?.events?.easter?.employees?.rabbit_grandma || 0,
+      dog: data?.events?.easter?.employees?.rabbit_dog || 0,
+      uncle: data?.events?.easter?.employees?.rabbit_uncle || 0
     },
     chocolate: {
-      current: data.events.easter.chocolate || 0,
-      total: data.events.easter.total_chocolate || 0,
-      sincePrestige: data.events.easter.chocolate_since_prestige || 0
+      current: data?.events?.easter?.chocolate || 0,
+      total: data?.events?.easter?.total_chocolate || 0,
+      sincePrestige: data?.events?.easter?.chocolate_since_prestige || 0
     },
     timeTower: {
-      charges: data.events.easter.time_tower.charges || 0,
-      level: data.events.easter.time_tower.level || 0
+      charges: data?.events?.easter?.time_tower?.charges || 0,
+      level: data?.events?.easter?.time_tower?.level || 0
     },
     upgrades: {
-      click: data.events.easter.click_upgrades || 0,
-      multiplier: data.events.easter.chocolate_multiplier_upgrades || 0,
-      rabbitRarity: data.events.easter.rabbit_rarity_upgrades || 0
+      click: data?.events?.easter?.click_upgrades || 0,
+      multiplier: data?.events?.easter?.chocolate_multiplier_upgrades || 0,
+      rabbitRarity: data?.events?.easter?.rabbit_rarity_upgrades || 0
     },
     goldenClick: {
-      amount: data.events.easter.golden_click_amount || 0,
-      year: data.events.easter.golden_click_year || 0
+      amount: data?.events?.easter?.golden_click_amount || 0,
+      year: data?.events?.easter?.golden_click_year || 0
     },
-    barnCapacity: data.events.easter.rabbit_barn_capacity_level || 0,
-    prestige: data.events.easter.chocolate_level || 0
+    barnCapacity: data?.events?.easter?.rabbit_barn_capacity_level || 0,
+    prestige: data?.events?.easter?.chocolate_level || 0
   };
 }
 // eslint-disable-next-line require-jsdoc
