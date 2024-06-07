@@ -167,7 +167,7 @@ class SkywarsPackages {
      * @type {string[]}
      */
     this.achievements = this.rawPackages
-      .map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/))
+      .map((pkg) => pkg.match(/^([A-Za-z]+)_?achievement([0-9]?)$/))
       .filter((x) => x)
       .map((x) => x.slice(1).join(''));
   }
@@ -178,7 +178,7 @@ class SkywarsPackages {
    */
   parseCages() {
     return this.rawPackages
-      .map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/))
+      .map((pkg) => pkg.match(/^cage_([A-Za-z]+)-cage$/))
       .filter((x) => x)
       .map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
   }

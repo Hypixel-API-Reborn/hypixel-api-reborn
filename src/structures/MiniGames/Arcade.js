@@ -7,7 +7,7 @@ const divide = require('../../utils/divide');
 // eslint-disable-next-line jsdoc/require-jsdoc
 function parseZombiesKills(data) {
   const matches = Array.from(Object.keys(data))
-    .map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/))
+    .map((x) => x.match(/^([A-Za-z]+)_zombie_kills_zombies$/))
     .filter((x) => x);
   // From entries might be broken
   return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
