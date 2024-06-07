@@ -8,10 +8,11 @@ const uuids = [
   '4982eac19ae7422891b61a17a74c87a2',
   'f17d5ae1ed1f4dc9833339b56024640c',
   '3b76b69ae5134296a730ed49171ad6f8',
-  '14727faefbdc4aff848cd2713eb9939e'
+  '14727faefbdc4aff848cd2713eb9939e',
+  '90376ba4b15f4885acf61016e4395275',
 ];
 
-const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier'];
+const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier', 'Gogidaa'];
 
 describe('Client#getRecentGames', async () => {
   uuids.forEach((uuid) => {

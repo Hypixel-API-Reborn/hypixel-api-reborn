@@ -7,7 +7,6 @@ module.exports = {
   oscillation: require('./oscillation'),
   removeSnakeCase: require('./removeSnakeCase'),
   SkyblockUtils: require('./SkyblockUtils'),
-  toIGN: require('./toIGN'),
   toUuid: require('./toUuid'),
   varInt: require('./varInt')
 };
