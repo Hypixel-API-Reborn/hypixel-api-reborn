@@ -1,5 +1,4 @@
 /* eslint-disable jsdoc/require-jsdoc */
-const GuildMember = require('../structures/Guild/GuildMember');
 const GuildRank = require('../structures/Guild/GuildRank');
 const dateRegExp = /(\d{4})-(\d{2})-(\d{2})/;
 
@@ -51,20 +50,10 @@ function getGuildLevel(exp) {
   return 1000;
 }
 
-function members(data) {
-  return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
-}
-
 function ranks(data) {
   return data.ranks && data.ranks.length
     ? data.ranks.map((r) => new GuildRank(r)).sort((a, b) => a.priority - b.priority)
     : [];
-}
-
-function totalWeeklyGexp(data) {
-  return members(data)
-    .map((m) => m.weeklyExperience)
-    .reduce((acc, cur) => acc + cur);
 }
 
 function expLimit(exp) {
@@ -90,4 +79,12 @@ function calculateExpHistory(data) {
  * @property {number} exp Experience of the day
  * @property {number} totalExp Experience earned from day 0 to this day
  */
-module.exports = { parseHistory, getGuildLevel, calculateExpHistory, totalWeeklyGexp, ranks, members };
+
+module.exports = {
+  parseDate,
+  parseHistory,
+  getGuildLevel,
+  ranks,
+  expLimit,
+  calculateExpHistory
+};

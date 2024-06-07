@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const { removeSnakeCaseString } = require('../utils/removeSnakeCase');
 const Pets = require('./Pets');
 /**
@@ -30,126 +31,126 @@ class PlayerCosmetics {
    * @type {string[]}
    */
   get suits() {
-    if (!this.suits) {
-      this.suits = this.allCosmetics
+    if (!this._suits) {
+      this._suits = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('suit_'))
             .map((x) => removeSnakeCaseString(x.replace('suit_', ''))) || []
         : [];
     }
-    return this.suits;
+    return this._suits;
   }
   /**
    * Hats
    * @type {string[]}
    */
   get hats() {
-    if (!this.hats) {
-      this.hats = this.allCosmetics
+    if (!this._hats) {
+      this._hats = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('hat_'))
             .map((x) => removeSnakeCaseString(x.replace('hat_', ''))) || []
         : [];
     }
-    return this.hats;
+    return this._hats;
   }
   /**
    * Gadgets
    * @type {string[]}
    */
   get gadgets() {
-    if (!this.gadgets) {
-      this.gadgets = this.allCosmetics
+    if (!this._gadgets) {
+      this._gadgets = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('gadget_'))
             .map((x) => removeSnakeCaseString(x.replace('gadget_', ''))) || []
         : [];
     }
-    return this.gadgets;
+    return this._gadgets;
   }
   /**
    * Morphs
    * @type {string[]}
    */
   get morphs() {
-    if (!this.morphs) {
-      this.morphs = this.allCosmetics
+    if (!this._morphs) {
+      this._morphs = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('morph_'))
             .map((x) => removeSnakeCaseString(x.replace('morph_', ''))) || []
         : [];
     }
-    return this.morphs;
+    return this._morphs;
   }
   /**
    * Cloaks
    * @type {string[]}
    */
   get cloaks() {
-    if (!this.cloaks) {
-      this.cloaks = this.allCosmetics
+    if (!this._cloaks) {
+      this._cloaks = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('cloak_'))
             .map((x) => removeSnakeCaseString(x.replace('cloak_', ''))) || []
         : [];
     }
-    return this.cloaks;
+    return this._cloaks;
   }
   /**
    * Taunts
    * @type {string[]}
    */
   get taunts() {
-    if (!this.taunts) {
-      this.taunts = this.allCosmetics
+    if (!this._taunts) {
+      this._taunts = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('taunt_'))
             .map((x) => removeSnakeCaseString(x.replace('taunt_', ''))) || []
         : [];
     }
-    return this.taunts;
+    return this._taunts;
   }
   /**
    * rankColors
    * @type {string[]}
    */
   get rankColors() {
-    if (!this.rankColors) {
-      this.rankColors = this.allCosmetics
+    if (!this._rankColors) {
+      this._rankColors = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('rankcolor_'))
             .map((x) => removeSnakeCaseString(x.replace('rankcolor_', ''))) || []
         : [];
     }
-    return this.rankColors;
+    return this._rankColors;
   }
   /**
    * Particle Packs
    * @type {string[]}
    */
   get particlePacks() {
-    if (!this.particle) {
-      this.particle = this.allCosmetics
+    if (!this._particle) {
+      this._particle = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('particlepack_'))
             .map((x) => removeSnakeCaseString(x.replace('particlepack_', ''))) || []
         : [];
     }
-    return this.particlepacks;
+    return this._particlepacks;
   }
   /**
    * Click Effects
    * @type {string[]}
    */
   get clickEffects() {
-    if (!this.clickfx) {
-      this.clickfx = this.allCosmetics
+    if (!this._clickfx) {
+      this._clickfx = this.allCosmetics
         ? this.allCosmetics
             .filter((x) => x.startsWith('clickeffects_'))
             .map((x) => removeSnakeCaseString(x.replace('clickeffects_', ''))) || []
         : [];
     }
-    return this.clickfx;
+    return this._clickfx;
   }
 }
 module.exports = PlayerCosmetics;

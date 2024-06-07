@@ -1,8 +1,21 @@
-const { getGuildLevel, ranks, members, totalWeeklyGexp, calculateExpHistory } = require('../../utils/Guild');
+const { getGuildLevel, ranks, calculateExpHistory } = require('../../utils/Guild');
 const GuildMember = require('./GuildMember');
 const GuildRank = require('./GuildRank');
 const Color = require('../Color');
 const Game = require('../Game');
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function members(data) {
+  return data.members.length ? data.members.map((m) => new GuildMember(m)) : [];
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function totalWeeklyGexp(data) {
+  return members(data)
+    .map((m) => m.weeklyExperience)
+    .reduce((acc, cur) => acc + cur);
+}
+
 /**
  * Guild class
  */
