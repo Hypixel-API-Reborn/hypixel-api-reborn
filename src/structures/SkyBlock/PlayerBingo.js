@@ -1,6 +1,11 @@
+const { populateGoals } = require('../../utils/SkyblockUtils');
+// eslint-disable-next-line no-unused-vars
+const BingoDataType = require('./Static/BingoData.js');
+// eslint-disable-next-line no-unused-vars
+const BingoType = require('./Static/Bingo.js');
 /**
- * @typedef {require('./Static/BingoData.js')} BingoData
- * @typedef {require('./Static/Bingo.js')} Bingo
+ * @typedef {BingoDataType} BingoData
+ * @typedef {BingoType} Bingo
  */
 
 /**
@@ -11,6 +16,7 @@ class PlayerBingo {
    * Constructor
    * @param {Object} data data
    * @param {BingoData|null} bingoData bingo data
+   * @example
    */
   constructor(data, bingoData) {
     const events = data.success && Array.isArray(data.events) ? data.events : [];
@@ -31,18 +37,6 @@ class PlayerBingo {
       };
     });
   }
-}
-
-// eslint-disable-next-line require-jsdoc
-function populateGoals(achieved, all) {
-  const populatedAchieved = [];
-  const unachieved = [];
-  for (const goal of all) {
-    if (achieved.find((str) => str === goal.name)) populatedAchieved.push(goal);
-    else unachieved.push(goal);
-  }
-  populatedAchieved.unachievedGoals = unachieved;
-  return populatedAchieved;
 }
 
 /**

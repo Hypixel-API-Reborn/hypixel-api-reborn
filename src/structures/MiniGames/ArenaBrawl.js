@@ -1,10 +1,22 @@
 const divide = require('../../utils/divide');
+// eslint-disable-next-line jsdoc/require-jsdoc
+function generateModeStats(data, mode) {
+  return {
+    kills: data[`kills_${mode}`] || 0,
+    deaths: data[`deaths_${mode}`] || 0,
+    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
+    wins: data[`wins_${mode}`] || 0,
+    losses: data[`losses_${mode}`] || 0,
+    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
+  };
+}
 /**
  * ArenaBrawl class
  */
 class ArenaBrawl {
   /**
    * @param {object} data ArenaBrawl data
+   * @example
    */
   constructor(data) {
     /**
@@ -22,17 +34,6 @@ class ArenaBrawl {
       '4v4': generateModeStats(data, '4v4')
     };
   }
-}
-// eslint-disable-next-line require-jsdoc
-function generateModeStats(data, mode) {
-  return {
-    kills: data[`kills_${mode}`] || 0,
-    deaths: data[`deaths_${mode}`] || 0,
-    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
-    wins: data[`wins_${mode}`] || 0,
-    losses: data[`losses_${mode}`] || 0,
-    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
-  };
 }
 /**
  * @typedef {Object} ArenaBrawlStats

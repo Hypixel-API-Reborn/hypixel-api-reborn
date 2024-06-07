@@ -1,13 +1,10 @@
-/* eslint-disable max-len */
-const divide = require('../../utils/divide');
+const { duelsDivisions } = require('../../utils/Constants');
 const romanize = require('../../utils/romanize');
-// eslint-disable-next-line camelcase
-const { duels_divisions } = require('../../utils/Constants');
+const divide = require('../../utils/divide');
 
-// eslint-disable-next-line require-jsdoc
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getDivision(data, mode = null) {
-  // eslint-disable-next-line camelcase
-  for (const div of duels_divisions.slice().reverse()) {
+  for (const div of duelsDivisions.slice().reverse()) {
     const prestige = data[`${mode ? mode : 'all_modes'}_${div.key}_title_prestige`];
     if (prestige) {
       return `${div.name} ${romanize(prestige)}`;
@@ -15,14 +12,15 @@ function getDivision(data, mode = null) {
   }
   return null;
 }
-// eslint-disable-next-line require-jsdoc
+
+// eslint-disable-next-line jsdoc/require-jsdoc
 function getTotalKillsDeaths(data) {
   let totalDeaths = 0;
   let totalKills = 0;
   for (const [k, v] of Object.entries(data)) {
-    if (k.includes('deaths') && k !== 'deaths') {
+    if (k.includes('deaths') && 'deaths' !== k) {
       totalDeaths += v;
-    } else if (k.includes('kills') && k !== 'kills') {
+    } else if (k.includes('kills') && 'kills' !== k) {
       totalKills += v;
     }
   }
@@ -37,6 +35,7 @@ function getTotalKillsDeaths(data) {
 class Duels {
   /**
    * @param {object} data Duels data
+   * @example
    */
   constructor(data) {
     /**
@@ -576,7 +575,7 @@ class Duels {
         playedGames: data.bridge_four_rounds_played || 0,
         goals: data.bridge_four_goals || 0
       },
-      // eslint-disable-next-line quote-props
+
       ctf: {
         division: getDivision(data, 'bridge'),
         kills: data.capture_threes_bridge_kills || 0,

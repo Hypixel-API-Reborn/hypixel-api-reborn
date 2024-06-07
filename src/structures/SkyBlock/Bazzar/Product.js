@@ -6,6 +6,7 @@ const Order = require('./Order');
 class Product {
   /**
    * @param {object} data Product data
+   * @example
    */
   constructor(data) {
     /**

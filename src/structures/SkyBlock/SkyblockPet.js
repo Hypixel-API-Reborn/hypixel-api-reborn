@@ -1,5 +1,4 @@
-// eslint-disable-next-line camelcase
-const { pet_score } = require('../../utils/Constants');
+const { petScore } = require('../../utils/Constants');
 /**
  * Skyblock Pet class
  */
@@ -7,6 +6,7 @@ class SkyblockPet {
   /**
    * Skyblock pet data
    * @param {object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -38,8 +38,8 @@ class SkyblockPet {
      * Skyblock Pet score
      * @type {number}
      */
-    // eslint-disable-next-line camelcase
-    this.petScore = pet_score[data.tier] || 0;
+
+    this.petScore = petScore[data.tier] || 0;
     /**
      * Skyblock Pet held item
      * @type {string|null}

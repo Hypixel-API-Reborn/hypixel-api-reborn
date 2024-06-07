@@ -5,6 +5,7 @@ const divide = require('../../utils/divide');
 class SpeedUHC {
   /**
    * @param {object} data Speed UHC data
+   * @example
    */
   constructor(data) {
     /**
@@ -92,8 +93,8 @@ class SpeedUHC {
       wins: data.wins_solo || 0,
       losses: data.losses_solo || 0,
       playedGames: data.games_solo || 0,
-      winstreak: data.win_streak_solo || 0,
-      killstreak: data.killstreak_solo || 0,
+      winStreak: data.win_streak_solo || 0,
+      killStreak: data.killstreak_solo || 0,
       assists: data.assists_solo || 0
     };
     /**
@@ -106,10 +107,23 @@ class SpeedUHC {
       wins: data.wins_team || 0,
       losses: data.losses_team || 0,
       playedGames: data.games_team || 0,
-      winstreak: data.win_streak_team || 0,
-      killstreak: data.killstreak_team || 0,
+      winStreak: data.win_streak_team || 0,
+      killStreak: data.killstreak_team || 0,
       assists: data.assists_team || 0
     };
   }
 }
+
+/**
+ * @typedef {object} SpeedUHCModeStats
+ * @property {number} kills Kills
+ * @property {number} deaths Deaths
+ * @property {number} wins Wins
+ * @property {number} losses Losses
+ * @property {number} playedGames Played games
+ * @property {number} winStreak Win streak
+ * @property {number} killStreak Kill streak
+ * @property {number} assists Assists
+ */
+
 module.exports = SpeedUHC;

@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable camelcase */
 const Errors = require('../Errors');
 
-/* eslint-disable require-jsdoc */
 class RateLimit {
   constructor() {
     this.initialized = 0;
@@ -12,12 +9,11 @@ class RateLimit {
     if (!this.initialized) return;
     this.requests++;
     this.requestQueue.unshift(Date.now());
-    if (this.options.rateLimit === 'NONE' || !this.requestQueue.length) return;
-    if (this.options.rateLimit === 'AUTO' && this.requests <= this.options.keyLimit / 2) return;
+    if ('NONE' === this.options.rateLimit || !this.requestQueue.length) return;
+    if ('AUTO' === this.options.rateLimit && this.requests <= this.options.keyLimit / 2) return;
     const cooldown = this.computeCooldownTime();
     this.requestQueue[0] = Date.now() + cooldown;
-    await new Promise((r) => setTimeout(r, cooldown), true);
-    return;
+    return await new Promise((r) => setTimeout(r, cooldown), true);
   }
 
   sync(data) {
@@ -45,7 +41,7 @@ class RateLimit {
 
   reset() {
     this.requests = this.requests - this.options.keyLimit;
-    if (this.requests < 0) this.requests = 0;
+    if (0 > this.requests) this.requests = 0;
     this.lastResetHappenedAt = Date.now();
     this.resetTimer = setTimeout(this.reset.bind(this), 300000);
     this.requestQueue = this.requestQueue.filter((x) => x >= Date.now());
@@ -58,13 +54,13 @@ class RateLimit {
   init(keyInfo, options, client) {
     this.options = options;
     this.requests = 0;
-    this.cooldownTime = 300000 / this.options.keyLimit; // Initial value
+    this.cooldownTime = 300000 / this.options.keyLimit;
     this.requestQueue = [];
     this.client = client;
     return keyInfo
       .then((info) => {
         this.requests = info.requestsInPastMin;
-        this.lastResetHappenedAt = Date.now() - (300 - info.resetsAfter) * 1000; // Computed reset time
+        this.lastResetHappenedAt = Date.now() - (300 - info.resetsAfter) * 1000;
         this.resetTimer = setTimeout(this.rateLimitMonitor.bind(this), 1000 * info.resetsAfter);
         this.initialized = 1;
       })
@@ -82,6 +78,6 @@ module.exports = RateLimit;
 /**
  * @typedef {Object} RLOptions
  * @property {number} keyLimit Max request of key per min
- * @property {NONE|AUTO|HARD} rateLimit rate limit mode
+ * @property {'NONE'|'AUTO'|'HARD'} rateLimit rate limit mode
  * @property {boolean} syncWithHeaders Sync rate limits with headers
  */

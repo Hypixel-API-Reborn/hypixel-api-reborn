@@ -1,7 +1,9 @@
+const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
 const { SkyWarsPrestigeIcons } = require('../../utils/Constants');
 const divide = require('../../utils/divide');
-const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
-const generateStatsForMode = (data, mode) => {
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function generateStatsForMode(data, mode) {
   return {
     kills: data[`kills_${mode}`] || 0,
     deaths: data[`deaths_${mode}`] || 0,
@@ -10,13 +12,209 @@ const generateStatsForMode = (data, mode) => {
     KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
     WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
   };
-};
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getSkyWarsPrestige(level) {
+  if (60 <= level) return 'Mythic';
+  return (
+    ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][
+      Math.floor(level / 5)
+    ] || 'Iron'
+  );
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getSkyWarsLevel(xp) {
+  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
+  if (15000 <= xp) return Math.floor((xp - 15000) / 10000 + 12);
+  const level = totalXp.findIndex((x) => 0 < x * 10 - xp);
+  return level;
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getSkyWarsLevelProgress(xp) {
+  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
+  const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500];
+  let percent;
+  let xpToNextLevel;
+  let currentLevelXp = xp;
+  if (15000 <= xp) {
+    currentLevelXp -= 15000;
+    if (0 === currentLevelXp) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
+    if (10000 < currentLevelXp) {
+      do {
+        currentLevelXp -= 10000;
+      } while (10000 <= currentLevelXp);
+    }
+    xpToNextLevel = 10000 - currentLevelXp;
+    percent = Math.round(currentLevelXp) / 100;
+    const percentRemaining = Math.round((100 - percent) * 100) / 100;
+    return {
+      currentLevelXp,
+      xpToNextLevel,
+      percent,
+      xpNextLevel: 10000,
+      percentRemaining
+    };
+  }
+  const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => 0 < x * 10 - xp)] * 10;
+  for (let i = 0; i < xpToNextLvl.length; i++) {
+    if (0 > currentLevelXp - xpToNextLvl[i] * 10) break;
+    currentLevelXp -= xpToNextLvl[i] * 10;
+  }
+  xpToNextLevel = totalXptoNextLevel - currentLevelXp;
+  percent = Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100;
+  return {
+    currentLevelXp,
+    xpToNextLevel,
+    percent,
+    xpNextLevel: totalXptoNextLevel
+  };
+}
+
+/**
+ * Parses SkyWars Kit
+ */
+class SkywarsKit {
+  /**
+   * Constructor
+   * @param {string} kit Kit
+   * @example
+   */
+  constructor(kit) {
+    /**
+     * Kit data
+     * @private
+     * @type {string[] | null}
+     */
+    this.kitData = kit.match(/^kit_([a-z]+)_([a-z]+)_([a-z]+)$/);
+    /**
+     * Is this a kit
+     * @type {boolean}
+     */
+    this.isKit = Boolean(this.kitData);
+    if (!this.kitData) return;
+    /**
+     * Game mode the kit is for
+     * @type {KitGameModes}
+     */
+    this.gameMode = this.kitData[2];
+    /**
+     * Kit type
+     * @type {KitType}
+     */
+    this.kitType = this.kitData[1];
+    /**
+     * Kit name in camelCase
+     * @type {string}
+     */
+    this.kitName = removeSnakeCaseString(this.kitData[3]);
+  }
+}
+
+/**
+ * Parses SkyWars Kits
+ */
+class SkywarsKits {
+  /**
+   * Constructor
+   * @param {SkywarsKit[]} kits Potential Kits
+   * @example
+   */
+  constructor(kits) {
+    this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
+  }
+  /**
+   * Get kit by type/gameMode
+   * @param {KitGameModes} [gameMode] Kits in said game mode
+   * @param {KitType} [type] Kits corresponding to this type
+   * @returns {SkywarsKit[]}
+   * @example
+   */
+  get(gameMode = '', type = '') {
+    return this.kits.filter((kit) => kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type));
+  }
+}
+/**
+ * Skywars Packages - parses every package player has
+ */
+class SkywarsPackages {
+  /**
+   * Constructor
+   * @param {string[]} data data from API
+   * @example
+   */
+  constructor(data) {
+    // TODO : a lot more
+    /**
+     * Raw Packages, as received from the API
+     * @type {string[]}
+     */
+    this.rawPackages = Array.from(data);
+    /**
+     * Cages
+     * @type {string[]}
+     */
+    this.cages = this.parseCages();
+    /**
+     * Kits
+     * @type {SkywarsKits}
+     */
+    this.kits = new SkywarsKits(data);
+    /**
+     * Achievements included in packages, under the form of name0
+     * @type {string[]}
+     */
+    this.achievements = this.rawPackages
+      .map((pkg) => pkg.match(/^([A-Za-z]+)_?achievement([0-9]?)$/))
+      .filter((x) => x)
+      .map((x) => x.slice(1).join(''));
+  }
+  /**
+   * Parses cages
+   * @returns {string[]}
+   * @example
+   */
+  parseCages() {
+    return this.rawPackages
+      .map((pkg) => pkg.match(/^cage_([A-Za-z]+)-cage$/))
+      .filter((x) => x)
+      .map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
+  }
+}
+
+/**
+ * @typedef {string} KitType
+ * * basic
+ * * supporting
+ * * mining
+ * * defending
+ * * attacking
+ * * advanced
+ * * enderchest
+ */
+/**
+ * @typedef {string} KitGameModes
+ * * solo
+ * * team
+ */
+
+/**
+ * @typedef {Object} SkyWarsShardsInMode
+ * @property {number} solo Solo shards
+ * @property {number} team Team shards
+ * @property {number} mega Mega shards
+ * @property {number} lab Lab shards
+ */
+
 /**
  * SkyWars class
  */
 class SkyWars {
   /**
    * @param {object} data SkyWars data
+   * @example
    */
   constructor(data) {
     /**
@@ -331,183 +529,3 @@ class SkyWars {
  * @property {SkyWarsModeStats} doubles Mega Doubles Stats
  */
 module.exports = SkyWars;
-// eslint-disable-next-line require-jsdoc
-function getSkyWarsPrestige(level) {
-  if (level >= 60) return 'Mythic';
-  return (
-    ['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][
-      Math.floor(level / 5)
-    ] || 'Iron'
-  );
-}
-// eslint-disable-next-line require-jsdoc
-function getSkyWarsLevel(xp) {
-  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
-  const level = totalXp.findIndex((x) => x * 10 - xp > 0);
-  return level; /* + (xp - (totalXp[level - 1] * 10 || 0)) / (totalXp[level] - totalXp[level - 1]) / 10*/
-}
-// eslint-disable-next-line require-jsdoc
-function getSkyWarsLevelProgress(xp) {
-  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  const xpToNextLvl = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500]; // * 10
-  let percent;
-  let xpToNextLevel;
-  let currentLevelXp = xp;
-  if (xp >= 15000) {
-    currentLevelXp -= 15000;
-    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
-    if (currentLevelXp > 10000) {
-      do {
-        currentLevelXp -= 10000;
-      } while (currentLevelXp >= 10000);
-    }
-    xpToNextLevel = 10000 - currentLevelXp;
-    percent = Math.round(currentLevelXp) / 100;
-    const percentRemaining = Math.round((100 - percent) * 100) / 100;
-    return {
-      currentLevelXp,
-      xpToNextLevel,
-      percent,
-      xpNextLevel: 10000,
-      percentRemaining
-    };
-  }
-  const totalXptoNextLevel = xpToNextLvl[totalXp.findIndex((x) => x * 10 - xp > 0)] * 10;
-  for (let i = 0; i < xpToNextLvl.length; i++) {
-    if (currentLevelXp - xpToNextLvl[i] * 10 < 0) break;
-    currentLevelXp -= xpToNextLvl[i] * 10;
-  }
-  xpToNextLevel = totalXptoNextLevel - currentLevelXp;
-  percent = Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100;
-  return {
-    currentLevelXp,
-    xpToNextLevel,
-    percent,
-    xpNextLevel: totalXptoNextLevel
-  };
-}
-const ratingRegex = /^SkyWars_skywars_rating_(\d{1,2})_(\d{1,2})_(position|rating)$/;
-
-/**
- * Skywars Packages - parses every package player has
- */
-class SkywarsPackages {
-  /**
-   * Constructor
-   * @param {string[]} data data from API
-   */
-  constructor(data) {
-    // TODO : a lot more
-    /**
-     * Raw Packages, as received from the API
-     * @type {string[]}
-     */
-    this.rawPackages = Array.from(data);
-    /**
-     * Cages
-     * @type {string[]}
-     */
-    this.cages = this._parseCages();
-    /**
-     * Kits
-     * @type {SkywarsKits}
-     */
-    this.kits = new SkywarsKits(data);
-    /**
-     * Achievements included in packages, under the form of name0
-     * @type {string[]}
-     */
-    this.achievements = this.rawPackages
-      .map((pkg) => pkg.match(/^([A-z]+)_?achievement([0-9]?)$/))
-      .filter((x) => x)
-      .map((x) => x.slice(1).join(''));
-  }
-  /**
-   * Parses cages
-   * @returns {string[]}
-   */
-  _parseCages() {
-    return this.rawPackages
-      .map((pkg) => pkg.match(/^cage_([A-z]+)-cage$/))
-      .filter((x) => x)
-      .map((x) => x[1].replace(/-[a-z]/g, (x) => x[1].toUpperCase()));
-  }
-}
-
-/**
- * Parses SkyWars Kits
- */
-class SkywarsKit {
-  /**
-   * Constructor
-   * @param {string} kit Kit
-   */
-  constructor(kit) {
-    /**
-     * Kit data
-     * @private
-     * @type {string[] | null}
-     */
-    this._kitData = kit.match(/^kit_([a-z]+)_([a-z]+)_([a-z]+)$/);
-    /**
-     * Is this a kit
-     * @type {boolean}
-     */
-    this.isKit = !!this._kitData;
-    if (!this._kitData) return;
-    /**
-     * Game mode the kit is for
-     * @type {KitGameModes}
-     */
-    this.gameMode = this._kitData[2];
-    /**
-     * Kit type
-     * @type {KitType}
-     */
-    this.kitType = this._kitData[1];
-    /**
-     * Kit name in camelCase
-     * @type {string}
-     */
-    this.kitName = removeSnakeCaseString(this._kitData[3]);
-  }
-}
-
-/**
- * Parses SkyWars Kits
- */
-class SkywarsKits {
-  /**
-   * Constructor
-   * @param {SkywarsKit[]} kits Potential Kits
-   */
-  constructor(kits) {
-    this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
-  }
-  /**
-   * Get kit by type/gameMode
-   * @param {KitGameModes} [gameMode] Kits in said game mode
-   * @param {KitType} [type] Kits corresponding to this type
-   * @returns {SkywarsKit[]}
-   */
-  get(gameMode = '', type = '') {
-    return this.kits.filter((kit) => kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type));
-  }
-}
-
-/**
- * @typedef {string} KitType
- * * basic
- * * supporting
- * * mining
- * * defending
- * * attacking
- * * advanced
- * * enderchest
- */
-/**
- * @typedef {string} KitGameModes
- * * solo
- * * team
- */

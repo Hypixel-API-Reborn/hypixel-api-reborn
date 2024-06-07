@@ -32,12 +32,210 @@ const generateStatsForMode = (data, mode) => {
   };
 };
 
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getBedWarsPrestige(level) {
+  if (5000 <= level) return 'Eternal';
+  return (
+    [
+      'Stone',
+      'Iron',
+      'Gold',
+      'Diamond',
+      'Emerald',
+      'Sapphire',
+      'Ruby',
+      'Crystal',
+      'Opal',
+      'Amethyst',
+      'Rainbow',
+      'Iron Prime',
+      'Gold Prime',
+      'Diamond Prime',
+      'Emerald Prime',
+      'Sapphire Prime',
+      'Ruby Prime',
+      'Crystal Prime',
+      'Opal Prime',
+      'Amethyst Prime',
+      'Mirror',
+      'Light',
+      'Dawn',
+      'Dusk',
+      'Air',
+      'Wind',
+      'Nebula',
+      'Thunder',
+      'Earth',
+      'Water',
+      'Fire',
+      'Sunrise',
+      'Eclipse',
+      'Gamma',
+      'Majestic',
+      'Andesine',
+      'Marine',
+      'Element',
+      'Galaxy',
+      'Atomic',
+      'Sunset',
+      'Time',
+      'Winter',
+      'Obsidian',
+      'Spring',
+      'Ice',
+      'Summer',
+      'Spinel',
+      'Autumn',
+      'Mystic',
+      'Eternal'
+    ][Math.floor(level / 100)] || 'Eternal'
+  );
+}
+const EASY_LEVELS = 4;
+const EASY_LEVELS_XP = 7000;
+const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
+const LEVELS_PER_PRESTIGE = 100;
+const HIGHEST_PRESTIGE = 10;
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getLevelRespectingPrestige(level) {
+  if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
+    return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
+  }
+  return level % LEVELS_PER_PRESTIGE;
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getExpForLevel(level) {
+  if (0 === level) return 0;
+  const respectedLevel = getLevelRespectingPrestige(level);
+  if (respectedLevel > EASY_LEVELS) return 5000;
+  switch (respectedLevel) {
+    case 1:
+      return 500;
+    case 2:
+      return 1000;
+    case 3:
+      return 2000;
+    case 4:
+      return 3500;
+    default: {
+      return 5000;
+    }
+  }
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function getLevelForExp(exp) {
+  const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
+  let level = prestiges * LEVELS_PER_PRESTIGE;
+  let expWithoutPrestiges = exp - prestiges * XP_PER_PRESTIGE;
+
+  for (let i = 1; i <= EASY_LEVELS; ++i) {
+    const expForEasyLevel = getExpForLevel(i);
+    if (expWithoutPrestiges < expForEasyLevel) {
+      break;
+    }
+    level++;
+    expWithoutPrestiges -= expForEasyLevel;
+  }
+  return level + Math.floor(expWithoutPrestiges / 5000);
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function generateStatsForPractice(data) {
+  return {
+    selected: data?.practice?.selected || 'NONE',
+    bridging: {
+      blocksPlaced: data?.practice?.bridging?.blocks_placed ?? 0,
+      attempts: {
+        failed: data?.practice?.bridging?.failed_attempts ?? 0,
+        successful: data?.practice?.bridging?.successful_attempts ?? 0,
+        total: data?.practice?.bridging?.failed_attempts + data?.practice?.bridging?.successful_attempts
+      },
+      records: {
+        blocks30: {
+          elevation: {
+            none: {
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_DIAGONAL:'] ?? 0
+            },
+            slight: {
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
+            },
+            staircase: {
+              straight: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
+            }
+          }
+        },
+        blocks50: {
+          elevation: {
+            none: {
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_DIAGONAL:'] ?? 0
+            },
+            slight: {
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
+            },
+            staircase: {
+              straight: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
+            }
+          }
+        },
+        blocks100: {
+          elevation: {
+            none: {
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_DIAGONAL:'] ?? 0
+            },
+            slight: {
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
+            },
+            staircase: {
+              straight: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
+              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
+            }
+          }
+        }
+      }
+    },
+    fireballJumping: {
+      blocksPlaced: data?.practice?.fireball_jumping?.blocks_placed ?? 0,
+      attempts: {
+        failed: data?.practice?.fireball_jumping?.failed_attempts ?? 0,
+        successful: data?.practice?.fireball_jumping?.successful_attempts ?? 0,
+        total: data?.practice?.fireball_jumping?.failed_attempts + data?.practice?.fireball_jumping?.successful_attempts
+      }
+    },
+    pearlClutching: {
+      attempts: {
+        failed: data?.practice?.pearl_clutching?.failed_attempts ?? 0,
+        successful: data?.practice?.pearl_clutching?.successful_attempts ?? 0,
+        total: data?.practice?.pearl_clutching?.failed_attempts + data?.practice?.pearl_clutching?.successful_attempts
+      }
+    },
+    mlg: {
+      blocksPlaced: data?.practice?.mlg?.blocks_placed ?? 0,
+      attempts: {
+        failed: data?.practice?.mlg?.failed_attempts ?? 0,
+        successful: data?.practice?.mlg?.successful_attempts ?? 0,
+        total: data?.practice?.mlg?.failed_attempts + data?.practice?.mlg?.successful_attempts
+      }
+    }
+  };
+}
 /**
  * BedWars class
  */
 class BedWars {
   /**
    * @param {object} data BedWars data
+   * @example
    */
   constructor(data) {
     /**
@@ -204,200 +402,6 @@ class BedWars {
     this.totalSlumberTicket = data.slumber?.total_tickets ?? 0;
   }
 }
-// eslint-disable-next-line require-jsdoc
-function getBedWarsPrestige(level) {
-  // eslint-disable-next-line max-len
-  if (level >= 5000) return 'Eternal';
-  return (
-    [
-      'Stone',
-      'Iron',
-      'Gold',
-      'Diamond',
-      'Emerald',
-      'Sapphire',
-      'Ruby',
-      'Crystal',
-      'Opal',
-      'Amethyst',
-      'Rainbow',
-      'Iron Prime',
-      'Gold Prime',
-      'Diamond Prime',
-      'Emerald Prime',
-      'Sapphire Prime',
-      'Ruby Prime',
-      'Crystal Prime',
-      'Opal Prime',
-      'Amethyst Prime',
-      'Mirror',
-      'Light',
-      'Dawn',
-      'Dusk',
-      'Air',
-      'Wind',
-      'Nebula',
-      'Thunder',
-      'Earth',
-      'Water',
-      'Fire',
-      'Sunrise',
-      'Eclipse',
-      'Gamma',
-      'Majestic',
-      'Andesine',
-      'Marine',
-      'Element',
-      'Galaxy',
-      'Atomic',
-      'Sunset',
-      'Time',
-      'Winter',
-      'Obsidian',
-      'Spring',
-      'Ice',
-      'Summer',
-      'Spinel',
-      'Autumn',
-      'Mystic',
-      'Eternal'
-    ][Math.floor(level / 100)] || 'Eternal'
-  );
-}
-const EASY_LEVELS = 4;
-const EASY_LEVELS_XP = 7000;
-const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
-const LEVELS_PER_PRESTIGE = 100;
-const HIGHEST_PRESTIGE = 10;
-
-// eslint-disable-next-line require-jsdoc
-function getExpForLevel(level) {
-  if (level === 0) return 0;
-  const respectedLevel = getLevelRespectingPrestige(level);
-  if (respectedLevel > EASY_LEVELS) return 5000;
-  switch (respectedLevel) {
-    case 1:
-      return 500;
-    case 2:
-      return 1000;
-    case 3:
-      return 2000;
-    case 4:
-      return 3500;
-  }
-  return 5000;
-}
-// eslint-disable-next-line require-jsdoc
-function getLevelRespectingPrestige(level) {
-  if (level > HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE) {
-    return level - HIGHEST_PRESTIGE * LEVELS_PER_PRESTIGE;
-  } else {
-    return level % LEVELS_PER_PRESTIGE;
-  }
-}
-// eslint-disable-next-line require-jsdoc
-function getLevelForExp(exp) {
-  const prestiges = Math.floor(exp / XP_PER_PRESTIGE);
-  let level = prestiges * LEVELS_PER_PRESTIGE;
-  let expWithoutPrestiges = exp - prestiges * XP_PER_PRESTIGE;
-
-  for (let i = 1; i <= EASY_LEVELS; ++i) {
-    const expForEasyLevel = getExpForLevel(i);
-    if (expWithoutPrestiges < expForEasyLevel) {
-      break;
-    }
-    level++;
-    expWithoutPrestiges -= expForEasyLevel;
-  }
-  return level + Math.floor(expWithoutPrestiges / 5000);
-}
-// eslint-disable-next-line require-jsdoc
-function generateStatsForPractice(data) {
-  return {
-    selected: data?.practice?.selected || 'NONE',
-    bridging: {
-      blocksPlaced: data?.practice?.bridging?.blocks_placed ?? 0,
-      attempts: {
-        failed: data?.practice?.bridging?.failed_attempts ?? 0,
-        successful: data?.practice?.bridging?.successful_attempts ?? 0,
-        total: data?.practice?.bridging?.failed_attempts + data?.practice?.bridging?.successful_attempts
-      },
-      records: {
-        '30Blocks': {
-          elevation: {
-            none: {
-              straight: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_NONE:angle_DIAGONAL:'] ?? 0
-            },
-            slight: {
-              straight: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
-            },
-            staircase: {
-              straight: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_30:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
-            }
-          }
-        },
-        '50Blocks': {
-          elevation: {
-            none: {
-              straight: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_NONE:angle_DIAGONAL:'] ?? 0
-            },
-            slight: {
-              straight: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
-            },
-            staircase: {
-              straight: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_50:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
-            }
-          }
-        },
-        '100Blocks': {
-          elevation: {
-            none: {
-              straight: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_NONE:angle_DIAGONAL:'] ?? 0
-            },
-            slight: {
-              straight: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_SLIGHT:angle_DIAGONAL:'] ?? 0
-            },
-            staircase: {
-              straight: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_STRAIGHT:'] ?? 0,
-              diagonal: data?.practice?.records?.['bridging_distance_100:elevation_STAIRCASE:angle_DIAGONAL:'] ?? 0
-            }
-          }
-        }
-      }
-    },
-    fireballJumping: {
-      blocksPlaced: data?.practice?.fireball_jumping?.blocks_placed ?? 0,
-      attempts: {
-        failed: data?.practice?.fireball_jumping?.failed_attempts ?? 0,
-        successful: data?.practice?.fireball_jumping?.successful_attempts ?? 0,
-        total: data?.practice?.fireball_jumping?.failed_attempts + data?.practice?.fireball_jumping?.successful_attempts
-      }
-    },
-    pearlClutching: {
-      attempts: {
-        failed: data?.practice?.pearl_clutching?.failed_attempts ?? 0,
-        successful: data?.practice?.pearl_clutching?.successful_attempts ?? 0,
-        total: data?.practice?.pearl_clutching?.failed_attempts + data?.practice?.pearl_clutching?.successful_attempts
-      }
-    },
-    mlg: {
-      blocksPlaced: data?.practice?.mlg?.blocks_placed ?? 0,
-      attempts: {
-        failed: data?.practice?.mlg?.failed_attempts ?? 0,
-        successful: data?.practice?.mlg?.successful_attempts ?? 0,
-        total: data?.practice?.mlg?.failed_attempts + data?.practice?.mlg?.successful_attempts
-      }
-    }
-  };
-}
 /**
  * @typedef {string} BedWarsPrestige
  * * `Stone`
@@ -523,9 +527,9 @@ function generateStatsForPractice(data) {
  */
 /**
  * @typedef {Object} BedWarsPracticeRecords
- * @property {BedWarsPracticeRecord} 30Blocks 30 Blocks
- * @property {BedWarsPracticeRecord} 50Blocks 50 Blocks
- * @property {BedWarsPracticeRecord} 100Blocks 100 Blocks
+ * @property {BedWarsPracticeRecord} blocks30 30 Blocks
+ * @property {BedWarsPracticeRecord} blocks50 50 Blocks
+ * @property {BedWarsPracticeRecord} blocks100 100 Blocks
  */
 /**
  * @typedef {Object} BedWarsPracticeBridging

@@ -6,6 +6,7 @@ class Pet {
   /**
    * @param {string} name Name of pet
    * @param {object} data data
+   * @example
    */
   constructor(name, data) {
     /**
@@ -29,7 +30,7 @@ class Pet {
      * Stats of the pet, if any
      * @type {object}
      */
-    if (!stats) return; // don't parse stats because there is none.
+    if (!stats) return;
     /**
      * Hunger value ( 100 is highest )
      * @type {?number}

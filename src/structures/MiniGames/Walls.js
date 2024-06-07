@@ -5,6 +5,7 @@ const divide = require('../../utils/divide');
 class Walls {
   /**
    * @param {object} data Walls data
+   * @example
    */
   constructor(data) {
     /**

@@ -1,8 +1,383 @@
 // IMPORTANT : a lot of the properties from the API seem to be nonsense
 
-const divide = require('../../utils/divide');
-const { weekAB, monthAB } = require('../../utils/oscillation');
 const { removeSnakeCaseString } = require('../../utils/removeSnakeCase');
+const { weekAB, monthAB } = require('../../utils/oscillation');
+const divide = require('../../utils/divide');
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parseZombiesKills(data) {
+  const matches = Array.from(Object.keys(data))
+    .map((x) => x.match(/^([A-Za-z]+)_zombie_kills_zombies$/))
+    .filter((x) => x);
+  // From entries might be broken
+  return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
+}
+/**
+ * Most basic game class, used by all arcade games
+ */
+class BaseGame {
+  /**
+   * @param {Object} data data
+   * @param {string} gameName Game Name ( snake )
+   * @example
+   */
+  constructor(data, gameName) {
+    /**
+     * Wins
+     * @type {?number}
+     */
+    this.wins = parseInt(data['wins_' + gameName], 10) || 0;
+    /**
+     * Kills, only available in combat games
+     * @type {?number}
+     */
+    this.kills = parseInt(data['kills_' + gameName], 10) || 0;
+    /**
+     * Deaths, only available in combat games
+     * @type {?number}
+     */
+    this.deaths = parseInt(data['deaths_' + gameName], 10) || 0;
+    /**
+     * Rounds Played, only available in Santa says, Simon Says, and HITW
+     * @type {?number}
+     */
+    this.roundsPlayed = parseInt(data['rounds_' + gameName], 10) || 0;
+  }
+  /**
+   * Extend BaseGame without creating a new class
+   * @param {string} name Property to add
+   * @param {*} value Corresponding value
+   * @private
+   * @returns {BaseGame}
+   * @example
+   */
+  extend(name, value) {
+    this[name] = value;
+    return this;
+  }
+}
+
+/**
+ * Galxy Wars, aka sw class, totally different from normal stats
+ */
+class GalaxyWars {
+  /**
+   * @param {Object} data Data from API
+   * @example
+   */
+  constructor(data) {
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.sw_game_wins || 0;
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data.sw_kills || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data.sw_deaths || 0;
+    /**
+     * Total shots fired
+     * @type {number}
+     */
+    this.shotsFired = data.sw_shots_fired || 0;
+    /**
+     * Total weekly kills
+     * @type {number}
+     */
+    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0, 10);
+    /**
+     * Total Monthly kills
+     * @type {number}
+     */
+    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0, 10);
+    /**
+     * Attacker Kills
+     * @type {number}
+     */
+    this.attackerKills = data.sw_rebel_kills || 0;
+    /**
+     * Defender Kills
+     * @type {number}
+     */
+    this.defenderKills = data.sw_empire_kills || 0;
+  }
+}
+/**
+ * Soccer class
+ */
+class Soccer {
+  /**
+   * @param {Object} data Data from API
+   * @example
+   */
+  constructor(data) {
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.wins_soccer || 0;
+    /**
+     * Number of Kicks
+     * @type {number}
+     */
+    this.kicks = data.kicks_soccer || 0;
+    /**
+     * Number of Powerkicks
+     * @type {number}
+     */
+    this.powerKicks = data.powerkicks_soccer || 0;
+    /**
+     * Goals
+     * @type {number}
+     */
+    this.goals = data.goals_soccer || 0;
+  }
+}
+/**
+ * Hole in the Wall class
+ */
+class HITW extends BaseGame {
+  /**
+   * @param {Object} data Data From API
+   * @example
+   */
+  constructor(data) {
+    super(data, 'hole_in_the_wall');
+    /**
+     * Score Record in Finals
+     * @type {number}
+     */
+    this.scoreRecordFinals = data.hitw_record_f || 0;
+    /**
+     * Score Record in Normal
+     * @type {number}
+     */
+    this.scoreRecordNormal = data.hitw_record_q || 0;
+    /**
+     * Score Record overall
+     * @type {number}
+     */
+    this.scoreRecordOverall = this.scoreRecordFinals + this.scoreRecordNormal;
+  }
+}
+/**
+ * Mini Walls class
+ */
+class MiniWalls extends BaseGame {
+  /**
+   * Constructor
+   * @param {Object} data data from API
+   * @example
+   */
+  constructor(data) {
+    super(data, 'mini_walls');
+    /**
+     * Total Arrow Hits
+     * @type {number}
+     */
+    this.arrowHits = data.arrows_hit_mini_walls || 0;
+    /**
+     * Total Arrow shots
+     * @type {number}
+     */
+    this.arrowShots = data.arrows_shot_mini_walls || 0;
+    /**
+     * Bow Accuracy based on hits/shots
+     * @type {number}
+     */
+    this.bowAccuracy = divide(this.arrowHits, this.arrowShots);
+    /**
+     * Final Kills
+     * @type {number}
+     */
+    this.finalKills = data.final_kills_mini_walls || 0;
+    /**
+     * Total damage dealt to withers
+     * @type {number}
+     */
+    this.witherDamage = data.wither_damage_mini_walls || 0;
+    /**
+     * Wither Killed
+     * @type {number}
+     */
+    this.witherKills = data.wither_kills_mini_walls || 0;
+  }
+}
+/**
+ * Zombies - Stats by Map + Difficulty
+ */
+class ZombiesStats {
+  /**
+   * Constructor
+   * @param {Object} data Data from API
+   * @param {string} type Map name + difficulty ( default overall )
+   * @example
+   */
+  constructor(data, type = '') {
+    if (type) type = `_${type}`;
+    /**
+     * Best Round
+     * @type {number}
+     */
+    this.bestRound = data[`best_round_zombies${type}`] || 0;
+    /**
+     * Deaths ( NOT losses )
+     * @type {number}
+     */
+    this.deaths = data[`deaths_zombies${type}`] || 0;
+    /**
+     * Doors opened
+     * @type {number}
+     */
+    this.doorsOpened = data[`doors_opened_zombies${type}`] || 0;
+    /**
+     * Fastest time to reach round 10 in seconds
+     * @type {number}
+     */
+    this.fastestRound10 = data[`fastest_time_10_zombies${type}`] || 0;
+    /**
+     * Fastest time to reach round 20 in seconds
+     * @type {number}
+     */
+    this.fastestRound20 = data[`fastest_time_20_zombies${type}`] || 0;
+    /**
+     * Fastest time to reach round 30 in seconds
+     * @type {number}
+     */
+    this.fastestRound30 = data[`fastest_time_30_zombies${type}`] || 0;
+    /**
+     * Players revived
+     * @type {number}
+     */
+    this.playersRevived = data[`players_revived_zombies${type}`] || 0;
+    /**
+     * Number of times player is knocked down
+     * @type {number}
+     */
+    this.timesKnockedDown = data[`times_knocked_down_zombies${type}`] || 0;
+    /**
+     * Total amount of rounds the player survived
+     * @type {number}
+     */
+    this.roundsSurvived = data[`total_rounds_survived_zombies${type}`] || 0;
+    /**
+     * Total amount of windows fully repaired by player
+     * @type {number}
+     */
+    this.windowsRepaired = data[`windows_repaired_zombies${type}`] || 0;
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`wins_zombies${type}`] || 0;
+    /**
+     * Total Zombie Kills
+     * @type {number}
+     */
+    this.zombieKills = data[`zombie_kills_zombies${type}`] || 0;
+  }
+}
+/**
+ * Zombie stats by map
+ */
+class ZombieMap {
+  /**
+   * Constructor
+   * @param {Object} data Data from API
+   * @param {string} mapName String map name
+   * @example
+   */
+  constructor(data, mapName) {
+    /**
+     * Normal mode
+     * @type {ZombiesStats}
+     */
+    this.normal = new ZombiesStats(data, `${mapName}_normal`);
+    /**
+     * Hard mode ( parties only )
+     * @type {ZombiesStats}
+     */
+    this.hard = new ZombiesStats(data, `${mapName}_hard`);
+    /**
+     * RIP mode ( parties only )
+     * @type {ZombiesStats}
+     */
+    this.rip = new ZombiesStats(data, `${mapName}_rip`);
+    /**
+     * Overall ( 3 modes combined )
+     * @type {ZombiesStats}
+     */
+    this.overall = new ZombiesStats(data, mapName);
+  }
+}
+/**
+ * Zombies - Overall stats
+ */
+class Zombies {
+  /**
+   * Constructor
+   * @param {Object} data Data from API
+   * @example
+   */
+  constructor(data) {
+    /**
+     * Overall Stats
+     * @type {ZombiesStats}
+     */
+    this.overall = new ZombiesStats(data);
+    /**
+     * Stats for Dead End
+     * @type {ZombieMap}
+     */
+    this.deadEnd = new ZombieMap(data, 'deadend');
+    /**
+     * Stats for Bad Blood
+     * @type {ZombieMap}
+     */
+    this.badBlood = new ZombieMap(data, 'badblood');
+    /**
+     * Stats for Alien Arcadium
+     * @type {ZombieMap}
+     */
+    this.alienArcadium = new ZombieMap(data, 'alienarcadium');
+    /**
+     * Kills By Zombie
+     * @type {Record<string,number>}
+     */
+    this.killsByZombie = parseZombiesKills(data);
+    /**
+     * Bullets Hit
+     * @type {number}
+     */
+    this.bulletsHit = data.bullets_hit_zombies || 0;
+    /**
+     * Bullets Shot
+     * @type {number}
+     */
+    this.bulletsShot = data.bullets_shot_zombies || 0;
+    /**
+     * Gun Accuracy
+     * @type {number}
+     */
+    this.gunAccuracy = divide(this.bulletsHit, this.bulletsShot);
+    /**
+     * Headshots
+     * @type {number}
+     */
+    this.headshots = data.headshots_zombies || 0;
+    /**
+     * Headshot Accuracy
+     * @type {number}
+     */
+    this.headshotAccuracy = divide(this.headshots, this.bulletsShot);
+  }
+}
 
 /**
  * Arcade class
@@ -11,6 +386,7 @@ class Arcade {
   /**
    * Constructor
    * @param {Object} data Data from the API
+   * @example
    */
   constructor(data = {}) {
     /**
@@ -104,7 +480,8 @@ class Arcade {
      * Mini Walls stats
      * @type {MiniWalls}
      */
-    this.miniWalls = new MiniWalls(data); // needs extension
+    // TODO needs extension
+    this.miniWalls = new MiniWalls(data);
     /**
      * Party games (1) stats
      * @type {BaseGame}
@@ -173,371 +550,6 @@ class Arcade {
      */
     this.captureTheWool = { kills: data.arcade_ctw_slayer || 0, captures: data.arcade_ctw_oh_sheep || 0 };
   }
-}
-/**
- * Most basic game class, used by all arcade games
- */
-class BaseGame {
-  /**
-   * @param {Object} data data
-   * @param {string} gameName Game Name ( snake )
-   */
-  constructor(data, gameName) {
-    /**
-     * Wins
-     * @type {?number}
-     */
-    this.wins = parseInt(data['wins_' + gameName], 10) || 0;
-    /**
-     * Kills, only available in combat games
-     * @type {?number}
-     */
-    this.kills = parseInt(data['kills_' + gameName], 10) || 0;
-    /**
-     * Deaths, only available in combat games
-     * @type {?number}
-     */
-    this.deaths = parseInt(data['deaths_' + gameName], 10) || 0;
-    /**
-     * Rounds Played, only available in Santa says, Simon Says, and HITW
-     * @type {?number}
-     */
-    this.roundsPlayed = parseInt(data['rounds_' + gameName], 10) || 0;
-  }
-  /**
-   * Extend BaseGame without creating a new class
-   * @param {string} name Property to add
-   * @param {*} value Corresponding value
-   * @private
-   * @returns {BaseGame}
-   */
-  extend(name, value) {
-    this[name] = value;
-    return this;
-  }
-}
-
-/**
- * Galxy Wars, aka sw class, totally different from normal stats
- */
-class GalaxyWars {
-  /**
-   * @param {Object} data Data from API
-   */
-  constructor(data) {
-    /**
-     * Wins
-     * @type {number}
-     */
-    this.wins = data.sw_game_wins || 0;
-    /**
-     * Kills
-     * @type {number}
-     */
-    this.kills = data.sw_kills || 0;
-    /**
-     * Deaths
-     * @type {number}
-     */
-    this.deaths = data.sw_deaths || 0;
-    /**
-     * Total shots fired
-     * @type {number}
-     */
-    this.shotsFired = data.sw_shots_fired || 0;
-    /**
-     * Total weekly kills
-     * @type {number}
-     */
-    this.weeklyKills = parseInt(data[`weekly_kills_${weekAB()}`] || 0, 10);
-    /**
-     * Total Monthly kills
-     * @type {number}
-     */
-    this.monthlyKills = parseInt(data[`monthly_kills_${monthAB()}`] || 0, 10);
-    /**
-     * Attacker Kills
-     * @type {number}
-     */
-    this.attackerKills = data.sw_rebel_kills || 0;
-    /**
-     * Defender Kills
-     * @type {number}
-     */
-    this.defenderKills = data.sw_empire_kills || 0;
-  }
-}
-/**
- * Soccer class
- */
-class Soccer {
-  /**
-   * @param {Object} data Data from API
-   */
-  constructor(data) {
-    /**
-     * Wins
-     * @type {number}
-     */
-    this.wins = data.wins_soccer || 0;
-    /**
-     * Number of Kicks
-     * @type {number}
-     */
-    this.kicks = data.kicks_soccer || 0;
-    /**
-     * Number of Powerkicks
-     * @type {number}
-     */
-    this.powerKicks = data.powerkicks_soccer || 0;
-    /**
-     * Goals
-     * @type {number}
-     */
-    this.goals = data.goals_soccer || 0;
-  }
-}
-/**
- * Hole in the Wall class
- */
-class HITW extends BaseGame {
-  /**
-   * @param {Object} data Data From API
-   */
-  constructor(data) {
-    super(data, 'hole_in_the_wall');
-    /**
-     * Score Record in Finals
-     * @type {number}
-     */
-    this.scoreRecordFinals = data.hitw_record_f || 0;
-    /**
-     * Score Record in Normal
-     * @type {number}
-     */
-    this.scoreRecordNormal = data.hitw_record_q || 0;
-    /**
-     * Score Record overall
-     * @type {number}
-     */
-    this.scoreRecordOverall = this.scoreRecordFinals + this.scoreRecordNormal;
-  }
-}
-/**
- * Mini Walls class
- */
-class MiniWalls extends BaseGame {
-  /**
-   * Constructor
-   * @param {Object} data data from API
-   */
-  constructor(data) {
-    super(data, 'mini_walls');
-    /**
-     * Total Arrow Hits
-     * @type {number}
-     */
-    this.arrowHits = data.arrows_hit_mini_walls || 0;
-    /**
-     * Total Arrow shots
-     * @type {number}
-     */
-    this.arrowShots = data.arrows_shot_mini_walls || 0;
-    /**
-     * Bow Accuracy based on hits/shots
-     * @type {number}
-     */
-    this.bowAccuracy = divide(this.arrowHits, this.arrowShots);
-    /**
-     * Final Kills
-     * @type {number}
-     */
-    this.finalKills = data.final_kills_mini_walls || 0;
-    /**
-     * Total damage dealt to withers
-     * @type {number}
-     */
-    this.witherDamage = data.wither_damage_mini_walls || 0;
-    /**
-     * Wither Killed
-     * @type {number}
-     */
-    this.witherKills = data.wither_kills_mini_walls || 0;
-  }
-}
-/**
- * Zombies - Overall stats
- */
-class Zombies {
-  /**
-   * Constructor
-   * @param {Object} data Data from API
-   */
-  constructor(data) {
-    /**
-     * Overall Stats
-     * @type {ZombiesStats}
-     */
-    this.overall = new ZombiesStats(data);
-    /**
-     * Stats for Dead End
-     * @type {ZombieMap}
-     */
-    this.deadEnd = new ZombieMap(data, 'deadend');
-    /**
-     * Stats for Bad Blood
-     * @type {ZombieMap}
-     */
-    this.badBlood = new ZombieMap(data, 'badblood');
-    /**
-     * Stats for Alien Arcadium
-     * @type {ZombieMap}
-     */
-    this.alienArcadium = new ZombieMap(data, 'alienarcadium');
-    /**
-     * Kills By Zombie
-     * @type {Record<string,number>}
-     */
-    this.killsByZombie = parseZombiesKills(data);
-    /**
-     * Bullets Hit
-     * @type {number}
-     */
-    this.bulletsHit = data.bullets_hit_zombies || 0;
-    /**
-     * Bullets Shot
-     * @type {number}
-     */
-    this.bulletsShot = data.bullets_shot_zombies || 0;
-    /**
-     * Gun Accuracy
-     * @type {number}
-     */
-    this.gunAccuracy = divide(this.bulletsHit, this.bulletsShot);
-    /**
-     * Headshots
-     * @type {number}
-     */
-    this.headshots = data.headshots_zombies || 0;
-    /**
-     * Headshot Accuracy
-     * @type {number}
-     */
-    this.headshotAccuracy = divide(this.headshots, this.bulletsShot);
-  }
-}
-/**
- * Zombie stats by map
- */
-class ZombieMap {
-  /**
-   * Constructor
-   * @param {Object} data Data from API
-   * @param {string} mapName String map name
-   */
-  constructor(data, mapName) {
-    /**
-     * Normal mode
-     * @type {ZombiesStats}
-     */
-    this.normal = new ZombiesStats(data, `${mapName}_normal`);
-    /**
-     * Hard mode ( parties only )
-     * @type {ZombiesStats}
-     */
-    this.hard = new ZombiesStats(data, `${mapName}_hard`);
-    /**
-     * RIP mode ( parties only )
-     * @type {ZombiesStats}
-     */
-    this.rip = new ZombiesStats(data, `${mapName}_rip`);
-    /**
-     * Overall ( 3 modes combined )
-     * @type {ZombiesStats}
-     */
-    this.overall = new ZombiesStats(data, mapName);
-  }
-}
-/**
- * Zombies - Stats by Map + Difficulty
- */
-class ZombiesStats {
-  /**
-   * Constructor
-   * @param {Object} data Data from API
-   * @param {string} type Map name + difficulty ( default overall )
-   */
-  constructor(data, type = '') {
-    if (type) type = `_${type}`;
-    /**
-     * Best Round
-     * @type {number}
-     */
-    this.bestRound = data[`best_round_zombies${type}`] || 0;
-    /**
-     * Deaths ( NOT losses )
-     * @type {number}
-     */
-    this.deaths = data[`deaths_zombies${type}`] || 0;
-    /**
-     * Doors opened
-     * @type {number}
-     */
-    this.doorsOpened = data[`doors_opened_zombies${type}`] || 0;
-    /**
-     * Fastest time to reach round 10 in seconds
-     * @type {number}
-     */
-    this.fastestRound10 = data[`fastest_time_10_zombies${type}`] || 0;
-    /**
-     * Fastest time to reach round 20 in seconds
-     * @type {number}
-     */
-    this.fastestRound20 = data[`fastest_time_20_zombies${type}`] || 0;
-    /**
-     * Fastest time to reach round 30 in seconds
-     * @type {number}
-     */
-    this.fastestRound30 = data[`fastest_time_30_zombies${type}`] || 0;
-    /**
-     * Players revived
-     * @type {number}
-     */
-    this.playersRevived = data[`players_revived_zombies${type}`] || 0;
-    /**
-     * Number of times player is knocked down
-     * @type {number}
-     */
-    this.timesKnockedDown = data[`times_knocked_down_zombies${type}`] || 0;
-    /**
-     * Total amount of rounds the player survived
-     * @type {number}
-     */
-    this.roundsSurvived = data[`total_rounds_survived_zombies${type}`] || 0;
-    /**
-     * Total amount of windows fully repaired by player
-     * @type {number}
-     */
-    this.windowsRepaired = data[`windows_repaired_zombies${type}`] || 0;
-    /**
-     * Wins
-     * @type {number}
-     */
-    this.wins = data[`wins_zombies${type}`] || 0;
-    /**
-     * Total Zombie Kills
-     * @type {number}
-     */
-    this.zombieKills = data[`zombie_kills_zombies${type}`] || 0;
-  }
-}
-// eslint-disable-next-line require-jsdoc
-function parseZombiesKills(data) {
-  const matches = Array.from(Object.keys(data))
-    .map((x) => x.match(/^([A-z]+)_zombie_kills_zombies$/))
-    .filter((x) => x);
-  // From entries might be broken
-  return Object.fromEntries(matches.map((x) => [removeSnakeCaseString(x[1]), data[x[0]] || 0]));
 }
 /**
  * @typedef {Object} EasterSimulator

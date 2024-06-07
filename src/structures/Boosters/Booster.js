@@ -1,10 +1,19 @@
 const Game = require('../Game');
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parseType(data) {
+  if (true === data.stacked) return 'STACKED';
+  if (!data.stacked) return 'QUEUED';
+  return 'ACTIVE';
+}
+
 /**
  * Booster class
  */
 class Booster {
   /**
    * @param {object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -63,21 +72,15 @@ class Booster {
      * Works by checking if date.length is negative
      * @type {boolean}
      */
-    this.expired = data.length < 0;
+    this.expired = 0 > data.length;
   }
   /**
    * Beautiful format
    * @return {string}
+   * @example
    */
   toString() {
     return `${this.purchaser}'s booster in ${this.game}`;
   }
-}
-
-// eslint-disable-next-line require-jsdoc
-function parseType(data) {
-  if (data.stacked === true) return 'STACKED';
-  if (!data.stacked) return 'QUEUED';
-  return 'ACTIVE';
 }
 module.exports = Booster;

@@ -1,6 +1,7 @@
 const PartialAuction = require('../../structures/SkyBlock/Auctions/PartialAuction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 module.exports = async function (includeItemBytes = false) {
+  // eslint-disable-next-line no-underscore-dangle
   const res = await this._makeRequest('/skyblock/auctions_ended', false);
   if (res.raw) return res;
   return {

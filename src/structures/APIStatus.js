@@ -5,6 +5,7 @@ const APIIncident = require('./APIIncident');
 class APIStatus {
   /**
    * @param {object} data API status data
+   * @example
    */
   constructor(data) {
     /**
@@ -31,13 +32,13 @@ class APIStatus {
      * All incidents that aren't completed/resolved
      * @author linearaccelerator
      * @type {APIIncident[]}
-     * @version >6.0.1
      */
     this.currentIncidents = this.incidents.filter((i) => !i.isResolved);
   }
   /**
    * Status Title
    * @return {string}
+   * @example
    */
   toString() {
     return this.title;

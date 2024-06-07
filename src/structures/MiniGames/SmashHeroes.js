@@ -1,10 +1,47 @@
 const divide = require('../../utils/divide');
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function generateModeStats(data, mode) {
+  return {
+    kills: data[`kills_${mode}`] || 0,
+    deaths: data[`deaths_${mode}`] || 0,
+    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
+    wins: data[`wins_${mode}`] || 0,
+    losses: data[`losses_${mode}`] || 0,
+    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
+  };
+}
+
+// eslint-disable-next-line jsdoc/require-jsdoc
+function generateHeroStats(data) {
+  const stats = [];
+  for (const hero in data.class_stats) {
+    if (Object.prototype.hasOwnProperty.call(data.class_stats, hero)) {
+      stats.push({
+        name: hero,
+        level: data[`lastLevel_${hero}`] || 0,
+        xp: data[`xp_${hero}`] || 0,
+        prestige: data[`pg_${hero}`] || 0,
+        playedGames: data.class_stats[hero].games || 0,
+        kills: data.class_stats[hero].kills || 0,
+        deaths: data.class_stats[hero].deaths || 0,
+        KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
+        wins: data.class_stats[hero].wins || 0,
+        losses: data.class_stats[hero].losses || 0,
+        WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
+      });
+    }
+  }
+  return stats;
+}
+
 /**
  * SmashHeroes class
  */
 class SmashHeroes {
   /**
    * @param {object} data SmashHeroes data
+   * @example
    */
   constructor(data) {
     /**
@@ -77,40 +114,6 @@ class SmashHeroes {
      */
     this.heroStats = data.class_stats ? generateHeroStats(data) : null;
   }
-}
-// eslint-disable-next-line require-jsdoc
-function generateModeStats(data, mode) {
-  return {
-    kills: data[`kills_${mode}`] || 0,
-    deaths: data[`deaths_${mode}`] || 0,
-    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
-    wins: data[`wins_${mode}`] || 0,
-    losses: data[`losses_${mode}`] || 0,
-    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
-  };
-}
-// eslint-disable-next-line require-jsdoc
-function generateHeroStats(data) {
-  // eslint-disable-next-line no-useless-return
-  const stats = [];
-  for (const hero in data.class_stats) {
-    if (Object.prototype.hasOwnProperty.call(data.class_stats, hero)) {
-      stats.push({
-        name: hero,
-        level: data[`lastLevel_${hero}`] || 0,
-        xp: data[`xp_${hero}`] || 0,
-        prestige: data[`pg_${hero}`] || 0,
-        playedGames: data.class_stats[hero].games || 0,
-        kills: data.class_stats[hero].kills || 0,
-        deaths: data.class_stats[hero].deaths || 0,
-        KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
-        wins: data.class_stats[hero].wins || 0,
-        losses: data.class_stats[hero].losses || 0,
-        WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
-      });
-    }
-  }
-  return stats;
 }
 /**
  * @typedef {object} SmashHeroesModes

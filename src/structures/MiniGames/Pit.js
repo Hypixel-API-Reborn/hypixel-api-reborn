@@ -12,6 +12,7 @@ class Pit {
   /**
    * Constructor
    * @param {Record<string,unknown>} data Data from API
+   * @example
    */
   constructor(data) {
     const stats = data.pit_stats_ptl || {};
@@ -30,7 +31,7 @@ class Pit {
      * @type {number}
      */
     this.level =
-      Pit.calcLevel(this.prestige, this.prestige > 0 ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ??
+      Pit.calcLevel(this.prestige, 0 < this.prestige ? this.xp - Prestiges[this.prestige - 1].SumXp : this.xp).level ??
       0;
     /**
      * Kills
@@ -154,6 +155,7 @@ class Pit {
     /**
      * Pit Player Inv
      * @return {Promise<PitInventoryItem[]>}
+     * @example
      */
     this.getInventory = async () => {
       let inventory = data.profile.inv_contents;
@@ -169,13 +171,14 @@ class Pit {
           edited.push(new PitInventoryItem(inventory[i]));
         }
         return edited;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Pit Player Ender Chest
      * @return {Promise<PitInventoryItem[]>}
+     * @example
      */
     this.getEnterChest = async () => {
       let chest = data.profile.inv_enderchest;
@@ -191,13 +194,14 @@ class Pit {
           edited.push(new PitInventoryItem(chest[i]));
         }
         return edited;
-      } catch (e) {
+      } catch {
         return [];
       }
     };
     /**
      * Pit Player Armor
      * @return {Promise<PitArmor>}
+     * @example
      */
     this.getArmor = async () => {
       const base64 = data.profile.inv_armor;
@@ -217,11 +221,12 @@ class Pit {
    * @param {number} prestige Prestige Level
    * @param {number} xp Current xp into the prestige
    * @return {number}
+   * @example
    */
   static calcLevel(prestige, xp) {
     const multiplier = Prestiges[prestige].Multiplier;
     let level = 0;
-    while (xp > 0 && level < 120) {
+    while (0 < xp && 120 > level) {
       const levelXp = Levels[Math.floor(level / 10)].Xp * multiplier;
       if (xp >= levelXp * 10) {
         xp -= levelXp * 10;
@@ -229,7 +234,6 @@ class Pit {
       } else {
         const gain = Math.floor(xp / levelXp);
         level += gain;
-        xp -= gain * levelXp;
         xp = 0;
       }
     }

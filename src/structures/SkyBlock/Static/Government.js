@@ -7,6 +7,7 @@ class GovernmentData {
   /**
    * constructor
    * @param {Object} data
+   * @example
    */
   constructor(data) {
     /**
@@ -65,6 +66,7 @@ class GovernmentData {
   /**
    * Current Mayor
    * @return {string}
+   * @example
    */
   toString() {
     return this.mayor.name;

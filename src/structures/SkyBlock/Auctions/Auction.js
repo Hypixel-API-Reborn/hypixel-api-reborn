@@ -7,6 +7,7 @@ class Auction extends BaseAuction {
   /**
    * @param {object} data
    * @param {boolean} includeItemBytes
+   * @example
    */
   constructor(data, includeItemBytes) {
     super(data, includeItemBytes);
@@ -84,6 +85,7 @@ class Auction extends BaseAuction {
   /**
    * Item Name
    * @return {string}
+   * @example
    */
   toString() {
     return this.item;

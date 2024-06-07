@@ -1,9 +1,11 @@
+const { parseRarity, parseGearScore } = require('../../utils/SkyblockUtils');
 /**
  * Item class
  */
 class SkyblockInventoryItem {
   /**
    * @param {object} data Item data
+   * @example
    */
   constructor(data) {
     /**
@@ -21,7 +23,7 @@ class SkyblockInventoryItem {
      * @type {string}
      */
     this.name =
-      data.tag.display.Name !== null ? data.tag.display.Name.toString().replace(/§([1-9]|[a-f])|§/gm, '') : null;
+      null !== data.tag.display.Name ? data.tag.display.Name.toString().replace(/§([1-9]|[a-f])|§/gm, '') : null;
     /**
      * Item lore
      * @type {string}
@@ -58,7 +60,6 @@ class SkyblockInventoryItem {
      */
     this.gemstones = data.tag.ExtraAttributes.gems
       ? Object.entries(data.tag.ExtraAttributes.gems).map((gem) => {
-          // eslint-disable-next-line no-new-object
           return new Object({ type: gem[0].split('_')[0], quality: gem[1] });
         })
       : null;
@@ -71,7 +72,6 @@ class SkyblockInventoryItem {
      * What rarity the item has, as an uppercase string
      * @author linearaccelerator
      * @type {string}
-     * @version >6.0.1
      */
     this.rarity = parseRarity(this.loreArray[this.loreArray.length - 1]);
     /**
@@ -94,7 +94,7 @@ class SkyblockInventoryItem {
      * Is the item soulbound
      * @type {boolean}
      */
-    this.soulbound = data.tag.ExtraAttributes.donated_museum === 1;
+    this.soulbound = 1 === data.tag.ExtraAttributes.donated_museum;
     /**
      * Amount of art of war books applied to the item
      * @type {number}
@@ -114,7 +114,7 @@ class SkyblockInventoryItem {
      * Is the item recombobulated
      * @type {boolean}
      */
-    this.recombobulated = data.tag.ExtraAttributes.rarity_upgrades === 1;
+    this.recombobulated = 1 === data.tag.ExtraAttributes.rarity_upgrades;
     /**
      * Item attributes
      * @type {object}
@@ -154,32 +154,10 @@ class SkyblockInventoryItem {
   /**
    * Item Name
    * @return {string}
+   * @example
    */
   toString() {
     return this.name;
-  }
-}
-// eslint-disable-next-line require-jsdoc
-function parseRarity(stringContainingRarity) {
-  const rarityArray = [
-    'COMMON',
-    'UNCOMMON',
-    'RARE',
-    'EPIC',
-    'LEGENDARY',
-    'MYTHIC',
-    'DIVINE',
-    'SPECIAL',
-    'VERY SPECIAL'
-  ];
-  for (const rarity of rarityArray) {
-    if (stringContainingRarity.includes(rarity)) return rarity;
-  }
-}
-// eslint-disable-next-line require-jsdoc
-function parseGearScore(lore) {
-  for (const line of lore) {
-    if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
   }
 }
 

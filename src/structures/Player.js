@@ -1,3 +1,10 @@
+const {
+  playerLevelProgress,
+  parseClaimedRewards,
+  getSocialMedia,
+  getPlayerLevel,
+  getRank
+} = require('../utils/Player');
 const SkyWars = require('./MiniGames/SkyWars');
 const BedWars = require('./MiniGames/BedWars');
 const UHC = require('./MiniGames/UHC');
@@ -24,6 +31,8 @@ const Walls = require('./MiniGames/Walls');
 const Warlords = require('./MiniGames/Warlords');
 const WoolWars = require('./MiniGames/WoolWars');
 const Pit = require('./MiniGames/Pit');
+const Guild = require('./Guild/Guild');
+const RecentGame = require('./RecentGame');
 /**
  * Player class
  */
@@ -31,6 +40,7 @@ class Player {
   /**
    * @param {object} data Player data
    * @param {Record<string, any>} extraPayload extra data requested alongside player
+   * @example
    */
   constructor(data, extraPayload) {
     /**
@@ -93,7 +103,7 @@ class Player {
      * @type {Color|null}
      */
     this.plusColor =
-      this.rank === 'MVP+' || this.rank === 'MVP++'
+      'MVP+' === this.rank || 'MVP++' === this.rank
         ? data.rankPlusColor
           ? new Color(data.rankPlusColor)
           : new Color('RED')
@@ -103,7 +113,7 @@ class Player {
      * @type {Color|null}
      */
     this.prefixColor =
-      this.rank === 'MVP++' ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
+      'MVP++' === this.rank ? (data.monthlyRankColor ? new Color(data.monthlyRankColor) : new Color('GOLD')) : null;
     /**
      * Player karma
      * @type {number}
@@ -158,7 +168,7 @@ class Player {
      * Last time player claimed the daily reward
      * @type {Date | null}
      */
-    this.lastDailyReward = new Date(data.lastAdsenseGenerateTime) || null;
+    this.lastDailyReward = data.lastAdsenseGenerateTime ? new Date(data.lastAdsenseGenerateTime) : null;
     /**
      * Last time player claimed the daily reward, as timestamp
      * @type {number | null}
@@ -249,7 +259,7 @@ class Player {
      * Global Cosmetics a player owns
      * @type {PlayerCosmetics}
      */
-    this.globalCosmetics = new PlayerCosmetics(data) || null;
+    this.globalCosmetics = data ? new PlayerCosmetics(data) : null;
     /**
      * Time at which the ranks were purchased. Can be all null if bought a long time ago, and some values can be null if player bought directly a rank above that
      * @type {RanksPurchaseTime}
@@ -264,110 +274,11 @@ class Player {
   /**
    * Player Name ( at least last known to hypixel )
    * @return {string}
+   * @example
    */
   toString() {
     return this.nickname;
   }
-}
-
-// eslint-disable-next-line require-jsdoc
-function getRank(player) {
-  let rank;
-  if (player.prefix) {
-    rank = player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '');
-  } else if (player.rank && player.rank !== 'NORMAL') {
-    switch (player.rank) {
-      case 'YOUTUBER':
-        rank = 'YouTube';
-        break;
-      case 'GAME_MASTER':
-        rank = 'Game Master';
-        break;
-      case 'ADMIN':
-        rank = 'Admin';
-        break;
-    }
-  } else {
-    switch (player.newPackageRank) {
-      case 'MVP_PLUS':
-        rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? 'MVP++' : 'MVP+';
-        break;
-      case 'MVP':
-        rank = 'MVP';
-        break;
-      case 'VIP_PLUS':
-        rank = 'VIP+';
-        break;
-      case 'VIP':
-        rank = 'VIP';
-        break;
-      default:
-        rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? 'MVP++' : 'Default';
-    }
-  }
-  return rank;
-}
-// eslint-disable-next-line require-jsdoc
-function getPlayerLevel(exp) {
-  const base = 10000;
-  const growth = 2500;
-  const reversePqPrefix = -(base - 0.5 * growth) / growth;
-  const reverseConst = reversePqPrefix * reversePqPrefix;
-  const growthDivides2 = 2 / growth;
-  const num = 1 + reversePqPrefix + Math.sqrt(reverseConst + growthDivides2 * exp);
-  const level = Math.round(num * 100) / 100;
-  return level;
-}
-// eslint-disable-next-line require-jsdoc
-function xpToNextLevel(player) {
-  const lvl = getPlayerLevel(player.networkExp);
-  const xpToNext = 2500 * Math.floor(lvl) + 5000;
-  if (player.networkExp < 10000) return 10000;
-  return xpToNext;
-}
-// eslint-disable-next-line require-jsdoc
-function levelToXP(player) {
-  let level = Number(Math.floor(getPlayerLevel(player.networkExp)));
-  level = level - 1;
-  const xp = 1250 * level ** 2 + 8750 * level;
-  return xp;
-}
-// eslint-disable-next-line require-jsdoc
-function playerLevelProgress(player) {
-  const xpFromLevel = levelToXP(player);
-  let currentXP = player.networkExp - xpFromLevel;
-  const xpToNext = xpToNextLevel(player);
-  const remainingXP = xpToNext - currentXP + 2500;
-  currentXP = currentXP - 2500;
-  const percent = Math.round((currentXP / xpToNext) * 100 * 100) / 100;
-  const percentRemaining = Math.round((100 - percent) * 100) / 100;
-  return {
-    xpToNext,
-    remainingXP,
-    currentXP,
-    percent,
-    percentRemaining
-  };
-}
-// eslint-disable-next-line require-jsdoc
-function getSocialMedia(data) {
-  if (!data) return null;
-  const links = data.links;
-  const formattedNames = ['Twitter', 'YouTube', 'Instagram', 'Twitch', 'Hypixel', 'Discord'];
-  const upperNames = ['TWITTER', 'YOUTUBE', 'INSTAGRAM', 'TWITCH', 'HYPIXEL', 'DISCORD'];
-  if (!links) return null;
-  return Object.keys(links)
-    .map((x) => upperNames.indexOf(x))
-    .filter((x) => x !== -1)
-    .map((x) => ({ name: formattedNames[x], link: links[upperNames[x]], id: upperNames[x] }));
-}
-// eslint-disable-next-line require-jsdoc
-function parseClaimedRewards(data) {
-  if (!data) return null;
-  return Object.keys(data)
-    .map((x) => x.match(/levelingReward_(\d+)/))
-    .filter((x) => x)
-    .map((x) => parseInt(x[1], 10));
 }
 /**
  * @typedef {string} PlayerRank

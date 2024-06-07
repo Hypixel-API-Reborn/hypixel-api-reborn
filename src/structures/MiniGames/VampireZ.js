@@ -5,6 +5,7 @@ const divide = require('../../utils/divide');
 class VampireZ {
   /**
    * @param {object} data VampireZ data
+   * @example
    */
   constructor(data) {
     /**

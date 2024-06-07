@@ -6,6 +6,7 @@ class ServerInfo {
    * Constructor
    * @param {Object} data data parsed from packet
    * @param {number} ping Ping
+   * @example
    */
   constructor(data, ping) {
     /**
@@ -62,6 +63,7 @@ class ServerInfo {
   /**
    * toString override
    * @returns {string}
+   * @example
    */
   toString() {
     return `${this.textMOTD} - ${this.players} Players (${this.ping} ms) - ${this.versionInfo}`;

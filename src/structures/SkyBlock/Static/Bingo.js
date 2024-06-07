@@ -1,3 +1,9 @@
+// eslint-disable-next-line jsdoc/require-jsdoc
+function parsePosition(position) {
+  const x = (position % 5) + 1;
+  const y = Math.floor(position / 5) + 1;
+  return [x, y];
+}
 /**
  * Bingo class
  */
@@ -6,6 +12,7 @@ class Bingo {
    * Constructor
    * @param {Object} data data
    * @param {number} position Position
+   * @example
    */
   constructor(data, position = 0) {
     /**
@@ -50,7 +57,7 @@ class Bingo {
      * Difference between each tier requirement, if it is constant
      * @type {number|null}
      */
-    this.tierStep = this.#getTierStep();
+    this.tierStep = this.getTierStep();
     /**
      * Only available for ONE_TIERED bingos
      * @type {number|null}
@@ -69,6 +76,7 @@ class Bingo {
    * As string
    * BEWARE this returns ID to assure compatibility with PlayerBingo
    * @return {string}
+   * @example
    */
   toString() {
     return this.id;
@@ -77,11 +85,12 @@ class Bingo {
    * Gets tier step, if constant
    * @private
    * @returns {number|null}
+   * @example
    */
-  #getTierStep() {
-    if (this.type !== 'TIERED') return null;
+  getTierStep() {
+    if ('TIERED' !== this.type) return null;
     // No step possible
-    if (this.tiers.length < 2) return null;
+    if (2 > this.tiers.length) return null;
     const hypotheticStep = this.tiers[1] - this.tiers[0];
     // Check if every 2 elements have the same step
     const isConstant = this.tiers.slice(1).every((el, index) => {
@@ -90,13 +99,6 @@ class Bingo {
     if (!isConstant) return null;
     return hypotheticStep;
   }
-}
-
-// eslint-disable-next-line require-jsdoc
-function parsePosition(position) {
-  const x = (position % 5) + 1;
-  const y = Math.floor(position / 5) + 1;
-  return [x, y];
 }
 
 module.exports = Bingo;

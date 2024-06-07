@@ -4,6 +4,7 @@
 class BuildBattle {
   /**
    * @param {object} data BuildBattle data
+   * @example
    */
   constructor(data) {
     /**

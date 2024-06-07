@@ -1,3 +1,3 @@
 module.exports = (id) => {
-  return id.length === 24;
+  return 24 === id.length;
 };

@@ -1,4 +1,4 @@
 module.exports = {
-  isStrArray: (input) => Array.isArray(input) || typeof input === 'string',
+  isStrArray: (input) => Array.isArray(input) || 'string' === typeof input,
   strToArray: (input) => [input].flat()
 };

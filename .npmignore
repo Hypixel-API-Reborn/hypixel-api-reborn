@@ -12,7 +12,7 @@ config.gypi
 CVS
 npm-debug.log
 .eslintignore
-.eslintrc.json
+.eslintrc.
 testing/
 .github
 .travis.yml
@@ -24,3 +24,4 @@ typings/*.json
 master.json
 .env
 dtslint.json
+.eslintcache

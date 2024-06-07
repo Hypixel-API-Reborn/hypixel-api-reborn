@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 const Errors = require('../Errors');
 const { isStrArray, strToArray } = require('../utils/arrayTools');
 /**
@@ -10,19 +9,20 @@ class Validation {
    * @param {Object} options Global Cache Options to be validated
    * @returns {void} Void
    * @private
+   * @example
    */
   validateOptions(options) {
-    if (typeof options.hypixelCacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
-    if (typeof options.mojangCacheTime !== 'number') throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
-    if (typeof options.cacheSize !== 'number') throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
-    if (typeof options.rateLimit !== 'string' || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) {
+    if ('number' !== typeof options.hypixelCacheTime) throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
+    if ('number' !== typeof options.mojangCacheTime) throw new Error(Errors.CACHE_TIME_MUST_BE_A_NUMBER);
+    if ('number' !== typeof options.cacheSize) throw new Error(Errors.CACHE_LIMIT_MUST_BE_A_NUMBER);
+    if ('string' !== typeof options.rateLimit || !['AUTO', 'HARD', 'NONE'].includes(options.rateLimit)) {
       throw new Error(Errors.INVALID_RATE_LIMIT_OPTION);
     }
-    if (typeof options.keyLimit !== 'number') throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
-    if (typeof options.syncWithHeaders !== 'boolean') throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
-    if (typeof options.headers !== 'object') throw new Error(Errors.INVALID_HEADERS);
-    if (typeof options.silent !== 'boolean') throw new Error(Errors.INVALID_SILENT_OPTION);
-    if (typeof options.checkForUpdates !== 'boolean') throw new Error(Errors.INVALID_UPDATE_OPTION);
+    if ('number' !== typeof options.keyLimit) throw new Error(Errors.INVALID_KEY_LIMIT_OPTION);
+    if ('boolean' !== typeof options.syncWithHeaders) throw new Error(Errors.INVALID_HEADER_SYNC_OPTION);
+    if ('object' !== typeof options.headers) throw new Error(Errors.INVALID_HEADERS);
+    if ('boolean' !== typeof options.silent) throw new Error(Errors.INVALID_SILENT_OPTION);
+    if ('boolean' !== typeof options.checkForUpdates) throw new Error(Errors.INVALID_UPDATE_OPTION);
     if (!['boolean', 'string'].includes(typeof options.useThirdPartyAPI)) {
       throw new Error(Errors.INVALID_THIRD_PARTY_API_OPTION);
     }
@@ -33,21 +33,23 @@ class Validation {
    * @param {Object} options Options to be parsed
    * @returns {Object} Parsed cache options
    * @private
+   * @example
    */
   parseOptions(options) {
-    if (typeof options !== 'object' || options === null) throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
+    if ('object' !== typeof options || null === options) throw new Error(Errors.OPTIONS_MUST_BE_AN_OBJECT);
     return {
       cache: options.cache ?? true,
       hypixelCacheTime: options.hypixelCacheTime ?? 60,
       mojangCacheTime: options.mojangCacheTime ?? 600,
-      cacheSize: (options.cacheSize === -1 ? Infinity : options.cacheSize) || Infinity,
+      cacheSize: (-1 === options.cacheSize ? Infinity : options.cacheSize) || Infinity,
       cacheFilter:
-        typeof options.cacheFilter === 'function' ? options.cacheFilter : this._handleFilter(options.cacheFilter),
+        // eslint-disable-next-line no-underscore-dangle
+        'function' === typeof options.cacheFilter ? options.cacheFilter : this._handleFilter(options.cacheFilter),
       rateLimit: options.rateLimit ?? 'AUTO',
       keyLimit: options.keyLimit ?? 60,
-      syncWithHeaders: !!options.syncWithHeaders,
+      syncWithHeaders: Boolean(options.syncWithHeaders),
       headers: options.headers ?? {},
-      silent: !!options.silent,
+      silent: Boolean(options.silent),
       checkForUpdates: options.checkForUpdates ?? true,
       useThirdPartyAPI: options.useThirdPartyAPI ?? false
     };
@@ -58,10 +60,11 @@ class Validation {
    * @param {string} key API Key
    * @returns {string} Key
    * @private
+   * @example
    */
   validateKey(key) {
     if (!key) throw new Error(Errors.NO_API_KEY);
-    if (typeof key !== 'string') throw new Error(Errors.KEY_MUST_BE_A_STRING);
+    if ('string' !== typeof key) throw new Error(Errors.KEY_MUST_BE_A_STRING);
     return key;
   }
 
@@ -70,9 +73,10 @@ class Validation {
    * @param {Object} input Cache options
    * @returns {boolean} Whether options are valid
    * @private
+   * @example
    */
   cacheSuboptions(input) {
-    if (typeof input !== 'object' || input === null) return false;
+    if ('object' !== typeof input || null === input) return false;
     if (!input.noCacheCheck && !input.noCaching && !input.raw) return false;
     return true;
   }
@@ -82,10 +86,11 @@ class Validation {
    * @param {*} filter FilterResolvable to be parsed
    * @returns {Function} Filter function
    * @private
+   * @example
    */
   _handleFilter(filter) {
     if (!filter) return () => true;
-    if (typeof filter === 'object' && !Array.isArray(filter)) {
+    if ('object' === typeof filter && !Array.isArray(filter)) {
       if (filter.whitelist && isStrArray(filter.whitelist)) return (x) => strToArray(filter.whitelist).includes(x);
       if (filter.blacklist && isStrArray(filter.blacklist)) return (x) => !strToArray(filter.blacklist).includes(x);
       throw new Error(Errors.CACHE_FILTER_INVALID);
@@ -99,10 +104,11 @@ class Validation {
    * -12 will return an error; -14 will result in a warning
    * @returns {void}
    * @private
+   * @example
    */
   validateNodeVersion() {
     const nodeVersion = parseInt(process.version.match(/v(\d{2})\.\d{1,}\.\d+/)[1], 10);
-    if (nodeVersion < 12) throw new Error(Errors.NODE_VERSION_ERR);
+    if (12 > nodeVersion) throw new Error(Errors.NODE_VERSION_ERR);
   }
 }
 module.exports = Validation;

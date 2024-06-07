@@ -1,13 +1,37 @@
-/* eslint-disable require-jsdoc */
-/* eslint-disable max-len */
-const validate = new (require('./Private/validate'))();
 const rateLimit = new (require('./Private/rateLimit'))();
-const Requests = require('./Private/requests');
+const validate = new (require('./Private/validate'))();
 const updater = new (require('./Private/updater'))();
+const Requests = require('./Private/requests');
+const EventEmitter = require('events');
 const Errors = require('./Errors');
 const API = require('./API/index');
-const EventEmitter = require('events');
 const clients = [];
+
+/* eslint-disable */
+const Player = require('./structures/Player');
+const Guild = require('./structures/Guild/Guild');
+const WatchdogStats = require('./structures/Watchdog/Stats');
+const Booster = require('./structures/Boosters/Booster');
+const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
+const SkyblockMember = require('./structures/SkyBlock/SkyblockMember');
+const SkyblockMuseum = require('./structures/SkyBlock/SkyblockMuseum');
+const APIStatus = require('./structures/APIStatus');
+const Leaderboard = require('./structures/Leaderboard');
+const ServerInfo = require('./structures/ServerInfo');
+const RecentGame = require('./structures/RecentGame');
+const Status = require('./structures/Status');
+const Auction = require('./structures/SkyBlock/Auctions/Auction');
+const AuctionInfo = require('./structures/SkyBlock/Auctions/AuctionInfo');
+const PartialAuction = require('./structures/SkyBlock/Auctions/PartialAuction');
+const Product = require('./structures/SkyBlock/Bazzar/Product');
+const BingoData = require('./structures/SkyBlock/Static/BingoData');
+const PlayerBingo = require('./structures/SkyBlock/PlayerBingo');
+const GovernmentData = require('./structures/SkyBlock/Static/Government');
+const FireSale = require('./structures/SkyBlock/Static/FireSale');
+const SkyblockNews = require('./structures/SkyBlock/News/SkyblockNews');
+const GameCounts = require('./structures/GameCounts');
+/* eslint-enable */
+
 /**
  * Client class
  */
@@ -15,6 +39,7 @@ class Client extends EventEmitter {
   /**
    * @param {string} key API key
    * @param {ClientOptions} [options={}] Client options
+   * @example
    */
   constructor(key, options = {}) {
     super();
@@ -30,12 +55,13 @@ class Client extends EventEmitter {
     this.key = validate.validateKey(key);
     this.options = validate.parseOptions(options);
     validate.validateOptions(this.options);
-    // eslint-disable-next-line guard-for-in
+
     for (const func in API) {
       Client.prototype[func] = (...args) => {
         const lastArg = args[args.length - 1];
         return API[func].apply(
           {
+            // eslint-disable-next-line no-underscore-dangle
             _makeRequest: this._makeRequest.bind(this, validate.cacheSuboptions(lastArg) ? lastArg : {}),
             ...this
           },
@@ -65,11 +91,12 @@ class Client extends EventEmitter {
    * @param {boolean} [useRateLimitManager=true] Use rate limit
    * @returns {Promise<Object>} Response
    * @private
+   * @example
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
-    if (url !== '/key' && !options.noCacheCheck && (await this.requests.cache.has(url))) {
-      return Object.assign(await this.requests.cache.get(url), { raw: !!options.raw });
+    if ('/key' !== url && !options.noCacheCheck && (await this.requests.cache.has(url))) {
+      return Object.assign(await this.requests.cache.get(url), { raw: Boolean(options.raw) });
     }
     if (useRateLimitManager) await rateLimit.rateLimitManager();
     this.emit('outgoingRequest', url, { ...options, headers: { ...options.headers, ...this.options.headers } });
@@ -77,12 +104,13 @@ class Client extends EventEmitter {
       ...options,
       headers: { ...options.headers, ...this.options.headers }
     });
+    // eslint-disable-next-line no-underscore-dangle
     if (this.options.syncWithHeaders) rateLimit.sync(result._headers);
     return result;
   }
   /**
    * Emitted when rate limiter is ready. ( You don't have to wait for this event to emit UNLESS you are planning to do data scraping which means spamming requests )
-   * @event
+   * @event ready
    * @name Client#ready
    * @example
    * // This example gets player's uuid.
@@ -94,14 +122,14 @@ class Client extends EventEmitter {
    */
   /**
    * Emitted when a request is going to be sent
-   * @event
+   * @event outgoingRequest
    * @name Client#outgoingRequest
    * @param {string} url URL
    * @param {object} [options] Options, if any
    */
   /**
    * Emitted when there is a warning.
-   * @event
+   * @event warn
    * @name Client#warn
    * @param {string} error Warning Message
    */
@@ -140,7 +168,7 @@ class Client extends EventEmitter {
    * Allows you to get statistics of hypixel guild
    * @method
    * @name Client#getGuild
-   * @param {id|name|player} searchParameter Search for guild by id, name or player (if player is in guild)
+   * @param {'id'|'name'|'player'} searchParameter Search for guild by id, name or player (if player is in guild)
    * @param {string} query Guild ID, Guild name or player uuid/nickname
    * @param {MethodOptions} [options={}] Method options
    * @return {Promise<Guild>}
@@ -347,7 +375,8 @@ class Client extends EventEmitter {
    *   console.log(products[0].productId); // INK_SACK:3
    * })
    * .catch(console.log);
-   */ /**
+   */
+  /**
    * Allows you to get bingo data
    * @method
    * @name Client#getSkyblockBingo
@@ -404,6 +433,7 @@ class Client extends EventEmitter {
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}
+   * @example
    */
   sweepCache(amount) {
     return this.requests.sweepCache(amount);
@@ -415,7 +445,7 @@ class Client extends EventEmitter {
  * @prop {number} [hypixelCacheTime=60] Amount of time in seconds to cache the hypixel api requests.
  * @prop {number} [mojangCacheTime=600] Amount of time in seconds to cache the mojang api requests.
  * @prop {CacheHandler} [cacheHandler] Custom Cache Handler
- * @prop {AUTO|HARD|NONE} [rateLimit='AUTO'] Rate limit mode.
+ * @prop {'AUTO'|'HARD'|'NONE'} [rateLimit='AUTO'] Rate limit mode.
  * @prop {boolean} [syncWithHeaders=false] Sync with headers rate limit information. Usually not necessary nor recommended ( because of latency )
  * @prop {number} [keyLimit=60] Key limit of your key.
  * @prop {number} [cacheSize=-1] The amount how many results will be cached. (`-1` for infinity)
@@ -424,6 +454,7 @@ class Client extends EventEmitter {
  * @prop {boolean} [checkForUpdates=true] Enable/Disable check for new version of hypixel-api-reborn.
  * @prop {boolean|string} [useThirdPartyAPI=false] Enable/Disable Mojang Third Party API
  */
+// eslint-disable-next-line no-unused-vars
 const defaultCache = require('./Private/defaultCache.js');
 /**
  * @typedef {defaultCache} Cache

@@ -1,10 +1,10 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable jsdoc/require-jsdoc */
 const Auction = require('../../structures/SkyBlock/Auctions/Auction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 const Errors = require('../../Errors');
-let _makeRequest;
 async function getPage(page = 0, options = {}) {
-  const content = await _makeRequest(`/skyblock/auctions?page=${page}`, false);
+  // eslint-disable-next-line no-underscore-dangle
+  const content = await this._makeRequest(`/skyblock/auctions?page=${page}`, false);
   const result = {};
   if (!options.noInfo) result.info = new AuctionInfo(content);
   if (options.raw) result.auctions = content.auctions;
@@ -16,24 +16,24 @@ async function noReject(promise, args = [], retries = 3, cooldown = 100) {
   try {
     const result = await promise.call(null, ...args);
     return result;
-  } catch (e) {
+  } catch {
     if (retries) {
       await new Promise((resolve) => setTimeout(resolve, cooldown));
       return await noReject(promise, args, retries - 1, cooldown);
-    } else return null;
+    }
+    return null;
   }
 }
 module.exports = async function (range, options = {}) {
-  _makeRequest = this._makeRequest;
-  options.retries = options.retries || 3;
-  options.cooldown = options.cooldown || 100;
-  if (range == null || range === '*') range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
+  options.retries ||= 3;
+  options.cooldown ||= 100;
+  if (null === range || '*' === range) range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
   if (!Array.isArray(range)) range = [parseInt(range), parseInt(range)];
   if (isNaN(range[0])) throw new Error(Errors.PAGE_INDEX_ERROR);
-  if (parseInt(options.retries) !== options.retries || options.retries > 10 || options.retries < 0) {
+  if (parseInt(options.retries) !== options.retries || 10 < options.retries || 0 > options.retries) {
     throw new Error(Errors.INVALID_OPTION_VALUE);
   }
-  if (parseInt(options.cooldown) !== options.cooldown || options.cooldown > 3000 || options.cooldown < 0) {
+  if (parseInt(options.cooldown) !== options.cooldown || 3000 < options.cooldown || 0 > options.cooldown) {
     throw new Error(Errors.INVALID_OPTION_VALUE);
   }
   range = range.sort();
@@ -49,7 +49,9 @@ module.exports = async function (range, options = {}) {
       if (resp) {
         result.auctions = result.auctions.concat(resp.auctions);
         if (resp.info) result.info = resp.info;
-      } else failedPages.push(i);
+      } else {
+        failedPages.push(i);
+      }
     }
   }
   if (fetches.length) {
@@ -63,6 +65,7 @@ module.exports = async function (range, options = {}) {
       return pV;
     }, []);
   }
+  // eslint-disable-next-line no-underscore-dangle
   result.info = result.info ? result.info._extend('failedPages', failedPages) : { failedPages };
   return result;
 };
