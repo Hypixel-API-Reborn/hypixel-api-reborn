@@ -6,7 +6,6 @@ const Game = require('./Game');
 class RecentGame extends Game {
   /**
    * @param {object} data Recent game data
-   * @example
    */
   constructor(data) {
     super(data.gameType);
@@ -50,7 +49,6 @@ class RecentGame extends Game {
   /**
    * Name of gamemode
    * @return {string}
-   * @example
    */
   toString() {
     return this.mode;

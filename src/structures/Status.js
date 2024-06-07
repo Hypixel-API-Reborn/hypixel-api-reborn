@@ -5,7 +5,6 @@ const Game = require('./Game');
 class Status {
   /**
    * @param {object} data Status data
-   * @example
    */
   constructor(data) {
     /**
@@ -34,7 +33,6 @@ class Status {
   /**
    * Online Status
    * @return {string}
-   * @example
    */
   toString() {
     return this.online ? 'Online' : 'Offline';

@@ -20,7 +20,6 @@ function parseVer(stringVer) {
 class SkyblockNews {
   /**
    * @param {object} data
-   * @example
    */
   constructor(data) {
     /**
@@ -53,7 +52,6 @@ class SkyblockNews {
   /**
    * News title
    * @return {string}
-   * @example
    */
   toString() {
     return this.title;

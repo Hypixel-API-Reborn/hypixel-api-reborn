@@ -19,7 +19,6 @@ class BaseGame {
   /**
    * @param {Object} data data
    * @param {string} gameName Game Name ( snake )
-   * @example
    */
   constructor(data, gameName) {
     /**
@@ -49,7 +48,6 @@ class BaseGame {
    * @param {*} value Corresponding value
    * @private
    * @returns {BaseGame}
-   * @example
    */
   extend(name, value) {
     this[name] = value;
@@ -63,7 +61,6 @@ class BaseGame {
 class GalaxyWars {
   /**
    * @param {Object} data Data from API
-   * @example
    */
   constructor(data) {
     /**
@@ -114,7 +111,6 @@ class GalaxyWars {
 class Soccer {
   /**
    * @param {Object} data Data from API
-   * @example
    */
   constructor(data) {
     /**
@@ -145,7 +141,6 @@ class Soccer {
 class HITW extends BaseGame {
   /**
    * @param {Object} data Data From API
-   * @example
    */
   constructor(data) {
     super(data, 'hole_in_the_wall');
@@ -173,7 +168,6 @@ class MiniWalls extends BaseGame {
   /**
    * Constructor
    * @param {Object} data data from API
-   * @example
    */
   constructor(data) {
     super(data, 'mini_walls');
@@ -217,7 +211,6 @@ class ZombiesStats {
    * Constructor
    * @param {Object} data Data from API
    * @param {string} type Map name + difficulty ( default overall )
-   * @example
    */
   constructor(data, type = '') {
     if (type) type = `_${type}`;
@@ -291,7 +284,6 @@ class ZombieMap {
    * Constructor
    * @param {Object} data Data from API
    * @param {string} mapName String map name
-   * @example
    */
   constructor(data, mapName) {
     /**
@@ -323,7 +315,6 @@ class Zombies {
   /**
    * Constructor
    * @param {Object} data Data from API
-   * @example
    */
   constructor(data) {
     /**
@@ -386,7 +377,6 @@ class Arcade {
   /**
    * Constructor
    * @param {Object} data Data from the API
-   * @example
    */
   constructor(data = {}) {
     /**

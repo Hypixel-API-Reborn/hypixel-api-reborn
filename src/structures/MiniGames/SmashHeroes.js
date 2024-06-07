@@ -41,7 +41,6 @@ function generateHeroStats(data) {
 class SmashHeroes {
   /**
    * @param {object} data SmashHeroes data
-   * @example
    */
   constructor(data) {
     /**

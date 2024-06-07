@@ -6,7 +6,6 @@ const { decode } = require('../../utils/SkyblockUtils');
 class SkyblockMuseum {
   /**
    * @param {object} data Skyblock member data
-   * @example
    */
   constructor(data) {
     /**
@@ -17,7 +16,6 @@ class SkyblockMuseum {
     /**
      * Normal Items
      * @returns {SkyblockMuseumItem[]}
-     * @example
      */
     this.getItems = async () => {
       const keys = Object.keys(data.m.members[data.uuid].items);
@@ -39,7 +37,6 @@ class SkyblockMuseum {
     /**
      * Special items
      * @returns {SkyblockMuseumItem[]}
-     * @example
      */
     this.getSpecial = async () => {
       const items = [];

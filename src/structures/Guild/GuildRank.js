@@ -4,7 +4,6 @@
 class GuildRank {
   /**
    * @param {data} data Guild rank data
-   * @example
    */
   constructor(data) {
     /**
@@ -41,7 +40,6 @@ class GuildRank {
   /**
    * Rank Name
    * @return {string}
-   * @example
    */
   toString() {
     return this.name;

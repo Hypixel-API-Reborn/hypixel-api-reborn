@@ -6,7 +6,6 @@ class SkyblockProfile {
   /**
    * Skyblock profile data
    * @param {object} data
-   * @example
    */
   constructor(data) {
     /**
@@ -66,7 +65,6 @@ class SkyblockProfile {
   /**
    * Profile Name
    * @return {string}
-   * @example
    */
   toString() {
     return this.profileName;

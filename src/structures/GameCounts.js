@@ -6,7 +6,6 @@ const { removeSnakeCaseString, recursive } = require('../utils/removeSnakeCase')
 class GameCounts {
   /**
    * @param {object} data
-   * @example
    */
   constructor(data) {
     /**

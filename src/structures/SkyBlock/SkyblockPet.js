@@ -6,7 +6,6 @@ class SkyblockPet {
   /**
    * Skyblock pet data
    * @param {object} data
-   * @example
    */
   constructor(data) {
     /**

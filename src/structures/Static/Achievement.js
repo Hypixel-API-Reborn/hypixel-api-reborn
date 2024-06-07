@@ -20,7 +20,6 @@ class Achievement {
    * constructor
    * @param {string} achievementName Name of achievement
    * @param {Object} data
-   * @example
    */
   constructor(achievementName, data) {
     /**
@@ -79,7 +78,6 @@ class Achievement {
   /**
    * As string
    * @return {string}
-   * @example
    */
   toString() {
     return this.achievementName;

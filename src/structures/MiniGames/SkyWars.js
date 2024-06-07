@@ -80,8 +80,7 @@ class SkywarsKit {
   /**
    * Constructor
    * @param {string} kit Kit
-   * @example
-   */
+w   */
   constructor(kit) {
     /**
      * Kit data
@@ -120,8 +119,7 @@ class SkywarsKits {
   /**
    * Constructor
    * @param {SkywarsKit[]} kits Potential Kits
-   * @example
-   */
+w   */
   constructor(kits) {
     this.kits = kits.map((kit) => new SkywarsKit(kit)).filter((kit) => kit.isKit);
   }
@@ -130,8 +128,7 @@ class SkywarsKits {
    * @param {KitGameModes} [gameMode] Kits in said game mode
    * @param {KitType} [type] Kits corresponding to this type
    * @returns {SkywarsKit[]}
-   * @example
-   */
+w   */
   get(gameMode = '', type = '') {
     return this.kits.filter((kit) => kit.gameMode.startsWith(gameMode) && kit.kitType.startsWith(type));
   }
@@ -143,8 +140,7 @@ class SkywarsPackages {
   /**
    * Constructor
    * @param {string[]} data data from API
-   * @example
-   */
+w   */
   constructor(data) {
     // TODO : a lot more
     /**
@@ -174,8 +170,7 @@ class SkywarsPackages {
   /**
    * Parses cages
    * @returns {string[]}
-   * @example
-   */
+w   */
   parseCages() {
     return this.rawPackages
       .map((pkg) => pkg.match(/^cage_([A-Za-z]+)-cage$/))
@@ -214,8 +209,7 @@ class SkywarsPackages {
 class SkyWars {
   /**
    * @param {object} data SkyWars data
-   * @example
-   */
+w   */
   constructor(data) {
     /**
      * Coins
@@ -514,8 +508,7 @@ class SkyWars {
  */
 /**
  * @typedef {string} PseudoDate String date, in the format of MM-YY ( YY is 20YY )
- * @example `10-19` would be October 2019.
- */
+w */
 /**
  * @typedef {Object} SkyWarsModeExtendedStats
  * @property {SkyWarsTotalModeStats} overall Overall Stats

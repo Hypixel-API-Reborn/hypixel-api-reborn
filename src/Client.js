@@ -39,7 +39,6 @@ class Client extends EventEmitter {
   /**
    * @param {string} key API key
    * @param {ClientOptions} [options={}] Client options
-   * @example
    */
   constructor(key, options = {}) {
     super();
@@ -91,7 +90,6 @@ class Client extends EventEmitter {
    * @param {boolean} [useRateLimitManager=true] Use rate limit
    * @returns {Promise<Object>} Response
    * @private
-   * @example
    */
   async _makeRequest(options, url, useRateLimitManager = true) {
     if (!url) return;
@@ -433,7 +431,6 @@ class Client extends EventEmitter {
    * Delete x (by default all) cache entries
    * @param {?number} amount Amount of cache to delete
    * @return {Promise<void|boolean[]>}
-   * @example
    */
   sweepCache(amount) {
     return this.requests.sweepCache(amount);

@@ -5,7 +5,6 @@ const divide = require('../../utils/divide');
 class Warlords {
   /**
    * @param {object} data Warlords data
-   * @example
    */
   constructor(data) {
     /**

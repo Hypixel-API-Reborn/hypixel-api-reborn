@@ -7,7 +7,6 @@ const Pets = require('./Pets');
 class PlayerCosmetics {
   /**
    * @param {object} data data
-   * @example
    */
   constructor(data) {
     /**

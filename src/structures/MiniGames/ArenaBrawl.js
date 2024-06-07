@@ -16,7 +16,6 @@ function generateModeStats(data, mode) {
 class ArenaBrawl {
   /**
    * @param {object} data ArenaBrawl data
-   * @example
    */
   constructor(data) {
     /**

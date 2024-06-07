@@ -7,7 +7,6 @@ class GameAchievements {
   /**
    * @param {string} name game name
    * @param {object} data data
-   * @example
    */
   constructor(name, data) {
     /**

@@ -5,7 +5,6 @@ const { parseHistory } = require('../../utils/Guild');
 class GuildMember {
   /**
    * @param {data} data Guild member data
-   * @example
    */
   constructor(data) {
     /**
@@ -58,7 +57,6 @@ class GuildMember {
   /**
    * UUID
    * @return {string}
-   * @example
    */
   toString() {
     return this.uuid;

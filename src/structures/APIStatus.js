@@ -5,7 +5,6 @@ const APIIncident = require('./APIIncident');
 class APIStatus {
   /**
    * @param {object} data API status data
-   * @example
    */
   constructor(data) {
     /**
@@ -38,7 +37,6 @@ class APIStatus {
   /**
    * Status Title
    * @return {string}
-   * @example
    */
   toString() {
     return this.title;

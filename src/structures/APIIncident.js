@@ -5,7 +5,6 @@ const regex = /https:\/\/status.hypixel.net\/incidents\/([a-z0-9]+)/;
 class APIIncident {
   /**
    * @param {object} data API incident data
-   * @example
    */
   constructor(data) {
     /**
@@ -63,7 +62,6 @@ class APIIncident {
   /**
    * HTML Content
    * @return {string}
-   * @example
    */
   toString() {
     return this.HTMLContent;

@@ -23,7 +23,6 @@ const Player = require('../Player');
 class SkyblockMember {
   /**
    * @param {object} data Skyblock member data
-   * @example
    */
   constructor(data) {
     /**
@@ -160,7 +159,6 @@ class SkyblockMember {
     /**
      * Equipped armor
      * @return {Promise<SkyblockMemberArmor>}
-     * @example
      */
     this.getArmor = async () => {
       const base64 = data.m.inventory.inv_armor;
@@ -176,7 +174,6 @@ class SkyblockMember {
     /**
      * Wardrobe contents
      * @return {Promise<SkyblockInventoryItem[]>}
-     * @example
      */
     this.getWardrobe = async () => {
       const base64 = data.m?.inventory?.wardrobe_contents?.data;
@@ -190,7 +187,6 @@ class SkyblockMember {
     /**
      * Skyblock member enderchest
      * @return {Promise<SkyblockInventoryItem[]>}
-     * @example
      */
     this.getEnderChest = async () => {
       let chest = data.m.inventory.ender_chest_contents;
@@ -213,7 +209,6 @@ class SkyblockMember {
     /**
      * Skyblock member inventory
      * @return {Promise<SkyblockInventoryItem[]>}
-     * @example
      */
     this.getInventory = async () => {
       let inventory = data.m.inventory.inv_contents;
@@ -236,7 +231,6 @@ class SkyblockMember {
     /**
      * Skyblock Member pet score
      * @return {number}
-     * @example
      */
     this.getPetScore = () => {
       const highestRarity = {};
@@ -267,7 +261,6 @@ class SkyblockMember {
     /**
      * Skyblock member equipment
      * @return {Promise<SkyblockMemberEquipment>}
-     * @example
      */
     this.getEquipment = async () => {
       let equipment = data.m.inventory.equipment_contents;
@@ -289,7 +282,6 @@ class SkyblockMember {
     /**
      * Skyblock member Personal Vault
      * @return {Promise<SkyblockInventoryItem[]>}
-     * @example
      */
     this.getPersonalVault = async () => {
       let vault = data.m.inventory.personal_vault_contents;
@@ -312,7 +304,6 @@ class SkyblockMember {
     /**
      * Skyblock member networth (Credit to skyhelper-networth package)
      * @return {Promise<skyhelper.NetworthResult>}
-     * @example
      */
     this.getNetworth = async () => {
       try {
@@ -331,7 +322,6 @@ class SkyblockMember {
   /**
    * UUID
    * @return {string}
-   * @example
    */
   toString() {
     return this.uuid;

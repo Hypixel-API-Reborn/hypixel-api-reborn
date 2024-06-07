@@ -4,7 +4,6 @@
 class AchievementTier {
   /**
    * @param {Record<string, number>} data
-   * @example
    */
   constructor(data) {
     /**
@@ -20,7 +19,6 @@ class AchievementTier {
    * Gets information for tier
    * @param {number} tier Tier number (1-indexed!)
    * @returns {Record<'pointsRewarded'|'amountRequired', number>}
-   * @example
    */
   getTier(tier) {
     const index = tier - 1;

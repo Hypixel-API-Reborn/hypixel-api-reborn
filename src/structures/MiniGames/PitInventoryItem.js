@@ -4,7 +4,6 @@
 class PitInventoryItem {
   /**
    * @param {object} data Item data
-   * @example
    */
   constructor(data) {
     /**

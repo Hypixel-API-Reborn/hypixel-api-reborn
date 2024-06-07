@@ -4,7 +4,6 @@
 class AuctionInfo {
   /**
    * @param {object} data Auction info data
-   * @example
    */
   constructor(data) {
     /**
@@ -48,7 +47,6 @@ class AuctionInfo {
   /**
    * Current Page / Total Page
    * @return {string}
-   * @example
    */
   toString() {
     return `${this.page} / ${this.totalPages}`;

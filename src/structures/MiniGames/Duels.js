@@ -35,7 +35,6 @@ function getTotalKillsDeaths(data) {
 class Duels {
   /**
    * @param {object} data Duels data
-   * @example
    */
   constructor(data) {
     /**

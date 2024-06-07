@@ -5,7 +5,6 @@ const divide = require('../../utils/divide');
 class Paintball {
   /**
    * @param {object} data Paintball data
-   * @example
    */
   constructor(data) {
     /**

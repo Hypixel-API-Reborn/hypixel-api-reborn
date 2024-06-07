@@ -16,7 +16,6 @@ class PlayerBingo {
    * Constructor
    * @param {Object} data data
    * @param {BingoData|null} bingoData bingo data
-   * @example
    */
   constructor(data, bingoData) {
     const events = data.success && Array.isArray(data.events) ? data.events : [];

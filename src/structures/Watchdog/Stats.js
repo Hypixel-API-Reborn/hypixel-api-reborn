@@ -4,7 +4,6 @@
 class WatchdogStats {
   /**
    * @param {object} data Watchdog data
-   * @example
    */
   constructor(data) {
     /**

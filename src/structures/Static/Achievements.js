@@ -6,7 +6,6 @@ const GameAchievements = require('./GameAchievements.js');
 class Achievements {
   /**
    * @param {object} data data
-   * @example
    */
   constructor(data) {
     /**

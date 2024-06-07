@@ -5,7 +5,6 @@ const divide = require('../../utils/divide');
 class Quakecraft {
   /**
    * @param {object} data Quakecraft data
-   * @example
    */
   constructor(data) {
     /**

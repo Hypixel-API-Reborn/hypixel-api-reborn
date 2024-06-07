@@ -235,7 +235,6 @@ function generateStatsForPractice(data) {
 class BedWars {
   /**
    * @param {object} data BedWars data
-   * @example
    */
   constructor(data) {
     /**

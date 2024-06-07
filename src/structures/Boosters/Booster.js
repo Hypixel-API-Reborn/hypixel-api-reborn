@@ -13,7 +13,6 @@ function parseType(data) {
 class Booster {
   /**
    * @param {object} data
-   * @example
    */
   constructor(data) {
     /**
@@ -77,7 +76,6 @@ class Booster {
   /**
    * Beautiful format
    * @return {string}
-   * @example
    */
   toString() {
     return `${this.purchaser}'s booster in ${this.game}`;

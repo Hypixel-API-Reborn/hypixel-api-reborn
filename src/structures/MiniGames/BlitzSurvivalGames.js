@@ -72,7 +72,6 @@ function generateKitStats(data) {
 class BlitzSurvivalGames {
   /**
    * @param {object} data Blitz SG data
-   * @example
    */
   constructor(data) {
     /**

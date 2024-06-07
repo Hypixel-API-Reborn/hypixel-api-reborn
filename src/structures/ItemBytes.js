@@ -5,7 +5,6 @@ const { decode } = require('../utils/SkyblockUtils');
 class ItemBytes {
   /**
    * @param {string} data base64 encoded bytes
-   * @example
    */
   constructor(data) {
     /**
@@ -18,7 +17,6 @@ class ItemBytes {
   /**
    * Returns Item Bytes in base64 encoded
    * @return {String}
-   * @example
    */
   base64() {
     return this.bytesBuffer.toString('base64');
@@ -27,7 +25,6 @@ class ItemBytes {
   /**
    * Returns NBT of Item Bytes
    * @return {any[]}
-   * @example
    */
   async readNBT() {
     return await decode(this.bytesBuffer, true);

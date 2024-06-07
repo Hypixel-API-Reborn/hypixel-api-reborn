@@ -31,7 +31,6 @@ function getStarLevel(data) {
 class UHC {
   /**
    * @param {object} data UHC data
-   * @example
    */
   constructor(data) {
     /**

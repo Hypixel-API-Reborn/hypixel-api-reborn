@@ -5,7 +5,6 @@ const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 class SkyblockMuseumItem {
   /**
    * @param {object} data Item data
-   * @example
    */
   constructor(data) {
     /**
@@ -46,7 +45,6 @@ class SkyblockMuseumItem {
   /**
    * Item Name
    * @return {string}
-   * @example
    */
   toString() {
     return this.name;

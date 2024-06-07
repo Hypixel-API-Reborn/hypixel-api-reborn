@@ -12,7 +12,6 @@ class Bingo {
    * Constructor
    * @param {Object} data data
    * @param {number} position Position
-   * @example
    */
   constructor(data, position = 0) {
     /**
@@ -76,7 +75,6 @@ class Bingo {
    * As string
    * BEWARE this returns ID to assure compatibility with PlayerBingo
    * @return {string}
-   * @example
    */
   toString() {
     return this.id;
@@ -85,7 +83,6 @@ class Bingo {
    * Gets tier step, if constant
    * @private
    * @returns {number|null}
-   * @example
    */
   getTierStep() {
     if ('TIERED' !== this.type) return null;

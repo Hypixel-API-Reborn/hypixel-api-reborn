@@ -23,7 +23,6 @@ class Guild {
   /**
    * @param {data} data Guild data
    * @param {string} [me] Player uuid u#sed to search for this guild
-   * @example
    */
   constructor(data, me = '') {
     /**
@@ -78,7 +77,6 @@ class Guild {
      * An array containing all guild ranks sorted by newest
      * @author linearaccelerator
      * @return {Array<GuildRank>}
-     * @example
      */
     this.getRanksByNewest = function () {
       return this.ranks.length
@@ -89,7 +87,6 @@ class Guild {
      * A map containing all guild members, keyed by their uuids
      * @author linearaccelerator
      * @return {Map<string, GuildMember>}
-     * @example
      */
     this.getMemberUUIDMap = function () {
       return this.members.length ? new Map(this.members.map((m) => [m.uuid, m])) : null;
@@ -99,7 +96,6 @@ class Guild {
      * @author linearaccelerator
      * @param {number} priority - The priority of the guild rank
      * @return {GuildRank}
-     * @example
      */
     this.getRankByPriority = function (priority) {
       if (!this.ranks.length || !this.ranks.some((r) => r.priority === priority)) return null;
@@ -179,7 +175,6 @@ class Guild {
   /**
    * Guild name
    * @return {string}
-   * @example
    */
   toString() {
     return this.name;

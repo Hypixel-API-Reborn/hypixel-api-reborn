@@ -4,7 +4,6 @@
 class Bid {
   /**
    * @param {object} data Bid data
-   * @example
    */
   constructor(data) {
     /**
@@ -41,7 +40,6 @@ class Bid {
   /**
    * Bidder Name - Bid Amount
    * @return {string}
-   * @example
    */
   toString() {
     return `${this.bidder} bid ${this.amount} coins`;

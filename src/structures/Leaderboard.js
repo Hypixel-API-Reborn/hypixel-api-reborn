@@ -4,7 +4,6 @@
 class Leaderboard {
   /**
    * @param {object} data Leaderboard data
-   * @example
    */
   constructor(data) {
     /**

@@ -6,7 +6,6 @@ class Perk {
    * Constructor
    * @param {Object} data data
    * @param {boolean} [isMayor=false] if this candidate is the current mayor
-   * @example
    */
   constructor(data) {
     /**

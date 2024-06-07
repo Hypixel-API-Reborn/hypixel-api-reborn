@@ -5,7 +5,6 @@ class FireSale {
   /**
    * constructor
    * @param {Object} data
-   * @example
    */
   constructor(data) {
     /**
@@ -47,7 +46,6 @@ class FireSale {
   /**
    * Item Id
    * @return {string|null}
-   * @example
    */
   toString() {
     return this.itemId;

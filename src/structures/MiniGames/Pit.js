@@ -12,7 +12,6 @@ class Pit {
   /**
    * Constructor
    * @param {Record<string,unknown>} data Data from API
-   * @example
    */
   constructor(data) {
     const stats = data.pit_stats_ptl || {};
@@ -155,7 +154,6 @@ class Pit {
     /**
      * Pit Player Inv
      * @return {Promise<PitInventoryItem[]>}
-     * @example
      */
     this.getInventory = async () => {
       let inventory = data.profile.inv_contents;
@@ -178,7 +176,6 @@ class Pit {
     /**
      * Pit Player Ender Chest
      * @return {Promise<PitInventoryItem[]>}
-     * @example
      */
     this.getEnterChest = async () => {
       let chest = data.profile.inv_enderchest;
@@ -201,7 +198,6 @@ class Pit {
     /**
      * Pit Player Armor
      * @return {Promise<PitArmor>}
-     * @example
      */
     this.getArmor = async () => {
       const base64 = data.profile.inv_armor;
@@ -221,7 +217,6 @@ class Pit {
    * @param {number} prestige Prestige Level
    * @param {number} xp Current xp into the prestige
    * @return {number}
-   * @example
    */
   static calcLevel(prestige, xp) {
     const multiplier = Prestiges[prestige].Multiplier;

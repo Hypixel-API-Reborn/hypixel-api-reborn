@@ -4,7 +4,6 @@
 class TurboKartRacers {
   /**
    * @param {object} data TurboKartRacers data
-   * @example
    */
   constructor(data) {
     /**

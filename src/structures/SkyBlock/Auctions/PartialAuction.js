@@ -7,7 +7,6 @@ class PartialAuction extends BaseAuction {
   /**
    * @param {object} data Partial auction data
    * @param {boolean} includeItemBytes
-   * @example
    */
   constructor(data, includeItemBytes) {
     super(data, includeItemBytes);

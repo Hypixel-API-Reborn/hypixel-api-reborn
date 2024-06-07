@@ -40,7 +40,6 @@ class Player {
   /**
    * @param {object} data Player data
    * @param {Record<string, any>} extraPayload extra data requested alongside player
-   * @example
    */
   constructor(data, extraPayload) {
     /**
@@ -274,7 +273,6 @@ class Player {
   /**
    * Player Name ( at least last known to hypixel )
    * @return {string}
-   * @example
    */
   toString() {
     return this.nickname;

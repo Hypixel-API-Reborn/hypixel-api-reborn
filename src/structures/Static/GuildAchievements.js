@@ -6,7 +6,6 @@ const Achievement = require('./Achievement.js');
 class GuildAchievements {
   /**
    * @param {object} data data
-   * @example
    */
   constructor(data) {
     /**
