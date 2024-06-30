@@ -23,11 +23,6 @@ const guilds = [
     name: 'The Dawns Awakening',
     id: '5ba94ed50cf2cc24cf043706',
     player: '3b76b69ae5134296a730ed49171ad6f8'
-  },
-  {
-    name: 'Felony',
-    id: '5fc50e9a8ea8c9d1008d5f86',
-    player: 'f17d5ae1ed1f4dc9833339b56024640c'
   }
 ];
 
