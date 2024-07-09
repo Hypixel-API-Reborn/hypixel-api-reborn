@@ -307,7 +307,7 @@ class SkyblockMember {
      */
     this.getNetworth = async () => {
       try {
-        const nw = await skyhelper.getNetworth(data.m, data.banking.balance ?? 0, {
+        const nw = await skyhelper.getNetworth(data.m, data.banking?.balance ?? 0, {
           onlyNetworth: true,
           v2Endpoint: true,
           cache: true,
