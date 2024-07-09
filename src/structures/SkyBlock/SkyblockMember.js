@@ -90,7 +90,7 @@ class SkyblockMember {
      * Trophy fish amount of rewards
      * @type {number}
      */
-    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
+    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards?.length ?? 0);
     /**
      * The highest magical power **Not current one**
      * @type {number}
