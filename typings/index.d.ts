@@ -4060,13 +4060,15 @@ declare module 'hypixel-api-reborn' {
   class BuildBattle {
     constructor(data: Record<string, unknown>);
     score: number;
-    playedGames: number;
+    totalWins: number;
+    games: number;
+    WLRatio: number;
+    superVotes: number;
     coins: number;
     totalVotes: number;
-    totalWins: number;
     wins: {
       solo: number;
-      team: number;
+      teams: number;
       pro: number;
       gtb: number;
     };

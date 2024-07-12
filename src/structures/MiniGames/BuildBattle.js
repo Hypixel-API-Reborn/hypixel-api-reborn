@@ -1,3 +1,4 @@
+const divide = require('../../utils/divide');
 /**
  * BuildBattle class
  */
@@ -12,10 +13,25 @@ class BuildBattle {
      */
     this.score = data.score || 0;
     /**
+     * Total wins
+     * @type {number}
+     */
+    this.totalWins = data.wins || 0;
+    /**
      * Played games
      * @type {number}
      */
-    this.playedGames = data.games_played || 0;
+    this.games = data.games_played || 0;
+    /**
+     * Win Loss ratio
+     * @type {number}
+     */
+    this.WLRatio = divide(this.totalWins, this.games);
+    /**
+     * Amount of super votes the player has
+     * @type {number}
+     */
+    this.superVotes = data.super_votes || 0;
     /**
      * Coins
      * @type {number}
@@ -27,17 +43,12 @@ class BuildBattle {
      */
     this.totalVotes = data.total_votes || 0;
     /**
-     * Total wins
-     * @type {number}
-     */
-    this.totalWins = data.wins || 0;
-    /**
      * Wins for each mode
      * @type {BuildBattleWins}
      */
     this.wins = {
       solo: data.wins_solo_normal || 0,
-      team: data.wins_teams_normal || 0,
+      teams: data.wins_teams_normal || 0,
       pro: data.wins_solo_pro || 0,
       gtb: data.wins_guess_the_build || 0
     };
