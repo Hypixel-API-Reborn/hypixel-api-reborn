@@ -90,7 +90,7 @@ class SkyblockMember {
      * Trophy fish amount of rewards
      * @type {number}
      */
-    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards.length ?? 0);
+    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards?.length ?? 0);
     /**
      * The highest magical power **Not current one**
      * @type {number}
@@ -307,7 +307,7 @@ class SkyblockMember {
      */
     this.getNetworth = async () => {
       try {
-        const nw = await skyhelper.getNetworth(data.m, data.banking.balance ?? 0, {
+        const nw = await skyhelper.getNetworth(data.m, data.banking?.balance ?? 0, {
           onlyNetworth: true,
           v2Endpoint: true,
           cache: true,
