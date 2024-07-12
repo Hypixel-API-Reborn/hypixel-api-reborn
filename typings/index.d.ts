@@ -1685,74 +1685,105 @@ declare module 'hypixel-api-reborn' {
     monthlyCoins: number;
     hintsDisabled: boolean;
     flashDisabled: boolean;
-    drawTheirThing: BaseGame;
-    dragonWars: BaseGame;
-    easterSimulator: EasterSimulator;
-    grinchSimulator: GrinchSimulator;
-    scubaSimulator: ScubaSimulator;
-    santaSimulator: SantaSimulator;
-    santaSays: BaseGame;
-    simonSays: BaseGame;
-    farmHunt: BaseGame;
-    holeInTheWall: HITW;
-    miniWalls: MiniWalls;
-    partyGames: BaseGame;
-    partyGames2: BaseGame;
-    partyGames3: BaseGame;
-    throwOut: BaseGame;
-    soccer: Soccer;
-    hypixelSports: BaseGame;
-    enderSpleef: BaseGame;
     blockingDead: BlockingDead;
+    bountyHunters: BountyHunters;
+    captureTheWool: CaptureTheWool;
+    dragonWars: DragonWars;
+    dropper: Dropper;
+    enderSpleef: EnderSpleef;
+    farmHunt: FarmHunt;
+    football: Football;
     galaxyWars: GalaxyWars;
-    oitq: OITQ;
-    oneInTheQuiver: OITQ;
+    hideAndSeek: HideAndSeek;
+    holeInTheWall: HoleInTheWall;
+    hypixelSays: HypixelSays;
+    miniWalls: MiniWalls;
+    pixelParty: PixelParty;
     zombies: Zombies;
-    captureTheWool: { kills: number; captures: number };
   }
-  class BaseGame {
-    constructor(data: Record<string, unknown>, gameName: string);
-    wins: number | null;
-    kills: number | null;
-    deaths: number | null;
-    roundsPlayed: number | null;
-    private extend;
-  }
-  class EasterSimulator extends BaseGame {
-    eggsFound: number;
-  }
-  class GrinchSimulator extends BaseGame {
-    giftsFound: number;
-  }
-  class ScubaSimulator extends BaseGame {
-    itemsFound: number;
-  }
-  class SantaSimulator extends BaseGame {
-    giftsDelivered: number;
-  }
-  class HITW extends BaseGame {
+  class BlockingDead {
     constructor(data: Record<string, unknown>);
-    scoreRecordFinals: number;
-    scoreRecordNormal: number;
+    wins: number;
+    kills: number;
+    headshots: number;
   }
-  class MiniWalls extends BaseGame {
+  class BountyHunters {
     constructor(data: Record<string, unknown>);
-    arrowHits: number;
-    arrowShots: number;
-    bowAccuracy: number;
-    finalKills: number;
-    witherDamage: number;
-    witherKills: number;
+    wins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    bountyKills: number;
+    bowKills: number;
+    swordKills: number;
   }
-  class Soccer {
+  class CaptureTheWool {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    draws: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    woolPickedUp: number;
+    woolCaptured: number;
+    fastestWin: number;
+    longestGame: number;
+  }
+  class DragonWars {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+  }
+  class DropperMap {
+    constructor(data: Record<string, unknown>, mapName: string);
+    bestTime: number;
+    completions: number;
+  }
+  class Dropper {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    fails: number;
+    fastestGame: number;
+    flawlessGames: number;
+    gamesPlayed: number;
+    mapsCompleted: number;
+    gamesFinished: number;
+    maps: Record<string, DropperMap>;
+  }
+  class EnderSpleef {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+    trail: string;
+    blocksDestroyed: number;
+    bigShotActivations: number;
+    tripleShotActivations: number;
+    tripleShotActivations: number;
+  }
+  class FarmHunt {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    winsAsAnimal: number;
+    winsAsHunter: number;
+    kills: number;
+    killsAsAnimal: number;
+    killsAsHunter: number;
+    tauntsUsed: number;
+    riskyTauntsUsed: number;
+    safeTauntsUsed: number;
+    dangerousTauntsUsed: number;
+    fireworkTauntsUsed: number;
+    poop: number;
+  }
+  class Football {
     constructor(data: Record<string, unknown>);
     wins: number;
     kicks: number;
     powerKicks: number;
     goals: number;
-  }
-  class BlockingDead extends BaseGame {
-    headshots: number;
   }
   class GalaxyWars {
     constructor(data: Record<string, unknown>);
@@ -1765,28 +1796,97 @@ declare module 'hypixel-api-reborn' {
     attackerKills: number;
     defenderKills: number;
   }
-  class OITQ extends BaseGame {
-    bountyKills: number;
+  class PartyPopper {
+    constructor(data: Record<string, unknown>);
+    winsAsSeeker: number;
+    winsAsHider: number;
+    wins: number;
+  }
+  class PropHunt {
+    constructor(data: Record<string, unknown>);
+    winsAsSeeker: number;
+    winsAsHider: number;
+    wins: number;
+  }
+  class HideAndSeek {
+    constructor(data: Record<string, unknown>);
+    partyPopper: PartyPopper;
+    propHunt: PropHunt;
+    winsAsSeeker: number;
+    winsAsHider: number;
+  }
+  class HoleInTheWall {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    rounds: number;
+    scoreRecordFinals: number;
+    scoreRecordNormal: number;
+    scoreRecordOverall: number;
+  }
+  class HypixelSays {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    rounds: number;
+    roundWins: number;
+    topScore: number;
+  }
+  class MiniWalls {
+    constructor(data: Record<string, unknown>);
+    kit: string;
+    wins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    finalKills: number;
+    witherKills: number;
+    witherDamage: number;
+    arrowsShot: number;
+    arrowsHit: number;
+    bowAccuracy: number;
+  }
+  class PixelPartyGameMode {
+    constructor(data: Record<string, unknown>, modeName: string);
+    wins: number;
+    gamesPlayed: number;
+    losses: number;
+    WLRatio: number;
+    roundsPlayed: number;
+    powerUpsCollected: number;
+  }
+  class PixelParty {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    gamesPlayed: number;
+    losses: number;
+    WLRatio: number;
+    roundsPlayed: number;
+    powerUpsCollected: number;
+    normal: PixelPartyGameMode;
+    hyper: PixelPartyGameMode;
+    highestRound: number;
+    musicVolume: number;
+    colorBlind: object;
+  }
+  class ThrowOut {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
   }
   class Zombies {
     constructor(data: Record<string, unknown>);
     overall: ZombiesStats;
-    deadEnd: ZombieMap;
-    badBlood: ZombieMap;
-    alienArcadium: ZombieMap;
+    deadEnd: ZombiesStats;
+    badBlood: ZombiesStats;
+    alienArcadium: ZombiesStats;
+    prison: ZombiesStats;
     killsByZombie: Record<string, number>;
     bulletsHit: number;
     bulletsShot: number;
     gunAccuracy: number;
     headshots: number;
     headshotAccuracy: number;
-  }
-  class ZombieMap {
-    constructor(data: Record<string, unknown>, mapName: string);
-    normal: ZombiesStats;
-    hard: ZombiesStats;
-    rip: ZombiesStats;
-    overall: ZombiesStats;
   }
   class ZombiesStats {
     constructor(data: Record<string, unknown>, type?: string);
@@ -3537,36 +3637,48 @@ declare module 'hypixel-api-reborn' {
       assists: number;
     };
   }
+  class MurderMysteryModeStats {
+    constructor(data: Record<string, unknown>, gamemode: string);
+    goldPickedUp: number;
+    kills: number;
+    thrownKnifeKills: number;
+    knifeKills: number;
+    bowKills: number;
+    trapKills: number;
+    deaths: number;
+    suicides: number;
+    KDRatio: number;
+    wins: number;
+    winsAsDetective: number;
+    winsAsMurderer: number;
+    winsAsHero: number;
+    playedGames: number;
+  }
   class MurderMystery {
     constructor(data: Record<string, unknown>);
     tokens: number;
+    goldPickedUp: number;
     playedGames: number;
     kills: number;
+    thrownKnifeKills: number;
+    knifeKills: number;
+    trapKills: number;
+    bowKills: number;
+    killsAsMurderer: number;
     deaths: number;
+    KDRatio: number;
     winsAsMurderer: number;
     winsAsDetective: number;
+    winsAsHero: number;
+    fastestWinAsMurderer: number;
+    fastestWinAsDetective: number;
+    totalTimeSurvived: number;
     wins: number;
-    assassins: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      playedGames: number;
-    };
-    doubleUp: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      playedGames: number;
-    };
-    infection: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      playedGames: number;
-    };
+    suicides: number;
+    classic: MurderMysteryModeStats;
+    assassins: MurderMysteryModeStats;
+    doubleUp: MurderMysteryModeStats;
+    infection: MurderMysteryModeStats;
   }
   class Duels {
     division?: string;

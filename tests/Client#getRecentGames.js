@@ -3,16 +3,30 @@ const { client } = require('./Client.js');
 const { expect } = require('chai');
 
 const uuids = [
-  'f025c1c7f55a4ea0b8d93f47d17dfe0f',
+  '37501e7512b845ab8796e2baf9e9677a',
   '52d9a36f66ce4cdf9a56ad9724ae9fb4',
   '4982eac19ae7422891b61a17a74c87a2',
-  'f17d5ae1ed1f4dc9833339b56024640c',
   '3b76b69ae5134296a730ed49171ad6f8',
   '14727faefbdc4aff848cd2713eb9939e',
-  '90376ba4b15f4885acf61016e4395275',
+  'ea805d40e8284d8d8e64e9fc8ac301ca',
+  '4855c53ee4fb4100997600a92fc50984',
+  'f025c1c7f55a4ea0b8d93f47d17dfe0f',
+  'fb3d96498a5b4d5b91b763db14b195ad',
+  '28667672039044989b0019b14a2c34d6',
 ];
 
-const usernames = ['kathund', 'StavZDev', 'Plancke', 'SoupyRaccn', 'duckysoskilled', 'Altpapier', 'Gogidaa'];
+const usernames = [
+  'ILoveWristSpasm',
+  'StavZDev',
+  'JasperJazzyPants',
+  'WarOG',
+  'Pixelic',
+  'Altpapier',
+  'DuckySoSkilled',
+  'Plancke',
+  'DeathStreeks',
+  'Refraction',
+];
 
 describe('Client#getRecentGames', async () => {
   uuids.forEach((uuid) => {

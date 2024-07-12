@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { client } = require('./Client.js');
 const { expect } = require('chai');
 
