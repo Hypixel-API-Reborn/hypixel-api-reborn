@@ -1761,7 +1761,7 @@ declare module 'hypixel-api-reborn' {
     blocksDestroyed: number;
     bigShotActivations: number;
     tripleShotActivations: number;
-    tripleShotActivations: number;
+    totalPowerUpActivations: number;
   }
   class FarmHunt {
     constructor(data: Record<string, unknown>);

@@ -413,7 +413,7 @@ class EnderSpleef {
      * Total Powerup Activations
      * @type {number}
      */
-    this.tripleShotActivations = this.bigShotActivations + this.tripleShotActivations;
+    this.totalPowerUpActivations = this.bigShotActivations + this.tripleShotActivations;
   }
 }
 /**
