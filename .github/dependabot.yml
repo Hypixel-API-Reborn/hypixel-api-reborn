@@ -4,6 +4,10 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    assignees:
+      - "kathund"
+    reviewers:
+      - "kathund"
     commit-message:
       prefix: '🟨'
       prefix-development: '🟦'
