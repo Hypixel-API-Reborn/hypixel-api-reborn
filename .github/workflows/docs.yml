@@ -2,8 +2,11 @@ name: Update Docs
 
 on:
   push:
+    paths:
+      - src/**
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   UpdateDocs:

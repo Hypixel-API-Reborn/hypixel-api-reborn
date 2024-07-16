@@ -3,6 +3,8 @@ name: CI/CD (18.x)
 
 on:
   push:
+    paths:
+      - src/**
   pull_request:
   workflow_dispatch:
 
