@@ -43,7 +43,7 @@
   "devDependencies": {
     "@discordjs/docgen": "github:discordjs/docgen",
     "@types/node": "^20.11.19",
-    "chai": "^4.3.4",
+    "chai": "^5.1.1",
     "eslint": "^9.3.0",
     "eslint-plugin-jsdoc": "^48.2.7",
     "globals": "^15.3.0",
