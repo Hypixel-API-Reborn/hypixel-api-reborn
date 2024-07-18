@@ -15,6 +15,7 @@ const Booster = require('./structures/Boosters/Booster');
 const SkyblockProfile = require('./structures/SkyBlock/SkyblockProfile');
 const SkyblockMember = require('./structures/SkyBlock/SkyblockMember');
 const SkyblockMuseum = require('./structures/SkyBlock/SkyblockMuseum');
+const SkyblockGarden = require('./structures/SkyBlock/SkyblockGarden');
 const APIStatus = require('./structures/APIStatus');
 const Leaderboard = require('./structures/Leaderboard');
 const ServerInfo = require('./structures/ServerInfo');
@@ -253,6 +254,24 @@ class Client extends EventEmitter {
    * console.log(member.get('Cucumber').uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
    */
   /**
+   * Allows you to get a player's skyblock member data from all their profiles
+   * @method
+   * @name Client#getSkyblockGarden
+   * @param {string} profileId Profile id of the garden you want
+   * @param {MethodOptions} [options={}] Method options
+   * @return {Promise<SkyblockGarden>}
+   * @example
+   * hypixel.getSkyblockMember('StavZDev').then(member => {
+   *   // 'Cucumber' - profile name
+   *   console.log(member.get('Cucumber').uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
+   * }).catch(e => {
+   *   console.log(e);
+   * })
+   * @example
+   * const member = await hypixel.getSkyblockMember('StavZDev').catch(console.log);
+   * console.log(member.get('Cucumber').uuid); // '52d9a36f66ce4cdf9a56ad9724ae9fb4'
+   */
+  /**
    * Allows you to get a player's skyblock profile museum
    * @method
    * @name Client#getSkyblockMuseum
@@ -477,11 +496,12 @@ const defaultCache = require('./Private/defaultCache.js');
  */
 /**
  * @typedef {object} SkyblockMethodOptions
- * @property {boolean} [fetchPlayer=false] Raw data
- * @property {boolean} [getMuseum=false] Raw data
+ * @property {boolean} [raw=false] Raw data
  * @property {boolean} [noCacheCheck=false] Disable/Enable cache checking
  * @property {boolean} [noCaching=false] Disable/Enable writing to cache
  * @property {?boolean} [fetchPlayer=false] Disable/Enable player profile request for each member
+ * @property {?boolean} [getMuseum=false] Disable/Enable player museum request for each member
+ * @property {?boolean} [getGarden=false] Disable/Enable player garden request for each member
  * @prop {object} [headers={}] Extra Headers ( like User-Agent ) to add to request. Overrides the headers globally provided.
  */
 /**

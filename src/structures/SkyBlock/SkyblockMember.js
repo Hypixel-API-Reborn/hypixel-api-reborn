@@ -12,6 +12,8 @@ const {
   getPetLevel
 } = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
+const SkyblockMuseum = require('./SkyblockMuseum');
+const SkyblockGarden = require('./SkyblockGarden');
 const Constants = require('../../utils/Constants');
 const skyhelper = require('skyhelper-networth');
 const SkyblockPet = require('./SkyblockPet');
@@ -38,9 +40,14 @@ class SkyblockMember {
     this.player = data.m.player || null;
     /**
      * If `getMuseum` option is `true`.
-     * @type {object|null}
+     * @type {SkyblockMuseum|null}
      */
-    this.museum = data.museum ?? null;
+    this.museum = data.museum || null;
+    /**
+     * If `getGarden` option is `true`.
+     * @type {SkyblockGarden|null}
+     */
+    this.garden = data.garden || null;
     /**
      * Profile's gamemode
      * @type {string|null}
@@ -85,7 +92,7 @@ class SkyblockMember {
      * Heart of the Mountain - MiningSkill
      * @type {number}
      */
-    this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm', 7);
+    this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm');
     /**
      * Trophy fish amount of rewards
      * @type {number}
