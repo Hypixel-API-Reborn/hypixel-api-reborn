@@ -219,28 +219,28 @@ class Player {
      */
     this.stats = data.stats
       ? {
-          skywars: data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null,
-          bedwars: data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null,
-          uhc: data.stats.UHC ? new UHC(data.stats.UHC) : null,
-          speeduhc: data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null,
-          murdermystery: data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null,
-          duels: data.stats.Duels ? new Duels(data.stats.Duels) : null,
-          buildbattle: data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null,
-          megawalls: data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null,
-          copsandcrims: data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null,
-          tntgames: data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null,
-          smashheroes: data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null,
-          vampirez: data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null,
-          blitzsg: data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null,
-          arena: data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null,
           arcade: data.stats.Arcade ? new Arcade({ ...data.stats.Arcade, ...data.achievements }) : null,
+          arena: data.stats.Arena ? new ArenaBrawl(data.stats.Arena) : null,
+          bedwars: data.stats.Bedwars ? new BedWars(data.stats.Bedwars) : null,
+          blitzsg: data.stats.HungerGames ? new BlitzSurvivalGames(data.stats.HungerGames) : null,
+          buildbattle: data.stats.BuildBattle ? new BuildBattle(data.stats.BuildBattle) : null,
+          copsandcrims: data.stats.MCGO ? new CopsAndCrims(data.stats.MCGO) : null,
+          duels: data.stats.Duels ? new Duels(data.stats.Duels) : null,
+          megawalls: data.stats.Walls3 ? new MegaWalls(data.stats.Walls3) : null,
+          murdermystery: data.stats.MurderMystery ? new MurderMystery(data.stats.MurderMystery) : null,
           paintball: data.stats.Paintball ? new Paintball(data.stats.Paintball) : null,
+          pit: data.stats.Pit ? new Pit(data.stats.Pit) : null,
           quakecraft: data.stats.Quake ? new Quakecraft(data.stats.Quake) : null,
+          skywars: data.stats.SkyWars ? new SkyWars(data.stats.SkyWars) : null,
+          smashheroes: data.stats.SuperSmash ? new SmashHeroes(data.stats.SuperSmash) : null,
+          speeduhc: data.stats.SpeedUHC ? new SpeedUHC(data.stats.SpeedUHC) : null,
+          tntgames: data.stats.TNTGames ? new TNTGames(data.stats.TNTGames) : null,
           turbokartracers: data.stats.GingerBread ? new TurboKartRacers(data.stats.GingerBread) : null,
+          uhc: data.stats.UHC ? new UHC(data.stats.UHC) : null,
+          vampirez: data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null,
           walls: data.stats.Walls ? new Walls(data.stats.Walls) : null,
           warlords: data.stats.Battleground ? new Warlords(data.stats.Battleground) : null,
-          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null,
-          pit: data.stats.Pit ? new Pit(data.stats.Pit) : null
+          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null
         }
       : null;
     /**
@@ -302,21 +302,27 @@ class Player {
  * Player stats for each mini-game. `null` if player has no stats.
  * <br>
  * Usage: `<Player>.stats.skywars`
- * @property {SkyWars|null} skywars SkyWars
- * @property {BedWars|null} bedwars BedWars
- * @property {UHC|null} uhc UHC
- * @property {SpeedUHC|null} speedUHC Speed UHC
- * @property {MurderMystery|null} murdermystery Murder Mystery
- * @property {Duels|null} duels Duels
- * @property {BuildBattle|null} buildbattle BuildBattle
- * @property {MegaWalls|null} megawalls MegaWalls
- * @property {CopsAndCrims|null} copsandcrims Cops and Crims
- * @property {TNTGames|null} tntgames The TNT Games
- * @property {SmashHeroes|null} smashheroes Smash Heroes
- * @property {VampireZ|null} vampirez VampireZ
- * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
- * @property {ArenaBrawl|null} arena Arena Brawl
  * @property {Arcade|null} arcade Arcade
+ * @property {ArenaBrawl|null} arena Arena Brawl
+ * @property {BedWars|null} bedwars BedWars
+ * @property {BlitzSurvivalGames|null} blitzsg Blitz Survival Games
+ * @property {BuildBattle|null} buildbattle BuildBattle
+ * @property {CopsAndCrims|null} copsandcrims Cops and Crims
+ * @property {Duels|null} duels Duels
+ * @property {MegaWalls|null} megawalls MegaWalls
+ * @property {MurderMystery|null} murdermystery Murder Mystery
+ * @property {Paintball|null} paintball Paint Ball
+ * @property {Pit|null} pit Pit
+ * @property {Quakecraft|null} quakecraft Quake Craft
+ * @property {SkyWars|null} skywars SkyWars
+ * @property {SmashHeroes|null} smashheroes Smash Heroes
+ * @property {SpeedUHC|null} speedUHC Speed UHC
+ * @property {TNTGames|null} tntgames The TNT Games
+ * @property {TurboKartRacers|null} turbokartracers Turbo Kart Racers
+ * @property {UHC|null} uhc UHC
+ * @property {VampireZ|null} vampirez VampireZ
+ * @property {Walls|null} walls Walls
+ * @property {Warlords|null} warlords Warlords
  * @property {WoolWars|null} woolwars Wool Wars
  */
 /**
