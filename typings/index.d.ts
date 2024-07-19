@@ -301,6 +301,42 @@ export interface SKYBLOCK_SKILL_DATA {
   progress: number;
   cosmetic: boolean;
 }
+export interface SKYBLOCK_GARDEN_CROPS {
+  wheat: number;
+  carrot: number;
+  sugarCane: number;
+  potato: number;
+  pumpkin: number;
+  melon: number;
+  cactus: number;
+  cocoBeans: number;
+  mushroom: number;
+  netherWart: number;
+}
+export interface SKYBLOCK_GARDEN_COMPOSTER_UPGRADES {
+  speed: number;
+  multiDrop: number;
+  fuelCap: number;
+  organicMatterCap: number;
+  costReduction: number;
+}
+export interface SKYBLOCK_GARDEN_COMPOSTER {
+  organicMatter: number;
+  fuelUnits: number;
+  compostUnits: number;
+  compostItems: number;
+  conversionTicks: number;
+  upgrades: SKYBLOCK_GARDEN_COMPOSTER_UPGRADES;
+}
+export interface SKYBLOCK_GARDEN_VISITOR_SERVED {
+  total: number;
+  unique: number;
+}
+export interface SKYBLOCK_GARDEN_VISITOR {
+  visited: Record<string, number>;
+  completed: Record<string, number>;
+  served: SKYBLOCK_GARDEN_VISITOR_SERVED;
+}
 export interface SKYBLOCK_SLAYER_DATA {
   xp: number;
   tier1: number;
@@ -2422,11 +2458,22 @@ declare module 'hypixel-api-reborn' {
     candyUsed: number;
     skin: string | null;
   }
+  class SkyblockGarden {
+    constructor(data: Record<string, unknown>);
+    level: SKYBLOCK_SKILL_DATA;
+    barnSkin: string;
+    unlockedPlots: string[];
+    visitors: SKYBLOCK_GARDEN_VISITOR;
+    cropMilestones: SKYBLOCK_GARDEN_CROPS;
+    composter: SKYBLOCK_GARDEN_COMPOSTER;
+    cropUpgrades: SKYBLOCK_GARDEN_CROPS;
+  }
   class SkyblockMember {
     constructor(data: Record<string, unknown>);
     uuid: string;
     player?: Player;
     museum?: object;
+    garden?: SkyblockGarden;
     profileName: string;
     profileId: string;
     firstJoinTimestamp: number;
