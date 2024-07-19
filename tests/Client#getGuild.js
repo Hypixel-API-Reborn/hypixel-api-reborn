@@ -1,30 +1,8 @@
 /* eslint-disable no-undef */
+const { guilds, invalid } = require('./data.js');
 const { Game, Errors } = require('../src');
 const { client } = require('./Client.js');
 const { expect } = require('chai');
-
-const guilds = [
-  {
-    name: 'PancakeSquad',
-    id: '557c75d90cf2ce51d4a92368',
-    player: 'f025c1c7f55a4ea0b8d93f47d17dfe0f'
-  },
-  {
-    name: 'WristSpasm',
-    id: '5b8dd8cb0cf24573ab84c9ad',
-    player: '2700c8b565c74d8e9be5eb7a6ae19295'
-  },
-  {
-    name: 'Pixelic',
-    id: '64b54f9d8ea8c96aaedafe84',
-    player: '14727faefbdc4aff848cd2713eb9939e'
-  },
-  {
-    name: 'The Dawns Awakening',
-    id: '5ba94ed50cf2cc24cf043706',
-    player: '3b76b69ae5134296a730ed49171ad6f8'
-  }
-];
 
 describe('Client#getGuild', async () => {
   describe('Valid', async () => {
@@ -268,7 +246,7 @@ describe('Client#getGuild', async () => {
         });
         describe('Guild Player', async () => {
           it('expect not to throw', async () => {
-            guildPlayer = await client.getGuild('player', guild.player);
+            guildPlayer = await client.getGuild('player', guild.uuid);
           });
           it('should be an object', () => {
             expect(guildPlayer).to.be.an('object');
@@ -397,10 +375,12 @@ describe('Client#getGuild', async () => {
       }).timeout(5000);
     });
     describe('Player not in guild', async () => {
-      it('expect to throw', async () => {
-        player = await client.getGuild('player', '37501e7512b845ab8796e2baf9e9677a');
-        expect(player).to.be.null;
-      }).timeout(5000);
+      invalid.noGuild.forEach((user) => {
+        it('expect to throw', async () => {
+          player = await client.getGuild('player', user.uuid);
+          expect(player).to.be.null;
+        }).timeout(5000);
+      });
     });
     describe('Guild id Test', async () => {
       it('expect to throw', async () => {
