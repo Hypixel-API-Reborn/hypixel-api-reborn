@@ -31,6 +31,7 @@ const GovernmentData = require('./structures/SkyBlock/Static/Government');
 const FireSale = require('./structures/SkyBlock/Static/FireSale');
 const SkyblockNews = require('./structures/SkyBlock/News/SkyblockNews');
 const GameCounts = require('./structures/GameCounts');
+const House = require('./structures/House.js');
 /* eslint-enable */
 
 /**
@@ -421,6 +422,29 @@ class Client extends EventEmitter {
    * @name Client#getSkyblockFireSale
    * @param {MethodOptions} [options={}] Options
    * @return {Promise<FireSale[]>}
+   */
+  /**
+   * Get a array of active houses
+   * @method
+   * @name Client#getActiveHouses
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<House[]>}
+   */
+  /**
+   * Get a array of houses for a user
+   * @method
+   * @name Client#getPlayerHouses
+   * @param {string} query UUID / IGN of player
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<House[]>}
+   */
+  /**
+   * Get a house
+   * @method
+   * @name Client#getHouse
+   * @param {string} query House UUID
+   * @param {MethodOptions} [options={}] Options
+   * @return {Promise<House>}
    */
   /**
    * Allows you to get skyblock news

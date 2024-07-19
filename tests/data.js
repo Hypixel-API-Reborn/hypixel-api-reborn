@@ -82,5 +82,14 @@ module.exports = {
   invalid: {
     noSkyblockProfiles: [{ uuid: 'b45add7b081443909fb00aa9a3e15eb0' }],
     noGuild: [{ uuid: '37501e7512b845ab8796e2baf9e9677a' }]
-  }
+  },
+  houses: [
+    '79006240d96a4464b4c6edaa82724a5f',
+    '3b76b69ae5134296a730ed49171ad6f8',
+    '9d9b5326e20943998c2167e8679e3d7c',
+    'fb3d96498a5b4d5b91b763db14b195ad',
+    'f0511d1334de468bbfbb31062204660c',
+    '20934ef9488c465180a78f861586b4cf',
+    '96f1641dde3441288f40ad8ecbfcb634'
+  ]
 };

@@ -27,5 +27,9 @@ module.exports = {
   getSkyblockMember: require('./skyblock/getMember.js'),
   getSkyblockMuseum: require('./skyblock/getMuseum.js'),
   getSkyblockNews: require('./skyblock/getNews.js'),
-  getSkyblockProfiles: require('./skyblock/getProfiles.js')
+  getSkyblockProfiles: require('./skyblock/getProfiles.js'),
+
+  getActiveHouses: require('./housing/getActiveHouses.js'),
+  getPlayerHouses: require('./housing/getPlayerHouses.js'),
+  getHouse: require('./housing/getHouse.js')
 };

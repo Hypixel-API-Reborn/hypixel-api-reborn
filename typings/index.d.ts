@@ -1203,6 +1203,20 @@ declare module 'hypixel-api-reborn' {
      */
     getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
     /**
+     * @description Get a array of active houses
+     */
+    getActiveHouses(options?: methodOptions): Promise<House[]>;
+    /**
+     * @description Get a array of houses for a user
+     * @param query - UUID / IGN of player
+     */
+    getPlayerHouses(query: string, options?: methodOptions): Promise<House[] >;
+    /**
+     * @description Get a house
+     * @param query - house uuid
+     */
+    getHouse(query: string, options?: methodOptions): Promise<House>;
+    /**
      * @description Allows you to get player's network status
      * @param query - player nickname or uuid
      */
@@ -4490,6 +4504,17 @@ declare module 'hypixel-api-reborn' {
     type: BINGO_TYPE;
     tierStep?: number;
     requiredAmount?: number;
+    toString(): string;
+  }
+  class House {
+    constructor(data: Record<string, unknown>);
+    name: string;
+    uuid: string;
+    owner: string;
+    createdAtTimestamp: number;
+    createdAt: Date;
+    players: number;
+    cookies: number;
     toString(): string;
   }
 }

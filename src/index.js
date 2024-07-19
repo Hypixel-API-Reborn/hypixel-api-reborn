@@ -55,6 +55,9 @@ module.exports = {
   /* Booster */
   Booster: require('./structures/Boosters/Booster.js'),
 
+  /* House */
+  House: require('./structures/House.js'),
+
   /* MiniGames */
   Arcade: require('./structures/MiniGames/Arcade.js'),
   ArenaBrawl: require('./structures/MiniGames/ArenaBrawl.js'),

@@ -34,7 +34,7 @@ class Requests {
     if (422 === res.status) throw new Error(Errors.UNEXPECTED_ERROR);
     if (429 === res.status) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
     if (200 !== res.status) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
-    if (!parsedRes.success) {
+    if (!parsedRes.success && !endpoint.startsWith('/housing')) {
       throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.cause));
     }
     // eslint-disable-next-line no-underscore-dangle
