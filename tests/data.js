@@ -7,11 +7,6 @@ module.exports = {
       skyblockProfileId: 'bcd05ba6-908f-4266-8862-c1649c2536a9'
     },
     {
-      uuid: '52d9a36f66ce4cdf9a56ad9724ae9fb4',
-      username: 'StavZDev',
-      skyblockProfileId: '65feab38-f843-4631-b77d-616bb40e1987'
-    },
-    {
       uuid: '4982eac19ae7422891b61a17a74c87a2',
       username: 'JasperJazzyPants',
       skyblockProfileId: '4982eac1-9ae7-4228-91b6-1a17a74c87a2'
@@ -50,16 +45,6 @@ module.exports = {
       uuid: '28667672039044989b0019b14a2c34d6',
       username: 'Refraction',
       skyblockProfileId: 'd3df3ccc-ffd3-473f-bbba-311d5329bd25'
-    },
-    {
-      uuid: '5409757b87344c0394b10bf966a2d594',
-      username: 'huntz',
-      skyblockProfileId: '5409757b-8734-4c03-94b1-0bf966a2d594'
-    },
-    {
-      uuid: 'b26feed824264432b765dd64c3ab0ff8',
-      username: 'Tyler_P13',
-      skyblockProfileId: 'faa72f48-8d37-4bb1-b634-f4fef9df65f6'
     },
     {
       uuid: '20934ef9488c465180a78f861586b4cf',
