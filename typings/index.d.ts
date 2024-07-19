@@ -1210,7 +1210,7 @@ declare module 'hypixel-api-reborn' {
      * @description Get a array of houses for a user
      * @param query - UUID / IGN of player
      */
-    getPlayerHouses(query: string, options?: methodOptions): Promise<House[] >;
+    getPlayerHouses(query: string, options?: methodOptions): Promise<House[]>;
     /**
      * @description Get a house
      * @param query - house uuid
