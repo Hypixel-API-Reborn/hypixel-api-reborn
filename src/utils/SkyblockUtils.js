@@ -29,6 +29,9 @@ function getLevelByXp(xp, type, levelCap) {
     case 'social':
       xpTable = constants.socialXp;
       break;
+    case 'garden':
+      xpTable = constants.garden;
+      break;
     default:
       xpTable = constants.levelingXp;
   }
