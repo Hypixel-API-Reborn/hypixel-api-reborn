@@ -7,6 +7,7 @@ const { expect } = require('chai');
 describe('Client#getSkyblockGarden', async () => {
   let garden;
   users.forEach((user) => {
+    if (user.skyblockProfileId.length === 0) return;
     describe(`User Test ${users.indexOf(user) + 1} | Skyblock Profile ID`, async () => {
       it('expect not to throw', async () => {
         garden = await client.getSkyblockGarden(user.skyblockProfileId);

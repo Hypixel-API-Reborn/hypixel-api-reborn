@@ -9,7 +9,7 @@ module.exports = {
     {
       uuid: '4982eac19ae7422891b61a17a74c87a2',
       username: 'JasperJazzyPants',
-      skyblockProfileId: '4982eac1-9ae7-4228-91b6-1a17a74c87a2'
+      skyblockProfileId: ''
     },
     {
       uuid: '3b76b69ae5134296a730ed49171ad6f8',
