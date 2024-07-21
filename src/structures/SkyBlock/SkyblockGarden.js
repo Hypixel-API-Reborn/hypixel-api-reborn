@@ -37,19 +37,19 @@ class SkyblockGarden {
     };
     /**
      * Crop Milestones
-     * @type {SkyblockGarenCrops}
+     * @type {SkyblockGarenCropMilestones}
      */
     this.cropMilestones = {
-      wheat: data.garden?.resources_collected?.WHEAT || 0,
-      carrot: data.garden?.resources_collected?.CARROT_ITEM || 0,
-      sugarCane: data.garden?.resources_collected?.SUGAR_CANE || 0,
-      potato: data.garden?.resources_collected?.POTATO_ITEM || 0,
-      pumpkin: data.garden?.resources_collected?.PUMPKIN || 0,
-      melon: data.garden?.resources_collected?.MELON || 0,
-      cactus: data.garden?.resources_collected?.CACTUS || 0,
-      cocoBeans: data.garden?.resources_collected?.['INK_SACK:3'] || 0,
-      mushroom: data.garden?.resources_collected?.MUSHROOM_COLLECTION || 0,
-      netherWart: data.garden?.resources_collected?.NETHER_STALK || 0
+      wheat: getLevelByXp(data.garden?.resources_collected?.WHEAT || 0, 'wheat'),
+      carrot: getLevelByXp(data.garden?.resources_collected?.CARROT_ITEM || 0, 'carrot'),
+      sugarCane: getLevelByXp(data.garden?.resources_collected?.SUGAR_CANE || 0, 'sugarCane'),
+      potato: getLevelByXp(data.garden?.resources_collected?.POTATO_ITEM || 0, 'potato'),
+      pumpkin: getLevelByXp(data.garden?.resources_collected?.PUMPKIN || 0, 'pumpkin'),
+      melon: getLevelByXp(data.garden?.resources_collected?.MELON || 0, 'melon'),
+      cactus: getLevelByXp(data.garden?.resources_collected?.CACTUS || 0, 'cactus'),
+      cocoBeans: getLevelByXp(data.garden?.resources_collected?.['INK_SACK:3'] || 0, 'cocoBeans'),
+      mushroom: getLevelByXp(data.garden?.resources_collected?.MUSHROOM_COLLECTION || 0, 'mushroom'),
+      netherWart: getLevelByXp(data.garden?.resources_collected?.NETHER_STALK || 0, 'netherWart')
     };
     /**
      * Composter
@@ -128,6 +128,19 @@ class SkyblockGarden {
  * @property {number} cocoBeans Coco Beans
  * @property {number} mushroom Mushroom
  * @property {number} netherWart Nether Wart
+ */
+/**
+ * @typedef {object} SkyblockGarenCropMilestones
+ * @property {SkyblockSkillLevel} wheat Wheat
+ * @property {SkyblockSkillLevel} carrot Carrot
+ * @property {SkyblockSkillLevel} sugarCane Sugar Cane
+ * @property {SkyblockSkillLevel} potato Potato
+ * @property {SkyblockSkillLevel} pumpkin Pumpkin
+ * @property {SkyblockSkillLevel} melon Melon
+ * @property {SkyblockSkillLevel} cactus Cactus
+ * @property {SkyblockSkillLevel} cocoBeans Coco Beans
+ * @property {SkyblockSkillLevel} mushroom Mushroom
+ * @property {SkyblockSkillLevel} netherWart Nether Wart
  */
 
 module.exports = SkyblockGarden;

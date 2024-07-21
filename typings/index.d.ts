@@ -2478,7 +2478,18 @@ declare module 'hypixel-api-reborn' {
     barnSkin: string;
     unlockedPlots: string[];
     visitors: SKYBLOCK_GARDEN_VISITOR;
-    cropMilestones: SKYBLOCK_GARDEN_CROPS;
+    cropMilestones: {
+      wheat: SKYBLOCK_SKILL_DATA;
+      carrot: SKYBLOCK_SKILL_DATA;
+      sugarCane: SKYBLOCK_SKILL_DATA;
+      potato: SKYBLOCK_SKILL_DATA;
+      pumpkin: SKYBLOCK_SKILL_DATA;
+      melon: SKYBLOCK_SKILL_DATA;
+      cactus: SKYBLOCK_SKILL_DATA;
+      cocoBeans: SKYBLOCK_SKILL_DATA;
+      mushroom: SKYBLOCK_SKILL_DATA;
+      netherWart: SKYBLOCK_SKILL_DATA;
+    };
     composter: SKYBLOCK_GARDEN_COMPOSTER;
     cropUpgrades: SKYBLOCK_GARDEN_CROPS;
   }
