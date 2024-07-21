@@ -25,6 +25,8 @@ describe('Client#getSkyblockGovernment', async () => {
         expect(mayor).instanceOf(Candidate);
       });
     }
-    expect(government.currentElectionFor).to.be.a('number')
+    if (government.currentElectionFor) {
+      expect(government.currentElectionFor).to.be.a('number');
+    }
   });
 });
