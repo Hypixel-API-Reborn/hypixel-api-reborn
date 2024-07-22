@@ -1964,35 +1964,30 @@ declare module 'hypixel-api-reborn' {
     zombieKills: number;
   }
 
+  class ArenaBrawlMode {
+    constructor(data: Record<string, unknown>);
+    damage: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    healed: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    games: number;
+    winstreak: number;
+  }
   class ArenaBrawl {
     constructor(data: Record<string, unknown>);
     coins: number;
-    mode: {
-      '1v1': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-      '2v2': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-      '4v4': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-    };
+    coinsSpent: number;
+    wins: number;
+    keys: number;
+    chests: number;
+    rune: string;
+    '1v1': ArenaBrawlMode;
+    '2v2': ArenaBrawlMode;
+    '4v4': ArenaBrawlMode;
   }
   class Paintball {
     constructor(data: Record<string, unknown>);

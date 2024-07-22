@@ -1,15 +1,64 @@
 const divide = require('../../utils/divide');
-// eslint-disable-next-line jsdoc/require-jsdoc
-function generateModeStats(data, mode) {
-  return {
-    kills: data[`kills_${mode}`] || 0,
-    deaths: data[`deaths_${mode}`] || 0,
-    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
-    wins: data[`wins_${mode}`] || 0,
-    losses: data[`losses_${mode}`] || 0,
-    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
-  };
+
+class ArenaBrawlMode {
+  /**
+   * @param {object} data ArenaBrawl data
+   * @param {string} mode mode
+   */
+  constructor(data, mode) {
+    /**
+     * Damage
+     * @type {number}
+     */
+    this.damage = data[`damage_${mode}`];
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data[`kills_${mode}`];
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data[`deaths_${mode}`];
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Healed
+     * @type {number}
+     */
+    this.healed = data[`healed_${mode}`];
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`wins_${mode}`];
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data[`losses_${mode}`];
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(this.wins, this.losses);
+    /**
+     * Games Played
+     * @type {number}
+     */
+    this.games = data[`games_${mode}`];
+    /**
+     * Winstreak
+     * @type {number}
+     */
+    this.winstreak = data[`win_streaks_${mode}`];
+  }
 }
+
 /**
  * ArenaBrawl class
  */
@@ -24,29 +73,46 @@ class ArenaBrawl {
      */
     this.coins = data.coins || 0;
     /**
-     * ArenaBrawl mode stats
-     * @type {ArenaBrawlStats}
+     * Coins Spent
+     * @type {number}
      */
-    this.mode = {
-      '1v1': generateModeStats(data, '1v1'),
-      '2v2': generateModeStats(data, '2v2'),
-      '4v4': generateModeStats(data, '4v4')
-    };
+    this.coinsSpent = data.coins_spent || 0;
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.wins || 0;
+    /**
+     * Keys
+     * @type {number}
+     */
+    this.keys = data.keys || 0;
+    /**
+     * Chests
+     * @type {number}
+     */
+    this.chests = data.magical_chest || 0;
+    /**
+     * Rune
+     * @type {string}
+     */
+    this.rune = data.active_rune || '';
+    /**
+     * ArenaBrawl mode stats
+     * @type {ArenaBrawlMode}
+     */
+    this['1v1'] = new ArenaBrawlMode(data, '1v1');
+    /**
+     * ArenaBrawl mode stats
+     * @type {ArenaBrawlMode}
+     */
+    this['2v2'] = new ArenaBrawlMode(data, '2v2');
+    /**
+     * ArenaBrawl mode stats
+     * @type {ArenaBrawlMode}
+     */
+    this['4v4'] = new ArenaBrawlMode(data, '4v4');
   }
 }
-/**
- * @typedef {Object} ArenaBrawlStats
- * @property {ArenaBrawlModeStats} '1v1' ArenaBrawl 1v1 stats
- * @property {ArenaBrawlModeStats} '2v2' ArenaBrawl 2v2 stats
- * @property {ArenaBrawlModeStats} '4v4' ArenaBrawl 4v4 stats
- */
-/**
- * @typedef {Object} ArenaBrawlModeStats
- * @property {number} kills ArenaBrawl kills
- * @property {number} deaths ArenaBrawl deaths
- * @property {number} KDRatio ArenaBrawl Kill Death ratio
- * @property {number} wins ArenaBrawl wins
- * @property {number} losses ArenaBrawl losses
- * @property {number} WLRatio ArenaBrawl Win Loss ratio
- */
+
 module.exports = ArenaBrawl;
