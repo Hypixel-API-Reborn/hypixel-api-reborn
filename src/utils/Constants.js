@@ -8,9 +8,9 @@ module.exports = {
     { name: 'Legend', key: 'legend' },
     { name: 'Grandmaster', key: 'grandmaster' },
     { name: 'Godlike', key: 'godlike' },
-    { name: 'WORLD ELITE', key: 'world_elite' },
-    { name: 'WORLD MASTER', key: 'world_master' },
-    { name: "WORLD'S BEST", key: 'worlds_best' }
+    { name: 'Celestial', key: 'celestial' },
+    { name: 'Divine', key: 'divine' },
+    { name: 'Ascended', key: 'ascended' }
   ],
   levelingXp: {
     1: 50,
