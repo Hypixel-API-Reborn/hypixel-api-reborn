@@ -157,7 +157,7 @@ class WoolWars {
  * @property {string} speed Player speed
  * @property {'Enabled'|'Disabled'} no_class No class
  * @property {boolean} respawn_enable Respawning enabled
-*/
+ */
 /**
  * @typedef {Object} WoolWarsStats
  * @property {number} wins wins
