@@ -35,12 +35,61 @@ class WoolWars {
      */
     this.coins = data.coins || 0;
     /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.wins || 0;
+    /**
+     * gamesPlayed
+     * @type {number}
+     */
+    this.gamesPlayed = data.games_played || 0;
+    /**
+     * woolsPlaced
+     * @type {number}
+     */
+    this.woolsPlaced = data.wool_placed || 0;
+    /**
+     * blocksBroken
+     * @type {number}
+     */
+    this.blocksBroken = data.blocks_broken || 0;
+    /**
+     * placeBreakRatio
+     * @type {number}
+     */
+    this.placeBreakRatio = divide(this.woolsPlaced, this.blocksBroken);
+    /**
+     * kills
+     * @type {number}
+     */
+    this.kills = data.kills || 0;
+    /**
+     * deaths
+     * @type {number}
+     */
+    this.deaths = data.deaths || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * assists
+     * @type {number}
+     */
+    this.assists = data.assists || 0;
+    /**
+     * powerups
+     * @type {number}
+     */
+    this.powerups = data.powerups_gotten || 0;
+    /**
      * Selected class, or NONE if field isn't present in API for some reason
      * @type {'ASSAULT'|'TANK'|'GOLEM'|'SWORDSMAN'|'ENGINEER'|'ARCHER'|'NONE'}
      */
     this.selectedClass = data.wool_wars?.selected_class || 'NONE';
     this.stats = {
-      overall: WoolWars.generateStatsFor(data.wool_wars?.stats, ''),
       assault: WoolWars.generateStatsFor(data.wool_wars?.stats, 'assault'),
       tank: WoolWars.generateStatsFor(data.wool_wars?.stats, 'tank'),
       golem: WoolWars.generateStatsFor(data.wool_wars?.stats, 'golem'),
@@ -86,11 +135,11 @@ class WoolWars {
     // eslint-disable-next-line no-underscore-dangle
     const workingData = (_class ? data?.classes?.[_class] : data) || {};
     return {
-      roundWins: workingData.wins || 0,
+      wins: workingData.wins || 0,
       gamesPlayed: workingData.games_played || 0,
       woolsPlaced: workingData.wool_placed || 0,
       blocksBroken: workingData.blocks_broken || 0,
-      placeBreakRatio: divide(workingData.wool_placed, workingData.blocks_broken),
+      placeBreakRatio: divide(workingData.wool_placed || 0, workingData.blocks_broken || 0),
       kills: workingData.kills || 0,
       deaths: workingData.deaths || 0,
       KDRatio: divide(workingData.kills, workingData.deaths),
@@ -107,10 +156,11 @@ class WoolWars {
  * @property {string} game_speed Game speed
  * @property {string} speed Player speed
  * @property {'Enabled'|'Disabled'} no_class No class
- */
+ * @property {boolean} respawn_enable Respawning enabled
+*/
 /**
  * @typedef {Object} WoolWarsStats
- * @property {number} roundWins round wins
+ * @property {number} wins wins
  * @property {number} gamesPlayed games played
  * @property {number} woolsPlaced wools placed
  * @property {number} blocksBroken blocks broken

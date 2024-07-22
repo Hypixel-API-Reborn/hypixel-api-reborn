@@ -1425,9 +1425,18 @@ declare module 'hypixel-api-reborn' {
     exactLevel: number;
     level: number;
     coins: number;
+    wins: number;
+    gamesPlayed: number;
+    woolsPlaced: number;
+    blocksBroken: number;
+    placeBreakRatio: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    assists: number;
+    powerups: number;
     selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
     stats: {
-      overall: WoolWarsStats;
       assault: WoolWarsStats;
       tank: WoolWarsStats;
       golem: WoolWarsStats;
@@ -1439,7 +1448,7 @@ declare module 'hypixel-api-reborn' {
     privateGamesConfig: PrivateGamesConfig;
   }
   type WoolWarsStats = {
-    roundWins: number;
+    wins: number;
     gamesPlayed: number;
     woolsPlaced: number;
     blocksBroken: number;
@@ -1457,6 +1466,7 @@ declare module 'hypixel-api-reborn' {
     game_speed: string;
     speed: string;
     no_class: 'Enabled' | 'Disabled';
+    respawn_enable: boolean;
   };
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
