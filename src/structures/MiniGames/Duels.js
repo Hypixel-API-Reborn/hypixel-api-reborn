@@ -891,6 +891,7 @@ class Duels {
     this.hits = data.melee_hits || 0;
     /**
      * Melee Accuracy
+     * @type {number}
      */
     this.meleeAccuracy = divide(this.hits, this.swings);
     /**

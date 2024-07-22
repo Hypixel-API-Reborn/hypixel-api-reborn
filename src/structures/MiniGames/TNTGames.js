@@ -1,6 +1,9 @@
 const divide = require('../../utils/divide');
 
 class TNTRun {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor(data) {
     /**
      * Wins
@@ -40,6 +43,9 @@ class TNTRun {
   }
 }
 class PVPRun {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor(data) {
     /**
      * Wins
@@ -94,6 +100,9 @@ class PVPRun {
   }
 }
 class BowSpleef {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor(data) {
     /**
      * wins
@@ -118,6 +127,9 @@ class BowSpleef {
   }
 }
 class TNTTag {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor(data) {
     /**
      * Wins
@@ -167,6 +179,9 @@ class TNTTag {
   }
 }
 class TNTWizards {
+  /**
+   * @param {object} data TNT Games data
+   */
   constructor(data) {
     /**
      * Wins

@@ -3928,7 +3928,7 @@ declare module 'hypixel-api-reborn' {
     blocksPlaced: number;
     swings: number;
     hits: number;
-    meleeAccuracy: ccurac;
+    meleeAccuracy: number;
     bowShots: number;
     bowHits: number;
     bowAccuracy: number;
