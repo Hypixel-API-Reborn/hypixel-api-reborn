@@ -4033,9 +4033,55 @@ declare module 'hypixel-api-reborn' {
     endedAt?: Date;
     endedTimestamp?: number;
   }
+  class MegaWallsModeStats {
+    constructor(data: Record<string, unknown>);
+    kills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    finalKills: number;
+    finalAssists: number;
+    finalDeaths: number;
+    finalKDRatio: number;
+    playedGames: number;
+    witherDamage: number;
+    defenderKills: number;
+    walked: number;
+    blocksPlaced: number;
+    blocksBroken: number;
+    meleeKills: number;
+    damageDealt: number;
+  }
+  class MegaWallsKitStats {
+    constructor(data: Record<string, unknown>);
+    kills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    finalKills: number;
+    finalAssists: number;
+    finalDeaths: number;
+    finalKDRatio: number;
+    playedGames: number;
+    witherDamage: number;
+    defenderKills: number;
+    walked: number;
+    blocksPlaced: number;
+    blocksBroken: number;
+    meleeKills: number;
+    damageDealt: number;
+    faceOff: MegaWallsModeStats;
+    casualBrawl: MegaWallsModeStats;
+  }
   class MegaWalls {
     constructor(data: Record<string, unknown>);
-    selectedClass: string;
+    selectedClass: string | null;
     coins: number;
     kills: number;
     assists: number;
@@ -4051,26 +4097,39 @@ declare module 'hypixel-api-reborn' {
     playedGames: number;
     witherDamage: number;
     defenderKills: number;
-    mode: {
-      normal: {
-        kills: number;
-        deaths: number;
-        wins: number;
-        losses: number;
-      };
-      faceoff: {
-        kills: number;
-        deaths: number;
-        wins: number;
-        losses: number;
-      };
-      casualBrawl: {
-        kills: number;
-        deaths: number;
-        wins: number;
-        losses: number;
-      };
-    };
+    walked: number;
+    blocksPlaced: number;
+    blocksBroken: number;
+    meleeKills: number;
+    damageDealt: number;
+    faceOff: MegaWallsModeStats;
+    casualBrawl: MegaWallsModeStats;
+    cow: MegaWallsKitStats;
+    hunter: MegaWallsKitStats;
+    shark: MegaWallsKitStats;
+    arcanist: MegaWallsKitStats;
+    deadlord: MegaWallsKitStats;
+    golem: MegaWallsKitStats;
+    herobrine: MegaWallsKitStats;
+    pigman: MegaWallsKitStats;
+    zombie: MegaWallsKitStats;
+    blaze: MegaWallsKitStats;
+    enderman: MegaWallsKitStats;
+    shaman: MegaWallsKitStats;
+    squid: MegaWallsKitStats;
+    creeper: MegaWallsKitStats;
+    pirate: MegaWallsKitStats;
+    sheep: MegaWallsKitStats;
+    skeleton: MegaWallsKitStats;
+    spider: MegaWallsKitStats;
+    werewolf: MegaWallsKitStats;
+    angel: MegaWallsKitStats;
+    assassin: MegaWallsKitStats;
+    automaton: MegaWallsKitStats;
+    moleman: MegaWallsKitStats;
+    phoenix: MegaWallsKitStats;
+    renegade: MegaWallsKitStats;
+    snowman: MegaWallsKitStats;
   }
   class APIStatus {
     constructor(data: Record<string, unknown>);
