@@ -1996,12 +1996,16 @@ declare module 'hypixel-api-reborn' {
     deaths: number;
     KDRatio: number;
     wins: number;
-    losses: number;
-    WLRatio: number;
     shotsFired: number;
     killstreaks: number;
-    forcefieldTime: number;
+    forceFieldTime: number;
     hat: string;
+    adrenaline: number;
+    endurance: number;
+    fortune: number;
+    godfather: number;
+    superluck: number;
+    transfusion: number;
   }
   class Quakecraft {
     constructor(data: Record<string, unknown>);

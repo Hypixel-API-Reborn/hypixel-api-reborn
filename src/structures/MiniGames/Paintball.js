@@ -33,16 +33,6 @@ class Paintball {
      */
     this.wins = data.wins || 0;
     /**
-     * Losses
-     * @type {number}
-     */
-    this.losses = data.losses || 0;
-    /**
-     * Win Loss ratio
-     * @type {number}
-     */
-    this.WLRatio = divide(this.wins, this.losses);
-    /**
      * Shots fired
      * @type {number}
      */
@@ -56,12 +46,42 @@ class Paintball {
      * Forcefield Time
      * @type {number}
      */
-    this.forcefieldTime = data.forcefieldTime || 0;
+    this.forceFieldTime = data.forcefieldTime || 0;
     /**
      * Hat
      * @type {string}
      */
     this.hat = data.hat || 'None';
+    /**
+     * Adrenaline Perk Level
+     * @type {number}
+     */
+    this.adrenaline = data.adrenaline || 0;
+    /**
+     * Endurance Perk Level
+     * @type {number}
+     */
+    this.endurance = data.endurance || 0;
+    /**
+     * Fortune Perk Level
+     * @type {number}
+     */
+    this.fortune = data.fortune || 0;
+    /**
+     * Godfather Perk Level
+     * @type {number}
+     */
+    this.godfather = data.godfather || 0;
+    /**
+     * Superluck Perk Level
+     * @type {number}
+     */
+    this.superluck = data.superluck || 0;
+    /**
+     * Transfusion Perk Level
+     * @type {number}
+     */
+    this.transfusion = data.transfusion || 0;
   }
 }
 module.exports = Paintball;
