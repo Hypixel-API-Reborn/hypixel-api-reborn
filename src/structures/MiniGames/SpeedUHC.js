@@ -3,6 +3,7 @@ const divide = require('../../utils/divide');
 class SpeedUHCMode {
   /**
    * @param {object} data Speed UHC data
+   * @param {string} data Speed UHC data
    */
   constructor(data, mode) {
     /**

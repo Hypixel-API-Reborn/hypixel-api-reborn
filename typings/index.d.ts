@@ -3711,8 +3711,8 @@ declare module 'hypixel-api-reborn' {
       headsEaten: number;
     };
   }
-  class SpeedUHC {
-    constructor(data: Record<string, unknown>);
+  class SpeedUHCMode {
+    constructor(data: Record<string, unknown>, mode:string);
     kills: number;
     deaths: number;
     wins: number;
@@ -3724,27 +3724,27 @@ declare module 'hypixel-api-reborn' {
   }
   class SpeedUHC {
     constructor(data: Record<string, unknown>);
-    coins;
-    kills;
-    deaths;
-    KDRatio;
-    wins;
-    losses;
-    WLRatio;
-    playedGames;
-    winstreak;
-    killstreak;
-    blocksBroken;
-    blocksPlaced;
-    quits;
-    itemsEnchanted;
-    assists;
-    solo;
-    soloNormal;
-    soloInsane;
-    team;
-    teamNormal;
-    teamInsane;
+    coins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    playedGames: number;
+    winstreak: number;
+    killstreak: number;
+    blocksBroken: number;
+    blocksPlaced: number;
+    quits: number;
+    itemsEnchanted: number;
+    assists: number;
+    solo: SpeedUHCMode;
+    soloNormal: SpeedUHCMode;
+    soloInsane: SpeedUHCMode;
+    team: SpeedUHCMode;
+    teamNormal: SpeedUHCMode;
+    teamInsane: SpeedUHCMode;
   }
   class MurderMysteryModeStats {
     constructor(data: Record<string, unknown>, gamemode: string);
