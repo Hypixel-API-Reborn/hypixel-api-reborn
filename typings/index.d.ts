@@ -396,6 +396,14 @@ export interface auctionsOptions extends methodOptions {
 export interface playerBingoOptions extends methodOptions {
   fetchBingoData?: boolean;
 }
+
+export interface LevelProgress {
+  currentXP: number;
+  remainingXP: number;
+  xpToNext: number;
+  percent: number;
+  percentRemaining: number;
+}
 declare module 'hypixel-api-reborn' {
   const version: string;
   const Errors: {
@@ -1320,13 +1328,7 @@ declare module 'hypixel-api-reborn' {
     giftsSent?: number;
     giftBundlesSent?: number;
     giftBundlesReceived?: number;
-    levelProgress: {
-      currentXP: number;
-      remainingXP: number;
-      xpToNext: number;
-      percent: number;
-      percentRemaining: number;
-    };
+    levelProgress: LevelProgress;
     isOnline: boolean;
     userLanguage: string;
     lastDailyReward?: Date;
@@ -3025,132 +3027,93 @@ declare module 'hypixel-api-reborn' {
     static CODES: GAME_CODE[];
     static NAMES: GAME_NAME[];
   }
+  class SkyWarsMode {
+    constructor(data: Record<string, unknown>, gamemode: string);
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+  }
+  class SkywarsModeStats {
+    constructor(data: Record<string, unknown>, gamemode: string);
+    activeKit: string;
+    killstreak: number;
+    kills: number;
+    voidKills: number;
+    meleeKills: number;
+    bowKills: number;
+    mobKills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    gamesPlayed: number;
+    survivedPlayers: number;
+    chestsOpened: number;
+    timePlayed: number;
+    shard: number;
+    longestBowShot: number;
+    arrowsShot: number;
+    arrowsHit: number;
+    bowAccuracy: number;
+    fastestWin: number;
+    heads: number;
+  }
   class SkyWars {
     constructor(data: Record<string, unknown>);
     coins: number;
     souls: number;
     tokens: number;
-    winstreak: number;
-    kills: number;
-    losses: number;
-    deaths: number;
-    wins: number;
-    heads: number;
     experience: number;
     level: number;
-    levelProgress: {
-      currentLevelXp: number;
-      xpToNextLevel: number;
-      percent: number;
-      xpNextLevel: number;
-    };
+    levelProgress: LevelProgress;
     levelFormatted: string;
-    prestige: SKYWARS_PRESTIGE;
-    prestigeIcon: SKYWARS_PRESTIGE_ICON;
-    playedGames: number;
-    KDRatio: number;
-    WLRatio: number;
+    prestige: SkyWarsPrestige;
+    prestigeIcon: SkyWarsPrestigeIcons;
     opals: number;
     avarice: number;
     tenacity: number;
     shards: number;
     angelOfDeathLevel: number;
-    solo: {
-      overall: {
-        winstreak: number;
-        playedGames: number;
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      normal: {
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      insane: {
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-    };
-    team: {
-      overall: {
-        winstreak: number;
-        playedGames: number;
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      normal: {
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      insane: {
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-    };
-    mega: {
-      overall: {
-        winstreak: number;
-        playedGames: number;
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      solo: {
-        playedGames: number;
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-      doubles: {
-        playedGames: number;
-        kills: number;
-        wins: number;
-        losses: number;
-        deaths: number;
-        KDRatio: number;
-        WLRatio: number;
-      };
-    };
-    lab: {
-      winstreak: number;
-      playedGames: number;
-      kills: number;
-      wins: number;
-      losses: number;
-      deaths: number;
-      KDRatio: number;
-      WLRatio: number;
-    };
+    killstreak: number;
+    kills: number;
+    voidKills: number;
+    meleeKills: number;
+    bowKills: number;
+    mobKills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    gamesPlayed: number;
+    survivedPlayers: number;
+    chestsOpened: number;
+    timePlayed: number;
+    shard: number;
+    longestBowShot: number;
+    arrowsShot: number;
+    arrowsHit: number;
+    bowAccuracy: number;
+    fastestWin: number;
+    heads: number;
+    blocksPlaced: number;
+    blocksBroken: number;
+    eggThrown: number;
+    enderpearlsThrown: number;
+    solo: SkywarsModeStats;
+    soloNormal: SkywarsMode;
+    soloInsane: SkywarsMode;
+    team: SkywarsModeStats;
+    teamNormal: SkywarsMode;
+    mega: SkywarsMode;
+    megaDoubles: SkywarsMode;
+    lab: SkywarsMode;
     packages: SkywarsPackages;
   }
   class SkywarsPackages {

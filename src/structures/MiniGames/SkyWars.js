@@ -3,18 +3,6 @@ const { SkyWarsPrestigeIcons } = require('../../utils/Constants');
 const divide = require('../../utils/divide');
 
 // eslint-disable-next-line jsdoc/require-jsdoc
-function generateStatsForMode(data, mode) {
-  return {
-    kills: data[`kills_${mode}`] || 0,
-    deaths: data[`deaths_${mode}`] || 0,
-    wins: data[`wins_${mode}`] || 0,
-    losses: data[`losses_${mode}`] || 0,
-    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
-    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
-  };
-}
-
-// eslint-disable-next-line jsdoc/require-jsdoc
 function getSkyWarsPrestige(level) {
   if (60 <= level) return 'Mythic';
   return (
@@ -71,6 +59,173 @@ function getSkyWarsLevelProgress(xp) {
     percent,
     xpNextLevel: totalXptoNextLevel
   };
+}
+
+class SkywarsMode {
+  /**
+   * @param {object} data Skywars data
+   * @param {string} gamemode Gamemode Name
+   */
+  constructor(data, gamemode) {
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data[`kills_${gamemode}`] || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data[`deaths_${gamemode}`] || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(data.kills, data.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`wins_${gamemode}`] || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data[`losses_${gamemode}`] || 0;
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(data.wins, data.losses);
+  }
+}
+class SkywarsModeStats {
+  /**
+   * @param {object} data Skywars data
+   * @param {string} gamemode Gamemode Name
+   */
+  constructor(data, gamemode) {
+    /**
+     * Active Kit
+     * @type {string}
+     */
+    this.activeKit = data[`activeKit_${gamemode.toUpperCase()}`] || '';
+    /**
+     * Kill Streak
+     * @type {number}
+     */
+    this.killstreak = data[`killstreak_${gamemode}`] || 0;
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data[`kills_${gamemode}`] || 0;
+    /**
+     * Void Kills
+     * @type {number}
+     */
+    this.voidKills = data[`void_kills_${gamemode}`] || 0;
+    /**
+     * Melee Kills
+     * @type {number}
+     */
+    this.meleeKills = data[`melee_kills_${gamemode}`] || 0;
+    /**
+     * Bow Kills
+     * @type {number}
+     */
+    this.bowKills = data[`bow_kills_${gamemode}`] || 0;
+    /**
+     * Mob Kills
+     * @type {number}
+     */
+    this.mobKills = data[`mob_kills_${gamemode}`] || 0;
+    /**
+     * Assists
+     * @type {number}
+     */
+    this.assists = data[`assists_${gamemode}`] || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data[`deaths_${gamemode}`] || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(data.kills, data.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`wins_${gamemode}`] || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data[`losses_${gamemode}`] || 0;
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(data.wins, data.losses);
+    /**
+     * Games Played
+     * @type {number}
+     */
+    this.gamesPlayed = data[`games_${gamemode}`] || 0;
+    /**
+     * Survived Players
+     * @type {number}
+     */
+    this.survivedPlayers = data[`survived_players_${gamemode}`] || 0;
+    /**
+     * Chests Opened
+     * @type {number}
+     */
+    this.chestsOpened = data[`chests_opened_${gamemode}`] || 0;
+    /**
+     * Time Played (In Seconds)
+     * @type {number}
+     */
+    this.timePlayed = data[`time_played_${gamemode}`] || 0;
+    /**
+     * Shard
+     * @type {number}
+     */
+    this.shard = data[`shard_${gamemode}`] || 0;
+    /**
+     * Longest Bow Shot
+     * @type {number}
+     */
+    this.longestBowShot = data[`longest_bow_shot_${gamemode}`] || 0;
+    /**
+     * Arrows Shot
+     * @type {number}
+     */
+    this.arrowsShot = data[`arrows_shot_${gamemode}`] || 0;
+    /**
+     * Arrows Hit
+     * @type {number}
+     */
+    this.arrowsHit = data[`arrows_hit_${gamemode}`] || 0;
+    /**
+     * Bow Accuracy
+     * @type {number}
+     */
+    this.bowAccuracy = divide(this.arrowsHit, this.arrowsShot);
+    /**
+     * Fastest Win (In Seconds)
+     * @type {number}
+     */
+    this.fastestWin = data[`fastest_win_${gamemode}`] || 0;
+    /**
+     * Heads
+     * @type {number}
+     */
+    this.heads = data[`heads_${gamemode}`] || 0;
+  }
 }
 
 /**
@@ -147,7 +302,7 @@ w   */
      * Raw Packages, as received from the API
      * @type {string[]}
      */
-    this.rawPackages = Array.from(data);
+    this.rawPackages = data;
     /**
      * Cages
      * @type {string[]}
@@ -196,14 +351,6 @@ w   */
  */
 
 /**
- * @typedef {Object} SkyWarsShardsInMode
- * @property {number} solo Solo shards
- * @property {number} team Team shards
- * @property {number} mega Mega shards
- * @property {number} lab Lab shards
- */
-
-/**
  * SkyWars class
  */
 class SkyWars {
@@ -226,36 +373,6 @@ w   */
      * @type {number}
      */
     this.tokens = data.cosmetic_tokens || 0;
-    /**
-     * Winstreak
-     * @type {number}
-     */
-    this.winstreak = data.win_streak || 0;
-    /**
-     * Kills
-     * @type {number}
-     */
-    this.kills = data.kills || 0;
-    /**
-     * Losses
-     * @type {number}
-     */
-    this.losses = data.losses || 0;
-    /**
-     * Deaths
-     * @type {number}
-     */
-    this.deaths = data.deaths || 0;
-    /**
-     * Wins
-     * @type {number}
-     */
-    this.wins = data.wins || 0;
-    /**
-     * Heads
-     * @type {number}
-     */
-    this.heads = data.heads || 0;
     /**
      * Experience
      * @type {number}
@@ -292,26 +409,6 @@ w   */
      */
     this.prestigeIcon = data.selected_prestige_icon ? SkyWarsPrestigeIcons[data.selected_prestige_icon] : null;
     /**
-     * Games Played ( Total )
-     * @type {number}
-     */
-    this.playedGames =
-      (data.games_solo || 0) +
-      (data.games_team || 0) +
-      (data.games_mega || 0) +
-      (data.games_mega_doubles || 0) +
-      (data.games_lab || 0);
-    /**
-     * Global Kill Death Ratio
-     * @type {number}
-     */
-    this.KDRatio = divide(this.kills, this.deaths);
-    /**
-     * Global Win Loss Ratio
-     * @type {number}
-     */
-    this.WLRatio = divide(this.wins, this.losses);
-    /**
      * Opals
      * @type {number}
      */
@@ -336,106 +433,188 @@ w   */
      * @type {number}
      */
     this.angelOfDeathLevel = data.angel_of_death_level || 0;
+
     /**
-     * Shard By Mode
-     * @type {SkyWarsShardsInMode}
+     * Killstreak
+     * @type {number}
      */
-    this.shardsInMode = {
-      solo: data.shard_solo || 0,
-      team: data.shard_team || 0,
-      mega: (data.shard_mega || 0) + (data.shard_mega_doubles || 0),
-      lab: data.shard_lab || 0
-    };
+    this.killstreak = data.killstreak || 0;
+    /**
+     * kills
+     * @type {number}
+     */
+    this.kills = data.kills || 0;
+    /**
+     * Void Kills
+     * @type {number}
+     */
+    this.voidKills = data.void_kills || 0;
+    /**
+     * Melee Kills
+     * @type {number}
+     */
+    this.meleeKills = data.melee_kills || 0;
+    /**
+     * Bow Kills
+     * @type {number}
+     */
+    this.bowKills = data.bow_kills || 0;
+    /**
+     * Mob Kills
+     * @type {number}
+     */
+    this.mobKills = data.mob_kills || 0;
+    /**
+     * Assists
+     * @type {number}
+     */
+    this.assists = data.assists || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data.deaths || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(data.kills, data.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.wins || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data.losses || 0;
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(data.wins, data.losses);
+    /**
+     * Games Played
+     * @type {number}
+     */
+    this.gamesPlayed = data.games || 0;
+    /**
+     * Survived Players
+     * @type {number}
+     */
+    this.survivedPlayers = data.survived_players || 0;
+    /**
+     * Chests Opened
+     * @type {number}
+     */
+    this.chestsOpened = data.chests_opened || 0;
+    /**
+     * Time Played (In Seconds)
+     * @type {number}
+     */
+    this.timePlayed = data.time_played || 0;
+    /**
+     * Shard
+     * @type {number}
+     */
+    this.shard = data.shard || 0;
+    /**
+     * Longest Bow Shot
+     * @type {number}
+     */
+    this.longestBowShot = data.longest_bow_shot || 0;
+    /**
+     * Arrows Shot
+     * @type {number}
+     */
+    this.arrowsShot = data.arrows_shot || 0;
+    /**
+     * Arrows Hit
+     * @type {number}
+     */
+    this.arrowsHit = data.arrows_hit || 0;
+    /**
+     * Bow Accuracy
+     * @type {number}
+     */
+    this.bowAccuracy = divide(this.arrowsHit, this.arrowsShot);
+    /**
+     * Fastest Win
+     * @type {number}
+     */
+    this.fastestWin = data.fastest_win || 0;
+    /**
+     * Heads
+     * @type {number}
+     */
+    this.heads = data.heads || 0;
+    /**
+     * Blocks Placed
+     * @type {number}
+     */
+    this.blocksPlaced = data.blocks_placed || 0;
+    /**
+     * Blocks Broken
+     * @type {number}
+     */
+    this.blocksBroken = data.blocks_broken || 0;
+    /**
+     * Egg Thrown
+     * @type {number}
+     */
+    this.eggThrown = data.egg_thrown || 0;
+    /**
+     * Enderpearls Thrown
+     * @type {number}
+     */
+    this.enderpearlsThrown = data.enderpearls_thrown || 0;
+
     /**
      * Solo Skywars Stats
-     * @type {SkyWarsModeExtendedStats}
+     * @type {SkywarsModeStats}
      */
-    this.solo = {
-      overall: {
-        winstreak: data.winstreak_solo || 0,
-        playedGames: data.games_solo || 0,
-        kills: data.kills_solo || 0,
-        wins: data.wins_solo || 0,
-        losses: data.losses_solo || 0,
-        deaths: data.deaths_solo || 0,
-        KDRatio: divide(data.kills_solo, data.deaths_solo),
-        WLRatio: divide(data.wins_solo, data.losses_solo)
-      },
-      normal: generateStatsForMode(data, 'solo_normal'),
-      insane: generateStatsForMode(data, 'solo_insane')
-    };
+    this.solo = new SkywarsModeStats(data, 'solo');
+    /**
+     * Solo Normal Stats
+     * @type {SkywarsMode}
+     */
+    this.soloNormal = new SkywarsMode(data, 'solo_normal');
+    /**
+     * Solo Insane Stats
+     * @type {SkywarsMode}
+     */
+    this.soloInsane = new SkywarsMode(data, 'solo_insane');
     /**
      * Team Skywars Stats
-     * @type {SkyWarsModeExtendedStats}
+     * @type {SkywarsModeStats}
      */
-    this.team = {
-      overall: {
-        winstreak: data.winstreak_team || 0,
-        playedGames: data.games_team || 0,
-        kills: data.kills_team || 0,
-        wins: data.wins_team || 0,
-        losses: data.losses_team || 0,
-        deaths: data.deaths_team || 0,
-        KDRatio: divide(data.kills_team, data.deaths_team),
-        WLRatio: divide(data.wins_team, data.losses_team)
-      },
-      normal: generateStatsForMode(data, 'team_normal'),
-      insane: generateStatsForMode(data, 'team_insane')
-    };
+    this.team = new SkywarsModeStats(data, 'team');
+    /**
+     * Team Normal Stats
+     * @type {SkywarsMode}
+     */
+    this.teamNormal = new SkywarsMode(data, 'team_normal');
+    /**
+     * Team Insane Stats
+     * @type {SkywarsMode}
+     */
+    this.teamInsane = new SkywarsMode(data, 'team_insane');
     /**
      * Mega Skywars Stats
-     * @type {SkyWarsMegaStats}
+     * @type {SkywarsMode}
      */
-    this.mega = {
-      overall: {
-        winstreak: data.winstreak_mega || 0,
-        playedGames: (data.games_mega || 0) + (data.games_mega_doubles || 0),
-        kills: (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
-        wins: (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
-        losses: (data.losses_mega || 0) + (data.losses_mega_doubles || 0),
-        deaths: (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0),
-        KDRatio: divide(
-          (data.kills_mega || 0) + (data.kills_mega_doubles || 0),
-          (data.deaths_mega || 0) + (data.deaths_mega_doubles || 0)
-        ),
-        WLRatio: divide(
-          (data.wins_mega || 0) + (data.wins_mega_doubles || 0),
-          (data.losses_mega || 0) + (data.losses_mega_doubles || 0)
-        )
-      },
-      solo: {
-        playedGames: data.games_mega || 0,
-        kills: data.kills_mega || 0,
-        wins: data.wins_mega || 0,
-        losses: data.losses_mega || 0,
-        deaths: data.deaths_mega || 0,
-        KDRatio: divide(data.kills_mega || 0, data.deaths_mega || 0),
-        WLRatio: divide(data.wins_mega || 0, data.losses_mega || 0)
-      },
-      doubles: {
-        playedGames: data.games_mega_doubles || 0,
-        kills: data.kills_mega_doubles || 0,
-        wins: data.wins_mega_doubles || 0,
-        losses: data.losses_mega_doubles || 0,
-        deaths: data.deaths_mega_doubles || 0,
-        KDRatio: divide(data.kills_mega_doubles || 0, data.deaths_mega_doubles || 0),
-        WLRatio: divide(data.wins_mega_doubles || 0, data.losses_mega_doubles || 0)
-      }
-    };
+    this.mega = new SkywarsMode(data, 'mega');
+    /**
+     * Mega Doubles Skywars Stats
+     * @type {SkywarsMode}
+     */
+    this.megaDoubles = new SkywarsMode(data, 'mega_doubles');
     /**
      * Skywars Laboratory Stats
-     * @type {SkyWarsTotalModeStats}
+     * @type {SkywarsMode}
      */
-    this.lab = {
-      winstreak: data.winstreak_lab || 0,
-      playedGames: data.games_lab || 0,
-      kills: data.kills_lab || 0,
-      wins: data.wins_lab || 0,
-      losses: data.losses_lab || 0,
-      deaths: data.deaths_lab || 0,
-      KDRatio: divide(data.kills_lab, data.deaths_lab),
-      WLRatio: divide(data.wins_lab, data.losses_lab)
-    };
+    this.lab = new SkywarsMode(data, 'lab');
     /**
      * Player Packages, can range from kits to achievement
      * @type {SkywarsPackages}
@@ -458,67 +637,5 @@ w   */
  * * `Rainbow`
  * * `Mythic`
  */
-/**
- * @typedef {string} SkyWarsPrestigeIcons
- * * '⋆'
- * * '★'
- * * '☆'
- * * '⁕',
- * * '✶',
- * * '✳',
- * * '✴',
- * * '✷',
- * * '❋',
- * * '✼',
- * * '❂',
- * * '❁',
- * * '☬',
- * * '✙',
- * * '❤️',
- * * '☠',
- * * '✦',
- * * '✌',
- * * '❦',
- * * '✵',
- * * '❣',
- * * '☯',
- * * '✺',
- * * 'ಠ_ಠ',
- * * '⚔'
- */
-/**
- * @typedef {Object} SkyWarsModeStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} KDRatio Kill Death ratio
- * @property {number} WLRatio Win Loss ratio
- */
-/**
- * @typedef {Object} SkyWarsTotalModeStats
- * @property {number} winstreak Winstreak
- * @property {number} playedGames Played games
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} KDRatio Kill Death ratio
- * @property {number} WLRatio Win Loss ratio
- */
-/**
- * @typedef {string} PseudoDate String date, in the format of MM-YY ( YY is 20YY )
-w */
-/**
- * @typedef {Object} SkyWarsModeExtendedStats
- * @property {SkyWarsTotalModeStats} overall Overall Stats
- * @property {SkyWarsModeStats} normal Normal Mode Stats
- * @property {SkyWarsModeStats} insane Insane Mode Stats
- */
-/**
- * @typedef {Object} SkyWarsMegaStats
- * @property {SkyWarsTotalModeStats} overall Overall Mega Stats
- * @property {SkyWarsModeStats} solo Mega Solo Stats
- * @property {SkyWarsModeStats} doubles Mega Doubles Stats
- */
+
 module.exports = SkyWars;
