@@ -2043,6 +2043,15 @@ declare module 'hypixel-api-reborn' {
     sight: string;
     trigger: string;
   }
+  class TurboKartRacersMap {
+    constructor(data: Record<string, unknown>, mapName: string);
+    map: string;
+    plays: number;
+    boxPickups: number;
+    bronzeTrophies: number;
+    silverTrophies: number;
+    goldTrophies: number;
+  }
   class TurboKartRacers {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -2064,31 +2073,11 @@ declare module 'hypixel-api-reborn' {
       | 'TEDDY'
       | 'TRUCK'
       | 'JERRY';
-    retroPlays: number;
-    hypixelgpPlays: number;
-    olympusPlays: number;
-    junglerushPlays: number;
-    canyonPlays: number;
-    retroBronzeTrophies: number;
-    retroSilverTrophies: number;
-    retroGoldTrophies: number;
-    retroBoxPickups: number;
-    hypixelgpBronzeTrophies: number;
-    hypixelgpSilverTrophies: number;
-    hypixelgpGoldTrophies: number;
-    hypixelgpBoxPickups: number;
-    olympusBronzeTrophies: number;
-    olympusSilverTrophies: number;
-    olympusGoldTrophies: number;
-    olympusBoxPickups: number;
-    junglerushBronzeTrophies: number;
-    junglerushSilverTrophies: number;
-    junglerushGoldTrophies: number;
-    junglerushBoxPickups: number;
-    canyonBronzeTrophies: number;
-    canyonSilverTrophies: number;
-    canyonGoldTrophies: number;
-    canyonBoxPickups: number;
+    retro: TurboKartRacersMap;
+    hypixelgp: TurboKartRacersMap;
+    olympus: TurboKartRacersMap;
+    junglerush: TurboKartRacersMap;
+    canyon: TurboKartRacersMap;
     bananaHitsReceived: number;
     bananaHitsSent: number;
     blueTorpedoHit: number;
