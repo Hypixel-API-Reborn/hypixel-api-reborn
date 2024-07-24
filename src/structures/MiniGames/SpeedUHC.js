@@ -1,4 +1,53 @@
 const divide = require('../../utils/divide');
+
+class SpeedUHCMode {
+  /**
+   * @param {object} data Speed UHC data
+   */
+  constructor(data, mode) {
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data[`kills_${mode}`] || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data[`deaths_${mode}`] || 0;
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`wins_${mode}`] || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data[`losses_${mode}`] || 0;
+    /**
+     * Played Games
+     * @type {number}
+     */
+    this.playedGames = data[`games_${mode}`] || 0;
+    /**
+     * Winstreak
+     * @type {number}
+     */
+    this.winstreak = data[`win_streak_${mode}`] || 0;
+    /**
+     * Kill Streak
+     * @type {number}
+     */
+    this.killStreak = data[`killstreak_${mode}`] || 0;
+    /**
+     * Assists
+     * @type {number}
+     */
+    this.assists = data[`assists_${mode}`] || 0;
+  }
+}
+
 /**
  * Speed UHC class
  */
@@ -84,45 +133,35 @@ class SpeedUHC {
     this.assists = data.assists || 0;
     /**
      * Solo
-     * @type {SpeedUHCModeStats}
+     * @type {SpeedUHCMode}
      */
-    this.solo = {
-      kills: data.kills_solo || 0,
-      deaths: data.deaths_solo || 0,
-      wins: data.wins_solo || 0,
-      losses: data.losses_solo || 0,
-      playedGames: data.games_solo || 0,
-      winStreak: data.win_streak_solo || 0,
-      killStreak: data.killstreak_solo || 0,
-      assists: data.assists_solo || 0
-    };
+    this.solo = new SpeedUHCMode(data, 'solo');
+    /**
+     * Solo Normal
+     * @type {SpeedUHCMode}
+     */
+    this.soloNormal = new SpeedUHCMode(data, 'solo_normal');
+    /**
+     * Solo Insane
+     * @type {SpeedUHCMode}
+     */
+    this.soloInsane = new SpeedUHCMode(data, 'solo_insane');
     /**
      * Team
-     * @type {SpeedUHCModeStats}
+     * @type {SpeedUHCMode}
      */
-    this.teams = {
-      kills: data.kills_team || 0,
-      deaths: data.deaths_team || 0,
-      wins: data.wins_team || 0,
-      losses: data.losses_team || 0,
-      playedGames: data.games_team || 0,
-      winStreak: data.win_streak_team || 0,
-      killStreak: data.killstreak_team || 0,
-      assists: data.assists_team || 0
-    };
+    this.team = new SpeedUHCMode(data, 'team');
+    /**
+     * Team Normal
+     * @type {SpeedUHCMode}
+     */
+    this.teamNormal = new SpeedUHCMode(data, 'team_normal');
+    /**
+     * Team Insane
+     * @type {SpeedUHCMode}
+     */
+    this.teamInsane = new SpeedUHCMode(data, 'team_insane');
   }
 }
-
-/**
- * @typedef {object} SpeedUHCModeStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} playedGames Played games
- * @property {number} winStreak Win streak
- * @property {number} killStreak Kill streak
- * @property {number} assists Assists
- */
 
 module.exports = SpeedUHC;
