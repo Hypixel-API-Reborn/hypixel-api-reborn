@@ -1,38 +1,106 @@
 const divide = require('../../utils/divide');
 
-// eslint-disable-next-line jsdoc/require-jsdoc
-function generateModeStats(data, mode) {
-  return {
-    kills: data[`kills_${mode}`] || 0,
-    deaths: data[`deaths_${mode}`] || 0,
-    KDRatio: divide(data[`kills_${mode}`], data[`deaths_${mode}`]),
-    wins: data[`wins_${mode}`] || 0,
-    losses: data[`losses_${mode}`] || 0,
-    WLRatio: divide(data[`wins_${mode}`], data[`losses_${mode}`])
-  };
+class SmashHeroesMode {
+  /**
+   * @param {object} data SmashHeroes data
+   * @param {string} mode SmashHeores mode
+   */
+  constructor(data, mode) {
+    /**
+     * kills
+     * @type {number}
+     */
+    this.kills = data[`kills_${mode}`] || 0;
+    /**
+     * deaths
+     * @type {number}
+     */
+    this.deaths = data[`deaths_${mode}`] || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * wins
+     * @type {number}
+     */
+    this.wins = data[`wins_${mode}`] || 0;
+    /**
+     * losses
+     * @type {number}
+     */
+    this.losses = data[`losses_${mode}`] || 0;
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(this.wins, this.losses);
+  }
 }
 
-// eslint-disable-next-line jsdoc/require-jsdoc
-function generateHeroStats(data) {
-  const stats = [];
-  for (const hero in data.class_stats) {
-    if (Object.prototype.hasOwnProperty.call(data.class_stats, hero)) {
-      stats.push({
-        name: hero,
-        level: data[`lastLevel_${hero}`] || 0,
-        xp: data[`xp_${hero}`] || 0,
-        prestige: data[`pg_${hero}`] || 0,
-        playedGames: data.class_stats[hero].games || 0,
-        kills: data.class_stats[hero].kills || 0,
-        deaths: data.class_stats[hero].deaths || 0,
-        KDRatio: divide(data.class_stats[hero].kills, data.class_stats[hero].deaths),
-        wins: data.class_stats[hero].wins || 0,
-        losses: data.class_stats[hero].losses || 0,
-        WLRatio: divide(data.class_stats[hero].wins, data.class_stats[hero].losses)
-      });
-    }
+class SmashHeoresHero {
+  /**
+   * @param {object} data SmashHeroes data
+   * @param {string} hero Hero name
+   */
+  constructor(data, hero) {
+    /**
+     * Hero Name
+     * @type {string}
+     */
+    this.name = hero;
+    /**
+     * Level
+     * @type {number}
+     */
+    this.level = data[`lastLevel_${hero}`] || 0;
+    /**
+     * Xp
+     * @type {number}
+     */
+    this.xp = data[`xp_${hero}`] || 0;
+    /**
+     * Prestige
+     * @type {number}
+     */
+    this.prestige = data[`pg_${hero}`] || 0;
+    /**
+     * Played Games
+     * @type {number}
+     */
+    this.playedGames = data.class_stats?.[hero]?.games || 0;
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data.class_stats?.[hero]?.kills || 0;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data.class_stats?.[hero]?.deaths || 0;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data.class_stats?.[hero]?.wins || 0;
+    /**
+     * Losses
+     * @type {number}
+     */
+    this.losses = data.class_stats?.[hero]?.losses || 0;
+    /**
+     * WLRatio
+     * @type {number}
+     */
+    this.WLRatio = divide(this.wins, this.losses);
   }
-  return stats;
 }
 
 /**
@@ -94,53 +162,111 @@ class SmashHeroes {
      */
     this.WLRatio = divide(this.wins, this.losses);
     /**
-     * Stats for each mode
-     * @type {SmashHeroesModes}
+     * Smashed
+     * @type {number}
      */
-    this.mode = {
-      '1v1v1v1': generateModeStats(data, 'normal'),
-      '2v2': generateModeStats(data, '2v2'),
-      '2v2v2': generateModeStats(data, 'teams')
-    };
+    this.smashed = data.smashed || 0;
+    /**
+     * Stats for each mode
+     * @type {SmashHeroesMode}
+     */
+    this['1v1v1v1'] = new SmashHeroesMode(data, 'normal');
+    /**
+     * Stats for each mode
+     * @type {SmashHeroesMode}
+     */
+    this['2v2'] = new SmashHeroesMode(data, '2v2');
+    /**
+     * Stats for each mode
+     * @type {SmashHeroesMode}
+     */
+    this['2v2v2'] = new SmashHeroesMode(data, 'teams');
     /**
      * Active class
      * @type {string}
      */
-    this.activeClass = data.active_class ?? null;
+    this.activeClass = data.active_class || null;
     /**
-     * Stats for each class
-     * @type {SmashHeroesClassStats[]|null}
+     * The Bulk
+     * @type {SmashHeoresHero}
      */
-    this.heroStats = data.class_stats ? generateHeroStats(data) : null;
+    this.theBulk = new SmashHeoresHero(data, 'THE_BULK');
+    /**
+     * Cake Monster
+     * @type {SmashHeoresHero}
+     */
+    this.cakeMonster = new SmashHeoresHero(data, 'CAKE_MONSTER');
+    /**
+     * General Cluck
+     * @type {SmashHeoresHero}
+     */
+    this.generalCluck = new SmashHeoresHero(data, 'GENERAL_CLUCK');
+    /**
+     * Botmun
+     * @type {SmashHeoresHero}
+     */
+    this.botmun = new SmashHeoresHero(data, 'BOTMUN');
+    /**
+     * Marauder
+     * @type {SmashHeoresHero}
+     */
+    this.marauder = new SmashHeoresHero(data, 'MARAUDER');
+    /**
+     * Pug
+     * @type {SmashHeoresHero}
+     */
+    this.pug = new SmashHeoresHero(data, 'PUG');
+    /**
+     * Tinman
+     * @type {SmashHeoresHero}
+     */
+    this.tinman = new SmashHeoresHero(data, 'TINMAN');
+    /**
+     * Spoderman
+     * @type {SmashHeoresHero}
+     */
+    this.spoderman = new SmashHeoresHero(data, 'SPODERMAN');
+    /**
+     * Frosty
+     * @type {SmashHeoresHero}
+     */
+    this.frosty = new SmashHeoresHero(data, 'FROSTY');
+    /**
+     * Sergeant Shield
+     * @type {SmashHeoresHero}
+     */
+    this.sergeantShield = new SmashHeoresHero(data, 'SERGEANT_SHIELD');
+    /**
+     * Skullfire
+     * @type {SmashHeoresHero}
+     */
+    this.skullfire = new SmashHeoresHero(data, 'SKULLFIRE');
+    /**
+     * Goku
+     * @type {SmashHeoresHero}
+     */
+    this.goku = new SmashHeoresHero(data, 'GOKU');
+    /**
+     * Sanic
+     * @type {SmashHeoresHero}
+     */
+    this.sanic = new SmashHeoresHero(data, 'SANIC');
+    /**
+     * Dusk Crawler
+     * @type {SmashHeoresHero}
+     */
+    this.duskCrawler = new SmashHeoresHero(data, 'DUSK_CRAWLER');
+    /**
+     * Shoop Da Whoop
+     * @type {SmashHeoresHero}
+     */
+    this.shoopDaWhoop = new SmashHeoresHero(data, 'SHOOP_DA_WHOOP');
+    /**
+     * Green Hood
+     * @type {SmashHeoresHero}
+     */
+    this.greenHood = new SmashHeoresHero(data, 'GREEN_HOOD');
   }
 }
-/**
- * @typedef {object} SmashHeroesModes
- * @property {SmashHeroesModeStats} '1v1v1v1' 1v1v1v1
- * @property {SmashHeroesModeStats} '2v2' 2v2
- * @property {SmashHeroesModeStats} '2v2v2' 2v2v2
- */
-/**
- * @typedef {object} SmashHeroesModeStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill/Death ratio
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} WLRatio Win/Loss ratio
- */
-/**
- * @typedef {object} SmashHeroesClassStats
- * @property {string} name Name
- * @property {number} level Level
- * @property {number} xp XP
- * @property {number} prestige Prestige
- * @property {number} playedGames Played games
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill/Death ratio
- * @property {number} wins Wins
- * @property {number} losses Losses
- * @property {number} WLRatio Win/Loss ratio
- */
+
 module.exports = SmashHeroes;

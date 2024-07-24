@@ -2222,6 +2222,29 @@ declare module 'hypixel-api-reborn' {
       KDRatio: number;
     };
   }
+  class SmashHeroesMode {
+    constructor(data: Record<string, unknown>, mode: string);
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+  }
+  class SmashHeoresHero {
+    constructor(data: Record<string, unknown>, hero: string);
+    name: string;
+    level: number;
+    xp: number;
+    prestige: number;
+    playedGames: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+  }
   class SmashHeroes {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -2234,46 +2257,27 @@ declare module 'hypixel-api-reborn' {
     wins: number;
     losses: number;
     WLRatio: number;
-    mode: {
-      '1v1v1v1': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-      '2v2': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-      '2v2v2': {
-        kills: number;
-        deaths: number;
-        KDRatio: number;
-        wins: number;
-        losses: number;
-        WLRatio: number;
-      };
-    };
+    smashed: number;
+    '1v1v1v1': SmashHeroesMode;
+    '2v2': SmashHeroesMode;
+    '2v2v2': SmashHeroesMode;
     activeClass: string;
-    heroStats: {
-      name: string;
-      level: number;
-      xp: number;
-      prestige: number;
-      games: number;
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      wins: number;
-      losses: number;
-      WLRatio: number;
-    }[];
+    theBulk: SmashHeoresHero;
+    cakeMonster: SmashHeoresHero;
+    generalCluck: SmashHeoresHero;
+    botmun: SmashHeoresHero;
+    marauder: SmashHeoresHero;
+    pug: SmashHeoresHero;
+    tinman: SmashHeoresHero;
+    spoderman: SmashHeoresHero;
+    frosty: SmashHeoresHero;
+    sergeantShield: SmashHeoresHero;
+    skullfire: SmashHeoresHero;
+    goku: SmashHeoresHero;
+    sanic: SmashHeoresHero;
+    duskCrawler: SmashHeoresHero;
+    shoopDaWhoop: SmashHeoresHero;
+    greenHood: SmashHeoresHero;
   }
   class SkyblockNews {
     constructor(data: Record<string, unknown>);
