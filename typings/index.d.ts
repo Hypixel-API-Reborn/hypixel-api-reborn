@@ -2007,38 +2007,39 @@ declare module 'hypixel-api-reborn' {
     superluck: number;
     transfusion: number;
   }
-  class Quakecraft {
+  class QuakecraftMode {
     constructor(data: Record<string, unknown>);
-    coins: number;
+    wins: number;
     kills: number;
     deaths: number;
     KDRatio: number;
-    wins: number;
-    distanceTravelled: number;
-    headshots: number;
-    shotsFired: number;
     killstreaks: number;
-    highestKillstreak: number;
-    solo: {
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      wins: number;
-      distanceTravelled: number;
-      headshots: number;
-      shotsFired: number;
-      killstreaks: number;
-    };
-    teams: {
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      wins: number;
-      distanceTravelled: number;
-      headshots: number;
-      shotsFired: number;
-      killstreaks: number;
-    };
+    distanceTravelled: number;
+    shotsFired: number;
+    headshots: number;
+  }
+  class Quakecraft {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    solo: QuakecraftMode;
+    teams: QuakecraftMode;
+    wins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    killstreaks: number;
+    distanceTravelled: number;
+    shotsFired: number;
+    headshots: number;
+    instantRespawn: boolean;
+    killPrefixColor: string;
+    showPrefix: boolean;
+    killSound: string;
+    barrel: string;
+    case: string;
+    muzzle: string;
+    sight: string;
+    trigger: string;
   }
   class TurboKartRacers {
     constructor(data: Record<string, unknown>);
