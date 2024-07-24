@@ -3712,7 +3712,7 @@ declare module 'hypixel-api-reborn' {
     };
   }
   class SpeedUHCMode {
-    constructor(data: Record<string, unknown>, mode:string);
+    constructor(data: Record<string, unknown>, mode: string);
     kills: number;
     deaths: number;
     wins: number;
