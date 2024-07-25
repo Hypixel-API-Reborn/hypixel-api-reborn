@@ -2095,6 +2095,16 @@ declare module 'hypixel-api-reborn' {
     WLRatio: number;
     assists: number;
   }
+  class WarlordsClass {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    losses: number;
+    WLRatio: number;
+    gamesPlayed: number;
+    damage: number;
+    heal: number;
+    damagePrevented: number;
+  }
   class Warlords {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -2104,8 +2114,25 @@ declare module 'hypixel-api-reborn' {
     wins: number;
     losses: number;
     WLRatio: number;
+    winstreak: number;
     assists: number;
     class: string;
+    pyromancer: WarlordsClass;
+    mage: WarlordsClass;
+    thunderlord: WarlordsClass;
+    shaman: WarlordsClass;
+    earthwarden: WarlordsClass;
+    aquamancer: WarlordsClass;
+    paladin: WarlordsClass;
+    avenger: WarlordsClass;
+    warrior: WarlordsClass;
+    defender: WarlordsClass;
+    cryomancer: WarlordsClass;
+    crusader: WarlordsClass;
+    berserker: WarlordsClass;
+    protector: WarlordsClass;
+    revenant: WarlordsClass;
+    spiritguard: WarlordsClass;
   }
   class BlitzSGKit {
     constructor(data: Record<string, unknown>, kitName: string);
