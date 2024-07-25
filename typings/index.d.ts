@@ -2193,23 +2193,25 @@ declare module 'hypixel-api-reborn' {
     creepertamer: BlitzSGKit;
     snowman: BlitzSGKit;
   }
+  class VampireZRole {
+    constructor(data: Record<string, unknown>, role: string);
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+  }
   class VampireZ {
     constructor(data: Record<string, unknown>);
     coins: number;
-    human: {
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-      wins: number;
-    };
-    zombie: {
-      kills: number;
-    };
-    vampire: {
-      kills: number;
-      deaths: number;
-      KDRatio: number;
-    };
+    goldBought: number;
+    blood: boolean;
+    zombieKills: number;
+    human: VampireZRole;
+    vampire: VampireZRole;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
   }
   class SmashHeroesMode {
     constructor(data: Record<string, unknown>, mode: string);

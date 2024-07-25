@@ -1,4 +1,34 @@
 const divide = require('../../utils/divide');
+
+class VampireZRole {
+  /**
+   * @param {object} data VampireZ data
+   * @param {string} role VampireZ Role
+   */
+  constructor(data, role) {
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = data[`${role}_kills`];
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = data[`${role}_deaths`];
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = data[`${role}_wins`];
+  }
+}
+
 /**
  * VampireZ class
  */
@@ -13,48 +43,51 @@ class VampireZ {
      */
     this.coins = data.coins || 0;
     /**
-     * Role Human
-     * @type {VampireZHumanStats}
+     * Gold Bought
+     * @type {number}
      */
-    this.human = {
-      kills: data.human_kills || 0,
-      deaths: data.human_deaths || 0,
-      KDRatio: divide(data.human_kills, data.human_wins),
-      wins: data.human_wins || 0
-    };
+    this.goldBought = data.gold_bought || 0;
     /**
-     * Role Zombie
-     * @type {VampireZZombieStats}
+     * Blood
+     * @type {boolean}
      */
-    this.zombie = {
-      kills: data.zombie_kills || 0
-    };
+    this.blood = data.blood || false;
     /**
-     * Role Vampire
-     * @type {VampireZVampireStats}
+     * Zombie Kills
+     * @type {number}
      */
-    this.vampire = {
-      kills: data.vampire_kills || 0,
-      deaths: data.vampire_deaths || 0,
-      KDRatio: divide(data.vampire_kills, data.vampire_wins)
-    };
+    this.zombieKills = data.zombie_kills || 0;
+    /**
+     * Human Stats
+     * @type {VampireZRole}
+     */
+    this.human = new VampireZRole(data, 'human');
+    /**
+     * Vampire Stats
+     * @type {VampireZRole}
+     */
+    this.vampire = new VampireZRole(data, 'vampire');
+    /**
+     * Kills
+     * @type {number}
+     */
+    this.kills = this.human.kills + this.vampire.kills;
+    /**
+     * Deaths
+     * @type {number}
+     */
+    this.deaths = this.human.deaths + this.vampire.deaths;
+    /**
+     * KDRatio
+     * @type {number}
+     */
+    this.KDRatio = divide(this.kills, this.deaths);
+    /**
+     * Wins
+     * @type {number}
+     */
+    this.wins = this.human.wins + this.vampire.wins;
   }
 }
-/**
- * @typedef {object} VampireZHumanStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill Death ratio
- * @property {number} wins Wins
- */
-/**
- * @typedef {object} VampireZZombieStats
- * @property {number} kills Kills
- */
-/**
- * @typedef {object} VampireZVampireStats
- * @property {number} kills Kills
- * @property {number} deaths Deaths
- * @property {number} KDRatio Kill Death ratio
- */
+
 module.exports = VampireZ;
