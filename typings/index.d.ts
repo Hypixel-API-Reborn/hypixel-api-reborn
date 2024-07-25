@@ -3648,57 +3648,35 @@ declare module 'hypixel-api-reborn' {
     totalSlumberTickets: number;
   }
 
-  class UHC {
-    constructor(data: Record<string, unknown>);
-    coins: number;
-    score: number;
+  class UHCGamemode {
+    constructor(data: Record<string, unknown>, mode: string);
     kills: number;
     deaths: number;
     wins: number;
     headsEaten: number;
+    ultimatesCrafted: number;
+    extraUltimatesCrafted: number;
+  }
+  class UHC {
+    constructor(data: Record<string, unknown>);
+    coins: number;
+    score: number;
+    kit: string;
+    solo: UHCGamemode;
+    team: UHCGamemode;
+    redVsBlue: UHCGamemode;
+    noDiamond: UHCGamemode;
+    brawl: UHCGamemode;
+    soloBrawl: UHCGamemode;
+    duoBrawl: UHCGamemode;
+    wins: number;
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    headsEaten: number;
+    ultimatesCrafted: number;
+    extraUltimatesCrafted: number;
     starLevel: number;
-    solo: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    team: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    redVsBlue: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    noDiamond: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    brawl: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    brawlSolo: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
-    brawlDuo: {
-      wins: number;
-      kills: number;
-      deaths: number;
-      headsEaten: number;
-    };
   }
   class SpeedUHCMode {
     constructor(data: Record<string, unknown>, mode: string);
