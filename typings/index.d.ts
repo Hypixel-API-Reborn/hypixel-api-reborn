@@ -131,6 +131,7 @@ export type GAME_CODE =
   | 'WOOL_GAMES';
 export type SKYWARS_PRESTIGE =
   | 'Iron'
+  | 'Iron'
   | 'Gold'
   | 'Diamond'
   | 'Emerald'
@@ -3085,6 +3086,15 @@ declare module 'hypixel-api-reborn' {
     fastestWin: number;
     heads: number;
   }
+  class SkywarsMode {
+    constructor(data: Record<string, unknown>, gamemode: string);
+    kills: number;
+    deaths: number;
+    KDRatio: number;
+    wins: number;
+    losses: number;
+    WLRatio: number;
+  }
   class SkyWars {
     constructor(data: Record<string, unknown>);
     coins: number;
@@ -3094,8 +3104,8 @@ declare module 'hypixel-api-reborn' {
     level: number;
     levelProgress: LevelProgress;
     levelFormatted: string;
-    prestige: SkyWarsPrestige;
-    prestigeIcon: SkyWarsPrestigeIcons;
+    prestige: SKYWARS_PRESTIGE;
+    prestigeIcon: SKYWARS_PRESTIGE_ICON;
     opals: number;
     avarice: number;
     tenacity: number;
