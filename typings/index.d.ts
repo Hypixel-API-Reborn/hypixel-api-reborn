@@ -2097,7 +2097,7 @@ declare module 'hypixel-api-reborn' {
     assists: number;
   }
   class WarlordsClass {
-    constructor(data: Record<string, unknown>);
+    constructor(data: Record<string, unknown>, className: string);
     wins: number;
     losses: number;
     WLRatio: number;
@@ -4009,7 +4009,7 @@ declare module 'hypixel-api-reborn' {
     endedTimestamp?: number;
   }
   class MegaWallsModeStats {
-    constructor(data: Record<string, unknown>);
+    constructor(data: Record<string, unknown>, mode: string, kit?: string);
     kills: number;
     assists: number;
     deaths: number;
@@ -4031,7 +4031,7 @@ declare module 'hypixel-api-reborn' {
     damageDealt: number;
   }
   class MegaWallsKitStats {
-    constructor(data: Record<string, unknown>);
+    constructor(data: Record<string, unknown>, kit: string);
     kills: number;
     assists: number;
     deaths: number;
