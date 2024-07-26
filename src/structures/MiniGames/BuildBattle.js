@@ -57,7 +57,7 @@ class BuildBattle {
 /**
  * @typedef {object} BuildBattleWins
  * @property {number} solo BuildBattle Solo wins
- * @property {number} team BuildBattle Team wins
+ * @property {number} teams BuildBattle Team wins
  * @property {number} pro BuildBattle Pro wins
  * @property {number} gtb BuildBattle Guess The Build wins
  */
