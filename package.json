@@ -42,7 +42,7 @@
   "publisher": "StavZ",
   "devDependencies": {
     "@discordjs/docgen": "github:discordjs/docgen",
-    "@types/node": "^20.14.11",
+    "@types/node": "^22.0.0",
     "chai": "^4.3.4",
     "eslint": "^9.7.0",
     "eslint-plugin-jsdoc": "^48.8.3",
