@@ -3814,6 +3814,7 @@ declare module 'hypixel-api-reborn' {
     blocksPlaced: number;
     healthRegenerated: number;
     goldenApplesEatan: number;
+    goals: number;
   }
   class DuelsUHC {
     constructor(data: Record<string, unknown>, mode: string, title: string);
@@ -3941,6 +3942,7 @@ declare module 'hypixel-api-reborn' {
     blocksPlaced: number;
     healthRegenerated: number;
     goldenApplesEatan: number;
+    goals: number;
   }
   class Duels {
     constructor(data: Record<string, unknown>);

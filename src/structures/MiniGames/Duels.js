@@ -113,6 +113,11 @@ class DuelsGamemode {
      * @type {number}
      */
     this.goldenApplesEatan = data[`${mode}_golden_apples_eaten`] || 0;
+    /**
+     * Goals (only shows up in bridge)
+     * @type {number}
+     */
+    this.goals = data[`${mode}_goals`] || 0;
   }
 }
 
@@ -803,6 +808,18 @@ class DuelsBridge {
       this['2v2v2v2'].goldenApplesEatan +
       this['3v3v3v3'].goldenApplesEatan +
       this.ctf.goldenApplesEatan;
+    /**
+     * Goals
+     * @type {number}
+     */
+    this.goals =
+      this.solo.goals +
+      this.doubles.goals +
+      this.threes.goals +
+      this.fours.goals +
+      this['2v2v2v2'].goals +
+      this['3v3v3v3'].goals +
+      this.ctf.goals;
   }
 }
 
