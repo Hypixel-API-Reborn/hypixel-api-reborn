@@ -17,10 +17,8 @@ export type PLAYER_RANK =
   | 'YouTube'
   | 'Game Master'
   | 'Admin'
-  | 'EVENTS'
-  | 'MCP'
-  | 'MOJANG'
-  | 'PIG+++';
+  | 'PIG+++'
+  | 'INNIT';
 export type GAME_NAME =
   | 'Quake Craft'
   | 'Walls'

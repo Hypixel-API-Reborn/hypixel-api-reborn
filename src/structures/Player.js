@@ -286,9 +286,11 @@ class Player {
  * * `MVP`
  * * `MVP+`
  * * `MVP++`
+ * * `YouTube`
  * * `Game Master`
  * * `Admin`
- * * `YouTube`
+ * * `PIG+++`
+ * * `INNIT`
  */
 /**
  * @typedef {Object} PlayerSocialMedia
