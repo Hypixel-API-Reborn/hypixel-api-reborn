@@ -375,13 +375,13 @@ export interface methodOptions {
   noCaching?: boolean;
 }
 export interface playerMethodOptions extends methodOptions {
-  raw?: boolean;
   guild?: boolean;
   recentGames?: boolean;
 }
 export interface skyblockMemberOptions extends methodOptions {
-  raw?: boolean;
   fetchPlayer?: boolean;
+  getMuseum?: boolean;
+  getGarden?: boolean;
 }
 export interface auctionsOptions extends methodOptions {
   noInfo?: boolean;
@@ -1124,112 +1124,45 @@ declare module 'hypixel-api-reborn' {
      */
     readonly cache: Map<string, any>;
     /**
-     * @description Allows you to get statistics of player
-     * @param query - player nickname or uuid
-     * @param options - player search options
+     * @description Retrieves information about Hypixel achievements.
+     * @param {methodOptions} [options] - The method options.
      */
-    getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
+    getAchievements(options?: methodOptions): Promise<Achievements>;
     /**
-     * @description Allows you to get statistics of hypixel guild
-     * @param searchParameter - 'name', 'player' or 'id'
-     * @param query - guild name, player nickname or guild id
+     * @description Parses the RSS feed from status.hypixel.net
+     * @param {methodOptions} [options] - The method options.
      */
-    getGuild(searchParameter: 'name' | 'player' | 'id', query: string, options?: methodOptions): Promise<Guild>;
-    /**
-     * @description Allows you to get statistics of watchdog anticheat
-     */
-    getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
+    getAPIStatus(options?: methodOptions): Promise<APIStatus>;
     /**
      * @description Allows you to get all active boosters
+     * @param {methodOptions} [options] - The method options.
      */
     getBoosters(options?: methodOptions): Promise<Booster[]>;
     /**
-     * @description Allows you to get a player's skyblock profiles
-     * @param query - player nickname or uuid
+     * @description Allows you to get information about hypixel challenges [NO KEY REQUIRED]
+     * @param {methodOptions} [options] - The method options.
      */
-    getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
+    getChallenges(options?: methodOptions): Promise<Challenges>;
     /**
-     * @description Allows you to get a player's skyblock member data from all their profiles
-     * @param query - player nickname or uuid
+     * @description Allows you to get player count along with the player count of each public game
+     * @param {methodOptions} [options] - The method options.
      */
-    getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
+    getGameCounts(options?: methodOptions): Promise<GameCounts>;
     /**
-     * Allows you to get filtered skyblock auctions
-     * Using auction ID will return an array of at most 1 element
-     * @method
-     * @name Client#getSkyblockAuction
-     * @param type - Filter to use
-     * @param query - uuid of profile, player, or auction. IGN can be used as well
-     * @param includeItemBytes - include item bytes (optional)
-     * @param options - Options
+     * @description Allows you to get statistics of hypixel guild
+     * @param {"id"|"name"|"player"} searchParameter - How you want to search
+     * @param {string} query - guild name, player nickname or guild id
+     * @param {methodOptions} [options] - The method options.
      */
-    getSkyblockAuction(
-      type: 'PROFILE' | 'PLAYER' | 'AUCTION',
-      query: string,
-      includeItemBytes?: boolean,
-      options?: methodOptions
-    ): Promise<Auction[]>; /**
-     * @description Allows you to get all auctions of player
-     * @deprecated Use Client#getSkyblockAuction
-     * @param query - player nickname or uuid
-     * @param includeItemBytes - include item bytes (optional)
-     */
-    getEndedSkyblockAuctions(
-      includeItemBytes?: boolean,
-      options?: methodOptions
-    ): Promise<{ info: AuctionInfo; auctions: PartialAuction[] }>;
+    getGuild(searchParameter: 'id' | 'name' | 'player', query: string, options?: methodOptions): Promise<Guild>;
     /**
-     * @description Allows you to get all auctions of player
-     * @param query - player nickname or uuid
-     * @param includeItemBytes - include item bytes (optional)
+     * @description Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+     * @param {methodOptions} [options] - The method options.
      */
-    getSkyblockAuctionsByPlayer(query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
-    /**
-     * @description Allows you to get list of products
-     */
-    getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
-    /**
-     * @description Gets bingo data
-     */
-    getSkyblockBingo(options?: methodOptions): Promise<BingoData>;
-    /**
-     * @description Gets bingo data of a player
-     * @param query - UUID/IGN of player
-     */
-    getSkyblockBingoByPlayer(query: string, options?: playerBingoOptions): Promise<PlayerBingo>;
-    /**
-     * @description Gets data of skyblock government
-     */
-    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
-    /**
-     * @description Gets data of skyblock government
-     */
-    getSkyblockGovernment(options?: methodOptions): Promise<FireSale[]>;
-    /**
-     * @description Allows you to get skyblock news
-     */
-    getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
-    /**
-     * @description Get a array of active houses
-     */
-    getActiveHouses(options?: methodOptions): Promise<House[]>;
-    /**
-     * @description Get a array of houses for a user
-     * @param query - UUID / IGN of player
-     */
-    getPlayerHouses(query: string, options?: methodOptions): Promise<House[]>;
-    /**
-     * @description Get a house
-     * @param query - house uuid
-     */
-    getHouse(query: string, options?: methodOptions): Promise<House>;
-    /**
-     * @description Allows you to get player's network status
-     * @param query - player nickname or uuid
-     */
-    getStatus(query: string, options?: methodOptions): Promise<Status>;
+    getGuildAchievements(options?: methodOptions): Promise<GuildAchievements>;
     /**
      * @description Allows you to get leaderboards of each mini-game
+     * @param {methodOptions} [options] - The method options.
      */
     getLeaderboards(options?: methodOptions): Promise<{
       ARENA: Leaderboard[];
@@ -1257,38 +1190,131 @@ declare module 'hypixel-api-reborn' {
       VAMPIREZ: Leaderboard[];
     }>;
     /**
-     * @description Allows you to get recent games of a player
+     * @description Allows you to get statistics of player
+     * @param {string} query - player nickname or uuid
+     * @param {playerMethodOptions} [options] - player search options
      */
-    getRecentGames(query: string, options?: methodOptions): Promise<RecentGame[]>;
-    /**
-     * @description Allows you to get player count along with the player count of each public game
-     */
-    getGameCounts(options?: methodOptions): Promise<GameCounts>;
-    /**
-     * @param repeats Amount of times to ping hypixel, preferably between 1 and 10 times.
-     * @description Parses information returned by hypixel upon a status request packet
-     */
-    getServerInfo(repeats?: number): Promise<ServerInfo>;
-    /**
-     * @description Parses the RSS feed from status.hypixel.net
-     */
-    getAPIStatus(): Promise<APIStatus>;
-    /**
-     * @description Allows you to get information about hypixel challenges [NO KEY REQUIRED]
-     */
-    getChallenges(options?: methodOptions): Promise<Challenges>;
+    getPlayer(query: string, options?: playerMethodOptions): Promise<Player>;
     /**
      * @description Allows you to get information about hypixel quests [NO KEY REQUIRED]
+     * @param {methodOptions} [options] - Options
      */
     getQuests(options?: methodOptions): Promise<Quests>;
     /**
-     * Allows you to get information about hypixel achievements [NO KEY REQUIRED]
+     * @description Allows you to get recent games of a player
+     * @param {string} query - player nickname or uuid
+     * @param {methodOptions} [options] - Options
      */
-    getAchievements(options?: methodOptions): Promise<Achievements>;
+    getRecentGames(query: string, options?: methodOptions): Promise<RecentGame[]>;
     /**
-     * @description Allows you to get information about hypixel guild achievements [NO KEY REQUIRED]
+     * @description Parses information returned by hypixel upon a status request packet
+     * @param {number} repeats Amount of times to ping hypixel, preferably between 1 and 10 times.
      */
-    getGuildAchievements(options?: methodOptions): Promise<GuildAchievements>;
+    getServerInfo(repeats?: number): Promise<ServerInfo>;
+    /**
+     * @description Allows you to get player's network status
+     * @param {string} query - player nickname or uuid
+     * @param {methodOptions} [options] - Options
+     */
+    getStatus(query: string, options?: methodOptions): Promise<Status>;
+    /**
+     * @description Allows you to get statistics of watchdog anticheat
+     * @param {methodOptions} [options] - Options
+     */
+    getWatchdogStats(options?: methodOptions): Promise<WatchdogStats>;
+    /**
+     * @description Allows you to get filtered skyblock auctions. Using auction ID will return an array of at most 1 element
+     * @name Client#getSkyblockAuction
+     * @param  {'PROFILE' | 'PLAYER' | 'AUCTION'} type - Filter to use
+     * @param {string} query - uuid of profile, player, or auction. IGN can be used as well
+     * @param {boolean} includeItemBytes - include item bytes (optional)
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockAuction(
+      type: 'PROFILE' | 'PLAYER' | 'AUCTION',
+      query: string,
+      includeItemBytes?: boolean,
+      options?: methodOptions
+    ): Promise<Auction[]>;
+    /**
+     * @description Allows you to get all auctions of player
+     * @param {string} query - player nickname or uuid
+     * @param {boolean} includeItemBytes - include item bytes (optional)
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockAuctionsByPlayer(query: string, includeItemBytes?: boolean, options?: methodOptions): Promise<Auction[]>;
+    /**
+     * @description Allows you to get list of products
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockBazaar(options?: methodOptions): Promise<Product[]>;
+    /**
+     * @description Gets bingo data
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockBingo(options?: methodOptions): Promise<BingoData>;
+    /**
+     * @description Gets bingo data of a player
+     * @param {string} query - UUID/IGN of player
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockBingoByPlayer(query: string, options?: playerBingoOptions): Promise<PlayerBingo>;
+    /**
+     * @description Allows you to get list of active skyblock firesales
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockFireSales(options?: methodOptions): Promise<FireSale[]>;
+    /**
+     * @description Allows you to get a profiles skyblock garden
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockGarden(profileId: string, options?: methodOptions);
+    /**
+     * @description Gets data of skyblock government
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockGovernment(options?: methodOptions): Promise<GovernmentData>;
+    /**
+     * @description Allows you to get a player's skyblock member data from all their profiles
+     * @param query - player nickname or uuid
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockMember(query: string, options?: skyblockMemberOptions): Promise<Map<string, SkyblockMember>>;
+    /**
+     * @description Allows you to get statistics of player
+     * @param {string} query - player nickname or uuid
+     * @param {string} profileId - profile id
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockMuseum(query: string, profileId: string, options?: methodOptions);
+    /**
+     * @description Allows you to get skyblock news
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockNews(options?: methodOptions): Promise<SkyblockNews>;
+    /**
+     * @description Allows you to get a player's skyblock profiles
+     * @param query - player nickname or uuid
+     * @param {methodOptions} [options] - Options
+     */
+    getSkyblockProfiles(query: string, options?: skyblockMemberOptions): Promise<SkyblockProfile[]>;
+    /**
+     * @description Get a array of active houses
+     * @param {methodOptions} [options] - Options
+     */
+    getActiveHouses(options?: methodOptions): Promise<House[]>;
+    /**
+     * @description Get a array of houses for a user
+     * @param query - UUID / IGN of player
+     * @param {methodOptions} [options] - Options
+     */
+    getPlayerHouses(query: string, options?: methodOptions): Promise<House[]>;
+    /**
+     * @description Get a house
+     * @param query - house uuid
+     * @param {methodOptions} [options] - Options
+     */
+    getHouse(query: string, options?: methodOptions): Promise<House>;
     /**
      * @param amount - Amount of cache entries to delete
      * @description Allows you to clear cache
