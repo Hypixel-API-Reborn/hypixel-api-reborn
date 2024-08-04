@@ -1556,7 +1556,35 @@ module.exports = {
 
           mobs: ['treasure_hoarder_70'],
           bracket: 3
-        }
+        },
+        {
+          name: "Glacite Bowman",
+          cap: 1000,
+          
+          mobs: ["glacite_bowman_165"],
+          bracket: 4,
+        },
+        {
+          name: "Glacite Caver",
+          cap: 1000,
+
+          mobs: ["glacite_caver_200"],
+          bracket: 4,
+        },
+        {
+          name: "Glacite Mage",
+          cap: 1000,
+
+          mobs: ["glacite_mage_155"],
+          bracket: 4,
+        },
+        {
+          name: "Glacite Mutt",
+          cap: 1000,
+
+          mobs: ["glacite_mutt_180"],
+          bracket: 4,
+        },
       ]
     },
     crystal_hollows: {
