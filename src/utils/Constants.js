@@ -1178,7 +1178,7 @@ module.exports = {
           cap: 10000,
 
           mobs: ['jockey_shot_silverfish_3', 'splitter_spider_silverfish_2', 'splitter_spider_silverfish_45', 'splitter_spider_silverfish_42', 'splitter_spider_silverfish_50', 'jockey_shot_silverfish_42'],
-          bracket: 1
+          bracket: 2
         },
         {
           name: 'Spider Jockey',
@@ -1199,7 +1199,7 @@ module.exports = {
           cap: 10000,
 
           mobs: ['voracious_spider_50', 'voracious_spider_42', 'voracious_spider_45', 'voracious_spider_10'],
-          bracket: 1
+          bracket: 2
         },
         {
           name: 'Weaver Spider',
@@ -1530,7 +1530,7 @@ module.exports = {
           bracket: 5
         },
         {
-          name: 'Ice Walker',
+          name: 'Glacite Walker',
           cap: 10000,
 
           mobs: ['ice_walker_45'],
@@ -1850,7 +1850,7 @@ module.exports = {
           cap: 3000,
 
           mobs: ['explosive_imp_100', 'explosive_imp_200', 'explosive_imp_300', 'explosive_imp_400', 'explosive_imp_500'],
-          bracket: 3
+          bracket: 4
         },
         {
           name: 'Inferno Magma Cube',
@@ -2420,19 +2420,21 @@ module.exports = {
           ],
           bracket: 4
         },
+        /* {
+          name: 'Crypt Undead',
+          cap: 10000,
+
+          mobs: [
+            ''
+          ],
+          bracket: 5
+        }, */
         {
           name: 'Fels',
           cap: 10000,
 
           mobs: ['tentaclees_90', 'tentaclees_100', 'tentaclees_110', 'master_tentaclees_90', 'master_tentaclees_100', 'master_tentaclees_110'],
-          bracket: 4
-        },
-        {
-          name: 'Golem',
-          cap: 1000,
-
-          mobs: ['sadan_golem_1', 'master_sadan_golem_1'],
-          bracket: 4
+          bracket: 5
         },
         {
           name: 'King Midas',
