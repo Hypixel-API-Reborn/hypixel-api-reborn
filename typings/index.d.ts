@@ -1237,6 +1237,16 @@ declare module 'hypixel-api-reborn' {
       options?: methodOptions
     ): Promise<Auction[]>;
     /**
+     * Allows you to get skyblock auctions
+     * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
+     * @param {auctionsOptions} [options={}] Options
+     * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
+     */
+    getSkyblockAuctions(
+      page: string | number | number[],
+      options: auctionsOptions
+    ): Promise<{ info: AuctionInfo; auctions: Auction[] }>;
+    /**
      * @description Allows you to get all auctions of player
      * @param {string} query - player nickname or uuid
      * @param {boolean} includeItemBytes - include item bytes (optional)
