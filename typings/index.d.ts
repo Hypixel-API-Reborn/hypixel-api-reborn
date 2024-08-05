@@ -2667,7 +2667,13 @@ declare module 'hypixel-api-reborn' {
     };
     dungeons: {
       types: {
-        catacombs: SKYBLOCK_SKILL_DATA;
+        catacombs: {
+          experience: number,
+          completions: Record<string, number>
+        };
+        masterCatacombs: {
+          completions: Record<string, number>
+        };
       };
       classes: {
         healer: SKYBLOCK_SKILL_DATA;

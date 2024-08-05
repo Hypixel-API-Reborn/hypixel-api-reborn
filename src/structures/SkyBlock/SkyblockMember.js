@@ -401,7 +401,11 @@ class SkyblockMember {
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsTypes
- * @property {SkyblockSkillLevel} catacombs
+ * @property {object} catacombs
+ * @property {SkyblockSkillLevel} catacombs.experience
+ * @property {Record<string, number>} catacombs.completions
+ * @property {object} masterCatacombs
+ * @property {Record<string, number>} masterCatacombs.completions
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses
