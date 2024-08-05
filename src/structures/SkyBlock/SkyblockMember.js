@@ -129,6 +129,11 @@ class SkyblockMember {
      */
     this.slayer = getSlayer(data.m);
     /**
+     * Skyblock member kuudra
+     * @type {NetherIslandPlayerData|null}
+     */
+    this.kuudra = data.m.nether_island_player_data?.kuudra_completed_tiers;
+    /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
      */
@@ -393,6 +398,18 @@ class SkyblockMember {
  * @property {number} tier4 Tier 4
  * @property {number} tier5 Tier 5
  * @property {number} level Level
+ */
+/**
+ * @typedef {object} NetherIslandPlayerData
+ * @property {number} none
+ * @property {number} hot
+ * @property {number} burning
+ * @property {number} fiery
+ * @property {number} highest_wave_hot
+ * @property {number} highest_wave_fiery
+ * @property {number} infernal
+ * @property {number} highest_wave_infernal
+ * @property {number} highest_wave_burning
  */
 /**
  * @typedef {object} SkyblockMemberDungeons
