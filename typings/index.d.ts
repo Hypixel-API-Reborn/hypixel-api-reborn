@@ -1240,12 +1240,12 @@ declare module 'hypixel-api-reborn' {
      * Allows you to get skyblock auctions
      * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
      * @param {auctionsOptions} [options={}] Options
-     * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
+     * @return {Promise<{info:AuctionInfo,Auctions:Auction[]}>}
      */
     getSkyblockAuctions(
       page: string | number | number[],
-      options: auctionsOptions
-    ): Promise<{ info: AuctionInfo; auctions: Auction[] }>;
+      options?: auctionsOptions
+    ): Promise<{ info: AuctionInfo; Auctions: Auction[] }>;
     /**
      * @description Allows you to get all auctions of player
      * @param {string} query - player nickname or uuid
