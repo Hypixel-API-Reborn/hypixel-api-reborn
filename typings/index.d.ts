@@ -2591,6 +2591,7 @@ declare module 'hypixel-api-reborn' {
     members: SkyblockMember[];
     me: SkyblockMember;
     selected: boolean;
+    garden?: SkyblockGarden;
   }
   class SkyblockPet {
     constructor(data: Record<string, unknown>);

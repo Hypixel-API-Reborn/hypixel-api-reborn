@@ -1,3 +1,4 @@
+const SkyblockGarden = require('./SkyblockGarden');
 const SkyblockMember = require('./SkyblockMember');
 /**
  * Skyblock Profile class
@@ -29,6 +30,11 @@ class SkyblockProfile {
      */
     this.banking = data.banking;
     /**
+     * Profile's garden
+     * @type {SkyblockGarden|null}
+     */
+    this.garden = data.garden || null;
+    /**
      * Profile's community upgrades
      * @type {object}
      */
@@ -53,6 +59,7 @@ class SkyblockProfile {
           banking: this.banking,
           communityUpgrades: this.communityUpgrades,
           museum: null,
+          garden: this.garden,
           selected: this.selected
         })
     );
