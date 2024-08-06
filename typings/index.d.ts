@@ -2665,6 +2665,17 @@ declare module 'hypixel-api-reborn' {
       blaze: SKYBLOCK_SLAYER_DATA;
       vampire: SKYBLOCK_SLAYER_DATA;
     };
+    kuudra: {
+      none: number;
+      hot: number;
+      burning: number;
+      fiery: number;
+      highest_wave_hot: number;
+      highest_wave_fiery: number;
+      infernal: number;
+      highest_wave_infernal: number;
+      highest_wave_burning: number;
+    } | null;
     dungeons: {
       types: {
         catacombs: {

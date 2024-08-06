@@ -273,6 +273,21 @@ function getSlayer(data) {
   };
 }
 
+function getKuudra(data) {
+  if (!data?.kuudra_completed_tiers) return null;
+  return {
+    none: data.kuudra_completed_tiers?.none ?? 0,
+    hot: data.kuudra_completed_tiers?.hot ?? 0,
+    burning: data.kuudra_completed_tiers?.burning ?? 0,
+    fiery: data.kuudra_completed_tiers?.fiery ?? 0,
+    highestWaveHot: data.kuudra_completed_tiers?.highest_wave_hot ?? 0,
+    highestWaveFiery: data.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
+    infernal: data.kuudra_completed_tiers?.infernal ?? 0,
+    highestWaveInfernal: data.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
+    highestWaveBurning: data.kuudra_completed_tiers?.highest_wave_burning ?? 0
+  };
+}
+
 function getCompletions(data) {
   const completions = {};
 
@@ -509,6 +524,7 @@ module.exports = {
   getSkills,
   getBestiaryLevel,
   getSlayer,
+  getKuudra,
   getDungeons,
   getJacobData,
   getChocolateFactory,
