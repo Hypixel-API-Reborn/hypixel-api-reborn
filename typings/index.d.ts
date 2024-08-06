@@ -2675,7 +2675,7 @@ declare module 'hypixel-api-reborn' {
       infernal: number;
       highest_wave_infernal: number;
       highest_wave_burning: number;
-    };
+    } | null;
     dungeons: {
       types: {
         catacombs: SKYBLOCK_SKILL_DATA;

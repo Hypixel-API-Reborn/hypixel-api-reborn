@@ -6,6 +6,7 @@ const {
   getSkills,
   getBestiaryLevel,
   getSlayer,
+  getKuudra,
   getDungeons,
   getJacobData,
   getChocolateFactory,
@@ -132,7 +133,7 @@ class SkyblockMember {
      * Skyblock member kuudra
      * @type {NetherIslandPlayerData|null}
      */
-    this.kuudra = data.m.nether_island_player_data?.kuudra_completed_tiers;
+    this.kuudra = getKuudra(data.m.nether_island_player_data);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
