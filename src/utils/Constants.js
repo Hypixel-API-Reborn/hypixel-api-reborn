@@ -1118,6 +1118,72 @@ module.exports = {
         }
       ]
     },
+    garden: {
+      name: 'Garden',
+
+      mobs: [
+        {
+          name: 'Beetle',
+          cap: 250,
+          mobs: ['pest_beetle_1'],
+          bracket: 6
+        },
+        {
+          name: 'Cricket',
+          cap: 250,
+          mobs: ['pest_cricket_1'],
+          bracket: 6
+        },
+        {
+          name: 'Earthworm',
+          cap: 250,
+          mobs: ['pest_worm_1'],
+          bracket: 6
+        },
+        {
+          name: 'Fly',
+          cap: 250,
+          mobs: ['pest_fly_1'],
+          bracket: 6
+        },
+        {
+          name: 'Locust',
+          cap: 250,
+          mobs: ['pest_locust_1'],
+          bracket: 6
+        },
+        {
+          name: 'Mite',
+          cap: 250,
+          mobs: ['pest_mite_1'],
+          bracket: 6
+        },
+        {
+          name: 'Mosquito',
+          cap: 250,
+          mobs: ['pest_mosquito_1'],
+          bracket: 6
+        },
+        {
+          name: 'Moth',
+          cap: 250,
+          mobs: ['pest_moth_1'],
+          bracket: 6
+        },
+        {
+          name: 'Rat',
+          cap: 250,
+          mobs: ['pest_rat_1'],
+          bracket: 6
+        },
+        {
+          name: 'Slug',
+          cap: 250,
+          mobs: ['pest_slug_1'],
+          bracket: 6
+        }
+      ]
+    },
     combat_1: {
       name: 'Spiders Den',
 
@@ -1173,7 +1239,7 @@ module.exports = {
         },
         {
           name: 'Silverfish',
-          cap: 40000,
+          cap: 10000,
 
           mobs: [
             'jockey_shot_silverfish_3',
@@ -1183,14 +1249,14 @@ module.exports = {
             'splitter_spider_silverfish_50',
             'jockey_shot_silverfish_42'
           ],
-          bracket: 1
+          bracket: 2
         },
         {
           name: 'Spider Jockey',
-          cap: 10000,
+          cap: 4000,
 
           mobs: ['spider_jockey_3', 'spider_jockey_42', 'spider_jockey_5'],
-          bracket: 2
+          bracket: 3
         },
         {
           name: 'Splitter Spider',
@@ -1208,10 +1274,10 @@ module.exports = {
         },
         {
           name: 'Voracious Spider',
-          cap: 40000,
+          cap: 10000,
 
           mobs: ['voracious_spider_50', 'voracious_spider_42', 'voracious_spider_45', 'voracious_spider_10'],
-          bracket: 1
+          bracket: 2
         },
         {
           name: 'Weaver Spider',
@@ -1272,10 +1338,10 @@ module.exports = {
         },
         {
           name: 'Obsidian Defender',
-          cap: 25000,
+          cap: 10000,
 
           mobs: ['obsidian_wither_55'],
-          bracket: 4
+          bracket: 5
         },
         {
           name: 'Voidling Extremist',
@@ -1293,17 +1359,17 @@ module.exports = {
         },
         {
           name: 'Watcher',
-          cap: 25000,
+          cap: 10000,
 
           mobs: ['watcher_55'],
-          bracket: 4
+          bracket: 5
         },
         {
           name: 'Zealot',
-          cap: 100000,
+          cap: 25000,
 
           mobs: ['zealot_bruiser_100', 'zealot_enderman_55'],
-          bracket: 3
+          bracket: 4
         }
       ]
     },
@@ -1340,20 +1406,6 @@ module.exports = {
           bracket: 4
         },
         {
-          name: 'Smoldering Blaze',
-          cap: 25000,
-
-          mobs: ['smoldering_blaze_95'],
-          bracket: 2
-        },
-        {
-          name: 'Millenia-Aged Blaze',
-          cap: 4000,
-
-          mobs: ['old_blaze_110'],
-          bracket: 3
-        },
-        {
           name: 'Flaming Spider',
           cap: 10000,
 
@@ -1369,9 +1421,16 @@ module.exports = {
         },
         {
           name: 'Ghast',
-          cap: 1000,
+          cap: 3000,
 
           mobs: ['ghast_85', 'dive_ghast_90'],
+          bracket: 4
+        },
+        {
+          name: 'Kada Knight',
+          cap: 3000,
+
+          mobs: ['kada_knight_90'],
           bracket: 4
         },
         {
@@ -1382,6 +1441,13 @@ module.exports = {
           bracket: 5
         },
         {
+          name: 'Magma Boss',
+          cap: 1000,
+
+          mobs: ['magma_boss_500'],
+          bracket: 5
+        },
+        {
           name: 'Magma Cube',
           cap: 10000,
 
@@ -1389,11 +1455,11 @@ module.exports = {
           bracket: 3
         },
         {
-          name: 'Magma Boss',
-          cap: 1000,
+          name: 'Magma Cube Rider',
+          cap: 3000,
 
-          mobs: ['magma_boss_500'],
-          bracket: 5
+          mobs: ['magma_cube_rider_90'],
+          bracket: 4
         },
         {
           name: 'Matcho',
@@ -1403,6 +1469,13 @@ module.exports = {
           bracket: 5
         },
         {
+          name: 'Millenia-Aged Blaze',
+          cap: 4000,
+
+          mobs: ['old_blaze_110'],
+          bracket: 3
+        },
+        {
           name: 'Mushroom Bull',
           cap: 10000,
 
@@ -1410,25 +1483,11 @@ module.exports = {
           bracket: 3
         },
         {
-          name: 'Pigman',
-          cap: 10000,
+          name: 'Smoldering Blaze',
+          cap: 25000,
 
-          mobs: ['kada_knight_90', 'magma_cube_rider_90', 'pigman_12'],
-          bracket: 3
-        },
-        {
-          name: 'Wither Skeleton',
-          cap: 10000,
-
-          mobs: ['wither_skeleton_70'],
-          bracket: 3
-        },
-        {
-          name: 'Wither Spectre',
-          cap: 10000,
-
-          mobs: ['wither_spectre_70'],
-          bracket: 3
+          mobs: ['smoldering_blaze_95'],
+          bracket: 2
         },
         {
           name: 'Tentacle',
@@ -1443,6 +1502,20 @@ module.exports = {
 
           mobs: ['vanquisher_100'],
           bracket: 5
+        },
+        {
+          name: 'Wither Skeleton',
+          cap: 3000,
+
+          mobs: ['wither_skeleton_70'],
+          bracket: 4
+        },
+        {
+          name: 'Wither Spectre',
+          cap: 10000,
+
+          mobs: ['wither_spectre_70'],
+          bracket: 3
         }
       ]
     },
@@ -1499,6 +1572,12 @@ module.exports = {
 
       mobs: [
         {
+          name: 'Diamond Goblin',
+          cap: 100,
+          mobs: ['goblin_500'],
+          bracket: 7
+        },
+        {
           name: 'Ghost',
           cap: 250000,
 
@@ -1546,7 +1625,7 @@ module.exports = {
           bracket: 5
         },
         {
-          name: 'Ice Walker',
+          name: 'Glacite Walker',
           cap: 10000,
 
           mobs: ['ice_walker_45'],
@@ -1568,10 +1647,38 @@ module.exports = {
         },
         {
           name: 'Treasure Hoarder',
-          cap: 3000,
+          cap: 4000,
 
           mobs: ['treasure_hoarder_70'],
           bracket: 3
+        },
+        {
+          name: 'Glacite Bowman',
+          cap: 1000,
+
+          mobs: ['glacite_bowman_165'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Caver',
+          cap: 1000,
+
+          mobs: ['glacite_caver_200'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Mage',
+          cap: 1000,
+
+          mobs: ['glacite_mage_155'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Mutt',
+          cap: 1000,
+
+          mobs: ['glacite_mutt_180'],
+          bracket: 4
         }
       ]
     },
@@ -1580,39 +1687,18 @@ module.exports = {
 
       mobs: [
         {
-          name: 'Thyst',
-          cap: 4000,
-
-          mobs: ['thyst_20'],
-          bracket: 3
-        },
-        {
-          name: 'Worm',
-          cap: 400,
-
-          mobs: ['worm_5', 'scatha_10'],
-          bracket: 5
-        },
-        {
-          name: 'Yog',
-          cap: 4000,
-
-          mobs: ['yog_100'],
-          bracket: 3
-        },
-        {
-          name: 'Sludge',
-          cap: 10000,
-
-          mobs: ['sludge_5', 'sludge_10', 'sludge_100'],
-          bracket: 2
-        },
-        {
           name: 'Automaton',
           cap: 10000,
 
           mobs: ['automaton_100', 'automaton_150'],
           bracket: 2
+        },
+        {
+          name: 'Bal',
+          cap: 250,
+
+          mobs: ['bal_boss_100'],
+          bracket: 6
         },
         {
           name: 'Butterfly',
@@ -1635,18 +1721,39 @@ module.exports = {
           bracket: 3
         },
         {
-          name: 'Bal',
-          cap: 250,
-
-          mobs: ['bal_boss_100'],
-          bracket: 6
-        },
-        {
           name: 'Key Guardian',
           cap: 250,
 
           mobs: ['key_guardian_100'],
           bracket: 6
+        },
+        {
+          name: 'Sludge',
+          cap: 10000,
+
+          mobs: ['sludge_5', 'sludge_10', 'sludge_100'],
+          bracket: 2
+        },
+        {
+          name: 'Thyst',
+          cap: 4000,
+
+          mobs: ['thyst_20'],
+          bracket: 3
+        },
+        {
+          name: 'Worm',
+          cap: 400,
+
+          mobs: ['worm_5', 'scatha_10'],
+          bracket: 5
+        },
+        {
+          name: 'Yog',
+          cap: 4000,
+
+          mobs: ['yog_100'],
+          bracket: 3
         }
       ]
     },
@@ -1847,7 +1954,7 @@ module.exports = {
         },
         {
           name: 'Explosive Imp',
-          cap: 10000,
+          cap: 3000,
 
           mobs: [
             'explosive_imp_100',
@@ -1856,7 +1963,7 @@ module.exports = {
             'explosive_imp_400',
             'explosive_imp_500'
           ],
-          bracket: 3
+          bracket: 4
         },
         {
           name: 'Inferno Magma Cube',
@@ -1982,6 +2089,13 @@ module.exports = {
         name: 'Fishing',
 
         mobs: [
+          {
+            name: 'Abyssal Miner',
+            cap: 250,
+
+            mobs: ['zombie_miner_150'],
+            bracket: 6
+          },
           {
             name: 'Agarimoo',
             cap: 4000,
@@ -2114,13 +2228,6 @@ module.exports = {
 
             mobs: ['water_worm_20'],
             bracket: 4
-          },
-          {
-            name: 'Zombie Miner',
-            cap: 250,
-
-            mobs: ['zombie_miner_150'],
-            bracket: 6
           }
         ]
       },
@@ -2351,7 +2458,7 @@ module.exports = {
       mobs: [
         {
           name: 'Angry Archeologist',
-          cap: 10000,
+          cap: 3000,
 
           mobs: [
             'diamond_guy_80',
@@ -2375,31 +2482,7 @@ module.exports = {
             'master_diamond_guy_160',
             'master_diamond_guy_170'
           ],
-          bracket: 5
-        },
-        {
-          name: 'Lonely Spider',
-
-          cap: 25000,
-          mobs: [
-            'lonely_spider_35',
-            'lonely_spider_55',
-            'lonely_spider_65',
-            'lonely_spider_75',
-            'lonely_spider_85',
-            'lonely_spider_95',
-            'lonely_spider_105',
-            'lonely_spider_115',
-            'master_lonely_spider_35',
-            'master_lonely_spider_55',
-            'master_lonely_spider_65',
-            'master_lonely_spider_75',
-            'master_lonely_spider_85',
-            'master_lonely_spider_95',
-            'master_lonely_spider_105',
-            'master_lonely_spider_115'
-          ],
-          bracket: 4
+          bracket: 7
         },
         {
           name: 'Bat',
@@ -2506,7 +2589,7 @@ module.exports = {
         },
         {
           name: 'Fels',
-          cap: 25000,
+          cap: 10000,
 
           mobs: [
             'tentaclees_90',
@@ -2516,18 +2599,11 @@ module.exports = {
             'master_tentaclees_100',
             'master_tentaclees_110'
           ],
-          bracket: 4
-        },
-        {
-          name: 'Golem',
-          cap: 1000,
-
-          mobs: ['sadan_golem_1', 'master_sadan_golem_1'],
-          bracket: 4
+          bracket: 5
         },
         {
           name: 'King Midas',
-          cap: 1000,
+          cap: 750,
 
           mobs: [
             'king_midas_130',
@@ -2541,11 +2617,35 @@ module.exports = {
             'master_king_midas_160',
             'master_king_midas_170'
           ],
-          bracket: 5
+          bracket: 6
+        },
+        {
+          name: 'Lonely Spider',
+
+          cap: 25000,
+          mobs: [
+            'lonely_spider_35',
+            'lonely_spider_55',
+            'lonely_spider_65',
+            'lonely_spider_75',
+            'lonely_spider_85',
+            'lonely_spider_95',
+            'lonely_spider_105',
+            'lonely_spider_115',
+            'master_lonely_spider_35',
+            'master_lonely_spider_55',
+            'master_lonely_spider_65',
+            'master_lonely_spider_75',
+            'master_lonely_spider_85',
+            'master_lonely_spider_95',
+            'master_lonely_spider_105',
+            'master_lonely_spider_115'
+          ],
+          bracket: 4
         },
         {
           name: 'Lost Adventurer',
-          cap: 10000,
+          cap: 3000,
 
           mobs: [
             'lost_adventurer_80',
@@ -2639,13 +2739,20 @@ module.exports = {
             'master_lost_adventurer_163',
             'master_lost_adventurer_164'
           ],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Mimic',
           cap: 1000,
 
           mobs: ['mimic_115', 'mimic_125', 'master_mimic_115', 'master_mimic_125'],
+          bracket: 4
+        },
+        {
+          name: 'Golem',
+          cap: 1000,
+
+          mobs: ['sadan_golem_1', 'master_sadan_golem_1'],
           bracket: 4
         },
         {
@@ -2664,7 +2771,7 @@ module.exports = {
         },
         {
           name: 'Shadow Assassin',
-          cap: 10000,
+          cap: 3000,
 
           mobs: [
             'shadow_assassin_120',
@@ -2682,7 +2789,7 @@ module.exports = {
             'master_shadow_assassin_170',
             'master_shadow_assassin_171'
           ],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Skeleton Grunt',
@@ -2856,22 +2963,6 @@ module.exports = {
           bracket: 3
         },
         {
-          name: 'Withermancer',
-
-          cap: 25000,
-          mobs: [
-            'crypt_witherskeleton_90',
-            'crypt_witherskeleton_100',
-            'crypt_witherskeleton_110',
-            'crypt_witherskeleton_120',
-            'master_crypt_witherskeleton_90',
-            'master_crypt_witherskeleton_100',
-            'master_crypt_witherskeleton_110',
-            'master_crypt_witherskeleton_120'
-          ],
-          bracket: 4
-        },
-        {
           name: 'Terracotta',
           cap: 40000,
 
@@ -2963,6 +3054,22 @@ module.exports = {
           bracket: 4
         },
         {
+          name: 'Withermancer',
+
+          cap: 25000,
+          mobs: [
+            'crypt_witherskeleton_90',
+            'crypt_witherskeleton_100',
+            'crypt_witherskeleton_110',
+            'crypt_witherskeleton_120',
+            'master_crypt_witherskeleton_90',
+            'master_crypt_witherskeleton_100',
+            'master_crypt_witherskeleton_110',
+            'master_crypt_witherskeleton_120'
+          ],
+          bracket: 4
+        },
+        {
           name: 'Zombie Commander',
           cap: 3000,
 
@@ -2992,7 +3099,7 @@ module.exports = {
         },
         {
           name: 'Zombie Knight',
-          cap: 25000,
+          cap: 10000,
 
           mobs: [
             'zombie_knight_86',
@@ -3006,7 +3113,7 @@ module.exports = {
             'master_zombie_knight_116',
             'master_zombie_knight_126'
           ],
-          bracket: 4
+          bracket: 5
         },
         {
           name: 'Zombie Lord',
@@ -3036,7 +3143,6 @@ module.exports = {
       ]
     }
   },
-  /* eslint-enable camelcase */
   bestiaryBrackets: {
     1: [
       20, 40, 60, 100, 200, 400, 800, 1400, 2000, 3000, 6000, 12000, 20000, 30000, 40000, 50000, 60000, 72000, 86000,
@@ -3057,9 +3163,10 @@ module.exports = {
     5: [
       1, 2, 3, 5, 7, 10, 15, 20, 25, 30, 60, 120, 200, 300, 400, 500, 600, 720, 860, 1000, 2000, 4000, 6000, 8000, 10000
     ],
-    6: [1, 2, 3, 5, 7, 9, 14, 17, 21, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500],
-    7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000]
+    6: [1, 2, 3, 5, 7, 9, 14, 17, 21, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500, 3000, 4500, 6000, 7500],
+    7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000, 1500, 2000, 2500, 3000]
   },
+  /* eslint-enable camelcase */
   // Credits (pit) https://github.com/PitPanda/PitPandaProduction/blob/b1971f56ea1aa8c829b722cbb33247c96591c0cb/structures/Pit.js
   pit: {
     Prestiges: [

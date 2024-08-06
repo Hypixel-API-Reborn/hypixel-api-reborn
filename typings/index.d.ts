@@ -1240,12 +1240,12 @@ declare module 'hypixel-api-reborn' {
      * Allows you to get skyblock auctions
      * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
      * @param {auctionsOptions} [options={}] Options
-     * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
+     * @return {Promise<{info:AuctionInfo,Auctions:Auction[]}>}
      */
     getSkyblockAuctions(
       page: string | number | number[],
-      options: auctionsOptions
-    ): Promise<{ info: AuctionInfo; auctions: Auction[] }>;
+      options?: auctionsOptions
+    ): Promise<{ info: AuctionInfo; Auctions: Auction[] }>;
     /**
      * @description Allows you to get all auctions of player
      * @param {string} query - player nickname or uuid
@@ -2665,9 +2665,26 @@ declare module 'hypixel-api-reborn' {
       blaze: SKYBLOCK_SLAYER_DATA;
       vampire: SKYBLOCK_SLAYER_DATA;
     };
+    kuudra: {
+      none: number;
+      hot: number;
+      burning: number;
+      fiery: number;
+      highest_wave_hot: number;
+      highest_wave_fiery: number;
+      infernal: number;
+      highest_wave_infernal: number;
+      highest_wave_burning: number;
+    } | null;
     dungeons: {
       types: {
-        catacombs: SKYBLOCK_SKILL_DATA;
+        catacombs: {
+          experience: number;
+          completions: Record<string, number>;
+        };
+        masterCatacombs: {
+          completions: Record<string, number>;
+        };
       };
       classes: {
         healer: SKYBLOCK_SKILL_DATA;

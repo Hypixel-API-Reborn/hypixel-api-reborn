@@ -6,6 +6,7 @@ const {
   getSkills,
   getBestiaryLevel,
   getSlayer,
+  getKuudra,
   getDungeons,
   getJacobData,
   getChocolateFactory,
@@ -128,6 +129,11 @@ class SkyblockMember {
      * @type {SkyblockMemberSlayer|null}
      */
     this.slayer = getSlayer(data.m);
+    /**
+     * Skyblock member kuudra
+     * @type {NetherIslandPlayerData|null}
+     */
+    this.kuudra = getKuudra(data.m.nether_island_player_data);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
@@ -395,13 +401,35 @@ class SkyblockMember {
  * @property {number} level Level
  */
 /**
+ * @typedef {object} NetherIslandPlayerData
+ * @property {number} none
+ * @property {number} hot
+ * @property {number} burning
+ * @property {number} fiery
+ * @property {number} highest_wave_hot
+ * @property {number} highest_wave_fiery
+ * @property {number} infernal
+ * @property {number} highest_wave_infernal
+ * @property {number} highest_wave_burning
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsCatacombs
+ * @property {SkyblockSkillLevel} experience
+ * @property {Record<string, number>} completions
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsMasterCatacombs
+ * @property {Record<string, number>} completions
+ */
+/**
  * @typedef {object} SkyblockMemberDungeons
  * @property {SkyblockMemberDungeonsTypes} types Dungeons types
  * @property {SkyblockMemberDungeonsClasses} classes Dungeons classes
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsTypes
- * @property {SkyblockSkillLevel} catacombs
+ * @property {SkyblockMemberDungeonsCatacombs} catacombs
+ * @property {SkyblockMemberDungeonsMasterCatacombs} masterCatacombs
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses

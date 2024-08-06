@@ -16,12 +16,12 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint": "npx eslint --cache src/",
-    "lint:fix": "npx eslint --cache src/ --fix",
+    "lint": "npx eslint src/",
+    "lint:fix": "npx eslint src/ --fix",
     "tests": "npx mocha tests --exit --recursive",
     "docgen": " npx docgen -s src/ --custom docs/index.yml -o ./master.json",
-    "prettier": "npx prettier --cache --write src/ typings/",
-    "prettier:check": "npx prettier --cache --check src/ typings/"
+    "prettier": "npx prettier --write src/ typings/",
+    "prettier:check": "npx prettier --check src/ typings/"
   },
   "engines": {
     "node": ">=18.18.0"
