@@ -288,13 +288,29 @@ function getKuudra(data) {
   };
 }
 
+function getCompletions(data) {
+  const completions = {};
+
+  for (const tier in data) {
+    completions[`Floor_${tier}`] = data[tier];
+  }
+
+  return completions;
+}
+
 function getDungeons(data) {
   return {
     types: {
-      catacombs: getLevelByXp(
-        data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null,
-        'dungeons'
-      )
+      catacombs: {
+        experience: getLevelByXp(
+          data.dungeons?.dungeon_types?.catacombs ? data.dungeons.dungeon_types.catacombs.experience : null,
+          'dungeons'
+        ),
+        completions: getCompletions(data.dungeons?.dungeon_types?.catacombs?.tier_completions)
+      },
+      masterCatacombs: {
+        completions: getCompletions(data.dungeons?.dungeon_types?.master_catacombs?.tier_completions)
+      }
     },
     classes: {
       healer: getLevelByXp(
