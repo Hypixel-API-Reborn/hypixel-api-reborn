@@ -2,9 +2,10 @@
 const Auction = require('../../structures/SkyBlock/Auctions/Auction');
 const AuctionInfo = require('../../structures/SkyBlock/Auctions/AuctionInfo');
 const Errors = require('../../Errors');
+// eslint-disable-next-line no-underscore-dangle
+let _makeRequest;
 async function getPage(page = 0, options = {}) {
-  // eslint-disable-next-line no-underscore-dangle
-  const content = await this._makeRequest(`/skyblock/auctions?page=${page}`, false);
+  const content = await _makeRequest(`/skyblock/auctions?page=${page}`, false);
   const result = {};
   if (!options.noInfo) result.info = new AuctionInfo(content);
   if (options.raw) result.auctions = content.auctions;
@@ -25,6 +26,8 @@ async function noReject(promise, args = [], retries = 3, cooldown = 100) {
   }
 }
 module.exports = async function (range, options = {}) {
+  // eslint-disable-next-line no-underscore-dangle
+  _makeRequest = this._makeRequest;
   options.retries ||= 3;
   options.cooldown ||= 100;
   if (null === range || '*' === range) range = [0, (await getPage(0, { noAuctions: true })).info.totalPages];
@@ -37,7 +40,7 @@ module.exports = async function (range, options = {}) {
     throw new Error(Errors.INVALID_OPTION_VALUE);
   }
   range = range.sort();
-  const result = { auctions: [] };
+  const result = { info: null, Auctions: [] };
   const fetches = [];
   const failedPages = [];
   if (options.noAuctions) return { info: options.noInfo ? null : (await getPage(range[1], { noAuctions: true })).info };
@@ -47,7 +50,7 @@ module.exports = async function (range, options = {}) {
     } else {
       const resp = await noReject(getPage, [i, options], options.retries, options.cooldown);
       if (resp) {
-        result.auctions = result.auctions.concat(resp.auctions);
+        result.Auctions = result.Auctions.concat(resp.auctions);
         if (resp.info) result.info = resp.info;
       } else {
         failedPages.push(i);
@@ -55,7 +58,7 @@ module.exports = async function (range, options = {}) {
     }
   }
   if (fetches.length) {
-    result.auctions = (await Promise.all(fetches)).reduce((pV, cV, index) => {
+    result.Auctions = (await Promise.all(fetches)).reduce((pV, cV, index) => {
       if (!cV) {
         failedPages.push(index + range[0]);
         return pV;

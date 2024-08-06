@@ -348,12 +348,7 @@ class Client extends EventEmitter {
    * @name Client#getSkyblockAuctions
    * @param {string|number|number[]} page - "*", a page number, or an array with the start and the end page number ( automatically sorted )
    * @param {auctionsOptions} [options={}] Options
-   * @return {Promise<{info:AuctionInfo,auctions:Auction[]}>}
-   * @example
-   * hypixel.getSkyblockAuctions(0).then(auctions =>{
-   *   console.log(auctions[0].item); // Mythic Farmer Boots
-   * })
-   * .catch(console.log);
+   * @return {Promise<{info:AuctionInfo,Auctions:Auction[]}>}
    */
   /**
    * Allows you to get player's skyblock auctions
