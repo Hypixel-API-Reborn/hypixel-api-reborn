@@ -395,17 +395,23 @@ class SkyblockMember {
  * @property {number} level Level
  */
 /**
+ * @typedef {object} SkyblockMemberDungeonsCatacombs
+ * @property {SkyblockSkillLevel} experience
+ * @property {Record<string, number>} completions
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsMasterCatacombs
+ * @property {Record<string, number>} completions
+ */
+/**
  * @typedef {object} SkyblockMemberDungeons
  * @property {SkyblockMemberDungeonsTypes} types Dungeons types
  * @property {SkyblockMemberDungeonsClasses} classes Dungeons classes
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsTypes
- * @property {object} catacombs
- * @property {SkyblockSkillLevel} catacombs.experience
- * @property {Record<string, number>} catacombs.completions
- * @property {object} masterCatacombs
- * @property {Record<string, number>} masterCatacombs.completions
+ * @property {SkyblockMemberDungeonsCatacombs} catacombs
+ * @property {SkyblockMemberDungeonsMasterCatacombs} masterCatacombs
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses
