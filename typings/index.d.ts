@@ -2668,11 +2668,11 @@ declare module 'hypixel-api-reborn' {
     dungeons: {
       types: {
         catacombs: {
-          experience: number,
-          completions: Record<string, number>
+          experience: number;
+          completions: Record<string, number>;
         };
         masterCatacombs: {
-          completions: Record<string, number>
+          completions: Record<string, number>;
         };
       };
       classes: {
