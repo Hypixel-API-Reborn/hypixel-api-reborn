@@ -2686,7 +2686,7 @@ declare module 'hypixel-api-reborn' {
     dungeons: {
       types: {
         catacombs: {
-          experience: number;
+          experience: SKYBLOCK_SKILL_DATA;
           completions: Record<string, number>;
         };
         masterCatacombs: {
