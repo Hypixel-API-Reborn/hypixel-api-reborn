@@ -47,7 +47,7 @@ class SkyblockGarden {
       pumpkin: getLevelByXp(data.garden?.resources_collected?.PUMPKIN || 0, 'pumpkin'),
       melon: getLevelByXp(data.garden?.resources_collected?.MELON || 0, 'melon'),
       cactus: getLevelByXp(data.garden?.resources_collected?.CACTUS || 0, 'cactus'),
-      cocoBeans: getLevelByXp(data.garden?.resources_collected?.['INK_SACK:3'] || 0, 'cocoBeans'),
+      cocoaBeans: getLevelByXp(data.garden?.resources_collected?.['INK_SACK:3'] || 0, 'cocoaBeans'),
       mushroom: getLevelByXp(data.garden?.resources_collected?.MUSHROOM_COLLECTION || 0, 'mushroom'),
       netherWart: getLevelByXp(data.garden?.resources_collected?.NETHER_STALK || 0, 'netherWart')
     };
@@ -81,7 +81,7 @@ class SkyblockGarden {
       pumpkin: data.garden?.crop_upgrade_levels?.PUMPKIN || 0,
       melon: data.garden?.crop_upgrade_levels?.MELON || 0,
       cactus: data.garden?.crop_upgrade_levels?.CACTUS || 0,
-      cocoBeans: data.garden?.crop_upgrade_levels?.['INK_SACK:3'] || 0,
+      cocoaBeans: data.garden?.crop_upgrade_levels?.['INK_SACK:3'] || 0,
       mushroom: data.garden?.crop_upgrade_levels?.MUSHROOM_COLLECTION || 0,
       netherWart: data.garden?.crop_upgrade_levels?.NETHER_STALK || 0
     };
@@ -125,7 +125,7 @@ class SkyblockGarden {
  * @property {number} pumpkin Pumpkin
  * @property {number} melon Melon
  * @property {number} cactus Cactus
- * @property {number} cocoBeans Coco Beans
+ * @property {number} cocoaBeans Coco Beans
  * @property {number} mushroom Mushroom
  * @property {number} netherWart Nether Wart
  */
@@ -138,7 +138,7 @@ class SkyblockGarden {
  * @property {SkyblockSkillLevel} pumpkin Pumpkin
  * @property {SkyblockSkillLevel} melon Melon
  * @property {SkyblockSkillLevel} cactus Cactus
- * @property {SkyblockSkillLevel} cocoBeans Coco Beans
+ * @property {SkyblockSkillLevel} cocoaBeans Coco Beans
  * @property {SkyblockSkillLevel} mushroom Mushroom
  * @property {SkyblockSkillLevel} netherWart Nether Wart
  */
