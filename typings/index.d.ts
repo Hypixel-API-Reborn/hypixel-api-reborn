@@ -308,7 +308,7 @@ export interface SKYBLOCK_GARDEN_CROPS {
   pumpkin: number;
   melon: number;
   cactus: number;
-  cocoBeans: number;
+  cocoaBeans: number;
   mushroom: number;
   netherWart: number;
 }
@@ -2625,7 +2625,7 @@ declare module 'hypixel-api-reborn' {
       pumpkin: SKYBLOCK_SKILL_DATA;
       melon: SKYBLOCK_SKILL_DATA;
       cactus: SKYBLOCK_SKILL_DATA;
-      cocoBeans: SKYBLOCK_SKILL_DATA;
+      cocoaBeans: SKYBLOCK_SKILL_DATA;
       mushroom: SKYBLOCK_SKILL_DATA;
       netherWart: SKYBLOCK_SKILL_DATA;
     };
