@@ -50,7 +50,7 @@ function getLevelByXp(xp, type, levelCap) {
     case 'sugarCane':
       xpTable = constants.sugarCane;
       break;
-    case 'cocoaBeans':
+    case 'cocoBeans':
       xpTable = constants.cocoaBeans;
       break;
     case 'cactus':
