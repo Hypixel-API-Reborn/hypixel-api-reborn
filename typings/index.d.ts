@@ -2521,12 +2521,18 @@ declare module 'hypixel-api-reborn' {
     currentElectionResults: Map<string, Candidate> | null;
     currentElectionFor: number | null;
   }
+  class Perk {
+    name: string;
+    description: string;
+  }
   class Candidate {
-    constructor(data: Record<string, unknown>, isMayor?: boolean | undefined);
+    constructor(data: Record<string, unknown>, isMayor?: boolean | undefined, isMinister?: boolean | undefined);
     name: string;
     keyBenefit: string;
-    perks: Record<'name' | 'description', string>[];
+    perk: Perk | null;
+    perks: Perk[];
     isMayor: boolean;
+    isMinister: boolean;
     votesReceived: number;
     toString(): string;
   }

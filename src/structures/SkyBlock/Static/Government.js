@@ -37,6 +37,11 @@ class GovernmentData {
      */
     this.mayor = this.lastElectionResults.get(data.mayor.name);
     /**
+     * Minister
+     * @type {Candidate}
+     */
+    this.minister = new Candidate(data.mayor.minister, false, true);
+    /**
      * The year the mayor will be running for
      * @type {number}
      */
