@@ -127,7 +127,7 @@ class SkyblockMember {
      * Skyblock Member Crimson Isle
      * @type {SkyblockMemberCrimsonIsle}
      */
-    this.crimsonIsle = getCrimson(data.m);
+    this.crimson = getCrimson(data.m);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
