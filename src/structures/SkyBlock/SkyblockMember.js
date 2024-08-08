@@ -125,7 +125,7 @@ class SkyblockMember {
     this.slayer = getSlayer(data.m);
     /**
      * Skyblock Member Crimson Isle
-     * @type {SkyblockMemberCrimsonIsle|null}
+     * @type {SkyblockMemberCrimsonIsle}
      */
     this.crimsonIsle = getCrimson(data.m);
     /**

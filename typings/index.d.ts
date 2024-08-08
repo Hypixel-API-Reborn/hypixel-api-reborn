@@ -2683,7 +2683,6 @@ declare module 'hypixel-api-reborn' {
     experience: number;
     level: number;
     hotm: SKYBLOCK_SKILL_DATA;
-    trophyFish: string;
     highestMagicalPower: number;
     fairySouls: number;
     fairyExchanges: number;
@@ -2767,7 +2766,7 @@ declare module 'hypixel-api-reborn' {
         highest_wave_infernal: number;
         highest_wave_burning: number;
       };
-    } | null;
+    };
     dungeons: {
       experience: SKYBLOCK_SKILL_DATA;
       secrets: SKYBLOCK_SKILL_DATA;
