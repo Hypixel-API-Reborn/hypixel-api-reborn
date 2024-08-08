@@ -1,12 +1,11 @@
 const {
-  getTrophyFishRank,
   getMemberStats,
   getLevelByXp,
   decode,
   getSkills,
   getBestiaryLevel,
   getSlayer,
-  getKuudra,
+  getCrimson,
   getDungeons,
   getJacobData,
   getChocolateFactory,
@@ -95,11 +94,6 @@ class SkyblockMember {
      */
     this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm');
     /**
-     * Trophy fish amount of rewards
-     * @type {number}
-     */
-    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards?.length ?? 0);
-    /**
      * The highest magical power **Not current one**
      * @type {number}
      */
@@ -130,10 +124,10 @@ class SkyblockMember {
      */
     this.slayer = getSlayer(data.m);
     /**
-     * Skyblock member kuudra
-     * @type {NetherIslandPlayerData|null}
+     * Skyblock Member Crimson Isle
+     * @type {SkyblockMemberCrimsonIsle|null}
      */
-    this.kuudra = getKuudra(data.m.nether_island_player_data);
+    this.crimsonIsle = getCrimson(data.m.nether_island_player_data);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
@@ -401,35 +395,69 @@ class SkyblockMember {
  * @property {number} level Level
  */
 /**
- * @typedef {object} NetherIslandPlayerData
- * @property {number} none
- * @property {number} hot
- * @property {number} burning
- * @property {number} fiery
- * @property {number} highest_wave_hot
- * @property {number} highest_wave_fiery
- * @property {number} infernal
- * @property {number} highest_wave_infernal
- * @property {number} highest_wave_burning
+ * @typedef {object} SkyblockMemberCrimsonIsle
+ * @property {"mages"|"barbarians"|null} faction Faction
+ * @property {SkyblockMemberCrimsonIsleRepuation} repuation Repuation
+ * @property {SkyblockMemberCrimsonIsleTrophyFish} trophyFish trophyFish
+ * @property {SkyblockMemberCrimsonIsleKuudra} kuudra
  */
 /**
- * @typedef {object} SkyblockMemberDungeonsCatacombs
- * @property {SkyblockSkillLevel} experience
- * @property {Record<string, number>} completions
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishDojo
+ * @property {"Black"|"Brown"|"Blue"|"Green"|"Yellow"|"White"} belt Belt Color
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} force Force
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} stamina Stamina
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} mastery Mastery
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} discipline Discipline
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} swiftness Swiftness
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} control Control
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} tenacity Tenacity
  */
 /**
- * @typedef {object} SkyblockMemberDungeonsMasterCatacombs
- * @property {Record<string, number>} completions
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishDojoMode
+ * @property {number} points Points
+ * @property {"S"|"A"|"B"|"C"|"D"|"F"} rank Rank
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFish
+ * @property {'Bronze'|'Silver'|'Gold'|'Diamond'} rank Trophy Fish Rank
+ * @property {SkyblockMemberCrimsonIsleTrophyFishCaught} caught
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishCaught
+ * @property {number} total Total Caught
+ * @property {number} bronze Bronze Caught
+ * @property {number} silver Silver Caught
+ * @property {number} gold Gold Caught
+ * @property {number} diamond Diamond Caught
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleRepuation
+ * @property {number} barbarians barbarian Repuation
+ * @property {number} mages mage Repuation
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleKuudra
+ * @property {number} none None Completions
+ * @property {number} hot Hot Completions
+ * @property {number} burning Burning Completions
+ * @property {number} fiery Fiery Completions
+ * @property {number} highestWaveHot Highest Wave Hot
+ * @property {number} highestWaveFiery Highest Wave Fiery
+ * @property {number} infernal Infernal Completions
+ * @property {number} highestWaveInfernal Highest Wave Infernal
+ * @property {number} highestWaveBurning Highest Wave Burning
  */
 /**
  * @typedef {object} SkyblockMemberDungeons
- * @property {SkyblockMemberDungeonsTypes} types Dungeons types
- * @property {SkyblockMemberDungeonsClasses} classes Dungeons classes
+ * @property {SkyblockSkillLevel} experience Dungeons Experience
+ * @property {number} secrets Amount of secrets found
+ * @property {SkyblockMemberDungeonsCompletions} completions Dungeon completions
+ * @property {SkyblockMemberDungeonsFloors} floors Dungeon Floor Stats
  */
 /**
- * @typedef {object} SkyblockMemberDungeonsTypes
- * @property {SkyblockMemberDungeonsCatacombs} catacombs
- * @property {SkyblockMemberDungeonsMasterCatacombs} masterCatacombs
+ * @typedef {object} SkyblockMemberDungeonsCompletions
+ * @property {Record<string, number>} catacombs
+ * @property {Record<string, number>} masterMode
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses
@@ -438,6 +466,48 @@ class SkyblockMember {
  * @property {SkyblockSkillLevel} berserk Berserk class
  * @property {SkyblockSkillLevel} archer Archer class
  * @property {SkyblockSkillLevel} tank Tank class
+ * @property {string} selected Current Selected Class
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloorRun
+ * @property {number} timestamp Timestamp
+ * @property {number} score_exploration Score Exploration
+ * @property {number} score_speed Score Speed
+ * @property {number} score_skill Score Skill
+ * @property {number} score_bonus Score Bonus
+ * @property {string} dungeon_class Dungeon Class
+ * @property {string[]} teammates Teammates
+ * @property {number} elapsed_time Elapsed Time
+ * @property {number} damage_dealt Damage Dealt
+ * @property {number} deaths Deaths
+ * @property {number} mobs_killed Mobs Killed
+ * @property {number} secrets_found Secrets Found
+ * @property {number} damage_mitigated Damage Mitigated
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloor
+ * @property {SkyblockMemberDungeonsFloorRun} fastestRun Fastest Run
+ * @property {SkyblockMemberDungeonsFloorRun} fastestSRun Fastest S Run
+ * @property {SkyblockMemberDungeonsFloorRun} fastestSPlusRun Fastest S+ Run
+ * @property {number} completions Completions
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloors
+ * @property {SkyblockMemberDungeonsFloor} entrance Entrance Stats
+ * @property {SkyblockMemberDungeonsFloor} floor1 Floor 1 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor2 Floor 2 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor3 Floor 3 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor4 Floor 4 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor5 Floor 5 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor6 Floor 6 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor7 Floor 7 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode1 Master Mode Floor 1 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode2 Master Mode Floor 2 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode3 Master Mode Floor 3 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode4 Master Mode Floor 4 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode5 Master Mode Floor 5 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode6 Master Mode Floor 6 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode7 Master Mode Floor 7 Stats
  */
 /**
  * @typedef {object} SkyblockMemberStats

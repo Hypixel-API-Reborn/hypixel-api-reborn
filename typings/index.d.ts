@@ -300,6 +300,44 @@ export interface SKYBLOCK_SKILL_DATA {
   progress: number;
   cosmetic: boolean;
 }
+export interface SKYBLOCK_DUNGEONS_FLOOR_RUN {
+  timestamp: number;
+  score_exploration: number;
+  score_speed: number;
+  score_skill: number;
+  score_bonus: number;
+  dungeon_class: string;
+  teammates: string;
+  elapsed_time: number;
+  damage_dealt: number;
+  deaths: number;
+  mobs_killed: number;
+  secrets_found: number;
+  damage_mitigated: number;
+}
+export interface SKYBLOCK_DUNGEONS_FLOOR {
+  fastestRun: SKYBLOCK_DUNGEONS_FLOOR_RUN;
+  fastestSRun: SKYBLOCK_DUNGEONS_FLOOR_RUN;
+  fastestSPlusRun: SKYBLOCK_DUNGEONS_FLOOR_RUN;
+  completions: number;
+}
+export interface SKYBLOCK_DUNGEONS_FLOORS {
+  entrance: SKYBLOCK_DUNGEONS_FLOOR;
+  floor1: SKYBLOCK_DUNGEONS_FLOOR;
+  floor2: SKYBLOCK_DUNGEONS_FLOOR;
+  floor3: SKYBLOCK_DUNGEONS_FLOOR;
+  floor4: SKYBLOCK_DUNGEONS_FLOOR;
+  floor5: SKYBLOCK_DUNGEONS_FLOOR;
+  floor6: SKYBLOCK_DUNGEONS_FLOOR;
+  floor7: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode1: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode2: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode3: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode4: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode5: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode6: SKYBLOCK_DUNGEONS_FLOOR;
+  masterMode7: SKYBLOCK_DUNGEONS_FLOOR;
+}
 export interface SKYBLOCK_GARDEN_CROPS {
   wheat: number;
   carrot: number;
@@ -2672,33 +2710,89 @@ declare module 'hypixel-api-reborn' {
       blaze: SKYBLOCK_SLAYER_DATA;
       vampire: SKYBLOCK_SLAYER_DATA;
     };
-    kuudra: {
-      none: number;
-      hot: number;
-      burning: number;
-      fiery: number;
-      highest_wave_hot: number;
-      highest_wave_fiery: number;
-      infernal: number;
-      highest_wave_infernal: number;
-      highest_wave_burning: number;
-    } | null;
-    dungeons: {
-      types: {
-        catacombs: {
-          experience: SKYBLOCK_SKILL_DATA;
-          completions: Record<string, number>;
-        };
-        masterCatacombs: {
-          completions: Record<string, number>;
+    crimson: {
+      faction: 'mages' | 'barbarians' | null;
+      reputation: {
+        barbarians: number;
+        mages: number;
+      };
+      trophyFish: {
+        rank: 'Bronze' | 'Silver' | 'Gold' | 'Diamond';
+        caught: {
+          total: number;
+          bronze: number;
+          silver: number;
+          gold: number;
+          diamond: number;
         };
       };
+      dojo: {
+        belt: 'Black' | 'Brown' | 'Blue' | 'Green' | 'Yellow' | 'White';
+        force: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        stamina: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        mastery: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        discipline: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        swiftness: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        control: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+        tenacity: {
+          points: number;
+          rank: 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+        };
+      };
+      kuudra: {
+        hot: number;
+        burning: number;
+        fiery: number;
+        highest_wave_hot: number;
+        highest_wave_fiery: number;
+        infernal: number;
+        highest_wave_infernal: number;
+        highest_wave_burning: number;
+      };
+    } | null;
+    dungeons: {
+      experience: SKYBLOCK_SKILL_DATA;
+      secrets: SKYBLOCK_SKILL_DATA;
+      completions: {
+        catacombs: Record<string, number>;
+        masterCatacombs: Record<string, number>;
+      };
+      floors: SKYBLOCK_DUNGEONS_FLOORS;
       classes: {
         healer: SKYBLOCK_SKILL_DATA;
         mage: SKYBLOCK_SKILL_DATA;
         berserk: SKYBLOCK_SKILL_DATA;
         archer: SKYBLOCK_SKILL_DATA;
         tank: SKYBLOCK_SKILL_DATA;
+        selected: string;
+      };
+      essence: {
+        diamond: number;
+        dragon: number;
+        spider: number;
+        wither: number;
+        undead: number;
+        gold: number;
+        ice: number;
+        crimson: number;
       };
     };
     collections: any;

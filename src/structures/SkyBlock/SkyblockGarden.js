@@ -125,7 +125,7 @@ class SkyblockGarden {
  * @property {number} pumpkin Pumpkin
  * @property {number} melon Melon
  * @property {number} cactus Cactus
- * @property {number} cocoaBeans Coco Beans
+ * @property {number} cocoaBeans Cocoa Beans
  * @property {number} mushroom Mushroom
  * @property {number} netherWart Nether Wart
  */
@@ -138,7 +138,7 @@ class SkyblockGarden {
  * @property {SkyblockSkillLevel} pumpkin Pumpkin
  * @property {SkyblockSkillLevel} melon Melon
  * @property {SkyblockSkillLevel} cactus Cactus
- * @property {SkyblockSkillLevel} cocoaBeans Coco Beans
+ * @property {SkyblockSkillLevel} cocoaBeans Cocoa Beans
  * @property {SkyblockSkillLevel} mushroom Mushroom
  * @property {SkyblockSkillLevel} netherWart Nether Wart
  */
