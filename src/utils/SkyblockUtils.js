@@ -356,15 +356,15 @@ function getCrimson(data) {
       }
     },
     kuudra: {
-      none: data?.kuudra_completed_tiers?.none ?? 0,
-      hot: data?.kuudra_completed_tiers?.hot ?? 0,
-      burning: data?.kuudra_completed_tiers?.burning ?? 0,
-      fiery: data?.kuudra_completed_tiers?.fiery ?? 0,
-      highestWaveHot: data?.kuudra_completed_tiers?.highest_wave_hot ?? 0,
-      highestWaveFiery: data?.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
-      infernal: data?.kuudra_completed_tiers?.infernal ?? 0,
-      highestWaveInfernal: data?.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
-      highestWaveBurning: data?.kuudra_completed_tiers?.highest_wave_burning ?? 0
+      none: data?.nether_island_player_data?.kuudra_completed_tiers?.none ?? 0,
+      hot: data?.nether_island_player_data?.kuudra_completed_tiers?.hot ?? 0,
+      burning: data?.nether_island_player_data?.kuudra_completed_tiers?.burning ?? 0,
+      fiery: data?.nether_island_player_data?.kuudra_completed_tiers?.fiery ?? 0,
+      highestWaveHot: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_hot ?? 0,
+      highestWaveFiery: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
+      infernal: data?.nether_island_player_data?.kuudra_completed_tiers?.infernal ?? 0,
+      highestWaveInfernal: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
+      highestWaveBurning: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_burning ?? 0
     }
   };
 }
