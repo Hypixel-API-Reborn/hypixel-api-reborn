@@ -2757,6 +2757,7 @@ declare module 'hypixel-api-reborn' {
         };
       };
       kuudra: {
+        none: number;
         hot: number;
         burning: number;
         fiery: number;
