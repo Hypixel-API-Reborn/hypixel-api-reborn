@@ -381,13 +381,13 @@ function getCompletions(data) {
 
 function getDungeonsFloor(data, type, floor) {
   return {
-    fastestRun: (data?.dungeons?.dungeon_types[type]?.best_runs[floor] ?? []).sort(
+    fastestRun: (data?.dungeons?.dungeon_types[type]?.best_runs?.[floor] ?? []).sort(
       (a, b) => a?.elapsed_time - b?.elapsed_time
     )[0],
-    fastestSRun: (data?.dungeons?.dungeon_types[type]?.best_runs[floor] ?? [])
+    fastestSRun: (data?.dungeons?.dungeon_types[type]?.best_runs?.[floor] ?? [])
       .filter((run) => 270 >= run?.score_exploration + run?.score_speed + run?.score_skill + run?.score_bonus)
       .sort((a, b) => a?.elapsed_time - b?.elapsed_time)[0],
-    fastestSPlusRun: (data?.dungeons?.dungeon_types[type]?.best_runs[floor] ?? [])
+    fastestSPlusRun: (data?.dungeons?.dungeon_types[type]?.best_runs?.[floor] ?? [])
       .filter((run) => 300 >= run?.score_exploration + run?.score_speed + run?.score_skill + run?.score_bonus)
       .sort((a, b) => a?.elapsed_time - b?.elapsed_time)[0],
     completions: data?.dungeonXp?.dungeon_types[type]?.tier_completions[floor] ?? 0
