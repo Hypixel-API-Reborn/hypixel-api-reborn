@@ -413,23 +413,16 @@ class SkyblockMember {
  * @property {number} highest_wave_burning
  */
 /**
- * @typedef {object} SkyblockMemberDungeonsCatacombs
- * @property {SkyblockSkillLevel} experience
- * @property {Record<string, number>} completions
- */
-/**
- * @typedef {object} SkyblockMemberDungeonsMasterCatacombs
- * @property {Record<string, number>} completions
- */
-/**
  * @typedef {object} SkyblockMemberDungeons
- * @property {SkyblockMemberDungeonsTypes} types Dungeons types
- * @property {SkyblockMemberDungeonsClasses} classes Dungeons classes
+ * @property {SkyblockSkillLevel} experience Dungeons Experience
+ * @property {number} secrets Amount of secrets found
+ * @property {SkyblockMemberDungeonsCompletions} completions Dungeon completions
+ * @property {SkyblockMemberDungeonsFloors} floors Dungeon Floor Stats
  */
 /**
- * @typedef {object} SkyblockMemberDungeonsTypes
- * @property {SkyblockMemberDungeonsCatacombs} catacombs
- * @property {SkyblockMemberDungeonsMasterCatacombs} masterCatacombs
+ * @typedef {object} SkyblockMemberDungeonsCompletions
+ * @property {Record<string, number>} catacombs
+ * @property {Record<string, number>} masterMode
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses
@@ -438,6 +431,48 @@ class SkyblockMember {
  * @property {SkyblockSkillLevel} berserk Berserk class
  * @property {SkyblockSkillLevel} archer Archer class
  * @property {SkyblockSkillLevel} tank Tank class
+ * @property {string} selected Current Selected Class
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloorRun
+ * @property {number} timestamp Timestamp
+ * @property {number} score_exploration Score Exploration
+ * @property {number} score_speed Score Speed
+ * @property {number} score_skill Score Skill
+ * @property {number} score_bonus Score Bonus
+ * @property {string} dungeon_class Dungeon Class
+ * @property {string[]} teammates Teammates
+ * @property {number} elapsed_time Elapsed Time
+ * @property {number} damage_dealt Damage Dealt
+ * @property {number} deaths Deaths
+ * @property {number} mobs_killed Mobs Killed
+ * @property {number} secrets_found Secrets Found
+ * @property {number} damage_mitigated Damage Mitigated
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloor
+ * @property {SkyblockMemberDungeonsFloorRun} fastestRun Fastest Run
+ * @property {SkyblockMemberDungeonsFloorRun} fastestSRun Fastest S Run
+ * @property {SkyblockMemberDungeonsFloorRun} fastestSPlusRun Fastest S+ Run
+ * @property {number} completions Completions
+ */
+/**
+ * @typedef {object} SkyblockMemberDungeonsFloors
+ * @property {SkyblockMemberDungeonsFloor} entrance Entrance Stats
+ * @property {SkyblockMemberDungeonsFloor} floor1 Floor 1 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor2 Floor 2 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor3 Floor 3 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor4 Floor 4 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor5 Floor 5 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor6 Floor 6 Stats
+ * @property {SkyblockMemberDungeonsFloor} floor7 Floor 7 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode1 Master Mode Floor 1 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode2 Master Mode Floor 2 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode3 Master Mode Floor 3 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode4 Master Mode Floor 4 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode5 Master Mode Floor 5 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode6 Master Mode Floor 6 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterMode7 Master Mode Floor 7 Stats
  */
 /**
  * @typedef {object} SkyblockMemberStats
