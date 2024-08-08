@@ -400,7 +400,7 @@ function getDungeons(data) {
     secrets: data?.dungeons?.secrets ?? 0,
     completions: {
       catacombs: getCompletions(data?.dungeons?.dungeon_types?.catacombs?.tier_completions),
-      masterMode: getCompletions(data?.dungeons?.dungeon_types?.master_catacombs?.tier_completions)
+      masterCatacombs: getCompletions(data?.dungeons?.dungeon_types?.master_catacombs?.tier_completions)
     },
     floors: {
       entrance: getDungeonsFloor(data, 'catacombs', '0'),
