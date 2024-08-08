@@ -314,10 +314,10 @@ function getCrimson(data) {
       rank: getTrophyFishRank((data?.trophy_fish?.rewards ?? [])?.length),
       caught: {
         total: data?.trophy_fish?.total_caught ?? 0,
-        bronze: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_bronze'))?.length,
-        silver: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_silver'))?.length,
-        gold: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_gold'))?.length,
-        diamond: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_diamond'))?.length
+        bronze: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_bronze'))?.length,
+        silver: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_silver'))?.length,
+        gold: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_gold'))?.length,
+        diamond: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_diamond'))?.length
       }
     },
     dojo: {
