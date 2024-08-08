@@ -305,10 +305,10 @@ function getBelt(points) {
 
 function getCrimson(data) {
   return {
-    faction: data?.selected_faction || null,
+    faction: data?.nether_island_player_data.selected_faction || null,
     reputation: {
-      barbarians: data?.barbarians_reputation ?? 0,
-      mages: data?.mages_reputation ?? 0
+      barbarians: data?.nether_island_player_data.barbarians_reputation ?? 0,
+      mages: data?.nether_island_player_data.mages_reputation ?? 0
     },
     trophyFish: {
       rank: getTrophyFishRank((data?.trophy_fish?.rewards ?? [])?.length),
@@ -322,37 +322,37 @@ function getCrimson(data) {
     },
     dojo: {
       belt: getBelt(
-        Object.keys(data?.dojo ?? {})
+        Object.keys(data?.nether_island_player_data?.dojo ?? {})
           .filter((key) => key?.startsWith('dojo_points'))
-          .reduce((acc, key) => acc + (data?.dojo[key] ?? 0), 0)
+          .reduce((acc, key) => acc + (data?.nether_island_player_data?.dojo[key] ?? 0), 0)
       ),
       force: {
-        points: data?.dojo?.dojo_points_mob_kb ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_mob_kb ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_mob_kb ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_mob_kb ?? 0)
       },
       stamina: {
-        points: data?.dojo?.dojo_points_wall_jump ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_wall_jump ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_wall_jump ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_wall_jump ?? 0)
       },
       mastery: {
-        points: data?.dojo?.dojo_points_archer ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_archer ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_archer ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_archer ?? 0)
       },
       discipline: {
-        points: data?.dojo?.dojo_points_sword_swap ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_sword_swap ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_sword_swap ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_sword_swap ?? 0)
       },
       swiftness: {
-        points: data?.dojo?.dojo_points_snake ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_snake ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_snake ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_snake ?? 0)
       },
       control: {
-        points: data?.dojo?.dojo_points_lock_head ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_lock_head ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_lock_head ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_lock_head ?? 0)
       },
       tenacity: {
-        points: data?.dojo?.dojo_points_fireball ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_fireball ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_fireball ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_fireball ?? 0)
       }
     },
     kuudra: {
