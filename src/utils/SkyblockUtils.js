@@ -305,10 +305,10 @@ function getBelt(points) {
 
 function getCrimson(data) {
   return {
-    faction: data?.nether_island_player_data.selected_faction || null,
+    faction: data?.nether_island_player_data?.selected_faction || null,
     reputation: {
-      barbarians: data?.nether_island_player_data.barbarians_reputation ?? 0,
-      mages: data?.nether_island_player_data.mages_reputation ?? 0
+      barbarians: data?.nether_island_player_data?.barbarians_reputation ?? 0,
+      mages: data?.nether_island_player_data?.mages_reputation ?? 0
     },
     trophyFish: {
       rank: getTrophyFishRank((data?.trophy_fish?.rewards ?? [])?.length),
