@@ -1,12 +1,11 @@
 const {
-  getTrophyFishRank,
   getMemberStats,
   getLevelByXp,
   decode,
   getSkills,
   getBestiaryLevel,
   getSlayer,
-  getKuudra,
+  getCrimson,
   getDungeons,
   getJacobData,
   getChocolateFactory,
@@ -95,11 +94,6 @@ class SkyblockMember {
      */
     this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm');
     /**
-     * Trophy fish amount of rewards
-     * @type {number}
-     */
-    this.trophyFish = getTrophyFishRank(data.m.trophy_fish?.rewards?.length ?? 0);
-    /**
      * The highest magical power **Not current one**
      * @type {number}
      */
@@ -130,10 +124,10 @@ class SkyblockMember {
      */
     this.slayer = getSlayer(data.m);
     /**
-     * Skyblock member kuudra
-     * @type {NetherIslandPlayerData|null}
+     * Skyblock Member Crimson Isle
+     * @type {SkyblockMemberCrimsonIsle|null}
      */
-    this.kuudra = getKuudra(data.m.nether_island_player_data);
+    this.crimsonIsle = getCrimson(data.m.nether_island_player_data);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
@@ -401,16 +395,57 @@ class SkyblockMember {
  * @property {number} level Level
  */
 /**
- * @typedef {object} NetherIslandPlayerData
- * @property {number} none
- * @property {number} hot
- * @property {number} burning
- * @property {number} fiery
- * @property {number} highest_wave_hot
- * @property {number} highest_wave_fiery
- * @property {number} infernal
- * @property {number} highest_wave_infernal
- * @property {number} highest_wave_burning
+ * @typedef {object} SkyblockMemberCrimsonIsle
+ * @property {"mages"|"barbarians"|null} faction Faction
+ * @property {SkyblockMemberCrimsonIsleRepuation} repuation Repuation
+ * @property {SkyblockMemberCrimsonIsleTrophyFish} trophyFish trophyFish
+ * @property {SkyblockMemberCrimsonIsleKuudra} kuudra
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishDojo
+ * @property {"Black"|"Brown"|"Blue"|"Green"|"Yellow"|"White"} belt Belt Color
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} force Force
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} stamina Stamina
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} mastery Mastery
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} discipline Discipline
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} swiftness Swiftness
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} control Control
+ * @property {SkyblockMemberCrimsonIsleTrophyFishDojoMode} tenacity Tenacity
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishDojoMode
+ * @property {number} points Points
+ * @property {"S"|"A"|"B"|"C"|"D"|"F"} rank Rank
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFish
+ * @property {'Bronze'|'Silver'|'Gold'|'Diamond'} rank Trophy Fish Rank
+ * @property {SkyblockMemberCrimsonIsleTrophyFishCaught} caught
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishCaught
+ * @property {number} total Total Caught
+ * @property {number} bronze Bronze Caught
+ * @property {number} silver Silver Caught
+ * @property {number} gold Gold Caught
+ * @property {number} diamond Diamond Caught
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleRepuation
+ * @property {number} barbarians barbarian Repuation
+ * @property {number} mages mage Repuation
+ */
+/**
+ * @typedef {object} SkyblockMemberCrimsonIsleKuudra
+ * @property {number} none None Completions
+ * @property {number} hot Hot Completions
+ * @property {number} burning Burning Completions
+ * @property {number} fiery Fiery Completions
+ * @property {number} highestWaveHot Highest Wave Hot
+ * @property {number} highestWaveFiery Highest Wave Fiery
+ * @property {number} infernal Infernal Completions
+ * @property {number} highestWaveInfernal Highest Wave Infernal
+ * @property {number} highestWaveBurning Highest Wave Burning
  */
 /**
  * @typedef {object} SkyblockMemberDungeons

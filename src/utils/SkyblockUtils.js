@@ -273,18 +273,99 @@ function getSlayer(data) {
   };
 }
 
+function getScore(points) {
+  if (1000 <= points) {
+    return 'S';
+  } else if (800 <= points) {
+    return 'A';
+  } else if (600 <= points) {
+    return 'B';
+  } else if (400 <= points) {
+    return 'C';
+  } else if (200 <= points) {
+    return 'D';
+  }
+  return 'F';
+}
+
+function getBelt(points) {
+  if (7000 <= points) {
+    return 'Black';
+  } else if (6000 <= points) {
+    return 'Brown';
+  } else if (4000 <= points) {
+    return 'Blue';
+  } else if (2000 <= points) {
+    return 'Green';
+  } else if (1000 <= points) {
+    return 'Yellow';
+  }
+  return 'White';
+}
+
 function getCrimson(data) {
-  if (!data?.kuudra_completed_tiers) return null;
   return {
-    none: data.kuudra_completed_tiers?.none ?? 0,
-    hot: data.kuudra_completed_tiers?.hot ?? 0,
-    burning: data.kuudra_completed_tiers?.burning ?? 0,
-    fiery: data.kuudra_completed_tiers?.fiery ?? 0,
-    highestWaveHot: data.kuudra_completed_tiers?.highest_wave_hot ?? 0,
-    highestWaveFiery: data.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
-    infernal: data.kuudra_completed_tiers?.infernal ?? 0,
-    highestWaveInfernal: data.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
-    highestWaveBurning: data.kuudra_completed_tiers?.highest_wave_burning ?? 0
+    faction: data?.selected_faction || null,
+    reputation: {
+      barbarians: data?.barbarians_reputation ?? 0,
+      mages: data?.mages_reputation ?? 0
+    },
+    trophyFish: {
+      rank: getTrophyFishRank((data?.trophy_fish?.rewards ?? [])?.length),
+      caught: {
+        total: data?.trophy_fish?.total_caught ?? 0,
+        bronze: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_bronze'))?.length,
+        silver: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_silver'))?.length,
+        gold: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_gold'))?.length,
+        diamond: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_diamond'))?.length
+      }
+    },
+    dojo: {
+      belt: getBelt(
+        Object.keys(data?.dojo ?? {})
+          .filter((key) => key?.startsWith('dojo_points'))
+          .reduce((acc, key) => acc + (data?.dojo[key] ?? 0), 0)
+      ),
+      force: {
+        points: data?.dojo?.dojo_points_mob_kb ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_mob_kb ?? 0)
+      },
+      stamina: {
+        points: data?.dojo?.dojo_points_wall_jump ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_wall_jump ?? 0)
+      },
+      mastery: {
+        points: data?.dojo?.dojo_points_archer ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_archer ?? 0)
+      },
+      discipline: {
+        points: data?.dojo?.dojo_points_sword_swap ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_sword_swap ?? 0)
+      },
+      swiftness: {
+        points: data?.dojo?.dojo_points_snake ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_snake ?? 0)
+      },
+      control: {
+        points: data?.dojo?.dojo_points_lock_head ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_lock_head ?? 0)
+      },
+      tenacity: {
+        points: data?.dojo?.dojo_points_fireball ?? 0,
+        rank: getScore(data?.dojo?.dojo_points_fireball ?? 0)
+      }
+    },
+    kuudra: {
+      none: data?.kuudra_completed_tiers?.none ?? 0,
+      hot: data?.kuudra_completed_tiers?.hot ?? 0,
+      burning: data?.kuudra_completed_tiers?.burning ?? 0,
+      fiery: data?.kuudra_completed_tiers?.fiery ?? 0,
+      highestWaveHot: data?.kuudra_completed_tiers?.highest_wave_hot ?? 0,
+      highestWaveFiery: data?.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
+      infernal: data?.kuudra_completed_tiers?.infernal ?? 0,
+      highestWaveInfernal: data?.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
+      highestWaveBurning: data?.kuudra_completed_tiers?.highest_wave_burning ?? 0
+    }
   };
 }
 
@@ -546,7 +627,7 @@ module.exports = {
   getSkills,
   getBestiaryLevel,
   getSlayer,
-  getKuudra: getCrimson,
+  getCrimson,
   getDungeons,
   getJacobData,
   getChocolateFactory,
