@@ -419,7 +419,7 @@ class SkyblockMember {
  */
 /**
  * @typedef {object} SkyblockMemberCrimsonIsleTrophyFish
- * @property {'Bronze'|'Silver'|'Gold'|'Diamond'} rank Trophy Fish Rank
+ * @property {'Bronze'|'Silver'|'Gold'|'Diamond'|null} rank Trophy Fish Rank
  * @property {SkyblockMemberCrimsonIsleTrophyFishCaught} caught
  */
 /**

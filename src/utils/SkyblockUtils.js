@@ -180,7 +180,7 @@ function getTrophyFishRank(level) {
   } else if (4 === level) {
     return 'Diamond';
   }
-  return 'Bronze';
+  return null;
 }
 
 function getSkills(data) {
