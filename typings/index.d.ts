@@ -2716,7 +2716,7 @@ declare module 'hypixel-api-reborn' {
         mages: number;
       };
       trophyFish: {
-        rank: 'Bronze' | 'Silver' | 'Gold' | 'Diamond'|null;
+        rank: 'Bronze' | 'Silver' | 'Gold' | 'Diamond' | null;
         caught: {
           total: number;
           bronze: number;
