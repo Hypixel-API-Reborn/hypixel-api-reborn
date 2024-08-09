@@ -180,7 +180,7 @@ function getTrophyFishRank(level) {
   } else if (4 === level) {
     return 'Diamond';
   }
-  return 'Bronze';
+  return null;
 }
 
 function getSkills(data) {
@@ -305,66 +305,66 @@ function getBelt(points) {
 
 function getCrimson(data) {
   return {
-    faction: data?.selected_faction || null,
+    faction: data?.nether_island_player_data?.selected_faction || null,
     reputation: {
-      barbarians: data?.barbarians_reputation ?? 0,
-      mages: data?.mages_reputation ?? 0
+      barbarians: data?.nether_island_player_data?.barbarians_reputation ?? 0,
+      mages: data?.nether_island_player_data?.mages_reputation ?? 0
     },
     trophyFish: {
       rank: getTrophyFishRank((data?.trophy_fish?.rewards ?? [])?.length),
       caught: {
         total: data?.trophy_fish?.total_caught ?? 0,
-        bronze: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_bronze'))?.length,
-        silver: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_silver'))?.length,
-        gold: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_gold'))?.length,
-        diamond: Object.keys(data?.trophy_fish).filter((key) => key.endsWith('_diamond'))?.length
+        bronze: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_bronze'))?.length,
+        silver: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_silver'))?.length,
+        gold: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_gold'))?.length,
+        diamond: Object.keys(data?.trophy_fish ?? {}).filter((key) => key.endsWith('_diamond'))?.length
       }
     },
     dojo: {
       belt: getBelt(
-        Object.keys(data?.dojo ?? {})
+        Object.keys(data?.nether_island_player_data?.dojo ?? {})
           .filter((key) => key?.startsWith('dojo_points'))
-          .reduce((acc, key) => acc + (data?.dojo[key] ?? 0), 0)
+          .reduce((acc, key) => acc + (data?.nether_island_player_data?.dojo[key] ?? 0), 0)
       ),
       force: {
-        points: data?.dojo?.dojo_points_mob_kb ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_mob_kb ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_mob_kb ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_mob_kb ?? 0)
       },
       stamina: {
-        points: data?.dojo?.dojo_points_wall_jump ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_wall_jump ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_wall_jump ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_wall_jump ?? 0)
       },
       mastery: {
-        points: data?.dojo?.dojo_points_archer ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_archer ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_archer ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_archer ?? 0)
       },
       discipline: {
-        points: data?.dojo?.dojo_points_sword_swap ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_sword_swap ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_sword_swap ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_sword_swap ?? 0)
       },
       swiftness: {
-        points: data?.dojo?.dojo_points_snake ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_snake ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_snake ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_snake ?? 0)
       },
       control: {
-        points: data?.dojo?.dojo_points_lock_head ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_lock_head ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_lock_head ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_lock_head ?? 0)
       },
       tenacity: {
-        points: data?.dojo?.dojo_points_fireball ?? 0,
-        rank: getScore(data?.dojo?.dojo_points_fireball ?? 0)
+        points: data?.nether_island_player_data?.dojo?.dojo_points_fireball ?? 0,
+        rank: getScore(data?.nether_island_player_data?.dojo?.dojo_points_fireball ?? 0)
       }
     },
     kuudra: {
-      none: data?.kuudra_completed_tiers?.none ?? 0,
-      hot: data?.kuudra_completed_tiers?.hot ?? 0,
-      burning: data?.kuudra_completed_tiers?.burning ?? 0,
-      fiery: data?.kuudra_completed_tiers?.fiery ?? 0,
-      highestWaveHot: data?.kuudra_completed_tiers?.highest_wave_hot ?? 0,
-      highestWaveFiery: data?.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
-      infernal: data?.kuudra_completed_tiers?.infernal ?? 0,
-      highestWaveInfernal: data?.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
-      highestWaveBurning: data?.kuudra_completed_tiers?.highest_wave_burning ?? 0
+      none: data?.nether_island_player_data?.kuudra_completed_tiers?.none ?? 0,
+      hot: data?.nether_island_player_data?.kuudra_completed_tiers?.hot ?? 0,
+      burning: data?.nether_island_player_data?.kuudra_completed_tiers?.burning ?? 0,
+      fiery: data?.nether_island_player_data?.kuudra_completed_tiers?.fiery ?? 0,
+      highestWaveHot: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_hot ?? 0,
+      highestWaveFiery: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_fiery ?? 0,
+      infernal: data?.nether_island_player_data?.kuudra_completed_tiers?.infernal ?? 0,
+      highestWaveInfernal: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_infernal ?? 0,
+      highestWaveBurning: data?.nether_island_player_data?.kuudra_completed_tiers?.highest_wave_burning ?? 0
     }
   };
 }
@@ -400,7 +400,7 @@ function getDungeons(data) {
     secrets: data?.dungeons?.secrets ?? 0,
     completions: {
       catacombs: getCompletions(data?.dungeons?.dungeon_types?.catacombs?.tier_completions),
-      masterMode: getCompletions(data?.dungeons?.dungeon_types?.master_catacombs?.tier_completions)
+      masterCatacombs: getCompletions(data?.dungeons?.dungeon_types?.master_catacombs?.tier_completions)
     },
     floors: {
       entrance: getDungeonsFloor(data, 'catacombs', '0'),

@@ -125,9 +125,9 @@ class SkyblockMember {
     this.slayer = getSlayer(data.m);
     /**
      * Skyblock Member Crimson Isle
-     * @type {SkyblockMemberCrimsonIsle|null}
+     * @type {SkyblockMemberCrimsonIsle}
      */
-    this.crimsonIsle = getCrimson(data.m.nether_island_player_data);
+    this.crimson = getCrimson(data.m);
     /**
      * Skyblock member dungeons
      * @type {SkyblockMemberDungeons|null}
@@ -419,7 +419,7 @@ class SkyblockMember {
  */
 /**
  * @typedef {object} SkyblockMemberCrimsonIsleTrophyFish
- * @property {'Bronze'|'Silver'|'Gold'|'Diamond'} rank Trophy Fish Rank
+ * @property {'Bronze'|'Silver'|'Gold'|'Diamond'|null} rank Trophy Fish Rank
  * @property {SkyblockMemberCrimsonIsleTrophyFishCaught} caught
  */
 /**
