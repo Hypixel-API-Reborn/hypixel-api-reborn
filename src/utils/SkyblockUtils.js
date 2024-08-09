@@ -370,10 +370,14 @@ function getCrimson(data) {
 }
 
 function getCompletions(data) {
-  const completions = {};
+  const completions = {
+    total: 0
+  };
 
   for (const tier in data) {
+    if ('total' === tier) continue;
     completions[`Floor_${tier}`] = data[tier];
+    completions.total += data[tier];
   }
 
   return completions;
