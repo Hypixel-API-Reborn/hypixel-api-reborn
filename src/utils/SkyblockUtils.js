@@ -375,7 +375,7 @@ function getCompletions(data) {
   };
 
   for (const tier in data) {
-    if ("total" === tier) continue;
+    if ('total' === tier) continue;
     completions[`Floor_${tier}`] = data[tier];
     completions.total += data[tier];
   }
