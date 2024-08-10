@@ -415,13 +415,13 @@ function getDungeons(data) {
       floor5: getDungeonsFloor(data, 'catacombs', '5'),
       floor6: getDungeonsFloor(data, 'catacombs', '6'),
       floor7: getDungeonsFloor(data, 'catacombs', '7'),
-      masterMode1: getDungeonsFloor(data, 'master_catacombs', '1'),
-      masterMode2: getDungeonsFloor(data, 'master_catacombs', '2'),
-      masterMode3: getDungeonsFloor(data, 'master_catacombs', '3'),
-      masterMode4: getDungeonsFloor(data, 'master_catacombs', '4'),
-      masterMode5: getDungeonsFloor(data, 'master_catacombs', '5'),
-      masterMode6: getDungeonsFloor(data, 'master_catacombs', '6'),
-      masterMode7: getDungeonsFloor(data, 'master_catacombs', '7')
+      masterCatacombs1: getDungeonsFloor(data, 'master_catacombs', '1'),
+      masterCatacombs2: getDungeonsFloor(data, 'master_catacombs', '2'),
+      masterCatacombs3: getDungeonsFloor(data, 'master_catacombs', '3'),
+      masterCatacombs4: getDungeonsFloor(data, 'master_catacombs', '4'),
+      masterCatacombs5: getDungeonsFloor(data, 'master_catacombs', '5'),
+      masterCatacombs6: getDungeonsFloor(data, 'master_catacombs', '6'),
+      masterCatacombs7: getDungeonsFloor(data, 'master_catacombs', '7')
     },
     classes: {
       healer: getLevelByXp(data?.dungeons?.player_classes?.healer?.experience ?? 0, 'dungeons'),

@@ -115,7 +115,7 @@ class SkyblockMember {
     this.skills = getSkills(data.m);
     /**
      * Bestiary of the user
-     * @type {object}
+     * @type {number}
      */
     this.bestiary = getBestiaryLevel(data.m);
     /**
@@ -145,7 +145,7 @@ class SkyblockMember {
     this.purse = data.m?.currencies?.coin_purse ?? 0;
     /**
      * Skyblock member stats
-     * @type {SkyblockMemberStats}
+     * @type {object}
      */
     this.stats = data.m.player_stats ? getMemberStats(data.m.player_stats) : null;
     /**
@@ -381,6 +381,7 @@ class SkyblockMember {
  * @property {SkyblockMemberSlayerLevel} zombie Zombie
  * @property {SkyblockMemberSlayerLevel} spider Spider
  * @property {SkyblockMemberSlayerLevel} wolf Wolf
+ * @property {SkyblockMemberSlayerLevel} enderman Enderman
  * @property {SkyblockMemberSlayerLevel} blaze Blaze
  * @property {SkyblockMemberSlayerLevel} vampire Vampire
  */
@@ -399,7 +400,7 @@ class SkyblockMember {
  * @property {"mages"|"barbarians"|null} faction Faction
  * @property {SkyblockMemberCrimsonIsleRepuation} repuation Repuation
  * @property {SkyblockMemberCrimsonIsleTrophyFish} trophyFish trophyFish
- * @property {SkyblockMemberCrimsonIsleKuudra} kuudra
+ * @property {SkyblockMemberCrimsonIsleKuudra} kuudra Kuudra
  */
 /**
  * @typedef {object} SkyblockMemberCrimsonIsleTrophyFishDojo
@@ -456,8 +457,8 @@ class SkyblockMember {
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsCompletions
- * @property {Record<string, number>} catacombs
- * @property {Record<string, number>} masterMode
+ * @property {Record<string, number>} catacombs Normal Dungeons
+ * @property {Record<string, number>} masterCatacombs Master Mode Dungeons
  */
 /**
  * @typedef {object} SkyblockMemberDungeonsClasses
@@ -501,329 +502,13 @@ class SkyblockMember {
  * @property {SkyblockMemberDungeonsFloor} floor5 Floor 5 Stats
  * @property {SkyblockMemberDungeonsFloor} floor6 Floor 6 Stats
  * @property {SkyblockMemberDungeonsFloor} floor7 Floor 7 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode1 Master Mode Floor 1 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode2 Master Mode Floor 2 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode3 Master Mode Floor 3 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode4 Master Mode Floor 4 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode5 Master Mode Floor 5 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode6 Master Mode Floor 6 Stats
- * @property {SkyblockMemberDungeonsFloor} masterMode7 Master Mode Floor 7 Stats
- */
-/**
- * @typedef {object} SkyblockMemberStats
- * @property {number|undefined} auctionsBids
- * @property {number|undefined} auctionsBoughtCommon
- * @property {number|undefined} auctionsBoughtEpic
- * @property {number|undefined} auctionsBoughtLegendary
- * @property {number|undefined} auctionsBoughtRare
- * @property {number|undefined} auctionsBoughtSpecial
- * @property {number|undefined} auctionsBoughtUncommon
- * @property {number|undefined} auctionsCompleted
- * @property {number|undefined} auctionsCreated
- * @property {number|undefined} auctionsFees
- * @property {number|undefined} auctionsGoldEarned
- * @property {number|undefined} auctionsGoldSpent
- * @property {number|undefined} auctionsHighestBid
- * @property {number|undefined} auctionsNoBids
- * @property {number|undefined} auctionsSoldCommon
- * @property {number|undefined} auctionsSoldEpic
- * @property {number|undefined} auctionsSoldLegendary
- * @property {number|undefined} auctionsSoldRare
- * @property {number|undefined} auctionsSoldSpecial
- * @property {number|undefined} auctionsSoldUncommon
- * @property {number|undefined} auctionsWon
- * @property {number|undefined} chickenRaceBestTime_2
- * @property {number|undefined} deaths
- * @property {number|undefined} deathsBlaze
- * @property {number|undefined} deathsCactus
- * @property {number|undefined} deathsCatfish
- * @property {number|undefined} deathsCorruptedProtector
- * @property {number|undefined} deathsCryptDreadlord
- * @property {number|undefined} deathsCryptLurker
- * @property {number|undefined} deathsCryptSouleater
- * @property {number|undefined} deathsDiamondGuy
- * @property {number|undefined} deathsDiamondSkeleton
- * @property {number|undefined} deathsDiamondZombie
- * @property {number|undefined} deathsDungeonRespawningSkeleton
- * @property {number|undefined} deathsEmeraldSlime
- * @property {number|undefined} deathsEnderman
- * @property {number|undefined} deathsEndermite
- * @property {number|undefined} deathsFall
- * @property {number|undefined} deathsFire
- * @property {number|undefined} deathsFireballMagmaCube
- * @property {number|undefined} deathsGaiaConstruct
- * @property {number|undefined} deathsGeneratorMagmaCube
- * @property {number|undefined} deathsGeneratorSlime
- * @property {number|undefined} deathsHowlingSpirit
- * @property {number|undefined} deathsKingMidas
- * @property {number|undefined} deathsLapisZombie
- * @property {number|undefined} deathsLiquidHotMagma
- * @property {number|undefined} deathsLividClone
- * @property {number|undefined} deathsLostAdventurer
- * @property {number|undefined} deathsMagmaCube
- * @property {number|undefined} deathsMagmaCubeBoss
- * @property {number|undefined} deathsObsidianWither
- * @property {number|undefined} deathsOldDragon
- * @property {number|undefined} deathsOldWolf
- * @property {number|undefined} deathsPlayer
- * @property {number|undefined} deathsProfessor
- * @property {number|undefined} deathsProfessorGuardianSummon
- * @property {number|undefined} deathsProfessorMageGuardian
- * @property {number|undefined} deathsProtectorDragon
- * @property {number|undefined} deathsRandomSlime
- * @property {number|undefined} deathsRedstonePigman
- * @property {number|undefined} deathsRevenantZombie
- * @property {number|undefined} deathsRuinWolf
- * @property {number|undefined} deathsSadanStatue
- * @property {number|undefined} deathsScaredSkeleton
- * @property {number|undefined} deathsScarf
- * @property {number|undefined} deathsScarfMage
- * @property {number|undefined} deathsScarfWarrior
- * @property {number|undefined} deathsSeaGuardian
- * @property {number|undefined} deathsShadowAssassin
- * @property {number|undefined} deathsSkeleton
- * @property {number|undefined} deathsSkeletonEmperor
- * @property {number|undefined} deathsSkeletonGrunt
- * @property {number|undefined} deathsSkeletonMaster
- * @property {number|undefined} deathsSkeletonSoldier
- * @property {number|undefined} deathsSkeletor
- * @property {number|undefined} deathsSniperSkeleton
- * @property {number|undefined} deathsSoulOfTheAlpha
- * @property {number|undefined} deathsSpider
- * @property {number|undefined} deathsSpiderJockey
- * @property {number|undefined} deathsSpiritBat
- * @property {number|undefined} deathsSpiritRabbit
- * @property {number|undefined} deathsStrongDragon
- * @property {number|undefined} deathsSuffocation
- * @property {number|undefined} deathsSuperiorDragon
- * @property {number|undefined} deathsTarantulaSpider
- * @property {number|undefined} deathsTentaclees
- * @property {number|undefined} deathsTrap
- * @property {number|undefined} deathsUnburriedZombie
- * @property {number|undefined} deathsUnknown
- * @property {number|undefined} deathsUnstableDragon
- * @property {number|undefined} deathsVoid
- * @property {number|undefined} deathsVoraciousSpider
- * @property {number|undefined} deathsWatcher
- * @property {number|undefined} deathsWatcherSummonUndead
- * @property {number|undefined} deathsWeaverSpider
- * @property {number|undefined} deathsWiseDragon
- * @property {number|undefined} deathsWitherSkeleton
- * @property {number|undefined} deathsWolf
- * @property {number|undefined} deathsYoungDragon
- * @property {number|undefined} deathsZealotEnderman
- * @property {number|undefined} deathsZombie
- * @property {number|undefined} deathsZombieDeep
- * @property {number|undefined} deathsZombieGrunt
- * @property {number|undefined} deathsZombieSoldier
- * @property {number|undefined} dungeonHubCrystalCoreAnythingNoReturnBestTime
- * @property {number|undefined} dungeonHubCrystalCoreAnythingWithReturnBestTime
- * @property {number|undefined} dungeonHubCrystalCoreNoAbilitiesNoReturnBestTime
- * @property {number|undefined} dungeonHubCrystalCoreNoPearlsNoReturnBestTime
- * @property {number|undefined} dungeonHubCrystalCoreNoPearlsWithReturnBestTime
- * @property {number|undefined} dungeonHubCrystalCoreNothingNoReturnBestTime
- * @property {number|undefined} dungeonHubGiantMushroomAnythingNoReturnBestTime
- * @property {number|undefined} dungeonHubGiantMushroomNoAbilitiesNoReturnBestTime
- * @property {number|undefined} dungeonHubGiantMushroomNoPearlsNoReturnBestTime
- * @property {number|undefined} dungeonHubGiantMushroomNothingNoReturnBestTime
- * @property {number|undefined} dungeonHubPrecursorRuinsAnythingNoReturnBestTime
- * @property {number|undefined} dungeonHubPrecursorRuinsNoAbilitiesNoReturnBestTime
- * @property {number|undefined} dungeonHubPrecursorRuinsNoPearlsNoReturnBestTime
- * @property {number|undefined} dungeonHubPrecursorRuinsNothingNoReturnBestTime
- * @property {number|undefined} endRaceBestTime
- * @property {number|undefined} enderCrystalsDestroyed
- * @property {number|undefined} foragingRaceBestTime
- * @property {number|undefined} giftsGiven
- * @property {number|undefined} giftsReceived
- * @property {number|undefined} highestCritDamage
- * @property {number|undefined} highestCriticalDamage
- * @property {number|undefined} itemsFished
- * @property {number|undefined} itemsFishedLargeTreasure
- * @property {number|undefined} itemsFishedNormal
- * @property {number|undefined} itemsFishedTreasure
- * @property {number|undefined} kills
- * @property {number|undefined} killsBatPinata
- * @property {number|undefined} killsBatSpooky
- * @property {number|undefined} killsBattyWitch
- * @property {number|undefined} killsBlaze
- * @property {number|undefined} killsBlazeHigherOrLower
- * @property {number|undefined} killsBlueShark
- * @property {number|undefined} killsBonzoSummonUndead
- * @property {number|undefined} killsBroodMotherCaveSpider
- * @property {number|undefined} killsBroodMotherSpider
- * @property {number|undefined} killsCarrotKing
- * @property {number|undefined} killsCatfish
- * @property {number|undefined} killsCaveSpider
- * @property {number|undefined} killsCellarSpider
- * @property {number|undefined} killsChicken
- * @property {number|undefined} killsChickenDeep
- * @property {number|undefined} killsCorruptedProtector
- * @property {number|undefined} killsCow
- * @property {number|undefined} killsCreeper
- * @property {number|undefined} killsCryptDreadlord
- * @property {number|undefined} killsCryptLurker
- * @property {number|undefined} killsCryptSouleater
- * @property {number|undefined} killsCryptTankZombie
- * @property {number|undefined} killsCryptUndead
- * @property {number|undefined} killsCryptUndeadAlexander
- * @property {number|undefined} killsCryptUndeadApunch
- * @property {number|undefined} killsCryptUndeadBernhard
- * @property {number|undefined} killsCryptUndeadChristian
- * @property {number|undefined} killsCryptUndeadCodenameB
- * @property {number|undefined} killsCryptUndeadConnorlinfoot
- * @property {number|undefined} killsCryptUndeadDctr
- * @property {number|undefined} killsCryptUndeadFriedrich
- * @property {number|undefined} killsCryptUndeadJayavarmen
- * @property {number|undefined} killsCryptUndeadLikaos
- * @property {number|undefined} killsCryptUndeadMarius
- * @property {number|undefined} killsCryptUndeadNicholas
- * @property {number|undefined} killsCryptUndeadNitroholic_
- * @property {number|undefined} killsCryptUndeadPieter
- * @property {number|undefined} killsCryptUndeadRelenter
- * @property {number|undefined} killsCryptUndeadSfarnham
- * @property {number|undefined} killsCryptUndeadValentin
- * @property {number|undefined} killsCryptWitherskeleton
- * @property {number|undefined} killsDasherSpider
- * @property {number|undefined} killsDeepSeaProtector
- * @property {number|undefined} killsDiamondGuy
- * @property {number|undefined} killsDiamondSkeleton
- * @property {number|undefined} killsDiamondZombie
- * @property {number|undefined} killsDungeonRespawningSkeleton
- * @property {number|undefined} killsDungeonRespawningSkeletonSkull
- * @property {number|undefined} killsDungeonSecretBat
- * @property {number|undefined} killsEmeraldSlime
- * @property {number|undefined} killsEnderman
- * @property {number|undefined} killsEndermite
- * @property {number|undefined} killsFireballMagmaCube
- * @property {number|undefined} killsForestIslandBat
- * @property {number|undefined} killsFrostyTheSnowman
- * @property {number|undefined} killsFrozenSteve
- * @property {number|undefined} killsGaiaConstruct
- * @property {number|undefined} killsGeneratorGhast
- * @property {number|undefined} killsGeneratorMagmaCube
- * @property {number|undefined} killsGeneratorSlime
- * @property {number|undefined} killsGhast
- * @property {number|undefined} killsGuardianDefender
- * @property {number|undefined} killsGuardianEmperor
- * @property {number|undefined} killsHorsemanBat
- * @property {number|undefined} killsHorsemanHorse
- * @property {number|undefined} killsHorsemanZombie
- * @property {number|undefined} killsHowlingSpirit
- * @property {number|undefined} killsInvisibleCreeper
- * @property {number|undefined} killsJockeyShotSilverfish
- * @property {number|undefined} killsJockeySkeleton
- * @property {number|undefined} killsKingMidas
- * @property {number|undefined} killsLapisZombie
- * @property {number|undefined} killsLiquidHotMagma
- * @property {number|undefined} killsLonelySpider
- * @property {number|undefined} killsLostAdventurer
- * @property {number|undefined} killsMagmaCube
- * @property {number|undefined} killsMagmaCubeBoss
- * @property {number|undefined} killsMinosHunter
- * @property {number|undefined} killsMinotaur
- * @property {number|undefined} killsNightRespawningSkeleton
- * @property {number|undefined} killsNightSquid
- * @property {number|undefined} killsNurseShark
- * @property {number|undefined} killsObsidianWither
- * @property {number|undefined} killsOldWolf
- * @property {number|undefined} killsPackSpirit
- * @property {number|undefined} killsParasite
- * @property {number|undefined} killsPhantomSpirit
- * @property {number|undefined} killsPig
- * @property {number|undefined} killsPigman
- * @property {number|undefined} killsPlayer
- * @property {number|undefined} killsPondSquid
- * @property {number|undefined} killsProfessorGuardianSummon
- * @property {number|undefined} killsProtectorDragon
- * @property {number|undefined} killsRabbit
- * @property {number|undefined} killsRandomSlime
- * @property {number|undefined} killsRedstonePigman
- * @property {number|undefined} killsRespawningSkeleton
- * @property {number|undefined} killsRevenantZombie
- * @property {number|undefined} killsRuinWolf
- * @property {number|undefined} killsScaredSkeleton
- * @property {number|undefined} killsScarfArcher
- * @property {number|undefined} killsScarfMage
- * @property {number|undefined} killsScarfPriest
- * @property {number|undefined} killsScarfWarrior
- * @property {number|undefined} killsScaryJerry
- * @property {number|undefined} killsSeaArcher
- * @property {number|undefined} killsSeaGuardian
- * @property {number|undefined} killsSeaLeech
- * @property {number|undefined} killsSeaWalker
- * @property {number|undefined} killsSeaWitch
- * @property {number|undefined} killsShadowAssassin
- * @property {number|undefined} killsSheep
- * @property {number|undefined} killsSiameseLynx
- * @property {number|undefined} killsSkeleton
- * @property {number|undefined} killsSkeletonEmperor
- * @property {number|undefined} killsSkeletonGrunt
- * @property {number|undefined} killsSkeletonMaster
- * @property {number|undefined} killsSkeletonSoldier
- * @property {number|undefined} killsSkeletor
- * @property {number|undefined} killsSlime
- * @property {number|undefined} killsSniperSkeleton
- * @property {number|undefined} killsSoulOfTheAlpha
- * @property {number|undefined} killsSpider
- * @property {number|undefined} killsSpiderJockey
- * @property {number|undefined} killsSpiritBat
- * @property {number|undefined} killsSpiritBull
- * @property {number|undefined} killsSpiritChicken
- * @property {number|undefined} killsSpiritMiniboss
- * @property {number|undefined} killsSpiritRabbit
- * @property {number|undefined} killsSpiritSheep
- * @property {number|undefined} killsSpiritWolf
- * @property {number|undefined} killsSplitterSpider
- * @property {number|undefined} killsSplitterSpiderSilverfish
- * @property {number|undefined} killsStrongDragon
- * @property {number|undefined} killsSuperArcher
- * @property {number|undefined} killsSuperTankZombie
- * @property {number|undefined} killsTarantulaSpider
- * @property {number|undefined} killsTentaclees
- * @property {number|undefined} killsTigerShark
- * @property {number|undefined} killsTrickOrTreater
- * @property {number|undefined} killsUnburriedZombie
- * @property {number|undefined} killsVoraciousSpider
- * @property {number|undefined} killsWatcher
- * @property {number|undefined} killsWatcherBonzo
- * @property {number|undefined} killsWatcherSummonUndead
- * @property {number|undefined} killsWaterHydra
- * @property {number|undefined} killsWeaverSpider
- * @property {number|undefined} killsWitch
- * @property {number|undefined} killsWitchBat
- * @property {number|undefined} killsWitherGourd
- * @property {number|undefined} killsWitherSkeleton
- * @property {number|undefined} killsWraith
- * @property {number|undefined} killsZealotEnderman
- * @property {number|undefined} killsZombie
- * @property {number|undefined} killsZombieDeep
- * @property {number|undefined} killsZombieGrunt
- * @property {number|undefined} killsZombieKnight
- * @property {number|undefined} killsZombieSoldier
- * @property {number|undefined} killsZombieVillager
- * @property {number|undefined} mostWinterCannonballsHit
- * @property {number|undefined} mostWinterDamageDealt
- * @property {number|undefined} mostWinterMagmaDamageDealt
- * @property {number|undefined} mostWinterSnowballsHit
- * @property {number|undefined} mythosBurrowsChainsComplete
- * @property {number|undefined} mythosBurrowsChainsCompleteCommon
- * @property {number|undefined} mythosBurrowsChainsCompleteRare
- * @property {number|undefined} mythosBurrowsChainsCompleteNull
- * @property {number|undefined} mythosBurrowsDugCombat
- * @property {number|undefined} mythosBurrowsDugCombatCommon
- * @property {number|undefined} mythosBurrowsDugCombatRare
- * @property {number|undefined} mythosBurrowsDugCombatNull
- * @property {number|undefined} mythosBurrowsDugNext
- * @property {number|undefined} mythosBurrowsDugNextCommon
- * @property {number|undefined} mythosBurrowsDugNextRare
- * @property {number|undefined} mythosBurrowsDugNextNull
- * @property {number|undefined} mythosBurrowsDugTreasure
- * @property {number|undefined} mythosBurrowsDugTreasureCommon
- * @property {number|undefined} mythosBurrowsDugTreasureRare
- * @property {number|undefined} mythosBurrowsDugTreasureNull
- * @property {number|undefined} mythosKills
- * @property {number|undefined} petMilestoneOresMined
- * @property {number|undefined} petMilestoneSeaCreaturesKilled
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs1 Master Mode Floor 1 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs2 Master Mode Floor 2 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs3 Master Mode Floor 3 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs4 Master Mode Floor 4 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs5 Master Mode Floor 5 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs6 Master Mode Floor 6 Stats
+ * @property {SkyblockMemberDungeonsFloor} masterCatacombs7 Master Mode Floor 7 Stats
  */
 /**
  * @typedef {object} jacobDataPerks
