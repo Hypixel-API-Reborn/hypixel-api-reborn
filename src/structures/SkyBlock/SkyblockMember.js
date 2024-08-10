@@ -1,6 +1,5 @@
 const {
   getMemberStats,
-  getLevelByXp,
   decode,
   getSkills,
   getBestiaryLevel,
@@ -9,7 +8,8 @@ const {
   getDungeons,
   getJacobData,
   getChocolateFactory,
-  getPetLevel
+  getPetLevel,
+  getHOTM
 } = require('../../utils/SkyblockUtils');
 const SkyblockInventoryItem = require('./SkyblockInventoryItem');
 const SkyblockMuseum = require('./SkyblockMuseum');
@@ -90,9 +90,9 @@ class SkyblockMember {
     this.level = this.experience ? this.experience / 100 : 0;
     /**
      * Heart of the Mountain - MiningSkill
-     * @type {number}
+     * @type {SkyblockMemberHotm}
      */
-    this.hotm = getLevelByXp(data.m.mining_core?.experience, 'hotm');
+    this.hotm = getHOTM(data.m);
     /**
      * The highest magical power **Not current one**
      * @type {number}
@@ -884,5 +884,23 @@ class SkyblockMember {
  * @property {chocolateFactoryDataGoldenClick} goldenClick Golden Click
  * @property {number} barnCapacity Barn Capacity
  * @property {number} prestige Prestige
+ */
+/**
+ * @typedef {object} SkyblockMemberHotmPowderData
+ * @property {number} spent Spent HOTM Powder
+ * @property {number} current Current HOTM Powder
+ * @property {number} total Total HOTM Powder
+ */
+/**
+ * @typedef {object} SkyblockMemberHotmPowder
+ * @property {SkyblockMemberHotmPowderData} mithril Mithril Powder
+ * @property {SkyblockMemberHotmPowderData} gemstone Gemstone Powder
+ * @property {SkyblockMemberHotmPowderData} glacite Glacite Powder
+ */
+/**
+ * @typedef {object} SkyblockMemberHotm
+ * @property {SkyblockSkillLevel} experience Experience
+ * @property {string} ability Selected Ability
+ * @property {SkyblockMemberHotmPowder} powder Powder Data
  */
 module.exports = SkyblockMember;

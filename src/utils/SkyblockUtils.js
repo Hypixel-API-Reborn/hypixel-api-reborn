@@ -623,6 +623,30 @@ function populateGoals(achieved, all) {
   return populatedAchieved;
 }
 
+function getHOTM(data) {
+  return {
+    experience: getLevelByXp(data.mining_core?.experience, 'hotm'),
+    ability: data.mining_core?.selected_pickaxe_ability || 'none',
+    powder: {
+      mithril: {
+        spent: data?.mining_core?.powder_spent_mithril || 0,
+        current: data?.mining_core?.powder_mithril || 0,
+        total: data?.mining_core?.powder_spent_mithril || 0 + data?.mining_core?.powder_mithril || 0
+      },
+      gemstone: {
+        spent: data?.mining_core?.powder_spent_gemstone || 0,
+        current: data?.mining_core?.powder_gemstone || 0,
+        total: data?.mining_core?.powder_spent_gemstone || 0 + data?.mining_core?.powder_gemstone || 0
+      },
+      glacite: {
+        spent: data?.mining_core?.powder_spent_glacite || 0,
+        current: data?.mining_core?.powder_glacite || 0,
+        total: data?.mining_core?.powder_spent_glacite || 0 + data?.mining_core?.powder_glacite || 0
+      }
+    }
+  };
+}
+
 module.exports = {
   decode,
   getLevelByXp,
@@ -638,5 +662,6 @@ module.exports = {
   getPetLevel,
   parseRarity,
   parseGearScore,
-  populateGoals
+  populateGoals,
+  getHOTM
 };

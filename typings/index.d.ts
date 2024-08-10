@@ -2682,7 +2682,27 @@ declare module 'hypixel-api-reborn' {
     firstJoinAt: Date;
     experience: number;
     level: number;
-    hotm: SKYBLOCK_SKILL_DATA;
+    hotm: {
+      experience: SKYBLOCK_SKILL_DATA;
+      ability: string;
+      powder: {
+        mithril: {
+          spent: number;
+          current: number;
+          total: number;
+        };
+        gemstone: {
+          spent: number;
+          current: number;
+          total: number;
+        };
+        glacite: {
+          spent: number;
+          current: number;
+          total: number;
+        };
+      };
+    };
     highestMagicalPower: number;
     fairySouls: number;
     fairyExchanges: number;
