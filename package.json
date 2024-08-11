@@ -32,7 +32,7 @@
     "node-fetch": "^3.3.2",
     "prismarine-nbt": "^2.5.0",
     "rss-parser": "^3.13.0",
-    "skyhelper-networth": "^1.22.0"
+    "skyhelper-networth": "^1.23.0"
   },
   "license": "MIT",
   "readme": "https://hypixel.stavzdev.me/",
