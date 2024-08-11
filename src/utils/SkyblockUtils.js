@@ -1,12 +1,12 @@
 /* eslint-disable jsdoc/require-jsdoc */
+const { parse, simplify } = require('prismarine-nbt');
 const constants = require('./Constants');
 
 async function decode(base64, isBuffer = false) {
-  const nbt = require('prismarine-nbt');
-  const parseNbt = require('util').promisify(nbt.parse);
+  // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/3b5b3ae4fe77c60eff90691797f09024baf68872/src/lib/server/stats/items/processing.ts#L215-L218
   const buffer = isBuffer ? base64 : Buffer.from(base64, 'base64');
-  let data = await parseNbt(buffer);
-  data = nbt.simplify(data);
+  let data = await parse(buffer);
+  data = simplify(data.parsed);
   const newdata = [];
   for (let i = 0; i < data.i.length; i++) {
     newdata.push(data.i[i]);
