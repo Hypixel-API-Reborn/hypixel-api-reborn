@@ -2772,14 +2772,14 @@ declare module 'hypixel-api-reborn' {
         selected: string;
       };
       essence: {
-        diamond: numer;
-        dragon: numer;
-        spider: numer;
-        wither: numer;
-        undead: numer;
-        gold: numer;
-        ice: numer;
-        crimson: numer;
+        diamond: number;
+        dragon: number;
+        spider: number;
+        wither: number;
+        undead: number;
+        gold: number;
+        ice: number;
+        crimson: number;
       };
     } | null;
     collections: object;
