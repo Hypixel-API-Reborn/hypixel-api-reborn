@@ -45,7 +45,7 @@
     "@types/node": "^22.1.0",
     "chai": "^4.3.4",
     "eslint": "^9.8.0",
-    "eslint-plugin-jsdoc": "^49.0.0",
+    "eslint-plugin-jsdoc": "^50.0.1",
     "globals": "^15.9.0",
     "mocha": "^10.4.0",
     "node-env-run": "^4.0.2",
