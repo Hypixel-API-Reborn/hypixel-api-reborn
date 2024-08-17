@@ -1914,7 +1914,7 @@ declare module 'hypixel-api-reborn' {
     attackerKills: number;
     defenderKills: number;
   }
-  class PartyPopper {
+  class PartyPooper {
     constructor(data: Record<string, unknown>);
     winsAsSeeker: number;
     winsAsHider: number;
@@ -1928,7 +1928,7 @@ declare module 'hypixel-api-reborn' {
   }
   class HideAndSeek {
     constructor(data: Record<string, unknown>);
-    partyPopper: PartyPopper;
+    partyPooper: PartyPooper;
     propHunt: PropHunt;
     winsAsSeeker: number;
     winsAsHider: number;

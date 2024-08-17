@@ -561,9 +561,9 @@ class GalaxyWars {
   }
 }
 /**
- * Party Popper Stats (Sub gamemode of Hide and Seek)
+ * Party Pooper Stats (Sub gamemode of Hide and Seek)
  */
-class PartyPopper {
+class PartyPooper {
   /**
    * @param {Object} data Data from API
    */
@@ -619,10 +619,10 @@ class HideAndSeek {
    */
   constructor(data) {
     /**
-     * Party Popper Stats
-     * @type {PartyPopper}
+     * Party Pooper Stats
+     * @type {PartyPooper}
      */
-    this.partyPopper = new PartyPopper(data);
+    this.partyPooper = new PartyPooper(data);
     /**
      * Prop Hunt Stats
      * @type {PropHunt}
