@@ -579,7 +579,7 @@ declare module 'hypixel-api-reborn' {
         25: 19050;
       };
       skillsCap: {
-        taming: 50;
+        taming: 60;
         farming: 60;
         mining: 60;
         combat: 60;
