@@ -2632,6 +2632,21 @@ declare module 'hypixel-api-reborn' {
     candyUsed: number;
     skin: string | null;
   }
+  class SkyblockMuseumItem {
+    constructor(data: Record<string, unknown>);
+    name:string|null
+    items:SkyblockInventoryItem[]
+    donatedTime:number
+    donatedTimeAt:Date
+    borrowing:boolean
+    featuredSlot:string|null
+  }
+  class SkyblockMuseum {
+    constructor(data: Record<string, unknown>);
+    raw: object;
+    getWardrobe(): Promise<SkyblockMuseumItem[]>;
+    getWardrobe(): Promise<SkyblockMuseumItem[]>;
+  }
   class SkyblockGarden {
     constructor(data: Record<string, unknown>);
     level: SKYBLOCK_SKILL_DATA;
