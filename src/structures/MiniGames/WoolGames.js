@@ -308,7 +308,14 @@ class SheepWars {
   }
 }
 
+/**
+ * WoolGames Stats
+ */
 class WoolGames {
+  /**
+   * Constructor
+   * @param {Record<string, unknown>} data Data from API
+   */
   constructor(data) {
     /**
      * Layers
@@ -321,17 +328,17 @@ class WoolGames {
      */
     this.xp = data?.progression?.experience || 0;
     /**
-     * exactLevel
+     * Exact Level
      * @type {number}
      */
     this.exactLevel = this.convertXPToLevel(this.xp);
     /**
-     * level
+     * Level
      * @type {number}
      */
     this.level = Math?.floor(this.exactLevel);
     /**
-     * coins
+     * Coins
      * @type {number}
      */
     this.coins = data?.coins || 0;
@@ -342,7 +349,7 @@ class WoolGames {
     this.ownedCosmetics = data?.packages || [];
     /**
      * Private Games Config
-     * @type {number}
+     * @type {WoolGamesPrivateGamesConfig}
      */
     this.privateGamesConfig = data?.privategames || {};
     /**
@@ -385,7 +392,7 @@ class WoolGames {
 }
 
 /**
- * @typedef {object} SkyblockMemberHotm
+ * @typedef {object} WoolGamesPrivateGamesConfig
  * @property {boolean} one_hit_one_kill one hit one kill
  * @property {'Enabled' | 'Disabled'} rainbow_wool rainbow wool
  * @property {string} health_buff health buff
