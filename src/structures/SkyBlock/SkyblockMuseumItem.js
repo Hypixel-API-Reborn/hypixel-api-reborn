@@ -14,7 +14,7 @@ class SkyblockMuseumItem {
     this.name = data.name;
     /**
      * Item
-     * @type {SkyblockInventoryItem}
+     * @type {SkyblockInventoryItem[]}
      */
     this.items = [];
     data.decoded.forEach((item) => {

@@ -20,7 +20,7 @@ const {
   Pets,
   Pet,
   Color,
-  WoolWars,
+  WoolGames,
   Errors,
   Player
 } = require('../src');
@@ -225,8 +225,8 @@ describe('Client#getPlayer', () => {
             if (playerTest.stats.arena) {
               expect(playerTest.stats.arena).instanceOf(ArenaBrawl);
             }
-            if (playerTest.stats.woolwars) {
-              expect(playerTest.stats.woolwars).instanceOf(WoolWars);
+            if (playerTest.stats.woolgames) {
+              expect(playerTest.stats.woolgames).instanceOf(WoolGames);
             }
           }
         });
@@ -424,8 +424,8 @@ describe('Client#getPlayer', () => {
             if (playerTest.stats.arena) {
               expect(playerTest.stats.arena).instanceOf(ArenaBrawl);
             }
-            if (playerTest.stats.woolwars) {
-              expect(playerTest.stats.woolwars).instanceOf(WoolWars);
+            if (playerTest.stats.woolgames) {
+              expect(playerTest.stats.woolgames).instanceOf(WoolGames);
             }
           }
         });

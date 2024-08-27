@@ -1424,7 +1424,7 @@ declare module 'hypixel-api-reborn' {
       walls?: Walls;
       warlords?: Warlords;
       arcade?: Arcade;
-      woolwars?: WoolWars;
+      woolgames?: WoolGames;
       pit?: Pit;
     };
     getRecentGames(): Promise<RecentGame[]>;
@@ -1474,49 +1474,71 @@ declare module 'hypixel-api-reborn' {
     extraAttributes: string | null;
     toString(): string;
   }
-  class WoolWars {
-    static convertXPToLevel(exp: number): number;
-    static generateStatsFor(data: Record<string, unknown>, _class?: string | undefined): WoolWarsStats;
+  class WoolWarsClass {
     constructor(data: Record<string, unknown>);
-    layers: number;
-    xp: number;
-    exactLevel: number;
-    level: number;
-    coins: number;
     wins: number;
+    kills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
     gamesPlayed: number;
     woolsPlaced: number;
     blocksBroken: number;
     placeBreakRatio: number;
-    kills: number;
-    deaths: number;
-    KDRatio: number;
-    assists: number;
     powerups: number;
-    selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
-    stats: {
-      assault: WoolWarsStats;
-      tank: WoolWarsStats;
-      golem: WoolWarsStats;
-      swordsman: WoolWarsStats;
-      engineer: WoolWarsStats;
-      archer: WoolWarsStats;
-    };
-    ownedCosmetics: string[];
-    privateGamesConfig: PrivateGamesConfig;
   }
-  type WoolWarsStats = {
+  class WoolWars {
+    constructor(data: Record<string, unknown>);
+    selectedClass: 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER' | 'NONE';
     wins: number;
+    kills: number;
+    assists: number;
+    deaths: number;
+    KDRatio: number;
     gamesPlayed: number;
     woolsPlaced: number;
     blocksBroken: number;
     placeBreakRatio: number;
+    powerups: number;
+    assault: WoolWarsClass;
+    tank: WoolWarsClass;
+    golem: WoolWarsClass;
+    swordsman: WoolWarsClass;
+    engineer: WoolWarsClass;
+    archer: WoolWarsClass;
+  }
+  class CaptureTheWool {
+    constructor(data: Record<string, unknown>);
     kills: number;
+    assists: number;
     deaths: number;
     KDRatio: number;
-    assists: number;
-    powerups: number;
-  };
+    killsWithWool: number;
+    deathsWithWool: number;
+    KDRatioWithWool: number;
+    woolCaptured: number;
+    woolStolen: number;
+    woolCaptureStolenRatio: number;
+  }
+  class SheepWars {
+    constructor(data: Record<string, unknown>);
+    wins: number;
+    kills: number;
+    killsVoid: number;
+    killsBow: number;
+    killsExplosive: number;
+    deaths: number;
+    deathsVoid: number;
+    deathsMelee: number;
+    deathsExplosive: number;
+    KDRatio: number;
+    losses: number;
+    WLRatio: number;
+    gamesPlayed: number;
+    damageDealt: number;
+    sheepThrown: number;
+    magicWoolHit: number;
+  }
   type PrivateGamesConfig = {
     one_hit_one_kill: boolean;
     rainbow_wool: 'Enabled' | 'Disabled';
@@ -1526,6 +1548,20 @@ declare module 'hypixel-api-reborn' {
     no_class: 'Enabled' | 'Disabled';
     respawn_enable: boolean;
   };
+  class WoolGames {
+    constructor(data: Record<string, unknown>);
+    layers: number;
+    xp: number;
+    exactLevel: number;
+    level: number;
+    coins: number;
+    ownedCosmetics: string[];
+    privateGamesConfig: PrivateGamesConfig;
+    playtime: number;
+    woolWars: WoolWars;
+    captureTheWool: CaptureTheWool;
+    sheepWars: SheepWars;
+  }
   class PlayerCosmetics {
     constructor(data: Record<string, unknown>);
     allCosmetics: string[];
@@ -1805,7 +1841,6 @@ declare module 'hypixel-api-reborn' {
     flashDisabled: boolean;
     blockingDead: BlockingDead;
     bountyHunters: BountyHunters;
-    captureTheWool: CaptureTheWool;
     dragonWars: DragonWars;
     dropper: Dropper;
     enderSpleef: EnderSpleef;
@@ -1834,21 +1869,6 @@ declare module 'hypixel-api-reborn' {
     bountyKills: number;
     bowKills: number;
     swordKills: number;
-  }
-  class CaptureTheWool {
-    constructor(data: Record<string, unknown>);
-    wins: number;
-    losses: number;
-    WLRatio: number;
-    draws: number;
-    kills: number;
-    deaths: number;
-    KDRatio: number;
-    assists: number;
-    woolPickedUp: number;
-    woolCaptured: number;
-    fastestWin: number;
-    longestGame: number;
   }
   class DragonWars {
     constructor(data: Record<string, unknown>);
@@ -2634,12 +2654,12 @@ declare module 'hypixel-api-reborn' {
   }
   class SkyblockMuseumItem {
     constructor(data: Record<string, unknown>);
-    name:string|null
-    items:SkyblockInventoryItem[]
-    donatedTime:number
-    donatedTimeAt:Date
-    borrowing:boolean
-    featuredSlot:string|null
+    name: string | null;
+    items: SkyblockInventoryItem[];
+    donatedTime: number;
+    donatedTimeAt: Date;
+    borrowing: boolean;
+    featuredSlot: string | null;
   }
   class SkyblockMuseum {
     constructor(data: Record<string, unknown>);

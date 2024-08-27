@@ -241,73 +241,6 @@ class BountyHunters {
   }
 }
 /**
- * Capture the Wool class
- */
-class CaptureTheWool {
-  constructor(data) {
-    /**
-     * Wins
-     * @type {number}
-     */
-    this.wins = data.woolhunt_participated_wins || 0;
-    /**
-     * Losses
-     * @type {number}
-     */
-    this.losses = data.woolhunt_participated_losses || 0;
-    /**
-     * Win Loss ratio
-     * @type {number}
-     */
-    this.WLRatio = divide(this.wins, this.losses);
-    /**
-     * Draws
-     * @type {number}
-     */
-    this.draws = data.woolhunt_participated_draws || 0;
-    /**
-     * Kills
-     * @type {number}
-     */
-    this.kills = data.woolhunt_kills || 0;
-    /**
-     * Deaths
-     * @type {number}
-     */
-    this.deaths = data.woolhunt_deaths || 0;
-    /**
-     * Kill Death ratio
-     * @type {number}
-     */
-    this.KDRatio = divide(this.kills, this.deaths);
-    /**
-     * assists
-     * @type {number}
-     */
-    this.assists = data.woolhunt_assists || 0;
-    /**
-     * woolPickedUp
-     * @type {number}
-     */
-    this.woolPickedUp = data.woolhunt_wools_stolen || 0;
-    /**
-     * woolCaptured
-     * @type {number}
-     */
-    this.woolCaptured = data.woolhunt_wools_captured || 0;
-    /**
-     * fastestWin (In seconds)
-     * @type {number}
-     */
-    this.fastestWin = data.woolhunt_fastest_win || 0;
-    /**
-     * longestGame (In seconds)
-     * @type {number}
-     */
-    this.longestGame = data.woolhunt_longest_game || 0;
-  }
-}
-/**
  * Dragon Wars class
  */
 class DragonWars {
@@ -977,11 +910,6 @@ class Arcade {
      * @type {BountyHunters}
      */
     this.bountyHunters = new BountyHunters(data);
-    /**
-     * Capture The Wool
-     * @type {CaptureTheWool}
-     */
-    this.captureTheWool = new CaptureTheWool(data);
     /**
      * Dragon wars stats
      * @type {DragonWars}

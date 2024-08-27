@@ -29,7 +29,7 @@ const Paintball = require('./MiniGames/Paintball');
 const Quakecraft = require('./MiniGames/Quakecraft');
 const Walls = require('./MiniGames/Walls');
 const Warlords = require('./MiniGames/Warlords');
-const WoolWars = require('./MiniGames/WoolWars');
+const WoolGames = require('./MiniGames/WoolGames');
 const Pit = require('./MiniGames/Pit');
 const Guild = require('./Guild/Guild');
 const RecentGame = require('./RecentGame');
@@ -240,7 +240,7 @@ class Player {
           vampirez: data.stats.VampireZ ? new VampireZ(data.stats.VampireZ) : null,
           walls: data.stats.Walls ? new Walls(data.stats.Walls) : null,
           warlords: data.stats.Battleground ? new Warlords(data.stats.Battleground) : null,
-          woolwars: data.stats.WoolGames ? new WoolWars(data.stats.WoolGames) : null
+          woolgames: data.stats.WoolGames ? new WoolGames(data.stats.WoolGames) : null
         }
       : null;
     /**
@@ -325,7 +325,7 @@ class Player {
  * @property {VampireZ|null} vampirez VampireZ
  * @property {Walls|null} walls Walls
  * @property {Warlords|null} warlords Warlords
- * @property {WoolWars|null} woolwars Wool Wars
+ * @property {WoolGames|null} woolgames Wool Games
  */
 /**
  * @typedef {Object} RanksPurchaseTime
