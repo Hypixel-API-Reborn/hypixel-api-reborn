@@ -77,22 +77,22 @@ class WoolWars {
      * Wins
      * @type {number}
      */
-    this.wins = data?.stats.wins || 0;
+    this.wins = data?.stats?.wins || 0;
     /**
      * Kills
      * @type {number}
      */
-    this.kills = data?.stats.kills || 0;
+    this.kills = data?.stats?.kills || 0;
     /**
      * Assists
      * @type {number}
      */
-    this.assists = data?.stats.assists || 0;
+    this.assists = data?.stats?.assists || 0;
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = data?.stats.deaths || 0;
+    this.deaths = data?.stats?.deaths || 0;
     /**
      * KDRatio
      * @type {number}
@@ -102,17 +102,17 @@ class WoolWars {
      * Games Played
      * @type {number}
      */
-    this.gamesPlayed = data?.stats.games_played || 0;
+    this.gamesPlayed = data?.stats?.games_played || 0;
     /**
      * Wools Placed
      * @type {number}
      */
-    this.woolsPlaced = data?.stats.wool_placed || 0;
+    this.woolsPlaced = data?.stats?.wool_placed || 0;
     /**
      * Blocks Broken
      * @type {number}
      */
-    this.blocksBroken = data?.stats.blocks_broken || 0;
+    this.blocksBroken = data?.stats?.blocks_broken || 0;
     /**
      * Place Break Ratio
      * @type {number}
@@ -127,32 +127,32 @@ class WoolWars {
      * Assault Class Stats
      * @type {WoolWarsClass}
      */
-    this.assault = new WoolWarsClass(data.stats.classes, 'assault');
+    this.assault = new WoolWarsClass(data?.stats?.classes, 'assault');
     /**
      * Tank Class Stats
      * @type {WoolWarsClass}
      */
-    this.tank = new WoolWarsClass(data.stats.classes, 'tank');
+    this.tank = new WoolWarsClass(data?.stats?.classes, 'tank');
     /**
      * Golem Class Stats
      * @type {WoolWarsClass}
      */
-    this.golem = new WoolWarsClass(data.stats.classes, 'golem');
+    this.golem = new WoolWarsClass(data?.stats?.classes, 'golem');
     /**
      * Swordsman Class Stats
      * @type {WoolWarsClass}
      */
-    this.swordsman = new WoolWarsClass(data.stats.classes, 'swordsman');
+    this.swordsman = new WoolWarsClass(data?.stats?.classes, 'swordsman');
     /**
      * Engineer Class Stats
      * @type {WoolWarsClass}
      */
-    this.engineer = new WoolWarsClass(data.stats.classes, 'engineer');
+    this.engineer = new WoolWarsClass(data?.stats?.classes, 'engineer');
     /**
      * Archer Class Stats
      * @type {WoolWarsClass}
      */
-    this.archer = new WoolWarsClass(data.stats.classes, 'archer');
+    this.archer = new WoolWarsClass(data?.stats?.classes, 'archer');
   }
 }
 /**
@@ -168,17 +168,17 @@ class CaptureTheWool {
      * kills
      * @type {number}
      */
-    this.kills = data?.stats.kills || 0;
+    this.kills = data?.stats?.kills || 0;
     /**
      * Assists
      * @type {number}
      */
-    this.assists = data?.stats.assists || 0;
+    this.assists = data?.stats?.assists || 0;
     /**
      * Deaths
      * @type {number}
      */
-    this.deaths = data?.stats.deaths || 0;
+    this.deaths = data?.stats?.deaths || 0;
     /**
      * KDRatio
      * @type {number}
@@ -188,12 +188,12 @@ class CaptureTheWool {
      * Kills With Wool
      * @type {number}
      */
-    this.killsWithWool = data?.stats.kills_with_wool || 0;
+    this.killsWithWool = data?.stats?.kills_with_wool || 0;
     /**
      * Deaths With Wool
      * @type {number}
      */
-    this.deathsWithWool = data?.stats.deaths_with_wool || 0;
+    this.deathsWithWool = data?.stats?.deaths_with_wool || 0;
     /**
      * KDRatio With Wool
      * @type {number}
@@ -203,12 +203,12 @@ class CaptureTheWool {
      * Wool Captured
      * @type {number}
      */
-    this.woolCaptured = data?.stats.wools_captured || 0;
+    this.woolCaptured = data?.stats?.wools_captured || 0;
     /**
      * Wool Stolen
      * @type {number}
      */
-    this.woolStolen = data?.stats.wools_stolen || 0;
+    this.woolStolen = data?.stats?.wools_stolen || 0;
     /**
      * Wool Capture Stolen Ratio
      * @type {number}
@@ -314,12 +314,12 @@ class WoolGames {
      * Layers
      * @type {number}
      */
-    this.layers = data.progression?.available_layers || 0;
+    this.layers = data?.progression?.available_layers || 0;
     /**
      * XP
      * @type {number}
      */
-    this.xp = data.progression?.experience || 0;
+    this.xp = data?.progression?.experience || 0;
     /**
      * exactLevel
      * @type {number}
@@ -329,42 +329,42 @@ class WoolGames {
      * level
      * @type {number}
      */
-    this.level = Math.floor(this.exactLevel);
+    this.level = Math?.floor(this.exactLevel);
     /**
      * coins
      * @type {number}
      */
-    this.coins = data.coins || 0;
+    this.coins = data?.coins || 0;
     /**
      * Owned Cosmetics
      * @type {string[]}
      */
-    this.ownedCosmetics = data.packages || [];
+    this.ownedCosmetics = data?.packages || [];
     /**
      * Private Games Config
      * @type {number}
      */
-    this.privateGamesConfig = data.privategames || {};
+    this.privateGamesConfig = data?.privategames || {};
     /**
      * Playtime
      * @type {number}
      */
-    this.playtime = data.playtime || 0;
+    this.playtime = data?.playtime || 0;
     /**
      * Wool Wars
      * @type {WoolWars}
      */
-    this.woolWars = new WoolWars(data.wool_wars);
+    this.woolWars = new WoolWars(data?.wool_wars);
     /**
      * Capture The Wool
      * @type {CaptureTheWool}
      */
-    this.captureTheWool = new CaptureTheWool(data.capture_the_wool);
+    this.captureTheWool = new CaptureTheWool(data?.capture_the_wool);
     /**
      * Sheep Wars
      * @type {SheepWars}
      */
-    this.sheepWars = new SheepWars(data.sheep_wars);
+    this.sheepWars = new SheepWars(data?.sheep_wars);
   }
 
   /**
