@@ -9,9 +9,6 @@ function parseDate(date) {
 
 function parseHistory(historyData) {
   const expValuesReversed = Object.values(historyData).reverse();
-  const maxToIndex = (index) => {
-      return expValuesReversed.slice(0, expValuesReversed.length - index).reduce((pV, cV) => pV + cV);
-  };
 
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
@@ -23,7 +20,9 @@ function parseHistory(historyData) {
           .map((x) => parseInt(x, 10))
       ) || undefined,
     exp: x[1] || 0,
-    totalExp: maxToIndex(index)
+    totalExp: expValuesReversed
+      .slice(0, expValuesReversed.length - index)
+      .reduce((pV, cV) => pV + cV)
   }));
 }
 
