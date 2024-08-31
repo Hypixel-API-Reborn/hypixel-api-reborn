@@ -9,7 +9,6 @@ function parseDate(date) {
 
 function parseHistory(historyData) {
   const expValuesReversed = Object.values(historyData).reverse();
-
   return Object.entries(historyData).map((x, index) => ({
     day: x[0],
     date:
@@ -20,9 +19,7 @@ function parseHistory(historyData) {
           .map((x) => parseInt(x, 10))
       ) || undefined,
     exp: x[1] || 0,
-    totalExp: expValuesReversed
-      .slice(0, expValuesReversed.length - index)
-      .reduce((pV, cV) => pV + cV)
+    totalExp: expValuesReversed.slice(0, expValuesReversed.length - index).reduce((pV, cV) => pV + cV)
   }));
 }
 
