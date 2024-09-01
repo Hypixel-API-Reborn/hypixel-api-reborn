@@ -14,8 +14,7 @@ class UHCGamemode {
    * @param {object} data UHC data
    * @param {string} mode UHC Mode Name
    */
-  constructor(data, mode) {
-    if (mode) mode = `_${mode}`;
+  constructor(data, mode = '') {
     /**
      * Kills
      * @type {number}
@@ -76,7 +75,7 @@ class UHC {
      * Solo
      * @type {UHCGamemode}
      */
-    this.solo = new UHCGamemode(data, 'solo');
+    this.solo = new UHCGamemode(data, '_solo');
     /**
      * Teams
      * @type {UHCGamemode}
@@ -86,27 +85,27 @@ class UHC {
      * Red vs Blue
      * @type {UHCGamemode}
      */
-    this.redVsBlue = new UHCGamemode(data, 'red_vs_blue');
+    this.redVsBlue = new UHCGamemode(data, '_red_vs_blue');
     /**
      * No Diamond
      * @type {UHCGamemode}
      */
-    this.noDiamond = new UHCGamemode(data, 'no_diamonds');
+    this.noDiamond = new UHCGamemode(data, '_no_diamonds');
     /**
      * Brawl
      * @type {UHCGamemode}
      */
-    this.brawl = new UHCGamemode(data, 'brawl');
+    this.brawl = new UHCGamemode(data, '_brawl');
     /**
      * Solo brawl
      * @type {UHCGamemode}
      */
-    this.soloBrawl = new UHCGamemode(data, 'solo_brawl');
+    this.soloBrawl = new UHCGamemode(data, '_solo_brawl');
     /**
      * Duo Brawl
      * @type {UHCGamemode}
      */
-    this.duoBrawl = new UHCGamemode(data, 'duo_brawl');
+    this.duoBrawl = new UHCGamemode(data, '_duo_brawl');
     /**
      * Wins
      * @type {number}
