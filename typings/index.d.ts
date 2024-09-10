@@ -2756,15 +2756,15 @@ declare module 'hypixel-api-reborn' {
         mages: number;
       };
       trophyFish: {
-				rank: "Diamond" | "Gold" | "Silver" | "Bronze" | null;
-				caught: {
-					total: number;
-					bronze: number;
-					silver: number;
-					gold: number;
-					diamond: number;
-				};
-			};
+        rank: 'Diamond' | 'Gold' | 'Silver' | 'Bronze' | null;
+        caught: {
+          total: number;
+          bronze: number;
+          silver: number;
+          gold: number;
+          diamond: number;
+        };
+      };
       kuudra: {
         none: number;
         hot: number;
