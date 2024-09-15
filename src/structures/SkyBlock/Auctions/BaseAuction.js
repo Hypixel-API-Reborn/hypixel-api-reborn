@@ -32,7 +32,10 @@ class BaseAuction {
      * Item bytes
      * @type {ItemBytes|null}
      */
-    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes) : null;
+    this.itemBytes =
+      includeItemBytes && data.item_bytes
+        ? new ItemBytes(data.item_bytes.data ? data.item_bytes.data : data.item_bytes)
+        : null;
   }
   /**
    * Auction ID
