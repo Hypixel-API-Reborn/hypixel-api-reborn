@@ -62,5 +62,7 @@ module.exports = {
   INVALID_UPDATE_OPTION: '[hypixel-api-reborn] Invalid Value for update : must be a boolean',
   INVALID_THIRD_PARTY_API_OPTION: '[hypixel-api-reborn] Invalid Third Party API option : must be a boolean or string',
   BAD_AUCTION_FILTER:
-    '[hypixel-api-reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PLAYER", "AUCTION", "PROFILE", but got something else.'
+    '[hypixel-api-reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PLAYER", "AUCTION", "PROFILE", but got something else.',
+  RECENT_REQUEST:
+    '[Hypixel-API-Reborn] You have requested that player recently. Try turning on cache. For help join our Discord Server https://discord.gg/NSEBNMM'
 };

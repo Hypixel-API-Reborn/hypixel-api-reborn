@@ -32,6 +32,12 @@ class Requests {
     }
     if (403 === res.status) throw new Error(Errors.INVALID_API_KEY);
     if (422 === res.status) throw new Error(Errors.UNEXPECTED_ERROR);
+    if (
+      429 === res.status &&
+      'You have already looked up this player too recently, please try again shortly' === parsedRes.cause
+    ) {
+      throw new Error(Errors.RECENT_REQUEST);
+    }
     if (429 === res.status) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
     if (200 !== res.status) throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     if (!parsedRes.success && !endpoint.startsWith('/housing')) {
