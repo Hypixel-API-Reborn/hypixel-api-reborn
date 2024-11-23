@@ -244,7 +244,7 @@ class SkyblockMember {
       for (const pet of data.m.pets_data.pets) {
         if (!(pet.type in highestRarity) || Constants.petScore[pet.tier] > highestRarity[pet.type]) {
           highestRarity[pet.type] = Constants.petScore[pet.tier];
-          if (pet.heldItem === 'PET_ITEM_TIER_BOOST' && pet.tier !== 'MYTHIC') {
+          if ('PET_ITEM_TIER_BOOST' === pet.heldItem && 'MYTHIC' !== pet.tier) {
             highestRarity[pet.type] += 1;
           }
         }
