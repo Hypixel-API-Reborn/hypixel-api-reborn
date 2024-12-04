@@ -179,6 +179,8 @@ function getTrophyFishRank(level) {
     return 'Gold';
   } else if (4 === level) {
     return 'Diamond';
+  } else if (5 === level) {
+    return 'Diamond';
   }
   return null;
 }
