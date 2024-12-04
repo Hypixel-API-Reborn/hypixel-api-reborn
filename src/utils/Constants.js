@@ -876,6 +876,13 @@ module.exports = {
 
       mobs: [
         {
+          name: 'Bat',
+          cap: 200,
+
+          mobs: ['forest_island_bat_3'],
+          bracket: 1
+        },
+        {
           name: 'Creeper',
           cap: 200,
 
@@ -1141,6 +1148,12 @@ module.exports = {
           bracket: 6
         },
         {
+          name: 'Field Mice',
+          cap: 100,
+          mobs: ['pest_mouse_1'],
+          bracket: 7
+        },
+        {
           name: 'Fly',
           cap: 250,
           mobs: ['pest_fly_1'],
@@ -1379,24 +1392,24 @@ module.exports = {
       mobs: [
         {
           name: 'Ashfang',
-          cap: 1000,
+          cap: 500,
 
           mobs: ['ashfang_200'],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Barbarian Duke X',
-          cap: 1000,
+          cap: 500,
 
           mobs: ['barbarian_duke_x_200'],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Bladesoul',
-          cap: 1000,
+          cap: 500,
 
           mobs: ['bladesoul_200'],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Blaze',
@@ -1435,17 +1448,17 @@ module.exports = {
         },
         {
           name: 'Mage Outlaw',
-          cap: 1000,
+          cap: 500,
 
           mobs: ['mage_outlaw_200'],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Magma Boss',
-          cap: 1000,
+          cap: 500,
 
           mobs: ['magma_boss_500'],
-          bracket: 5
+          bracket: 7
         },
         {
           name: 'Magma Cube',
@@ -1527,7 +1540,14 @@ module.exports = {
           name: 'Emerald Slime',
           cap: 3000,
 
-          mobs: ['emerald_slime_5', 'emerald_slime_10', 'emerald_slime_15'],
+          mobs: ['emerald_slime_5', 'emerald_slime_10'],
+          bracket: 1
+        },
+        {
+          name: 'Lapis Zombie',
+          cap: 3000,
+
+          mobs: ['lapis_zombie_7'],
           bracket: 1
         },
         {
@@ -1557,13 +1577,6 @@ module.exports = {
 
           mobs: ['invisible_creeper_3'],
           bracket: 3
-        },
-        {
-          name: 'Lapis Zombie',
-          cap: 3000,
-
-          mobs: ['lapis_zombie_7'],
-          bracket: 1
         }
       ]
     },
@@ -1579,9 +1592,44 @@ module.exports = {
         },
         {
           name: 'Ghost',
-          cap: 250000,
+          cap: 100000,
 
           mobs: ['caverns_ghost_250'],
+          bracket: 3
+        },
+        {
+          name: 'Glacite Bowman',
+          cap: 1000,
+
+          mobs: ['glacite_bowman_165'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Caver',
+          cap: 1000,
+
+          mobs: ['glacite_caver_200'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Mage',
+          cap: 1000,
+
+          mobs: ['glacite_mage_155'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Mutt',
+          cap: 1000,
+
+          mobs: ['glacite_mutt_180'],
+          bracket: 4
+        },
+        {
+          name: 'Glacite Walker',
+          cap: 10000,
+
+          mobs: ['ice_walker_45'],
           bracket: 2
         },
         {
@@ -1625,13 +1673,6 @@ module.exports = {
           bracket: 5
         },
         {
-          name: 'Glacite Walker',
-          cap: 10000,
-
-          mobs: ['ice_walker_45'],
-          bracket: 2
-        },
-        {
           name: 'Powder Ghast',
           cap: 200,
 
@@ -1647,37 +1688,9 @@ module.exports = {
         },
         {
           name: 'Treasure Hoarder',
-          cap: 4000,
+          cap: 1000,
 
           mobs: ['treasure_hoarder_70'],
-          bracket: 3
-        },
-        {
-          name: 'Glacite Bowman',
-          cap: 1000,
-
-          mobs: ['glacite_bowman_165'],
-          bracket: 4
-        },
-        {
-          name: 'Glacite Caver',
-          cap: 1000,
-
-          mobs: ['glacite_caver_200'],
-          bracket: 4
-        },
-        {
-          name: 'Glacite Mage',
-          cap: 1000,
-
-          mobs: ['glacite_mage_155'],
-          bracket: 4
-        },
-        {
-          name: 'Glacite Mutt',
-          cap: 1000,
-
-          mobs: ['glacite_mutt_180'],
           bracket: 4
         }
       ]
@@ -1701,6 +1714,13 @@ module.exports = {
           bracket: 6
         },
         {
+          name: 'Boss Corleone',
+          cap: 100,
+
+          mobs: ['team_treasurite_corleone_200'],
+          bracket: 7
+        },
+        {
           name: 'Butterfly',
           cap: 1000,
 
@@ -1715,8 +1735,7 @@ module.exports = {
             'team_treasurite_grunt_50',
             'team_treasurite_viper_100',
             'team_treasurite_wendy_100',
-            'team_treasurite_sebastian_100',
-            'team_treasurite_corleone_200'
+            'team_treasurite_sebastian_100'
           ],
           bracket: 3
         },
@@ -2279,10 +2298,10 @@ module.exports = {
           },
           {
             name: 'Lord Jawbus',
-            cap: 250,
+            cap: 100,
 
             mobs: ['lord_jawbus_600'],
-            bracket: 6
+            bracket: 7
           },
           {
             name: 'Magma Slug',
@@ -2307,10 +2326,10 @@ module.exports = {
           },
           {
             name: 'Pyroclastic Worm',
-            cap: 4000,
+            cap: 1000,
 
             mobs: ['pyroclastic_worm_240'],
-            bracket: 3
+            bracket: 4
           },
           {
             name: 'Taurus',
@@ -2602,6 +2621,13 @@ module.exports = {
           bracket: 5
         },
         {
+          name: 'Golem',
+          cap: 1000,
+
+          mobs: ['sadan_golem_1', 'master_sadan_golem_1'],
+          bracket: 4
+        },
+        {
           name: 'King Midas',
           cap: 750,
 
@@ -2746,13 +2772,6 @@ module.exports = {
           cap: 1000,
 
           mobs: ['mimic_115', 'mimic_125', 'master_mimic_115', 'master_mimic_125'],
-          bracket: 4
-        },
-        {
-          name: 'Golem',
-          cap: 1000,
-
-          mobs: ['sadan_golem_1', 'master_sadan_golem_1'],
           bracket: 4
         },
         {
