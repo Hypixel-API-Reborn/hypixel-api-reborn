@@ -42,15 +42,15 @@
   "publisher": "StavZ",
   "devDependencies": {
     "@discordjs/docgen": "github:discordjs/docgen",
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.10.1",
     "chai": "^4.3.4",
-    "eslint": "^9.14.0",
-    "eslint-plugin-jsdoc": "^50.5.0",
-    "globals": "^15.12.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-jsdoc": "^50.6.0",
+    "globals": "^15.13.0",
     "mocha": "^10.4.0",
     "node-env-run": "^4.0.2",
     "path": "^0.12.7",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
   }
 }
