@@ -1,0 +1,174 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="https://hypixel-api-reborn.github.io/reborn-ts/"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>hypixel-api-reborn</title><meta name="description" content="Documentation for hypixel-api-reborn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/style.css"/><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/highlight.css"/><script defer src="https://hypixel-api-reborn.github.io/reborn-ts/assets/main.js"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.js" id="tsd-icons-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/search.js" id="tsd-search-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/navigation.js" id="tsd-nav-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/hierarchy.js" id="tsd-hierarchy-script"></script><style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #97cbff;
+    --md-sys-color-on-primary: #003354;
+    --md-sys-color-primary-container: #004a77;
+    --md-sys-color-on-primary-container: #cee5ff;
+    --md-sys-color-secondary: #b9c8da;
+    --md-sys-color-on-secondary: #243240;
+    --md-sys-color-secondary-container: #3a4857;
+    --md-sys-color-on-secondary-container: #d5e4f7;
+    --md-sys-color-tertiary: #d3bfe6;
+    --md-sys-color-on-tertiary: #392a49;
+    --md-sys-color-tertiary-container: #504061;
+    --md-sys-color-on-tertiary-container: #efdbff;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffb4ab;
+    --md-sys-color-background: #1a1c1e;
+    --md-sys-color-on-background: #e2e2e5;
+    --md-sys-color-surface: #1a1c1e;
+    --md-sys-color-on-surface: #e2e2e5;
+    --md-sys-color-surface-variant: #42474e;
+    --md-sys-color-on-surface-variant: #c2c7cf;
+    --md-sys-color-outline: #8c9199;
+    --md-sys-color-outline-variant: #42474e;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #e2e2e5;
+    --md-sys-color-inverse-on-surface: #2f3033;
+    --md-sys-color-inverse-primary: #00639c;
+    --md-sys-color-surface-dim: #121416;
+    --md-sys-color-surface-bright: #38393c;
+    --md-sys-color-surface-container-lowest: #0c0e11;
+    --md-sys-color-surface-container-low: #1a1c1e;
+    --md-sys-color-surface-container: #1e2022;
+    --md-sys-color-surface-container-high: #282a2d;
+    --md-sys-color-surface-container-highest: #333538
+  }
+}
+:root[data-theme="dark"] {
+  --md-sys-color-primary: #97cbff;
+  --md-sys-color-on-primary: #003354;
+  --md-sys-color-primary-container: #004a77;
+  --md-sys-color-on-primary-container: #cee5ff;
+  --md-sys-color-secondary: #b9c8da;
+  --md-sys-color-on-secondary: #243240;
+  --md-sys-color-secondary-container: #3a4857;
+  --md-sys-color-on-secondary-container: #d5e4f7;
+  --md-sys-color-tertiary: #d3bfe6;
+  --md-sys-color-on-tertiary: #392a49;
+  --md-sys-color-tertiary-container: #504061;
+  --md-sys-color-on-tertiary-container: #efdbff;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffb4ab;
+  --md-sys-color-background: #1a1c1e;
+  --md-sys-color-on-background: #e2e2e5;
+  --md-sys-color-surface: #1a1c1e;
+  --md-sys-color-on-surface: #e2e2e5;
+  --md-sys-color-surface-variant: #42474e;
+  --md-sys-color-on-surface-variant: #c2c7cf;
+  --md-sys-color-outline: #8c9199;
+  --md-sys-color-outline-variant: #42474e;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e2e2e5;
+  --md-sys-color-inverse-on-surface: #2f3033;
+  --md-sys-color-inverse-primary: #00639c;
+  --md-sys-color-surface-dim: #121416;
+  --md-sys-color-surface-bright: #38393c;
+  --md-sys-color-surface-container-lowest: #0c0e11;
+  --md-sys-color-surface-container-low: #1a1c1e;
+  --md-sys-color-surface-container: #1e2022;
+  --md-sys-color-surface-container-high: #282a2d;
+  --md-sys-color-surface-container-highest: #333538
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-sys-color-primary: #00639c;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #cee5ff;
+    --md-sys-color-on-primary-container: #001d33;
+    --md-sys-color-secondary: #51606f;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #d5e4f7;
+    --md-sys-color-on-secondary-container: #0e1d2a;
+    --md-sys-color-tertiary: #68587a;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #efdbff;
+    --md-sys-color-on-tertiary-container: #231533;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+    --md-sys-color-background: #fcfcff;
+    --md-sys-color-on-background: #1a1c1e;
+    --md-sys-color-surface: #fcfcff;
+    --md-sys-color-on-surface: #1a1c1e;
+    --md-sys-color-surface-variant: #dee3eb;
+    --md-sys-color-on-surface-variant: #42474e;
+    --md-sys-color-outline: #72777f;
+    --md-sys-color-outline-variant: #c2c7cf;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #2f3033;
+    --md-sys-color-inverse-on-surface: #f1f0f4;
+    --md-sys-color-inverse-primary: #97cbff;
+    --md-sys-color-surface-dim: #dadadd;
+    --md-sys-color-surface-bright: #f9f9fc;
+    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: #f3f3f7;
+    --md-sys-color-surface-container: #eeedf1;
+    --md-sys-color-surface-container-high: #e8e8eb;
+    --md-sys-color-surface-container-highest: #e2e2e5
+  }
+}
+:root[data-theme="light"] {
+  --md-sys-color-primary: #00639c;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #cee5ff;
+  --md-sys-color-on-primary-container: #001d33;
+  --md-sys-color-secondary: #51606f;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d5e4f7;
+  --md-sys-color-on-secondary-container: #0e1d2a;
+  --md-sys-color-tertiary: #68587a;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #efdbff;
+  --md-sys-color-on-tertiary-container: #231533;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fcfcff;
+  --md-sys-color-on-background: #1a1c1e;
+  --md-sys-color-surface: #fcfcff;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-surface-variant: #dee3eb;
+  --md-sys-color-on-surface-variant: #42474e;
+  --md-sys-color-outline: #72777f;
+  --md-sys-color-outline-variant: #c2c7cf;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #2f3033;
+  --md-sys-color-inverse-on-surface: #f1f0f4;
+  --md-sys-color-inverse-primary: #97cbff;
+  --md-sys-color-surface-dim: #dadadd;
+  --md-sys-color-surface-bright: #f9f9fc;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f3f3f7;
+  --md-sys-color-surface-container: #eeedf1;
+  --md-sys-color-surface-container-high: #e8e8eb;
+  --md-sys-color-surface-container-highest: #e2e2e5
+}
+</style><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/material-style.css"/></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search"><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="https://hypixel-api-reborn.github.io/reborn-ts/index.html" class="title">hypixel-api-reborn</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>hypixel-api-reborn</h1></div><h2>Hierarchy Summary</h2><ul class="tsd-full-hierarchy"><li data-refl="3135"><a id="Structures/Static/Achievements/BaseAchievement.BaseAchievement" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_Static_Achievements_BaseAchievement.BaseAchievement.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>BaseAchievement</a><ul><li data-refl="3168"><a id="Structures/Static/Achievements/OneTimeAchivement.OneTimeAchivement" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_Static_Achievements_OneTimeAchivement.OneTimeAchivement.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>OneTimeAchivement</a></li><li data-refl="3184"><a id="Structures/Static/Achievements/TieredAchivement.TieredAchivement" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_Static_Achievements_TieredAchivement.TieredAchivement.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>TieredAchivement</a></li></ul></li></ul><ul class="tsd-full-hierarchy"><li data-refl="2769"><a id="Structures/SkyBlock/Auctions/BaseAuction.BaseAuction" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_SkyBlock_Auctions_BaseAuction.BaseAuction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>BaseAuction</a><ul><li data-refl="2732"><a id="Structures/SkyBlock/Auctions/Auction.Auction" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_SkyBlock_Auctions_Auction.Auction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>Auction</a></li></ul></li></ul><ul class="tsd-full-hierarchy"><li data-refl="1123"><a id="Structures/MiniGames/BedWars/Practice/BedWarsPracticeBase.BedWarsPracticeBase" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_MiniGames_BedWars_Practice_BedWarsPracticeBase.BedWarsPracticeBase.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>BedWarsPracticeBase</a><ul><li data-refl="1129"><a id="Structures/MiniGames/BedWars/Practice/BedWarsPracticeBaseBlocksPlaced.BedWarsPracticeBaseBlocksPlaced" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_MiniGames_BedWars_Practice_BedWarsPracticeBaseBlocksPlaced.BedWarsPracticeBaseBlocksPlaced.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>BedWarsPracticeBaseBlocksPlaced</a><ul><li data-refl="1136"><a id="Structures/MiniGames/BedWars/Practice/BedWarsPracticeBridging.BedWarsPracticeBridging" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Structures_MiniGames_BedWars_Practice_BedWarsPracticeBridging.BedWarsPracticeBridging.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>BedWarsPracticeBridging</a></li></ul></li></ul></li></ul><ul class="tsd-full-hierarchy"><li data-refl="470"><a id="Private/Endpoint.Endpoint" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/Private_Endpoint.Endpoint.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>Endpoint</a><ul><li data-refl="2"><a id="API/getAchievements.getAchievements" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getAchievements.getAchievements.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getAchievements</a></li><li data-refl="11"><a id="API/getActiveHouses.getActiveHouses" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getActiveHouses.getActiveHouses.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getActiveHouses</a></li><li data-refl="20"><a id="API/getBoosters.getBoosters" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getBoosters.getBoosters.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getBoosters</a></li><li data-refl="29"><a id="API/getChallenges.getChallenges" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getChallenges.getChallenges.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getChallenges</a></li><li data-refl="38"><a id="API/getGameCounts.getGameCounts" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getGameCounts.getGameCounts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getGameCounts</a></li><li data-refl="47"><a id="API/getGuild.getGuild" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getGuild.getGuild.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getGuild</a></li><li data-refl="58"><a id="API/getGuildAchievements.getGuildAchievements" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getGuildAchievements.getGuildAchievements.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getGuildAchievements</a></li><li data-refl="67"><a id="API/getHouse.getHouse" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getHouse.getHouse.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getHouse</a></li><li data-refl="77"><a id="API/getLeaderboards.getLeaderboards" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getLeaderboards.getLeaderboards.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getLeaderboards</a></li><li data-refl="86"><a id="API/getPlayer.getPlayer" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getPlayer.getPlayer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getPlayer</a></li><li data-refl="96"><a id="API/getPlayerHouses.getPlayerHouses" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getPlayerHouses.getPlayerHouses.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getPlayerHouses</a></li><li data-refl="106"><a id="API/getQuests.getQuests" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getQuests.getQuests.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getQuests</a></li><li data-refl="115"><a id="API/getRecentGames.getRecentGames" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getRecentGames.getRecentGames.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getRecentGames</a></li><li data-refl="125"><a id="API/getSkyblockAuction.getSkyblockAction" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockAuction.getSkyblockAction.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockAction</a></li><li data-refl="136"><a id="API/getSkyblockAuctions.getSkyblockAuctions" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockAuctions.getSkyblockAuctions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockAuctions</a></li><li data-refl="155"><a id="API/getSkyblockAuctionsByPlayer.getSkyblockActionsByPlayer" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockAuctionsByPlayer.getSkyblockActionsByPlayer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockActionsByPlayer</a></li><li data-refl="165"><a id="API/getSkyblockBazaar.getSkyblockBazaar" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockBazaar.getSkyblockBazaar.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockBazaar</a></li><li data-refl="174"><a id="API/getSkyblockBingo.getSkyblockBingo" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockBingo.getSkyblockBingo.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockBingo</a></li><li data-refl="183"><a id="API/getSkyblockFireSales.getSkyblockFireSales" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockFireSales.getSkyblockFireSales.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockFireSales</a></li><li data-refl="192"><a id="API/getSkyblockGarden.getSkyblockGarden" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockGarden.getSkyblockGarden.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockGarden</a></li><li data-refl="202"><a id="API/getSkyblockGovernment.getSkyblockGovernment" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockGovernment.getSkyblockGovernment.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockGovernment</a></li><li data-refl="211"><a id="API/getSkyblockMember.getSkyblockMember" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockMember.getSkyblockMember.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockMember</a></li><li data-refl="221"><a id="API/getSkyblockMuseum.getSkyblockMuseum" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockMuseum.getSkyblockMuseum.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockMuseum</a></li><li data-refl="232"><a id="API/getSkyblockNews.getSkyblockNews" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockNews.getSkyblockNews.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockNews</a></li><li data-refl="241"><a id="API/getSkyblockProfiles.getSkyblockProfiles" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getSkyblockProfiles.getSkyblockProfiles.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getSkyblockProfiles</a></li><li data-refl="251"><a id="API/getStatus.getStatus" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getStatus.getStatus.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getStatus</a></li><li data-refl="261"><a id="API/getWatchdogStats.getWatchdogStats" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/classes/API_getWatchdogStats.getWatchdogStats.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-128"></use></svg>getWatchdogStats</a></li></ul></li></ul><ul class="tsd-full-hierarchy"><li data-refl="3459"><a id="Types/Skyblock.MemberStatsCandyCollected" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_Skyblock.MemberStatsCandyCollected.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>MemberStatsCandyCollected</a><ul><li data-refl="3466"><a id="Types/Skyblock.MemberStatsCandy" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_Skyblock.MemberStatsCandy.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>MemberStatsCandy</a></li></ul></li></ul><ul class="tsd-full-hierarchy"><li data-refl="3438"><a id="Types/Requests.RequestOptions" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_Requests.RequestOptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>RequestOptions</a><ul><li data-refl="3287"><a id="Types/API.PlayerRequestOptions" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_API.PlayerRequestOptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>PlayerRequestOptions</a></li><li data-refl="3293"><a id="Types/API.AuctionRequestOptions" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_API.AuctionRequestOptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>AuctionRequestOptions</a></li><li data-refl="3297"><a id="Types/API.SkyblockRequestOptions" class="tsd-anchor"></a><a href="https://hypixel-api-reborn.github.io/reborn-ts/interfaces/Types_API.SkyblockRequestOptions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-256"></use></svg>SkyblockRequestOptions</a></li></ul></li></ul></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div></div><div class="site-menu"><nav class="tsd-navigation"><a href="https://hypixel-api-reborn.github.io/reborn-ts/modules.html" class="current">hypixel-api-reborn</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div><script>
+          try {
+            const generateLinkElement = document.querySelector(".tsd-generator a");
+            const link = document.createElement("a");
+            Object.assign(link, {
+              href: "https://github.com/dmnsgn/typedoc-material-theme",
+              target: "_blank",
+              rel: "noreferrer",
+              innerText: "typedoc-material-theme."
+            });
+            generateLinkElement.insertAdjacentElement("afterend", link);
+            generateLinkElement.insertAdjacentText("afterend", " with ");
+          } catch (error) {
+
+          }
+        </script></body></html>
