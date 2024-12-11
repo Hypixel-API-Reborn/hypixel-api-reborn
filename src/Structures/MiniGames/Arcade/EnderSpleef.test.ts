@@ -1,0 +1,30 @@
+import EnderSpleef from './EnderSpleef.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { EnderSpleefTrails } from '../../../Types/Player.js';
+
+test('EnderSpleef', () => {
+  const data = new EnderSpleef({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(EnderSpleef);
+  expectTypeOf(data).toEqualTypeOf<EnderSpleef>();
+  expect(data.wins).toBeDefined();
+  expect(data.wins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wins).toEqualTypeOf<number>();
+  expect(data.kills).toBeDefined();
+  expect(data.kills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.kills).toEqualTypeOf<number>();
+  expect(data.trail).toBeDefined();
+  expectTypeOf(data.trail).toEqualTypeOf<EnderSpleefTrails | 'None'>();
+  expect(data.blocksDestroyed).toBeDefined();
+  expect(data.blocksDestroyed).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.blocksDestroyed).toEqualTypeOf<number>();
+  expect(data.bigShotActivations).toBeDefined();
+  expect(data.bigShotActivations).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.bigShotActivations).toEqualTypeOf<number>();
+  expect(data.tripleShotActivations).toBeDefined();
+  expect(data.tripleShotActivations).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.tripleShotActivations).toEqualTypeOf<number>();
+  expect(data.totalPowerUpActivations).toBeDefined();
+  expect(data.totalPowerUpActivations).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.totalPowerUpActivations).toEqualTypeOf<number>();
+});

@@ -1,9 +1,10 @@
 {
   "name": "hypixel-api-reborn",
-  "version": "11.3.7",
+  "version": "12.0.0-6",
   "description": "Feature-rich Hypixel API wrapper for Node.js",
-  "main": "./src/index.js",
-  "types": "./typings/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
   "keywords": [
     "minecraft",
     "client",
@@ -16,41 +17,58 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint": "npx eslint src/",
-    "lint:fix": "npx eslint src/ --fix",
-    "tests": "npx mocha tests --exit --recursive",
-    "docgen": " npx docgen -s src/ --custom docs/index.yml -o ./master.json",
-    "prettier": "npx prettier --write src/ typings/",
-    "prettier:check": "npx prettier --check src/ typings/"
+    "lint:check": "npx eslint src/",
+    "lint": "npx eslint src/ --fix",
+    "prettier:check": "npx prettier --check .",
+    "prettier": "npx prettier --write .",
+    "build": "npx tsc && cp -r ./src/Types dist/",
+    "test": "npx vitest run",
+    "test:coverage": "npx vitest run --coverage",
+    "test:ui": "npx vitest --ui --coverage",
+    "docgen": "npx typedoc"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=20.16.0"
   },
-  "author": "StavZ",
+  "type": "module",
+  "packageManager": "pnpm@9.7.1",
+  "author": "Kathund",
   "dependencies": {
+    "farming-weight": "^0.7.1",
     "node-cache": "^5.1.2",
-    "node-fetch": "^3.3.2",
     "prismarine-nbt": "^2.6.0",
     "rss-parser": "^3.13.0",
     "skyhelper-networth": "^1.26.0"
   },
   "license": "MIT",
-  "readme": "https://hypixel.stavzdev.me/",
+  "readme": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn?tab=readme-ov-file#hypixel-api--reborn",
   "repository": {
-    "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn"
+    "url": "git+https://github.com/Hypixel-API-Reborn/hypixel-api-reborn.git"
   },
-  "publisher": "StavZ",
+  "files": [
+    "dist/**/*"
+  ],
+  "publisher": "Kathund",
   "devDependencies": {
-    "@discordjs/docgen": "github:discordjs/docgen",
+    "@8hobbies/typedoc-plugin-404": "^3.1.0",
+    "@eslint/js": "^9.16.0",
+    "@j4cobi/eslint-plugin-sort-imports": "^1.0.2",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^22.10.1",
-    "chai": "^4.3.4",
+    "@types/xml2js": "^0.4.14",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "dotenv": "^16.4.7",
     "eslint": "^9.16.0",
-    "eslint-plugin-jsdoc": "^50.6.0",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.13.0",
-    "mocha": "^10.4.0",
-    "node-env-run": "^4.0.2",
-    "path": "^0.12.7",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2"
+    "typedoc": "^0.27.3",
+    "typedoc-material-theme": "^1.2.0",
+    "typedoc-plugin-rename-defaults": "^0.7.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "vitest": "^2.1.8",
+    "xml2js": "^0.6.2"
   }
 }

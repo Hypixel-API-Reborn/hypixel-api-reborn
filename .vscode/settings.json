@@ -1,0 +1,7 @@
+{
+  "editor.tabSize": 2,
+  "prettier.useTabs": false,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.trimAutoWhitespace": true
+}

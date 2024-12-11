@@ -17,5 +17,5 @@ be no issue and the team will be greatful for your actions.
 To report a vulnerability you can do so in the [Discord Server](https://discord.gg/NSEBNMM) by openeing a support ticket
 or you can contact the primary contributor of this repository using the following contact methods:
 
-- @kathund. on Discord
+- @.kathund on Discord
 - @kathundd on Telegram

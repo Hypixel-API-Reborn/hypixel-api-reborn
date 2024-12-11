@@ -18,50 +18,16 @@
 [Discord Support](https://discord.gg/NSEBNMM) | [Documentation](https://hypixel-api-reborn.github.io/) |
 [NPM](https://www.npmjs.com/package/hypixel-api-reborn) |
 [GitHub](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn) |
-[ToDo](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/projects/1) |
-[CLI](https://github.com/Hypixel-API-Reborn/cli)
 
 #### Requirements
 
-**For Node.js users >= v18.18.0** <br> **For TypeScript users >= v3.5**
+**For Node.js users >= v20.16.0** <br> **For TypeScript users >= v5.5.4**
 
 ### Installation & Usage
 
 ```shell
-npm i hypixel-api-reborn
+npm i hypixel-api-reborn@next
 ```
 
-```js
-const Hypixel = require('hypixel-api-reborn');
-const hypixel = new Hypixel.Client('API-KEY');
-
-// getPlayer
-hypixel
-  .getPlayer('StavZDev')
-  .then((player) => {
-    console.log(player.level); // 141
-  })
-  .catch((e) => {
-    console.error(e);
-  });
-
-// getGuild
-hypixel
-  .getGuild('name', 'The Foundation')
-  .then((guild) => {
-    console.log(guild.level); // 111
-  })
-  .catch((e) => {
-    console.error(e);
-  });
-```
-
-For more examples go to our [documentation](https://hypixel-api-reborn.github.io/).
-
-## Changelog
-
-[v11.0.0](https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/releases/tag/11.0.0)
-
-### Try it now
-
-**[Code Sandbox](https://codesandbox.io/s/clever-babbage-xqmfw?file=/src/index.js)**
+**Do note that you are installing a beta version of v12.0.0.** Any issues or bugs you encounter, please report them in
+the [Discord Support](https://discord.gg/NSEBNMM).

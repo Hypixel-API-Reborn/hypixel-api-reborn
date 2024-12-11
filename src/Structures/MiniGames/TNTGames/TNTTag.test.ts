@@ -1,0 +1,36 @@
+import TNTTag from './TNTTag.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { ColorString } from '../../../Types/Color.js';
+
+test('TNTTag', () => {
+  const data = new TNTTag({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(TNTTag);
+  expectTypeOf(data).toEqualTypeOf<TNTTag>();
+  expect(data.wins).toBeDefined();
+  expect(data.wins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wins).toEqualTypeOf<number>();
+  expect(data.kills).toBeDefined();
+  expect(data.kills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.kills).toEqualTypeOf<number>();
+  expect(data.deaths).toBeDefined();
+  expect(data.deaths).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.deaths).toEqualTypeOf<number>();
+  expect(data.KDR).toBeDefined();
+  expect(data.KDR).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.speed).toBeDefined();
+  expect(data.speed).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.speed).toEqualTypeOf<number>();
+  expect(data.blastProtection).toBeDefined();
+  expect(data.blastProtection).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.blastProtection).toEqualTypeOf<number>();
+  expect(data.speedItUp).toBeDefined();
+  expect(data.speedItUp).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.speedItUp).toEqualTypeOf<number>();
+  expect(data.slowItDown).toBeDefined();
+  expect(data.slowItDown).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.slowItDown).toEqualTypeOf<number>();
+  expect(data.prefix).toBeDefined();
+  expectTypeOf(data.prefix).toEqualTypeOf<ColorString | 'Rainbow'>();
+});

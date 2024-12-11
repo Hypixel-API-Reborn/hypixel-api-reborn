@@ -1,0 +1,37 @@
+import VampireZ from './VampireZ.js';
+import VampireZRole from './VampireZRole.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('VampireZ', () => {
+  const data = new VampireZ({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(VampireZ);
+  expectTypeOf(data).toEqualTypeOf<VampireZ>();
+  expect(data.coins).toBeDefined();
+  expect(data.coins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.coins).toEqualTypeOf<number>();
+  expect(data.goldBought).toBeDefined();
+  expect(data.goldBought).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.goldBought).toEqualTypeOf<number>();
+  expect(data.blood).toBeDefined();
+  expectTypeOf(data.blood).toEqualTypeOf<boolean>();
+  expect(data.zombieKills).toBeDefined();
+  expect(data.zombieKills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.zombieKills).toEqualTypeOf<number>();
+  expect(data.human).toBeDefined();
+  expectTypeOf(data.human).toEqualTypeOf<VampireZRole>();
+  expect(data.vampire).toBeDefined();
+  expectTypeOf(data.vampire).toEqualTypeOf<VampireZRole>();
+  expect(data.kills).toBeDefined();
+  expect(data.kills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.kills).toEqualTypeOf<number>();
+  expect(data.deaths).toBeDefined();
+  expect(data.deaths).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.deaths).toEqualTypeOf<number>();
+  expect(data.KDR).toBeDefined();
+  expect(data.KDR).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.wins).toBeDefined();
+  expect(data.wins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wins).toEqualTypeOf<number>();
+});

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/"],
+  "out": "documentation",
+  "includeVersion": false,
+  "exclude": ["**/*.test.ts"],
+  "plugin": ["@8hobbies/typedoc-plugin-404", "typedoc-plugin-rename-defaults", "typedoc-material-theme"],
+  "entryPointStrategy": "expand",
+  "hideGenerator": true,
+  "cleanOutputDir": true,
+  "page404Content": "This poage does not exist",
+  "useHostedBaseUrlForAbsoluteLinks": true,
+  "hostedBaseUrl": "https://hypixel-api-reborn.github.io/reborn-ts/",
+  "lang": "en",
+  "themeColor": "#2f3236"
+}

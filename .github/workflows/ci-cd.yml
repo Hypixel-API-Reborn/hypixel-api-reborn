@@ -1,0 +1,132 @@
+name: 'CI/CD'
+on:
+  push:
+    paths:
+      - src/**
+    branches:
+      - master
+  workflow_dispatch:
+  pull_request:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  pnpm:
+    name: install dependencies (pnpm)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+  prettier:
+    name: check linting (prettier)
+    needs: [pnpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Check prettier
+        run: pnpm prettier:check
+
+  eslint:
+    name: check linting (eslint)
+    needs: [pnpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Check eslint
+        run: pnpm lint:check
+
+  build:
+    name: build
+    needs: [pnpm, eslint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Check build
+        run: pnpm build
+
+  tests:
+    name: tests
+    needs: [pnpm, eslint, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Check tests
+        env:
+          HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
+        run: pnpm test:coverage
+
+      - name: Move Coverage Data
+        run: mv coverage/clover.xml .github/coverageData.xml
+
+      - name: Check Coverage
+        run: npx tsx .github/scripts/checkCoverage.ts

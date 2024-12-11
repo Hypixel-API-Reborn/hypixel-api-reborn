@@ -1,0 +1,35 @@
+import Cosmetics from './Cosmetics.js';
+import Pets from './Pets.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('Cosmetics', () => {
+  const data = new Cosmetics({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(Cosmetics);
+  expectTypeOf(data).toEqualTypeOf<Cosmetics>();
+  expect(data.cosmetics).toBeDefined();
+  expectTypeOf(data.cosmetics).toEqualTypeOf<string[]>();
+  expect(data.currentGadget).toBeDefined();
+  expectTypeOf(data.currentGadget).toEqualTypeOf<string | null>();
+  expect(data.pets).toBeDefined();
+  expect(data.pets).toBeInstanceOf(Pets);
+  expectTypeOf(data.pets).toEqualTypeOf<Pets>();
+  expect(data.suits).toBeDefined();
+  expectTypeOf(data.suits).toEqualTypeOf<string[]>();
+  expect(data.hats).toBeDefined();
+  expectTypeOf(data.hats).toEqualTypeOf<string[]>();
+  expect(data.gadgets).toBeDefined();
+  expectTypeOf(data.gadgets).toEqualTypeOf<string[]>();
+  expect(data.morphs).toBeDefined();
+  expectTypeOf(data.morphs).toEqualTypeOf<string[]>();
+  expect(data.cloaks).toBeDefined();
+  expectTypeOf(data.cloaks).toEqualTypeOf<string[]>();
+  expect(data.taunts).toBeDefined();
+  expectTypeOf(data.taunts).toEqualTypeOf<string[]>();
+  expect(data.rankColors).toBeDefined();
+  expectTypeOf(data.rankColors).toEqualTypeOf<string[]>();
+  expect(data.particlePacks).toBeDefined();
+  expectTypeOf(data.particlePacks).toEqualTypeOf<string[]>();
+  expect(data.clickfx).toBeDefined();
+  expectTypeOf(data.clickfx).toEqualTypeOf<string[]>();
+});

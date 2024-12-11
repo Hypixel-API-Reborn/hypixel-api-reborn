@@ -1,0 +1,38 @@
+import CopsAndCrimsGamemode from './CopsAndCrimsGamemode.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('CopsAndCrimsGamemode', () => {
+  const data = new CopsAndCrimsGamemode({ stats: 'meow' }, 'deathmatch');
+  expect(data).toBeInstanceOf(CopsAndCrimsGamemode);
+  expectTypeOf(data).toEqualTypeOf<CopsAndCrimsGamemode>();
+  expect(data.kills).toBeDefined();
+  expect(data.kills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.kills).toEqualTypeOf<number>();
+  expect(data.criminalKills).toBeDefined();
+  expect(data.criminalKills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.criminalKills).toEqualTypeOf<number>();
+  expect(data.copKills).toBeDefined();
+  expect(data.copKills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.copKills).toEqualTypeOf<number>();
+  expect(data.assists).toBeDefined();
+  expect(data.assists).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.assists).toEqualTypeOf<number>();
+  expect(data.deaths).toBeDefined();
+  expect(data.deaths).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.deaths).toEqualTypeOf<number>();
+  expect(data.KDR).toBeDefined();
+  expect(data.KDR).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.wins).toBeDefined();
+  expect(data.wins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wins).toEqualTypeOf<number>();
+  expect(data.gamesPlayed).toBeDefined();
+  expect(data.gamesPlayed).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.gamesPlayed).toEqualTypeOf<number>();
+  expect(data.losses).toBeDefined();
+  expect(data.losses).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.losses).toEqualTypeOf<number>();
+  expect(data.WLR).toBeDefined();
+  expect(data.WLR).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.WLR).toEqualTypeOf<number>();
+});
