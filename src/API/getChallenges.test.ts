@@ -3,8 +3,8 @@ import Challenges from '../Structures/Static/Challenges.js';
 import Client from '../Client.js';
 import GameChallenges from '../Structures/Static/GameChallenges.js';
 import RequestData from '../Private/RequestData.js';
-import { ChallengeReward } from '../Types/Static.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { ChallengeReward } from '../Types/Static.js';
 
 test('getChallenges (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

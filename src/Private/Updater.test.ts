@@ -1,8 +1,8 @@
 import Client from '../Client.js';
 import Updater from './Updater.js';
+import packageJSON from '../../package.json' with { type: 'json' };
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import { version } from '../../package.json';
 import { vi } from 'vitest';
 
 test('Updater', () => {
@@ -13,7 +13,7 @@ test('Updater', () => {
   expect(client.updater).toBeDefined();
   expectTypeOf(client.updater).toEqualTypeOf<Updater>();
 
-  expect(client.updater.currentVersion).toBe(version);
+  expect(client.updater.currentVersion).toBe(packageJSON.version);
   expect(client.updater.latestVersion).toBe('0.0.0');
 
   expect(client.updater.checkForUpdates).toBeDefined();
@@ -65,11 +65,11 @@ test('Updater (check version)', async () => {
   client.updater.currentVersion = '1.0.0';
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
-    json: () => Promise.resolve({ 'dist-tags': { latest: version } })
+    json: () => Promise.resolve({ 'dist-tags': { latest: packageJSON.version } })
   } as any);
   await client.updater.checkForUpdates();
   expect(consoleLogSpy).toHaveBeenCalledWith(
-    `New version of hypixel-api-reborn is available! Current version: 1.0.0, Latest version: ${version}`
+    `New version of hypixel-api-reborn is available! Current version: 1.0.0, Latest version: ${packageJSON.version}`
   );
   vi.restoreAllMocks();
   client.destroy();

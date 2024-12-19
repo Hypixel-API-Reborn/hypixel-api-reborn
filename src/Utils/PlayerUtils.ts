@@ -1,4 +1,4 @@
-import { LevelProgress, PlayerRank } from '../Types/Player.js';
+import type { LevelProgress, PlayerRank } from '../Types/Player.js';
 
 export function getRank(player: Record<string, any>): PlayerRank {
   if (player.prefix) {

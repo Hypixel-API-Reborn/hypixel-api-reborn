@@ -4,8 +4,8 @@ import Quest from '../Structures/Static/Quest.js';
 import QuestObjective from '../Structures/Static/QuestObjective.js';
 import Quests from '../Structures/Static/Quests.js';
 import RequestData from '../Private/RequestData.js';
-import { QuestReward, QuestType } from '../Types/Static.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { QuestReward, QuestType } from '../Types/Static.js';
 
 test('getQuests (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

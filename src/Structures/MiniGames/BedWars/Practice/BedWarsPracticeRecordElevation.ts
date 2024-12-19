@@ -1,4 +1,4 @@
-import { BedWarsPracticeRecordDistances, BedWarsPracticeRecordElevations } from '../../../../Types/Player.js';
+import type { BedWarsPracticeRecordDistances, BedWarsPracticeRecordElevations } from '../../../../Types/Player.js';
 
 class BedWarsPracticeRecordElevation {
   straight: number;

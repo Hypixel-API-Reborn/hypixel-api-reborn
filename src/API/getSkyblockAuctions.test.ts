@@ -3,9 +3,9 @@ import AuctionInfo from '../Structures/SkyBlock/Auctions/AuctionInfo.js';
 import Bid from '../Structures/SkyBlock/Auctions/Bid.js';
 import Client from '../Client.js';
 import ItemBytes from '../Structures/ItemBytes.js';
-import { Rarity } from '../Types/Skyblock.js';
-import { SkyblockAuctionsResult } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { Rarity } from '../Types/Skyblock.js';
+import type { SkyblockAuctionsResult } from '../Types/API.js';
 
 test('getSkyblockAuctions (No input)', () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

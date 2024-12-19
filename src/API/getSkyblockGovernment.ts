@@ -5,13 +5,13 @@ import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getSkyblockGovernment extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(options?: RequestOptions): Promise<GovernmentData | RequestData> {
+  override async execute(options?: RequestOptions): Promise<GovernmentData | RequestData> {
     const res = await this.client.requestHandler.request('/resources/skyblock/election', options);
     if (res.options.raw) return res;
     return new GovernmentData(res.data);

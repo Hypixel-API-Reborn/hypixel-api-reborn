@@ -1,6 +1,6 @@
 import SocialMedia from './SocialMedia.js';
-import { SocialMediaId } from '../../Types/Player.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { SocialMediaId } from '../../Types/Player.js';
 
 test('SocialMedia', () => {
   const data = new SocialMedia({ id: 'DISCORD', link: 'meow' });

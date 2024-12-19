@@ -5,13 +5,13 @@ import Status from '../Structures/Status.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getStatus extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: string, options?: RequestOptions): Promise<Status | RequestData> {
+  override async execute(query: string, options?: RequestOptions): Promise<Status | RequestData> {
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/status?uuid=${query}`, options);
     if (res.options.raw) return res;

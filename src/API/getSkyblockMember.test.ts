@@ -7,7 +7,8 @@ import SkyblockMember from '../Structures/SkyBlock/SkyblockMember.js';
 import SkyblockMemberStats from '../Structures/SkyBlock/SkyblockMemberStats.js';
 import SkyblockMuseum from '../Structures/SkyBlock/SkyblockMuseum.js';
 import SkyblockPet from '../Structures/SkyBlock/SkyblockPet.js';
-import {
+import { expect, expectTypeOf, test } from 'vitest';
+import type {
   Armor,
   ChocolateFactoryData,
   CrimsonIsle,
@@ -19,8 +20,7 @@ import {
   Skills,
   Slayer
 } from '../Types/Skyblock.js';
-import { NetworthResult } from 'skyhelper-networth';
-import { expect, expectTypeOf, test } from 'vitest';
+import type { NetworthResult } from 'skyhelper-networth';
 
 test('getSkyblockMember (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

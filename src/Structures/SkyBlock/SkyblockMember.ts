@@ -4,18 +4,7 @@ import SkyblockMemberMinions from './SkyblockMemberMinions.js';
 import SkyblockMemberStats from './SkyblockMemberStats.js';
 import SkyblockMuseum from './SkyblockMuseum.js';
 import SkyblockPet from './SkyblockPet.js';
-import {
-  Armor,
-  ChocolateFactoryData,
-  CrimsonIsle,
-  Dungeons,
-  Equipment,
-  HOTM,
-  JacobData,
-  Skills,
-  Slayer
-} from '../../Types/Skyblock.js';
-import { NetworthResult, getNetworth } from 'skyhelper-networth';
+import { type NetworthResult, getNetworth } from 'skyhelper-networth';
 import { createFarmingWeightCalculator } from 'farming-weight';
 import {
   decode,
@@ -30,6 +19,17 @@ import {
   getSlayer
 } from '../../Utils/SkyblockUtils.js';
 import { petScore } from '../../Utils/Constants.js';
+import type {
+  Armor,
+  ChocolateFactoryData,
+  CrimsonIsle,
+  Dungeons,
+  Equipment,
+  HOTM,
+  JacobData,
+  Skills,
+  Slayer
+} from '../../Types/Skyblock.js';
 
 class SkyblockMember {
   uuid: string;

@@ -3,8 +3,8 @@ import Bid from '../Structures/SkyBlock/Auctions/Bid.js';
 import Client from '../Client.js';
 import ItemBytes from '../Structures/ItemBytes.js';
 import RequestData from '../Private/RequestData.js';
-import { Rarity } from '../Types/Skyblock.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { Rarity } from '../Types/Skyblock.js';
 
 test('getSkyblockAuction (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

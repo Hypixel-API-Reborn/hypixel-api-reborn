@@ -1,5 +1,5 @@
-import Client from '../Client';
-import Functions from './Functions';
+import Client from '../Client.js';
+import Functions from './Functions.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Functions', () => {

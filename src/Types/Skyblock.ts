@@ -1,4 +1,4 @@
-import SkyblockInventoryItem from '../Structures/SkyBlock/SkyblockInventoryItem.ts';
+import SkyblockInventoryItem from '../Structures/SkyBlock/SkyblockInventoryItem.js';
 
 export type SkyblockGemstoneQuality = 'Rough' | 'Flawed' | 'Fine' | 'Flawless' | 'Perfect';
 export type TrophyFishRank = 'Bronze' | 'Silver' | 'Gold' | 'Diamond';

@@ -1,5 +1,5 @@
-import { Rarity } from '../../Types/Skyblock.js';
 import { petScore } from '../../Utils/Constants.js';
+import type { Rarity } from '../../Types/Skyblock.js';
 
 class SkyblockPet {
   uuid: string;

@@ -1,5 +1,5 @@
 import SeasonYear from './SeasonYear.js';
-import { SeasonName } from '../../../Types/Player.js';
+import type { SeasonName } from '../../../Types/Player.js';
 
 class Season {
   season: SeasonName;

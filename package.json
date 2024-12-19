@@ -21,7 +21,7 @@
     "lint": "npx eslint src/ --fix",
     "prettier:check": "npx prettier --check .",
     "prettier": "npx prettier --write .",
-    "build": "npx tsc && cp -r ./src/Types dist/",
+    "build": "npx tsc",
     "test": "npx vitest run",
     "test:coverage": "npx vitest run --coverage",
     "test:ui": "npx vitest --ui --coverage",

@@ -3,8 +3,16 @@ import SkyblockMember from './SkyblockMember.js';
 import SkyblockMemberStats from './SkyblockMemberStats.js';
 import SkyblockMuseum from './SkyblockMuseum.js';
 import SkyblockPet from './SkyblockPet.js';
-import { ChocolateFactoryData, CrimsonIsle, Dungeons, HOTM, JacobData, Skills, Slayer } from '../../Types/Skyblock.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type {
+  ChocolateFactoryData,
+  CrimsonIsle,
+  Dungeons,
+  HOTM,
+  JacobData,
+  Skills,
+  Slayer
+} from '../../Types/Skyblock.js';
 
 test('SkyblockMember', () => {
   const data = new SkyblockMember({ stats: 'meow' });

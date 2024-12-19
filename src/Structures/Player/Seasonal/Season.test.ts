@@ -1,7 +1,7 @@
 import Season from './Season.js';
 import SeasonYear from './SeasonYear.js';
-import { SeasonName } from '../../../Types/Player.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { SeasonName } from '../../../Types/Player.js';
 
 test('Season', () => {
   const data = new Season({ stats: 'meow' }, 'anniversary');

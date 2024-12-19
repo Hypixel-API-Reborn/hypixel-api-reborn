@@ -5,16 +5,16 @@ import House from '../Structures/House.js';
 import Player from '../Structures/Player/Player.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
-import { PlayerRequestOptions } from '../Types/API.js';
+import type { PlayerRequestOptions } from '../Types/API.js';
 
 class getPlayer extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: string, options?: PlayerRequestOptions): Promise<Player | RequestData> {
+  override async execute(query: string, options?: PlayerRequestOptions): Promise<Player | RequestData> {
     if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/player?uuid=${query}`, options);

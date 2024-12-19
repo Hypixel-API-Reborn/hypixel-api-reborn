@@ -1,6 +1,6 @@
 import BaseAuction from './BaseAuction.js';
 import Bid from './Bid.js';
-import { Rarity } from '../../../Types/Skyblock.js';
+import type { Rarity } from '../../../Types/Skyblock.js';
 
 class Auction extends BaseAuction {
   coop: string[];
@@ -35,7 +35,7 @@ class Auction extends BaseAuction {
     this.claimedBidders = this.claimed ? data.claimed_bidders : [];
   }
 
-  toString(): string {
+  override toString(): string {
     return this.item;
   }
 }

@@ -1,5 +1,5 @@
-import { GameCode, GameID, GameString } from '../Types/Game.js';
 import type { DuelsBaseDivision } from '../Types/Player.js';
+import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 export const games: { id: GameID; code: GameCode; name: GameString }[] = [
   { id: 2, code: 'QUAKECRAFT', name: 'Quake' },

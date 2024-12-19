@@ -1,6 +1,6 @@
 import BuildBattle from './BuildBattle.js';
-import { BuildBattleWins } from '../../Types/Player.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { BuildBattleWins } from '../../Types/Player.js';
 
 test('BuildBattle', () => {
   const data = new BuildBattle({ stats: 'meow' });

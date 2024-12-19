@@ -37,9 +37,9 @@ import VampireZ from '../Structures/MiniGames/VampireZ/VampireZ.js';
 import Walls from '../Structures/MiniGames/Walls.js';
 import Warlords from '../Structures/MiniGames/Warlords/Warlords.js';
 import WoolGames from '../Structures/MiniGames/WoolGames/WoolGames.js';
-import { ChatChannel, Language, LevelProgress, PlayerRank, PlayerStats, ScorpiusBribe } from '../Types/Player.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
+import type { ChatChannel, Language, LevelProgress, PlayerRank, PlayerStats, ScorpiusBribe } from '../Types/Player.js';
 
 test('getPlayer (never joinned hypixel)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

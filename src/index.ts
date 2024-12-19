@@ -4,16 +4,16 @@
 import Client from './Client.js';
 import Errors from './Errors.js';
 
-export * from './Types/API.d.js';
-export * from './Types/Booster.d.js';
-export * from './Types/Client.d.js';
-export * from './Types/Color.d.js';
-export * from './Types/Game.d.js';
-export * from './Types/Guild.d.js';
-export * from './Types/Player.d.js';
-export * from './Types/Requests.d.js';
-export * from './Types/Skyblock.d.js';
-export * from './Types/Static.d.js';
+export * from './Types/API.js';
+export * from './Types/Booster.js';
+export * from './Types/Client.js';
+export * from './Types/Color.js';
+export * from './Types/Game.js';
+export * from './Types/Guild.js';
+export * from './Types/Player.js';
+export * from './Types/Requests.js';
+export * from './Types/Skyblock.js';
+export * from './Types/Static.js';
 
 import Achievements from './Structures/Static/Achievements/Achievements.js';
 import Arcade from './Structures/MiniGames/Arcade/Arcade.js';

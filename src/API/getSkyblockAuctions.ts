@@ -2,17 +2,17 @@ import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
 import AuctionInfo from '../Structures/SkyBlock/Auctions/AuctionInfo.js';
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
-import { AuctionRequestOptions, SkyblockAuctionsResult } from '../Types/API.js';
+import type { AuctionRequestOptions, SkyblockAuctionsResult } from '../Types/API.js';
 
 class getSkyblockAuctions extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   declare options: AuctionRequestOptions;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: number | '*', options?: AuctionRequestOptions): Promise<SkyblockAuctionsResult> {
+  override async execute(query: number | '*', options?: AuctionRequestOptions): Promise<SkyblockAuctionsResult> {
     if (!query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
     if ('number' === typeof query && 0 >= query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
     if ('number' !== typeof query && '*' !== query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);

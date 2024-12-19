@@ -5,13 +5,13 @@ import WatchdogStats from '../Structures/WatchdogStats.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getWatchdogStats extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(options?: RequestOptions): Promise<WatchdogStats | RequestData> {
+  override async execute(options?: RequestOptions): Promise<WatchdogStats | RequestData> {
     const res = await this.client.requestHandler.request('/punishmentstats', options);
     if (res.options.raw) return res;
     return new WatchdogStats(res.data);

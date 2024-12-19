@@ -2,16 +2,16 @@ import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
-import { AuctionRequestOptions } from '../Types/API.js';
+import type { AuctionRequestOptions } from '../Types/API.js';
 
 class getSkyblockActionsByPlayer extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: string, options?: AuctionRequestOptions): Promise<Auction[] | RequestData> {
+  override async execute(query: string, options?: AuctionRequestOptions): Promise<Auction[] | RequestData> {
     if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/skyblock/auction?player=${query}`, options);

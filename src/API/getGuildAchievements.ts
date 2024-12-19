@@ -5,13 +5,13 @@ import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getGuildAchievements extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(options?: RequestOptions): Promise<GuildAchievements | RequestData> {
+  override async execute(options?: RequestOptions): Promise<GuildAchievements | RequestData> {
     const res = await this.client.requestHandler.request('/resources/guilds/achievements', options);
     if (res.options.raw) return res;
     return new GuildAchievements(res.data);

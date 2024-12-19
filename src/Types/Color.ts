@@ -1,4 +1,4 @@
-type ColorCode =
+export type ColorCode =
   | 'BLACK'
   | 'DARK_BLUE'
   | 'DARK_GREEN'
@@ -16,7 +16,7 @@ type ColorCode =
   | 'YELLOW'
   | 'WHITE';
 
-type ColorString =
+export type ColorString =
   | 'Black'
   | 'Dark Blue'
   | 'Dark Green'
@@ -34,7 +34,7 @@ type ColorString =
   | 'Yellow'
   | 'White';
 
-type ColorHex =
+export type ColorHex =
   | '#000000'
   | '#0000AA'
   | '#008000'

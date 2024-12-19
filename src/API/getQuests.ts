@@ -5,13 +5,13 @@ import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getQuests extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(options?: RequestOptions): Promise<Quests | RequestData> {
+  override async execute(options?: RequestOptions): Promise<Quests | RequestData> {
     const res = await this.client.requestHandler.request('/resources/quests', options);
     if (res.options.raw) return res;
     return new Quests(res.data);

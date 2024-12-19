@@ -2,8 +2,8 @@ import Client from '../../../Client.js';
 import Pit from './Pit.js';
 import PitInventoryItem from './PitInventoryItem.js';
 import Player from '../../Player/Player.js';
-import { PitArmor } from '../../../Types/Player.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { PitArmor } from '../../../Types/Player.js';
 
 test('Pit', () => {
   const data = new Pit({ stats: 'meow' });

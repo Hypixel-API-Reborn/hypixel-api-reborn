@@ -2,16 +2,16 @@ import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
-import { AuctionFetchOptions, AuctionRequestOptions } from '../Types/API.js';
+import type { AuctionFetchOptions, AuctionRequestOptions } from '../Types/API.js';
 
 class getSkyblockAction extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(
+  override async execute(
     type: AuctionFetchOptions,
     query: string,
     options?: AuctionRequestOptions

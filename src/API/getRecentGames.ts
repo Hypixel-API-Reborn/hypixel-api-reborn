@@ -5,13 +5,13 @@ import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getRecentGames extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: string, options?: RequestOptions): Promise<RecentGame[] | RequestData> {
+  override async execute(query: string, options?: RequestOptions): Promise<RecentGame[] | RequestData> {
     if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/recentgames?uuid=${query}`, options);

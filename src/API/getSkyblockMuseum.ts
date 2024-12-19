@@ -5,13 +5,17 @@ import SkyblockMuseum from '../Structures/SkyBlock/SkyblockMuseum.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getSkyblockMuseum extends Endpoint {
-  readonly client: Client;
+  override readonly client: Client;
   constructor(client: Client) {
     super(client);
     this.client = client;
   }
 
-  async execute(query: string, profileId: string, options?: RequestOptions): Promise<SkyblockMuseum | RequestData> {
+  override async execute(
+    query: string,
+    profileId: string,
+    options?: RequestOptions
+  ): Promise<SkyblockMuseum | RequestData> {
     if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(
