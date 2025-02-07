@@ -51,15 +51,15 @@
   "publisher": "Kathund",
   "devDependencies": {
     "@8hobbies/typedoc-plugin-404": "^3.1.0",
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.20.0",
     "@j4cobi/eslint-plugin-sort-imports": "^1.0.2",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.10.8",
+    "@types/node": "^22.13.1",
     "@types/xml2js": "^0.4.14",
-    "@vitest/coverage-v8": "^2.1.8",
-    "@vitest/ui": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/ui": "^2.1.9",
     "dotenv": "^16.4.7",
-    "eslint": "^9.18.0",
+    "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
@@ -67,8 +67,8 @@
     "typedoc-material-theme": "^1.3.0",
     "typedoc-plugin-rename-defaults": "^0.7.2",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.21.0",
-    "vitest": "^2.1.8",
+    "typescript-eslint": "^8.23.0",
+    "vitest": "^2.1.9",
     "xml2js": "^0.6.2"
   }
 }
