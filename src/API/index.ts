@@ -23,6 +23,7 @@ import getSkyblockMember from './getSkyblockMember.js';
 import getSkyblockMuseum from './getSkyblockMuseum.js';
 import getSkyblockNews from './getSkyblockNews.js';
 import getSkyblockProfiles from './getSkyblockProfiles.js';
+import getSkyblockItems from './getSkyblockItems.js';
 import getStatus from './getStatus.js';
 import getWatchdogStats from './getWatchdogStats.js';
 export default {
@@ -51,6 +52,7 @@ export default {
   getSkyblockMuseum,
   getSkyblockNews,
   getSkyblockProfiles,
+  getSkyblockItems,
   getStatus,
   getWatchdogStats
 };

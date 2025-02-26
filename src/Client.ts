@@ -26,6 +26,7 @@ import SkyblockMember from './Structures/SkyBlock/SkyblockMember.js';
 import SkyblockMuseum from './Structures/SkyBlock/SkyblockMuseum.js';
 import SkyblockNews from './Structures/SkyBlock/News/SkyblockNews.js';
 import SkyblockProfile from './Structures/SkyBlock/SkyblockProfile.js';
+import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
 import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
@@ -228,6 +229,10 @@ class Client {
     query: string,
     options?: SkyblockRequestOptions
   ): Promise<SkyblockProfile[] | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyblockItems(options?: RequestOptions): Promise<SkyblockItem[] | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
