@@ -19,6 +19,7 @@ import getSkyblockBingo from './getSkyblockBingo.js';
 import getSkyblockFireSales from './getSkyblockFireSales.js';
 import getSkyblockGarden from './getSkyblockGarden.js';
 import getSkyblockGovernment from './getSkyblockGovernment.js';
+import getSkyblockItems from './getSkyblockItems.js';
 import getSkyblockMember from './getSkyblockMember.js';
 import getSkyblockMuseum from './getSkyblockMuseum.js';
 import getSkyblockNews from './getSkyblockNews.js';
@@ -51,6 +52,7 @@ export default {
   getSkyblockMuseum,
   getSkyblockNews,
   getSkyblockProfiles,
+  getSkyblockItems,
   getStatus,
   getWatchdogStats
 };

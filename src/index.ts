@@ -142,6 +142,7 @@ import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
 import SkyblockGarden from './Structures/SkyBlock/SkyblockGarden.js';
 import SkyblockGemstone from './Structures/SkyBlock/SkyblockGemstone.js';
 import SkyblockInventoryItem from './Structures/SkyBlock/SkyblockInventoryItem.js';
+import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
 import SkyblockMember from './Structures/SkyBlock/SkyblockMember.js';
 import SkyblockMemberMinion from './Structures/SkyBlock/SkyblockMemberMinion.js';
 import SkyblockMemberMinions from './Structures/SkyBlock/SkyblockMemberMinions.js';
@@ -323,6 +324,7 @@ export default {
   SkyblockGarden,
   SkyblockGemstone,
   SkyblockInventoryItem,
+  SkyblockItem,
   SkyblockMember,
   SkyblockMemberMinion,
   SkyblockMemberMinions,
