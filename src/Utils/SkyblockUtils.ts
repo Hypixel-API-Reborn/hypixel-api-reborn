@@ -30,57 +30,10 @@ export async function decode(base64: any, isBuffer: boolean = false): Promise<an
 }
 
 export function getLevelByXp(xp: number, type: string): SkillLevel {
-  let xpTable: Record<number, number>;
-  switch (type) {
-    case 'runecrafting':
-      xpTable = Constants.runecraftingXp;
-      break;
-    case 'dungeons':
-      xpTable = Constants.dungeonXp;
-      break;
-    case 'hotm':
-      xpTable = Constants.hotmXp;
-      break;
-    case 'social':
-      xpTable = Constants.socialXp;
-      break;
-    case 'garden':
-      xpTable = Constants.garden;
-      break;
-    case 'wheat':
-      xpTable = Constants.wheat;
-      break;
-    case 'carrot':
-      xpTable = Constants.carrot;
-      break;
-    case 'potato':
-      xpTable = Constants.potato;
-      break;
-    case 'melon':
-      xpTable = Constants.melon;
-      break;
-    case 'pumpkin':
-      xpTable = Constants.pumpkin;
-      break;
-    case 'sugarCane':
-      xpTable = Constants.sugarCane;
-      break;
-    case 'cocoaBeans':
-      xpTable = Constants.cocoaBeans;
-      break;
-    case 'cactus':
-      xpTable = Constants.cactus;
-      break;
-    case 'mushroom':
-      xpTable = Constants.mushroom;
-      break;
-    case 'netherWart':
-      xpTable = Constants.netherWart;
-      break;
-    default:
-      xpTable = Constants.levelingXp;
-  }
-  const maxLevel = Math.max(...Object.keys(xpTable).map(Number));
+  let xpTable: Record<number, number> = Constants[type as keyof typeof Constants];
+  let maxLevel: number = Constants.skillsCap[type as keyof typeof Constants["skillsCap"]];
+  if (!xpTable) { xpTable = Constants.levelingXp;  }
+  if (!maxLevel) { maxLevel = 60; }
   if (isNaN(xp)) {
     return {
       xp: 0,
