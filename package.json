@@ -34,11 +34,9 @@
   "packageManager": "pnpm@9.7.1",
   "author": "Kathund",
   "dependencies": {
-    "farming-weight": "^0.8.2",
     "node-cache": "^5.1.2",
     "prismarine-nbt": "^2.7.0",
-    "rss-parser": "^3.13.0",
-    "skyhelper-networth": "^1.27.3"
+    "rss-parser": "^3.13.0"
   },
   "license": "MIT",
   "readme": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn?tab=readme-ov-file#hypixel-api--reborn",

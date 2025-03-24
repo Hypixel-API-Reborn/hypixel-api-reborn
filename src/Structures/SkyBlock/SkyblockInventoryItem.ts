@@ -1,6 +1,6 @@
 import SkyblockGemstone from './SkyblockGemstone.js';
-import { parseGearScore, parseRarity } from '../../Utils/SkyblockUtils.js';
-import type { SkyblockGemstoneQuality } from '../../Types/Skyblock.js';
+import type { Rarity, SkyblockGemstoneQuality } from '../../Types/Skyblock.js';
+import type { UUID } from '../../Types/Global.js';
 
 class SkyblockInventoryItem {
   itemId: number;
@@ -17,7 +17,7 @@ class SkyblockInventoryItem {
   rarity: string;
   dungeonStars: number;
   gearScore: number;
-  uuid: string;
+  uuid: UUID;
   soulbound: boolean;
   artOfWar: number;
   rune: object;
@@ -49,9 +49,9 @@ class SkyblockInventoryItem {
         })
       : [];
     this.damage = data?.Damage || 0;
-    this.rarity = parseRarity(this?.loreArray[this?.loreArray?.length - 1] || '');
+    this.rarity = this.parseRarity(this?.loreArray[this?.loreArray?.length - 1] || 'UNKNOWN');
     this.dungeonStars = data?.tag?.ExtraAttributes?.upgrade_level ?? 0;
-    this.gearScore = parseGearScore(this?.loreArray);
+    this.gearScore = this.parseGearScore(this?.loreArray);
     this.uuid = data?.tag?.ExtraAttributes?.uuid ?? '';
     this.soulbound = 1 === data?.tag?.ExtraAttributes?.donated_museum;
     this.artOfWar = data?.tag?.ExtraAttributes?.art_of_war_count ?? 0;
@@ -65,6 +65,31 @@ class SkyblockInventoryItem {
     this.expertise = data?.tag?.ExtraAttributes?.expertise_kills ?? 0;
     this.compact = data?.tag?.ExtraAttributes?.compact_blocks ?? 0;
     this.blocksWalked = data?.tag?.ExtraAttributes?.blocks_walked ?? 0;
+  }
+
+  parseRarity(str: string): Rarity {
+    const rarityArray = [
+      'COMMON',
+      'UNCOMMON',
+      'RARE',
+      'EPIC',
+      'LEGENDARY',
+      'MYTHIC',
+      'DIVINE',
+      'SPECIAL',
+      'VERY SPECIAL'
+    ];
+    for (const rarity of rarityArray) {
+      if (str.includes(rarity)) return rarity as Rarity;
+    }
+    return 'COMMON';
+  }
+
+  parseGearScore(lore: any): number {
+    for (const line of lore) {
+      if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
+    }
+    return 0;
   }
 
   toString(): string {

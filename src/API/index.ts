@@ -1,3 +1,5 @@
+/* v8 ignore next 400 */
+
 import getAchievements from './getAchievements.js';
 import getActiveHouses from './getActiveHouses.js';
 import getBoosters from './getBoosters.js';
@@ -13,19 +15,21 @@ import getQuests from './getQuests.js';
 import getRecentGames from './getRecentGames.js';
 import getSkyblockAuction from './getSkyblockAuction.js';
 import getSkyblockAuctions from './getSkyblockAuctions.js';
-import getSkyblockAuctionsByPlayer from './getSkyblockAuctionsByPlayer.js';
 import getSkyblockBazaar from './getSkyblockBazaar.js';
 import getSkyblockBingo from './getSkyblockBingo.js';
+import getSkyblockCollections from './getSkyblockCollections.js';
+import getSkyblockElection from './getSkyblockElection.js';
+import getSkyblockEndedAuctions from './getSkyblockEndedAuctions.js';
 import getSkyblockFireSales from './getSkyblockFireSales.js';
 import getSkyblockGarden from './getSkyblockGarden.js';
-import getSkyblockGovernment from './getSkyblockGovernment.js';
 import getSkyblockItems from './getSkyblockItems.js';
-import getSkyblockMember from './getSkyblockMember.js';
 import getSkyblockMuseum from './getSkyblockMuseum.js';
 import getSkyblockNews from './getSkyblockNews.js';
 import getSkyblockProfiles from './getSkyblockProfiles.js';
+import getSkyblockSkills from './getSkyblockSkills.js';
 import getStatus from './getStatus.js';
 import getWatchdogStats from './getWatchdogStats.js';
+
 export default {
   getAchievements,
   getActiveHouses,
@@ -42,17 +46,18 @@ export default {
   getRecentGames,
   getSkyblockAuction,
   getSkyblockAuctions,
-  getSkyblockAuctionsByPlayer,
   getSkyblockBazaar,
   getSkyblockBingo,
+  getSkyblockCollections,
+  getSkyblockElection,
+  getSkyblockEndedAuctions,
   getSkyblockFireSales,
   getSkyblockGarden,
-  getSkyblockGovernment,
-  getSkyblockMember,
+  getSkyblockItems,
   getSkyblockMuseum,
   getSkyblockNews,
   getSkyblockProfiles,
-  getSkyblockItems,
+  getSkyblockSkills,
   getStatus,
   getWatchdogStats
 };

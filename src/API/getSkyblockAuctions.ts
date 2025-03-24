@@ -1,7 +1,8 @@
-import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
-import AuctionInfo from '../Structures/SkyBlock/Auctions/AuctionInfo.js';
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
+import SkyblockAuction from '../Structures/SkyBlock/Auctions/SkyblockAuction.js';
+import SkyblockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyblockAuctionsInfo.js';
+import type RequestData from '../Private/RequestData.js';
 import type { AuctionRequestOptions, SkyblockAuctionsResult } from '../Types/API.js';
 
 class getSkyblockAuctions extends Endpoint {
@@ -12,42 +13,40 @@ class getSkyblockAuctions extends Endpoint {
     this.client = client;
   }
 
-  override async execute(query: number | '*', options?: AuctionRequestOptions): Promise<SkyblockAuctionsResult> {
+  override async execute(
+    query: number | '*',
+    options?: AuctionRequestOptions
+  ): Promise<SkyblockAuctionsResult | RequestData> {
     if (!query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
     if ('number' === typeof query && 0 >= query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
     if ('number' !== typeof query && '*' !== query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
-    this.options = this.parseOptions(options);
     if ('*' === query) return await this.getAllPages();
-    return await this.getPage(query);
+    return await this.getPage(query, options);
   }
 
   async getAllPages(): Promise<SkyblockAuctionsResult> {
     const page = 0;
-    const { info, auctions } = await this.getPage(page);
+    const { info, auctions } = (await this.getPage(page)) as SkyblockAuctionsResult;
     const pages = info.totalPages;
     const requests = [];
     for (let i = 1; i < pages; i++) {
       requests.push(this.getPage(i));
     }
-    const results = await Promise.all(requests);
+    const results = (await Promise.all(requests)) as SkyblockAuctionsResult[];
     results.forEach(({ auctions: newAuctions }) => {
       auctions.push(...newAuctions);
     });
     return { info, auctions };
   }
 
-  async getPage(page: number): Promise<SkyblockAuctionsResult> {
-    const res = await this.client.requestHandler.request(`/skyblock/auctions?page=${page}`, this.options);
+  private async getPage(page: number, options?: AuctionRequestOptions): Promise<SkyblockAuctionsResult | RequestData> {
+    const res = await this.client.requestHandler.request(`/skyblock/auctions?page=${page}`, options);
+    if (options?.raw) return res;
     return {
-      info: new AuctionInfo(res.data),
-      auctions: res.data.auctions.map((a: any) => new Auction(a))
-    };
-  }
-
-  private parseOptions(options: any): AuctionRequestOptions {
-    return {
-      includeItemBytes: options?.includeItemBytes ?? false,
-      noCache: options?.noCache ?? false
+      info: new SkyblockAuctionInfo(res.data),
+      auctions: res.data.auctions.map(
+        (auction: Record<string, any>) => new SkyblockAuction(auction, options?.includeItemBytes || false)
+      )
     };
   }
 }

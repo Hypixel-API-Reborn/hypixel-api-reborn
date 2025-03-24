@@ -16,13 +16,11 @@ function parseVer(stringVer: string): string | null {
 class SkyblockNews {
   title: string;
   link: string;
-  rawDate: string;
   date: Date | null;
   version: string | null;
   constructor(data: Record<string, any>) {
-    this.title = data.title;
-    this.link = data.link;
-    this.rawDate = data.text;
+    this.title = data.title || 'UNKNOWN';
+    this.link = data.link || 'UNKNOWN';
     this.date = parseDate(data.text);
     this.version = parseVer(this.title);
   }

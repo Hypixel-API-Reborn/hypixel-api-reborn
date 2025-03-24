@@ -1,5 +1,6 @@
-import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
-import AuctionInfo from '../Structures/SkyBlock/Auctions/AuctionInfo.js';
+import SkyblockAuction from '../Structures/SkyBlock/Auctions/SkyblockAuction.js';
+import type SkyblockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyblockAuctionsInfo.js';
+import type SkyblockBaseAucitonInfo from '../Structures/SkyBlock/Auctions/SkyblockBaseAuctionInfo.js';
 import type { RequestOptions } from './Requests.js';
 
 export interface PlayerRequestOptions extends RequestOptions {
@@ -17,10 +18,15 @@ export interface SkyblockRequestOptions extends RequestOptions {
   museum?: boolean;
 }
 
+export interface SkyblockAuctionResult {
+  info: SkyblockBaseAucitonInfo;
+  auctions: SkyblockAuction[];
+}
+
 export interface SkyblockAuctionsResult {
-  info: AuctionInfo;
-  auctions: Auction[];
+  info: SkyblockAuctionInfo;
+  auctions: SkyblockAuction[];
 }
 
 export type GuildFetchOptions = 'id' | 'name' | 'player';
-export type AuctionFetchOptions = 'profile' | 'player' | 'auction';
+export type AuctionFetchOptions = 'profile' | 'player' | 'auctionId';

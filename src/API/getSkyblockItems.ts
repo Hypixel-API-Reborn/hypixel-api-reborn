@@ -14,7 +14,7 @@ class getSkyblockItems extends Endpoint {
   override async execute(options?: RequestOptions): Promise<SkyblockItem[] | RequestData> {
     const res = await this.client.requestHandler.request('/resources/skyblock/items', options);
     if (res.options.raw) return res;
-    return res.data.items.map((i: any) => new SkyblockItem(i));
+    return res.data.items.map((item: Record<string, any>) => new SkyblockItem(item));
   }
 }
 
