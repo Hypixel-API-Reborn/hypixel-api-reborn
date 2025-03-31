@@ -1,7 +1,7 @@
-import type { BazzarProduct } from '../../../Types/Skyblock.js';
+import type { BazaarProduct } from '../../../Types/Skyblock.js';
 
-class SkyblockBazzarQuickStatus {
-  productId: BazzarProduct | 'UNKNOWN';
+class SkyblockBazaarQuickStatus {
+  productId: BazaarProduct | 'UNKNOWN';
   sellPrice: number;
   sellVolume: number;
   sellMovingWeek: number;
@@ -22,9 +22,9 @@ class SkyblockBazzarQuickStatus {
     this.buyOrders = data?.buyOrders || 0;
   }
 
-  toString(): BazzarProduct | 'UNKNOWN' {
+  toString(): BazaarProduct | 'UNKNOWN' {
     return this.productId;
   }
 }
 
-export default SkyblockBazzarQuickStatus;
+export default SkyblockBazaarQuickStatus;

@@ -1,14 +1,14 @@
-import SkyblockBazzarQuickStatus from './SkyblockBazzarQuickStatus.js';
+import SkyblockBazaarQuickStatus from './SkyblockBazaarQuickStatus.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BazzarProduct } from '../../../Types/Skyblock.js';
+import type { BazaarProduct } from '../../../Types/Skyblock.js';
 
-test('SkyblockBazzarQuickStatus', () => {
-  const data = new SkyblockBazzarQuickStatus({ stats: 'meow' });
+test('SkyblockBazaarQuickStatus', () => {
+  const data = new SkyblockBazaarQuickStatus({ stats: 'meow' });
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyblockBazzarQuickStatus);
-  expectTypeOf(data).toEqualTypeOf<SkyblockBazzarQuickStatus>();
+  expect(data).toBeInstanceOf(SkyblockBazaarQuickStatus);
+  expectTypeOf(data).toEqualTypeOf<SkyblockBazaarQuickStatus>();
   expect(data.productId).toBeDefined();
-  expectTypeOf(data.productId).toEqualTypeOf<BazzarProduct | 'UNKNOWN'>();
+  expectTypeOf(data.productId).toEqualTypeOf<BazaarProduct | 'UNKNOWN'>();
   expect(data.sellPrice).toBeDefined();
   expectTypeOf(data.sellPrice).toEqualTypeOf<number>();
   expect(data.sellVolume).toBeDefined();
@@ -26,7 +26,7 @@ test('SkyblockBazzarQuickStatus', () => {
   expect(data.buyOrders).toBeDefined();
   expectTypeOf(data.buyOrders).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
-  expectTypeOf(data.toString).toEqualTypeOf<() => BazzarProduct | 'UNKNOWN'>();
+  expectTypeOf(data.toString).toEqualTypeOf<() => BazaarProduct | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();
-  expectTypeOf(data.toString()).toEqualTypeOf<BazzarProduct | 'UNKNOWN'>();
+  expectTypeOf(data.toString()).toEqualTypeOf<BazaarProduct | 'UNKNOWN'>();
 });

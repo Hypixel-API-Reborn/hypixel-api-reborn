@@ -16,7 +16,7 @@ import RateLimit from './Private/RateLimit.js';
 import RecentGame from './Structures/RecentGame.js';
 import RequestData from './Private/RequestData.js';
 import RequestHandler from './Private/RequestHandler.js';
-import SkyblockBazzar from './Structures/SkyBlock/Bazaar/SkyblockBazzar.js';
+import SkyblockBazaar from './Structures/SkyBlock/Bazaar/SkyblockBazaar.js';
 import SkyblockBingo from './Structures/SkyBlock/Bingo/SkyblockBingo.js';
 import SkyblockGarden from './Structures/SkyBlock/Garden/SkyblockGarden.js';
 import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
@@ -187,7 +187,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockBazaar(options?: RequestOptions): Promise<SkyblockBazzar | RequestData> {
+  public getSkyblockBazaar(options?: RequestOptions): Promise<SkyblockBazaar | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 

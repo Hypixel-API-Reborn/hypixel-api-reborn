@@ -1,4 +1,4 @@
-class SkyblockBazzarProductOrder {
+class SkyblockBazaarProductOrder {
   amount: number;
   pricePerUnit: number;
   orders: number;
@@ -13,4 +13,4 @@ class SkyblockBazzarProductOrder {
   }
 }
 
-export default SkyblockBazzarProductOrder;
+export default SkyblockBazaarProductOrder;

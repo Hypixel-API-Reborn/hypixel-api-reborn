@@ -1,11 +1,11 @@
-import SkyblockBazzarProductOrder from './SkyblockBazzarProductOrder.js';
+import SkyblockBazaarProductOrder from './SkyblockBazaarProductOrder.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('SkyblockBazzarProductOrder', () => {
-  const data = new SkyblockBazzarProductOrder({ stats: 'meow' });
+test('SkyblockBazaarProductOrder', () => {
+  const data = new SkyblockBazaarProductOrder({ stats: 'meow' });
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyblockBazzarProductOrder);
-  expectTypeOf(data).toEqualTypeOf<SkyblockBazzarProductOrder>();
+  expect(data).toBeInstanceOf(SkyblockBazaarProductOrder);
+  expectTypeOf(data).toEqualTypeOf<SkyblockBazaarProductOrder>();
   expect(data.amount).toBeDefined();
   expectTypeOf(data.amount).toEqualTypeOf<number>();
   expect(data.pricePerUnit).toBeDefined();

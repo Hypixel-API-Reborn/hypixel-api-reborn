@@ -1980,7 +1980,7 @@ export type SkyblockMinion =
   | 'ZOMBIE_11'
   | 'ZOMBIE_12';
 
-export type BazzarProduct =
+export type BazaarProduct =
   | 'INK_SACK:3'
   | 'CORRUPTED_BAIT'
   | 'INK_SACK:4'

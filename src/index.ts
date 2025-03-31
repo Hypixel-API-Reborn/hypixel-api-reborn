@@ -133,10 +133,10 @@ import SkyblockAuctionBid from './Structures/SkyBlock/Auctions/SkyblockAuctionBi
 import SkyblockAuctionsInfo from './Structures/SkyBlock/Auctions/SkyblockAuctionsInfo.js';
 import SkyblockBaseAuction from './Structures/SkyBlock/Auctions/SkyblockBaseAuction.js';
 import SkyblockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyblockBaseAuctionInfo.js';
-import SkyblockBazzar from './Structures/SkyBlock/Bazaar/SkyblockBazzar.js';
-import SkyblockBazzarProduct from './Structures/SkyBlock/Bazaar/SkyblockBazzarProduct.js';
-import SkyblockBazzarProductOrder from './Structures/SkyBlock/Bazaar/SkyblockBazzarProductOrder.js';
-import SkyblockBazzarQuickStatus from './Structures/SkyBlock/Bazaar/SkyblockBazzarQuickStatus.js';
+import SkyblockBazaar from './Structures/SkyBlock/Bazaar/SkyblockBazaar.js';
+import SkyblockBazaarProduct from './Structures/SkyBlock/Bazaar/SkyblockBazaarProduct.js';
+import SkyblockBazaarProductOrder from './Structures/SkyBlock/Bazaar/SkyblockBazaarProductOrder.js';
+import SkyblockBazaarQuickStatus from './Structures/SkyBlock/Bazaar/SkyblockBazaarQuickStatus.js';
 import SkyblockBingo from './Structures/SkyBlock/Bingo/SkyblockBingo.js';
 import SkyblockBingoGoal from './Structures/SkyBlock/Bingo/SkyblockBingoGoal.js';
 import SkyblockCollection from './Structures/SkyBlock/Collections/SkyblockCollection.js';
@@ -420,10 +420,10 @@ export default {
   SkyblockAuctionsInfo,
   SkyblockBaseAuction,
   SkyblockBaseAuctionInfo,
-  SkyblockBazzar,
-  SkyblockBazzarProduct,
-  SkyblockBazzarProductOrder,
-  SkyblockBazzarQuickStatus,
+  SkyblockBazaar,
+  SkyblockBazaarProduct,
+  SkyblockBazaarProductOrder,
+  SkyblockBazaarQuickStatus,
   SkyblockBingo,
   SkyblockBingoGoal,
   SkyblockCollection,
