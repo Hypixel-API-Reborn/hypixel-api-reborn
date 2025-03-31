@@ -1,3 +1,4 @@
+/* v8 ignore next 10000 */
 // Credits: Pixelic: https://github.com/pixelicc - Most types in player
 
 import Arcade from '../Structures/MiniGames/Arcade/Arcade.js';

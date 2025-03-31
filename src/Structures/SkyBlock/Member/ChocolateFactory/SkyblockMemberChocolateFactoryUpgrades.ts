@@ -7,10 +7,6 @@ class SkyblockMemberChocolateFactoryUpgrades {
     this.chocolateMultiplier = data?.chocolate_multiplier_upgrades || 0;
     this.rabbitRarity = data?.rabbit_rarity_upgrades || 0;
   }
-
-  toString(): number {
-    return this.click;
-  }
 }
 
 export default SkyblockMemberChocolateFactoryUpgrades;

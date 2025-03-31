@@ -9,6 +9,10 @@ class SkyblockElection {
       .map((candidate: Record<string, any>) => new SkyblockElectionCandidate(candidate))
       .sort((a: SkyblockElectionCandidate, b: SkyblockElectionCandidate) => a.votesReceived - b.votesReceived);
   }
+
+  toString(): number {
+    return this.year;
+  }
 }
 
 export default SkyblockElection;

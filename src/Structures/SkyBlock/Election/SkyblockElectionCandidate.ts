@@ -1,8 +1,9 @@
 import SkyblockElectionCandidatePerk from './SkyblockElectionCandidatePerk.js';
+import type { SkyblockCandidateKeyBenefit, SkyblockMayor } from '../../../Types/Skyblock.js';
 
 class SkyblockElectronCandidate {
-  name: string;
-  keyBenefit: string;
+  name: SkyblockMayor | 'UNKNOWN';
+  keyBenefit: SkyblockCandidateKeyBenefit | 'UNKNOWN';
   perks: SkyblockElectionCandidatePerk[];
   votesReceived: number;
   constructor(data: Record<string, any>) {
@@ -12,7 +13,7 @@ class SkyblockElectronCandidate {
     this.votesReceived = data?.votes || 0;
   }
 
-  toString(): string {
+  toString(): SkyblockMayor | 'UNKNOWN' {
     return this.name;
   }
 }

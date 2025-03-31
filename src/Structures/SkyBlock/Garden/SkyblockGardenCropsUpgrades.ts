@@ -9,6 +9,7 @@ class SkyblockGardenCropsUpgrades {
   cocoaBeans: number;
   mushroom: number;
   netherWart: number;
+  average: number;
   constructor(data: Record<string, any>) {
     this.wheat = data?.WHEAT || 0;
     this.carrot = data?.CARROT_ITEM || 0;
@@ -20,6 +21,22 @@ class SkyblockGardenCropsUpgrades {
     this.cocoaBeans = data?.['INK_SACK:3'] || 0;
     this.mushroom = data?.MUSHROOM_COLLECTION || 0;
     this.netherWart = data?.NETHER_STALK || 0;
+    this.average =
+      (this.wheat +
+        this.carrot +
+        this.sugarCane +
+        this.potato +
+        this.pumpkin +
+        this.melon +
+        this.cactus +
+        this.cocoaBeans +
+        this.mushroom +
+        this.netherWart) /
+      10;
+  }
+
+  toString(): number {
+    return this.average;
   }
 }
 

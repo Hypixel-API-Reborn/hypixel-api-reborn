@@ -13,6 +13,10 @@ class SkyblockMemberPlayerStatsEndIslandDragonFightDragon {
     this.amountSummoned = data?.amount_summoned?.[dragon] || 0;
     this.summoningEyesContributed = data?.summoning_eyes_contributed?.[dragon] || 0;
   }
+
+  toString(): number {
+    return this.amountSummoned;
+  }
 }
 
 export default SkyblockMemberPlayerStatsEndIslandDragonFightDragon;

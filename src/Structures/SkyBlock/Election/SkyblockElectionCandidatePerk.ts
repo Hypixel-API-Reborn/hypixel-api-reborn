@@ -7,6 +7,10 @@ class SkyblockElectionCandidatePerk {
     this.description = data?.description || 'UNKNOWN';
     this.minister = data?.minister || false;
   }
+
+  toString(): string {
+    return this.name;
+  }
 }
 
 export default SkyblockElectionCandidatePerk;

@@ -1,0 +1,34 @@
+import SkyblockMemberPet from './SkyblockMemberPet.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { LevelData, Rarity, SkyblockPetId } from '../../../../Types/Skyblock.js';
+import type { UUID } from '../../../../Types/Global.js';
+
+test('SkyblockMemberPet', () => {
+  const data = new SkyblockMemberPet({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockMemberPet);
+  expectTypeOf(data).toEqualTypeOf<SkyblockMemberPet>();
+  expect(data.uuid).toBeDefined();
+  expectTypeOf(data.uuid).toEqualTypeOf<UUID>();
+  expect(data.uniqueId).toBeDefined();
+  expectTypeOf(data.uniqueId).toEqualTypeOf<string>();
+  expect(data.type).toBeDefined();
+  expectTypeOf(data.type).toEqualTypeOf<SkyblockPetId | 'UNKNOWN'>();
+  expect(data.active).toBeDefined();
+  expectTypeOf(data.active).toEqualTypeOf<boolean>();
+  expect(data.tier).toBeDefined();
+  expectTypeOf(data.tier).toEqualTypeOf<Rarity | 'UNKNOWN'>();
+  expect(data.heldItem).toBeDefined();
+  expectTypeOf(data.heldItem).toEqualTypeOf<string | null>();
+  expect(data.candyUsed).toBeDefined();
+  expectTypeOf(data.candyUsed).toEqualTypeOf<number>();
+  expect(data.skin).toBeDefined();
+  expectTypeOf(data.skin).toEqualTypeOf<string | null>();
+  expect(data.level).toBeDefined();
+  expectTypeOf(data.level).toEqualTypeOf<LevelData>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => SkyblockPetId | 'UNKNOWN'>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.type);
+  expectTypeOf(data.toString()).toEqualTypeOf<SkyblockPetId | 'UNKNOWN'>();
+});

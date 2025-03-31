@@ -11,6 +11,10 @@ class SkyblockProfilesBankingTrasnsaction {
     this.action = data?.action || 'UNKNONW';
     this.user = data?.initiator_name || 'UNKNOWN';
   }
+
+  toString(): number {
+    return this.amount;
+  }
 }
 
 export default SkyblockProfilesBankingTrasnsaction;

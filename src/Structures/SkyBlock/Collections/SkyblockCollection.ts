@@ -11,6 +11,10 @@ class SkyblockCollection {
     this.maxTiers = data?.maxTiers || 0;
     this.tiers = (data?.tiers || []).map((tier: Record<string, any>) => new SkyblockCollectionTier(tier));
   }
+
+  toString(): string {
+    return this.id;
+  }
 }
 
 export default SkyblockCollection;

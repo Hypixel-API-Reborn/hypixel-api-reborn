@@ -11,7 +11,7 @@ class SkyblockProfile {
   createdTimestamp: number | null;
   createdAt: Date | null;
   members: SkyblockMember[];
-  me: SkyblockMember | undefined;
+  me: SkyblockMember | null;
   gameMode: SkyblockProfileType | null;
   banking: SkyblockProfileBanking;
   profileName: SkyblockProfileName | 'UNKNOWN';
@@ -22,8 +22,9 @@ class SkyblockProfile {
     this.communityUpgrades = new SkyblockProfileCommunityUpgrades(data.communityUpgrades || {});
     this.createdTimestamp = data.created_at ? data.created_at : null;
     this.createdAt = this.createdTimestamp ? new Date(this.createdTimestamp) : null;
-    this.members = Object.keys(data.members).map((uuid) => new SkyblockMember(uuid, data.members[uuid]));
-    this.me = this.members.find((x) => x.uuid === extra.uuid);
+    const members = data?.members || {};
+    this.members = Object.keys(members).map((uuid) => new SkyblockMember(uuid, members?.[uuid] || {}));
+    this.me = this.members.find((x) => x.uuid === extra.uuid) || null;
     this.gameMode = data?.game_mode || null;
     this.banking = new SkyblockProfileBanking(data?.banking || {});
     this.profileName = data?.cute_name || 'UNKNOWN';
@@ -31,7 +32,7 @@ class SkyblockProfile {
     this.garden = extra.garden;
   }
 
-  toString(): string {
+  toString(): SkyblockProfileName | 'UNKNOWN' {
     return this.profileName;
   }
 }

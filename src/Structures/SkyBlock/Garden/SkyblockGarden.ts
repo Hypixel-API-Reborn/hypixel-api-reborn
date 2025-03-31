@@ -29,6 +29,10 @@ class SkyblockGarden {
     this.composter = new SkyblockGardenComposter(data?.composter_data || {});
     this.cropUpgrades = new SkyblockGardenCropsUpgrades(data?.crop_upgrade_levels || {});
   }
+
+  toString(): number {
+    return this.level.level;
+  }
 }
 
 export default SkyblockGarden;

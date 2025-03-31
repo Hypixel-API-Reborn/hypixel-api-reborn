@@ -17,6 +17,10 @@ class SkyblockBazzarProduct {
     );
     this.quickStatus = new SkyblockBazzarQuickStatus(data?.quick_status || {});
   }
+
+  toString(): BazzarProduct | 'UNKNOWN' {
+    return this.productId;
+  }
 }
 
 export default SkyblockBazzarProduct;

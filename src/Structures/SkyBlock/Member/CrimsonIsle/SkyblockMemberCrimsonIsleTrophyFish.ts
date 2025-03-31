@@ -22,7 +22,8 @@ class SkyblockMemberCrimsonIsleTrophyFish {
   karateFish: SkyblockMemberCrimsonIsleTrophyFishFish;
   moldfin: SkyblockMemberCrimsonIsleTrophyFishFish;
   constructor(data: Record<string, any>) {
-    this.rank = this.getTrophyFishRank((data?.rewards || [1]).length - 1);
+    const rewards = data?.rewards || [1];
+    this.rank = this.getTrophyFishRank(rewards[rewards.length - 1]);
     this.gusher = new SkyblockMemberCrimsonIsleTrophyFishFish(data || {}, 'gusher');
     this.blobfish = new SkyblockMemberCrimsonIsleTrophyFishFish(data || {}, 'blobfish');
     this.lavaHorse = new SkyblockMemberCrimsonIsleTrophyFishFish(data || {}, 'lava_horse');
@@ -47,7 +48,7 @@ class SkyblockMemberCrimsonIsleTrophyFish {
     return this.rank;
   }
 
-  getTrophyFishRank(level: number): CrimsonIsleTrophyFishRank {
+  private getTrophyFishRank(level: number): CrimsonIsleTrophyFishRank {
     switch (level) {
       case 1:
         return 'Bronze';

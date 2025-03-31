@@ -1,0 +1,36 @@
+import SkyblockMemberAccessoryBagTuningSlot from './SkyblockMemberAccessoryBagTuningSlot.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyblockMemberAccessoryBagTuningSlot', () => {
+  const data = new SkyblockMemberAccessoryBagTuningSlot({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockMemberAccessoryBagTuningSlot);
+  expectTypeOf(data).toEqualTypeOf<SkyblockMemberAccessoryBagTuningSlot>();
+  expect(data.unlocked).toBeDefined();
+  expectTypeOf(data.unlocked).toEqualTypeOf<boolean>();
+  expect(data.purchasedTimestamp).toBeDefined();
+  expectTypeOf(data.purchasedTimestamp).toEqualTypeOf<number | null>();
+  expect(data.purchasedDate).toBeDefined();
+  expectTypeOf(data.purchasedDate).toEqualTypeOf<Date | null>();
+  expect(data.health).toBeDefined();
+  expectTypeOf(data.health).toEqualTypeOf<number>();
+  expect(data.defense).toBeDefined();
+  expectTypeOf(data.defense).toEqualTypeOf<number>();
+  expect(data.walkSpeed).toBeDefined();
+  expectTypeOf(data.walkSpeed).toEqualTypeOf<number>();
+  expect(data.strength).toBeDefined();
+  expectTypeOf(data.strength).toEqualTypeOf<number>();
+  expect(data.criticalDamage).toBeDefined();
+  expectTypeOf(data.criticalDamage).toEqualTypeOf<number>();
+  expect(data.criticalChance).toBeDefined();
+  expectTypeOf(data.criticalChance).toEqualTypeOf<number>();
+  expect(data.attackSpeed).toBeDefined();
+  expectTypeOf(data.attackSpeed).toEqualTypeOf<number>();
+  expect(data.intelligence).toBeDefined();
+  expectTypeOf(data.intelligence).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => boolean>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.unlocked);
+  expectTypeOf(data.toString()).toEqualTypeOf<boolean>();
+});

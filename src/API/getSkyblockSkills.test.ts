@@ -1,0 +1,51 @@
+import Client from '../Client.js';
+import RequestData from '../Private/RequestData.js';
+import SkyblockSkill from '../Structures/SkyBlock/Skills/SkyblockSkill.js';
+import SkyblockSkills from '../Structures/SkyBlock/Skills/SkyblockSkills.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('getSkyblockSkills (raw)', async () => {
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const data = await client.getSkyblockSkills({ raw: true });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(RequestData);
+  expectTypeOf(data).toEqualTypeOf<SkyblockSkills | RequestData>();
+  client.destroy();
+});
+
+test('getSkyblockSkills', async () => {
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  let data = await client.getSkyblockSkills();
+  expect(data).toBeDefined();
+  expectTypeOf(data).toEqualTypeOf<SkyblockSkills | RequestData>();
+  data = data as SkyblockSkills;
+  expect(data.lastUpdated).toBeDefined();
+  expectTypeOf(data.lastUpdated).toEqualTypeOf<number>();
+  expect(data.lastUpdatedAt).toBeDefined();
+  expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date>();
+  expect(data.version).toBeDefined();
+  expectTypeOf(data.version).toEqualTypeOf<string>();
+  expect(data.farming).toBeDefined();
+  expectTypeOf(data.farming).toEqualTypeOf<SkyblockSkill>();
+  expect(data.mining).toBeDefined();
+  expectTypeOf(data.mining).toEqualTypeOf<SkyblockSkill>();
+  expect(data.combat).toBeDefined();
+  expectTypeOf(data.combat).toEqualTypeOf<SkyblockSkill>();
+  expect(data.foraging).toBeDefined();
+  expectTypeOf(data.foraging).toEqualTypeOf<SkyblockSkill>();
+  expect(data.fishing).toBeDefined();
+  expectTypeOf(data.fishing).toEqualTypeOf<SkyblockSkill>();
+  expect(data.enchanting).toBeDefined();
+  expectTypeOf(data.enchanting).toEqualTypeOf<SkyblockSkill>();
+  expect(data.alchemy).toBeDefined();
+  expectTypeOf(data.alchemy).toEqualTypeOf<SkyblockSkill>();
+  expect(data.carpentry).toBeDefined();
+  expectTypeOf(data.carpentry).toEqualTypeOf<SkyblockSkill>();
+  expect(data.runecrafting).toBeDefined();
+  expectTypeOf(data.runecrafting).toEqualTypeOf<SkyblockSkill>();
+  expect(data.social).toBeDefined();
+  expectTypeOf(data.social).toEqualTypeOf<SkyblockSkill>();
+  expect(data.taming).toBeDefined();
+  expectTypeOf(data.taming).toEqualTypeOf<SkyblockSkill>();
+  client.destroy();
+});

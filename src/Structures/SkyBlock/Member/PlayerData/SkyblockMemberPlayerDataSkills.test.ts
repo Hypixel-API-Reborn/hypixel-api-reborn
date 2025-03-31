@@ -1,0 +1,32 @@
+import SkyblockMemberPlayerDataSkills from './SkyblockMemberPlayerDataSkills.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { SkillLevelData } from '../../../../Types/Skyblock.js';
+
+test('SkyblockMemberPlayerDataSkills', () => {
+  const data = new SkyblockMemberPlayerDataSkills({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockMemberPlayerDataSkills);
+  expectTypeOf(data).toEqualTypeOf<SkyblockMemberPlayerDataSkills>();
+  expect(data.fishing).toBeDefined();
+  expectTypeOf(data.fishing).toEqualTypeOf<SkillLevelData>();
+  expect(data.alchemy).toBeDefined();
+  expectTypeOf(data.alchemy).toEqualTypeOf<SkillLevelData>();
+  expect(data.runecrafting).toBeDefined();
+  expectTypeOf(data.runecrafting).toEqualTypeOf<SkillLevelData>();
+  expect(data.mining).toBeDefined();
+  expectTypeOf(data.mining).toEqualTypeOf<SkillLevelData>();
+  expect(data.farming).toBeDefined();
+  expectTypeOf(data.farming).toEqualTypeOf<SkillLevelData>();
+  expect(data.enchanting).toBeDefined();
+  expectTypeOf(data.enchanting).toEqualTypeOf<SkillLevelData>();
+  expect(data.taming).toBeDefined();
+  expectTypeOf(data.taming).toEqualTypeOf<SkillLevelData>();
+  expect(data.foraging).toBeDefined();
+  expectTypeOf(data.foraging).toEqualTypeOf<SkillLevelData>();
+  expect(data.social).toBeDefined();
+  expectTypeOf(data.social).toEqualTypeOf<SkillLevelData>();
+  expect(data.carpentry).toBeDefined();
+  expectTypeOf(data.carpentry).toEqualTypeOf<SkillLevelData>();
+  expect(data.combat).toBeDefined();
+  expectTypeOf(data.combat).toEqualTypeOf<SkillLevelData>();
+});

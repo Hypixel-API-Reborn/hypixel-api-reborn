@@ -21,6 +21,10 @@ class SkyblockBazzarQuickStatus {
     this.buyMovingWeek = data?.buyMovingWeek || 0;
     this.buyOrders = data?.buyOrders || 0;
   }
+
+  toString(): BazzarProduct | 'UNKNOWN' {
+    return this.productId;
+  }
 }
 
 export default SkyblockBazzarQuickStatus;

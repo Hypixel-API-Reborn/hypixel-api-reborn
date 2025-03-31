@@ -1,3 +1,5 @@
+/* v8 ignore next 10000 */
+
 import type SkyblockInventoryItem from '../Structures/SkyBlock/SkyblockInventoryItem.js';
 
 export interface RawAbiphoneData {
@@ -3455,3 +3457,25 @@ export type BazzarProduct =
   | 'ENCHANTMENT_BANE_OF_ARTHROPODS_5';
 
 export type SkyblockBingoGoalType = 'ONE_TIME' | 'ONE_TIER' | 'TIERED';
+
+export type SkyblockMayor =
+  | 'Aatrox'
+  | 'Cole'
+  | 'Diana'
+  | 'Diaz'
+  | 'Finnegan'
+  | 'Foxy'
+  | 'Marina'
+  | 'Paul'
+  | 'Jerry'
+  | 'Derpy'
+  | 'Scorpius';
+
+export type SkyblockCandidateKeyBenefit =
+  | 'slayer'
+  | 'mining'
+  | 'pets'
+  | 'economist'
+  | 'farming'
+  | 'fishing'
+  | 'dungeons';

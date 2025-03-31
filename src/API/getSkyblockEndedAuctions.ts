@@ -14,7 +14,7 @@ class getSkyblockEndedAuctions extends Endpoint {
   }
 
   override async execute(options?: AuctionRequestOptions): Promise<SkyblockAuctionResult | RequestData> {
-    const res = await this.client.requestHandler.request('/resources/skyblock/election', options);
+    const res = await this.client.requestHandler.request('/skyblock/auctions_ended', options);
     if (res.options.raw) return res;
     return {
       info: new SkyblockBaseAucitonInfo(res.data),

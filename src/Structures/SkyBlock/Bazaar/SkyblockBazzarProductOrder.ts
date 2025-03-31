@@ -7,6 +7,10 @@ class SkyblockBazzarProductOrder {
     this.pricePerUnit = data?.pricePerUnit || 0;
     this.orders = data?.orders || 0;
   }
+
+  toString(): number {
+    return this.amount;
+  }
 }
 
 export default SkyblockBazzarProductOrder;

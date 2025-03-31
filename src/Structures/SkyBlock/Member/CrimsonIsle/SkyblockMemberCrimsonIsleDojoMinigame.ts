@@ -14,7 +14,7 @@ class SkyblockMemberCrimsonIsleDojoMinigame {
     return this.rank;
   }
 
-  getScore(points: number): CrimsonIsleDojoRank {
+  private getScore(points: number): CrimsonIsleDojoRank {
     if (1000 <= points) {
       return 'S';
     } else if (800 <= points) {

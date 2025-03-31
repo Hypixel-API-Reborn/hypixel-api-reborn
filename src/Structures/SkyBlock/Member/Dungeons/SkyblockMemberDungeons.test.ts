@@ -1,0 +1,34 @@
+import SkyblockMemberDungeons from './SkyblockMemberDungeons.js';
+import SkyblockMemberDungeonsClasses from './SkyblockMemberDungeonsClasses.js';
+import SkyblockMemberDungeonsMode from './SkyblockMemberDungeonsMode.js';
+import SkyblockMemberDungeonsTreasureRun from './SkyblockMemberDungeonsTreasureRun.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { DungeonFloor, SkillLevelData } from '../../../../Types/Skyblock.js';
+
+test('SkyblockMemberDungeons', () => {
+  const data = new SkyblockMemberDungeons({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockMemberDungeons);
+  expectTypeOf(data).toEqualTypeOf<SkyblockMemberDungeons>();
+  expect(data.catacombs).toBeDefined();
+  expectTypeOf(data.catacombs).toEqualTypeOf<SkyblockMemberDungeonsMode>();
+  expect(data.masterCatacombs).toBeDefined();
+  expectTypeOf(data.masterCatacombs).toEqualTypeOf<SkyblockMemberDungeonsMode>();
+  expect(data.level).toBeDefined();
+  expectTypeOf(data.level).toEqualTypeOf<SkillLevelData>();
+  expect(data.classes).toBeDefined();
+  expectTypeOf(data.classes).toEqualTypeOf<SkyblockMemberDungeonsClasses>();
+  expect(data.unlockedJournals).toBeDefined();
+  expectTypeOf(data.unlockedJournals).toEqualTypeOf<string[]>();
+  expect(data.treasures).toBeDefined();
+  expectTypeOf(data.treasures).toEqualTypeOf<SkyblockMemberDungeonsTreasureRun[]>();
+  expect(data.lastDungeonRun).toBeDefined();
+  expectTypeOf(data.lastDungeonRun).toEqualTypeOf<DungeonFloor | 'UNKNOWN'>();
+  expect(data.secrets).toBeDefined();
+  expectTypeOf(data.secrets).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.level.level);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
+});

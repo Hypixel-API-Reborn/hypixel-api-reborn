@@ -7,6 +7,10 @@ class SkyblockSkillLevel {
     this.totalExpRequired = data?.totalExpRequired || 0;
     this.unlocks = data?.unlocks || [];
   }
+
+  toString(): number {
+    return this.level;
+  }
 }
 
 export default SkyblockSkillLevel;

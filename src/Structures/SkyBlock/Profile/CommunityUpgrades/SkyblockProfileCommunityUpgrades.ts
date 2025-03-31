@@ -13,6 +13,10 @@ class SkyblockProfileCommunityUpgrades {
       this.upgrades.push(new SkyblockProfileCommunityUpgradesUpgraded(upgrade));
     });
   }
+
+  toString(): SkyblockProfileCommunityUpgradesUpgrading | null {
+    return this.currentlyUpgrading;
+  }
 }
 
 export default SkyblockProfileCommunityUpgrades;

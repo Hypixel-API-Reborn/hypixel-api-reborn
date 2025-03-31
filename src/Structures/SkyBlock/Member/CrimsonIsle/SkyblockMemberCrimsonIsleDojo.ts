@@ -33,7 +33,7 @@ class SkyblockMemberCrimsonIsleDojo {
     return this.belt;
   }
 
-  getBelt(points: number): CrimsonIsleBelt {
+  private getBelt(points: number): CrimsonIsleBelt {
     if (7000 <= points) {
       return 'Black';
     } else if (6000 <= points) {

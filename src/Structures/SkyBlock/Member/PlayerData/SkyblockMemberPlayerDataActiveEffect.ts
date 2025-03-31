@@ -18,6 +18,10 @@ class SkyblockMemberPlayerDataActiveEffect {
     this.expireTimestamp = this.expireAt.getTime();
     this.infinite = data?.infinite || false;
   }
+
+  toString(): SkyblockPotionEffect | 'UNKNOWN' {
+    return this.effect;
+  }
 }
 
 export default SkyblockMemberPlayerDataActiveEffect;

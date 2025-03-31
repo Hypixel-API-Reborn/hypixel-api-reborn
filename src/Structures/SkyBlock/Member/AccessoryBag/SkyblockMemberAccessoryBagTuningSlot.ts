@@ -10,8 +10,8 @@ class SkyblockMemberAccessoryBagTuningSlot {
   criticalChance: number;
   attackSpeed: number;
   intelligence: number;
-  constructor(data: Record<string, any>, unlocked?: boolean) {
-    this.unlocked = unlocked || false;
+  constructor(data: Record<string, any>, unlocked: boolean = false) {
+    this.unlocked = unlocked;
     this.purchasedTimestamp = data?.purchase_ts || null;
     this.purchasedDate = this.purchasedTimestamp ? new Date(this.purchasedTimestamp) : null;
     this.health = data?.health || 0;

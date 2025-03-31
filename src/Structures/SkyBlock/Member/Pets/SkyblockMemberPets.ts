@@ -13,9 +13,9 @@ class SkyblockMemberPets {
     this.petCare = new SkyblockMemberPetsCare(data?.pet_care || {});
     this.autoPetRules = new SkyblockMemberPetsAutoPets(data?.autopet || {});
     this.pets = (data?.pets || []).map((pet: Record<string, any>) => new SkyblockMemberPet(pet));
-    this.oresMined = data?.milestone?.ores_mined;
-    this.seaCreaturesKilled = data?.milestone?.sea_creatures_killed;
-    this.totalExpGained = data?.total_exp_gained;
+    this.oresMined = data?.milestone?.ores_mined || 0;
+    this.seaCreaturesKilled = data?.milestone?.sea_creatures_killed || 0;
+    this.totalExpGained = data?.total_exp_gained || 0;
   }
 
   // CREDIT: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/pets.ts#L346-L400 (modified)

@@ -1,4 +1,4 @@
-/* v8 ignore next 400 */
+/* v8 ignore next 1000 */
 /* eslint-disable max-len */
 
 import Client from './Client.js';
@@ -62,7 +62,6 @@ import DuelsSkyWars from './Structures/MiniGames/Duels/DuelsSkyWars.js';
 import DuelsUHC from './Structures/MiniGames/Duels/DuelsUHC.js';
 import EnderSpleef from './Structures/MiniGames/Arcade/EnderSpleef.js';
 import FarmHunt from './Structures/MiniGames/Arcade/FarmHunt.js';
-import FireSale from './Structures/SkyBlock/FireSale/FireSale.js';
 import Football from './Structures/MiniGames/Arcade/Football.js';
 import GalaxyWars from './Structures/MiniGames/Arcade/GalaxyWars.js';
 import Game from './Structures/Game.js';
@@ -147,8 +146,10 @@ import SkyblockElection from './Structures/SkyBlock/Election/SkyblockElection.js
 import SkyblockElectionCandidate from './Structures/SkyBlock/Election/SkyblockElectionCandidate.js';
 import SkyblockElectionCandidatePerk from './Structures/SkyBlock/Election/SkyblockElectionCandidatePerk.js';
 import SkyblockElectionData from './Structures/SkyBlock/Election/SkyblockElectionData.js';
+import SkyblockFireSale from './Structures/SkyBlock/FireSale/SkyblockFireSale.js';
 import SkyblockGarden from './Structures/SkyBlock/Garden/SkyblockGarden.js';
 import SkyblockGardenActiveVisitor from './Structures/SkyBlock/Garden/SkyblockGardenActiveVisitor.js';
+import SkyblockGardenActiveVisitorRequirement from './Structures/SkyBlock/Garden/SkyblockGardenActiveVisitorRequirement.js';
 import SkyblockGardenComposter from './Structures/SkyBlock/Garden/SkyblockGardenComposter.js';
 import SkyblockGardenComposterUpgrades from './Structures/SkyBlock/Garden/SkyblockGardenComposterUpgrades.js';
 import SkyblockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyblockGardenCropMilestones.js';
@@ -186,9 +187,11 @@ import SkyblockMemberDungeonsMode from './Structures/SkyBlock/Member/Dungeons/Sk
 import SkyblockMemberDungeonsTreasureRun from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsTreasureRun.js';
 import SkyblockMemberDungeonsTreasuresChest from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsTreasuresChest.js';
 import SkyblockMemberFairySouls from './Structures/SkyBlock/Member/SkyblockMemberFairySouls.js';
+import SkyblockMemberJacobContest from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContest.js';
 import SkyblockMemberJacobContests from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContests.js';
 import SkyblockMemberJacobContestsMedals from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsMedals.js';
 import SkyblockMemberJacobContestsPerks from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsPerks.js';
+import SkyblockMemberJacobContestsUniqueBrackets from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsUniqueBrackets.js';
 import SkyblockMemberLeveling from './Structures/SkyBlock/Member/SkyblockMemberLeveling.js';
 import SkyblockMemberMining from './Structures/SkyBlock/Member/Mining/SkyblockMemberMining.js';
 import SkyblockMemberMiningCrystal from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningCrystal.js';
@@ -232,6 +235,7 @@ import SkyblockMemberRiftDeadCats from './Structures/SkyBlock/Member/Rift/Skyblo
 import SkyblockMemberRiftDreamFarm from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftDreamFarm.js';
 import SkyblockMemberRiftEnigma from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftEnigma.js';
 import SkyblockMemberRiftGallery from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftGallery.js';
+import SkyblockMemberRiftGallerySecuredTrophy from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftGallerySecuredTrophy.js';
 import SkyblockMemberRiftInventory from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftInventory.js';
 import SkyblockMemberRiftVillagePlaza from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlaza.js';
 import SkyblockMemberRiftVillagePlazaBarry from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlazaBarry.js';
@@ -345,7 +349,6 @@ export default {
   DuelsUHC,
   EnderSpleef,
   FarmHunt,
-  FireSale,
   Football,
   GalaxyWars,
   Game,
@@ -430,8 +433,10 @@ export default {
   SkyblockElectionCandidate,
   SkyblockElectionCandidatePerk,
   SkyblockElectionData,
+  SkyblockFireSale,
   SkyblockGarden,
   SkyblockGardenActiveVisitor,
+  SkyblockGardenActiveVisitorRequirement,
   SkyblockGardenComposter,
   SkyblockGardenComposterUpgrades,
   SkyblockGardenCropMilestones,
@@ -469,9 +474,11 @@ export default {
   SkyblockMemberDungeonsTreasureRun,
   SkyblockMemberDungeonsTreasuresChest,
   SkyblockMemberFairySouls,
+  SkyblockMemberJacobContest,
   SkyblockMemberJacobContests,
   SkyblockMemberJacobContestsMedals,
   SkyblockMemberJacobContestsPerks,
+  SkyblockMemberJacobContestsUniqueBrackets,
   SkyblockMemberLeveling,
   SkyblockMemberMining,
   SkyblockMemberMiningCrystal,
@@ -515,6 +522,7 @@ export default {
   SkyblockMemberRiftDreamFarm,
   SkyblockMemberRiftEnigma,
   SkyblockMemberRiftGallery,
+  SkyblockMemberRiftGallerySecuredTrophy,
   SkyblockMemberRiftInventory,
   SkyblockMemberRiftVillagePlaza,
   SkyblockMemberRiftVillagePlazaBarry,

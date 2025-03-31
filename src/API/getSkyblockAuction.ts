@@ -17,18 +17,31 @@ class getSkyblockAction extends Endpoint {
     query: string,
     options?: AuctionRequestOptions
   ): Promise<SkyblockAuctionResult | RequestData> {
-    let filter;
-    if ('profile' === type) {
-      filter = 'profile';
-    } else if ('player' === type && query) {
-      query = await this.client.requestHandler.toUUID(query);
-      filter = 'player';
-    } else if ('auctionId' === type) {
-      filter = 'uuid';
-    } else {
-      throw new Error(this.client.errors.BAD_AUCTION_FILTER);
+    let filter: string | null;
+    if (type === undefined) throw new Error(this.client.errors.BAD_AUCTION_FILTER);
+    if (query === undefined) throw new Error(this.client.errors.NO_UUID);
+
+    switch (type) {
+      case 'PROFILE': {
+        filter = 'profile';
+        break;
+      }
+      case 'PLAYER': {
+        filter = 'player';
+        break;
+      }
+      case 'AUCTIONID': {
+        filter = 'uuid';
+        break;
+      }
+      default: {
+        filter = null;
+        break;
+      }
     }
-    if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
+
+    if (null === filter) throw new Error(this.client.errors.BAD_AUCTION_FILTER);
+
     const res = await this.client.requestHandler.request(`/skyblock/auction?${filter}=${query}`, options);
     if (res.options.raw) return res;
     return {

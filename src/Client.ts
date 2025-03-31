@@ -16,25 +16,27 @@ import RateLimit from './Private/RateLimit.js';
 import RecentGame from './Structures/RecentGame.js';
 import RequestData from './Private/RequestData.js';
 import RequestHandler from './Private/RequestHandler.js';
-import SkyblockAuction from './Structures/SkyBlock/Auctions/SkyblockAuction.js';
 import SkyblockBazzar from './Structures/SkyBlock/Bazaar/SkyblockBazzar.js';
 import SkyblockBingo from './Structures/SkyBlock/Bingo/SkyblockBingo.js';
 import SkyblockGarden from './Structures/SkyBlock/Garden/SkyblockGarden.js';
 import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
-import SkyblockMuseumMember from './Structures/SkyBlock/Museum/SkyblockMuseumMember.js';
 import SkyblockNews from './Structures/SkyBlock/News/SkyblockNews.js';
 import SkyblockProfile from './Structures/SkyBlock/Profile/SkyblockProfile.js';
 import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
-import type FireSale from './Structures/SkyBlock/FireSale/FireSale.js';
+import type SkyblockCollections from './Structures/SkyBlock/Collections/SkyblockCollections.js';
 import type SkyblockElectionData from './Structures/SkyBlock/Election/SkyblockElectionData.js';
+import type SkyblockFireSale from './Structures/SkyBlock/FireSale/SkyblockFireSale.js';
+import type SkyblockMuseum from './Structures/SkyBlock/Museum/SkyblockMuseum.js';
+import type SkyblockSkills from './Structures/SkyBlock/Skills/SkyblockSkills.js';
 import type {
   AuctionFetchOptions,
   AuctionRequestOptions,
   GuildFetchOptions,
   PlayerRequestOptions,
   SkyblockAuctionResult,
+  SkyblockAuctionsResult,
   SkyblockRequestOptions
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
@@ -174,18 +176,14 @@ class Client {
     type: AuctionFetchOptions,
     query: string,
     options?: AuctionRequestOptions
-  ): Promise<SkyblockAuction[] | RequestData> {
+  ): Promise<SkyblockAuctionResult | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockAuctions(query: number | '*', options?: AuctionRequestOptions): Promise<SkyblockAuctionResult> {
-    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
-  }
-
-  public getSkyblockAuctionsByPlayer(
-    query: string,
+  public getSkyblockAuctions(
+    query: number | '*',
     options?: AuctionRequestOptions
-  ): Promise<SkyblockAuction[] | RequestData> {
+  ): Promise<SkyblockAuctionsResult | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -197,11 +195,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockFireSales(options?: RequestOptions): Promise<FireSale[] | RequestData> {
-    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
-  }
-
-  public getSkyblockGarden(profileId: string, options?: RequestOptions): Promise<SkyblockGarden | RequestData> {
+  public getSkyblockCollections(options?: RequestOptions): Promise<SkyblockCollections | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -209,11 +203,23 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockMuseum(
-    query: string,
-    profileId: string,
-    options?: RequestOptions
-  ): Promise<SkyblockMuseumMember | RequestData> {
+  public getSkyblockEndedAuctions(options?: AuctionRequestOptions): Promise<SkyblockAuctionResult | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyblockFireSales(options?: RequestOptions): Promise<SkyblockFireSale[] | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyblockGarden(profileId: string, options?: RequestOptions): Promise<SkyblockGarden | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyblockItems(options?: RequestOptions): Promise<SkyblockItem[] | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyblockMuseum(profileId: string, options?: RequestOptions): Promise<SkyblockMuseum | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -228,7 +234,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockItems(options?: RequestOptions): Promise<SkyblockItem[] | RequestData> {
+  public getSkyblockSkills(options?: RequestOptions): Promise<SkyblockSkills | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 

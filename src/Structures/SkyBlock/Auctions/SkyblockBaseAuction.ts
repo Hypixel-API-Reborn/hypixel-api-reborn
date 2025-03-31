@@ -11,7 +11,11 @@ class SkyblockBaseAuction {
     this.auctioneerUuid = data.auctioneer || data.seller || 'UNKNOWN';
     this.auctioneerProfile = data.profile_id || data.seller_profile || 'UNKNOWN';
     this.bin = data?.bin || false;
-    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes) : null;
+    this.itemBytes = includeItemBytes ? new ItemBytes(data.item_bytes || 'UNKNOWN') : null;
+  }
+
+  toString(): string {
+    return this.auctionId;
   }
 }
 

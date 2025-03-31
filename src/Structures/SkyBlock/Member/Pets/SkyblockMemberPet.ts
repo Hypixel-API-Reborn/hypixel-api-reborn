@@ -24,8 +24,8 @@ class SkyblockMemberPet {
     this.level = getPetLevel(data?.exp || 0, this.type, this.tier);
   }
 
-  toString(): number {
-    return this.level.level;
+  toString(): SkyblockPetId | 'UNKNOWN' {
+    return this.type;
   }
 }
 

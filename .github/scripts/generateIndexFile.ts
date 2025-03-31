@@ -22,7 +22,7 @@ async function scanDirectory(directoryPath: string, goDeep: boolean = true): Pro
 
 async function generateBaseIndex() {
   const lines: string[] = [
-    '/* v8 ignore next 400 */',
+    '/* v8 ignore next 1000 */',
     '/* eslint-disable max-len */',
     '',
     '',

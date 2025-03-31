@@ -15,6 +15,10 @@ class SkyblockAuctionBid {
     this.at = new Date(this.timestamp);
     this.bidder = data?.bidder || 'UNKNOWN';
   }
+
+  toString(): number {
+    return this.amount;
+  }
 }
 
 export default SkyblockAuctionBid;

@@ -2,7 +2,7 @@ import SkyblockMemberQuestsHarpSong from './SkyblockMemberQuestsHarpSong.js';
 import type { HarpSong } from '../../../../Types/Skyblock.js';
 
 class SkyblockMemberQuestsHarp {
-  selectedSong: HarpSong;
+  selectedSong: HarpSong | 'UNKNOWN';
   selectedSongTimestamp: number;
   selectedSongDate: Date;
   claimedTalisman: boolean;
@@ -39,7 +39,7 @@ class SkyblockMemberQuestsHarp {
     this.pachelbel = new SkyblockMemberQuestsHarpSong(data || {}, 'pachelbel');
   }
 
-  toString(): HarpSong {
+  toString(): HarpSong | 'UNKNOWN' {
     return this.selectedSong;
   }
 }

@@ -15,6 +15,10 @@ class SkyblockGardenComposter {
     this.conversionTicks = data?.conversion_ticks || 0;
     this.upgrades = new SkyblockGardenComposterUpgrades(data?.upgrades || {});
   }
+
+  toString(): number {
+    return this.organicMatter;
+  }
 }
 
 export default SkyblockGardenComposter;

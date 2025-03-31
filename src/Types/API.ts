@@ -1,3 +1,5 @@
+/* v8 ignore next 10000 */
+
 import SkyblockAuction from '../Structures/SkyBlock/Auctions/SkyblockAuction.js';
 import type SkyblockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyblockAuctionsInfo.js';
 import type SkyblockBaseAucitonInfo from '../Structures/SkyBlock/Auctions/SkyblockBaseAuctionInfo.js';
@@ -29,4 +31,4 @@ export interface SkyblockAuctionsResult {
 }
 
 export type GuildFetchOptions = 'id' | 'name' | 'player';
-export type AuctionFetchOptions = 'profile' | 'player' | 'auctionId';
+export type AuctionFetchOptions = 'PROFILE' | 'PLAYER' | 'AUCTIONID';

@@ -41,7 +41,7 @@ class SkyblockMemberChocolateFactory {
         obj[key] = data.rabbits[key];
         return obj;
       }, {});
-    this.foundEggLocations = data?.rabbits?.collected_locations;
+    this.foundEggLocations = data?.rabbits?.collected_locations || {};
   }
 
   toString(): number {

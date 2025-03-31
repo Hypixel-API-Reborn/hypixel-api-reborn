@@ -1,0 +1,32 @@
+import SkyblockMemberPlayerStatsAuctions from './SkyblockMemberPlayerStatsAuctions.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type SkyblockMemberPlayerStatsAuctionsStats from './SkyblockMemberPlayerStatsAuctionsStats.js';
+
+test('SkyblockMemberPlayerStatsAuctions', () => {
+  const data = new SkyblockMemberPlayerStatsAuctions({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockMemberPlayerStatsAuctions);
+  expectTypeOf(data).toEqualTypeOf<SkyblockMemberPlayerStatsAuctions>();
+  expect(data.bids).toBeDefined();
+  expectTypeOf(data.bids).toEqualTypeOf<number>();
+  expect(data.highestBid).toBeDefined();
+  expectTypeOf(data.highestBid).toEqualTypeOf<number>();
+  expect(data.won).toBeDefined();
+  expectTypeOf(data.won).toEqualTypeOf<number>();
+  expect(data.goldSpent).toBeDefined();
+  expectTypeOf(data.goldSpent).toEqualTypeOf<number>();
+  expect(data.created).toBeDefined();
+  expectTypeOf(data.created).toEqualTypeOf<number>();
+  expect(data.fees).toBeDefined();
+  expectTypeOf(data.fees).toEqualTypeOf<number>();
+  expect(data.completed).toBeDefined();
+  expectTypeOf(data.completed).toEqualTypeOf<number>();
+  expect(data.goldEarned).toBeDefined();
+  expectTypeOf(data.goldEarned).toEqualTypeOf<number>();
+  expect(data.noBids).toBeDefined();
+  expectTypeOf(data.noBids).toEqualTypeOf<number>();
+  expect(data.auctionsSold).toBeDefined();
+  expectTypeOf(data.auctionsSold).toEqualTypeOf<SkyblockMemberPlayerStatsAuctionsStats>();
+  expect(data.auctionsBought).toBeDefined();
+  expectTypeOf(data.auctionsBought).toEqualTypeOf<SkyblockMemberPlayerStatsAuctionsStats>();
+});

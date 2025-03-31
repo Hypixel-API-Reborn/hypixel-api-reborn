@@ -12,7 +12,7 @@ class getSkyblockMuseum extends Endpoint {
   }
 
   override async execute(profileId: string, options?: RequestOptions): Promise<SkyblockMuseum | RequestData> {
-    if (!profileId) throw new Error(this.client.errors.NO_NICKNAME_UUID);
+    if (!profileId) throw new Error(this.client.errors.NO_UUID);
     const res = await this.client.requestHandler.request(`/skyblock/museum?profile=${profileId}`, options);
     if (res.options.raw) return res;
     return new SkyblockMuseum(res.data);

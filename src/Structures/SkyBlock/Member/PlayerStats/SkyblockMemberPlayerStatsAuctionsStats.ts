@@ -17,6 +17,10 @@ class SkyblockMemberPlayerStatsAuctionsStats {
     this.mythic = data?.MYTHIC || 0;
     this.total = this.common + this.uncommon + this.rare + this.epic + this.legendary + this.special + this.mythic;
   }
+
+  toString(): number {
+    return this.total;
+  }
 }
 
 export default SkyblockMemberPlayerStatsAuctionsStats;

@@ -12,6 +12,7 @@ class SkyblockGardenCropMilestones {
   cocoaBeans: SkillLevelData;
   mushroom: SkillLevelData;
   netherWart: SkillLevelData;
+  average: number;
   constructor(data: Record<string, any>) {
     this.wheat = getLevelByXp(data?.WHEAT || 0, { type: 'wheat' });
     this.carrot = getLevelByXp(data?.CARROT_ITEM || 0, { type: 'carrot' });
@@ -23,6 +24,22 @@ class SkyblockGardenCropMilestones {
     this.cocoaBeans = getLevelByXp(data?.['INK_SACK:3'] || 0, { type: 'cocoaBeans' });
     this.mushroom = getLevelByXp(data?.MUSHROOM_COLLECTION || 0, { type: 'mushroom' });
     this.netherWart = getLevelByXp(data?.NETHER_STALK || 0, { type: 'netherWart' });
+    this.average =
+      (this.wheat.level +
+        this.carrot.level +
+        this.sugarCane.level +
+        this.potato.level +
+        this.pumpkin.level +
+        this.melon.level +
+        this.cactus.level +
+        this.cocoaBeans.level +
+        this.mushroom.level +
+        this.netherWart.level) /
+      10;
+  }
+
+  toString(): number {
+    return this.average;
   }
 }
 

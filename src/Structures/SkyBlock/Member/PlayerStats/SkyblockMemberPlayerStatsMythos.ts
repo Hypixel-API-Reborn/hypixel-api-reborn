@@ -11,6 +11,10 @@ class SkyblockMemberPlayerStatsMythos {
     this.burrowsDugTreasure = data?.burrows_dug_treasure?.total || 0;
     this.burrowsChainsComplete = data?.burrows_chains_complete?.total || 0;
   }
+
+  toString(): number {
+    return this.kills;
+  }
 }
 
 export default SkyblockMemberPlayerStatsMythos;

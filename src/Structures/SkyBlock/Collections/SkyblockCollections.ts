@@ -39,6 +39,10 @@ class SkyblockCollections {
       (collection) => new SkyblockCollection(riftCollections?.[collection], collection)
     );
   }
+
+  toString(): string {
+    return this.version;
+  }
 }
 
 export default SkyblockCollections;

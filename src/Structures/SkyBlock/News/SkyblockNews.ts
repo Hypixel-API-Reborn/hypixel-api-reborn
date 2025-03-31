@@ -19,9 +19,9 @@ class SkyblockNews {
   date: Date | null;
   version: string | null;
   constructor(data: Record<string, any>) {
-    this.title = data.title || 'UNKNOWN';
-    this.link = data.link || 'UNKNOWN';
-    this.date = parseDate(data.text);
+    this.title = data?.title || 'UNKNOWN';
+    this.link = data?.link || 'UNKNOWN';
+    this.date = parseDate(data?.text || 'UNKNOWN');
     this.version = parseVer(this.title);
   }
 

@@ -1,0 +1,35 @@
+import SkyblockGardenCropMilestones from './SkyblockGardenCropMilestones.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { SkillLevelData } from '../../../Types/Skyblock.js';
+
+test('SkyblockGardenCropMilestones', () => {
+  const data = new SkyblockGardenCropMilestones({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyblockGardenCropMilestones);
+  expectTypeOf(data).toEqualTypeOf<SkyblockGardenCropMilestones>();
+  expect(data.wheat).toBeDefined();
+  expectTypeOf(data.wheat).toEqualTypeOf<SkillLevelData>();
+  expect(data.carrot).toBeDefined();
+  expectTypeOf(data.carrot).toEqualTypeOf<SkillLevelData>();
+  expect(data.sugarCane).toBeDefined();
+  expectTypeOf(data.sugarCane).toEqualTypeOf<SkillLevelData>();
+  expect(data.potato).toBeDefined();
+  expectTypeOf(data.potato).toEqualTypeOf<SkillLevelData>();
+  expect(data.pumpkin).toBeDefined();
+  expectTypeOf(data.pumpkin).toEqualTypeOf<SkillLevelData>();
+  expect(data.melon).toBeDefined();
+  expectTypeOf(data.melon).toEqualTypeOf<SkillLevelData>();
+  expect(data.cactus).toBeDefined();
+  expectTypeOf(data.cactus).toEqualTypeOf<SkillLevelData>();
+  expect(data.cocoaBeans).toBeDefined();
+  expectTypeOf(data.cocoaBeans).toEqualTypeOf<SkillLevelData>();
+  expect(data.mushroom).toBeDefined();
+  expectTypeOf(data.mushroom).toEqualTypeOf<SkillLevelData>();
+  expect(data.netherWart).toBeDefined();
+  expectTypeOf(data.netherWart).toEqualTypeOf<SkillLevelData>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.average);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
+});

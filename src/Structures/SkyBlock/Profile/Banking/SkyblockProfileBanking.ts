@@ -9,6 +9,10 @@ class SkyblockProfileBanking {
       (transaction: Record<string, any>) => new SkyblockProfilesBankingTrasnsaction(transaction)
     );
   }
+
+  toString(): number {
+    return this.balance;
+  }
 }
 
 export default SkyblockProfileBanking;
