@@ -64,7 +64,7 @@ class Player {
   level: LevelProgress;
   seasonal: Seasonal;
   karma: number;
-  freeSkyblockCookie: number | null;
+  freeSkyBlockCookie: number | null;
   tourney: Tourney;
   rewards: Rewards;
   challenges: object;
@@ -99,7 +99,7 @@ class Player {
     this.level = playerLevelProgress(this.exp);
     this.seasonal = new Seasonal(data?.seasonal || {});
     this.karma = data?.karma || 0;
-    this.freeSkyblockCookie = data?.skyblock_free_cookie || null;
+    this.freeSkyBlockCookie = data?.skyblock_free_cookie || null;
     this.tourney = new Tourney(data?.tourney || {});
     this.rewards = new Rewards(data);
     this.challenges = data?.challenges || {};

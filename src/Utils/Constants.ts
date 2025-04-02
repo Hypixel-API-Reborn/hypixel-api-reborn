@@ -2,9 +2,9 @@ import type {
   CustomPetLevelingData,
   MiningForgeItemsData,
   Rarity,
-  SkyblockSlayer,
-  SkyblockXPTables
-} from '../Types/Skyblock.js';
+  SkyBlockSlayer,
+  SkyBlockXPTables
+} from '../Types/SkyBlock.js';
 import type { DuelsBaseDivision } from '../Types/Player.js';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
@@ -392,7 +392,7 @@ export const CustomPetLeveling: CustomPetLevelingData = {
   }
 };
 
-export const SLAYER_XP: { [key in SkyblockSlayer]: Record<number, number> } = {
+export const SLAYER_XP: { [key in SkyBlockSlayer]: Record<number, number> } = {
   zombie: {
     1: 5,
     2: 15,
@@ -457,7 +457,7 @@ export const SLAYER_XP: { [key in SkyblockSlayer]: Record<number, number> } = {
   }
 };
 
-export const DEFAULT_SKILL_CAPS: { [key in SkyblockXPTables]: number } = {
+export const DEFAULT_SKILL_CAPS: { [key in SkyBlockXPTables]: number } = {
   farming: 50,
   mining: 60,
   combat: 60,

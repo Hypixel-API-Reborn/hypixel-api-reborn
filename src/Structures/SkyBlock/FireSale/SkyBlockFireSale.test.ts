@@ -1,0 +1,33 @@
+import SkyBlockFireSale from './SkyBlockFireSale.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyBlockFireSale', () => {
+  const data = new SkyBlockFireSale({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyBlockFireSale);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockFireSale>();
+  expect(data.itemId).toBeDefined();
+  expectTypeOf(data.itemId).toEqualTypeOf<string>();
+  expect(data.startTimestamp).toBeDefined();
+  expectTypeOf(data.startTimestamp).toEqualTypeOf<number>();
+  expect(data.startAt).toBeDefined();
+  expectTypeOf(data.startAt).toEqualTypeOf<Date>();
+  expect(data.endTimestamp).toBeDefined();
+  expectTypeOf(data.endTimestamp).toEqualTypeOf<number>();
+  expect(data.endAt).toBeDefined();
+  expectTypeOf(data.endAt).toEqualTypeOf<Date>();
+  expect(data.amount).toBeDefined();
+  expectTypeOf(data.amount).toEqualTypeOf<number>();
+  expect(data.price).toBeDefined();
+  expectTypeOf(data.price).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.itemId);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.itemId);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
+});

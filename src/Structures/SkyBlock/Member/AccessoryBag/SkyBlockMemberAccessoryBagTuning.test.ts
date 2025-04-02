@@ -1,0 +1,33 @@
+import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.js';
+import SkyBlockMemberAccessoryBagTuningSlot from './SkyBlockMemberAccessoryBagTuningSlot.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyBlockMemberAccessoryBagTuning', () => {
+  const data = new SkyBlockMemberAccessoryBagTuning({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyBlockMemberAccessoryBagTuning);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberAccessoryBagTuning>();
+  expect(data.highestUnlockedSlot).toBeDefined();
+  expectTypeOf(data.highestUnlockedSlot).toEqualTypeOf<number>();
+  expect(data.slot1).toBeDefined();
+  expectTypeOf(data.slot1).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot2).toBeDefined();
+  expectTypeOf(data.slot2).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot3).toBeDefined();
+  expectTypeOf(data.slot3).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot4).toBeDefined();
+  expectTypeOf(data.slot4).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot5).toBeDefined();
+  expectTypeOf(data.slot5).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot6).toBeDefined();
+  expectTypeOf(data.slot6).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot7).toBeDefined();
+  expectTypeOf(data.slot7).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.slot8).toBeDefined();
+  expectTypeOf(data.slot8).toEqualTypeOf<SkyBlockMemberAccessoryBagTuningSlot>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.highestUnlockedSlot);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
+});

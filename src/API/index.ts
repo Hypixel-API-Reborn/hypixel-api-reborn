@@ -13,20 +13,20 @@ import getPlayer from './getPlayer.js';
 import getPlayerHouses from './getPlayerHouses.js';
 import getQuests from './getQuests.js';
 import getRecentGames from './getRecentGames.js';
-import getSkyblockAuction from './getSkyblockAuction.js';
-import getSkyblockAuctions from './getSkyblockAuctions.js';
-import getSkyblockBazaar from './getSkyblockBazaar.js';
-import getSkyblockBingo from './getSkyblockBingo.js';
-import getSkyblockCollections from './getSkyblockCollections.js';
-import getSkyblockElection from './getSkyblockElection.js';
-import getSkyblockEndedAuctions from './getSkyblockEndedAuctions.js';
-import getSkyblockFireSales from './getSkyblockFireSales.js';
-import getSkyblockGarden from './getSkyblockGarden.js';
-import getSkyblockItems from './getSkyblockItems.js';
-import getSkyblockMuseum from './getSkyblockMuseum.js';
-import getSkyblockNews from './getSkyblockNews.js';
-import getSkyblockProfiles from './getSkyblockProfiles.js';
-import getSkyblockSkills from './getSkyblockSkills.js';
+import getSkyBlockAuction from './getSkyBlockAuction.js';
+import getSkyBlockAuctions from './getSkyBlockAuctions.js';
+import getSkyBlockBazaar from './getSkyBlockBazaar.js';
+import getSkyBlockBingo from './getSkyBlockBingo.js';
+import getSkyBlockCollections from './getSkyBlockCollections.js';
+import getSkyBlockElection from './getSkyBlockElection.js';
+import getSkyBlockEndedAuctions from './getSkyBlockEndedAuctions.js';
+import getSkyBlockFireSales from './getSkyBlockFireSales.js';
+import getSkyBlockGarden from './getSkyBlockGarden.js';
+import getSkyBlockItems from './getSkyBlockItems.js';
+import getSkyBlockMuseum from './getSkyBlockMuseum.js';
+import getSkyBlockNews from './getSkyBlockNews.js';
+import getSkyBlockProfiles from './getSkyBlockProfiles.js';
+import getSkyBlockSkills from './getSkyBlockSkills.js';
 import getStatus from './getStatus.js';
 import getWatchdogStats from './getWatchdogStats.js';
 
@@ -44,20 +44,20 @@ export default {
   getPlayerHouses,
   getQuests,
   getRecentGames,
-  getSkyblockAuction,
-  getSkyblockAuctions,
-  getSkyblockBazaar,
-  getSkyblockBingo,
-  getSkyblockCollections,
-  getSkyblockElection,
-  getSkyblockEndedAuctions,
-  getSkyblockFireSales,
-  getSkyblockGarden,
-  getSkyblockItems,
-  getSkyblockMuseum,
-  getSkyblockNews,
-  getSkyblockProfiles,
-  getSkyblockSkills,
+  getSkyBlockAuction,
+  getSkyBlockAuctions,
+  getSkyBlockBazaar,
+  getSkyBlockBingo,
+  getSkyBlockCollections,
+  getSkyBlockElection,
+  getSkyBlockEndedAuctions,
+  getSkyBlockFireSales,
+  getSkyBlockGarden,
+  getSkyBlockItems,
+  getSkyBlockMuseum,
+  getSkyBlockNews,
+  getSkyBlockProfiles,
+  getSkyBlockSkills,
   getStatus,
   getWatchdogStats
 };

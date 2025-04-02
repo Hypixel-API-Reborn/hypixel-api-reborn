@@ -1,6 +1,6 @@
 import Divide from '../../../Utils/Divide.js';
 import PitInventoryItem from './PitInventoryItem.js';
-import { decode } from '../../../Utils/SkyblockUtils.js';
+import { decode } from '../../../Utils/SkyBlockUtils.js';
 import { pit } from '../../../Utils/Constants.js';
 import type { PitArmor } from '../../../Types/Player.js';
 

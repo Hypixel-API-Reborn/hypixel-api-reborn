@@ -89,8 +89,8 @@ test('Player', () => {
   expect(data.karma).toBeDefined();
   expect(data.karma).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.karma).toEqualTypeOf<number>();
-  expect(data.freeSkyblockCookie).toBeDefined();
-  expectTypeOf(data.freeSkyblockCookie).toEqualTypeOf<number | null>();
+  expect(data.freeSkyBlockCookie).toBeDefined();
+  expectTypeOf(data.freeSkyBlockCookie).toEqualTypeOf<number | null>();
   expect(data.tourney).toBeDefined();
   expectTypeOf(data.tourney).toEqualTypeOf<Tourney>();
   expect(data.rewards).toBeDefined();

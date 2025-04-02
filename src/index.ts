@@ -13,7 +13,7 @@ export * from './Types/Global.js';
 export * from './Types/Guild.js';
 export * from './Types/Player.js';
 export * from './Types/Requests.js';
-export * from './Types/Skyblock.js';
+export * from './Types/SkyBlock.js';
 export * from './Types/Static.js';
 
 import Achievements from './Structures/Static/Achievements/Achievements.js';
@@ -122,152 +122,152 @@ import SeasonBingoTier from './Structures/Player/Seasonal/SeasonBingoTier.js';
 import SeasonYear from './Structures/Player/Seasonal/SeasonYear.js';
 import Seasonal from './Structures/Player/Seasonal/Seasonal.js';
 import SheepWars from './Structures/MiniGames/WoolGames/SheepWars.js';
+import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
+import SkyBlockAuctionBid from './Structures/SkyBlock/Auctions/SkyBlockAuctionBid.js';
+import SkyBlockAuctionsInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionsInfo.js';
+import SkyBlockBaseAuction from './Structures/SkyBlock/Auctions/SkyBlockBaseAuction.js';
+import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
+import SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
+import SkyBlockBazaarProduct from './Structures/SkyBlock/Bazaar/SkyBlockBazaarProduct.js';
+import SkyBlockBazaarProductOrder from './Structures/SkyBlock/Bazaar/SkyBlockBazaarProductOrder.js';
+import SkyBlockBazaarQuickStatus from './Structures/SkyBlock/Bazaar/SkyBlockBazaarQuickStatus.js';
+import SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.js';
+import SkyBlockBingoGoal from './Structures/SkyBlock/Bingo/SkyBlockBingoGoal.js';
+import SkyBlockCollection from './Structures/SkyBlock/Collections/SkyBlockCollection.js';
+import SkyBlockCollectionTier from './Structures/SkyBlock/Collections/SkyBlockCollectionTier.js';
+import SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.js';
+import SkyBlockElection from './Structures/SkyBlock/Election/SkyBlockElection.js';
+import SkyBlockElectionCandidate from './Structures/SkyBlock/Election/SkyBlockElectionCandidate.js';
+import SkyBlockElectionCandidatePerk from './Structures/SkyBlock/Election/SkyBlockElectionCandidatePerk.js';
+import SkyBlockElectionData from './Structures/SkyBlock/Election/SkyBlockElectionData.js';
+import SkyBlockFireSale from './Structures/SkyBlock/FireSale/SkyBlockFireSale.js';
+import SkyBlockGarden from './Structures/SkyBlock/Garden/SkyBlockGarden.js';
+import SkyBlockGardenActiveVisitor from './Structures/SkyBlock/Garden/SkyBlockGardenActiveVisitor.js';
+import SkyBlockGardenActiveVisitorRequirement from './Structures/SkyBlock/Garden/SkyBlockGardenActiveVisitorRequirement.js';
+import SkyBlockGardenComposter from './Structures/SkyBlock/Garden/SkyBlockGardenComposter.js';
+import SkyBlockGardenComposterUpgrades from './Structures/SkyBlock/Garden/SkyBlockGardenComposterUpgrades.js';
+import SkyBlockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyBlockGardenCropMilestones.js';
+import SkyBlockGardenCropsUpgrades from './Structures/SkyBlock/Garden/SkyBlockGardenCropsUpgrades.js';
+import SkyBlockGardenVisitors from './Structures/SkyBlock/Garden/SkyBlockGardenVisitors.js';
+import SkyBlockGemstone from './Structures/SkyBlock/SkyBlockGemstone.js';
+import SkyBlockInventoryItem from './Structures/SkyBlock/SkyBlockInventoryItem.js';
+import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
+import SkyBlockMember from './Structures/SkyBlock/Member/SkyBlockMember.js';
+import SkyBlockMemberAccessoryBag from './Structures/SkyBlock/Member/AccessoryBag/SkyBlockMemberAccessoryBag.js';
+import SkyBlockMemberAccessoryBagTuning from './Structures/SkyBlock/Member/AccessoryBag/SkyBlockMemberAccessoryBagTuning.js';
+import SkyBlockMemberAccessoryBagTuningSlot from './Structures/SkyBlock/Member/AccessoryBag/SkyBlockMemberAccessoryBagTuningSlot.js';
+import SkyBlockMemberBestiary from './Structures/SkyBlock/Member/Bestiary/SkyBlockMemberBestiary.js';
+import SkyBlockMemberChocolateFactory from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactory.js';
+import SkyBlockMemberChocolateFactoryEggs from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactoryEggs.js';
+import SkyBlockMemberChocolateFactoryEmployees from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactoryEmployees.js';
+import SkyBlockMemberChocolateFactoryHitmen from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactoryHitmen.js';
+import SkyBlockMemberChocolateFactoryTimeTower from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactoryTimeTower.js';
+import SkyBlockMemberChocolateFactoryUpgrades from './Structures/SkyBlock/Member/ChocolateFactory/SkyBlockMemberChocolateFactoryUpgrades.js';
+import SkyBlockMemberCrimsonIsle from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsle.js';
+import SkyBlockMemberCrimsonIsleAbiphone from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleAbiphone.js';
+import SkyBlockMemberCrimsonIsleDojo from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleDojo.js';
+import SkyBlockMemberCrimsonIsleDojoMinigame from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleDojoMinigame.js';
+import SkyBlockMemberCrimsonIsleKuudra from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleKuudra.js';
+import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleKuudraPartyFinder.js';
+import SkyBlockMemberCrimsonIsleMatriarch from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleMatriarch.js';
+import SkyBlockMemberCrimsonIsleTrophyFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFishFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFishFish.js';
+import SkyBlockMemberCurrencies from './Structures/SkyBlock/Member/SkyBlockMemberCurrencies.js';
+import SkyBlockMemberDungeons from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeons.js';
+import SkyBlockMemberDungeonsClasses from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsClasses.js';
+import SkyBlockMemberDungeonsFloor from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsFloor.js';
+import SkyBlockMemberDungeonsFloorRun from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsFloorRun.js';
+import SkyBlockMemberDungeonsMode from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsMode.js';
+import SkyBlockMemberDungeonsTreasureRun from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasureRun.js';
+import SkyBlockMemberDungeonsTreasuresChest from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasuresChest.js';
+import SkyBlockMemberFairySouls from './Structures/SkyBlock/Member/SkyBlockMemberFairySouls.js';
+import SkyBlockMemberJacobContest from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContest.js';
+import SkyBlockMemberJacobContests from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContests.js';
+import SkyBlockMemberJacobContestsMedals from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContestsMedals.js';
+import SkyBlockMemberJacobContestsPerks from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContestsPerks.js';
+import SkyBlockMemberJacobContestsUniqueBrackets from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContestsUniqueBrackets.js';
+import SkyBlockMemberLeveling from './Structures/SkyBlock/Member/SkyBlockMemberLeveling.js';
+import SkyBlockMemberMining from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMining.js';
+import SkyBlockMemberMiningCrystal from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningCrystal.js';
+import SkyBlockMemberMiningHotm from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningHotm.js';
+import SkyBlockMemberMiningHotmForge from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningHotmForge.js';
+import SkyBlockMemberMiningHotmForgeItem from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningHotmForgeItem.js';
+import SkyBlockMemberMiningPowder from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningPowder.js';
+import SkyBlockMemberMiningPowders from './Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningPowders.js';
+import SkyBlockMemberObjectives from './Structures/SkyBlock/Member/SkyBlockMemberObjectives.js';
+import SkyBlockMemberPet from './Structures/SkyBlock/Member/Pets/SkyBlockMemberPet.js';
+import SkyBlockMemberPets from './Structures/SkyBlock/Member/Pets/SkyBlockMemberPets.js';
+import SkyBlockMemberPetsAutoPetRule from './Structures/SkyBlock/Member/Pets/SkyBlockMemberPetsAutoPetRule.js';
+import SkyBlockMemberPetsAutoPets from './Structures/SkyBlock/Member/Pets/SkyBlockMemberPetsAutoPets.js';
+import SkyBlockMemberPetsCare from './Structures/SkyBlock/Member/Pets/SkyBlockMemberPetsCare.js';
+import SkyBlockMemberPlayerData from './Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerData.js';
+import SkyBlockMemberPlayerDataActiveEffect from './Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerDataActiveEffect.js';
+import SkyBlockMemberPlayerDataMinion from './Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerDataMinion.js';
+import SkyBlockMemberPlayerDataMinions from './Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerDataMinions.js';
+import SkyBlockMemberPlayerDataSkills from './Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerDataSkills.js';
+import SkyBlockMemberPlayerStats from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStats.js';
+import SkyBlockMemberPlayerStatsAuctions from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsAuctions.js';
+import SkyBlockMemberPlayerStatsAuctionsStats from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsAuctionsStats.js';
+import SkyBlockMemberPlayerStatsCandy from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsCandy.js';
+import SkyBlockMemberPlayerStatsEndIsland from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsEndIsland.js';
+import SkyBlockMemberPlayerStatsEndIslandDragonFight from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsEndIslandDragonFight.js';
+import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.js';
+import SkyBlockMemberPlayerStatsFishing from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsFishing.js';
+import SkyBlockMemberPlayerStatsGifts from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsGifts.js';
+import SkyBlockMemberPlayerStatsMythos from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsMythos.js';
+import SkyBlockMemberPlayerStatsSpookyFestival from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsSpookyFestival.js';
+import SkyBlockMemberPlayerStatsWinter from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsWinter.js';
+import SkyBlockMemberProfile from './Structures/SkyBlock/Member/SkyBlockMemberProfile.js';
+import SkyBlockMemberQuests from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuests.js';
+import SkyBlockMemberQuestsHarp from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuestsHarp.js';
+import SkyBlockMemberQuestsHarpSong from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuestsHarpSong.js';
+import SkyBlockMemberRift from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRift.js';
+import SkyBlockMemberRiftAccess from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftAccess.js';
+import SkyBlockMemberRiftBlackLagoon from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftBlackLagoon.js';
+import SkyBlockMemberRiftCastle from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftCastle.js';
+import SkyBlockMemberRiftDeadCats from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftDeadCats.js';
+import SkyBlockMemberRiftDreamFarm from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftDreamFarm.js';
+import SkyBlockMemberRiftEnigma from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftEnigma.js';
+import SkyBlockMemberRiftGallery from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftGallery.js';
+import SkyBlockMemberRiftGallerySecuredTrophy from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftGallerySecuredTrophy.js';
+import SkyBlockMemberRiftInventory from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftInventory.js';
+import SkyBlockMemberRiftVillagePlaza from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyBlockMemberRiftVillagePlaza.js';
+import SkyBlockMemberRiftVillagePlazaBarry from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyBlockMemberRiftVillagePlazaBarry.js';
+import SkyBlockMemberRiftVillagePlazaCowboy from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyBlockMemberRiftVillagePlazaCowboy.js';
+import SkyBlockMemberRiftVillagePlazaMurder from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyBlockMemberRiftVillagePlazaMurder.js';
+import SkyBlockMemberRiftWestVillage from './Structures/SkyBlock/Member/Rift/WestVillage/SkyBlockMemberRiftWestVillage.js';
+import SkyBlockMemberRiftWestVillageCrazyKloon from './Structures/SkyBlock/Member/Rift/WestVillage/SkyBlockMemberRiftWestVillageCrazyKloon.js';
+import SkyBlockMemberRiftWestVillageGlyphs from './Structures/SkyBlock/Member/Rift/WestVillage/SkyBlockMemberRiftWestVillageGlyphs.js';
+import SkyBlockMemberRiftWestVillageKatHouse from './Structures/SkyBlock/Member/Rift/WestVillage/SkyBlockMemberRiftWestVillageKatHouse.js';
+import SkyBlockMemberRiftWestVillageMirrorverse from './Structures/SkyBlock/Member/Rift/WestVillage/SkyBlockMemberRiftWestVillageMirrorverse.js';
+import SkyBlockMemberRiftWitherCage from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWitherCage.js';
+import SkyBlockMemberRiftWizardTower from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWizardTower.js';
+import SkyBlockMemberRiftWyldWoods from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWyldWoods.js';
+import SkyBlockMemberSlayer from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayer.js';
+import SkyBlockMemberSlayerClaimedLevels from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayerClaimedLevels.js';
+import SkyBlockMemberSlayers from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayers.js';
+import SkyBlockMemberSlayersQuest from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayersQuest.js';
+import SkyBlockMemeberQuestsTrapper from './Structures/SkyBlock/Member/Quests/SkyBlockMemeberQuestsTrapper.js';
+import SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.js';
+import SkyBlockMuseumItem from './Structures/SkyBlock/Museum/SkyBlockMuseumItem.js';
+import SkyBlockMuseumMember from './Structures/SkyBlock/Museum/SkyBlockMuseumMember.js';
+import SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
+import SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
+import SkyBlockProfileBanking from './Structures/SkyBlock/Profile/Banking/SkyBlockProfileBanking.js';
+import SkyBlockProfileCommunityUpgrades from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
+import SkyBlockProfileCommunityUpgradesUpgrade from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrade.js';
+import SkyBlockProfileCommunityUpgradesUpgraded from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgraded.js';
+import SkyBlockProfileCommunityUpgradesUpgrading from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrading.js';
+import SkyBlockProfilesBankingTrasnsaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfilesBankingTrasnsaction.js';
+import SkyBlockSkill from './Structures/SkyBlock/Skills/SkyBlockSkill.js';
+import SkyBlockSkillLevel from './Structures/SkyBlock/Skills/SkyBlockSkillLevel.js';
+import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import SkyWars from './Structures/MiniGames/SkyWars/SkyWars.js';
 import SkyWarsKit from './Structures/MiniGames/SkyWars/SkyWarsKit.js';
 import SkyWarsKits from './Structures/MiniGames/SkyWars/SkyWarsKits.js';
 import SkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode.js';
 import SkyWarsModeStats from './Structures/MiniGames/SkyWars/SkyWarsModeStats.js';
 import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
-import SkyblockAuction from './Structures/SkyBlock/Auctions/SkyblockAuction.js';
-import SkyblockAuctionBid from './Structures/SkyBlock/Auctions/SkyblockAuctionBid.js';
-import SkyblockAuctionsInfo from './Structures/SkyBlock/Auctions/SkyblockAuctionsInfo.js';
-import SkyblockBaseAuction from './Structures/SkyBlock/Auctions/SkyblockBaseAuction.js';
-import SkyblockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyblockBaseAuctionInfo.js';
-import SkyblockBazaar from './Structures/SkyBlock/Bazaar/SkyblockBazaar.js';
-import SkyblockBazaarProduct from './Structures/SkyBlock/Bazaar/SkyblockBazaarProduct.js';
-import SkyblockBazaarProductOrder from './Structures/SkyBlock/Bazaar/SkyblockBazaarProductOrder.js';
-import SkyblockBazaarQuickStatus from './Structures/SkyBlock/Bazaar/SkyblockBazaarQuickStatus.js';
-import SkyblockBingo from './Structures/SkyBlock/Bingo/SkyblockBingo.js';
-import SkyblockBingoGoal from './Structures/SkyBlock/Bingo/SkyblockBingoGoal.js';
-import SkyblockCollection from './Structures/SkyBlock/Collections/SkyblockCollection.js';
-import SkyblockCollectionTier from './Structures/SkyBlock/Collections/SkyblockCollectionTier.js';
-import SkyblockCollections from './Structures/SkyBlock/Collections/SkyblockCollections.js';
-import SkyblockElection from './Structures/SkyBlock/Election/SkyblockElection.js';
-import SkyblockElectionCandidate from './Structures/SkyBlock/Election/SkyblockElectionCandidate.js';
-import SkyblockElectionCandidatePerk from './Structures/SkyBlock/Election/SkyblockElectionCandidatePerk.js';
-import SkyblockElectionData from './Structures/SkyBlock/Election/SkyblockElectionData.js';
-import SkyblockFireSale from './Structures/SkyBlock/FireSale/SkyblockFireSale.js';
-import SkyblockGarden from './Structures/SkyBlock/Garden/SkyblockGarden.js';
-import SkyblockGardenActiveVisitor from './Structures/SkyBlock/Garden/SkyblockGardenActiveVisitor.js';
-import SkyblockGardenActiveVisitorRequirement from './Structures/SkyBlock/Garden/SkyblockGardenActiveVisitorRequirement.js';
-import SkyblockGardenComposter from './Structures/SkyBlock/Garden/SkyblockGardenComposter.js';
-import SkyblockGardenComposterUpgrades from './Structures/SkyBlock/Garden/SkyblockGardenComposterUpgrades.js';
-import SkyblockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyblockGardenCropMilestones.js';
-import SkyblockGardenCropsUpgrades from './Structures/SkyBlock/Garden/SkyblockGardenCropsUpgrades.js';
-import SkyblockGardenVisitors from './Structures/SkyBlock/Garden/SkyblockGardenVisitors.js';
-import SkyblockGemstone from './Structures/SkyBlock/SkyblockGemstone.js';
-import SkyblockInventoryItem from './Structures/SkyBlock/SkyblockInventoryItem.js';
-import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
-import SkyblockMember from './Structures/SkyBlock/Member/SkyblockMember.js';
-import SkyblockMemberAccessoryBag from './Structures/SkyBlock/Member/AccessoryBag/SkyblockMemberAccessoryBag.js';
-import SkyblockMemberAccessoryBagTuning from './Structures/SkyBlock/Member/AccessoryBag/SkyblockMemberAccessoryBagTuning.js';
-import SkyblockMemberAccessoryBagTuningSlot from './Structures/SkyBlock/Member/AccessoryBag/SkyblockMemberAccessoryBagTuningSlot.js';
-import SkyblockMemberBestiary from './Structures/SkyBlock/Member/Bestiary/SkyblockMemberBestiary.js';
-import SkyblockMemberChocolateFactory from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactory.js';
-import SkyblockMemberChocolateFactoryEggs from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactoryEggs.js';
-import SkyblockMemberChocolateFactoryEmployees from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactoryEmployees.js';
-import SkyblockMemberChocolateFactoryHitmen from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactoryHitmen.js';
-import SkyblockMemberChocolateFactoryTimeTower from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactoryTimeTower.js';
-import SkyblockMemberChocolateFactoryUpgrades from './Structures/SkyBlock/Member/ChocolateFactory/SkyblockMemberChocolateFactoryUpgrades.js';
-import SkyblockMemberCrimsonIsle from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsle.js';
-import SkyblockMemberCrimsonIsleAbiphone from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleAbiphone.js';
-import SkyblockMemberCrimsonIsleDojo from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleDojo.js';
-import SkyblockMemberCrimsonIsleDojoMinigame from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleDojoMinigame.js';
-import SkyblockMemberCrimsonIsleKuudra from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleKuudra.js';
-import SkyblockMemberCrimsonIsleKuudraPartyFinder from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleKuudraPartyFinder.js';
-import SkyblockMemberCrimsonIsleMatriarch from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleMatriarch.js';
-import SkyblockMemberCrimsonIsleTrophyFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleTrophyFish.js';
-import SkyblockMemberCrimsonIsleTrophyFishFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyblockMemberCrimsonIsleTrophyFishFish.js';
-import SkyblockMemberCurrencies from './Structures/SkyBlock/Member/SkyblockMemberCurrencies.js';
-import SkyblockMemberDungeons from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeons.js';
-import SkyblockMemberDungeonsClasses from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsClasses.js';
-import SkyblockMemberDungeonsFloor from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsFloor.js';
-import SkyblockMemberDungeonsFloorRun from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsFloorRun.js';
-import SkyblockMemberDungeonsMode from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsMode.js';
-import SkyblockMemberDungeonsTreasureRun from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsTreasureRun.js';
-import SkyblockMemberDungeonsTreasuresChest from './Structures/SkyBlock/Member/Dungeons/SkyblockMemberDungeonsTreasuresChest.js';
-import SkyblockMemberFairySouls from './Structures/SkyBlock/Member/SkyblockMemberFairySouls.js';
-import SkyblockMemberJacobContest from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContest.js';
-import SkyblockMemberJacobContests from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContests.js';
-import SkyblockMemberJacobContestsMedals from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsMedals.js';
-import SkyblockMemberJacobContestsPerks from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsPerks.js';
-import SkyblockMemberJacobContestsUniqueBrackets from './Structures/SkyBlock/Member/JacobContests/SkyblockMemberJacobContestsUniqueBrackets.js';
-import SkyblockMemberLeveling from './Structures/SkyBlock/Member/SkyblockMemberLeveling.js';
-import SkyblockMemberMining from './Structures/SkyBlock/Member/Mining/SkyblockMemberMining.js';
-import SkyblockMemberMiningCrystal from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningCrystal.js';
-import SkyblockMemberMiningHotm from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningHotm.js';
-import SkyblockMemberMiningHotmForge from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningHotmForge.js';
-import SkyblockMemberMiningHotmForgeItem from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningHotmForgeItem.js';
-import SkyblockMemberMiningPowder from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningPowder.js';
-import SkyblockMemberMiningPowders from './Structures/SkyBlock/Member/Mining/SkyblockMemberMiningPowders.js';
-import SkyblockMemberObjectives from './Structures/SkyBlock/Member/SkyblockMemberObjectives.js';
-import SkyblockMemberPet from './Structures/SkyBlock/Member/Pets/SkyblockMemberPet.js';
-import SkyblockMemberPets from './Structures/SkyBlock/Member/Pets/SkyblockMemberPets.js';
-import SkyblockMemberPetsAutoPetRule from './Structures/SkyBlock/Member/Pets/SkyblockMemberPetsAutoPetRule.js';
-import SkyblockMemberPetsAutoPets from './Structures/SkyBlock/Member/Pets/SkyblockMemberPetsAutoPets.js';
-import SkyblockMemberPetsCare from './Structures/SkyBlock/Member/Pets/SkyblockMemberPetsCare.js';
-import SkyblockMemberPlayerData from './Structures/SkyBlock/Member/PlayerData/SkyblockMemberPlayerData.js';
-import SkyblockMemberPlayerDataActiveEffect from './Structures/SkyBlock/Member/PlayerData/SkyblockMemberPlayerDataActiveEffect.js';
-import SkyblockMemberPlayerDataMinion from './Structures/SkyBlock/Member/PlayerData/SkyblockMemberPlayerDataMinion.js';
-import SkyblockMemberPlayerDataMinions from './Structures/SkyBlock/Member/PlayerData/SkyblockMemberPlayerDataMinions.js';
-import SkyblockMemberPlayerDataSkills from './Structures/SkyBlock/Member/PlayerData/SkyblockMemberPlayerDataSkills.js';
-import SkyblockMemberPlayerStats from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStats.js';
-import SkyblockMemberPlayerStatsAuctions from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsAuctions.js';
-import SkyblockMemberPlayerStatsAuctionsStats from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsAuctionsStats.js';
-import SkyblockMemberPlayerStatsCandy from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsCandy.js';
-import SkyblockMemberPlayerStatsEndIsland from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsEndIsland.js';
-import SkyblockMemberPlayerStatsEndIslandDragonFight from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsEndIslandDragonFight.js';
-import SkyblockMemberPlayerStatsEndIslandDragonFightDragon from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsEndIslandDragonFightDragon.js';
-import SkyblockMemberPlayerStatsFishing from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsFishing.js';
-import SkyblockMemberPlayerStatsGifts from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsGifts.js';
-import SkyblockMemberPlayerStatsMythos from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsMythos.js';
-import SkyblockMemberPlayerStatsSpookyFestival from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsSpookyFestival.js';
-import SkyblockMemberPlayerStatsWinter from './Structures/SkyBlock/Member/PlayerStats/SkyblockMemberPlayerStatsWinter.js';
-import SkyblockMemberProfile from './Structures/SkyBlock/Member/SkyblockMemberProfile.js';
-import SkyblockMemberQuests from './Structures/SkyBlock/Member/Quests/SkyblockMemberQuests.js';
-import SkyblockMemberQuestsHarp from './Structures/SkyBlock/Member/Quests/SkyblockMemberQuestsHarp.js';
-import SkyblockMemberQuestsHarpSong from './Structures/SkyBlock/Member/Quests/SkyblockMemberQuestsHarpSong.js';
-import SkyblockMemberRift from './Structures/SkyBlock/Member/Rift/SkyblockMemberRift.js';
-import SkyblockMemberRiftAccess from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftAccess.js';
-import SkyblockMemberRiftBlackLagoon from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftBlackLagoon.js';
-import SkyblockMemberRiftCastle from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftCastle.js';
-import SkyblockMemberRiftDeadCats from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftDeadCats.js';
-import SkyblockMemberRiftDreamFarm from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftDreamFarm.js';
-import SkyblockMemberRiftEnigma from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftEnigma.js';
-import SkyblockMemberRiftGallery from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftGallery.js';
-import SkyblockMemberRiftGallerySecuredTrophy from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftGallerySecuredTrophy.js';
-import SkyblockMemberRiftInventory from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftInventory.js';
-import SkyblockMemberRiftVillagePlaza from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlaza.js';
-import SkyblockMemberRiftVillagePlazaBarry from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlazaBarry.js';
-import SkyblockMemberRiftVillagePlazaCowboy from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlazaCowboy.js';
-import SkyblockMemberRiftVillagePlazaMurder from './Structures/SkyBlock/Member/Rift/VillagePlaza/SkyblockMemberRiftVillagePlazaMurder.js';
-import SkyblockMemberRiftWestVillage from './Structures/SkyBlock/Member/Rift/WestVillage/SkyblockMemberRiftWestVillage.js';
-import SkyblockMemberRiftWestVillageCrazyKloon from './Structures/SkyBlock/Member/Rift/WestVillage/SkyblockMemberRiftWestVillageCrazyKloon.js';
-import SkyblockMemberRiftWestVillageGlyphs from './Structures/SkyBlock/Member/Rift/WestVillage/SkyblockMemberRiftWestVillageGlyphs.js';
-import SkyblockMemberRiftWestVillageKatHouse from './Structures/SkyBlock/Member/Rift/WestVillage/SkyblockMemberRiftWestVillageKatHouse.js';
-import SkyblockMemberRiftWestVillageMirrorverse from './Structures/SkyBlock/Member/Rift/WestVillage/SkyblockMemberRiftWestVillageMirrorverse.js';
-import SkyblockMemberRiftWitherCage from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftWitherCage.js';
-import SkyblockMemberRiftWizardTower from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftWizardTower.js';
-import SkyblockMemberRiftWyldWoods from './Structures/SkyBlock/Member/Rift/SkyblockMemberRiftWyldWoods.js';
-import SkyblockMemberSlayer from './Structures/SkyBlock/Member/Slayers/SkyblockMemberSlayer.js';
-import SkyblockMemberSlayerClaimedLevels from './Structures/SkyBlock/Member/Slayers/SkyblockMemberSlayerClaimedLevels.js';
-import SkyblockMemberSlayers from './Structures/SkyBlock/Member/Slayers/SkyblockMemberSlayers.js';
-import SkyblockMemberSlayersQuest from './Structures/SkyBlock/Member/Slayers/SkyblockMemberSlayersQuest.js';
-import SkyblockMemeberQuestsTrapper from './Structures/SkyBlock/Member/Quests/SkyblockMemeberQuestsTrapper.js';
-import SkyblockMuseum from './Structures/SkyBlock/Museum/SkyblockMuseum.js';
-import SkyblockMuseumItem from './Structures/SkyBlock/Museum/SkyblockMuseumItem.js';
-import SkyblockMuseumMember from './Structures/SkyBlock/Museum/SkyblockMuseumMember.js';
-import SkyblockNews from './Structures/SkyBlock/News/SkyblockNews.js';
-import SkyblockProfile from './Structures/SkyBlock/Profile/SkyblockProfile.js';
-import SkyblockProfileBanking from './Structures/SkyBlock/Profile/Banking/SkyblockProfileBanking.js';
-import SkyblockProfileCommunityUpgrades from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyblockProfileCommunityUpgrades.js';
-import SkyblockProfileCommunityUpgradesUpgrade from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyblockProfileCommunityUpgradesUpgrade.js';
-import SkyblockProfileCommunityUpgradesUpgraded from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyblockProfileCommunityUpgradesUpgraded.js';
-import SkyblockProfileCommunityUpgradesUpgrading from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyblockProfileCommunityUpgradesUpgrading.js';
-import SkyblockProfilesBankingTrasnsaction from './Structures/SkyBlock/Profile/Banking/SkyblockProfilesBankingTrasnsaction.js';
-import SkyblockSkill from './Structures/SkyBlock/Skills/SkyblockSkill.js';
-import SkyblockSkillLevel from './Structures/SkyBlock/Skills/SkyblockSkillLevel.js';
-import SkyblockSkills from './Structures/SkyBlock/Skills/SkyblockSkills.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
@@ -409,152 +409,152 @@ export default {
   SeasonYear,
   Seasonal,
   SheepWars,
+  SkyBlockAuction,
+  SkyBlockAuctionBid,
+  SkyBlockAuctionsInfo,
+  SkyBlockBaseAuction,
+  SkyBlockBaseAuctionInfo,
+  SkyBlockBazaar,
+  SkyBlockBazaarProduct,
+  SkyBlockBazaarProductOrder,
+  SkyBlockBazaarQuickStatus,
+  SkyBlockBingo,
+  SkyBlockBingoGoal,
+  SkyBlockCollection,
+  SkyBlockCollectionTier,
+  SkyBlockCollections,
+  SkyBlockElection,
+  SkyBlockElectionCandidate,
+  SkyBlockElectionCandidatePerk,
+  SkyBlockElectionData,
+  SkyBlockFireSale,
+  SkyBlockGarden,
+  SkyBlockGardenActiveVisitor,
+  SkyBlockGardenActiveVisitorRequirement,
+  SkyBlockGardenComposter,
+  SkyBlockGardenComposterUpgrades,
+  SkyBlockGardenCropMilestones,
+  SkyBlockGardenCropsUpgrades,
+  SkyBlockGardenVisitors,
+  SkyBlockGemstone,
+  SkyBlockInventoryItem,
+  SkyBlockItem,
+  SkyBlockMember,
+  SkyBlockMemberAccessoryBag,
+  SkyBlockMemberAccessoryBagTuning,
+  SkyBlockMemberAccessoryBagTuningSlot,
+  SkyBlockMemberBestiary,
+  SkyBlockMemberChocolateFactory,
+  SkyBlockMemberChocolateFactoryEggs,
+  SkyBlockMemberChocolateFactoryEmployees,
+  SkyBlockMemberChocolateFactoryHitmen,
+  SkyBlockMemberChocolateFactoryTimeTower,
+  SkyBlockMemberChocolateFactoryUpgrades,
+  SkyBlockMemberCrimsonIsle,
+  SkyBlockMemberCrimsonIsleAbiphone,
+  SkyBlockMemberCrimsonIsleDojo,
+  SkyBlockMemberCrimsonIsleDojoMinigame,
+  SkyBlockMemberCrimsonIsleKuudra,
+  SkyBlockMemberCrimsonIsleKuudraPartyFinder,
+  SkyBlockMemberCrimsonIsleMatriarch,
+  SkyBlockMemberCrimsonIsleTrophyFish,
+  SkyBlockMemberCrimsonIsleTrophyFishFish,
+  SkyBlockMemberCurrencies,
+  SkyBlockMemberDungeons,
+  SkyBlockMemberDungeonsClasses,
+  SkyBlockMemberDungeonsFloor,
+  SkyBlockMemberDungeonsFloorRun,
+  SkyBlockMemberDungeonsMode,
+  SkyBlockMemberDungeonsTreasureRun,
+  SkyBlockMemberDungeonsTreasuresChest,
+  SkyBlockMemberFairySouls,
+  SkyBlockMemberJacobContest,
+  SkyBlockMemberJacobContests,
+  SkyBlockMemberJacobContestsMedals,
+  SkyBlockMemberJacobContestsPerks,
+  SkyBlockMemberJacobContestsUniqueBrackets,
+  SkyBlockMemberLeveling,
+  SkyBlockMemberMining,
+  SkyBlockMemberMiningCrystal,
+  SkyBlockMemberMiningHotm,
+  SkyBlockMemberMiningHotmForge,
+  SkyBlockMemberMiningHotmForgeItem,
+  SkyBlockMemberMiningPowder,
+  SkyBlockMemberMiningPowders,
+  SkyBlockMemberObjectives,
+  SkyBlockMemberPet,
+  SkyBlockMemberPets,
+  SkyBlockMemberPetsAutoPetRule,
+  SkyBlockMemberPetsAutoPets,
+  SkyBlockMemberPetsCare,
+  SkyBlockMemberPlayerData,
+  SkyBlockMemberPlayerDataActiveEffect,
+  SkyBlockMemberPlayerDataMinion,
+  SkyBlockMemberPlayerDataMinions,
+  SkyBlockMemberPlayerDataSkills,
+  SkyBlockMemberPlayerStats,
+  SkyBlockMemberPlayerStatsAuctions,
+  SkyBlockMemberPlayerStatsAuctionsStats,
+  SkyBlockMemberPlayerStatsCandy,
+  SkyBlockMemberPlayerStatsEndIsland,
+  SkyBlockMemberPlayerStatsEndIslandDragonFight,
+  SkyBlockMemberPlayerStatsEndIslandDragonFightDragon,
+  SkyBlockMemberPlayerStatsFishing,
+  SkyBlockMemberPlayerStatsGifts,
+  SkyBlockMemberPlayerStatsMythos,
+  SkyBlockMemberPlayerStatsSpookyFestival,
+  SkyBlockMemberPlayerStatsWinter,
+  SkyBlockMemberProfile,
+  SkyBlockMemberQuests,
+  SkyBlockMemberQuestsHarp,
+  SkyBlockMemberQuestsHarpSong,
+  SkyBlockMemberRift,
+  SkyBlockMemberRiftAccess,
+  SkyBlockMemberRiftBlackLagoon,
+  SkyBlockMemberRiftCastle,
+  SkyBlockMemberRiftDeadCats,
+  SkyBlockMemberRiftDreamFarm,
+  SkyBlockMemberRiftEnigma,
+  SkyBlockMemberRiftGallery,
+  SkyBlockMemberRiftGallerySecuredTrophy,
+  SkyBlockMemberRiftInventory,
+  SkyBlockMemberRiftVillagePlaza,
+  SkyBlockMemberRiftVillagePlazaBarry,
+  SkyBlockMemberRiftVillagePlazaCowboy,
+  SkyBlockMemberRiftVillagePlazaMurder,
+  SkyBlockMemberRiftWestVillage,
+  SkyBlockMemberRiftWestVillageCrazyKloon,
+  SkyBlockMemberRiftWestVillageGlyphs,
+  SkyBlockMemberRiftWestVillageKatHouse,
+  SkyBlockMemberRiftWestVillageMirrorverse,
+  SkyBlockMemberRiftWitherCage,
+  SkyBlockMemberRiftWizardTower,
+  SkyBlockMemberRiftWyldWoods,
+  SkyBlockMemberSlayer,
+  SkyBlockMemberSlayerClaimedLevels,
+  SkyBlockMemberSlayers,
+  SkyBlockMemberSlayersQuest,
+  SkyBlockMemeberQuestsTrapper,
+  SkyBlockMuseum,
+  SkyBlockMuseumItem,
+  SkyBlockMuseumMember,
+  SkyBlockNews,
+  SkyBlockProfile,
+  SkyBlockProfileBanking,
+  SkyBlockProfileCommunityUpgrades,
+  SkyBlockProfileCommunityUpgradesUpgrade,
+  SkyBlockProfileCommunityUpgradesUpgraded,
+  SkyBlockProfileCommunityUpgradesUpgrading,
+  SkyBlockProfilesBankingTrasnsaction,
+  SkyBlockSkill,
+  SkyBlockSkillLevel,
+  SkyBlockSkills,
   SkyWars,
   SkyWarsKit,
   SkyWarsKits,
   SkyWarsMode,
   SkyWarsModeStats,
   SkyWarsPackages,
-  SkyblockAuction,
-  SkyblockAuctionBid,
-  SkyblockAuctionsInfo,
-  SkyblockBaseAuction,
-  SkyblockBaseAuctionInfo,
-  SkyblockBazaar,
-  SkyblockBazaarProduct,
-  SkyblockBazaarProductOrder,
-  SkyblockBazaarQuickStatus,
-  SkyblockBingo,
-  SkyblockBingoGoal,
-  SkyblockCollection,
-  SkyblockCollectionTier,
-  SkyblockCollections,
-  SkyblockElection,
-  SkyblockElectionCandidate,
-  SkyblockElectionCandidatePerk,
-  SkyblockElectionData,
-  SkyblockFireSale,
-  SkyblockGarden,
-  SkyblockGardenActiveVisitor,
-  SkyblockGardenActiveVisitorRequirement,
-  SkyblockGardenComposter,
-  SkyblockGardenComposterUpgrades,
-  SkyblockGardenCropMilestones,
-  SkyblockGardenCropsUpgrades,
-  SkyblockGardenVisitors,
-  SkyblockGemstone,
-  SkyblockInventoryItem,
-  SkyblockItem,
-  SkyblockMember,
-  SkyblockMemberAccessoryBag,
-  SkyblockMemberAccessoryBagTuning,
-  SkyblockMemberAccessoryBagTuningSlot,
-  SkyblockMemberBestiary,
-  SkyblockMemberChocolateFactory,
-  SkyblockMemberChocolateFactoryEggs,
-  SkyblockMemberChocolateFactoryEmployees,
-  SkyblockMemberChocolateFactoryHitmen,
-  SkyblockMemberChocolateFactoryTimeTower,
-  SkyblockMemberChocolateFactoryUpgrades,
-  SkyblockMemberCrimsonIsle,
-  SkyblockMemberCrimsonIsleAbiphone,
-  SkyblockMemberCrimsonIsleDojo,
-  SkyblockMemberCrimsonIsleDojoMinigame,
-  SkyblockMemberCrimsonIsleKuudra,
-  SkyblockMemberCrimsonIsleKuudraPartyFinder,
-  SkyblockMemberCrimsonIsleMatriarch,
-  SkyblockMemberCrimsonIsleTrophyFish,
-  SkyblockMemberCrimsonIsleTrophyFishFish,
-  SkyblockMemberCurrencies,
-  SkyblockMemberDungeons,
-  SkyblockMemberDungeonsClasses,
-  SkyblockMemberDungeonsFloor,
-  SkyblockMemberDungeonsFloorRun,
-  SkyblockMemberDungeonsMode,
-  SkyblockMemberDungeonsTreasureRun,
-  SkyblockMemberDungeonsTreasuresChest,
-  SkyblockMemberFairySouls,
-  SkyblockMemberJacobContest,
-  SkyblockMemberJacobContests,
-  SkyblockMemberJacobContestsMedals,
-  SkyblockMemberJacobContestsPerks,
-  SkyblockMemberJacobContestsUniqueBrackets,
-  SkyblockMemberLeveling,
-  SkyblockMemberMining,
-  SkyblockMemberMiningCrystal,
-  SkyblockMemberMiningHotm,
-  SkyblockMemberMiningHotmForge,
-  SkyblockMemberMiningHotmForgeItem,
-  SkyblockMemberMiningPowder,
-  SkyblockMemberMiningPowders,
-  SkyblockMemberObjectives,
-  SkyblockMemberPet,
-  SkyblockMemberPets,
-  SkyblockMemberPetsAutoPetRule,
-  SkyblockMemberPetsAutoPets,
-  SkyblockMemberPetsCare,
-  SkyblockMemberPlayerData,
-  SkyblockMemberPlayerDataActiveEffect,
-  SkyblockMemberPlayerDataMinion,
-  SkyblockMemberPlayerDataMinions,
-  SkyblockMemberPlayerDataSkills,
-  SkyblockMemberPlayerStats,
-  SkyblockMemberPlayerStatsAuctions,
-  SkyblockMemberPlayerStatsAuctionsStats,
-  SkyblockMemberPlayerStatsCandy,
-  SkyblockMemberPlayerStatsEndIsland,
-  SkyblockMemberPlayerStatsEndIslandDragonFight,
-  SkyblockMemberPlayerStatsEndIslandDragonFightDragon,
-  SkyblockMemberPlayerStatsFishing,
-  SkyblockMemberPlayerStatsGifts,
-  SkyblockMemberPlayerStatsMythos,
-  SkyblockMemberPlayerStatsSpookyFestival,
-  SkyblockMemberPlayerStatsWinter,
-  SkyblockMemberProfile,
-  SkyblockMemberQuests,
-  SkyblockMemberQuestsHarp,
-  SkyblockMemberQuestsHarpSong,
-  SkyblockMemberRift,
-  SkyblockMemberRiftAccess,
-  SkyblockMemberRiftBlackLagoon,
-  SkyblockMemberRiftCastle,
-  SkyblockMemberRiftDeadCats,
-  SkyblockMemberRiftDreamFarm,
-  SkyblockMemberRiftEnigma,
-  SkyblockMemberRiftGallery,
-  SkyblockMemberRiftGallerySecuredTrophy,
-  SkyblockMemberRiftInventory,
-  SkyblockMemberRiftVillagePlaza,
-  SkyblockMemberRiftVillagePlazaBarry,
-  SkyblockMemberRiftVillagePlazaCowboy,
-  SkyblockMemberRiftVillagePlazaMurder,
-  SkyblockMemberRiftWestVillage,
-  SkyblockMemberRiftWestVillageCrazyKloon,
-  SkyblockMemberRiftWestVillageGlyphs,
-  SkyblockMemberRiftWestVillageKatHouse,
-  SkyblockMemberRiftWestVillageMirrorverse,
-  SkyblockMemberRiftWitherCage,
-  SkyblockMemberRiftWizardTower,
-  SkyblockMemberRiftWyldWoods,
-  SkyblockMemberSlayer,
-  SkyblockMemberSlayerClaimedLevels,
-  SkyblockMemberSlayers,
-  SkyblockMemberSlayersQuest,
-  SkyblockMemeberQuestsTrapper,
-  SkyblockMuseum,
-  SkyblockMuseumItem,
-  SkyblockMuseumMember,
-  SkyblockNews,
-  SkyblockProfile,
-  SkyblockProfileBanking,
-  SkyblockProfileCommunityUpgrades,
-  SkyblockProfileCommunityUpgradesUpgrade,
-  SkyblockProfileCommunityUpgradesUpgraded,
-  SkyblockProfileCommunityUpgradesUpgrading,
-  SkyblockProfilesBankingTrasnsaction,
-  SkyblockSkill,
-  SkyblockSkillLevel,
-  SkyblockSkills,
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,

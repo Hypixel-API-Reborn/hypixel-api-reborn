@@ -32,9 +32,9 @@ class Errors {
     "[Hypixel-API-Reborn] The rate limitations on your API Key has been exceeded. There might be an outage (Check Hypixel's status page), or you simply did too many requests in a short time. Hint: Enable rate limit options! They can help you avoid this error! For help join our Discord Server https://discord.gg/NSEBNMM";
   RECENT_REQUEST: string =
     '[Hypixel-API-Reborn] You have requested that player recently. Try turning on cache. For help join our Discord Server https://discord.gg/NSEBNMM';
-  NO_SKYBLOCK_PROFILES: string = '[Hypixel-API-Reborn] The player has no skyblock profiles.';
+  NO_SKYBLOCK_PROFILES: string = '[Hypixel-API-Reborn] The player has no SkyBlock profiles.';
   BAD_AUCTION_FILTER: string =
-    '[Hypixel-API-Reborn] Unexpected filter for Client#getSkyblockAuction. Expected one of "PROFILE", "PLAYER", "AUCTIONID", but got something else.';
+    '[Hypixel-API-Reborn] Unexpected filter for Client#getSkyBlockAuction. Expected one of "PROFILE", "PLAYER", "AUCTIONID", but got something else.';
   NOT_IMPLEMENTED: string =
     '[Hypixel-API-Reborn] Endpoint execute method is not implemented yet! Please report this https://discord.gg/NSEBNMM';
   RATE_LIMIT_INIT_ERROR: string =
