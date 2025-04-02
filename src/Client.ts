@@ -227,6 +227,13 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
+  public getSkyBlockProfile(
+    profileId: string,
+    options?: SkyBlockRequestOptions
+  ): Promise<SkyBlockProfile | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
   public getSkyBlockProfiles(
     query: string,
     options?: SkyBlockRequestOptions

@@ -25,6 +25,7 @@ import getSkyBlockGarden from './getSkyBlockGarden.js';
 import getSkyBlockItems from './getSkyBlockItems.js';
 import getSkyBlockMuseum from './getSkyBlockMuseum.js';
 import getSkyBlockNews from './getSkyBlockNews.js';
+import getSkyBlockProfile from './getSkyBlockProfile.js';
 import getSkyBlockProfiles from './getSkyBlockProfiles.js';
 import getSkyBlockSkills from './getSkyBlockSkills.js';
 import getStatus from './getStatus.js';
@@ -56,6 +57,7 @@ export default {
   getSkyBlockItems,
   getSkyBlockMuseum,
   getSkyBlockNews,
+  getSkyBlockProfile,
   getSkyBlockProfiles,
   getSkyBlockSkills,
   getStatus,

@@ -17,14 +17,14 @@ class SkyBlockProfile {
   profileName: SkyBlockProfileName | 'UNKNOWN';
   selected: boolean;
   garden: SkyBlockGarden | null;
-  constructor(data: Record<string, any>, extra: { uuid: UUID; garden: SkyBlockGarden | null }) {
+  constructor(data: Record<string, any>, extra: { uuid: UUID | null; garden: SkyBlockGarden | null }) {
     this.profileId = data?.profile_id || 'UNKNOWN';
     this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades || {});
     this.createdTimestamp = data.created_at ? data.created_at : null;
     this.createdAt = this.createdTimestamp ? new Date(this.createdTimestamp) : null;
     const members = data?.members || {};
     this.members = Object.keys(members).map((uuid) => new SkyBlockMember(uuid, members?.[uuid] || {}));
-    this.me = this.members.find((x) => x.uuid === extra.uuid) || null;
+    this.me = null !== extra.uuid ? this.members.find((x) => x.uuid === extra.uuid) || null : null;
     this.gameMode = data?.game_mode || null;
     this.banking = new SkyBlockProfileBanking(data?.banking || {});
     this.profileName = data?.cute_name || 'UNKNOWN';
