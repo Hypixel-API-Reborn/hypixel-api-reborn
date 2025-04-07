@@ -3,7 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
 import type SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
 import type SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
-import type { SkyBlockArea, SkyBlockPotionEffect } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberPlayerData', () => {
   const data = new SkyBlockMemberPlayerData({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });
@@ -13,9 +13,9 @@ test('SkyBlockMemberPlayerData', () => {
   expect(data.activeEffects).toBeDefined();
   expectTypeOf(data.activeEffects).toEqualTypeOf<SkyBlockMemberPlayerDataActiveEffect[]>();
   expect(data.pausedEffects).toBeDefined();
-  expectTypeOf(data.pausedEffects).toEqualTypeOf<SkyBlockPotionEffect[]>();
+  expectTypeOf(data.pausedEffects).toEqualTypeOf<SkyBlockPotionEffectName[]>();
   expect(data.disabledPotionEffects).toBeDefined();
-  expectTypeOf(data.disabledPotionEffects).toEqualTypeOf<SkyBlockPotionEffect[]>();
+  expectTypeOf(data.disabledPotionEffects).toEqualTypeOf<SkyBlockPotionEffectName[]>();
   expect(data.reaperPeppersEaten).toBeDefined();
   expectTypeOf(data.reaperPeppersEaten).toEqualTypeOf<number>();
   expect(data.deaths).toBeDefined();

@@ -1,6 +1,6 @@
 import SkyBlockMemberRiftInventory from './SkyBlockMemberRiftInventory.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockInventoryItem from '../../SkyBlockInventoryItem.js';
+import type SkyBlockInventoryItem from '../../Inventory/SkyBlockInventoryItem.js';
 import type { Armor, Equipment } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberRiftInventory', () => {

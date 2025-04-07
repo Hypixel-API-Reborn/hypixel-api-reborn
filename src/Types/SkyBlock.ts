@@ -1,6 +1,6 @@
 /* v8 ignore next 10000 */
 
-import type SkyBlockInventoryItem from '../Structures/SkyBlock/SkyBlockInventoryItem.js';
+import type SkyBlockInventoryItem from '../Structures/SkyBlock/Inventory/SkyBlockInventoryItem.js';
 
 export interface RawAbiphoneData {
   talked_to?: boolean;
@@ -1161,7 +1161,7 @@ export type SacrificedPets =
   | 'ENDERMAN';
 
 export type CrimsonIsleBoss = 'BLADESOUL' | 'BARBARIAN_DUKE_X' | 'ASHFANG' | 'MAGE_OUTLAW' | 'MAGMA_BOSS';
-export type SkyBlockPotionEffect =
+export type SkyBlockPotionEffectName =
   | 'true_defense'
   | 'strength'
   | 'regeneration'

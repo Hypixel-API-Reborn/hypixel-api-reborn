@@ -34,6 +34,7 @@
   "packageManager": "pnpm@9.7.1",
   "author": "Kathund",
   "dependencies": {
+    "minecraft-data": "^3.85.0",
     "node-cache": "^5.1.2",
     "prismarine-nbt": "^2.7.0",
     "rss-parser": "^3.13.0"

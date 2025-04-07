@@ -1,4 +1,4 @@
-import SkyBlockInventoryItem from '../SkyBlockInventoryItem.js';
+import SkyBlockInventoryItem from '../Inventory/SkyBlockInventoryItem.js';
 
 class SkyBlockMuseumItem {
   name: string;

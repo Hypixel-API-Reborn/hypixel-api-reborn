@@ -22,7 +22,7 @@ test('getSkyBlockBingo', async () => {
   expect(data.lastUpdatedTimestamp).toBeDefined();
   expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
   expect(data.lastUpdatedAt).toBeDefined();
-  expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date | null>();
+  expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date>();
   expect(data.id).toBeDefined();
   expectTypeOf(data.id).toEqualTypeOf<number | null>();
   expect(data.name).toBeDefined();

@@ -1,12 +1,12 @@
 import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
 import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
 import SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
-import type { SkyBlockArea, SkyBlockPotionEffect } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberPlayerData {
   activeEffects: SkyBlockMemberPlayerDataActiveEffect[];
-  pausedEffects: SkyBlockPotionEffect[];
-  disabledPotionEffects: SkyBlockPotionEffect[];
+  pausedEffects: SkyBlockPotionEffectName[];
+  disabledPotionEffects: SkyBlockPotionEffectName[];
   reaperPeppersEaten: number;
   deaths: number;
   lastDeath: number;

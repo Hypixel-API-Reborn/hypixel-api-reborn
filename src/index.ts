@@ -150,7 +150,7 @@ import SkyBlockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyBlockG
 import SkyBlockGardenCropsUpgrades from './Structures/SkyBlock/Garden/SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './Structures/SkyBlock/Garden/SkyBlockGardenVisitors.js';
 import SkyBlockGemstone from './Structures/SkyBlock/SkyBlockGemstone.js';
-import SkyBlockInventoryItem from './Structures/SkyBlock/SkyBlockInventoryItem.js';
+import SkyBlockInventoryItem from './Structures/SkyBlock/Inventory/SkyBlockInventoryItem.js';
 import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
 import SkyBlockMember from './Structures/SkyBlock/Member/SkyBlockMember.js';
 import SkyBlockMemberAccessoryBag from './Structures/SkyBlock/Member/AccessoryBag/SkyBlockMemberAccessoryBag.js';

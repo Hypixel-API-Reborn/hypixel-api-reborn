@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      minecraft-data:
+        specifier: ^3.85.0
+        version: 3.85.0
       node-cache:
         specifier: ^5.1.2
         version: 5.1.2
@@ -1004,6 +1007,9 @@ packages:
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
+
+  minecraft-data@3.85.0:
+    resolution: {integrity: sha512-7RhCjMuvO6ZwhTB7eNymCj4TAZY1Xqkg4XYv6ieLeWjmW1Lc1PGCG6BhR4/xN3zYRVqMNKiBOtAQoGqkVTKECg==}
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -2276,6 +2282,8 @@ snapshots:
     dependencies:
       braces: 3.0.3
       picomatch: 2.3.1
+
+  minecraft-data@3.85.0: {}
 
   minimatch@3.1.2:
     dependencies:

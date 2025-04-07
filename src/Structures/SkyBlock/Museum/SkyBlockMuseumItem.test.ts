@@ -1,6 +1,6 @@
 import SkyBlockMuseumItem from './SkyBlockMuseumItem.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockInventoryItem from '../SkyBlockInventoryItem.js';
+import type SkyBlockInventoryItem from '../Inventory/SkyBlockInventoryItem.js';
 
 test('SkyBlockMuseumItem', () => {
   const data = new SkyBlockMuseumItem('meow', { stats: 'meow' }, []);

@@ -5,6 +5,7 @@ import SkyBlockMemberCrimsonIsle from './CrimsonIsle/SkyBlockMemberCrimsonIsle.j
 import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.js';
 import SkyBlockMemberDungeons from './Dungeons/SkyBlockMemberDungeons.js';
 import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.js';
+import SkyBlockMemberInventory from './Inventory/SkyBlockMemberInventory.js';
 import SkyBlockMemberJacobContests from './JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberLeveling from './SkyBlockMemberLeveling.js';
 import SkyBlockMemberMining from './Mining/SkyBlockMemberMining.js';
@@ -42,6 +43,7 @@ class SkyBlockMember {
   quests: SkyBlockMemberQuests;
   slayers: SkyBlockMemberSlayers;
   rift: SkyBlockMemberRift;
+  inventory: SkyBlockMemberInventory;
   constructor(uuid: string, data: Record<string, any>) {
     this.uuid = uuid;
     this.accessoryBag = new SkyBlockMemberAccessoryBag(data?.accessory_bag_storage || {});
@@ -68,6 +70,7 @@ class SkyBlockMember {
     this.quests = new SkyBlockMemberQuests(data?.quests || {});
     this.slayers = new SkyBlockMemberSlayers(data?.slayer || {});
     this.rift = new SkyBlockMemberRift(data?.rift || {});
+    this.inventory = new SkyBlockMemberInventory(data?.inventory || {});
   }
 
   toString(): UUID {

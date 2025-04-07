@@ -2,15 +2,14 @@ import SkyBlockInventoryItem from '../../Inventory/SkyBlockInventoryItem.js';
 import { decode } from '../../../../Utils/SkyBlockUtils.js';
 import type { Armor, Equipment } from '../../../../Types/SkyBlock.js';
 
-class SkyBlockMemberRiftInventory {
-  enderChestPageIcons: [];
+class SkyBlockMemberInventory {
+  da: Record<string, any>;
   getInventory: () => Promise<SkyBlockInventoryItem[]>;
   getArmor: () => Promise<Armor>;
   getEnderChest: () => Promise<SkyBlockInventoryItem[]>;
   getEquipment: () => Promise<Equipment>;
   constructor(data: Record<string, any>) {
-    this.enderChestPageIcons = data?.ender_chest_page_icons || [];
-
+    this.da = data;
     this.getInventory = async () => {
       let inventory = data?.inv_contents || {};
       if (!inventory) return [];
@@ -76,4 +75,4 @@ class SkyBlockMemberRiftInventory {
   }
 }
 
-export default SkyBlockMemberRiftInventory;
+export default SkyBlockMemberInventory;
