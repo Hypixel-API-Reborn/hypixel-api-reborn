@@ -17,14 +17,14 @@ class SkyBlockInventoryItem {
   recombobulated: boolean;
   statsBook: number | null;
   runes: SkyBlockInventoryItemRune[] | null;
-  reforge: string | null;
+  reforge: string | 'none';
   hasArtOfWar: boolean;
   starCount: number;
   enchantments: SkyBlockInventoryItemEnchantment[] | null;
   uuid: UUID | null;
   hotPotatoBookCount: number;
   championcombatxp: number | null;
-  id: number | null;
+  id: string;
   hasDonatedItem: boolean;
   transmissionTunerCount: number | null;
   powerAbilityScroll: string | null;
@@ -46,15 +46,15 @@ class SkyBlockInventoryItem {
   jalapenoCount: number | null;
   hecatombSRuns: number | null;
   dungeonItemLevel: number | null;
-  originTag: number | null;
+  originTag: string | null;
   hasArtOfPeace: boolean;
   secondRandomColor: number | null;
-  dyeItem: number | null;
+  dyeItem: string | null;
   raffleYear: number | null;
-  raffleWin: number | null;
+  raffleWin: string | null;
   edition: number | null;
-  recipientName: number | null;
-  recipientUUID: number | null;
+  recipientName: string | null;
+  recipientUUID: string | null;
   bossTier: number | null;
   divanPowerCoating: number | null;
   year: number | null;
@@ -63,7 +63,7 @@ class SkyBlockInventoryItem {
   emanKills: number | null;
   isRiftTransferable: boolean;
   coinsGained: number | null;
-  ranchersSpede: number | null;
+  ranchersSpeed: number | null;
   favoriteSentinalWarden: number | null;
   potionLevel: number | null;
   potion: number | null;
@@ -74,6 +74,7 @@ class SkyBlockInventoryItem {
   isDungeonPotion: boolean;
   gearScore: number;
   rarity: Rarity;
+  raw: Record<string, any>;
   constructor(data: Record<string, any>) {
     this.minecraftItemId = data?.id || 0;
     this.itemCount = data?.count || 1;
@@ -90,7 +91,7 @@ class SkyBlockInventoryItem {
           (rune) => new SkyBlockInventoryItemRune({ id: rune, tier: data?.tag?.ExtraAttributes?.runes?.[rune] })
         )
       : null;
-    this.reforge = data?.tag?.ExtraAttributes?.modifier || null;
+    this.reforge = data?.tag?.ExtraAttributes?.modifier || 'none';
     this.hasArtOfWar = Boolean(data?.tag?.ExtraAttributes?.art_of_war_count || 0);
     this.starCount = data?.tag?.ExtraAttributes?.upgrade_level || 0;
     this.enchantments = data?.tag?.ExtraAttributes?.enchantments
@@ -105,7 +106,7 @@ class SkyBlockInventoryItem {
     this.uuid = data?.tag?.ExtraAttributes?.uuid || null;
     this.hotPotatoBookCount = data?.tag?.ExtraAttributes?.hot_potato_count || null;
     this.championcombatxp = data?.tag?.extraattributes?.champion_combat_xp || null;
-    this.id = data?.tag?.ExtraAttributes?.id || null;
+    this.id = data?.tag?.ExtraAttributes?.id || 'UNKNOWN';
     this.hasDonatedItem = Boolean(data?.tag?.ExtraAttributes?.donated_museum || 0);
     this.transmissionTunerCount = data?.tag?.ExtraAttributes?.tuned_transmission || null;
     this.powerAbilityScroll = data?.tag?.ExtraAttributes?.power_ability_scroll || null;
@@ -152,8 +153,8 @@ class SkyBlockInventoryItem {
     this.emanKills = data?.tag?.ExtraAttributes?.eman_kills || null;
     this.isRiftTransferable = Boolean(data?.tag?.ExtraAttributes?.rift_transferred || 0);
     this.coinsGained = data?.tag?.ExtraAttributes?.coins_gained || null;
-    this.ranchersSpede = data?.tag?.ExtraAttributes?.ranchers_speed || null;
-    this.favoriteSentinalWarden = data?.tag?.ExtraAttributes?.favorite || null;
+    this.ranchersSpeed = data?.tag?.ExtraAttributes?.ranchers_speed || null;
+    this.favoriteSentinalWarden = data?.tag?.ExtraAttributes?.favorite_sentinel_warden || null;
     this.potionLevel = data?.tag?.ExtraAttributes?.potion_level || null;
     this.potion = data?.tag?.ExtraAttributes?.potion || null;
     this.potionEffects = data?.tag?.ExtraAttributes?.effects
@@ -165,6 +166,7 @@ class SkyBlockInventoryItem {
     this.isDungeonPotion = Boolean(data?.tag?.ExtraAttributes?.dungeon_potion || 0);
     this.gearScore = this.lore ? this.parseGearScore(this.lore) : 0;
     this.rarity = this.lore ? this.parseRarity(this.lore[this.lore.length - 1] || '') : 'COMMON';
+    this.raw = data;
   }
 
   private parseRarity(str: string): Rarity {
