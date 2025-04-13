@@ -3462,3 +3462,71 @@ export type SkyBlockCandidateKeyBenefit =
   | 'farming'
   | 'fishing'
   | 'dungeons';
+
+export type BestiaryMob = {
+  name: string;
+  kills: number;
+  nextTierKills: number | null;
+  maxKills: number;
+  tier: number;
+  maxTier: number;
+};
+
+export type BestiaryCategory = {
+  name: string;
+  mobs: BestiaryMob[];
+  mobsUnlocked: number;
+  mobsMaxed: number;
+};
+
+export type BestiaryStats = {
+  level: number;
+  maxLevel: number;
+  familiesUnlocked: number;
+  familiesCompleted: number;
+  totalFamilies: number;
+  familyTiers: number;
+  maxFamilyTiers: number;
+  categories: Record<string, BestiaryCategory>;
+};
+
+export interface RawBestiaryMob {
+  name: string;
+  cap: number;
+  mobs: string[];
+  bracket: number;
+}
+
+export interface RawBestiaryIsland {
+  name: string;
+  mobs: RawBestiaryMob[];
+}
+
+export interface BestiaryMobsData {
+  dynamic: RawBestiaryIsland;
+  hub: RawBestiaryIsland;
+  farming_1: RawBestiaryIsland;
+  combat_1: RawBestiaryIsland;
+  combat_3: RawBestiaryIsland;
+  crimson_isle: RawBestiaryIsland;
+  mining_2: RawBestiaryIsland;
+  mining_3: RawBestiaryIsland;
+  crystal_hollows: RawBestiaryIsland;
+  foraging_1: RawBestiaryIsland;
+  spooky_festival: RawBestiaryIsland;
+  mythological_creatures: RawBestiaryIsland;
+  jerry: RawBestiaryIsland;
+  kuudra: RawBestiaryIsland;
+  fishing: {
+    name: string;
+    hasSubcategories: boolean;
+    fishing: RawBestiaryIsland;
+    lava: RawBestiaryIsland;
+    spooky_festival: RawBestiaryIsland;
+    fishing_festival: RawBestiaryIsland;
+    winter: RawBestiaryIsland;
+    backwater_bayou: RawBestiaryIsland;
+  };
+  catacombs: RawBestiaryIsland;
+  garden: RawBestiaryIsland;
+}
