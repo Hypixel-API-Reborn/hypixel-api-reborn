@@ -2,6 +2,7 @@ import SkyBlockMember from '../Member/SkyBlockMember.js';
 import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import type SkyBlockGarden from '../Garden/SkyBlockGarden.js';
+import type SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
 import type { UUID } from '../../../Types/Global.js';
 
@@ -17,7 +18,11 @@ class SkyBlockProfile {
   profileName: SkyBlockProfileName | 'UNKNOWN';
   selected: boolean;
   garden: SkyBlockGarden | null;
-  constructor(data: Record<string, any>, extra: { uuid: UUID | null; garden: SkyBlockGarden | null }) {
+  museum: SkyBlockMuseum | null;
+  constructor(
+    data: Record<string, any>,
+    extra: { uuid: UUID | null; garden: SkyBlockGarden | null; museum: SkyBlockMuseum | null }
+  ) {
     this.profileId = data?.profile_id || 'UNKNOWN';
     this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades || {});
     this.createdTimestamp = data.created_at ? data.created_at : null;
@@ -30,6 +35,7 @@ class SkyBlockProfile {
     this.profileName = data?.cute_name || 'UNKNOWN';
     this.selected = data?.selected || false;
     this.garden = extra.garden;
+    this.museum = extra.museum;
   }
 
   toString(): SkyBlockProfileName | 'UNKNOWN' {
