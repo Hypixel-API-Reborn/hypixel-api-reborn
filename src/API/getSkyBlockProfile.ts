@@ -3,6 +3,7 @@ import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
+import type SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import type { SkyBlockRequestOptions } from '../Types/API.js';
 
 class getSkyBlockProfile extends Endpoint {
@@ -18,7 +19,8 @@ class getSkyBlockProfile extends Endpoint {
     if (res.options.raw) return res;
     if (!res.data.profile) throw new Error(this.client.errors.NO_SKYBLOCK_PROFILES);
     const garden = await this.handleGettingSkyBlockGarden(res.data.profile.profile_id);
-    const parsedProfile = new SkyBlockProfile(res.data.profile, { uuid: null, garden });
+    const museum = await this.handleGettingSkyBlockMuseum(res.data.profile.profile_id);
+    const parsedProfile = new SkyBlockProfile(res.data.profile, { uuid: null, garden, museum });
     return parsedProfile;
   }
 
@@ -26,6 +28,15 @@ class getSkyBlockProfile extends Endpoint {
     try {
       const garden = await this.client.getSkyBlockGarden(profileId);
       return garden as SkyBlockGarden;
+    } catch {
+      return null;
+    }
+  }
+
+  private async handleGettingSkyBlockMuseum(profileId: string): Promise<SkyBlockMuseum | null> {
+    try {
+      const museum = await this.client.getSkyBlockMuseum(profileId);
+      return museum as SkyBlockMuseum;
     } catch {
       return null;
     }
