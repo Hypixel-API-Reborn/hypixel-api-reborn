@@ -1,7 +1,5 @@
 /* v8 ignore next 10000 */
 
-import type SkyBlockInventoryItem from '../Structures/SkyBlock/Inventory/SkyBlockInventoryItem.js';
-
 export interface RawAbiphoneData {
   talked_to?: boolean;
   completed_quest?: boolean;
@@ -129,7 +127,6 @@ export type MiningSkyMallEffect =
   | 'goblin_chance'
   | 'titanium_ore_multiplier';
 export type TaskLevelingSort = 'unlocked' | 'earned' | 'available' | 'a_to_z' | 'z_to_a';
-export type SkyBlockGemstoneQuality = 'Rough' | 'Flawed' | 'Fine' | 'Flawless' | 'Perfect';
 export type SkyBlockProfileType = 'bingo' | 'island' | 'ironman';
 export type CrimsonIsleFaction = 'mages' | 'barbarians';
 export type CrimsonIsleBelt = 'White' | 'Yellow' | 'Green' | 'Blue' | 'Brown' | 'Black';
@@ -543,20 +540,6 @@ export type JacobCrops =
   | 'NETHER_STALKk'
   | 'WHEAT'
   | 'MELON';
-
-export interface Equipment {
-  gauntlet: SkyBlockInventoryItem | null;
-  belt: SkyBlockInventoryItem | null;
-  cloak: SkyBlockInventoryItem | null;
-  necklace: SkyBlockInventoryItem | null;
-}
-
-export interface Armor {
-  helmet: SkyBlockInventoryItem | null;
-  chestplate: SkyBlockInventoryItem | null;
-  leggings: SkyBlockInventoryItem | null;
-  boots: SkyBlockInventoryItem | null;
-}
 
 export interface CustomPetLevelingDataGoldenDragon {
   type: number;

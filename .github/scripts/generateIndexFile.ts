@@ -1,3 +1,5 @@
+/* v8 ignore next 1000 */
+
 import { readdir } from 'fs/promises';
 import { writeFileSync } from 'fs';
 

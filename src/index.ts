@@ -149,8 +149,9 @@ import SkyBlockGardenComposterUpgrades from './Structures/SkyBlock/Garden/SkyBlo
 import SkyBlockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyBlockGardenCropMilestones.js';
 import SkyBlockGardenCropsUpgrades from './Structures/SkyBlock/Garden/SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './Structures/SkyBlock/Garden/SkyBlockGardenVisitors.js';
-import SkyBlockGemstone from './Structures/SkyBlock/SkyBlockGemstone.js';
 import SkyBlockInventoryItem from './Structures/SkyBlock/Inventory/SkyBlockInventoryItem.js';
+import SkyBlockInventoryItemEnchantment from './Structures/SkyBlock/Inventory/SkyBlockInventoryItemEnchantment.js';
+import SkyBlockInventoryItemRune from './Structures/SkyBlock/Inventory/SkyBlockInventoryItemRune.js';
 import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
 import SkyBlockMember from './Structures/SkyBlock/Member/SkyBlockMember.js';
 import SkyBlockMemberAccessoryBag from './Structures/SkyBlock/Member/AccessoryBag/SkyBlockMemberAccessoryBag.js';
@@ -181,6 +182,20 @@ import SkyBlockMemberDungeonsMode from './Structures/SkyBlock/Member/Dungeons/Sk
 import SkyBlockMemberDungeonsTreasureRun from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasureRun.js';
 import SkyBlockMemberDungeonsTreasuresChest from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasuresChest.js';
 import SkyBlockMemberFairySouls from './Structures/SkyBlock/Member/SkyBlockMemberFairySouls.js';
+import SkyBlockMemberInventories from './Structures/SkyBlock/Member/Inventories/SkyBlockMemberInventories.js';
+import SkyBlockMemberInventoriesArmor from './Structures/SkyBlock/Member/Inventories/Armor/SkyBlockMemberInventoriesArmor.js';
+import SkyBlockMemberInventoriesArmorDecoded from './Structures/SkyBlock/Member/Inventories/Armor/SkyBlockMemberInventoriesArmorDecoded.js';
+import SkyBlockMemberInventoriesBackpack from './Structures/SkyBlock/Member/Inventories/Backpacks/SkyBlockMemberInventoriesBackpack.js';
+import SkyBlockMemberInventoriesBackpackDecoded from './Structures/SkyBlock/Member/Inventories/Backpacks/SkyBlockMemberInventoriesBackpackDecoded.js';
+import SkyBlockMemberInventoriesBackpacks from './Structures/SkyBlock/Member/Inventories/Backpacks/SkyBlockMemberInventoriesBackpacks.js';
+import SkyBlockMemberInventoriesBags from './Structures/SkyBlock/Member/Inventories/Bags/SkyBlockMemberInventoriesBags.js';
+import SkyBlockMemberInventoriesBagsTalisman from './Structures/SkyBlock/Member/Inventories/Bags/SkyBlockMemberInventoriesBagsTalisman.js';
+import SkyBlockMemberInventoriesBagsTalismanDecoded from './Structures/SkyBlock/Member/Inventories/Bags/SkyBlockMemberInventoriesBagsTalismanDecoded.js';
+import SkyBlockMemberInventoriesBaseInventory from './Structures/SkyBlock/Member/Inventories/SkyBlockMemberInventoriesBaseInventory.js';
+import SkyBlockMemberInventoriesEquipment from './Structures/SkyBlock/Member/Inventories/Equipment/SkyBlockMemberInventoriesEquipment.js';
+import SkyBlockMemberInventoriesEquipmentDecoded from './Structures/SkyBlock/Member/Inventories/Equipment/SkyBlockMemberInventoriesEquipmentDecoded.js';
+import SkyBlockMemberInventoriesInventory from './Structures/SkyBlock/Member/Inventories/Inventory/SkyBlockMemberInventoriesInventory.js';
+import SkyBlockMemberInventoriesInventoryDecoded from './Structures/SkyBlock/Member/Inventories/Inventory/SkyBlockMemberInventoriesInventoryDecoded.js';
 import SkyBlockMemberJacobContest from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContest.js';
 import SkyBlockMemberJacobContests from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberJacobContestsMedals from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContestsMedals.js';
@@ -268,6 +283,8 @@ import SkyWarsKits from './Structures/MiniGames/SkyWars/SkyWarsKits.js';
 import SkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode.js';
 import SkyWarsModeStats from './Structures/MiniGames/SkyWars/SkyWarsModeStats.js';
 import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
+import SkyblockInventoryItemAttribute from './Structures/SkyBlock/Inventory/SkyblockInventoryItemAttribute.js';
+import SkyblockPotionEffect from './Structures/SkyBlock/Potion/SkyblockPotionEffect.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
@@ -436,8 +453,9 @@ export default {
   SkyBlockGardenCropMilestones,
   SkyBlockGardenCropsUpgrades,
   SkyBlockGardenVisitors,
-  SkyBlockGemstone,
   SkyBlockInventoryItem,
+  SkyBlockInventoryItemEnchantment,
+  SkyBlockInventoryItemRune,
   SkyBlockItem,
   SkyBlockMember,
   SkyBlockMemberAccessoryBag,
@@ -468,6 +486,20 @@ export default {
   SkyBlockMemberDungeonsTreasureRun,
   SkyBlockMemberDungeonsTreasuresChest,
   SkyBlockMemberFairySouls,
+  SkyBlockMemberInventories,
+  SkyBlockMemberInventoriesArmor,
+  SkyBlockMemberInventoriesArmorDecoded,
+  SkyBlockMemberInventoriesBackpack,
+  SkyBlockMemberInventoriesBackpackDecoded,
+  SkyBlockMemberInventoriesBackpacks,
+  SkyBlockMemberInventoriesBags,
+  SkyBlockMemberInventoriesBagsTalisman,
+  SkyBlockMemberInventoriesBagsTalismanDecoded,
+  SkyBlockMemberInventoriesBaseInventory,
+  SkyBlockMemberInventoriesEquipment,
+  SkyBlockMemberInventoriesEquipmentDecoded,
+  SkyBlockMemberInventoriesInventory,
+  SkyBlockMemberInventoriesInventoryDecoded,
   SkyBlockMemberJacobContest,
   SkyBlockMemberJacobContests,
   SkyBlockMemberJacobContestsMedals,
@@ -555,6 +587,8 @@ export default {
   SkyWarsMode,
   SkyWarsModeStats,
   SkyWarsPackages,
+  SkyblockInventoryItemAttribute,
+  SkyblockPotionEffect,
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,

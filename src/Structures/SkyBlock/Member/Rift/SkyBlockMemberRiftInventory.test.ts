@@ -1,7 +1,8 @@
+import SkyBlockMemberInventoriesArmor from '../Inventories/Armor/SkyBlockMemberInventoriesArmor.js';
+import SkyBlockMemberInventoriesEquipment from '../Inventories/Equipment/SkyBlockMemberInventoriesEquipment.js';
+import SkyBlockMemberInventoriesInventory from '../Inventories/Inventory/SkyBlockMemberInventoriesInventory.js';
 import SkyBlockMemberRiftInventory from './SkyBlockMemberRiftInventory.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockInventoryItem from '../../Inventory/SkyBlockInventoryItem.js';
-import type { Armor, Equipment } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberRiftInventory', () => {
   const data = new SkyBlockMemberRiftInventory({ stats: 'meow' });
@@ -10,12 +11,12 @@ test('SkyBlockMemberRiftInventory', () => {
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberRiftInventory>();
   expect(data.enderChestPageIcons).toBeDefined();
   expectTypeOf(data.enderChestPageIcons).toEqualTypeOf<[]>();
-  expect(data.getInventory).toBeDefined();
-  expectTypeOf(data.getInventory).toEqualTypeOf<() => Promise<SkyBlockInventoryItem[]>>();
-  expect(data.getArmor).toBeDefined();
-  expectTypeOf(data.getArmor).toEqualTypeOf<() => Promise<Armor>>();
-  expect(data.getEnderChest).toBeDefined();
-  expectTypeOf(data.getEnderChest).toEqualTypeOf<() => Promise<SkyBlockInventoryItem[]>>();
-  expect(data.getEquipment).toBeDefined();
-  expectTypeOf(data.getEquipment).toEqualTypeOf<() => Promise<Equipment>>();
+  expect(data.inventory).toBeDefined();
+  expectTypeOf(data.inventory).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.armor).toBeDefined();
+  expectTypeOf(data.armor).toEqualTypeOf<SkyBlockMemberInventoriesArmor>();
+  expect(data.equipment).toBeDefined();
+  expectTypeOf(data.equipment).toEqualTypeOf<SkyBlockMemberInventoriesEquipment>();
+  expect(data.enderChest).toBeDefined();
+  expectTypeOf(data.enderChest).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
 });

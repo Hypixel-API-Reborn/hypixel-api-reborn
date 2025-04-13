@@ -5,6 +5,10 @@ class SkyBlockInventoryItemAttribute {
     this.id = data?.id || 'UNKNOWN';
     this.tier = data?.tier || 0;
   }
+
+  toString(): string | 'UNKNOWN' {
+    return this.id;
+  }
 }
 
 export default SkyBlockInventoryItemAttribute;

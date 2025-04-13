@@ -321,6 +321,19 @@ export const MiningForgeQuickForgeMultiplier: { [key: number]: number } = {
   20: 0.7
 };
 
+export const magicalPowerValues: { [key in Rarity | 'UNKNOWN']: number } = {
+  COMMON: 3,
+  UNCOMMON: 5,
+  RARE: 8,
+  EPIC: 12,
+  LEGENDARY: 16,
+  MYTHIC: 22,
+  SPECIAL: 3,
+  VERY_SPECIAL: 5,
+  DIVINE: 0,
+  UNKNOWN: 0
+};
+
 export const petScore: { [key in Rarity | 'UNKNOWN']: number } = {
   COMMON: 1,
   UNCOMMON: 2,

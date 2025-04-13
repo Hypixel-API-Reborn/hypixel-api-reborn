@@ -1,0 +1,30 @@
+import SkyBlockMemberInventories from './SkyBlockMemberInventories.js';
+import SkyBlockMemberInventoriesArmor from './Armor/SkyBlockMemberInventoriesArmor.js';
+import SkyBlockMemberInventoriesBackpacks from './Backpacks/SkyBlockMemberInventoriesBackpacks.js';
+import SkyBlockMemberInventoriesBags from './Bags/SkyBlockMemberInventoriesBags.js';
+import SkyBlockMemberInventoriesEquipment from './Equipment/SkyBlockMemberInventoriesEquipment.js';
+import SkyBlockMemberInventoriesInventory from './Inventory/SkyBlockMemberInventoriesInventory.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyBlockMemberInventories', () => {
+  const data = new SkyBlockMemberInventories({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyBlockMemberInventories);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberInventories>();
+  expect(data.inventory).toBeDefined();
+  expectTypeOf(data.inventory).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.armor).toBeDefined();
+  expectTypeOf(data.armor).toEqualTypeOf<SkyBlockMemberInventoriesArmor>();
+  expect(data.equipment).toBeDefined();
+  expectTypeOf(data.equipment).toEqualTypeOf<SkyBlockMemberInventoriesEquipment>();
+  expect(data.backpacks).toBeDefined();
+  expectTypeOf(data.backpacks).toEqualTypeOf<SkyBlockMemberInventoriesBackpacks>();
+  expect(data.enderChest).toBeDefined();
+  expectTypeOf(data.enderChest).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.bags).toBeDefined();
+  expectTypeOf(data.bags).toEqualTypeOf<SkyBlockMemberInventoriesBags>();
+  expect(data.personalVault).toBeDefined();
+  expectTypeOf(data.personalVault).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.wardrobe).toBeDefined();
+  expectTypeOf(data.wardrobe).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+});

@@ -1,3 +1,5 @@
+/* v8 ignore next 1000 */
+
 import { parseString } from 'xml2js';
 import { readFile } from 'fs';
 
