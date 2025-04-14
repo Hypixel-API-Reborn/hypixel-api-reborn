@@ -1,3 +1,5 @@
+/* v8 ignore next 400 */
+
 import getAchievements from './getAchievements.js';
 import getActiveHouses from './getActiveHouses.js';
 import getBoosters from './getBoosters.js';
@@ -11,21 +13,24 @@ import getPlayer from './getPlayer.js';
 import getPlayerHouses from './getPlayerHouses.js';
 import getQuests from './getQuests.js';
 import getRecentGames from './getRecentGames.js';
-import getSkyblockAuction from './getSkyblockAuction.js';
-import getSkyblockAuctions from './getSkyblockAuctions.js';
-import getSkyblockAuctionsByPlayer from './getSkyblockAuctionsByPlayer.js';
-import getSkyblockBazaar from './getSkyblockBazaar.js';
-import getSkyblockBingo from './getSkyblockBingo.js';
-import getSkyblockFireSales from './getSkyblockFireSales.js';
-import getSkyblockGarden from './getSkyblockGarden.js';
-import getSkyblockGovernment from './getSkyblockGovernment.js';
-import getSkyblockItems from './getSkyblockItems.js';
-import getSkyblockMember from './getSkyblockMember.js';
-import getSkyblockMuseum from './getSkyblockMuseum.js';
-import getSkyblockNews from './getSkyblockNews.js';
-import getSkyblockProfiles from './getSkyblockProfiles.js';
+import getSkyBlockAuction from './getSkyBlockAuction.js';
+import getSkyBlockAuctions from './getSkyBlockAuctions.js';
+import getSkyBlockBazaar from './getSkyBlockBazaar.js';
+import getSkyBlockBingo from './getSkyBlockBingo.js';
+import getSkyBlockCollections from './getSkyBlockCollections.js';
+import getSkyBlockElection from './getSkyBlockElection.js';
+import getSkyBlockEndedAuctions from './getSkyBlockEndedAuctions.js';
+import getSkyBlockFireSales from './getSkyBlockFireSales.js';
+import getSkyBlockGarden from './getSkyBlockGarden.js';
+import getSkyBlockItems from './getSkyBlockItems.js';
+import getSkyBlockMuseum from './getSkyBlockMuseum.js';
+import getSkyBlockNews from './getSkyBlockNews.js';
+import getSkyBlockProfile from './getSkyBlockProfile.js';
+import getSkyBlockProfiles from './getSkyBlockProfiles.js';
+import getSkyBlockSkills from './getSkyBlockSkills.js';
 import getStatus from './getStatus.js';
 import getWatchdogStats from './getWatchdogStats.js';
+
 export default {
   getAchievements,
   getActiveHouses,
@@ -40,19 +45,21 @@ export default {
   getPlayerHouses,
   getQuests,
   getRecentGames,
-  getSkyblockAuction,
-  getSkyblockAuctions,
-  getSkyblockAuctionsByPlayer,
-  getSkyblockBazaar,
-  getSkyblockBingo,
-  getSkyblockFireSales,
-  getSkyblockGarden,
-  getSkyblockGovernment,
-  getSkyblockMember,
-  getSkyblockMuseum,
-  getSkyblockNews,
-  getSkyblockProfiles,
-  getSkyblockItems,
+  getSkyBlockAuction,
+  getSkyBlockAuctions,
+  getSkyBlockBazaar,
+  getSkyBlockBingo,
+  getSkyBlockCollections,
+  getSkyBlockElection,
+  getSkyBlockEndedAuctions,
+  getSkyBlockFireSales,
+  getSkyBlockGarden,
+  getSkyBlockItems,
+  getSkyBlockMuseum,
+  getSkyBlockNews,
+  getSkyBlockProfile,
+  getSkyBlockProfiles,
+  getSkyBlockSkills,
   getStatus,
   getWatchdogStats
 };

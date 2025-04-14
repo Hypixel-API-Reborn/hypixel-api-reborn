@@ -1,8 +1,9 @@
 import { parseHistory } from '../../Utils/Guild.js';
 import type { ExpHistory } from '../../Types/Guild.js';
+import type { UUID } from '../../Types/Global.js';
 
 class GuildMember {
-  uuid: string;
+  uuid: UUID;
   joinedAtTimestamp: number | null;
   joinedAt: Date | null;
   questParticipation: number;

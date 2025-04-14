@@ -1,3 +1,5 @@
+/* v8 ignore next 10000 */
+
 export type GameID =
   | 2
   | 3

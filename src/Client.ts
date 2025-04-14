@@ -1,45 +1,47 @@
 import API from './API/index.js';
 import Achievements from './Structures/Static/Achievements/Achievements.js';
-import Auction from './Structures/SkyBlock/Auctions/Auction.js';
-import BingoData from './Structures/SkyBlock/Static/BingoData.js';
 import Booster from './Structures/Boosters/Booster.js';
 import CacheHandler from './Private/CacheHandler.js';
 import Challenges from './Structures/Static/Challenges.js';
 import Errors from './Errors.js';
-import FireSale from './Structures/SkyBlock/Static/FireSale.js';
 import Functions from './Private/Functions.js';
 import GameCounts from './Structures/GameCounts.js';
-import GovernmentData from './Structures/SkyBlock/Static/Government.js';
 import Guild from './Structures/Guild/Guild.js';
 import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
 import House from './Structures/House.js';
 import Leaderboard from './Structures/Leaderboard.js';
 import Player from './Structures/Player/Player.js';
-import Product from './Structures/SkyBlock/Bazaar/Product.js';
 import Quests from './Structures/Static/Quests.js';
 import RateLimit from './Private/RateLimit.js';
 import RecentGame from './Structures/RecentGame.js';
 import RequestData from './Private/RequestData.js';
 import RequestHandler from './Private/RequestHandler.js';
-import SkyblockGarden from './Structures/SkyBlock/SkyblockGarden.js';
-import SkyblockItem from './Structures/SkyBlock/SkyblockItem.js';
-import SkyblockMember from './Structures/SkyBlock/SkyblockMember.js';
-import SkyblockMuseum from './Structures/SkyBlock/SkyblockMuseum.js';
-import SkyblockNews from './Structures/SkyBlock/News/SkyblockNews.js';
-import SkyblockProfile from './Structures/SkyBlock/SkyblockProfile.js';
 import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
+import type SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
+import type SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.js';
+import type SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.js';
+import type SkyBlockElectionData from './Structures/SkyBlock/Election/SkyBlockElectionData.js';
+import type SkyBlockFireSale from './Structures/SkyBlock/FireSale/SkyBlockFireSale.js';
+import type SkyBlockGarden from './Structures/SkyBlock/Garden/SkyBlockGarden.js';
+import type SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
+import type SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.js';
+import type SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
+import type SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
+import type SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import type {
   AuctionFetchOptions,
   AuctionRequestOptions,
   GuildFetchOptions,
   PlayerRequestOptions,
-  SkyblockAuctionsResult,
-  SkyblockRequestOptions
+  SkyBlockAuctionResult,
+  SkyBlockAuctionsResult,
+  SkyBlockRequestOptions
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
 import type { RequestOptions } from './Types/Requests.js';
+import type { SkyBlockProfileName } from './Types/SkyBlock.js';
 
 const clients: Client[] = [];
 
@@ -170,69 +172,76 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockAuction(
+  public getSkyBlockAuction(
     type: AuctionFetchOptions,
     query: string,
     options?: AuctionRequestOptions
-  ): Promise<Auction[] | RequestData> {
+  ): Promise<SkyBlockAuctionResult | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockAuctions(query: number | '*', options?: AuctionRequestOptions): Promise<SkyblockAuctionsResult> {
+  public getSkyBlockAuctions(
+    query: number | '*',
+    options?: AuctionRequestOptions
+  ): Promise<SkyBlockAuctionsResult | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockAuctionsByPlayer(query: string, options?: AuctionRequestOptions): Promise<Auction[] | RequestData> {
+  public getSkyBlockBazaar(options?: RequestOptions): Promise<SkyBlockBazaar | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockBazaar(options?: RequestOptions): Promise<Product[] | RequestData> {
+  public getSkyBlockBingo(options?: RequestOptions): Promise<SkyBlockBingo | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockBingo(options?: RequestOptions): Promise<BingoData | RequestData> {
+  public getSkyBlockCollections(options?: RequestOptions): Promise<SkyBlockCollections | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockFireSales(options?: RequestOptions): Promise<FireSale[] | RequestData> {
+  public getSkyBlockElection(options?: RequestOptions): Promise<SkyBlockElectionData | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockGarden(profileId: string, options?: RequestOptions): Promise<SkyblockGarden | RequestData> {
+  public getSkyBlockEndedAuctions(options?: AuctionRequestOptions): Promise<SkyBlockAuctionResult | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockGovernment(options?: RequestOptions): Promise<GovernmentData | RequestData> {
+  public getSkyBlockFireSales(options?: RequestOptions): Promise<SkyBlockFireSale[] | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockMember(
-    query: string,
-    options?: SkyblockRequestOptions
-  ): Promise<Map<string, SkyblockMember> | RequestData> {
+  public getSkyBlockGarden(profileId: string, options?: RequestOptions): Promise<SkyBlockGarden | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockMuseum(
-    query: string,
+  public getSkyBlockItems(options?: RequestOptions): Promise<SkyBlockItem[] | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyBlockMuseum(profileId: string, options?: RequestOptions): Promise<SkyBlockMuseum | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyBlockNews(options?: RequestOptions): Promise<SkyBlockNews[] | RequestData> {
+    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
+  }
+
+  public getSkyBlockProfile(
     profileId: string,
-    options?: RequestOptions
-  ): Promise<SkyblockMuseum | RequestData> {
+    options?: SkyBlockRequestOptions
+  ): Promise<SkyBlockProfile | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockNews(options?: RequestOptions): Promise<SkyblockNews[] | RequestData> {
-    throw new Error(this.errors.ENDPOINT_NOT_LOADED);
-  }
-
-  public getSkyblockProfiles(
+  public getSkyBlockProfiles(
     query: string,
-    options?: SkyblockRequestOptions
-  ): Promise<SkyblockProfile[] | RequestData> {
+    options?: SkyBlockRequestOptions
+  ): Promise<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyblockItems(options?: RequestOptions): Promise<SkyblockItem[] | RequestData> {
+  public getSkyBlockSkills(options?: RequestOptions): Promise<SkyBlockSkills | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 

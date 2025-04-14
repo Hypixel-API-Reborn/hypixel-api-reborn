@@ -1,6 +1,8 @@
+import type { UUID } from '../Types/Global.js';
+
 class House {
   name: string;
-  uuid: string;
+  uuid: UUID;
   owner: string;
   createdAtTimestamp: number | null;
   createdAt: Date | null;

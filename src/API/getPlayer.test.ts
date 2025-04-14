@@ -118,8 +118,8 @@ test('getPlayer (guild)', async () => {
   expect(data.karma).toBeDefined();
   expect(data.karma).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.karma).toEqualTypeOf<number>();
-  expect(data.freeSkyblockCookie).toBeDefined();
-  expectTypeOf(data.freeSkyblockCookie).toEqualTypeOf<number | null>();
+  expect(data.freeSkyBlockCookie).toBeDefined();
+  expectTypeOf(data.freeSkyBlockCookie).toEqualTypeOf<number | null>();
   expect(data.tourney).toBeDefined();
   expectTypeOf(data.tourney).toEqualTypeOf<Tourney>();
   expect(data.rewards).toBeDefined();
@@ -266,8 +266,8 @@ test('getPlayer (houses)', async () => {
   expect(data.karma).toBeDefined();
   expect(data.karma).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.karma).toEqualTypeOf<number>();
-  expect(data.freeSkyblockCookie).toBeDefined();
-  expectTypeOf(data.freeSkyblockCookie).toEqualTypeOf<number | null>();
+  expect(data.freeSkyBlockCookie).toBeDefined();
+  expectTypeOf(data.freeSkyBlockCookie).toEqualTypeOf<number | null>();
   expect(data.tourney).toBeDefined();
   expectTypeOf(data.tourney).toEqualTypeOf<Tourney>();
   expect(data.rewards).toBeDefined();
@@ -415,8 +415,8 @@ test('getPlayer (recent games)', async () => {
   expect(data.karma).toBeDefined();
   expect(data.karma).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.karma).toEqualTypeOf<number>();
-  expect(data.freeSkyblockCookie).toBeDefined();
-  expectTypeOf(data.freeSkyblockCookie).toEqualTypeOf<number | null>();
+  expect(data.freeSkyBlockCookie).toBeDefined();
+  expectTypeOf(data.freeSkyBlockCookie).toEqualTypeOf<number | null>();
   expect(data.tourney).toBeDefined();
   expectTypeOf(data.tourney).toEqualTypeOf<Tourney>();
   expect(data.rewards).toBeDefined();
@@ -565,8 +565,8 @@ test('getPlayer', async () => {
   expect(data.karma).toBeDefined();
   expect(data.karma).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.karma).toEqualTypeOf<number>();
-  expect(data.freeSkyblockCookie).toBeDefined();
-  expectTypeOf(data.freeSkyblockCookie).toEqualTypeOf<number | null>();
+  expect(data.freeSkyBlockCookie).toBeDefined();
+  expectTypeOf(data.freeSkyBlockCookie).toEqualTypeOf<number | null>();
   expect(data.tourney).toBeDefined();
   expectTypeOf(data.tourney).toEqualTypeOf<Tourney>();
   expect(data.rewards).toBeDefined();

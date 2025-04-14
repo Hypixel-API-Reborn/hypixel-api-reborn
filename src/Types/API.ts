@@ -1,5 +1,8 @@
-import Auction from '../Structures/SkyBlock/Auctions/Auction.js';
-import AuctionInfo from '../Structures/SkyBlock/Auctions/AuctionInfo.js';
+/* v8 ignore next 10000 */
+
+import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
+import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
+import type SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
 import type { RequestOptions } from './Requests.js';
 
 export interface PlayerRequestOptions extends RequestOptions {
@@ -12,15 +15,20 @@ export interface AuctionRequestOptions extends RequestOptions {
   includeItemBytes?: boolean;
 }
 
-export interface SkyblockRequestOptions extends RequestOptions {
+export interface SkyBlockRequestOptions extends RequestOptions {
   garden?: boolean;
   museum?: boolean;
 }
 
-export interface SkyblockAuctionsResult {
-  info: AuctionInfo;
-  auctions: Auction[];
+export interface SkyBlockAuctionResult {
+  info: SkyBlockBaseAuctionInfo;
+  auctions: SkyBlockAuction[];
+}
+
+export interface SkyBlockAuctionsResult {
+  info: SkyBlockAuctionInfo;
+  auctions: SkyBlockAuction[];
 }
 
 export type GuildFetchOptions = 'id' | 'name' | 'player';
-export type AuctionFetchOptions = 'profile' | 'player' | 'auction';
+export type AuctionFetchOptions = 'PROFILE' | 'PLAYER' | 'AUCTION_ID';

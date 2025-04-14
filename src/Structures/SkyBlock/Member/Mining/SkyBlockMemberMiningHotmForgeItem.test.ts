@@ -1,0 +1,35 @@
+import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { ForgeItemType, MiningForgeItemId, MiningForgeItemName } from '../../../../Types/SkyBlock.js';
+
+test('SkyBlockMemberMiningHotmForgeItem', () => {
+  const data = new SkyBlockMemberMiningHotmForgeItem({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyBlockMemberMiningHotmForgeItem);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberMiningHotmForgeItem>();
+  expect(data.type).toBeDefined();
+  expectTypeOf(data.type).toEqualTypeOf<ForgeItemType | 'UNKNOWN'>();
+  expect(data.id).toBeDefined();
+  expectTypeOf(data.id).toEqualTypeOf<MiningForgeItemId | 'UNKNOWN'>();
+  expect(data.name).toBeDefined();
+  expectTypeOf(data.name).toEqualTypeOf<MiningForgeItemName | 'UNKNOWN'>();
+  expect(data.startTime).toBeDefined();
+  expectTypeOf(data.startTime).toEqualTypeOf<number>();
+  expect(data.startTimeAt).toBeDefined();
+  expectTypeOf(data.startTimeAt).toEqualTypeOf<Date>();
+  expect(data.endTime).toBeDefined();
+  expectTypeOf(data.endTime).toEqualTypeOf<number>();
+  expect(data.endTimeAt).toBeDefined();
+  expectTypeOf(data.endTimeAt).toEqualTypeOf<Date>();
+  expect(data.slot).toBeDefined();
+  expectTypeOf(data.slot).toEqualTypeOf<number>();
+  expect(data.notified).toBeDefined();
+  expectTypeOf(data.notified).toEqualTypeOf<boolean>();
+  expect(data.oldItem).toBeDefined();
+  expectTypeOf(data.oldItem).toEqualTypeOf<string | null>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => MiningForgeItemName | 'UNKNOWN'>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toEqual(data.name);
+  expectTypeOf(data.toString()).toEqualTypeOf<MiningForgeItemName | 'UNKNOWN'>();
+});
