@@ -1,7 +1,7 @@
-import SkyBlockInventoryItemAttribute from './SkyblockInventoryItemAttribute.js';
+import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.js';
 import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.js';
 import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.js';
-import SkyBlockPotionEffect from '../Potion/SkyblockPotionEffect.js';
+import SkyBlockPotionEffect from '../Potion/SkyBlockPotionEffect.js';
 import type { Rarity } from '../../../Types/SkyBlock.js';
 import type { UUID } from '../../../Types/Global.js';
 
@@ -23,7 +23,7 @@ class SkyBlockInventoryItem {
   enchantments: SkyBlockInventoryItemEnchantment[] | null;
   uuid: UUID | null;
   hotPotatoBookCount: number;
-  championcombatxp: number | null;
+  championCombatXP: number | null;
   id: string;
   hasDonatedItem: boolean;
   transmissionTunerCount: number | null;
@@ -105,7 +105,7 @@ class SkyBlockInventoryItem {
       : null;
     this.uuid = data?.tag?.ExtraAttributes?.uuid || null;
     this.hotPotatoBookCount = data?.tag?.ExtraAttributes?.hot_potato_count || null;
-    this.championcombatxp = data?.tag?.extraattributes?.champion_combat_xp || null;
+    this.championCombatXP = data?.tag?.ExtraAttributes?.champion_combat_xp || null;
     this.id = data?.tag?.ExtraAttributes?.id || 'UNKNOWN';
     this.hasDonatedItem = Boolean(data?.tag?.ExtraAttributes?.donated_museum || 0);
     this.transmissionTunerCount = data?.tag?.ExtraAttributes?.tuned_transmission || null;

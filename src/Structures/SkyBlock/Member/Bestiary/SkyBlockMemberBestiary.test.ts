@@ -1,6 +1,6 @@
 import SkyBlockMemberBestiary from './SkyBlockMemberBestiary.js';
-import { BestiaryCategory } from '../../../../Types/SkyBlock.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { BestiaryCategory } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberBestiary', () => {
   /* eslint-disable camelcase */

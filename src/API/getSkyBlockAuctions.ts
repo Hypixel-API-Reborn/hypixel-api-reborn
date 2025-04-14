@@ -1,7 +1,7 @@
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
-import SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionsInfo.js';
+import SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type RequestData from '../Private/RequestData.js';
 import type { AuctionRequestOptions, SkyBlockAuctionsResult } from '../Types/API.js';
 
@@ -45,7 +45,7 @@ class getSkyBlockAuctions extends Endpoint {
     return {
       info: new SkyBlockAuctionInfo(res.data),
       auctions: res.data.auctions.map(
-        (auction: Record<string, any>) => new SkyBlockAuction(auction, options?.includeItemBytes || false)
+        (Auction: Record<string, any>) => new SkyBlockAuction(Auction, options?.includeItemBytes || false)
       )
     };
   }

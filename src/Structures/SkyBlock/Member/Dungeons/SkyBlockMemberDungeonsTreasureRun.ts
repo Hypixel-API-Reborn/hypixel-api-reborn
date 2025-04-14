@@ -14,7 +14,7 @@ class SkyBlockMemberDungeonsTreasureRun {
     this.runId = data?.run_id || 'UNKNOWN';
     this.completionTimestamp = data?.completion_ts || 0;
     this.completionDate = new Date(this.completionTimestamp);
-    this.type = data?.type || 'catacoombs';
+    this.type = data?.type || 'catacombs';
     this.dungeonTier = data?.dungeon_tier || 0;
     this.participants = data?.participants || [];
     this.chests = chestData

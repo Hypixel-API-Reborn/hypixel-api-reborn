@@ -1,8 +1,8 @@
 import Client from '../Client.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
-import SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionsInfo.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type { SkyBlockAuctionsResult } from '../Types/API.js';
 
 test('getSkyBlockAuctions (No Input)', () => {

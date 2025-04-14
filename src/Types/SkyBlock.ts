@@ -64,7 +64,7 @@ export type GardenCrops =
   | 'mushroom'
   | 'netherWart';
 
-export type BankingTrasnsactionAction = 'DEPOSIT' | 'WITHDRAW';
+export type BankingTransactionAction = 'DEPOSIT' | 'WITHDRAW';
 export type CommunityUpgradesUpgrades =
   | 'island_size'
   | 'minion_slots'

@@ -1,14 +1,14 @@
-import type { BankingTrasnsactionAction } from '../../../../Types/SkyBlock.js';
+import type { BankingTransactionAction } from '../../../../Types/SkyBlock.js';
 
-class SkyBlockProfilesBankingTrasnsaction {
+class SkyBlockProfilesBankingTransaction {
   amount: number;
   timestamp: number;
-  action: BankingTrasnsactionAction | 'UNKNOWN';
+  action: BankingTransactionAction | 'UNKNOWN';
   user: string | 'Bank Interest' | 'UNKNOWN';
   constructor(data: Record<string, any>) {
     this.amount = data?.amount || 0;
     this.timestamp = data?.timestamp || 0;
-    this.action = data?.action || 'UNKNONW';
+    this.action = data?.action || 'UNKNOWN';
     this.user = data?.initiator_name || 'UNKNOWN';
   }
 
@@ -17,4 +17,4 @@ class SkyBlockProfilesBankingTrasnsaction {
   }
 }
 
-export default SkyBlockProfilesBankingTrasnsaction;
+export default SkyBlockProfilesBankingTransaction;

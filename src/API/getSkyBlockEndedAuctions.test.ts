@@ -1,7 +1,7 @@
 import Client from '../Client.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
-import SkyBlockBaseAucitonInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
+import SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockAuctionResult } from '../Types/API.js';
 
@@ -21,7 +21,7 @@ test('getSkyBlockEndedAuctions', async () => {
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();
   data = data as SkyBlockAuctionResult;
   expect(data.info).toBeDefined();
-  expectTypeOf(data.info).toEqualTypeOf<SkyBlockBaseAucitonInfo>();
+  expectTypeOf(data.info).toEqualTypeOf<SkyBlockBaseAuctionInfo>();
   expect(data.auctions).toBeDefined();
   expectTypeOf(data.auctions).toEqualTypeOf<SkyBlockAuction[]>();
   client.destroy();

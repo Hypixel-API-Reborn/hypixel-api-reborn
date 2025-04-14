@@ -124,7 +124,7 @@ import Seasonal from './Structures/Player/Seasonal/Seasonal.js';
 import SheepWars from './Structures/MiniGames/WoolGames/SheepWars.js';
 import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionBid from './Structures/SkyBlock/Auctions/SkyBlockAuctionBid.js';
-import SkyBlockAuctionsInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionsInfo.js';
+import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import SkyBlockBaseAuction from './Structures/SkyBlock/Auctions/SkyBlockBaseAuction.js';
 import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
 import SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
@@ -150,6 +150,7 @@ import SkyBlockGardenCropMilestones from './Structures/SkyBlock/Garden/SkyBlockG
 import SkyBlockGardenCropsUpgrades from './Structures/SkyBlock/Garden/SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './Structures/SkyBlock/Garden/SkyBlockGardenVisitors.js';
 import SkyBlockInventoryItem from './Structures/SkyBlock/Inventory/SkyBlockInventoryItem.js';
+import SkyBlockInventoryItemAttribute from './Structures/SkyBlock/Inventory/SkyBlockInventoryItemAttribute.js';
 import SkyBlockInventoryItemEnchantment from './Structures/SkyBlock/Inventory/SkyBlockInventoryItemEnchantment.js';
 import SkyBlockInventoryItemRune from './Structures/SkyBlock/Inventory/SkyBlockInventoryItemRune.js';
 import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
@@ -236,6 +237,7 @@ import SkyBlockMemberProfile from './Structures/SkyBlock/Member/SkyBlockMemberPr
 import SkyBlockMemberQuests from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuests.js';
 import SkyBlockMemberQuestsHarp from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuestsHarp.js';
 import SkyBlockMemberQuestsHarpSong from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuestsHarpSong.js';
+import SkyBlockMemberQuestsTrapper from './Structures/SkyBlock/Member/Quests/SkyBlockMemberQuestsTrapper.js';
 import SkyBlockMemberRift from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRift.js';
 import SkyBlockMemberRiftAccess from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftAccess.js';
 import SkyBlockMemberRiftBlackLagoon from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftBlackLagoon.js';
@@ -262,18 +264,18 @@ import SkyBlockMemberSlayer from './Structures/SkyBlock/Member/Slayers/SkyBlockM
 import SkyBlockMemberSlayerClaimedLevels from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayerClaimedLevels.js';
 import SkyBlockMemberSlayers from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayers.js';
 import SkyBlockMemberSlayersQuest from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayersQuest.js';
-import SkyBlockMemeberQuestsTrapper from './Structures/SkyBlock/Member/Quests/SkyBlockMemeberQuestsTrapper.js';
 import SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import SkyBlockMuseumItem from './Structures/SkyBlock/Museum/SkyBlockMuseumItem.js';
 import SkyBlockMuseumMember from './Structures/SkyBlock/Museum/SkyBlockMuseumMember.js';
 import SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
+import SkyBlockPotionEffect from './Structures/SkyBlock/Potion/SkyBlockPotionEffect.js';
 import SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import SkyBlockProfileBanking from './Structures/SkyBlock/Profile/Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import SkyBlockProfileCommunityUpgradesUpgrade from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrade.js';
 import SkyBlockProfileCommunityUpgradesUpgraded from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgraded.js';
 import SkyBlockProfileCommunityUpgradesUpgrading from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrading.js';
-import SkyBlockProfilesBankingTrasnsaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfilesBankingTrasnsaction.js';
+import SkyBlockProfilesBankingTransaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfilesBankingTransaction.js';
 import SkyBlockSkill from './Structures/SkyBlock/Skills/SkyBlockSkill.js';
 import SkyBlockSkillLevel from './Structures/SkyBlock/Skills/SkyBlockSkillLevel.js';
 import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
@@ -283,8 +285,6 @@ import SkyWarsKits from './Structures/MiniGames/SkyWars/SkyWarsKits.js';
 import SkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode.js';
 import SkyWarsModeStats from './Structures/MiniGames/SkyWars/SkyWarsModeStats.js';
 import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
-import SkyblockInventoryItemAttribute from './Structures/SkyBlock/Inventory/SkyblockInventoryItemAttribute.js';
-import SkyblockPotionEffect from './Structures/SkyBlock/Potion/SkyblockPotionEffect.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
@@ -428,7 +428,7 @@ export default {
   SheepWars,
   SkyBlockAuction,
   SkyBlockAuctionBid,
-  SkyBlockAuctionsInfo,
+  SkyBlockAuctionInfo,
   SkyBlockBaseAuction,
   SkyBlockBaseAuctionInfo,
   SkyBlockBazaar,
@@ -454,6 +454,7 @@ export default {
   SkyBlockGardenCropsUpgrades,
   SkyBlockGardenVisitors,
   SkyBlockInventoryItem,
+  SkyBlockInventoryItemAttribute,
   SkyBlockInventoryItemEnchantment,
   SkyBlockInventoryItemRune,
   SkyBlockItem,
@@ -540,6 +541,7 @@ export default {
   SkyBlockMemberQuests,
   SkyBlockMemberQuestsHarp,
   SkyBlockMemberQuestsHarpSong,
+  SkyBlockMemberQuestsTrapper,
   SkyBlockMemberRift,
   SkyBlockMemberRiftAccess,
   SkyBlockMemberRiftBlackLagoon,
@@ -566,18 +568,18 @@ export default {
   SkyBlockMemberSlayerClaimedLevels,
   SkyBlockMemberSlayers,
   SkyBlockMemberSlayersQuest,
-  SkyBlockMemeberQuestsTrapper,
   SkyBlockMuseum,
   SkyBlockMuseumItem,
   SkyBlockMuseumMember,
   SkyBlockNews,
+  SkyBlockPotionEffect,
   SkyBlockProfile,
   SkyBlockProfileBanking,
   SkyBlockProfileCommunityUpgrades,
   SkyBlockProfileCommunityUpgradesUpgrade,
   SkyBlockProfileCommunityUpgradesUpgraded,
   SkyBlockProfileCommunityUpgradesUpgrading,
-  SkyBlockProfilesBankingTrasnsaction,
+  SkyBlockProfilesBankingTransaction,
   SkyBlockSkill,
   SkyBlockSkillLevel,
   SkyBlockSkills,
@@ -587,8 +589,6 @@ export default {
   SkyWarsMode,
   SkyWarsModeStats,
   SkyWarsPackages,
-  SkyblockInventoryItemAttribute,
-  SkyblockPotionEffect,
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,

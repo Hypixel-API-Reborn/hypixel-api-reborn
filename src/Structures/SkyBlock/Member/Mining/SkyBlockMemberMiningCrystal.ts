@@ -1,4 +1,4 @@
-class SkyBlockMemeberMiningCrystal {
+class SkyBlockMemberMiningCrystal {
   found: boolean;
   totalFound: number;
   totalPlaced: number;
@@ -13,4 +13,4 @@ class SkyBlockMemeberMiningCrystal {
   }
 }
 
-export default SkyBlockMemeberMiningCrystal;
+export default SkyBlockMemberMiningCrystal;

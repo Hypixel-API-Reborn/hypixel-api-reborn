@@ -1,12 +1,12 @@
-import SkyBlockProfilesBankingTrasnsaction from './SkyBlockProfilesBankingTrasnsaction.js';
+import SkyBlockProfilesBankingTransaction from './SkyBlockProfilesBankingTransaction.js';
 
 class SkyBlockProfileBanking {
   balance: number;
-  transactions: SkyBlockProfilesBankingTrasnsaction[];
+  transactions: SkyBlockProfilesBankingTransaction[];
   constructor(data: Record<string, any>) {
     this.balance = data.balance || 0;
     this.transactions = (data.transactions || []).map(
-      (transaction: Record<string, any>) => new SkyBlockProfilesBankingTrasnsaction(transaction)
+      (transaction: Record<string, any>) => new SkyBlockProfilesBankingTransaction(transaction)
     );
   }
 

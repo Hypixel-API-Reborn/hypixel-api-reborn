@@ -1,11 +1,11 @@
-import SkyBlockMemeberQuestsTrapper from './SkyBlockMemeberQuestsTrapper.js';
+import SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('SkyBlockMemeberQuestsTrapper', () => {
-  const data = new SkyBlockMemeberQuestsTrapper({ stats: 'meow' });
+test('SkyBlockMemberQuestsTrapper', () => {
+  const data = new SkyBlockMemberQuestsTrapper({ stats: 'meow' });
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemeberQuestsTrapper);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemeberQuestsTrapper>();
+  expect(data).toBeInstanceOf(SkyBlockMemberQuestsTrapper);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberQuestsTrapper>();
   expect(data.peltCount).toBeDefined();
   expectTypeOf(data.peltCount).toEqualTypeOf<number>();
   expect(data.lastCompletedTimestamp).toBeDefined();

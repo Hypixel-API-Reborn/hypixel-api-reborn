@@ -34,7 +34,7 @@ class Errors {
     '[Hypixel-API-Reborn] You have requested that player recently. Try turning on cache. For help join our Discord Server https://discord.gg/NSEBNMM';
   NO_SKYBLOCK_PROFILES: string = '[Hypixel-API-Reborn] The player has no SkyBlock profiles.';
   BAD_AUCTION_FILTER: string =
-    '[Hypixel-API-Reborn] Unexpected filter for Client#getSkyBlockAuction. Expected one of "PROFILE", "PLAYER", "AUCTIONID", but got something else.';
+    '[Hypixel-API-Reborn] Unexpected filter for Client#getSkyBlockAuction. Expected one of "PROFILE", "PLAYER", "AUCTION_ID", but got something else.';
   NOT_IMPLEMENTED: string =
     '[Hypixel-API-Reborn] Endpoint execute method is not implemented yet! Please report this https://discord.gg/NSEBNMM';
   RATE_LIMIT_INIT_ERROR: string =

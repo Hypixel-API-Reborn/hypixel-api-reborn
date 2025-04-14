@@ -1,4 +1,4 @@
-class SkyBlockBaseAucitonInfo {
+class SkyBlockBaseAuctionInfo {
   lastUpdatedTimestamp: number;
   lastUpdatedAt: Date;
   constructor(data: Record<string, any>) {
@@ -7,4 +7,4 @@ class SkyBlockBaseAucitonInfo {
   }
 }
 
-export default SkyBlockBaseAucitonInfo;
+export default SkyBlockBaseAuctionInfo;

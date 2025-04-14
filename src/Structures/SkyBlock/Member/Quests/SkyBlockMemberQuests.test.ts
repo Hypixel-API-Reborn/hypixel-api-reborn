@@ -1,7 +1,7 @@
 import SkyBlockMemberQuests from './SkyBlockMemberQuests.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.js';
-import type SkyBlockMemberQuestsTrapper from './SkyBlockMemeberQuestsTrapper.js';
+import type SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.js';
 
 test('SkyBlockMemberQuests', () => {
   const data = new SkyBlockMemberQuests({ stats: 'meow' });

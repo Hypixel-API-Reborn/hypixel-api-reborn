@@ -1,8 +1,8 @@
 import SkyBlockMemberMining from './SkyBlockMemberMining.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
 import type SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
 import type SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
-import type SkyBlockMemeberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
 import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberMining', () => {
@@ -15,7 +15,7 @@ test('SkyBlockMemberMining', () => {
   expect(data.powder).toBeDefined();
   expectTypeOf(data.powder).toEqualTypeOf<SkyBlockMemberMiningPowders>();
   expect(data.crystals).toBeDefined();
-  expectTypeOf(data.crystals).toEqualTypeOf<Record<MiningCrystal, SkyBlockMemeberMiningCrystal>>();
+  expectTypeOf(data.crystals).toEqualTypeOf<Record<MiningCrystal, SkyBlockMemberMiningCrystal>>();
   expect(data.hotm).toBeDefined();
   expectTypeOf(data.hotm).toEqualTypeOf<SkyBlockMemberMiningHotm>();
   expect(data.pickaxeAbility).toBeDefined();

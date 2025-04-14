@@ -7,7 +7,7 @@ import type SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockP
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
 
 test('SkyBlockProfile', () => {
-  const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow', garden: null });
+  const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow', garden: null, museum: null });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockProfile);
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile>();

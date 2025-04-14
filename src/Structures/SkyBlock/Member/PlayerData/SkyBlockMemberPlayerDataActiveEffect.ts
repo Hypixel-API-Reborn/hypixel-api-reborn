@@ -1,4 +1,4 @@
-import SkyBlockPotionEffect from '../../Potion/SkyblockPotionEffect.js';
+import SkyBlockPotionEffect from '../../Potion/SkyBlockPotionEffect.js';
 import TicksToMilliseconds from '../../../../Utils/TicksToMilliseconds.js';
 
 class SkyBlockMemberPlayerDataActiveEffect extends SkyBlockPotionEffect {
