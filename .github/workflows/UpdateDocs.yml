@@ -59,7 +59,7 @@ jobs:
       - name: Switch to documentation branch
         run: |
           git fetch --all
-          git checkout docs
+          git checkout documentation
 
       - name: Clear Old Documentation files
         run:
