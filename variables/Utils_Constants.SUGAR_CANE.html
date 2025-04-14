@@ -1,0 +1,174 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="https://hypixel-api-reborn.github.io/reborn-ts/"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>SUGAR_CANE | hypixel-api-reborn</title><meta name="description" content="Documentation for hypixel-api-reborn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/style.css"/><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/highlight.css"/><script defer src="https://hypixel-api-reborn.github.io/reborn-ts/assets/main.js"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.js" id="tsd-icons-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/search.js" id="tsd-search-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/navigation.js" id="tsd-nav-script"></script><script async src="https://hypixel-api-reborn.github.io/reborn-ts/assets/hierarchy.js" id="tsd-hierarchy-script"></script><style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #97cbff;
+    --md-sys-color-on-primary: #003354;
+    --md-sys-color-primary-container: #004a77;
+    --md-sys-color-on-primary-container: #cee5ff;
+    --md-sys-color-secondary: #b9c8da;
+    --md-sys-color-on-secondary: #243240;
+    --md-sys-color-secondary-container: #3a4857;
+    --md-sys-color-on-secondary-container: #d5e4f7;
+    --md-sys-color-tertiary: #d3bfe6;
+    --md-sys-color-on-tertiary: #392a49;
+    --md-sys-color-tertiary-container: #504061;
+    --md-sys-color-on-tertiary-container: #efdbff;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffb4ab;
+    --md-sys-color-background: #1a1c1e;
+    --md-sys-color-on-background: #e2e2e5;
+    --md-sys-color-surface: #1a1c1e;
+    --md-sys-color-on-surface: #e2e2e5;
+    --md-sys-color-surface-variant: #42474e;
+    --md-sys-color-on-surface-variant: #c2c7cf;
+    --md-sys-color-outline: #8c9199;
+    --md-sys-color-outline-variant: #42474e;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #e2e2e5;
+    --md-sys-color-inverse-on-surface: #2f3033;
+    --md-sys-color-inverse-primary: #00639c;
+    --md-sys-color-surface-dim: #121416;
+    --md-sys-color-surface-bright: #38393c;
+    --md-sys-color-surface-container-lowest: #0c0e11;
+    --md-sys-color-surface-container-low: #1a1c1e;
+    --md-sys-color-surface-container: #1e2022;
+    --md-sys-color-surface-container-high: #282a2d;
+    --md-sys-color-surface-container-highest: #333538
+  }
+}
+:root[data-theme="dark"] {
+  --md-sys-color-primary: #97cbff;
+  --md-sys-color-on-primary: #003354;
+  --md-sys-color-primary-container: #004a77;
+  --md-sys-color-on-primary-container: #cee5ff;
+  --md-sys-color-secondary: #b9c8da;
+  --md-sys-color-on-secondary: #243240;
+  --md-sys-color-secondary-container: #3a4857;
+  --md-sys-color-on-secondary-container: #d5e4f7;
+  --md-sys-color-tertiary: #d3bfe6;
+  --md-sys-color-on-tertiary: #392a49;
+  --md-sys-color-tertiary-container: #504061;
+  --md-sys-color-on-tertiary-container: #efdbff;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffb4ab;
+  --md-sys-color-background: #1a1c1e;
+  --md-sys-color-on-background: #e2e2e5;
+  --md-sys-color-surface: #1a1c1e;
+  --md-sys-color-on-surface: #e2e2e5;
+  --md-sys-color-surface-variant: #42474e;
+  --md-sys-color-on-surface-variant: #c2c7cf;
+  --md-sys-color-outline: #8c9199;
+  --md-sys-color-outline-variant: #42474e;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e2e2e5;
+  --md-sys-color-inverse-on-surface: #2f3033;
+  --md-sys-color-inverse-primary: #00639c;
+  --md-sys-color-surface-dim: #121416;
+  --md-sys-color-surface-bright: #38393c;
+  --md-sys-color-surface-container-lowest: #0c0e11;
+  --md-sys-color-surface-container-low: #1a1c1e;
+  --md-sys-color-surface-container: #1e2022;
+  --md-sys-color-surface-container-high: #282a2d;
+  --md-sys-color-surface-container-highest: #333538
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-sys-color-primary: #00639c;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #cee5ff;
+    --md-sys-color-on-primary-container: #001d33;
+    --md-sys-color-secondary: #51606f;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #d5e4f7;
+    --md-sys-color-on-secondary-container: #0e1d2a;
+    --md-sys-color-tertiary: #68587a;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #efdbff;
+    --md-sys-color-on-tertiary-container: #231533;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+    --md-sys-color-background: #fcfcff;
+    --md-sys-color-on-background: #1a1c1e;
+    --md-sys-color-surface: #fcfcff;
+    --md-sys-color-on-surface: #1a1c1e;
+    --md-sys-color-surface-variant: #dee3eb;
+    --md-sys-color-on-surface-variant: #42474e;
+    --md-sys-color-outline: #72777f;
+    --md-sys-color-outline-variant: #c2c7cf;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #2f3033;
+    --md-sys-color-inverse-on-surface: #f1f0f4;
+    --md-sys-color-inverse-primary: #97cbff;
+    --md-sys-color-surface-dim: #dadadd;
+    --md-sys-color-surface-bright: #f9f9fc;
+    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: #f3f3f7;
+    --md-sys-color-surface-container: #eeedf1;
+    --md-sys-color-surface-container-high: #e8e8eb;
+    --md-sys-color-surface-container-highest: #e2e2e5
+  }
+}
+:root[data-theme="light"] {
+  --md-sys-color-primary: #00639c;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #cee5ff;
+  --md-sys-color-on-primary-container: #001d33;
+  --md-sys-color-secondary: #51606f;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d5e4f7;
+  --md-sys-color-on-secondary-container: #0e1d2a;
+  --md-sys-color-tertiary: #68587a;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #efdbff;
+  --md-sys-color-on-tertiary-container: #231533;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fcfcff;
+  --md-sys-color-on-background: #1a1c1e;
+  --md-sys-color-surface: #fcfcff;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-surface-variant: #dee3eb;
+  --md-sys-color-on-surface-variant: #42474e;
+  --md-sys-color-outline: #72777f;
+  --md-sys-color-outline-variant: #c2c7cf;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #2f3033;
+  --md-sys-color-inverse-on-surface: #f1f0f4;
+  --md-sys-color-inverse-primary: #97cbff;
+  --md-sys-color-surface-dim: #dadadd;
+  --md-sys-color-surface-bright: #f9f9fc;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f3f3f7;
+  --md-sys-color-surface-container: #eeedf1;
+  --md-sys-color-surface-container-high: #e8e8eb;
+  --md-sys-color-surface-container-highest: #e2e2e5
+}
+</style><link rel="stylesheet" href="https://hypixel-api-reborn.github.io/reborn-ts/assets/material-style.css"/></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search"><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="https://hypixel-api-reborn.github.io/reborn-ts/index.html" class="title">hypixel-api-reborn</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb"><li><a href="https://hypixel-api-reborn.github.io/reborn-ts/modules.html">hypixel-api-reborn</a></li><li><a href="https://hypixel-api-reborn.github.io/reborn-ts/modules/Utils_Constants.html">Utils/Constants</a></li><li><a href="https://hypixel-api-reborn.github.io/reborn-ts/variables/Utils_Constants.SUGAR_CANE.html">SUGAR_CANE</a></li></ul><h1>Variable SUGAR_CANE<code class="tsd-tag">Const</code></h1></div><div class="tsd-signature"><span class="tsd-kind-variable">SUGAR_CANE</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{</span><br/>    <span class="tsd-kind-property">&quot;0&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;1&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;10&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;11&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;12&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;13&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;14&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;15&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;16&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;17&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;18&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;19&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;2&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;20&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;21&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;22&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;23&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;24&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;25&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;26&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;27&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;28&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;29&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;3&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;30&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;31&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;32&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;33&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;34&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;35&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;36&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;37&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;38&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;39&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;4&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;40&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;41&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;42&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;43&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;44&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;45&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;5&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;6&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;7&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;8&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-kind-property">&quot;9&quot;</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol"> = ...</span></div><div class="tsd-type-declaration"><h4>Type declaration</h4><ul class="tsd-parameters"><li class="tsd-parameter"><h5><span class="tsd-kind-property">0</span><a id="__type0" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">1</span><a id="__type1" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">10</span><a id="__type10" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">11</span><a id="__type11" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">12</span><a id="__type12" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">13</span><a id="__type13" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">14</span><a id="__type14" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">15</span><a id="__type15" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">16</span><a id="__type16" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">17</span><a id="__type17" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">18</span><a id="__type18" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">19</span><a id="__type19" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">2</span><a id="__type2" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">20</span><a id="__type20" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">21</span><a id="__type21" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">22</span><a id="__type22" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">23</span><a id="__type23" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">24</span><a id="__type24" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">25</span><a id="__type25" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">26</span><a id="__type26" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">27</span><a id="__type27" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">28</span><a id="__type28" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">29</span><a id="__type29" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">3</span><a id="__type3" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">30</span><a id="__type30" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">31</span><a id="__type31" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">32</span><a id="__type32" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">33</span><a id="__type33" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">34</span><a id="__type34" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">35</span><a id="__type35" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">36</span><a id="__type36" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">37</span><a id="__type37" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">38</span><a id="__type38" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">39</span><a id="__type39" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">4</span><a id="__type4" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">40</span><a id="__type40" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">41</span><a id="__type41" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">42</span><a id="__type42" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">43</span><a id="__type43" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">44</span><a id="__type44" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">45</span><a id="__type45" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">5</span><a id="__type5" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">6</span><a id="__type6" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">7</span><a id="__type7" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">8</span><a id="__type8" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li><li class="tsd-parameter"><h5><span class="tsd-kind-property">9</span><a id="__type9" class="tsd-anchor"></a><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li></ul></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/Hypixel-API-Reborn/Hypixel-API-Reborn/blob/c4a6bea9e886b1ad32a792883b6bc7eb9e91987d/src/Utils/Constants.ts#L957">Utils/Constants.ts:957</a></li></ul></aside></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="https://hypixel-api-reborn.github.io/reborn-ts/assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div></div><div class="site-menu"><nav class="tsd-navigation"><a href="https://hypixel-api-reborn.github.io/reborn-ts/modules.html">hypixel-api-reborn</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div><script>
+          try {
+            const generateLinkElement = document.querySelector(".tsd-generator a");
+            const link = document.createElement("a");
+            Object.assign(link, {
+              href: "https://github.com/dmnsgn/typedoc-material-theme",
+              target: "_blank",
+              rel: "noreferrer",
+              innerText: "typedoc-material-theme."
+            });
+            generateLinkElement.insertAdjacentElement("afterend", link);
+            generateLinkElement.insertAdjacentText("afterend", " with ");
+          } catch (error) {
+
+          }
+        </script></body></html>
