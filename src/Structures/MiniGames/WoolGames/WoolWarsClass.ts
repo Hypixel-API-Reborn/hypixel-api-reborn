@@ -11,7 +11,7 @@ class WoolWarsClass {
   woolsPlaced: number;
   blocksBroken: number;
   placeBreakRatio: number;
-  powerups: number;
+  powerUps: number;
   constructor(data: Record<string, any>, classInput: WoolWarsClassNames) {
     const className = classInput.toLowerCase();
     this.wins = data?.[className]?.wins || 0;
@@ -23,7 +23,7 @@ class WoolWarsClass {
     this.woolsPlaced = data?.[className]?.wool_placed || 0;
     this.blocksBroken = data?.[className]?.blocks_broken || 0;
     this.placeBreakRatio = Divide(this.woolsPlaced, this.blocksBroken);
-    this.powerups = data?.[className]?.powerups_gotten || 0;
+    this.powerUps = data?.[className]?.powerups_gotten || 0;
   }
 }
 

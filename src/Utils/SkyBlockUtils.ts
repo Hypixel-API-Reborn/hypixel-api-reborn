@@ -38,11 +38,11 @@ export async function decode(base64: any, isBuffer: boolean = false): Promise<an
   const buffer = isBuffer ? base64 : Buffer.from(base64, 'base64');
   const parseData = await parse(buffer);
   const data = simplify(parseData.parsed);
-  const newdata = [];
+  const newData = [];
   for (let i = 0; i < data.i.length; i++) {
-    newdata.push(data.i[i]);
+    newData.push(data.i[i]);
   }
-  return newdata;
+  return newData;
 }
 
 // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/pets.ts#L70-L101 (modified)
@@ -156,7 +156,7 @@ function getXpTable(type: SkyBlockXPTables): Record<number, number> {
 
 export type Extra = { type: SkyBlockXPTables; cap?: number };
 
-// Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/leveling/leveling.ts#L43-L126 (modifed)
+// Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/leveling/leveling.ts#L43-L126 (modified)
 export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): SkillLevelData {
   const xpTable = getXpTable(extra.type) as Record<number, number>;
   if ('number' !== typeof xp || isNaN(xp)) {
@@ -180,26 +180,26 @@ export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): Sk
     }
   }
 
-  const isInfiniteLevelable = INFINITE.includes(extra.type);
-  if (isInfiniteLevelable) {
+  const isInfiniteLevelAble = INFINITE.includes(extra.type);
+  if (isInfiniteLevelAble) {
     const maxExperience = Object.values(xpTable).at(-1) as number;
     uncappedLevel += Math.floor(xpRemaining / maxExperience);
     xpRemaining %= maxExperience;
     currentXp = xpRemaining;
   }
 
-  const maxLevel = isInfiniteLevelable ? Math.max(uncappedLevel, levelCap) : levelCap;
-  const level = isInfiniteLevelable ? uncappedLevel : Math.min(levelCap, uncappedLevel);
+  const maxLevel = isInfiniteLevelAble ? Math.max(uncappedLevel, levelCap) : levelCap;
+  const level = isInfiniteLevelAble ? uncappedLevel : Math.min(levelCap, uncappedLevel);
 
   const xpForNext = (
     level < maxLevel
       ? Math.ceil(xpTable[level + 1] ?? 0 ?? Object.values(xpTable).at(-1))
-      : isInfiniteLevelable
+      : isInfiniteLevelAble
         ? Object.values(xpTable).at(-1)
         : Infinity
   ) as number;
 
-  const progress = level >= maxLevel && !isInfiniteLevelable ? 0 : Math.max(0, Math.min(currentXp / xpForNext, 1));
+  const progress = level >= maxLevel && !isInfiniteLevelAble ? 0 : Math.max(0, Math.min(currentXp / xpForNext, 1));
   const maxed = level >= maxLevel;
 
   return {

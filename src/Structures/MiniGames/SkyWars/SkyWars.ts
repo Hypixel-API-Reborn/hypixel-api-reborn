@@ -38,14 +38,14 @@ function getSkyWarsLevelProgress(xp: number) {
     const percentRemaining = Math.round((100 - percent) * 100) / 100;
     return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: 10000, percentRemaining };
   }
-  const totalXptoNextLevel = (xpToNextLvl?.[totalXp.findIndex((x) => 0 < x * 10 - xp)] || 0) * 10;
+  const totalXpToNextLevel = (xpToNextLvl?.[totalXp.findIndex((x) => 0 < x * 10 - xp)] || 0) * 10;
   for (let i = 0; i < xpToNextLvl.length; i++) {
     if (0 > currentLevelXp - (xpToNextLvl?.[i] || 0) * 10) break;
     currentLevelXp -= (xpToNextLvl?.[i] || 0) * 10;
   }
-  xpToNextLevel = totalXptoNextLevel - currentLevelXp;
-  percent = Math.round((currentLevelXp / totalXptoNextLevel) * 10000) / 100;
-  return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: totalXptoNextLevel };
+  xpToNextLevel = totalXpToNextLevel - currentLevelXp;
+  percent = Math.round((currentLevelXp / totalXpToNextLevel) * 10000) / 100;
+  return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: totalXpToNextLevel };
 }
 
 class SkyWars {

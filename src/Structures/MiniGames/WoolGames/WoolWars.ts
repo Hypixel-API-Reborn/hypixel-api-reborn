@@ -13,7 +13,7 @@ class WoolWars {
   woolsPlaced: number;
   blocksBroken: number;
   placeBreakRatio: number;
-  powerups: number;
+  powerUps: number;
   assault: WoolWarsClass;
   tank: WoolWarsClass;
   golem: WoolWarsClass;
@@ -31,7 +31,7 @@ class WoolWars {
     this.woolsPlaced = data?.stats?.wool_placed || 0;
     this.blocksBroken = data?.stats?.blocks_broken || 0;
     this.placeBreakRatio = Divide(this.woolsPlaced, this.blocksBroken);
-    this.powerups = data?.powerups_gotten || 0;
+    this.powerUps = data?.powerups_gotten || 0;
     this.assault = new WoolWarsClass(data?.stats?.classes, 'ASSAULT');
     this.tank = new WoolWarsClass(data?.stats?.classes, 'TANK');
     this.golem = new WoolWarsClass(data?.stats?.classes, 'GOLEM');

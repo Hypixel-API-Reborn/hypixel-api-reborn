@@ -426,28 +426,28 @@ export interface LevelProgress {
 }
 
 export interface PlayerStats {
-  arcade: Arcade;
-  arenaBrawl: ArenaBrawl;
+  Arcade: Arcade;
+  ArenaBrawl: ArenaBrawl;
   BedWars: BedWars;
-  blitzsg: BlitzSurvivalGames;
-  buildbattle: BuildBattle;
-  copsandcrims: CopsAndCrims;
-  duels: Duels;
-  megawalls: MegaWalls;
-  murdermystery: MurderMystery;
-  paintball: Paintball;
-  pit: Pit;
-  quakecraft: Quakecraft;
-  skywars: SkyWars;
-  smashheroes: SmashHeroes;
-  speeduhc: SpeedUHC;
-  tntgames: TNTGames;
-  turbokartracers: TurboKartRacers;
-  uhc: UHC;
-  vampirez: VampireZ;
-  walls: Walls;
-  warlords: Warlords;
-  woolgames: WoolGames;
+  BlitzSurvivalGames: BlitzSurvivalGames;
+  BuildBattle: BuildBattle;
+  CopsAndCrims: CopsAndCrims;
+  Duels: Duels;
+  MegaWalls: MegaWalls;
+  MurderMystery: MurderMystery;
+  Paintball: Paintball;
+  Pit: Pit;
+  QuakeCraft: Quakecraft;
+  SkyWars: SkyWars;
+  SmashHeroes: SmashHeroes;
+  SpeedUHC: SpeedUHC;
+  TNTGames: TNTGames;
+  TurboKartRacers: TurboKartRacers;
+  UHC: UHC;
+  VampireZ: VampireZ;
+  Walls: Walls;
+  Warlords: Warlords;
+  WoolGames: WoolGames;
 }
 
 export type PlayerRank =
