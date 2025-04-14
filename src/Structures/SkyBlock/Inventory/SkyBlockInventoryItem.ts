@@ -5,42 +5,6 @@ import SkyBlockPotionEffect from '../Potion/SkyBlockPotionEffect.js';
 import type { Rarity } from '../../../Types/SkyBlock.js';
 import type { UUID } from '../../../Types/Global.js';
 
-import { readFileSync, writeFileSync } from 'fs';
-
-function mergeJson(masterJson: any, newJson: any): any {
-  for (const key in newJson) {
-    if (Array.isArray(newJson[key])) {
-      if (Array.isArray(masterJson[key])) {
-        const existingArray = masterJson[key];
-        const newArray = newJson[key];
-
-        for (const item of newArray) {
-          if (!existingArray.some((existingItem: any) => JSON.stringify(existingItem) === JSON.stringify(item))) {
-            existingArray.push(item);
-          }
-        }
-      } else {
-        masterJson[key] = [...newJson[key]];
-      }
-    } else if ('object' === typeof newJson[key] && null !== newJson[key] && !Array.isArray(newJson[key])) {
-      if (!masterJson[key] || 'object' !== typeof masterJson[key]) {
-        masterJson[key] = {};
-      }
-      mergeJson(masterJson[key], newJson[key]);
-    } else {
-      masterJson[key] = newJson[key];
-    }
-  }
-
-  return masterJson;
-}
-
-export function handle(data: Record<string, any>) {
-  const oldData = JSON.parse(readFileSync('data.json', 'utf-8'));
-  const newJson = mergeJson(oldData, data);
-  writeFileSync('data.json', JSON.stringify(newJson));
-}
-
 class SkyBlockInventoryItem {
   minecraftItemId: number;
   itemCount: number;
@@ -112,7 +76,6 @@ class SkyBlockInventoryItem {
   rarity: Rarity;
   raw: Record<string, any>;
   constructor(data: Record<string, any>) {
-    handle(data);
     this.minecraftItemId = data?.id || 0;
     this.itemCount = data?.count || 1;
     this.itemDamage = data?.Damage || 0;
