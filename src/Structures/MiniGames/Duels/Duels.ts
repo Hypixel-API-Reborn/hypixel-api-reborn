@@ -27,8 +27,8 @@ class Duels {
   losses: number;
   WLR: number;
   playedGames: number;
-  winstreak: number;
-  bestWinstreak: number;
+  winStreak: number;
+  bestWinStreak: number;
   ping: number;
   blocksPlaced: number;
   swings: number;
@@ -63,8 +63,8 @@ class Duels {
     this.losses = data?.losses || 0;
     this.WLR = Divide(this.wins, this.losses);
     this.playedGames = data?.games_played_duels || 0;
-    this.winstreak = data?.current_winstreak || 0;
-    this.bestWinstreak = data?.best_overall_winstreak || 0;
+    this.winStreak = data?.current_winstreak || 0;
+    this.bestWinStreak = data?.best_overall_winstreak || 0;
     this.ping = data?.pingPreference || 0;
     this.blocksPlaced = data?.blocks_placed || 0;
     this.swings = data?.melee_swings || 0;

@@ -88,7 +88,7 @@ class BedWars {
   prestige: BedWarsPrestige;
   playedGames: number;
   wins: number;
-  winstreak: number;
+  winStreak: number;
   kills: number;
   finalKills: number;
   losses: number;
@@ -116,7 +116,7 @@ class BedWars {
     this.prestige = getPrestige(this.level);
     this.playedGames = data?.games_played_bedwars || 0;
     this.wins = data?.wins_bedwars || 0;
-    this.winstreak = data?.winstreak || 0;
+    this.winStreak = data?.winstreak || 0;
     this.kills = data?.kills_bedwars || 0;
     this.finalKills = data?.final_kills_bedwars || 0;
     this.losses = data?.losses_bedwars || 0;

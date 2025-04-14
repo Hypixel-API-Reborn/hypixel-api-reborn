@@ -9,7 +9,7 @@ class SpeedUHCMode {
   losses: number;
   WLR: number;
   playedGames: number;
-  winstreak: number;
+  winStreak: number;
   killStreak: number;
   assists: number;
   constructor(data: Record<string, any>, mode: SpeedUHCModes) {
@@ -20,7 +20,7 @@ class SpeedUHCMode {
     this.losses = data?.[`losses_${mode}`] || 0;
     this.WLR = Divide(this.wins, this.losses);
     this.playedGames = data?.[`games_${mode}`] || 0;
-    this.winstreak = data?.[`win_streak_${mode}`] || 0;
+    this.winStreak = data?.[`win_streak_${mode}`] || 0;
     this.killStreak = data?.[`killstreak_${mode}`] || 0;
     this.assists = data?.[`assists_${mode}`] || 0;
   }

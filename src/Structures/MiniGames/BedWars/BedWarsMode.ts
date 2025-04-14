@@ -4,7 +4,7 @@ import type { BedwarsGamemodeName } from '../../../Types/Player.js';
 
 class BedWarsMode {
   mode: BedwarsGamemodeName;
-  winstreak: number;
+  winStreak: number;
   playedGames: number;
   kills: number;
   deaths: number;
@@ -18,7 +18,7 @@ class BedWarsMode {
   FKDR: number;
   constructor(data: Record<string, any>, mode: BedwarsGamemodeName) {
     this.mode = mode;
-    this.winstreak = data?.[`${mode}_winstreak`] || 0;
+    this.winStreak = data?.[`${mode}_winstreak`] || 0;
     this.playedGames = data?.[`${mode}_games_played_bedwars`] || 0;
     this.kills = data?.[`${mode}_kills_bedwars`] || 0;
     this.deaths = data?.[`${mode}_deaths_bedwars`] || 0;

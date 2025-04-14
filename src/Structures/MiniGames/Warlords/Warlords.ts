@@ -10,7 +10,7 @@ class Warlords {
   wins: number;
   losses: number;
   WLR: number;
-  winstreak: number;
+  winStreak: number;
   assists: number;
   class: WarlordsClasses | 'None';
   pyromancer: WarlordsClass;
@@ -37,7 +37,7 @@ class Warlords {
     this.wins = data?.wins || 0;
     this.losses = data?.losses || 0;
     this.WLR = Divide(this.wins, this.losses);
-    this.winstreak = data?.win_streak || 0;
+    this.winStreak = data?.win_streak || 0;
     this.assists = data?.assists || 0;
     this.class = data?.chosen_class || 'None';
     this.pyromancer = new WarlordsClass(data, 'pyromancer');

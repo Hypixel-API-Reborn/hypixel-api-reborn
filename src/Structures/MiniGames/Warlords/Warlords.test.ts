@@ -29,9 +29,9 @@ test('Warlords', () => {
   expect(data.WLR).toBeDefined();
   expect(data.WLR).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.WLR).toEqualTypeOf<number>();
-  expect(data.winstreak).toBeDefined();
-  expect(data.winstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.winstreak).toEqualTypeOf<number>();
+  expect(data.winStreak).toBeDefined();
+  expect(data.winStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winStreak).toEqualTypeOf<number>();
   expect(data.assists).toBeDefined();
   expect(data.assists).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.assists).toEqualTypeOf<number>();

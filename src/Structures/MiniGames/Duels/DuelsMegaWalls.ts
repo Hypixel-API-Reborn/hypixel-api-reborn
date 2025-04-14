@@ -4,8 +4,8 @@ import { getTitle } from './Duels.js';
 
 class DuelsMegaWalls {
   title: string;
-  winstreak: number;
-  bestWinstreak: number;
+  winStreak: number;
+  bestWinStreak: number;
   solo: DuelsGamemode;
   doubles: DuelsGamemode;
   kills: number;
@@ -26,8 +26,8 @@ class DuelsMegaWalls {
   goldenApplesEatan: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'mega_walls');
-    this.winstreak = data?.current_mega_walls_winstreak || 0;
-    this.bestWinstreak = data?.best_mega_walls_winstreak || 0;
+    this.winStreak = data?.current_mega_walls_winstreak || 0;
+    this.bestWinStreak = data?.best_mega_walls_winstreak || 0;
     this.solo = new DuelsGamemode(data, 'mw_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'mw_doubles', this.title);
     this.kills = this.solo.kills + this.doubles.kills;

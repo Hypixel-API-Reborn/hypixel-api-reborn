@@ -14,9 +14,9 @@ test('TNTGames', () => {
   expect(data.coins).toBeDefined();
   expect(data.coins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.coins).toEqualTypeOf<number>();
-  expect(data.winstreak).toBeDefined();
-  expect(data.winstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.winstreak).toEqualTypeOf<number>();
+  expect(data.winStreak).toBeDefined();
+  expect(data.winStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winStreak).toEqualTypeOf<number>();
   expect(data.wins).toBeDefined();
   expect(data.wins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.wins).toEqualTypeOf<number>();

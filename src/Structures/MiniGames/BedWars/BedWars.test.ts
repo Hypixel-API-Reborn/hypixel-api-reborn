@@ -28,9 +28,9 @@ test('BedWars', () => {
   expect(data.wins).toBeDefined();
   expect(data.wins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.wins).toEqualTypeOf<number>();
-  expect(data.winstreak).toBeDefined();
-  expect(data.winstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.winstreak).toEqualTypeOf<number>();
+  expect(data.winStreak).toBeDefined();
+  expect(data.winStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winStreak).toEqualTypeOf<number>();
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.kills).toEqualTypeOf<number>();

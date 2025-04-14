@@ -33,7 +33,7 @@ test('ArenaBrawlMode', () => {
   expect(data.games).toBeDefined();
   expect(data.games).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.games).toEqualTypeOf<number>();
-  expect(data.winstreak).toBeDefined();
-  expect(data.winstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.winstreak).toEqualTypeOf<number>();
+  expect(data.winStreak).toBeDefined();
+  expect(data.winStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winStreak).toEqualTypeOf<number>();
 });
