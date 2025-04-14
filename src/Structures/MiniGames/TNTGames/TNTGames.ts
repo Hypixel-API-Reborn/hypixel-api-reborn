@@ -6,7 +6,7 @@ import TNTWizards from './TNTWizards.js';
 
 class TNTGames {
   coins: number;
-  winstreak: number;
+  winStreak: number;
   wins: number;
   tntrun: TNTRun;
   pvpRun: PVPRun;
@@ -15,7 +15,7 @@ class TNTGames {
   wizards: TNTWizards;
   constructor(data: Record<string, any>) {
     this.coins = data?.coins || data?.tokens || 0;
-    this.winstreak = data?.winstreak || 0;
+    this.winStreak = data?.winstreak || 0;
     this.wins = data?.wins || 0;
     this.tntrun = new TNTRun(data);
     this.pvpRun = new PVPRun(data);

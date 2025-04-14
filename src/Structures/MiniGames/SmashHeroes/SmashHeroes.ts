@@ -6,7 +6,7 @@ import type { SmashHeoresHeros } from '../../../Types/Player.js';
 class SmashHeroes {
   coins: number;
   level: number;
-  winstreak: number;
+  winStreak: number;
   playedGames: number;
   kills: number;
   deaths: number;
@@ -38,7 +38,7 @@ class SmashHeroes {
   constructor(data: Record<string, any>) {
     this.coins = data?.coins || data?.tokens || 0;
     this.level = data?.smash_level_total || 0;
-    this.winstreak = data?.win_streak || 0;
+    this.winStreak = data?.win_streak || 0;
     this.playedGames = data?.games || 0;
     this.kills = data?.kills || 0;
     this.deaths = data?.deaths || 0;

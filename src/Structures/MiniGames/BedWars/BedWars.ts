@@ -6,7 +6,7 @@ import BedWarsPracticeStats from './Practice/BedWarsPracticeStats.js';
 import Divide from '../../../Utils/Divide.js';
 import type { BedWarsPrestige } from '../../../Types/Player.js';
 
-function getBedwarsLevel(xp: number): number {
+function getBedWarsLevel(xp: number): number {
   let level = Math.floor(xp / 487000) * 100;
   xp = xp % 487000;
   if (500 > xp) return level + xp / 500;
@@ -88,7 +88,7 @@ class BedWars {
   prestige: BedWarsPrestige;
   playedGames: number;
   wins: number;
-  winstreak: number;
+  winStreak: number;
   kills: number;
   finalKills: number;
   losses: number;
@@ -111,12 +111,12 @@ class BedWars {
   totalSlumberTicket: number;
   constructor(data: Record<string, any>) {
     this.tokens = data?.coins || data?.tokens || 0;
-    this.level = data?.Experience ? getBedwarsLevel(data?.Experience) : 0;
+    this.level = data?.Experience ? getBedWarsLevel(data?.Experience) : 0;
     this.experience = data?.Experience || 0;
     this.prestige = getPrestige(this.level);
     this.playedGames = data?.games_played_bedwars || 0;
     this.wins = data?.wins_bedwars || 0;
-    this.winstreak = data?.winstreak || 0;
+    this.winStreak = data?.winstreak || 0;
     this.kills = data?.kills_bedwars || 0;
     this.finalKills = data?.final_kills_bedwars || 0;
     this.losses = data?.losses_bedwars || 0;

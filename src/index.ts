@@ -88,7 +88,7 @@ import MiniWalls from './Structures/MiniGames/Arcade/MiniWalls.js';
 import MonthlyCrate from './Structures/Player/MonthlyCrate.js';
 import MurderMystery from './Structures/MiniGames/MurderMystery/MurderMystery.js';
 import MurderMysteryModeStats from './Structures/MiniGames/MurderMystery/MurderMysteryModeStats.js';
-import OneTimeAchivement from './Structures/Static/Achievements/OneTimeAchivement.js';
+import OneTimeAchievement from './Structures/Static/Achievements/OneTimeAchievement.js';
 import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.js';
 import Paintball from './Structures/MiniGames/Paintball.js';
 import Parkour from './Structures/Player/Parkour.js';
@@ -297,7 +297,7 @@ import TNTRun from './Structures/MiniGames/TNTGames/TNTRun.js';
 import TNTTag from './Structures/MiniGames/TNTGames/TNTTag.js';
 import TNTWizards from './Structures/MiniGames/TNTGames/TNTWizards.js';
 import ThrowOut from './Structures/MiniGames/Arcade/ThrowOut.js';
-import TieredAchivement from './Structures/Static/Achievements/TieredAchivement.js';
+import TieredAchievement from './Structures/Static/Achievements/TieredAchievement.js';
 import Tourney from './Structures/Player/Tourney/Tourney.js';
 import TourneyData from './Structures/Player/Tourney/TourneyData.js';
 import TurboKartRacers from './Structures/MiniGames/TurboKartRacers/TurboKartRacers.js';
@@ -392,7 +392,7 @@ export default {
   MonthlyCrate,
   MurderMystery,
   MurderMysteryModeStats,
-  OneTimeAchivement,
+  OneTimeAchievement,
   PVPRun,
   Paintball,
   Parkour,
@@ -601,7 +601,7 @@ export default {
   TNTTag,
   TNTWizards,
   ThrowOut,
-  TieredAchivement,
+  TieredAchievement,
   Tourney,
   TourneyData,
   TurboKartRacers,

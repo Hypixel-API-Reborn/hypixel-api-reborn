@@ -14,8 +14,8 @@ test('PlayerAchievements', () => {
   expectTypeOf(data.rewards).toEqualTypeOf<PlayerAchievementsRewards>();
   expect(data.tracking).toBeDefined();
   expectTypeOf(data.tracking).toEqualTypeOf<string[]>();
-  expect(data.achivements).toBeDefined();
-  expectTypeOf(data.achivements).toEqualTypeOf<Record<string, number>>();
+  expect(data.achievements).toBeDefined();
+  expectTypeOf(data.achievements).toEqualTypeOf<Record<string, number>>();
   expect(data.oneTime).toBeDefined();
   expectTypeOf(data.oneTime).toEqualTypeOf<string[]>();
   expect(data.totem).toBeDefined();

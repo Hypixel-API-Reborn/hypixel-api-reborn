@@ -10,8 +10,8 @@ class SpeedUHC {
   losses: number;
   WLR: number;
   playedGames: number;
-  winstreak: number;
-  killstreak: number;
+  winStreak: number;
+  killStreak: number;
   blocksBroken: number;
   blocksPlaced: number;
   quits: number;
@@ -32,8 +32,8 @@ class SpeedUHC {
     this.losses = data?.losses || 0;
     this.WLR = Divide(this.wins, this.losses);
     this.playedGames = data?.games || 0;
-    this.winstreak = data?.win_streak || 0;
-    this.killstreak = data?.killstreak || 0;
+    this.winStreak = data?.win_streak || 0;
+    this.killStreak = data?.killstreak || 0;
     this.blocksBroken = data?.blocks_broken || 0;
     this.blocksPlaced = data?.blocks_placed || 0;
     this.quits = data?.quits || 0;

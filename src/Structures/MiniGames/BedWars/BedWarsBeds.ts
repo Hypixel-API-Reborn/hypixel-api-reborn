@@ -1,11 +1,11 @@
 import Divide from '../../../Utils/Divide.js';
-import type { BedwarsGamemodeName } from '../../../Types/Player.js';
+import type { BedWarsGamemodeName } from '../../../Types/Player.js';
 
 class BedWarsBeds {
   broken: number;
   lost: number;
   BLRatio: number;
-  constructor(data: Record<string, any>, mode?: BedwarsGamemodeName | string) {
+  constructor(data: Record<string, any>, mode?: BedWarsGamemodeName | string) {
     mode = mode ? `${mode}_` : '';
     this.broken = data?.[`${mode}beds_broken_bedwars`] || 0;
     this.lost = data?.[`${mode}beds_lost_bedwars`] || 0;

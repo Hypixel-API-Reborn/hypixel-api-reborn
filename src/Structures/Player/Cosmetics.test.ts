@@ -30,6 +30,6 @@ test('Cosmetics', () => {
   expectTypeOf(data.rankColors).toEqualTypeOf<string[]>();
   expect(data.particlePacks).toBeDefined();
   expectTypeOf(data.particlePacks).toEqualTypeOf<string[]>();
-  expect(data.clickfx).toBeDefined();
-  expectTypeOf(data.clickfx).toEqualTypeOf<string[]>();
+  expect(data.clickEffects).toBeDefined();
+  expectTypeOf(data.clickEffects).toEqualTypeOf<string[]>();
 });

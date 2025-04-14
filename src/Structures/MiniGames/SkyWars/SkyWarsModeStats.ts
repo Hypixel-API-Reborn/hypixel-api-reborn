@@ -4,7 +4,7 @@ import type { SkyWarsBaseModes, SkyWarsKitNames } from '../../../Types/Player.js
 
 class SkyWarsModeStats {
   activeKit: SkyWarsKitNames;
-  killstreak: number;
+  killStreak: number;
   kills: number;
   voidKills: number;
   meleeKills: number;
@@ -31,7 +31,7 @@ class SkyWarsModeStats {
   insane: SkyWarsMode;
   constructor(data: Record<string, any>, gamemode: SkyWarsBaseModes) {
     this.activeKit = data?.[`activeKit_${gamemode?.toUpperCase()}`] || '';
-    this.killstreak = data?.[`killstreak_${gamemode}`] || 0;
+    this.killStreak = data?.[`killstreak_${gamemode}`] || 0;
     this.kills = data?.[`kills_${gamemode}`] || 0;
     this.voidKills = data?.[`void_kills_${gamemode}`] || 0;
     this.meleeKills = data?.[`melee_kills_${gamemode}`] || 0;

@@ -15,6 +15,6 @@ test('Tourney', () => {
   expectTypeOf(data.shopSort).toEqualTypeOf<string>();
   expect(data.hidePurchased).toBeDefined();
   expectTypeOf(data.hidePurchased).toEqualTypeOf<boolean>();
-  expect(data.turneyData).toBeDefined();
-  expectTypeOf(data.turneyData).toEqualTypeOf<TourneyData[]>();
+  expect(data.tourneyData).toBeDefined();
+  expectTypeOf(data.tourneyData).toEqualTypeOf<TourneyData[]>();
 });

@@ -13,7 +13,7 @@ class Cosmetics {
   taunts: string[];
   rankColors: string[];
   particlePacks: string[];
-  clickfx: string[];
+  clickEffects: string[];
   constructor(data: Record<string, any>) {
     this.cosmetics = data?.vanityMeta?.packages || [];
     this.currentGadget = data?.currentGadget || null;
@@ -47,7 +47,7 @@ class Cosmetics {
       this.cosmetics
         .filter((x) => x.startsWith('particlepack_'))
         .map((x) => RemoveSnakeCaseString(x.replace('particlepack_', ''))) || [];
-    this.clickfx =
+    this.clickEffects =
       this.cosmetics
         .filter((x) => x.startsWith('clickeffects_'))
         .map((x) => RemoveSnakeCaseString(x.replace('clickeffects_', ''))) || [];

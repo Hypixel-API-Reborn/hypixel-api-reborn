@@ -18,10 +18,10 @@ class Quakecraft {
   kills: number;
   deaths: number;
   KDR: number;
-  killstreaks: number;
-  distanceTravelled: number;
+  killStreaks: number;
+  distanceTraveled: number;
   shotsFired: number;
-  headshots: number;
+  headShots: number;
   instantRespawn: boolean;
   killPrefixColor: ColorCode;
   showPrefix: boolean;
@@ -39,10 +39,10 @@ class Quakecraft {
     this.kills = this.solo?.kills + this.teams?.kills;
     this.deaths = this.solo?.deaths + this.teams?.deaths;
     this.KDR = Divide(this.kills, this.deaths);
-    this.killstreaks = this.solo?.killstreaks + this.teams?.killstreaks;
-    this.distanceTravelled = this.solo?.distanceTravelled + this.teams?.distanceTravelled;
+    this.killStreaks = this.solo?.killStreaks + this.teams?.killStreaks;
+    this.distanceTraveled = this.solo?.distanceTraveled + this.teams?.distanceTraveled;
     this.shotsFired = this.solo?.shotsFired + this.teams?.shotsFired;
-    this.headshots = this.solo?.headshots + this.teams?.headshots;
+    this.headShots = this.solo?.headShots + this.teams?.headShots;
     this.instantRespawn = data?.instantRespawn || false;
     this.killPrefixColor = data?.selectedKillPrefix || '';
     this.showPrefix = data?.showKillPrefix || false;

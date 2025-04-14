@@ -38,7 +38,7 @@ class Errors {
   NOT_IMPLEMENTED: string =
     '[Hypixel-API-Reborn] Endpoint execute method is not implemented yet! Please report this https://discord.gg/NSEBNMM';
   RATE_LIMIT_INIT_ERROR: string =
-    '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to desynchronization.';
+    '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to de-synchronization.';
   ENDPOINT_NOT_LOADED: string = '[hypixel-api-reborn] This endpoint has not been loaded yet. Please restart your code';
 }
 

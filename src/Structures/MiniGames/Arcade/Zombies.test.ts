@@ -28,10 +28,10 @@ test('Zombies', () => {
   expect(data.gunAccuracy).toBeDefined();
   expect(data.gunAccuracy).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.gunAccuracy).toEqualTypeOf<number>();
-  expect(data.headshots).toBeDefined();
-  expect(data.headshots).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.headshots).toEqualTypeOf<number>();
-  expect(data.headshotAccuracy).toBeDefined();
-  expect(data.headshotAccuracy).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.headshotAccuracy).toEqualTypeOf<number>();
+  expect(data.headShots).toBeDefined();
+  expect(data.headShots).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.headShots).toEqualTypeOf<number>();
+  expect(data.headShotAccuracy).toBeDefined();
+  expect(data.headShotAccuracy).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.headShotAccuracy).toEqualTypeOf<number>();
 });

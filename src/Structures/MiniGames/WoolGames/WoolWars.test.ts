@@ -37,9 +37,9 @@ test('WoolWars', () => {
   expect(data.placeBreakRatio).toBeDefined();
   expect(data.placeBreakRatio).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.placeBreakRatio).toEqualTypeOf<number>();
-  expect(data.powerups).toBeDefined();
-  expect(data.powerups).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.powerups).toEqualTypeOf<number>();
+  expect(data.powerUps).toBeDefined();
+  expect(data.powerUps).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.powerUps).toEqualTypeOf<number>();
   expect(data.assault).toBeDefined();
   expectTypeOf(data.assault).toEqualTypeOf<WoolWarsClass>();
   expect(data.tank).toBeDefined();

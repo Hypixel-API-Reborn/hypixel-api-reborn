@@ -24,9 +24,9 @@ test('Paintball', () => {
   expect(data.shotsFired).toBeDefined();
   expect(data.shotsFired).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.shotsFired).toEqualTypeOf<number>();
-  expect(data.killstreaks).toBeDefined();
-  expect(data.killstreaks).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.killstreaks).toEqualTypeOf<number>();
+  expect(data.killStreaks).toBeDefined();
+  expect(data.killStreaks).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killStreaks).toEqualTypeOf<number>();
   expect(data.forceFieldTime).toBeDefined();
   expect(data.forceFieldTime).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.forceFieldTime).toEqualTypeOf<number>();

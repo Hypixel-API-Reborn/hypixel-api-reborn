@@ -76,8 +76,8 @@ export type CopsAndCrimsGamemodes = 'deathmatch' | 'gungame';
 export type BedWarsPracticeRecordDistances = 30 | 50 | 100;
 export type BedWarsPracticeRecordElevations = 'NONE' | 'SLIGHT' | 'STAIRCASE';
 export type BedWarsPracticeModes = 'BRIDGING' | 'FIREBALL_JUMPING' | 'BOW' | 'MLG' | 'PEARL_CLUTCHING';
-export type BedwarsDreamGamemodeName = 'ultimate' | 'rush' | 'armed' | 'lucky' | 'voidless';
-export type BedwarsGamemodeName =
+export type BedWarsDreamGamemodeName = 'ultimate' | 'rush' | 'armed' | 'lucky' | 'voidless';
+export type BedWarsGamemodeName =
   | 'eight_one'
   | 'eight_two'
   | 'four_three'
@@ -426,28 +426,28 @@ export interface LevelProgress {
 }
 
 export interface PlayerStats {
-  arcade: Arcade;
-  arenaBrawl: ArenaBrawl;
-  bedwars: BedWars;
-  blitzsg: BlitzSurvivalGames;
-  buildbattle: BuildBattle;
-  copsandcrims: CopsAndCrims;
-  duels: Duels;
-  megawalls: MegaWalls;
-  murdermystery: MurderMystery;
-  paintball: Paintball;
-  pit: Pit;
-  quakecraft: Quakecraft;
-  skywars: SkyWars;
-  smashheroes: SmashHeroes;
-  speeduhc: SpeedUHC;
-  tntgames: TNTGames;
-  turbokartracers: TurboKartRacers;
-  uhc: UHC;
-  vampirez: VampireZ;
-  walls: Walls;
-  warlords: Warlords;
-  woolgames: WoolGames;
+  Arcade: Arcade;
+  ArenaBrawl: ArenaBrawl;
+  BedWars: BedWars;
+  BlitzSurvivalGames: BlitzSurvivalGames;
+  BuildBattle: BuildBattle;
+  CopsAndCrims: CopsAndCrims;
+  Duels: Duels;
+  MegaWalls: MegaWalls;
+  MurderMystery: MurderMystery;
+  Paintball: Paintball;
+  Pit: Pit;
+  QuakeCraft: Quakecraft;
+  SkyWars: SkyWars;
+  SmashHeroes: SmashHeroes;
+  SpeedUHC: SpeedUHC;
+  TNTGames: TNTGames;
+  TurboKartRacers: TurboKartRacers;
+  UHC: UHC;
+  VampireZ: VampireZ;
+  Walls: Walls;
+  Warlords: Warlords;
+  WoolGames: WoolGames;
 }
 
 export type PlayerRank =

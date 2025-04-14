@@ -4,8 +4,8 @@ import { getTitle } from './Duels.js';
 
 class DuelsOP {
   title: string;
-  winstreak: number;
-  bestWinstreak: number;
+  winStreak: number;
+  bestWinStreak: number;
   solo: DuelsGamemode;
   doubles: DuelsGamemode;
   kills: number;
@@ -23,11 +23,11 @@ class DuelsOP {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'op');
-    this.winstreak = data?.current_op_winstreak || 0;
-    this.bestWinstreak = data?.best_op_winstreak || 0;
+    this.winStreak = data?.current_op_winstreak || 0;
+    this.bestWinStreak = data?.best_op_winstreak || 0;
     this.solo = new DuelsGamemode(data, 'op_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'op_doubles', this.title);
     this.kills = this.solo.kills + this.doubles.kills;
@@ -45,7 +45,7 @@ class DuelsOP {
     this.bowAccuracy = Divide(this.bowHits, this.bowShots);
     this.blocksPlaced = this.solo.blocksPlaced + this.doubles.blocksPlaced;
     this.healthRegenerated = this.solo.healthRegenerated + this.doubles.healthRegenerated;
-    this.goldenApplesEatan = this.solo.goldenApplesEatan + this.doubles.goldenApplesEatan;
+    this.goldenApplesEaten = this.solo.goldenApplesEaten + this.doubles.goldenApplesEaten;
   }
 }
 

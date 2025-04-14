@@ -4,8 +4,8 @@ import { getTitle } from './Duels.js';
 
 class DuelsBridge {
   title: string;
-  winstreak: number;
-  bestWinstreak: number;
+  winStreak: number;
+  bestWinStreak: number;
   solo: DuelsGamemode;
   doubles: DuelsGamemode;
   threes: DuelsGamemode;
@@ -28,11 +28,11 @@ class DuelsBridge {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'bridge');
-    this.winstreak = data?.current_bridge_winstreak || 0;
-    this.bestWinstreak = data?.best_bridge_winstreak || 0;
+    this.winStreak = data?.current_bridge_winstreak || 0;
+    this.bestWinStreak = data?.best_bridge_winstreak || 0;
     this.solo = new DuelsGamemode(data, 'bridge_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'bridge_doubles', this.title);
     this.threes = new DuelsGamemode(data, 'bridge_threes', this.title);
@@ -132,14 +132,14 @@ class DuelsBridge {
       this['2v2v2v2'].healthRegenerated +
       this['3v3v3v3'].healthRegenerated +
       this.ctf.healthRegenerated;
-    this.goldenApplesEatan =
-      this.solo.goldenApplesEatan +
-      this.doubles.goldenApplesEatan +
-      this.threes.goldenApplesEatan +
-      this.fours.goldenApplesEatan +
-      this['2v2v2v2'].goldenApplesEatan +
-      this['3v3v3v3'].goldenApplesEatan +
-      this.ctf.goldenApplesEatan;
+    this.goldenApplesEaten =
+      this.solo.goldenApplesEaten +
+      this.doubles.goldenApplesEaten +
+      this.threes.goldenApplesEaten +
+      this.fours.goldenApplesEaten +
+      this['2v2v2v2'].goldenApplesEaten +
+      this['3v3v3v3'].goldenApplesEaten +
+      this.ctf.goldenApplesEaten;
   }
 }
 

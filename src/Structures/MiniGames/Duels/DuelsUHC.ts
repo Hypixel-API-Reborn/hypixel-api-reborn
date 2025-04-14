@@ -4,8 +4,8 @@ import { getTitle } from './Duels.js';
 
 class DuelsUHC {
   title: string;
-  winstreak: number;
-  bestWinstreak: number;
+  winStreak: number;
+  bestWinStreak: number;
   solo: DuelsGamemode;
   doubles: DuelsGamemode;
   fours: DuelsGamemode;
@@ -25,11 +25,11 @@ class DuelsUHC {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'uhc');
-    this.winstreak = data?.current_uhc_winstreak || 0;
-    this.bestWinstreak = data?.best_uhc_winstreak || 0;
+    this.winStreak = data?.current_uhc_winstreak || 0;
+    this.bestWinStreak = data?.best_uhc_winstreak || 0;
     this.solo = new DuelsGamemode(data, 'uhc_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'uhc_doubles', this.title);
     this.fours = new DuelsGamemode(data, 'uhc_four', this.title);
@@ -55,11 +55,11 @@ class DuelsUHC {
       this.doubles.healthRegenerated +
       this.fours.healthRegenerated +
       this.deathmatch.healthRegenerated;
-    this.goldenApplesEatan =
-      this.solo.goldenApplesEatan +
-      this.doubles.goldenApplesEatan +
-      this.fours.goldenApplesEatan +
-      this.deathmatch.goldenApplesEatan;
+    this.goldenApplesEaten =
+      this.solo.goldenApplesEaten +
+      this.doubles.goldenApplesEaten +
+      this.fours.goldenApplesEaten +
+      this.deathmatch.goldenApplesEaten;
   }
 }
 
