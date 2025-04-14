@@ -19,9 +19,9 @@ test('CopsAndCrims', () => {
   expect(data.copKills).toBeDefined();
   expect(data.copKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.copKills).toEqualTypeOf<number>();
-  expect(data.headshotKills).toBeDefined();
-  expect(data.headshotKills).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.headshotKills).toEqualTypeOf<number>();
+  expect(data.headShotKills).toBeDefined();
+  expect(data.headShotKills).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.headShotKills).toEqualTypeOf<number>();
   expect(data.grenadeKills).toBeDefined();
   expect(data.grenadeKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.grenadeKills).toEqualTypeOf<number>();

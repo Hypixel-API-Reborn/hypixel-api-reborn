@@ -12,8 +12,8 @@ class Zombies {
   bulletsHit: number;
   bulletsShot: number;
   gunAccuracy: number;
-  headshots: number;
-  headshotAccuracy: number;
+  headShots: number;
+  headShotAccuracy: number;
   constructor(data: Record<string, any>) {
     this.overall = new ZombiesStats(data);
     this.deadEnd = new ZombiesStats(data, 'deadend');
@@ -24,8 +24,8 @@ class Zombies {
     this.bulletsHit = data?.bullets_hit_zombies || 0;
     this.bulletsShot = data?.bullets_shot_zombies || 0;
     this.gunAccuracy = Divide(this.bulletsHit, this.bulletsShot);
-    this.headshots = data?.headshots_zombies || 0;
-    this.headshotAccuracy = Divide(this.headshots, this.bulletsShot);
+    this.headShots = data?.headshots_zombies || 0;
+    this.headShotAccuracy = Divide(this.headShots, this.bulletsShot);
   }
   private parseZombiesKills(data: Record<string, any>): Record<string, number> {
     const matches = Array.from(Object.keys(data))

@@ -21,7 +21,7 @@ class Quakecraft {
   killStreaks: number;
   distanceTravelled: number;
   shotsFired: number;
-  headshots: number;
+  headShots: number;
   instantRespawn: boolean;
   killPrefixColor: ColorCode;
   showPrefix: boolean;
@@ -42,7 +42,7 @@ class Quakecraft {
     this.killStreaks = this.solo?.killStreaks + this.teams?.killStreaks;
     this.distanceTravelled = this.solo?.distanceTravelled + this.teams?.distanceTravelled;
     this.shotsFired = this.solo?.shotsFired + this.teams?.shotsFired;
-    this.headshots = this.solo?.headshots + this.teams?.headshots;
+    this.headShots = this.solo?.headShots + this.teams?.headShots;
     this.instantRespawn = data?.instantRespawn || false;
     this.killPrefixColor = data?.selectedKillPrefix || '';
     this.showPrefix = data?.showKillPrefix || false;

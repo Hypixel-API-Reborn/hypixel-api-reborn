@@ -7,7 +7,7 @@ class CopsAndCrims {
   kills: number;
   criminalKills: number;
   copKills: number;
-  headshotKills: number;
+  headShotKills: number;
   grenadeKills: number;
   assists: number;
   deaths: number;
@@ -67,7 +67,7 @@ class CopsAndCrims {
     this.kills = data?.kills || 0;
     this.criminalKills = data?.criminal_kills || 0;
     this.copKills = data?.cop_kills || 0;
-    this.headshotKills = data?.headshot_kills || 0;
+    this.headShotKills = data?.headshot_kills || 0;
     this.grenadeKills = data?.grenade_kills || 0;
     this.assists = data?.assists || 0;
     this.deaths = data?.deaths || 0;

@@ -12,7 +12,7 @@ test('BlockingDead', () => {
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.kills).toEqualTypeOf<number>();
-  expect(data.headshots).toBeDefined();
-  expect(data.headshots).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.headshots).toEqualTypeOf<number>();
+  expect(data.headShots).toBeDefined();
+  expect(data.headShots).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.headShots).toEqualTypeOf<number>();
 });

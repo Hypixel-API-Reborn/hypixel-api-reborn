@@ -44,9 +44,9 @@ test('Quakecraft', () => {
   expect(data.shotsFired).toBeDefined();
   expect(data.shotsFired).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.shotsFired).toEqualTypeOf<number>();
-  expect(data.headshots).toBeDefined();
-  expect(data.headshots).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.headshots).toEqualTypeOf<number>();
+  expect(data.headShots).toBeDefined();
+  expect(data.headShots).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.headShots).toEqualTypeOf<number>();
   expect(data.instantRespawn).toBeDefined();
   expectTypeOf(data.instantRespawn).toEqualTypeOf<boolean>();
   expect(data.killPrefixColor).toBeDefined();
