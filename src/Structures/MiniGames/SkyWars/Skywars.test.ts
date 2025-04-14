@@ -46,9 +46,9 @@ test('SkyWars', () => {
   expect(data.angelOfDeathLevel).toBeDefined();
   expect(data.angelOfDeathLevel).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.angelOfDeathLevel).toEqualTypeOf<number>();
-  expect(data.killstreak).toBeDefined();
-  expect(data.killstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.killstreak).toEqualTypeOf<number>();
+  expect(data.killStreak).toBeDefined();
+  expect(data.killStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killStreak).toEqualTypeOf<number>();
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.kills).toEqualTypeOf<number>();

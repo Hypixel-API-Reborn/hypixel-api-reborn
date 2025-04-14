@@ -8,7 +8,7 @@ class Paintball {
   KDR: number;
   wins: number;
   shotsFired: number;
-  killstreaks: number;
+  killStreaks: number;
   forceFieldTime: number;
   hat: PaintballHats | 'None';
   adrenaline: number;
@@ -24,7 +24,7 @@ class Paintball {
     this.KDR = Divide(this.kills, this.deaths);
     this.wins = data?.wins || 0;
     this.shotsFired = data?.shots_fired || 0;
-    this.killstreaks = data?.killstreaks || 0;
+    this.killStreaks = data?.killstreaks || 0;
     this.forceFieldTime = data?.forcefieldTime || 0;
     this.hat = data?.hat || 'None';
     this.adrenaline = data?.adrenaline || 0;

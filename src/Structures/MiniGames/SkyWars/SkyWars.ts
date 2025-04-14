@@ -62,7 +62,7 @@ class SkyWars {
   tenacity: number;
   shards: number;
   angelOfDeathLevel: number;
-  killstreak: number;
+  killStreak: number;
   kills: number;
   voidKills: number;
   meleeKills: number;
@@ -114,7 +114,7 @@ class SkyWars {
     this.tenacity = data?.tenacity || 0;
     this.shards = data?.shard || 0;
     this.angelOfDeathLevel = data?.angel_of_death_level || 0;
-    this.killstreak = data?.killstreak || 0;
+    this.killStreak = data?.killstreak || 0;
     this.kills = data?.kills || 0;
     this.voidKills = data?.void_kills || 0;
     this.meleeKills = data?.melee_kills || 0;

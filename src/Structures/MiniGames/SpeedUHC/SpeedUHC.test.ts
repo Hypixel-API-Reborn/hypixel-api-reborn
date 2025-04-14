@@ -34,9 +34,9 @@ test('SpeedUHC', () => {
   expect(data.winStreak).toBeDefined();
   expect(data.winStreak).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.winStreak).toEqualTypeOf<number>();
-  expect(data.killstreak).toBeDefined();
-  expect(data.killstreak).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.killstreak).toEqualTypeOf<number>();
+  expect(data.killStreak).toBeDefined();
+  expect(data.killStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killStreak).toEqualTypeOf<number>();
   expect(data.blocksBroken).toBeDefined();
   expect(data.blocksBroken).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.blocksBroken).toEqualTypeOf<number>();

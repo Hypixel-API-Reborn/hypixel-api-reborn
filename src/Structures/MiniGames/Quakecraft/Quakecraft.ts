@@ -18,7 +18,7 @@ class Quakecraft {
   kills: number;
   deaths: number;
   KDR: number;
-  killstreaks: number;
+  killStreaks: number;
   distanceTravelled: number;
   shotsFired: number;
   headshots: number;
@@ -39,7 +39,7 @@ class Quakecraft {
     this.kills = this.solo?.kills + this.teams?.kills;
     this.deaths = this.solo?.deaths + this.teams?.deaths;
     this.KDR = Divide(this.kills, this.deaths);
-    this.killstreaks = this.solo?.killstreaks + this.teams?.killstreaks;
+    this.killStreaks = this.solo?.killStreaks + this.teams?.killStreaks;
     this.distanceTravelled = this.solo?.distanceTravelled + this.teams?.distanceTravelled;
     this.shotsFired = this.solo?.shotsFired + this.teams?.shotsFired;
     this.headshots = this.solo?.headshots + this.teams?.headshots;

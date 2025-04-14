@@ -5,7 +5,7 @@ class QuakecraftMode {
   kills: number;
   deaths: number;
   KDR: number;
-  killstreaks: number;
+  killStreaks: number;
   distanceTravelled: number;
   shotsFired: number;
   headshots: number;
@@ -15,7 +15,7 @@ class QuakecraftMode {
     this.kills = data?.[`kills${mode}`] || 0;
     this.deaths = data?.[`deaths${mode}`] || 0;
     this.KDR = Divide(this.kills, this.deaths);
-    this.killstreaks = data?.[`killstreaks${mode}`] || 0;
+    this.killStreaks = data?.[`killstreaks${mode}`] || 0;
     this.distanceTravelled = data?.[`distance_travelled${mode}`] || 0;
     this.shotsFired = data?.[`shots_fired${mode}`] || 0;
     this.headshots = data?.[`headshots${mode}`] || 0;
