@@ -10,8 +10,8 @@ class SkyBlockMemberInventoriesBackpack {
   }
 
   async decodeData(): Promise<SkyBlockMemberInventoriesBackpackDecoded | null> {
-    if (this.backpackItemBase64 === undefined) return null;
-    if (this.backpackContentsBase64 === undefined) return null;
+    if (undefined === this.backpackItemBase64 || null === this.backpackItemBase64) return null;
+    if (undefined === this.backpackContentsBase64 || null === this.backpackContentsBase64) return null;
     const backpackIconDecoded = await decode(this.backpackItemBase64);
     const backpackItemsDecoded = await decode(this.backpackContentsBase64);
     return new SkyBlockMemberInventoriesBackpackDecoded({ backpackIconDecoded, backpackItemsDecoded });

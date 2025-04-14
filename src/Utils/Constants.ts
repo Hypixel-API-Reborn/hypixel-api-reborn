@@ -295,6 +295,7 @@ export const MiningForgeItems: MiningForgeItemsData = {
   UMBER_KEY: { name: 'Umber Key', duration: 1800000 },
   SKELETON_KEY: { name: 'Skeleton Key', duration: 1800000 },
   PORTABLE_CAMPFIRE: { name: 'Portable Campfire', duration: 1800000 },
+  PET: { name: 'PET', duration: 0 },
   UNKNOWN: { name: 'UNKNOWN', duration: 0 }
 };
 

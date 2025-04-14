@@ -348,7 +348,8 @@ export type MiningForgeItemId =
   | 'TUNGSTEN_KEY'
   | 'UMBER_KEY'
   | 'SKELETON_KEY'
-  | 'PORTABLE_CAMPFIRE';
+  | 'PORTABLE_CAMPFIRE'
+  | 'PET';
 
 export type MiningForgeItemName =
   | 'Refined Diamond'
@@ -527,7 +528,8 @@ export type SkyBlockMemberPower =
   | 'Strong'
   | 'Bubba'
   | 'Crumbly'
-  | 'Scorching';
+  | 'Scorching'
+  | 'PET';
 
 export type JacobCrops =
   | 'INK_SACK:3'

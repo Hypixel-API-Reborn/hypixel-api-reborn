@@ -4,7 +4,7 @@ import { decode } from '../../../../../Utils/SkyBlockUtils.js';
 
 class SkyBlockMemberInventoriesEquipment extends SkyBlockMemberInventoriesBaseInventory {
   override async decodeData(): Promise<SkyBlockMemberInventoriesEquipmentDecoded | null> {
-    if (this.base64 === undefined) return null;
+    if (undefined === this.base64 || null === this.base64) return null;
     const decoded = await decode(this.base64);
     return new SkyBlockMemberInventoriesEquipmentDecoded(decoded);
   }
