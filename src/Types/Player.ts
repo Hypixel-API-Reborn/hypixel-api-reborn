@@ -76,8 +76,8 @@ export type CopsAndCrimsGamemodes = 'deathmatch' | 'gungame';
 export type BedWarsPracticeRecordDistances = 30 | 50 | 100;
 export type BedWarsPracticeRecordElevations = 'NONE' | 'SLIGHT' | 'STAIRCASE';
 export type BedWarsPracticeModes = 'BRIDGING' | 'FIREBALL_JUMPING' | 'BOW' | 'MLG' | 'PEARL_CLUTCHING';
-export type BedwarsDreamGamemodeName = 'ultimate' | 'rush' | 'armed' | 'lucky' | 'voidless';
-export type BedwarsGamemodeName =
+export type BedWarsDreamGamemodeName = 'ultimate' | 'rush' | 'armed' | 'lucky' | 'voidless';
+export type BedWarsGamemodeName =
   | 'eight_one'
   | 'eight_two'
   | 'four_three'
@@ -428,7 +428,7 @@ export interface LevelProgress {
 export interface PlayerStats {
   arcade: Arcade;
   arenaBrawl: ArenaBrawl;
-  bedwars: BedWars;
+  BedWars: BedWars;
   blitzsg: BlitzSurvivalGames;
   buildbattle: BuildBattle;
   copsandcrims: CopsAndCrims;

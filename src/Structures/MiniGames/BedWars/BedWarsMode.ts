@@ -1,9 +1,9 @@
 import BedWarsBeds from './BedWarsBeds.js';
 import Divide from '../../../Utils/Divide.js';
-import type { BedwarsGamemodeName } from '../../../Types/Player.js';
+import type { BedWarsGamemodeName } from '../../../Types/Player.js';
 
 class BedWarsMode {
-  mode: BedwarsGamemodeName;
+  mode: BedWarsGamemodeName;
   winStreak: number;
   playedGames: number;
   kills: number;
@@ -16,7 +16,7 @@ class BedWarsMode {
   KDR: number;
   WLR: number;
   FKDR: number;
-  constructor(data: Record<string, any>, mode: BedwarsGamemodeName) {
+  constructor(data: Record<string, any>, mode: BedWarsGamemodeName) {
     this.mode = mode;
     this.winStreak = data?.[`${mode}_winstreak`] || 0;
     this.playedGames = data?.[`${mode}_games_played_bedwars`] || 0;

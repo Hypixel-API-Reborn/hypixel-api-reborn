@@ -1,17 +1,17 @@
-import BedwarsDreamMode from './BedWarsDreamMode.js';
+import BedWarsDreamMode from './BedWarsDreamMode.js';
 
 class BedWarsDreamStats {
-  ultimate: BedwarsDreamMode;
-  rush: BedwarsDreamMode;
-  armed: BedwarsDreamMode;
-  lucky: BedwarsDreamMode;
-  voidless: BedwarsDreamMode;
+  ultimate: BedWarsDreamMode;
+  rush: BedWarsDreamMode;
+  armed: BedWarsDreamMode;
+  lucky: BedWarsDreamMode;
+  voidless: BedWarsDreamMode;
   constructor(data: Record<string, any>) {
-    this.ultimate = new BedwarsDreamMode(data, 'ultimate');
-    this.rush = new BedwarsDreamMode(data, 'rush');
-    this.armed = new BedwarsDreamMode(data, 'armed');
-    this.lucky = new BedwarsDreamMode(data, 'lucky');
-    this.voidless = new BedwarsDreamMode(data, 'voidless');
+    this.ultimate = new BedWarsDreamMode(data, 'ultimate');
+    this.rush = new BedWarsDreamMode(data, 'rush');
+    this.armed = new BedWarsDreamMode(data, 'armed');
+    this.lucky = new BedWarsDreamMode(data, 'lucky');
+    this.voidless = new BedWarsDreamMode(data, 'voidless');
   }
 }
 

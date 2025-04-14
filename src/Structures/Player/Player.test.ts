@@ -121,9 +121,9 @@ test('Player', () => {
   expect(data.stats.arenaBrawl).toBeDefined();
   expect(data.stats.arenaBrawl).toBeInstanceOf(ArenaBrawl);
   expectTypeOf(data.stats.arenaBrawl).toEqualTypeOf<ArenaBrawl>();
-  expect(data.stats.bedwars).toBeDefined();
-  expect(data.stats.bedwars).toBeInstanceOf(BedWars);
-  expectTypeOf(data.stats.bedwars).toEqualTypeOf<BedWars>();
+  expect(data.stats.BedWars).toBeDefined();
+  expect(data.stats.BedWars).toBeInstanceOf(BedWars);
+  expectTypeOf(data.stats.BedWars).toEqualTypeOf<BedWars>();
   expect(data.stats.blitzsg).toBeDefined();
   expect(data.stats.blitzsg).toBeInstanceOf(BlitzSurvivalGames);
   expectTypeOf(data.stats.blitzsg).toEqualTypeOf<BlitzSurvivalGames>();

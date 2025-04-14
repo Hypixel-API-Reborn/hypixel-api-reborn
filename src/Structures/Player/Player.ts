@@ -122,7 +122,7 @@ class Player {
     this.stats = {
       arcade: new Arcade(data?.stats?.Arcade),
       arenaBrawl: new ArenaBrawl(data?.stats?.Arena),
-      bedwars: new BedWars(data?.stats?.Bedwars),
+      BedWars: new BedWars(data?.stats?.Bedwars),
       blitzsg: new BlitzSurvivalGames(data?.stats?.HungerGames),
       buildbattle: new BuildBattle(data?.stats?.BuildBattle),
       copsandcrims: new CopsAndCrims(data?.stats?.MCGO),
