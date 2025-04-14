@@ -27,8 +27,8 @@ test('Guild', () => {
   expectTypeOf(data.me).toEqualTypeOf<GuildMember | null>();
   expect(data.ranks).toBeDefined();
   expectTypeOf(data.ranks).toEqualTypeOf<GuildRank[]>();
-  expect(data.totalWeeklyGexp).toBeDefined();
-  expectTypeOf(data.totalWeeklyGexp).toEqualTypeOf<number>();
+  expect(data.totalWeeklyGEXP).toBeDefined();
+  expectTypeOf(data.totalWeeklyGEXP).toEqualTypeOf<number>();
   expect(data.createdAtTimestamp).toBeDefined();
   expectTypeOf(data.createdAtTimestamp).toEqualTypeOf<number | null>();
   expect(data.createdAt).toBeDefined();

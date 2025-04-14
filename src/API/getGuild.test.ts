@@ -155,8 +155,8 @@ test('getGuild (Name)', async () => {
     expectTypeOf(rank.toString()).toEqualTypeOf<string>();
     expect(rank.toString()).toEqual(rank.name);
   });
-  expect(data.totalWeeklyGexp).toBeDefined();
-  expectTypeOf(data.totalWeeklyGexp).toEqualTypeOf<number>();
+  expect(data.totalWeeklyGEXP).toBeDefined();
+  expectTypeOf(data.totalWeeklyGEXP).toEqualTypeOf<number>();
   expect(data.createdAtTimestamp).toBeDefined();
   expectTypeOf(data.createdAtTimestamp).toEqualTypeOf<number | null>();
   expect(data.createdAt).toBeDefined();
@@ -337,8 +337,8 @@ test('getGuild (Id)', async () => {
     expectTypeOf(rank.toString()).toEqualTypeOf<string>();
     expect(rank.toString()).toEqual(rank.name);
   });
-  expect(data.totalWeeklyGexp).toBeDefined();
-  expectTypeOf(data.totalWeeklyGexp).toEqualTypeOf<number>();
+  expect(data.totalWeeklyGEXP).toBeDefined();
+  expectTypeOf(data.totalWeeklyGEXP).toEqualTypeOf<number>();
   expect(data.createdAtTimestamp).toBeDefined();
   expectTypeOf(data.createdAtTimestamp).toEqualTypeOf<number | null>();
   expect(data.createdAt).toBeDefined();
@@ -519,8 +519,8 @@ test('getGuild (Player)', async () => {
     expectTypeOf(rank.toString()).toEqualTypeOf<string>();
     expect(rank.toString()).toEqual(rank.name);
   });
-  expect(data.totalWeeklyGexp).toBeDefined();
-  expectTypeOf(data.totalWeeklyGexp).toEqualTypeOf<number>();
+  expect(data.totalWeeklyGEXP).toBeDefined();
+  expectTypeOf(data.totalWeeklyGEXP).toEqualTypeOf<number>();
   expect(data.createdAtTimestamp).toBeDefined();
   expectTypeOf(data.createdAtTimestamp).toEqualTypeOf<number | null>();
   expect(data.createdAt).toBeDefined();

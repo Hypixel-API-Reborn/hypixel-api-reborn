@@ -2,7 +2,7 @@ import Color from '../Color.js';
 import Game from '../Game.js';
 import GuildMember from './GuildMember.js';
 import GuildRank from './GuildRank.js';
-import { calculateExpHistory, getGuildLevel, members, ranks, totalWeeklyGexp } from '../../Utils/Guild.js';
+import { calculateExpHistory, getGuildLevel, members, ranks, totalWeeklyGEXP } from '../../Utils/Guild.js';
 import type { ExpHistory } from '../../Types/Guild.js';
 
 class Guild {
@@ -14,7 +14,7 @@ class Guild {
   members: GuildMember[];
   me: GuildMember | null;
   ranks: GuildRank[];
-  totalWeeklyGexp: number;
+  totalWeeklyGEXP: number;
   createdAtTimestamp: number | null;
   createdAt: Date | null;
   joinable: boolean;
@@ -37,7 +37,7 @@ class Guild {
     this.members = members(data?.members || []);
     this.me = uuid ? (this.members.find((member) => member.uuid === uuid) as GuildMember) : null;
     this.ranks = ranks(data);
-    this.totalWeeklyGexp = totalWeeklyGexp(this.members);
+    this.totalWeeklyGEXP = totalWeeklyGEXP(this.members);
     this.createdAtTimestamp = data.created || null;
     this.createdAt = this.createdAtTimestamp ? new Date(this.createdAtTimestamp) : null;
     this.joinable = data.joinable ?? false;
