@@ -47,14 +47,14 @@ test('Updater (getLatestVersion)', async () => {
   client.destroy();
 });
 
-test('Updater (getLatestVersion error)', () => {
+test('Updater (getLatestVersion error)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     status: 404,
     json: () => Promise.resolve({ 'dist-tags': { latest: '1.0.0' } })
   } as any);
-  expect(() => client.updater.getLatestVersion()).rejects.toThrowError(client.errors.UPDATER_REQUEST_NOT_OK);
+  await expect(() => client.updater.getLatestVersion()).rejects.toThrowError(client.errors.UPDATER_REQUEST_NOT_OK);
   vi.restoreAllMocks();
   client.destroy();
 });

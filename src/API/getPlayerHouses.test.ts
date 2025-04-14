@@ -3,11 +3,11 @@ import House from '../Structures/House.js';
 import RequestData from '../Private/RequestData.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('getPlayerHouses (No input)', () => {
+test('getPlayerHouses (No input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getPlayerHouses()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.getPlayerHouses()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 

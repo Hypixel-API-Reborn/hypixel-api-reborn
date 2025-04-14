@@ -16,27 +16,27 @@ test('getSkyBlockAuction (raw)', async () => {
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();
 });
 
-test('getSkyBlockAuction (No Type Input)', () => {
+test('getSkyBlockAuction (No Type Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getSkyBlockAuction()).rejects.toThrowError(client.errors.BAD_AUCTION_FILTER);
+  await expect(() => client.getSkyBlockAuction()).rejects.toThrowError(client.errors.BAD_AUCTION_FILTER);
   client.destroy();
 });
 
-test('getSkyBlockAuction (Bad Type Input)', () => {
+test('getSkyBlockAuction (Bad Type Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getSkyBlockAuction('meow', 'meow')).rejects.toThrowError(client.errors.BAD_AUCTION_FILTER);
+  await expect(() => client.getSkyBlockAuction('meow', 'meow')).rejects.toThrowError(client.errors.BAD_AUCTION_FILTER);
   client.destroy();
 });
 
-test('getSkyBlockAuction (No Query Input)', () => {
+test('getSkyBlockAuction (No Query Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getSkyBlockAuction('AUCTION_ID')).rejects.toThrowError(client.errors.NO_UUID);
+  await expect(() => client.getSkyBlockAuction('AUCTION_ID')).rejects.toThrowError(client.errors.NO_UUID);
   client.destroy();
 });
 

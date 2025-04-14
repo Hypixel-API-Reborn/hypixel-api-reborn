@@ -55,11 +55,11 @@ test('getPlayer (never joined hypixel)', async () => {
   client.destroy();
 });
 
-test('getPlayer (no input)', () => {
+test('getPlayer (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getPlayer()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.getPlayer()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
