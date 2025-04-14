@@ -6,7 +6,7 @@ class QuakecraftMode {
   deaths: number;
   KDR: number;
   killStreaks: number;
-  distanceTravelled: number;
+  distanceTraveled: number;
   shotsFired: number;
   headShots: number;
   constructor(data: Record<string, any>, gamemode?: 'teams') {
@@ -16,7 +16,7 @@ class QuakecraftMode {
     this.deaths = data?.[`deaths${mode}`] || 0;
     this.KDR = Divide(this.kills, this.deaths);
     this.killStreaks = data?.[`killstreaks${mode}`] || 0;
-    this.distanceTravelled = data?.[`distance_travelled${mode}`] || 0;
+    this.distanceTraveled = data?.[`distance_travelled${mode}`] || 0;
     this.shotsFired = data?.[`shots_fired${mode}`] || 0;
     this.headShots = data?.[`headshots${mode}`] || 0;
   }

@@ -21,9 +21,9 @@ test('QuakecraftMode', () => {
   expect(data.killStreaks).toBeDefined();
   expect(data.killStreaks).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.killStreaks).toEqualTypeOf<number>();
-  expect(data.distanceTravelled).toBeDefined();
-  expect(data.distanceTravelled).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.distanceTravelled).toEqualTypeOf<number>();
+  expect(data.distanceTraveled).toBeDefined();
+  expect(data.distanceTraveled).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.distanceTraveled).toEqualTypeOf<number>();
   expect(data.shotsFired).toBeDefined();
   expect(data.shotsFired).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.shotsFired).toEqualTypeOf<number>();
