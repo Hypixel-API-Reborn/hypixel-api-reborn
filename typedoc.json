@@ -10,7 +10,7 @@
   "cleanOutputDir": true,
   "page404Content": "This poage does not exist",
   "useHostedBaseUrlForAbsoluteLinks": true,
-  "hostedBaseUrl": "https://hypixel-api-reborn.github.io/reborn-ts/",
+  "hostedBaseUrl": "https://hypixel-api-reborn.github.io/hypixel-api-reborn/",
   "lang": "en",
   "themeColor": "#2f3236"
 }
