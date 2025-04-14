@@ -92,10 +92,10 @@ test('Pit Inventory', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   let data = await client.getPlayer('3457688aa57c4d71ab9d22b04f9160db');
   data = data as Player;
-  expect(data.stats.pit.getInventory).toBeDefined();
-  expectTypeOf(data.stats.pit.getInventory).toEqualTypeOf<() => Promise<PitInventoryItem[]>>();
-  expect(data.stats.pit.getInventory).toBeInstanceOf(Function);
-  const pitInventory = await data.stats.pit.getInventory();
+  expect(data.stats.Pit.getInventory).toBeDefined();
+  expectTypeOf(data.stats.Pit.getInventory).toEqualTypeOf<() => Promise<PitInventoryItem[]>>();
+  expect(data.stats.Pit.getInventory).toBeInstanceOf(Function);
+  const pitInventory = await data.stats.Pit.getInventory();
   expect(pitInventory).toBeDefined();
   pitInventory.forEach((item: PitInventoryItem) => {
     expect(item).toBeDefined();
@@ -114,10 +114,10 @@ test('Pit Inventory', async () => {
     expect(item.extraAttributes).toBeDefined();
     expectTypeOf(item.extraAttributes).toEqualTypeOf<object | null>();
   });
-  expect(data.stats.pit.getEnterChest).toBeDefined();
-  expectTypeOf(data.stats.pit.getEnterChest).toEqualTypeOf<() => Promise<PitInventoryItem[]>>();
-  expect(data.stats.pit.getEnterChest).toBeInstanceOf(Function);
-  const pitEnterChest = await data.stats.pit.getEnterChest();
+  expect(data.stats.Pit.getEnterChest).toBeDefined();
+  expectTypeOf(data.stats.Pit.getEnterChest).toEqualTypeOf<() => Promise<PitInventoryItem[]>>();
+  expect(data.stats.Pit.getEnterChest).toBeInstanceOf(Function);
+  const pitEnterChest = await data.stats.Pit.getEnterChest();
   expect(pitEnterChest).toBeDefined();
   pitEnterChest.forEach((item: PitInventoryItem) => {
     expect(item).toBeDefined();
@@ -136,10 +136,10 @@ test('Pit Inventory', async () => {
     expect(item.extraAttributes).toBeDefined();
     expectTypeOf(item.extraAttributes).toEqualTypeOf<object | null>();
   });
-  expect(data.stats.pit.getArmor).toBeDefined();
-  expectTypeOf(data.stats.pit.getArmor).toEqualTypeOf<() => Promise<PitArmor>>();
-  expect(data.stats.pit.getArmor).toBeInstanceOf(Function);
-  const pitArmor = await data.stats.pit.getArmor();
+  expect(data.stats.Pit.getArmor).toBeDefined();
+  expectTypeOf(data.stats.Pit.getArmor).toEqualTypeOf<() => Promise<PitArmor>>();
+  expect(data.stats.Pit.getArmor).toBeInstanceOf(Function);
+  const pitArmor = await data.stats.Pit.getArmor();
   expect(pitArmor).toBeDefined();
   expectTypeOf(pitArmor).toEqualTypeOf<PitArmor>();
   expect(pitArmor.helmet).toBeDefined();
