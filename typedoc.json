@@ -8,7 +8,7 @@
   "entryPointStrategy": "expand",
   "hideGenerator": true,
   "cleanOutputDir": true,
-  "page404Content": "This poage does not exist",
+  "page404Content": "This page does not exist",
   "useHostedBaseUrlForAbsoluteLinks": true,
   "hostedBaseUrl": "https://hypixel-api-reborn.github.io/hypixel-api-reborn/",
   "lang": "en",

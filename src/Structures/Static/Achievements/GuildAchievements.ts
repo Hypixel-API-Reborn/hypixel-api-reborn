@@ -1,19 +1,19 @@
-import OneTimeAchivement from './OneTimeAchivement.js';
-import TieredAchivement from './TieredAchivement.js';
+import OneTimeAchievement from './OneTimeAchievement.js';
+import TieredAchievement from './TieredAchievement.js';
 
 class GuildAchievements {
   lastUpdatedTimestamp: number;
   lastUpdatedAt: Date;
-  oneTimeAchievements: OneTimeAchivement[];
-  tieredAchievements: TieredAchivement[];
+  oneTimeAchievements: OneTimeAchievement[];
+  tieredAchievements: TieredAchievement[];
   constructor(data: Record<string, any>) {
     this.lastUpdatedTimestamp = data.lastUpdated;
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
     this.oneTimeAchievements = Object.keys(data.one_time).map(
-      (achivementKey) => new OneTimeAchivement(achivementKey, data.one_time[achivementKey])
+      (achievementKey) => new OneTimeAchievement(achievementKey, data.one_time[achievementKey])
     );
     this.tieredAchievements = Object.keys(data.tiered).map(
-      (achivementKey) => new TieredAchivement(achivementKey, data.tiered[achivementKey])
+      (achievementKey) => new TieredAchievement(achievementKey, data.tiered[achievementKey])
     );
   }
 }

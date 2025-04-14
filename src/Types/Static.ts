@@ -13,7 +13,7 @@ export interface ChallengeReward {
   amount: number;
 }
 
-export interface AchivementTier {
+export interface AchievementTier {
   tier: number;
   points?: number;
   amount: number;
