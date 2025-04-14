@@ -79,14 +79,14 @@ test('Ratelimit (Sync)', async () => {
   client.destroy();
 });
 
-test('Ratelimit (Bad Sync Data)', () => {
+test('Ratelimit (Bad Sync Data)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '');
   client.updater.currentVersion = '1.0.0';
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     headers: new Headers({ hello: '100' })
   } as any);
-  expect(() => client.rateLimit.sync()).rejects.toThrowError(client.errors.RATE_LIMIT_INIT_ERROR);
+  await expect(() => client.rateLimit.sync()).rejects.toThrowError(client.errors.RATE_LIMIT_INIT_ERROR);
   vi.restoreAllMocks();
   client.destroy();
 });

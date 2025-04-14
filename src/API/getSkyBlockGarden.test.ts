@@ -9,11 +9,11 @@ import SkyBlockGardenVisitors from '../Structures/SkyBlock/Garden/SkyBlockGarden
 import { expect, expectTypeOf, test } from 'vitest';
 import type { BarnPlot, BarnSkin, SkillLevelData } from '../Types/SkyBlock.js';
 
-test('getSkyBlockGarden (no input)', () => {
+test('getSkyBlockGarden (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getSkyBlockGarden()).rejects.toThrowError(client.errors.NO_UUID);
+  await expect(() => client.getSkyBlockGarden()).rejects.toThrowError(client.errors.NO_UUID);
   client.destroy();
 });
 

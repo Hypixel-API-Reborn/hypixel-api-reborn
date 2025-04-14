@@ -18,17 +18,17 @@ test('getSkyBlockProfiles (raw)', async () => {
   client.destroy();
 });
 
-test('getSkyBlockProfiles (no input)', () => {
+test('getSkyBlockProfiles (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getSkyBlockProfiles()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.getSkyBlockProfiles()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
-test('getSkyBlockProfiles (no profiles)', () => {
+test('getSkyBlockProfiles (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  expect(() => client.getSkyBlockProfiles('b45add7b081443909fb00aa9a3e15eb0')).rejects.toThrowError(
+  await expect(() => client.getSkyBlockProfiles('b45add7b081443909fb00aa9a3e15eb0')).rejects.toThrowError(
     client.errors.NO_SKYBLOCK_PROFILES
   );
   client.destroy();

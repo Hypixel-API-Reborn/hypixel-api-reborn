@@ -50,14 +50,14 @@ test('getLeaderboards', async () => {
   client.destroy();
 });
 
-test('getLeaderboards (Missing Data)', () => {
+test('getLeaderboards (Missing Data)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '');
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     json: () => Promise.resolve({ success: true })
   } as any);
 
-  expect(() => client.getLeaderboards()).rejects.toThrowError(
+  await expect(() => client.getLeaderboards()).rejects.toThrowError(
     client.errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.')
   );
   vi.restoreAllMocks();

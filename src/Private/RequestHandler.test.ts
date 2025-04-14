@@ -17,15 +17,17 @@ test('RequestHandler', async () => {
   expect(data).toBe('14727faefbdc4aff848cd2713eb9939e');
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.requestHandler.toUUID()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.requestHandler.toUUID()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.requestHandler.toUUID(-1)).rejects.toThrowError(client.errors.UUID_NICKNAME_MUST_BE_A_STRING);
+  await expect(() => client.requestHandler.toUUID(-1)).rejects.toThrowError(
+    client.errors.UUID_NICKNAME_MUST_BE_A_STRING
+  );
 
   client.destroy();
 });
 
-test('RequestHandler (Invalid API Key)', () => {
+test('RequestHandler (Invalid API Key)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
@@ -34,12 +36,12 @@ test('RequestHandler (Invalid API Key)', () => {
     status: 403,
     json: () => Promise.resolve({ success: false })
   } as any);
-  expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.INVALID_API_KEY);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.INVALID_API_KEY);
   vi.restoreAllMocks();
   client.destroy();
 });
 
-test('RequestHandler (400 Bad Request)', () => {
+test('RequestHandler (400 Bad Request)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
@@ -48,14 +50,14 @@ test('RequestHandler (400 Bad Request)', () => {
     status: 400,
     json: () => Promise.resolve({ success: false, cause: 'meow' })
   } as any);
-  expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
     client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'meow')
   );
   vi.restoreAllMocks();
   client.destroy();
 });
 
-test('RequestHandler (400 Bad Request No Cause)', () => {
+test('RequestHandler (400 Bad Request No Cause)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
@@ -64,14 +66,14 @@ test('RequestHandler (400 Bad Request No Cause)', () => {
     status: 400,
     json: () => Promise.resolve({ success: false })
   } as any);
-  expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
     client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'Unknown')
   );
   vi.restoreAllMocks();
   client.destroy();
 });
 
-test('RequestHandler (Unprocessable Entity)', () => {
+test('RequestHandler (Unprocessable Entity)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
@@ -80,12 +82,12 @@ test('RequestHandler (Unprocessable Entity)', () => {
     status: 422,
     json: () => Promise.resolve({ success: false })
   } as any);
-  expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.UNEXPECTED_ERROR);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.UNEXPECTED_ERROR);
   vi.restoreAllMocks();
   client.destroy();
 });
 
-test('RequestHandler (Rate Limited)', () => {
+test('RequestHandler (Rate Limited)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
@@ -94,7 +96,9 @@ test('RequestHandler (Rate Limited)', () => {
     status: 429,
     json: () => Promise.resolve({ success: false })
   } as any);
-  expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.RATE_LIMIT_EXCEEDED);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
+    client.errors.RATE_LIMIT_EXCEEDED
+  );
   vi.restoreAllMocks();
   client.destroy();
 });

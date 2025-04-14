@@ -13,11 +13,11 @@ test('getHouse (raw)', async () => {
   client.destroy();
 });
 
-test('getHouse (no input)', () => {
+test('getHouse (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  expect(() => client.getHouse()).rejects.toThrowError(client.errors.NO_UUID);
+  await expect(() => client.getHouse()).rejects.toThrowError(client.errors.NO_UUID);
   client.destroy();
 });
 
