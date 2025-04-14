@@ -38,7 +38,7 @@ class Duels {
   bowHits: number;
   bowAccuracy: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   uhc: DuelsUHC;
   skywars: DuelsSkyWars;
   megawalls: DuelsMegaWalls;
@@ -74,7 +74,7 @@ class Duels {
     this.bowHits = data?.bow_hits || 0;
     this.bowAccuracy = Divide(this.bowHits, this.bowShots);
     this.healthRegenerated = data?.health_regenerated || 0;
-    this.goldenApplesEatan = data?.golden_apples_eaten || 0;
+    this.goldenApplesEaten = data?.golden_apples_eaten || 0;
     this.uhc = new DuelsUHC(data);
     this.skywars = new DuelsSkyWars(data);
     this.megawalls = new DuelsMegaWalls(data);

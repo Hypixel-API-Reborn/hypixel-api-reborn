@@ -28,7 +28,7 @@ class DuelsBridge {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'bridge');
     this.winStreak = data?.current_bridge_winstreak || 0;
@@ -132,14 +132,14 @@ class DuelsBridge {
       this['2v2v2v2'].healthRegenerated +
       this['3v3v3v3'].healthRegenerated +
       this.ctf.healthRegenerated;
-    this.goldenApplesEatan =
-      this.solo.goldenApplesEatan +
-      this.doubles.goldenApplesEatan +
-      this.threes.goldenApplesEatan +
-      this.fours.goldenApplesEatan +
-      this['2v2v2v2'].goldenApplesEatan +
-      this['3v3v3v3'].goldenApplesEatan +
-      this.ctf.goldenApplesEatan;
+    this.goldenApplesEaten =
+      this.solo.goldenApplesEaten +
+      this.doubles.goldenApplesEaten +
+      this.threes.goldenApplesEaten +
+      this.fours.goldenApplesEaten +
+      this['2v2v2v2'].goldenApplesEaten +
+      this['3v3v3v3'].goldenApplesEaten +
+      this.ctf.goldenApplesEaten;
   }
 }
 

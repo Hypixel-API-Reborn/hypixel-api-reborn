@@ -23,7 +23,7 @@ class DuelsSkyWars {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'sw');
     this.winStreak = data?.current_sw_winstreak || 0;
@@ -45,7 +45,7 @@ class DuelsSkyWars {
     this.bowAccuracy = Divide(this.bowHits, this.bowShots);
     this.blocksPlaced = this.solo.blocksPlaced + this.doubles.blocksPlaced;
     this.healthRegenerated = this.solo.healthRegenerated + this.doubles.healthRegenerated;
-    this.goldenApplesEatan = this.solo.goldenApplesEatan + this.doubles.goldenApplesEatan;
+    this.goldenApplesEaten = this.solo.goldenApplesEaten + this.doubles.goldenApplesEaten;
   }
 }
 

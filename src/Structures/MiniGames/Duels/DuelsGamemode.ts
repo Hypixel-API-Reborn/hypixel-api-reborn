@@ -20,7 +20,7 @@ class DuelsGamemode {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>, mode: DuelsModes, title: string = '') {
     this.title = title;
     this.winStreak = data?.[`current_winstreak_mode_${mode}`] || 0;
@@ -40,7 +40,7 @@ class DuelsGamemode {
     this.bowAccuracy = Divide(this.bowShots, this.bowHits);
     this.blocksPlaced = data?.[`${mode}_blocks_placed`] || 0;
     this.healthRegenerated = data?.[`${mode}_health_regenerated`] || 0;
-    this.goldenApplesEatan = data?.[`${mode}_golden_apples_eaten`] || 0;
+    this.goldenApplesEaten = data?.[`${mode}_golden_apples_eaten`] || 0;
   }
 }
 

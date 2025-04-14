@@ -25,7 +25,7 @@ class DuelsUHC {
   bowAccuracy: number;
   blocksPlaced: number;
   healthRegenerated: number;
-  goldenApplesEatan: number;
+  goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = getTitle(data, 'uhc');
     this.winStreak = data?.current_uhc_winstreak || 0;
@@ -55,11 +55,11 @@ class DuelsUHC {
       this.doubles.healthRegenerated +
       this.fours.healthRegenerated +
       this.deathmatch.healthRegenerated;
-    this.goldenApplesEatan =
-      this.solo.goldenApplesEatan +
-      this.doubles.goldenApplesEatan +
-      this.fours.goldenApplesEatan +
-      this.deathmatch.goldenApplesEatan;
+    this.goldenApplesEaten =
+      this.solo.goldenApplesEaten +
+      this.doubles.goldenApplesEaten +
+      this.fours.goldenApplesEaten +
+      this.deathmatch.goldenApplesEaten;
   }
 }
 
