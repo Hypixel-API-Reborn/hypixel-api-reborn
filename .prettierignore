@@ -1,6 +1,8 @@
-node_modules
-coverage
-dist
+node_modules/
+coverage/
+documentation/
+dist/
+.env
 .env
 .env.example
 pnpm-lock.yaml

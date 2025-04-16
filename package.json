@@ -17,15 +17,15 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint:check": "npx eslint src/",
-    "lint": "npx eslint src/ --fix",
-    "prettier:check": "npx prettier --check .",
-    "prettier": "npx prettier --write .",
-    "build": "npx tsc",
-    "test": "npx vitest run",
-    "test:coverage": "npx vitest run --coverage",
-    "test:ui": "npx vitest --ui --coverage",
-    "docgen": "npx typedoc"
+    "lint:check": "pnpm exec eslint src/",
+    "lint": "pnpm exec eslint src/ --fix",
+    "prettier:check": "pnpm exec prettier --check .",
+    "prettier": "pnpm exec prettier --write .",
+    "build": "pnpm exec tsc",
+    "test": "pnpm exec vitest run",
+    "test:coverage": "pnpm exec vitest run --coverage",
+    "test:ui": "pnpm exec vitest --ui --coverage",
+    "docgen": "pnpm exec typedoc"
   },
   "engines": {
     "node": ">=20.16.0"
