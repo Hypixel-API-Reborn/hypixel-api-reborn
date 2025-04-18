@@ -467,7 +467,8 @@ export type MiningForgeItemName =
   | 'Tungsten Key'
   | 'Umber Key'
   | 'Skeleton Key'
-  | 'Portable Campfire';
+  | 'Portable Campfire'
+  | 'PET';
 
 export type MiningForgeItemsData = {
   [key in MiningForgeItemId | 'UNKNOWN']: {
