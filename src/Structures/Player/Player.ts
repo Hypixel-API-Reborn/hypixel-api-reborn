@@ -1,152 +1,175 @@
-import Arcade from '../MiniGames/Arcade/Arcade.js';
-import ArenaBrawl from '../MiniGames/ArenaBrawl/ArenaBrawl.js';
-import BedWars from '../MiniGames/BedWars/BedWars.js';
-import BlitzSurvivalGames from '../MiniGames/BlitzSurvivalGames/BlitzSurvivalGames.js';
-import BuildBattle from '../MiniGames/BuildBattle.js';
-import Color from '../Color.js';
-import CopsAndCrims from '../MiniGames/CopsAndCrims/CopsAndCrims.js';
-import Cosmetics from './Cosmetics.js';
-import Duels from '../MiniGames/Duels/Duels.js';
-import Gifting from './Gifting.js';
 import Guild from '../Guild/Guild.js';
 import House from '../House.js';
-import Housing from '../Housing.js';
-import MegaWalls from '../MiniGames/MegaWalls/MegaWalls.js';
-import MurderMystery from '../MiniGames/MurderMystery/MurderMystery.js';
-import Paintball from '../MiniGames/Paintball.js';
-import Parkour from './Parkour.js';
-import Pit from '../MiniGames/Pit/Pit.js';
-import PlayerAchievements from './PlayerAchievements.js';
-import PlayerQuests from './Quests/PlayerQuests.js';
-import Quakecraft from '../MiniGames/Quakecraft/Quakecraft.js';
+import PlayerAchievements from './PlayerAchievements/PlayerAchievements.js';
+import PlayerAdventRewards from './PlayerAdventRewards/PlayerAdventRewards.js';
+import PlayerCosmetics from './PlayerCosmetics/PlayerCosmetics.js';
+import PlayerGifting from './PlayerGifting.js';
+import PlayerHousing from './PlayerHousing/PlayerHousing.js';
+import PlayerParkour from './PlayerParkour.js';
+import PlayerQuests from './PlayerQuests/PlayerQuests.js';
+import PlayerRankPurchase from './PlayerRankPurchase.js';
+import PlayerRewards from './PlayerRewards/PlayerRewards.js';
+import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
+import PlayerSocialMedia from './PlayerSocialMedia.js';
+import PlayerStats from './PlayerStats.js';
 import RecentGame from '../RecentGame.js';
-import Rewards from './Rewards.js';
-import Seasonal from './Seasonal/Seasonal.js';
-import SkyWars from '../MiniGames/SkyWars/SkyWars.js';
-import SmashHeroes from '../MiniGames/SmashHeroes/SmashHeroes.js';
-import SocialMedia, { parseSocialMedia } from './SocialMedia.js';
-import SpeedUHC from '../MiniGames/SpeedUHC/SpeedUHC.js';
-import TNTGames from '../MiniGames/TNTGames/TNTGames.js';
-import Tourney from './Tourney/Tourney.js';
-import TurboKartRacers from '../MiniGames/TurboKartRacers/TurboKartRacers.js';
-import UHC from '../MiniGames/UHC/UHC.js';
-import VampireZ from '../MiniGames/VampireZ/VampireZ.js';
-import Walls from '../MiniGames/Walls.js';
-import Warlords from '../MiniGames/Warlords/Warlords.js';
-import WoolGames from '../MiniGames/WoolGames/WoolGames.js';
-import { getRank, playerLevelProgress } from '../../Utils/PlayerUtils.js';
-import type {
-  ChatChannel,
-  Language,
-  LevelProgress,
-  PlayerRank,
-  PlayerStats,
-  ScorpiusBribe
-} from '../../Types/Player.js';
-import type { UUID } from '../../Types/Global.js';
+import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/Player.js';
 
 class Player {
-  uuid: UUID;
   nickname: string;
+  uuid: string;
   rank: PlayerRank;
-  mvpPlusColor: Color | null;
-  mvpPlusPlusColor: Color | null;
-  gifting: Gifting;
-  socialMedia: SocialMedia[];
-  firstLoginTimestamp: number;
-  firstLoginAt: Date;
-  lastLoginTimestamp: number | null;
+  firstLoginAt: Date | null;
   lastLoginAt: Date | null;
+  lastLogoutAt: Date | null;
   achievements: PlayerAchievements;
-  language: Language;
-  channel: ChatChannel;
-  exp: number;
-  level: LevelProgress;
-  seasonal: Seasonal;
   karma: number;
-  freeSkyBlockCookie: number | null;
-  tourney: Tourney;
-  rewards: Rewards;
-  challenges: object;
-  parkour: Parkour[];
-  housing: Housing;
-  cosmetics: Cosmetics;
-  scorpiusBribes: ScorpiusBribe[];
+  stats: PlayerStats;
+  level: LevelProgress;
+  claimedCenturyCakeAt: Date | null;
+  language: Language;
+  cosmetics: PlayerCosmetics;
+  rankPurchase: PlayerRankPurchase;
+  challenges: Record<string, Record<string, number>>;
   quests: PlayerQuests;
+  rewards: PlayerRewards;
+  parkour: PlayerParkour[];
+  channel: ChatChannel;
+  skyBlockFreeCookieAt: Date | null;
+  housing: PlayerHousing;
+  adventRewards: PlayerAdventRewards[];
+  gifting: PlayerGifting;
+  socialMedia: PlayerSocialMedia;
+  scorpiusBribes: PlayerScorpiusBribe[];
+
   guild: Guild | null;
   houses: House[] | null;
   recentGames: RecentGame[] | null;
-  stats: PlayerStats;
   constructor(
     data: Record<string, any>,
     extra: { guild: Guild | null; houses: House[] | null; recentGames: RecentGame[] | null }
   ) {
-    this.uuid = data.uuid || '';
-    this.nickname = data.displayname || '';
-    this.rank = getRank(data);
-    this.mvpPlusColor = data.rankPlusColor ? new Color(data.rankPlusColor) : null;
-    this.mvpPlusPlusColor = data.monthlyRankColor ? new Color(data.monthlyRankColor) : null;
-    this.gifting = new Gifting(data?.giftingMeta || {});
-    this.socialMedia = parseSocialMedia(data?.socialMedia?.links || {});
-    this.firstLoginTimestamp = data?.firstLogin || 0;
-    this.firstLoginAt = new Date(this.firstLoginTimestamp);
-    this.lastLoginTimestamp = data?.lastLogin || null;
-    this.lastLoginAt = this.lastLoginTimestamp ? new Date(this.lastLoginTimestamp) : null;
-    this.achievements = new PlayerAchievements(data);
-    this.language = data?.userLanguage || 'ENGLISH';
-    this.channel = data.channel || 'ALL';
-    this.exp = data?.networkExp || 0;
-    this.level = playerLevelProgress(this.exp);
-    this.seasonal = new Seasonal(data?.seasonal || {});
+    this.nickname = data?.displayname || 'UNKNOWN';
+    this.uuid = data?.uuid || 'UNKNOWN';
+    this.rank = this.getRank(data);
+    this.firstLoginAt = data?.firstLogin ? new Date(data?.firstLogin) : null;
+    this.lastLoginAt = data?.lastLogin ? new Date(data?.lastLogin) : null;
+    this.lastLogoutAt = data?.lastLogout ? new Date(data?.lastLogout) : null;
+    this.achievements = new PlayerAchievements(data || {});
     this.karma = data?.karma || 0;
-    this.freeSkyBlockCookie = data?.skyblock_free_cookie || null;
-    this.tourney = new Tourney(data?.tourney || {});
-    this.rewards = new Rewards(data);
+    this.stats = new PlayerStats(data?.stats || {});
+    this.level = this.getPlayerLevelProgress(data?.networkExp || 0);
+    this.claimedCenturyCakeAt = data?.claimed_century_cake ? new Date(data?.claimed_century_cake) : null;
+    this.language = data?.userLanguage || 'ENGLISH';
+    this.cosmetics = new PlayerCosmetics(data || {});
+    this.rankPurchase = new PlayerRankPurchase(data || {});
     this.challenges = data?.challenges || {};
-    this.parkour = [];
-    Object.keys(data?.parkourCompletions || {}).map((location) => {
-      this.parkour.push(new Parkour(data?.parkourCompletions || {}, data?.parkourCheckpointBests || {}, location));
-    });
-    this.housing = new Housing(data?.housingMeta || {});
-    this.cosmetics = new Cosmetics(data);
-    this.scorpiusBribes = [];
-    Object.keys(data)
-      .filter((key) => key.startsWith('scorpius_bribe_'))
-      .forEach((key) => {
-        this.scorpiusBribes.push({ year: Number(key), timestamp: data[key] });
-      });
     this.quests = new PlayerQuests(data?.quests || {}, data?.questSettings?.autoActivate || false);
-    this.guild = extra.guild || null;
-    this.houses = extra.houses || null;
-    this.recentGames = extra.recentGames || null;
-    this.stats = {
-      Arcade: new Arcade(data?.stats?.Arcade),
-      ArenaBrawl: new ArenaBrawl(data?.stats?.Arena),
-      BedWars: new BedWars(data?.stats?.Bedwars),
-      BlitzSurvivalGames: new BlitzSurvivalGames(data?.stats?.HungerGames),
-      BuildBattle: new BuildBattle(data?.stats?.BuildBattle),
-      CopsAndCrims: new CopsAndCrims(data?.stats?.MCGO),
-      Duels: new Duels(data?.stats?.Duels),
-      MegaWalls: new MegaWalls(data?.stats?.Walls3),
-      MurderMystery: new MurderMystery(data?.stats?.MurderMystery),
-      Paintball: new Paintball(data?.stats?.Paintball),
-      Pit: new Pit(data?.stats?.Pit),
-      QuakeCraft: new Quakecraft(data?.stats?.Quake),
-      SkyWars: new SkyWars(data?.stats?.SkyWars),
-      SmashHeroes: new SmashHeroes(data?.stats?.SuperSmash),
-      SpeedUHC: new SpeedUHC(data?.stats?.SpeedUHC),
-      TNTGames: new TNTGames(data?.stats?.TNTGames),
-      TurboKartRacers: new TurboKartRacers(data?.stats?.GingerBread),
-      UHC: new UHC(data?.stats?.UHC),
-      VampireZ: new VampireZ(data?.stats?.VampireZ),
-      Walls: new Walls(data?.stats?.Walls),
-      Warlords: new Warlords(data?.stats?.Battleground),
-      WoolGames: new WoolGames(data?.stats?.WoolGames)
-    };
+    this.rewards = new PlayerRewards(data || {});
+    this.parkour = Object.keys(data?.parkourCompletions || {}).map(
+      (location) => new PlayerParkour(data?.parkourCompletions || {}, data?.parkourCheckpointBests || {}, location)
+    );
+    this.channel = data?.channel || 'ALL';
+    this.skyBlockFreeCookieAt = data?.skyblock_free_cookie ? new Date(data?.skyblock_free_cookie) : null;
+    this.housing = new PlayerHousing(data?.housingMeta || {});
+    this.adventRewards = Object.keys(data)
+      .filter((key) => key.startsWith('adventRewards'))
+      .map(
+        (adventReward) =>
+          new PlayerAdventRewards(data[adventReward], adventReward.split('adventRewards')[1] || 'UNKNOWN')
+      );
+    this.gifting = new PlayerGifting(data?.giftingMeta || {});
+    this.socialMedia = new PlayerSocialMedia(data?.socialMedia?.links || {});
+    this.scorpiusBribes =
+      Object.keys(data)
+        .filter((key) => key.startsWith('scorpius_bribe_'))
+        .map((bribe) => new PlayerScorpiusBribe(data[bribe], bribe.split('scorpius_bribe_')[1] || 'UNKNOWN')) || [];
+
+    this.guild = extra.guild;
+    this.houses = extra.houses;
+    this.recentGames = extra.recentGames;
   }
 
-  toString(): string {
-    return this.nickname;
+  private getRank(player: Record<string, any>): PlayerRank {
+    if (player.prefix) {
+      switch (player.prefix.replace(/§[0-9|a-z]|\[|\]/g, '')) {
+        case 'EVENTS':
+          return 'Events';
+        case 'MOJANG':
+          return 'Mojang';
+        case 'PIG+++':
+          return 'PIG+++';
+        case 'INNIT':
+          return 'Innit';
+        default:
+          return null;
+      }
+    } else if (player.rank) {
+      switch (player.rank) {
+        case 'ADMIN':
+          return 'Admin';
+        case 'GAME_MASTER':
+          return 'Game Master';
+        default:
+          return null;
+      }
+    } else {
+      switch (player.newPackageRank) {
+        case 'MVP_PLUS':
+          return 'SUPERSTAR' !== player.monthlyPackageRank ? 'MVP+' : 'MVP++';
+        case 'MVP':
+          return 'MVP';
+        case 'VIP_PLUS':
+          return 'VIP+';
+        case 'VIP':
+          return 'VIP';
+        default:
+          return null;
+      }
+    }
+  }
+
+  private getPlayerLevel(exp: number): number {
+    const base = 10000;
+    const growth = 2500;
+    const reversePqPrefix = -(base - 0.5 * growth) / growth;
+    const reverseConst = reversePqPrefix * reversePqPrefix;
+    const growthDivides2 = 2 / growth;
+    const num = 1 + reversePqPrefix + Math.sqrt(reverseConst + growthDivides2 * exp);
+    const level = Math.round(num * 100) / 100;
+    return level;
+  }
+
+  private xpToNextLevel(xp: number): number {
+    const lvl = this.getPlayerLevel(xp);
+    const xpToNext = 2500 * Math.floor(lvl) + 5000;
+    if (10000 > xp) return 10000;
+    return xpToNext;
+  }
+
+  private levelToXP(xp: number): number {
+    let level = Number(Math.floor(this.getPlayerLevel(xp)));
+    level = level - 1;
+    return 1250 * level ** 2 + 8750 * level;
+  }
+
+  private getPlayerLevelProgress(totalXp: number): LevelProgress {
+    const xpFromLevel = this.levelToXP(totalXp);
+    let currentXP = totalXp - xpFromLevel;
+    const xpToNext = this.xpToNextLevel(totalXp);
+    const remainingXP = xpToNext - currentXP + 2500;
+    currentXP = currentXP - 2500;
+    const percent = Math.round((currentXP / xpToNext) * 100 * 100) / 100;
+    const percentRemaining = Math.round((100 - percent) * 100) / 100;
+    return {
+      level: this.getPlayerLevel(totalXp),
+      totalXp,
+      xpToNext,
+      remainingXP,
+      currentXP,
+      percent,
+      percentRemaining
+    };
   }
 }
 

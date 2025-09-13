@@ -28,7 +28,7 @@ test('getSkyBlockProfiles (no input)', async () => {
 
 test('getSkyBlockProfiles (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  await expect(() => client.getSkyBlockProfiles('b45add7b081443909fb00aa9a3e15eb0')).rejects.toThrowError(
+  await expect(() => client.getSkyBlockProfiles('b491990d53fd4c5fa61e19d58cc7eddf')).rejects.toThrowError(
     client.errors.NO_SKYBLOCK_PROFILES
   );
   client.destroy();

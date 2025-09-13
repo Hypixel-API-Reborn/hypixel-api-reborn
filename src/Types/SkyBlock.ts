@@ -1,5 +1,7 @@
 /* v8 ignore next 10000 */
 
+import type { SortName } from './Global.js';
+
 export interface RawAbiphoneData {
   talked_to?: boolean;
   completed_quest?: boolean;
@@ -126,7 +128,7 @@ export type MiningSkyMallEffect =
   | 'pickaxe_ability_cooldown'
   | 'goblin_chance'
   | 'titanium_ore_multiplier';
-export type TaskLevelingSort = 'unlocked' | 'earned' | 'available' | 'a_to_z' | 'z_to_a';
+export type TaskLevelingSort = 'unlocked' | 'earned' | 'available' | SortName;
 export type SkyBlockProfileType = 'bingo' | 'island' | 'ironman';
 export type CrimsonIsleFaction = 'mages' | 'barbarians';
 export type CrimsonIsleBelt = 'White' | 'Yellow' | 'Green' | 'Blue' | 'Brown' | 'Black';

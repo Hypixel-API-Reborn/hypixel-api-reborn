@@ -49,7 +49,6 @@ import Color from './Structures/Color.js';
 import CopsAndCrims from './Structures/MiniGames/CopsAndCrims/CopsAndCrims.js';
 import CopsAndCrimsGamemode from './Structures/MiniGames/CopsAndCrims/CopsAndCrimsGamemode.js';
 import CopsAndCrimsGun from './Structures/MiniGames/CopsAndCrims/CopsAndCrimsGun.js';
-import Cosmetics from './Structures/Player/Cosmetics.js';
 import DragonWars from './Structures/MiniGames/Arcade/DragonWars.js';
 import Dropper from './Structures/MiniGames/Arcade/Dropper.js';
 import DropperMap from './Structures/MiniGames/Arcade/DropperMap.js';
@@ -69,7 +68,6 @@ import GameAchievements from './Structures/Static/Achievements/GameAchievements.
 import GameChallenges from './Structures/Static/GameChallenges.js';
 import GameCounts from './Structures/GameCounts.js';
 import GameQuests from './Structures/Static/GameQuests.js';
-import Gifting from './Structures/Player/Gifting.js';
 import Guild from './Structures/Guild/Guild.js';
 import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
 import GuildMember from './Structures/Guild/GuildMember.js';
@@ -77,7 +75,6 @@ import GuildRank from './Structures/Guild/GuildRank.js';
 import HideAndSeek from './Structures/MiniGames/Arcade/HideAndSeek.js';
 import HoleInTheWall from './Structures/MiniGames/Arcade/HoleInTheWall.js';
 import House from './Structures/House.js';
-import Housing from './Structures/Housing.js';
 import HypixelSays from './Structures/MiniGames/Arcade/HypixelSays.js';
 import ItemBytes from './Structures/ItemBytes.js';
 import Leaderboard from './Structures/Leaderboard.js';
@@ -85,29 +82,47 @@ import MegaWalls from './Structures/MiniGames/MegaWalls/MegaWalls.js';
 import MegaWallsKitStats from './Structures/MiniGames/MegaWalls/MegaWallsKitStats.js';
 import MegaWallsModeStats from './Structures/MiniGames/MegaWalls/MegaWallsModeStats.js';
 import MiniWalls from './Structures/MiniGames/Arcade/MiniWalls.js';
-import MonthlyCrate from './Structures/Player/MonthlyCrate.js';
 import MurderMystery from './Structures/MiniGames/MurderMystery/MurderMystery.js';
 import MurderMysteryModeStats from './Structures/MiniGames/MurderMystery/MurderMysteryModeStats.js';
 import OneTimeAchievement from './Structures/Static/Achievements/OneTimeAchievement.js';
 import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.js';
 import Paintball from './Structures/MiniGames/Paintball.js';
-import Parkour from './Structures/Player/Parkour.js';
 import PartyGames from './Structures/MiniGames/Arcade/PartyGames.js';
 import PartyPooper from './Structures/MiniGames/Arcade/PartyPooper.js';
-import Pet from './Structures/Player/Pet.js';
-import PetConsumables from './Structures/Player/PetConsumables.js';
-import Pets from './Structures/Player/Pets.js';
 import Pit from './Structures/MiniGames/Pit/Pit.js';
 import PitInventoryItem from './Structures/MiniGames/Pit/PitInventoryItem.js';
 import PixelParty from './Structures/MiniGames/Arcade/PixelParty.js';
 import PixelPartyGameMode from './Structures/MiniGames/Arcade/PixelPartyGameMode.js';
 import Player from './Structures/Player/Player.js';
-import PlayerAchievements from './Structures/Player/PlayerAchievements.js';
-import PlayerAchievementsRewards from './Structures/Player/PlayerAchievementsRewards.js';
-import PlayerQuest from './Structures/Player/Quests/PlayerQuest.js';
-import PlayerQuestCompletion from './Structures/Player/Quests/PlayerQuestCompletion.js';
-import PlayerQuestCompletions from './Structures/Player/Quests/PlayerQuestCompletions.js';
-import PlayerQuests from './Structures/Player/Quests/PlayerQuests.js';
+import PlayerAchievements from './Structures/Player/PlayerAchievements/PlayerAchievements.js';
+import PlayerAchievementsRewards from './Structures/Player/PlayerAchievements/PlayerAchievementsRewards.js';
+import PlayerAchivementsTotem from './Structures/Player/PlayerAchievements/PlayerAchivementsTotem.js';
+import PlayerAdventRewards from './Structures/Player/PlayerAdventRewards/PlayerAdventRewards.js';
+import PlayerAdventRewardsDay from './Structures/Player/PlayerAdventRewards/PlayerAdventRewardsDay.js';
+import PlayerCosmetics from './Structures/Player/PlayerCosmetics/PlayerCosmetics.js';
+import PlayerCosmeticsPet from './Structures/Player/PlayerCosmetics/Pets/PlayerCosmeticsPet.js';
+import PlayerCosmeticsPets from './Structures/Player/PlayerCosmetics/Pets/PlayerCosmeticsPets.js';
+import PlayerCosmeticsPetsConsumables from './Structures/Player/PlayerCosmetics/Pets/PlayerCosmeticsPetsConsumables.js';
+import PlayerGifting from './Structures/Player/PlayerGifting.js';
+import PlayerHousing from './Structures/Player/PlayerHousing/PlayerHousing.js';
+import PlayerHousingGivenCookies from './Structures/Player/PlayerHousing/PlayerHousingGivenCookies.js';
+import PlayerHousingPlayerSettings from './Structures/Player/PlayerHousing/PlayerHousingPlayerSettings.js';
+import PlayerParkour from './Structures/Player/PlayerParkour.js';
+import PlayerQuest from './Structures/Player/PlayerQuests/PlayerQuest.js';
+import PlayerQuestCompletion from './Structures/Player/PlayerQuests/PlayerQuestCompletion.js';
+import PlayerQuestCompletions from './Structures/Player/PlayerQuests/PlayerQuestCompletions.js';
+import PlayerQuests from './Structures/Player/PlayerQuests/PlayerQuests.js';
+import PlayerRankPurchase from './Structures/Player/PlayerRankPurchase.js';
+import PlayerRewards from './Structures/Player/PlayerRewards/PlayerRewards.js';
+import PlayerRewardsMonthlyCrate from './Structures/Player/PlayerRewards/PlayerRewardsMonthlyCrate.js';
+import PlayerScorpiusBribe from './Structures/Player/PlayerScorpiusBribe.js';
+import PlayerSeasonalChristmasYear from './Structures/Player/PlayerSeasonal/Christmas/PlayerSeasonalChristmasYear.js';
+import PlayerSeasonalChristmasYearAdventRewards from './Structures/Player/PlayerSeasonal/Christmas/PlayerSeasonalChristmasYearAdventRewards.js';
+import PlayerSeasonalChristmasYearLeveling from './Structures/Player/PlayerSeasonal/Christmas/PlayerSeasonalChristmasYearLeveling.js';
+import PlayerSocialMedia from './Structures/Player/PlayerSocialMedia.js';
+import PlayerStats from './Structures/Player/PlayerStats.js';
+import PlayerTourney from './Structures/Player/PlayerTourney/PlayerTourney.js';
+import PlayerTourneyData from './Structures/Player/PlayerTourney/PlayerTourneyData.js';
 import PropHunt from './Structures/MiniGames/Arcade/PropHunt.js';
 import Quakecraft from './Structures/MiniGames/Quakecraft/Quakecraft.js';
 import QuakecraftMode from './Structures/MiniGames/Quakecraft/QuakecraftMode.js';
@@ -115,12 +130,6 @@ import Quest from './Structures/Static/Quest.js';
 import QuestObjective from './Structures/Static/QuestObjective.js';
 import Quests from './Structures/Static/Quests.js';
 import RecentGame from './Structures/RecentGame.js';
-import Rewards from './Structures/Player/Rewards.js';
-import Season from './Structures/Player/Seasonal/Season.js';
-import SeasonBingo from './Structures/Player/Seasonal/SeasonBingo.js';
-import SeasonBingoTier from './Structures/Player/Seasonal/SeasonBingoTier.js';
-import SeasonYear from './Structures/Player/Seasonal/SeasonYear.js';
-import Seasonal from './Structures/Player/Seasonal/Seasonal.js';
 import SheepWars from './Structures/MiniGames/WoolGames/SheepWars.js';
 import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionBid from './Structures/SkyBlock/Auctions/SkyBlockAuctionBid.js';
@@ -288,7 +297,6 @@ import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
-import SocialMedia from './Structures/Player/SocialMedia.js';
 import SpeedUHC from './Structures/MiniGames/SpeedUHC/SpeedUHC.js';
 import SpeedUHCMode from './Structures/MiniGames/SpeedUHC/SpeedUHCMode.js';
 import Status from './Structures/Status.js';
@@ -298,8 +306,6 @@ import TNTTag from './Structures/MiniGames/TNTGames/TNTTag.js';
 import TNTWizards from './Structures/MiniGames/TNTGames/TNTWizards.js';
 import ThrowOut from './Structures/MiniGames/Arcade/ThrowOut.js';
 import TieredAchievement from './Structures/Static/Achievements/TieredAchievement.js';
-import Tourney from './Structures/Player/Tourney/Tourney.js';
-import TourneyData from './Structures/Player/Tourney/TourneyData.js';
 import TurboKartRacers from './Structures/MiniGames/TurboKartRacers/TurboKartRacers.js';
 import TurboKartRacersMap from './Structures/MiniGames/TurboKartRacers/TurboKartRacersMap.js';
 import UHC from './Structures/MiniGames/UHC/UHC.js';
@@ -353,7 +359,6 @@ export default {
   CopsAndCrims,
   CopsAndCrimsGamemode,
   CopsAndCrimsGun,
-  Cosmetics,
   DragonWars,
   Dropper,
   DropperMap,
@@ -373,7 +378,6 @@ export default {
   GameChallenges,
   GameCounts,
   GameQuests,
-  Gifting,
   Guild,
   GuildAchievements,
   GuildMember,
@@ -381,7 +385,6 @@ export default {
   HideAndSeek,
   HoleInTheWall,
   House,
-  Housing,
   HypixelSays,
   ItemBytes,
   Leaderboard,
@@ -389,18 +392,13 @@ export default {
   MegaWallsKitStats,
   MegaWallsModeStats,
   MiniWalls,
-  MonthlyCrate,
   MurderMystery,
   MurderMysteryModeStats,
   OneTimeAchievement,
   PVPRun,
   Paintball,
-  Parkour,
   PartyGames,
   PartyPooper,
-  Pet,
-  PetConsumables,
-  Pets,
   Pit,
   PitInventoryItem,
   PixelParty,
@@ -408,10 +406,33 @@ export default {
   Player,
   PlayerAchievements,
   PlayerAchievementsRewards,
+  PlayerAchivementsTotem,
+  PlayerAdventRewards,
+  PlayerAdventRewardsDay,
+  PlayerCosmetics,
+  PlayerCosmeticsPet,
+  PlayerCosmeticsPets,
+  PlayerCosmeticsPetsConsumables,
+  PlayerGifting,
+  PlayerHousing,
+  PlayerHousingGivenCookies,
+  PlayerHousingPlayerSettings,
+  PlayerParkour,
   PlayerQuest,
   PlayerQuestCompletion,
   PlayerQuestCompletions,
   PlayerQuests,
+  PlayerRankPurchase,
+  PlayerRewards,
+  PlayerRewardsMonthlyCrate,
+  PlayerScorpiusBribe,
+  PlayerSeasonalChristmasYear,
+  PlayerSeasonalChristmasYearAdventRewards,
+  PlayerSeasonalChristmasYearLeveling,
+  PlayerSocialMedia,
+  PlayerStats,
+  PlayerTourney,
+  PlayerTourneyData,
   PropHunt,
   Quakecraft,
   QuakecraftMode,
@@ -419,12 +440,6 @@ export default {
   QuestObjective,
   Quests,
   RecentGame,
-  Rewards,
-  Season,
-  SeasonBingo,
-  SeasonBingoTier,
-  SeasonYear,
-  Seasonal,
   SheepWars,
   SkyBlockAuction,
   SkyBlockAuctionBid,
@@ -592,7 +607,6 @@ export default {
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
-  SocialMedia,
   SpeedUHC,
   SpeedUHCMode,
   Status,
@@ -602,8 +616,6 @@ export default {
   TNTWizards,
   ThrowOut,
   TieredAchievement,
-  Tourney,
-  TourneyData,
   TurboKartRacers,
   TurboKartRacersMap,
   UHC,

@@ -1,0 +1,73 @@
+import Arcade from '../MiniGames/Arcade/Arcade.js';
+import ArenaBrawl from '../MiniGames/ArenaBrawl/ArenaBrawl.js';
+import BedWars from '../MiniGames/BedWars/BedWars.js';
+import BlitzSurvivalGames from '../MiniGames/BlitzSurvivalGames/BlitzSurvivalGames.js';
+import BuildBattle from '../MiniGames/BuildBattle.js';
+import CopsAndCrims from '../MiniGames/CopsAndCrims/CopsAndCrims.js';
+import Duels from '../MiniGames/Duels/Duels.js';
+import MegaWalls from '../MiniGames/MegaWalls/MegaWalls.js';
+import MurderMystery from '../MiniGames/MurderMystery/MurderMystery.js';
+import Paintball from '../MiniGames/Paintball.js';
+import Pit from '../MiniGames/Pit/Pit.js';
+import Quakecraft from '../MiniGames/Quakecraft/Quakecraft.js';
+import SkyWars from '../MiniGames/SkyWars/SkyWars.js';
+import SmashHeroes from '../MiniGames/SmashHeroes/SmashHeroes.js';
+import SpeedUHC from '../MiniGames/SpeedUHC/SpeedUHC.js';
+import TNTGames from '../MiniGames/TNTGames/TNTGames.js';
+import TurboKartRacers from '../MiniGames/TurboKartRacers/TurboKartRacers.js';
+import UHC from '../MiniGames/UHC/UHC.js';
+import VampireZ from '../MiniGames/VampireZ/VampireZ.js';
+import Walls from '../MiniGames/Walls.js';
+import Warlords from '../MiniGames/Warlords/Warlords.js';
+import WoolGames from '../MiniGames/WoolGames/WoolGames.js';
+
+class PlayerStats {
+  Arcade: Arcade;
+  ArenaBrawl: ArenaBrawl;
+  BedWars: BedWars;
+  BlitzSurvivalGames: BlitzSurvivalGames;
+  BuildBattle: BuildBattle;
+  CopsAndCrims: CopsAndCrims;
+  Duels: Duels;
+  MegaWalls: MegaWalls;
+  MurderMystery: MurderMystery;
+  Paintball: Paintball;
+  Pit: Pit;
+  QuakeCraft: Quakecraft;
+  SkyWars: SkyWars;
+  SmashHeroes: SmashHeroes;
+  SpeedUHC: SpeedUHC;
+  TNTGames: TNTGames;
+  TurboKartRacers: TurboKartRacers;
+  UHC: UHC;
+  VampireZ: VampireZ;
+  Walls: Walls;
+  Warlords: Warlords;
+  WoolGames: WoolGames;
+  constructor(data: Record<string, any>) {
+    this.Arcade = new Arcade(data?.Arcade);
+    this.ArenaBrawl = new ArenaBrawl(data?.Arena);
+    this.BedWars = new BedWars(data?.Bedwars);
+    this.BlitzSurvivalGames = new BlitzSurvivalGames(data?.HungerGames);
+    this.BuildBattle = new BuildBattle(data?.BuildBattle);
+    this.CopsAndCrims = new CopsAndCrims(data?.MCGO);
+    this.Duels = new Duels(data?.Duels);
+    this.MegaWalls = new MegaWalls(data?.Walls3);
+    this.MurderMystery = new MurderMystery(data?.MurderMystery);
+    this.Paintball = new Paintball(data?.Paintball);
+    this.Pit = new Pit(data?.Pit);
+    this.QuakeCraft = new Quakecraft(data?.Quake);
+    this.SkyWars = new SkyWars(data?.SkyWars);
+    this.SmashHeroes = new SmashHeroes(data?.SuperSmash);
+    this.SpeedUHC = new SpeedUHC(data?.SpeedUHC);
+    this.TNTGames = new TNTGames(data?.TNTGames);
+    this.TurboKartRacers = new TurboKartRacers(data?.GingerBread);
+    this.UHC = new UHC(data?.UHC);
+    this.VampireZ = new VampireZ(data?.VampireZ);
+    this.Walls = new Walls(data?.Walls);
+    this.Warlords = new Warlords(data?.Battleground);
+    this.WoolGames = new WoolGames(data?.WoolGames);
+  }
+}
+
+export default PlayerStats;
