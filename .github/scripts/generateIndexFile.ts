@@ -1,7 +1,8 @@
 /* v8 ignore next 1000 */
 
+import { format } from 'prettier';
+import { readFileSync, writeFileSync } from 'fs';
 import { readdir } from 'fs/promises';
-import { writeFileSync } from 'fs';
 
 async function scanDirectory(directoryPath: string, goDeep: boolean = true): Promise<string[]> {
   const filePaths: string[] = [];
@@ -22,6 +23,8 @@ async function scanDirectory(directoryPath: string, goDeep: boolean = true): Pro
   return filePaths;
 }
 
+const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'));
+
 async function generateBaseIndex() {
   const lines: string[] = [
     '/* v8 ignore next 1000 */',
@@ -29,11 +32,8 @@ async function generateBaseIndex() {
     '',
     '',
     "import Client from './Client.js';",
-    "import Errors from './Errors.js';",
-    ''
+    "import Errors from './Errors.js';"
   ];
-
-  const importNames: string[] = [];
 
   const typesPaths = await scanDirectory('./src/Types/');
   typesPaths.forEach((path) => {
@@ -45,6 +45,7 @@ async function generateBaseIndex() {
 
   const structuresPaths = await scanDirectory('./src/Structures/');
   const fixedStructuresPaths: string[] = [];
+  const importNames: string[] = [];
 
   structuresPaths.forEach((path) => {
     const importName = path.split('.ts')[0].split('/')[path.split('.ts')[0].split('/').length - 1];
@@ -56,16 +57,22 @@ async function generateBaseIndex() {
   fixedStructuresPaths.sort().forEach((path) => lines.push(path));
 
   lines.push('');
+  lines.push('export {');
+  lines.push('Client,');
+  lines.push('Errors,');
+  importNames.sort().forEach((importName) => lines.push(`${importName},`));
+  lines.push('};');
+
+  lines.push('');
+
   lines.push('export default {');
   lines.push('Client,');
   lines.push('Errors,');
-  lines.push('');
-
   importNames.sort().forEach((importName) => lines.push(`${importName},`));
   lines.push('};');
-  lines.push('');
 
-  writeFileSync('./src/index.ts', lines.join('\n'));
+  const formatted = await format(lines.join('\n'), { ...prettierConfig, filepath: './src/index.ts' });
+  writeFileSync('./src/index.ts', formatted);
 }
 
 async function generateAPIIndex() {
@@ -91,7 +98,8 @@ async function generateAPIIndex() {
   lines.push('};');
   lines.push('');
 
-  writeFileSync('./src/API/index.ts', lines.join('\n'));
+  const formatted = await format(lines.join('\n'), { ...prettierConfig, filepath: './src/API/index.ts' });
+  writeFileSync('./src/API/index.ts', formatted);
 }
 
 generateBaseIndex();
