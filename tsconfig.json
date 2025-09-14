@@ -15,15 +15,18 @@
 
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "dist",
+    "outDir": "./dist",
     "rootDir": "src",
 
     "sourceMap": true,
     "declaration": true,
+    "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "allowArbitraryExtensions": false,
+    "rewriteRelativeImportExtensions": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules/", "src/**/*.test.ts"]
+  "include": ["./src"],
+  "exclude": ["**/*/*.test.*"]
 }

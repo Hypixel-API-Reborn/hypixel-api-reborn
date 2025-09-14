@@ -6,3 +6,4 @@ documentation/
 .vscode/
 .gitignore
 .env
+src
