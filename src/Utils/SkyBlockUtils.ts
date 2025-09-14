@@ -193,7 +193,7 @@ export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): Sk
 
   const xpForNext = (
     level < maxLevel
-      ? Math.ceil(xpTable[level + 1] ?? 0 ?? Object.values(xpTable).at(-1))
+      ? Math.ceil(xpTable[level + 1] ?? Object.values(xpTable).at(-1) ?? 0)
       : isInfiniteLevelAble
         ? Object.values(xpTable).at(-1)
         : Infinity
