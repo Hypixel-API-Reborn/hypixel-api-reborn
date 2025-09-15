@@ -1,3 +1,5 @@
+import type RequestData from '../../../Private/RequestData.ts';
+
 const dateRegExp = /(\d{1,2})(?:st|nd|rd|th|) ([A-Za-z]+) (\d+)/;
 const versionRegExp = /v\d+(\.\d+){1,}/;
 
@@ -27,6 +29,10 @@ class SkyBlockNews {
 
   toString(): string {
     return this.title;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

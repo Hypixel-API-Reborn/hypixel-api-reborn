@@ -3,6 +3,7 @@ import Endpoint from '../Private/Endpoint.js';
 import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
+import type { WithRaw } from '../Types/API.ts';
 
 class getLeaderboards extends Endpoint {
   override readonly client: Client;
@@ -11,7 +12,7 @@ class getLeaderboards extends Endpoint {
     this.client = client;
   }
 
-  override async execute(options?: RequestOptions): Promise<Record<string, Leaderboard[]> | RequestData> {
+  override async execute(options?: RequestOptions): Promise<WithRaw<Record<string, Leaderboard[]>> | RequestData> {
     const res = await this.client.requestHandler.request('/leaderboards', options);
     if (res.options.raw) return res;
     if (!res.data.leaderboards) {
@@ -21,7 +22,11 @@ class getLeaderboards extends Endpoint {
     Object.keys(res.data.leaderboards).forEach((key) => {
       leaderboards[key] = res.data.leaderboards[key].map((l: Record<string, any>) => new Leaderboard(l));
     });
-    return leaderboards;
+    return Object.assign(leaderboards, {
+      isRaw(): this is RequestData {
+        return false;
+      }
+    });
   }
 }
 

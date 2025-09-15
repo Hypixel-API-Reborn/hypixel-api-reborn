@@ -39,15 +39,17 @@ test('getSkyBlockAuctions (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getSkyBlockAuctions (One Page)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockAuctions(1);
+  const data = await client.getSkyBlockAuctions(1);
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
-  data = data as SkyBlockAuctionsResult;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.info).toBeDefined();
   expectTypeOf(data.info).toEqualTypeOf<SkyBlockAuctionInfo>();
   expect(data.auctions).toBeDefined();
@@ -57,10 +59,11 @@ test('getSkyBlockAuctions (One Page)', async () => {
 
 test('getSkyBlockAuctions (All Pages)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockAuctions('*');
+  const data = await client.getSkyBlockAuctions('*');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
-  data = data as SkyBlockAuctionsResult;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.info).toBeDefined();
   expectTypeOf(data.info).toEqualTypeOf<SkyBlockAuctionInfo>();
   expect(data.auctions).toBeDefined();

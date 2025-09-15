@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import type RequestData from '../Private/RequestData.ts';
 
 class RecentGame {
   game: Game | null;
@@ -22,6 +23,10 @@ class RecentGame {
 
   toString(): string | null {
     return this.mode;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

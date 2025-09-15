@@ -1,4 +1,5 @@
 import SkyBlockMuseumMember from './SkyBlockMuseumMember.js';
+import type RequestData from '../../../Private/RequestData.ts';
 import type { UUID } from '../../../Types/Global.js';
 
 class SkyBlockMuseum {
@@ -9,6 +10,10 @@ class SkyBlockMuseum {
       obj[key] = new SkyBlockMuseumMember(members?.[key] || {});
       return obj;
     }, {});
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

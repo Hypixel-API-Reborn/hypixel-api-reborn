@@ -1,4 +1,5 @@
 import SkyBlockSkill from './SkyBlockSkill.js';
+import type RequestData from '../../../Private/RequestData.ts';
 
 class SkyBlockSkills {
   lastUpdated: number;
@@ -30,6 +31,10 @@ class SkyBlockSkills {
     this.runecrafting = new SkyBlockSkill(data?.skills?.RUNECRAFTING || {});
     this.social = new SkyBlockSkill(data?.skills?.SOCIAL || {});
     this.taming = new SkyBlockSkill(data?.skills?.TAMING || {});
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

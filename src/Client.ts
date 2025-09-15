@@ -1,24 +1,22 @@
 import API from './API/index.js';
-import Achievements from './Structures/Static/Achievements/Achievements.js';
-import Booster from './Structures/Boosters/Booster.js';
 import CacheHandler from './Private/CacheHandler.js';
-import Challenges from './Structures/Static/Challenges.js';
 import Errors from './Errors.js';
 import Functions from './Private/Functions.js';
-import GameCounts from './Structures/GameCounts.js';
-import Guild from './Structures/Guild/Guild.js';
-import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
-import House from './Structures/House.js';
-import Leaderboard from './Structures/Leaderboard.js';
-import Player from './Structures/Player/Player.js';
-import Quests from './Structures/Static/Quests.js';
 import RateLimit from './Private/RateLimit.js';
-import RecentGame from './Structures/RecentGame.js';
-import RequestData from './Private/RequestData.js';
 import RequestHandler from './Private/RequestHandler.js';
-import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
-import WatchdogStats from './Structures/WatchdogStats.js';
+import type Achievements from './Structures/Static/Achievements/Achievements.js';
+import type Booster from './Structures/Boosters/Booster.js';
+import type Challenges from './Structures/Static/Challenges.js';
+import type GameCounts from './Structures/GameCounts.js';
+import type Guild from './Structures/Guild/Guild.js';
+import type GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
+import type House from './Structures/House.js';
+import type Leaderboard from './Structures/Leaderboard.js';
+import type Player from './Structures/Player/Player.js';
+import type Quests from './Structures/Static/Quests.js';
+import type RecentGame from './Structures/RecentGame.js';
+import type RequestData from './Private/RequestData.js';
 import type SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
 import type SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.js';
 import type SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.js';
@@ -30,6 +28,8 @@ import type SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.js'
 import type SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
 import type SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import type SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
+import type Status from './Structures/Status.js';
+import type WatchdogStats from './Structures/WatchdogStats.js';
 import type {
   AuctionFetchOptions,
   AuctionRequestOptions,
@@ -37,11 +37,12 @@ import type {
   PlayerRequestOptions,
   SkyBlockAuctionResult,
   SkyBlockAuctionsResult,
-  SkyBlockRequestOptions
+  SkyBlockRequestOptions,
+  WithRaw
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
 import type { RequestOptions } from './Types/Requests.js';
-import type { SkyBlockProfileName } from './Types/SkyBlock.js';
+import type { SkyBlockProfileName } from './Types/SkyBlock.ts';
 
 const clients: Client[] = [];
 
@@ -120,11 +121,11 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getActiveHouses(options?: RequestOptions): Promise<House[] | RequestData> {
+  public getActiveHouses(options?: RequestOptions): Promise<WithRaw<House[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getBoosters(options?: RequestOptions): Promise<Booster[] | RequestData> {
+  public getBoosters(options?: RequestOptions): Promise<WithRaw<Booster[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -152,7 +153,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getLeaderboards(options?: RequestOptions): Promise<Record<string, Leaderboard[]> | RequestData> {
+  public getLeaderboards(options?: RequestOptions): Promise<WithRaw<Record<string, Leaderboard[]>> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -160,7 +161,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getPlayerHouses(query: string, options?: RequestOptions): Promise<House[] | RequestData> {
+  public getPlayerHouses(query: string, options?: RequestOptions): Promise<WithRaw<House[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -168,7 +169,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getRecentGames(query: string, options?: RequestOptions): Promise<RecentGame[] | RequestData> {
+  public getRecentGames(query: string, options?: RequestOptions): Promise<WithRaw<RecentGame[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -207,7 +208,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyBlockFireSales(options?: RequestOptions): Promise<SkyBlockFireSale[] | RequestData> {
+  public getSkyBlockFireSales(options?: RequestOptions): Promise<WithRaw<SkyBlockFireSale[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -215,7 +216,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyBlockItems(options?: RequestOptions): Promise<SkyBlockItem[] | RequestData> {
+  public getSkyBlockItems(options?: RequestOptions): Promise<WithRaw<SkyBlockItem[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -223,7 +224,7 @@ class Client {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
-  public getSkyBlockNews(options?: RequestOptions): Promise<SkyBlockNews[] | RequestData> {
+  public getSkyBlockNews(options?: RequestOptions): Promise<WithRaw<SkyBlockNews[]> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 
@@ -237,7 +238,7 @@ class Client {
   public getSkyBlockProfiles(
     query: string,
     options?: SkyBlockRequestOptions
-  ): Promise<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> | RequestData> {
+  ): Promise<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
     throw new Error(this.errors.ENDPOINT_NOT_LOADED);
   }
 

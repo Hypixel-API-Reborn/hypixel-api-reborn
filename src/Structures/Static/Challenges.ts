@@ -1,4 +1,5 @@
 import GameChallenges from './GameChallenges.js';
+import type RequestData from '../../Private/RequestData.ts';
 
 class Challenges {
   lastUpdatedTimestamp: number;
@@ -11,6 +12,10 @@ class Challenges {
     Object.keys(data.challenges).forEach((game) => {
       this.challengesPerGame[game] = new GameChallenges(game, data.challenges[game]);
     });
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

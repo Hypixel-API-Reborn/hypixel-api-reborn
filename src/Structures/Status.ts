@@ -1,4 +1,5 @@
 import Game from './Game.js';
+import type RequestData from '../Private/RequestData.ts';
 
 class Status {
   online: boolean;
@@ -14,6 +15,10 @@ class Status {
 
   toString(): 'Online' | 'Offline' {
     return this.online ? 'Online' : 'Offline';
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

@@ -18,7 +18,10 @@ class getSkyBlockEndedAuctions extends Endpoint {
     if (res.options.raw) return res;
     return {
       info: new SkyBlockBaseAuctionInfo(res.data),
-      auctions: res.data.auctions.map((Auction: Record<string, any>) => new SkyBlockAuction(Auction))
+      auctions: res.data.auctions.map((Auction: Record<string, any>) => new SkyBlockAuction(Auction)),
+      isRaw(): this is RequestData {
+        return false;
+      }
     };
   }
 }

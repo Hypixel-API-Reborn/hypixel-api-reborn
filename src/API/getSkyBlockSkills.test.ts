@@ -10,15 +10,17 @@ test('getSkyBlockSkills (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockSkills | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getSkyBlockSkills', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockSkills();
+  const data = await client.getSkyBlockSkills();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockSkills | RequestData>();
-  data = data as SkyBlockSkills;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.lastUpdated).toBeDefined();
   expectTypeOf(data.lastUpdated).toEqualTypeOf<number>();
   expect(data.lastUpdatedAt).toBeDefined();

@@ -10,6 +10,8 @@ test('getHouse (raw)', async () => {
   const data = await client.getHouse(houses[0].uuid, { raw: true });
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<House | RequestData>();
+  expect(data.isRaw()).toBe(true);
+  if (data.isRaw()) return;
   client.destroy();
 });
 
@@ -27,10 +29,11 @@ test('getHouse', async () => {
   if (undefined === houses[0]) return;
   expect(houses).toBeDefined();
   expectTypeOf(houses).toEqualTypeOf<House[]>();
-  let data = await client.getHouse(houses[0].uuid);
+  const data = await client.getHouse(houses[0].uuid);
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<House | RequestData>();
-  data = data as House;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.name).toBeDefined();
   expectTypeOf(data.name).toEqualTypeOf<string>();
   expect(data.uuid).toBeDefined();

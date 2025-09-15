@@ -9,16 +9,19 @@ test('getGameCounts (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<GameCounts | RequestData>();
+  expect(data.isRaw()).toBe(true);
+  if (data.isRaw()) return;
   client.destroy();
 });
 
 test('getGameCounts', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getGameCounts();
+  const data = await client.getGameCounts();
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(GameCounts);
   expectTypeOf(data).toEqualTypeOf<GameCounts | RequestData>();
-  data = data as GameCounts;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.playerCount).toBeDefined();
   expectTypeOf(data.playerCount).toEqualTypeOf<number>();
   expect(data.toString()).toBeDefined();

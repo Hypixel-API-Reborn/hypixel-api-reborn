@@ -1,5 +1,6 @@
 import { MiniGamesString } from '../Utils/Constants.js';
 import { RemoveSnakeCaseString, recursive } from '../Utils/RemoveSnakeCase.js';
+import type RequestData from '../Private/RequestData.ts';
 
 class GameCounts {
   playerCount: number;
@@ -18,6 +19,10 @@ class GameCounts {
 
   toString(): number {
     return this.playerCount;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

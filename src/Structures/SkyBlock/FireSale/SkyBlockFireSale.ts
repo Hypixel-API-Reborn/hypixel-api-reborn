@@ -1,3 +1,5 @@
+import type RequestData from '../../../Private/RequestData.ts';
+
 class SkyBlockFireSale {
   itemId: string;
   startTimestamp: number;
@@ -18,6 +20,10 @@ class SkyBlockFireSale {
 
   toString(): string {
     return this.itemId;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

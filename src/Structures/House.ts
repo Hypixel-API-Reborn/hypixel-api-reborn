@@ -1,3 +1,4 @@
+import type RequestData from '../Private/RequestData.ts';
 import type { UUID } from '../Types/Global.js';
 
 class House {
@@ -20,6 +21,10 @@ class House {
 
   toString(): string {
     return this.name;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

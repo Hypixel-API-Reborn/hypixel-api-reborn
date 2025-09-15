@@ -28,11 +28,12 @@ test('getSkyBlockGarden (raw)', async () => {
 
 test('getSkyBlockGarden', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
+  const data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockGarden);
   expectTypeOf(data).toEqualTypeOf<SkyBlockGarden | RequestData>();
-  data = data as SkyBlockGarden;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.level).toBeDefined();
   expectTypeOf(data.level).toEqualTypeOf<SkillLevelData>();
   expect(data.barnSkin).toBeDefined();

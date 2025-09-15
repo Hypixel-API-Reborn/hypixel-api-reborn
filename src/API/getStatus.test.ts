@@ -11,16 +11,18 @@ test('getStatus (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<Status | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getStatus', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getStatus('370d6421b761456fadf28c43fe5c4bcf');
+  const data = await client.getStatus('370d6421b761456fadf28c43fe5c4bcf');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Status);
   expectTypeOf(data).toEqualTypeOf<Status | RequestData>();
-  data = data as Status;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.online).toBeDefined();
   expectTypeOf(data.online).toEqualTypeOf<boolean>();
   expect(data.game).toBeDefined();

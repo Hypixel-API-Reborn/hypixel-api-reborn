@@ -1,5 +1,6 @@
 import OneTimeAchievement from './OneTimeAchievement.js';
 import TieredAchievement from './TieredAchievement.js';
+import type RequestData from '../../../Private/RequestData.ts';
 
 class GuildAchievements {
   lastUpdatedTimestamp: number;
@@ -15,6 +16,10 @@ class GuildAchievements {
     this.tieredAchievements = Object.keys(data.tiered).map(
       (achievementKey) => new TieredAchievement(achievementKey, data.tiered[achievementKey])
     );
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

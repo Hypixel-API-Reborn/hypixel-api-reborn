@@ -13,16 +13,18 @@ test('getQuests (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<Quests | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getQuests', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getQuests();
+  const data = await client.getQuests();
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Quests);
   expectTypeOf(data).toEqualTypeOf<Quests | RequestData>();
-  data = data as Quests;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.lastUpdatedTimestamp).toBeDefined();
   expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
   expect(data.lastUpdatedTimestamp).toBeGreaterThanOrEqual(0);

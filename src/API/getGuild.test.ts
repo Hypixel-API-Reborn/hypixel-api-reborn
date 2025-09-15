@@ -56,16 +56,20 @@ test('getGuild (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
+  if (null === data) return;
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getGuild (Name)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getGuild('name', 'Pixelic');
+  const data = await client.getGuild('name', 'Pixelic');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  data = data as Guild;
+  if (null === data) return;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.id).toBeDefined();
   expectTypeOf(data.id).toEqualTypeOf<string>();
   expect(data.name).toBeDefined();
@@ -243,11 +247,13 @@ test('getGuild (Name)', async () => {
 
 test('getGuild (Id)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getGuild('id', '64b54f9d8ea8c96aaedafe84');
+  const data = await client.getGuild('id', '64b54f9d8ea8c96aaedafe84');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  data = data as Guild;
+  if (null === data) return;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.id).toBeDefined();
   expectTypeOf(data.id).toEqualTypeOf<string>();
   expect(data.name).toBeDefined();
@@ -425,11 +431,13 @@ test('getGuild (Id)', async () => {
 
 test('getGuild (Player)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getGuild('player', '14727faefbdc4aff848cd2713eb9939e');
+  const data = await client.getGuild('player', '14727faefbdc4aff848cd2713eb9939e');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  data = data as Guild;
+  if (null === data) return;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.id).toBeDefined();
   expectTypeOf(data.id).toEqualTypeOf<string>();
   expect(data.name).toBeDefined();

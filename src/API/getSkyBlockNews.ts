@@ -14,7 +14,12 @@ class getSkyBlockNews extends Endpoint {
   override async execute(options?: RequestOptions): Promise<SkyBlockNews[] | RequestData> {
     const res = await this.client.requestHandler.request('/skyblock/news', options);
     if (res.options.raw) return res;
-    return res.data.items.map((news: any) => new SkyBlockNews(news));
+    const news = res.data.items.map((news: any) => new SkyBlockNews(news));
+    return Object.assign(news, {
+      isRaw(): this is RequestData {
+        return false;
+      }
+    });
   }
 }
 

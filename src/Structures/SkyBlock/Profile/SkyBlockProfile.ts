@@ -1,6 +1,7 @@
 import SkyBlockMember from '../Member/SkyBlockMember.js';
 import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
+import type RequestData from '../../../Private/RequestData.ts';
 import type SkyBlockGarden from '../Garden/SkyBlockGarden.js';
 import type SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
@@ -40,6 +41,10 @@ class SkyBlockProfile {
 
   toString(): SkyBlockProfileName | 'UNKNOWN' {
     return this.profileName;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

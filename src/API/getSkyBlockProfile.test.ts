@@ -15,6 +15,7 @@ test('getSkyBlockProfile (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
@@ -36,10 +37,11 @@ test('getSkyBlockProfile (no profiles)', async () => {
 
 test('getSkyBlockProfile', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockProfile('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
+  const data = await client.getSkyBlockProfile('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile | RequestData>();
-  data = data as SkyBlockProfile;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile>();
   expect(data.profileId).toBeDefined();

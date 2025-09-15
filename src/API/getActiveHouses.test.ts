@@ -1,6 +1,7 @@
 import Client from '../Client.js';
 import House from '../Structures/House.js';
 import RequestData from '../Private/RequestData.js';
+import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('getActiveHouses (raw)', async () => {
@@ -8,16 +9,18 @@ test('getActiveHouses (raw)', async () => {
   const data = await client.getActiveHouses({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<House[] | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<WithRaw<House[]> | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getActiveHouses', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getActiveHouses();
+  const data = await client.getActiveHouses();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<House[] | RequestData>();
-  data = data as House[];
+  expectTypeOf(data).toEqualTypeOf<WithRaw<House[]> | RequestData>();
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   data.forEach((house: House) => {
     expect(house).toBeDefined();
     expect(house).toBeInstanceOf(House);

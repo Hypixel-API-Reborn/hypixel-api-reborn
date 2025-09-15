@@ -10,15 +10,17 @@ test('getSkyBlockElection (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockElectionData | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getSkyBlockElection', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockElection();
+  const data = await client.getSkyBlockElection();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockElectionData | RequestData>();
-  data = data as SkyBlockElectionData;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.lastUpdatedTimestamp).toBeDefined();
   expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
   expect(data.lastUpdatedAt).toBeDefined();

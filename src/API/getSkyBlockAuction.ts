@@ -48,7 +48,10 @@ class getSkyBlockAction extends Endpoint {
       info: new SkyBlockBaseAuctionInfo(res.data),
       auctions: res.data.auctions.map(
         (Auction: Record<string, any>) => new SkyBlockAuction(Auction, options?.includeItemBytes ?? false)
-      )
+      ),
+      isRaw(): this is RequestData {
+        return false;
+      }
     };
   }
 }

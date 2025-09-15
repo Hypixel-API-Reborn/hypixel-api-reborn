@@ -1,6 +1,7 @@
 import Client from '../Client.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockItem from '../Structures/SkyBlock/SkyBlockItem.js';
+import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('getSkyBlockItems (raw)', async () => {
@@ -8,16 +9,18 @@ test('getSkyBlockItems (raw)', async () => {
   const data = await client.getSkyBlockItems({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockItem[] | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<WithRaw<SkyBlockItem[]> | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getSkyBlockItems', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockItems();
+  const data = await client.getSkyBlockItems();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockItem[] | RequestData>();
-  data = data as SkyBlockItem[];
+  expectTypeOf(data).toEqualTypeOf<WithRaw<SkyBlockItem[]> | RequestData>();
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   data.forEach((item: SkyBlockItem) => {
     expect(item).toBeDefined();
     expect(item).toBeInstanceOf(SkyBlockItem);

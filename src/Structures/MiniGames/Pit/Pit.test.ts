@@ -1,7 +1,6 @@
 import Client from '../../../Client.js';
 import Pit from './Pit.js';
 import PitInventoryItem from './PitInventoryItem.js';
-import Player from '../../Player/Player.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { PitArmor } from '../../../Types/Player.js';
 
@@ -90,8 +89,9 @@ test('Pit', () => {
 
 test('Pit Inventory', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getPlayer('3457688aa57c4d71ab9d22b04f9160db');
-  data = data as Player;
+  const data = await client.getPlayer('3457688aa57c4d71ab9d22b04f9160db');
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.stats.Pit.getInventory).toBeDefined();
   expectTypeOf(data.stats.Pit.getInventory).toEqualTypeOf<() => Promise<PitInventoryItem[]>>();
   expect(data.stats.Pit.getInventory).toBeInstanceOf(Function);

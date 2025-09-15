@@ -13,6 +13,7 @@ import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
 import PlayerSocialMedia from './PlayerSocialMedia.js';
 import PlayerStats from './PlayerStats.js';
 import RecentGame from '../RecentGame.js';
+import type RequestData from '../../Private/RequestData.ts';
 import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/Player.js';
 
 class Player {
@@ -170,6 +171,10 @@ class Player {
       percent,
       percentRemaining
     };
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

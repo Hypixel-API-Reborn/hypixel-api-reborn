@@ -11,6 +11,7 @@ test('getSkyBlockMuseum (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMuseum | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
@@ -24,10 +25,11 @@ test('getSkyBlockMuseum (No input)', async () => {
 
 test('getSkyBlockMuseum', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getSkyBlockMuseum('63fe6f4c-4b06-43b2-abd0-2d15dc303e41');
+  const data = await client.getSkyBlockMuseum('63fe6f4c-4b06-43b2-abd0-2d15dc303e41');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockMuseum | RequestData>();
-  data = data as SkyBlockMuseum;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.members).toBeDefined();
   expectTypeOf(data.members).toEqualTypeOf<Record<UUID, SkyBlockMuseumMember>>();
   client.destroy();

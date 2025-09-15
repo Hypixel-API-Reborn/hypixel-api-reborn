@@ -1,6 +1,7 @@
 import Client from '../Client.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockFireSale from '../Structures/SkyBlock/FireSale/SkyBlockFireSale.js';
+import { WithRaw } from '../Types/API.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
 
@@ -9,7 +10,8 @@ test('getSkyBlockFireSales (raw)', async () => {
   const data = await client.getSkyBlockFireSales({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockFireSale[] | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<WithRaw<SkyBlockFireSale[]> | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
@@ -29,10 +31,11 @@ test('getSkyBlockFireSales', async () => {
     /* eslint-enable camelcase */
   } as any);
 
-  let data = await client.getSkyBlockFireSales();
+  const data = await client.getSkyBlockFireSales();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockFireSale[] | RequestData>();
-  data = data as SkyBlockFireSale[];
+  expectTypeOf(data).toEqualTypeOf<WithRaw<SkyBlockFireSale[]> | RequestData>();
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   data.forEach((FireSale: SkyBlockFireSale) => {
     expect(FireSale.itemId).toBeDefined();
     expectTypeOf(FireSale.itemId).toEqualTypeOf<string>();

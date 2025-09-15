@@ -36,7 +36,13 @@ class getSkyBlockAuctions extends Endpoint {
     results.forEach(({ auctions: newAuctions }) => {
       auctions.push(...newAuctions);
     });
-    return { info, auctions };
+    return {
+      info,
+      auctions,
+      isRaw(): this is RequestData {
+        return false;
+      }
+    };
   }
 
   private async getPage(page: number, options?: AuctionRequestOptions): Promise<SkyBlockAuctionsResult | RequestData> {
@@ -46,7 +52,10 @@ class getSkyBlockAuctions extends Endpoint {
       info: new SkyBlockAuctionInfo(res.data),
       auctions: res.data.auctions.map(
         (Auction: Record<string, any>) => new SkyBlockAuction(Auction, options?.includeItemBytes || false)
-      )
+      ),
+      isRaw(): this is RequestData {
+        return false;
+      }
     };
   }
 }

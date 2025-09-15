@@ -1,4 +1,5 @@
 import SkyBlockCollection from './SkyBlockCollection.js';
+import type RequestData from '../../../Private/RequestData.ts';
 
 class SkyBlockCollections {
   lastUpdated: number;
@@ -42,6 +43,10 @@ class SkyBlockCollections {
 
   toString(): string {
     return this.version;
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

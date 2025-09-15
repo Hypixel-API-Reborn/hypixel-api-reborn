@@ -3,6 +3,7 @@ import Game from '../Game.js';
 import GuildMember from './GuildMember.js';
 import GuildRank from './GuildRank.js';
 import { calculateExpHistory, getGuildLevel, members, ranks, totalWeeklyGEXP } from '../../Utils/Guild.js';
+import type RequestData from '../../Private/RequestData.ts';
 import type { ExpHistory } from '../../Types/Guild.js';
 
 class Guild {
@@ -62,6 +63,10 @@ class Guild {
 
   guildMaster(): GuildMember | undefined {
     return this.members.find((member) => 'Guild Master' === member.rank);
+  }
+
+  isRaw(): this is RequestData {
+    return false;
   }
 }
 

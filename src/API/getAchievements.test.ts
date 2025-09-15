@@ -13,16 +13,18 @@ test('getAchievements (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<Achievements | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getAchievements', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getAchievements();
+  const data = await client.getAchievements();
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Achievements);
   expectTypeOf(data).toEqualTypeOf<Achievements | RequestData>();
-  data = data as Achievements;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.lastUpdatedTimestamp).toBeDefined();
   expect(data.lastUpdatedTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
@@ -31,7 +33,7 @@ test('getAchievements', async () => {
   expect(data.achievementsPerGame).toBeDefined();
   expectTypeOf(data.achievementsPerGame).toEqualTypeOf<Record<string, GameAchievements>>();
   Object.keys(data.achievementsPerGame).forEach((game) => {
-    const gameData = data.achievementsPerGame[game] as GameAchievements;
+    const gameData = data.achievementsPerGame[game];
     expect(gameData).toBeDefined();
     expect(gameData).toBeInstanceOf(GameAchievements);
     expectTypeOf(gameData).toEqualTypeOf<GameAchievements>();

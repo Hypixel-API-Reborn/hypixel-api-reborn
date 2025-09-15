@@ -9,16 +9,18 @@ test('getWatchdogStats (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<WatchdogStats | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getWatchdogStats', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getWatchdogStats();
+  const data = await client.getWatchdogStats();
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(WatchdogStats);
   expectTypeOf(data).toEqualTypeOf<WatchdogStats | RequestData>();
-  data = data as WatchdogStats;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.byWatchdogTotal).toBeDefined();
   expect(data.byWatchdogTotal).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.byWatchdogTotal).toEqualTypeOf<number>();

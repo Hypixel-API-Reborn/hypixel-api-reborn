@@ -3,6 +3,7 @@ import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
+import type { WithRaw } from '../Types/API.ts';
 
 class getBoosters extends Endpoint {
   override readonly client: Client;
@@ -11,10 +12,15 @@ class getBoosters extends Endpoint {
     this.client = client;
   }
 
-  override async execute(options?: RequestOptions): Promise<Booster[] | RequestData> {
+  override async execute(options?: RequestOptions): Promise<WithRaw<Booster[]> | RequestData> {
     const res = await this.client.requestHandler.request('/boosters', options);
     if (res.options.raw) return res;
-    return res.data.boosters.map((b: any) => new Booster(b)).reverse();
+    const boosters = res.data.boosters.map((b: any) => new Booster(b)).reverse();
+    return Object.assign(boosters, {
+      isRaw(): this is RequestData {
+        return false;
+      }
+    });
   }
 }
 

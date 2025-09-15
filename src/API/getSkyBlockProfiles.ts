@@ -5,7 +5,7 @@ import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import type SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import type { SkyBlockProfileName } from '../Types/SkyBlock.js';
-import type { SkyBlockRequestOptions } from '../Types/API.js';
+import type { SkyBlockRequestOptions, WithRaw } from '../Types/API.js';
 
 class getSkyBlockProfiles extends Endpoint {
   override readonly client: Client;
@@ -17,7 +17,7 @@ class getSkyBlockProfiles extends Endpoint {
   override async execute(
     query: string,
     options?: SkyBlockRequestOptions
-  ): Promise<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> | RequestData> {
+  ): Promise<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
     if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/skyblock/profiles?uuid=${query}`, options);
@@ -30,7 +30,12 @@ class getSkyBlockProfiles extends Endpoint {
       const parsedProfile = new SkyBlockProfile(profile, { uuid: query, garden, museum });
       profiles.set(parsedProfile.profileName, parsedProfile);
     }
-    return profiles;
+
+    return Object.assign(profiles, {
+      isRaw(): this is RequestData {
+        return false;
+      }
+    });
   }
 
   private async handleGettingSkyBlockGarden(profileId: string): Promise<SkyBlockGarden | null> {

@@ -23,6 +23,10 @@ class RequestData {
     this.requestUrl = info.url;
     this.cached = info.cached;
   }
+
+  isRaw(): this is RequestData {
+    return true;
+  }
 }
 
 export default RequestData;

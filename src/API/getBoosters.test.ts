@@ -2,6 +2,7 @@ import Booster from '../Structures/Boosters/Booster.js';
 import Client from '../Client.js';
 import Game from '../Structures/Game.js';
 import RequestData from '../Private/RequestData.js';
+import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
@@ -10,16 +11,18 @@ test('getBoosters (raw)', async () => {
   const data = await client.getBoosters({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<Booster[] | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<WithRaw<Booster[]> | RequestData>();
+  expect(data.isRaw()).toBe(true);
   client.destroy();
 });
 
 test('getBoosters', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getBoosters();
+  const data = await client.getBoosters();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<Booster[] | RequestData>();
-  data = data as Booster[];
+  expectTypeOf(data).toEqualTypeOf<WithRaw<Booster[]> | RequestData>();
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   data.forEach((booster: Booster) => {
     expect(booster).toBeDefined();
     expect(booster).toBeInstanceOf(Booster);

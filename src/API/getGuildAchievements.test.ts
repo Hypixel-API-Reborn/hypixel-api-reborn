@@ -12,15 +12,18 @@ test('getGuildAchievements (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<GuildAchievements | RequestData>();
+  expect(data.isRaw()).toBe(true);
+  if (data.isRaw()) return;
   client.destroy();
 });
 
 test('getGuildAchievements', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  let data = await client.getGuildAchievements();
+  const data = await client.getGuildAchievements();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<GuildAchievements | RequestData>();
-  data = data as GuildAchievements;
+  expect(data.isRaw()).toBe(false);
+  if (data.isRaw()) return;
   expect(data.lastUpdatedTimestamp).toBeDefined();
   expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
   expect(data.lastUpdatedAt).toBeDefined();
