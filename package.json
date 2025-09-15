@@ -62,7 +62,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "prettier": "^3.6.2",
-    "typedoc": "^0.28.13",
+    "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.4.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typescript": "^5.9.2",
