@@ -6,9 +6,9 @@ import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import SkyBlockProfileBanking from '../Structures/SkyBlock/Profile/Banking/SkyBlockProfileBanking.js';
 // eslint-disable-next-line max-len
 import SkyBlockProfileCommunityUpgrades from '../Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
-import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock.js';
+import type { WithRaw } from '../Types/API.js';
 
 test('getSkyBlockProfiles (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

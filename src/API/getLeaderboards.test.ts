@@ -1,9 +1,9 @@
 import Client from '../Client.js';
 import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
-import { WithRaw } from '../Types/API.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
+import type { WithRaw } from '../Types/API.js';
 
 test('getLeaderboards (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

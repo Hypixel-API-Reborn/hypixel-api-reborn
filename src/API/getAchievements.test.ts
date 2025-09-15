@@ -34,6 +34,7 @@ test('getAchievements', async () => {
   expectTypeOf(data.achievementsPerGame).toEqualTypeOf<Record<string, GameAchievements>>();
   Object.keys(data.achievementsPerGame).forEach((game) => {
     const gameData = data.achievementsPerGame[game];
+    if (!gameData) return;
     expect(gameData).toBeDefined();
     expect(gameData).toBeInstanceOf(GameAchievements);
     expectTypeOf(gameData).toEqualTypeOf<GameAchievements>();

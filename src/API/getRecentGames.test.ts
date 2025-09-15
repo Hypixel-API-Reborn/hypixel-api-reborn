@@ -2,8 +2,8 @@ import Client from '../Client.js';
 import Game from '../Structures/Game.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
-import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { WithRaw } from '../Types/API.js';
 
 test('getRecentGames (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

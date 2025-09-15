@@ -1,9 +1,9 @@
 import Client from '../Client.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockFireSale from '../Structures/SkyBlock/FireSale/SkyBlockFireSale.js';
-import { WithRaw } from '../Types/API.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
+import type { WithRaw } from '../Types/API.js';
 
 test('getSkyBlockFireSales (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

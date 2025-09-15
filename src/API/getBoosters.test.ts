@@ -2,9 +2,9 @@ import Booster from '../Structures/Boosters/Booster.js';
 import Client from '../Client.js';
 import Game from '../Structures/Game.js';
 import RequestData from '../Private/RequestData.js';
-import { WithRaw } from '../Types/API.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
+import type { WithRaw } from '../Types/API.js';
 
 test('getBoosters (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
