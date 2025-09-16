@@ -106,6 +106,7 @@ class BedWars {
   '4v4': BedWarsMode;
   dream: BedWarsDreamStats;
   castle: BedWarsMode;
+  oneBlock: BedWarsMode;
   practice: BedWarsPracticeStats;
   slumberTickets: number;
   totalSlumberTicket: number;
@@ -134,6 +135,7 @@ class BedWars {
     this['4v4'] = new BedWarsMode(data, 'two_four');
     this.dream = new BedWarsDreamStats(data);
     this.castle = new BedWarsMode(data, 'castle');
+    this.oneBlock = new BedWarsMode(data, 'eight_one_oneblock');
     this.practice = new BedWarsPracticeStats(data);
     this.slumberTickets = data?.slumber?.tickets || 0;
     this.totalSlumberTicket = data?.slumber?.total_tickets || 0;

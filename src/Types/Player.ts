@@ -49,7 +49,8 @@ export type BedWarsGamemodeName =
   | 'eight_two_lucky'
   | 'four_four_lucky'
   | 'eight_two_voidless'
-  | 'four_four_voidless';
+  | 'four_four_voidless'
+  | 'eight_one_oneblock';
 
 export type BlitzSurvivalGamesKits =
   | 'archer'
