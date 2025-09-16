@@ -1458,6 +1458,77 @@ export const BestiaryMobs: BestiaryMobsData = {
       }
     ]
   },
+  garden: {
+    name: 'Garden',
+    mobs: [
+      {
+        name: '§aBeetle',
+        cap: 250,
+        mobs: ['pest_beetle_1'],
+        bracket: 6
+      },
+      {
+        name: '§aCricket',
+        cap: 250,
+        mobs: ['pest_cricket_1'],
+        bracket: 6
+      },
+      {
+        name: '§aEarthworm',
+        cap: 250,
+        mobs: ['pest_worm_1'],
+        bracket: 6
+      },
+      {
+        name: '§aField Mice',
+        cap: 100,
+        mobs: ['pest_mouse_1'],
+        bracket: 7
+      },
+      {
+        name: '§aFly',
+        cap: 250,
+        mobs: ['pest_fly_1'],
+        bracket: 6
+      },
+      {
+        name: '§aLocust',
+        cap: 250,
+        mobs: ['pest_locust_1'],
+        bracket: 6
+      },
+      {
+        name: '§aMite',
+        cap: 250,
+        mobs: ['pest_mite_1'],
+        bracket: 6
+      },
+      {
+        name: '§aMosquito',
+        cap: 250,
+        mobs: ['pest_mosquito_1'],
+        bracket: 6
+      },
+      {
+        name: '§aMoth',
+        cap: 250,
+        mobs: ['pest_moth_1'],
+        bracket: 6
+      },
+      {
+        name: '§aRat',
+        cap: 250,
+        mobs: ['pest_rat_1'],
+        bracket: 6
+      },
+      {
+        name: '§aSlug',
+        cap: 250,
+        mobs: ['pest_slug_1'],
+        bracket: 6
+      }
+    ]
+  },
   combat_1: {
     name: "Spider's Den",
     mobs: [
@@ -1659,9 +1730,9 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aFlare',
-        cap: 100000,
+        cap: 10000,
         mobs: ['flare_90'],
-        bracket: 1
+        bracket: 3
       },
       {
         name: '§aGhast',
@@ -1981,6 +2052,53 @@ export const BestiaryMobs: BestiaryMobsData = {
         name: '§bSoul of the Alpha',
         cap: 1000,
         mobs: ['soul_of_the_alpha_55'],
+        bracket: 4
+      }
+    ]
+  },
+  foraging_2: {
+    name: 'Galatea',
+    mobs: [
+      {
+        name: '§aBogged',
+        cap: 3000,
+        mobs: ['bogged_10'],
+        bracket: 4
+      },
+      {
+        name: '§aChill',
+        cap: 1000,
+        mobs: ['chillblade_31', 'chillshot_31'],
+        bracket: 4
+      },
+      {
+        name: '§aEnt',
+        cap: 1000,
+        mobs: ['ent_14'],
+        bracket: 4
+      },
+      {
+        name: '§aStridersurfer',
+        cap: 1000,
+        mobs: ['strider_20', 'strider_21'],
+        bracket: 4
+      },
+      {
+        name: '§aTadgang',
+        cap: 1000,
+        mobs: ['tadgang_frog_8', 'tadgang_frog_10'],
+        bracket: 4
+      },
+      {
+        name: '§aThe Loch Emperor',
+        cap: 400,
+        mobs: ['skeleton_emperor_150', 'guardian_emperor_150'],
+        bracket: 5
+      },
+      {
+        name: '§aTidetot',
+        cap: 1000,
+        mobs: ['tidetot_10', 'seacurse_15', 'hydrospear_25'],
         bracket: 4
       }
     ]
@@ -2371,12 +2489,6 @@ export const BestiaryMobs: BestiaryMobsData = {
           bracket: 2
         },
         {
-          name: '§aThe Sea Emperor',
-          cap: 100,
-          mobs: ['skeleton_emperor_150', 'guardian_emperor_150'],
-          bracket: 7
-        },
-        {
           name: '§aWater Hydra',
           cap: 400,
           mobs: ['water_hydra_100'],
@@ -2386,6 +2498,12 @@ export const BestiaryMobs: BestiaryMobsData = {
           name: '§aWater Worm',
           cap: 1000,
           mobs: ['water_worm_20'],
+          bracket: 4
+        },
+        {
+          name: '§aWetwing',
+          cap: 1000,
+          mobs: ['wetwing_chicken_18'],
           bracket: 4
         },
         {
@@ -2710,29 +2828,6 @@ export const BestiaryMobs: BestiaryMobsData = {
         bracket: 4
       },
       {
-        name: '§aLonely Spider',
-        cap: 25000,
-        mobs: [
-          'lonely_spider_35',
-          'lonely_spider_55',
-          'lonely_spider_65',
-          'lonely_spider_75',
-          'lonely_spider_85',
-          'lonely_spider_95',
-          'lonely_spider_105',
-          'lonely_spider_115',
-          'master_lonely_spider_35',
-          'master_lonely_spider_55',
-          'master_lonely_spider_65',
-          'master_lonely_spider_75',
-          'master_lonely_spider_85',
-          'master_lonely_spider_95',
-          'master_lonely_spider_105',
-          'master_lonely_spider_115'
-        ],
-        bracket: 4
-      },
-      {
         name: '§aCrypt Dreadlord',
         cap: 25000,
         mobs: [
@@ -2836,6 +2931,29 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_king_midas_170'
         ],
         bracket: 6
+      },
+      {
+        name: '§aLonely Spider',
+        cap: 25000,
+        mobs: [
+          'lonely_spider_35',
+          'lonely_spider_55',
+          'lonely_spider_65',
+          'lonely_spider_75',
+          'lonely_spider_85',
+          'lonely_spider_95',
+          'lonely_spider_105',
+          'lonely_spider_115',
+          'master_lonely_spider_35',
+          'master_lonely_spider_55',
+          'master_lonely_spider_65',
+          'master_lonely_spider_75',
+          'master_lonely_spider_85',
+          'master_lonely_spider_95',
+          'master_lonely_spider_105',
+          'master_lonely_spider_115'
+        ],
+        bracket: 4
       },
       {
         name: '§a§d§lLost Adventurer',
@@ -3287,77 +3405,6 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_zombie_soldier_123'
         ],
         bracket: 1
-      }
-    ]
-  },
-  garden: {
-    name: 'Garden',
-    mobs: [
-      {
-        name: '§aBeetle',
-        cap: 250,
-        mobs: ['pest_beetle_1'],
-        bracket: 6
-      },
-      {
-        name: '§aCricket',
-        cap: 250,
-        mobs: ['pest_cricket_1'],
-        bracket: 6
-      },
-      {
-        name: '§aEarthworm',
-        cap: 250,
-        mobs: ['pest_worm_1'],
-        bracket: 6
-      },
-      {
-        name: '§aField Mouse',
-        cap: 100,
-        mobs: ['pest_mouse_1'],
-        bracket: 7
-      },
-      {
-        name: '§aFly',
-        cap: 250,
-        mobs: ['pest_fly_1'],
-        bracket: 6
-      },
-      {
-        name: '§aLocust',
-        cap: 250,
-        mobs: ['pest_locust_1'],
-        bracket: 6
-      },
-      {
-        name: '§aMite',
-        cap: 250,
-        mobs: ['pest_mite_1'],
-        bracket: 6
-      },
-      {
-        name: '§aMosquito',
-        cap: 250,
-        mobs: ['pest_mosquito_1'],
-        bracket: 6
-      },
-      {
-        name: '§aMoth',
-        cap: 250,
-        mobs: ['pest_moth_1'],
-        bracket: 6
-      },
-      {
-        name: '§aRat',
-        cap: 250,
-        mobs: ['pest_rat_1'],
-        bracket: 6
-      },
-      {
-        name: '§aSlug',
-        cap: 250,
-        mobs: ['pest_slug_1'],
-        bracket: 6
       }
     ]
   }

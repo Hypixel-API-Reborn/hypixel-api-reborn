@@ -490,6 +490,7 @@ export type SkyBlockArea =
   | 'combat_3'
   | 'farming_1'
   | 'foraging_1'
+  | 'foraging_2'
   | 'winter'
   | 'dungeon'
   | 'dungeon_hub'
@@ -3518,6 +3519,7 @@ export interface BestiaryMobsData {
   mining_3: RawBestiaryIsland;
   crystal_hollows: RawBestiaryIsland;
   foraging_1: RawBestiaryIsland;
+  foraging_2: RawBestiaryIsland;
   spooky_festival: RawBestiaryIsland;
   mythological_creatures: RawBestiaryIsland;
   jerry: RawBestiaryIsland;
