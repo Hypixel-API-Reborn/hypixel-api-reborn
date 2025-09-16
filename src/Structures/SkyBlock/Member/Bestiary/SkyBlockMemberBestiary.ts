@@ -28,7 +28,7 @@ class SkyBlockMemberBestiary {
     this.categories = parsed.categories;
   }
 
-  // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/06d83b81f3c54c931511432259fbd4fe363e53d6/src/lib/server/stats/bestiary.ts
+  // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/d73d449ec52f0af3c8a2fa04b79a969a6734e0b2/src/lib/server/stats/bestiary.ts
   private getBestiaryMobs(mobList: RawBestiaryMob[]): BestiaryMob[] {
     const output: BestiaryMob[] = [];
     for (const mob of mobList) {
@@ -55,7 +55,6 @@ class SkyBlockMemberBestiary {
   private getBestiary(): BestiaryStats {
     const categories = {} as Record<string, BestiaryCategory>;
     for (const [category, categoryData] of Object.entries(BestiaryMobs)) {
-      if ('Fishing' === categoryData.name) continue;
       categories[category] = {
         name: categoryData.name,
         mobs: this.getBestiaryMobs(categoryData.mobs),
