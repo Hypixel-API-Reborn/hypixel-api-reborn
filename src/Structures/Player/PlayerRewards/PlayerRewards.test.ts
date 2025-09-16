@@ -1,0 +1,42 @@
+import PlayerRewards from './PlayerRewards.js';
+import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('PlayerRewards', () => {
+  const data = new PlayerRewards({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(PlayerRewards);
+  expectTypeOf(data).toEqualTypeOf<PlayerRewards>();
+  expect(data.adsenseTokens).toBeDefined();
+  expect(data.adsenseTokens).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.adsenseTokens).toEqualTypeOf<number>();
+  expect(data.lastAdsenseGenerateTimeAt).toBeDefined();
+  expectTypeOf(data.lastAdsenseGenerateTimeAt).toEqualTypeOf<Date | null>();
+  expect(data.lastClaimedReward).toBeDefined();
+  expect(data.lastClaimedReward).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.lastClaimedReward).toEqualTypeOf<number>();
+  expect(data.rewardHighScore).toBeDefined();
+  expect(data.rewardHighScore).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.rewardHighScore).toEqualTypeOf<number>();
+  expect(data.rewardScore).toBeDefined();
+  expect(data.rewardScore).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.rewardScore).toEqualTypeOf<number>();
+  expect(data.rewardStreak).toBeDefined();
+  expect(data.rewardStreak).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.rewardStreak).toEqualTypeOf<number>();
+  expect(data.rewardTokens).toBeDefined();
+  expect(data.rewardTokens).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.rewardTokens).toEqualTypeOf<number>();
+  expect(data.totalDailyRewards).toBeDefined();
+  expect(data.totalDailyRewards).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.totalDailyRewards).toEqualTypeOf<number>();
+  expect(data.totalRewards).toBeDefined();
+  expect(data.totalRewards).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.totalRewards).toEqualTypeOf<number>();
+  expect(data.monthlyCrates).toBeDefined();
+  data.monthlyCrates.forEach((crate) => {
+    expect(crate).toBeDefined();
+    expectTypeOf(crate).toEqualTypeOf<PlayerRewardsMonthlyCrate>();
+  });
+  expectTypeOf(data.monthlyCrates).toEqualTypeOf<PlayerRewardsMonthlyCrate[]>();
+});
