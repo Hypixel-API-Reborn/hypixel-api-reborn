@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/hypixel';
+const BASE_URL = 'https://api.hypixel.net/v2';
 import Client from '../Client.js';
 import RequestData from './RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
