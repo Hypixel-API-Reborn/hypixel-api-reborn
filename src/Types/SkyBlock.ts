@@ -3518,20 +3518,17 @@ export interface BestiaryMobsData {
   mining_3: RawBestiaryIsland;
   crystal_hollows: RawBestiaryIsland;
   foraging_1: RawBestiaryIsland;
+  foraging_2: RawBestiaryIsland;
   spooky_festival: RawBestiaryIsland;
   mythological_creatures: RawBestiaryIsland;
   jerry: RawBestiaryIsland;
   kuudra: RawBestiaryIsland;
-  fishing: {
-    name: string;
-    hasSubcategories: boolean;
-    fishing: RawBestiaryIsland;
-    lava: RawBestiaryIsland;
-    spooky_festival: RawBestiaryIsland;
-    fishing_festival: RawBestiaryIsland;
-    winter: RawBestiaryIsland;
-    backwater_bayou: RawBestiaryIsland;
-  };
+  fishing: RawBestiaryIsland;
+  lava: RawBestiaryIsland;
+  spooky_festival_fishing: RawBestiaryIsland;
+  fishing_festival: RawBestiaryIsland;
+  winter: RawBestiaryIsland;
+  backwater_bayou: RawBestiaryIsland;
   catacombs: RawBestiaryIsland;
   garden: RawBestiaryIsland;
 }

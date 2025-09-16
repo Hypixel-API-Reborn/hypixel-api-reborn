@@ -1587,7 +1587,7 @@ export const BestiaryMobs: BestiaryMobsData = {
         bracket: 5
       },
       {
-        name: '§aEndstone Protector',
+        name: '§aEnd Stone Protector',
         cap: 500,
         mobs: ['corrupted_protector_100'],
         bracket: 7
@@ -1659,9 +1659,9 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aFlare',
-        cap: 100000,
+        cap: 10000,
         mobs: ['flare_90'],
-        bracket: 1
+        bracket: 3
       },
       {
         name: '§aGhast',
@@ -1985,6 +1985,53 @@ export const BestiaryMobs: BestiaryMobsData = {
       }
     ]
   },
+  foraging_2: {
+    name: 'Galatea',
+    mobs: [
+      {
+        name: '§aBogged',
+        cap: 3000,
+        mobs: ['bogged_10'],
+        bracket: 4
+      },
+      {
+        name: '§aChill',
+        cap: 1000,
+        mobs: ['chillblade_31', 'chillshot_31'],
+        bracket: 4
+      },
+      {
+        name: '§aEnt',
+        cap: 1000,
+        mobs: ['ent_14'],
+        bracket: 4
+      },
+      {
+        name: '§aStridersurfer',
+        cap: 1000,
+        mobs: ['strider_20', 'strider_21'],
+        bracket: 4
+      },
+      {
+        name: '§aTadgang',
+        cap: 1000,
+        mobs: ['tadgang_frog_8', 'tadgang_frog_10'],
+        bracket: 4
+      },
+      {
+        name: '§aThe Loch Emperor',
+        cap: 400,
+        mobs: ['skeleton_emperor_150', 'guardian_emperor_150'],
+        bracket: 5
+      },
+      {
+        name: '§aTidetot',
+        cap: 1000,
+        mobs: ['tidetot_10', 'seacurse_15', 'hydrospear_25'],
+        bracket: 4
+      }
+    ]
+  },
   spooky_festival: {
     name: 'Spooky Festival',
     mobs: [
@@ -2235,420 +2282,416 @@ export const BestiaryMobs: BestiaryMobsData = {
   },
   fishing: {
     name: 'Fishing',
-    hasSubcategories: true,
-    fishing: {
-      name: 'Fishing',
-      mobs: [
-        {
-          name: '§aAbyssal Miner',
-          cap: 250,
-          mobs: ['zombie_miner_150'],
-          bracket: 6
-        },
-        {
-          name: '§aAgarimoo',
-          cap: 4000,
-          mobs: ['agarimoo_35'],
-          bracket: 3
-        },
-        {
-          name: '§aBlue Ringed Octopus',
-          cap: 400,
-          mobs: ['blue_ringed_octopus_275'],
-          bracket: 5
-        },
-        {
-          name: '§aCarrot King',
-          cap: 400,
-          mobs: ['carrot_king_25'],
-          bracket: 5
-        },
-        {
-          name: '§aCatfish',
-          cap: 1000,
-          mobs: ['catfish_23'],
-          bracket: 4
-        },
-        {
-          name: '§aDeep Sea Protector',
-          cap: 1000,
-          mobs: ['deep_sea_protector_60'],
-          bracket: 4
-        },
-        {
-          name: '§aFrog Man',
-          cap: 3000,
-          mobs: ['frog_man_10'],
-          bracket: 4
-        },
-        {
-          name: '§aGuardian Defender',
-          cap: 1000,
-          mobs: ['guardian_defender_45'],
-          bracket: 4
-        },
-        {
-          name: '§aMithril Grubber',
-          cap: 300,
-          mobs: [
-            'small_mithril_grubber_15',
-            'medium_mithril_grubber_15',
-            'large_mithril_grubber_15',
-            'bloated_mithril_grubber_15'
-          ],
-          bracket: 3
-        },
-        {
-          name: '§aNight Squid',
-          cap: 1000,
-          mobs: ['night_squid_6'],
-          bracket: 4
-        },
-        {
-          name: '§aOasis Rabbit',
-          cap: 300,
-          mobs: ['oasis_rabbit_10'],
-          bracket: 3
-        },
-        {
-          name: '§aOasis Sheep',
-          cap: 300,
-          mobs: ['oasis_sheep_10'],
-          bracket: 3
-        },
-        {
-          name: '§aPoisoned Water Worm',
-          cap: 1000,
-          mobs: ['poisoned_water_worm_25'],
-          bracket: 4
-        },
-        {
-          name: '§aRider of the Deep',
-          cap: 4000,
-          mobs: ['zombie_deep_20', 'chicken_deep_20'],
-          bracket: 3
-        },
-        {
-          name: '§aSea Archer',
-          cap: 4000,
-          mobs: ['sea_archer_15'],
-          bracket: 3
-        },
-        {
-          name: '§aSea Guardian',
-          cap: 4000,
-          mobs: ['sea_guardian_10'],
-          bracket: 3
-        },
-        {
-          name: '§aSea Leech',
-          cap: 1000,
-          mobs: ['sea_leech_30'],
-          bracket: 4
-        },
-        {
-          name: '§aSea Walker',
-          cap: 4000,
-          mobs: ['sea_walker_4'],
-          bracket: 3
-        },
-        {
-          name: '§aSea Witch',
-          cap: 4000,
-          mobs: ['sea_witch_15'],
-          bracket: 3
-        },
-        {
-          name: '§aSnapping Turtle',
-          cap: 1000,
-          mobs: ['snapping_turtle_30'],
-          bracket: 4
-        },
-        {
-          name: '§aSquid',
-          cap: 10000,
-          mobs: ['pond_squid_1'],
-          bracket: 2
-        },
-        {
-          name: '§aThe Sea Emperor',
-          cap: 100,
-          mobs: ['skeleton_emperor_150', 'guardian_emperor_150'],
-          bracket: 7
-        },
-        {
-          name: '§aWater Hydra',
-          cap: 400,
-          mobs: ['water_hydra_100'],
-          bracket: 5
-        },
-        {
-          name: '§aWater Worm',
-          cap: 1000,
-          mobs: ['water_worm_20'],
-          bracket: 4
-        },
-        {
-          name: '§aWiki Tiki',
-          cap: 100,
-          mobs: ['wiki_tiki_400'],
-          bracket: 7
-        }
-      ]
-    },
-    lava: {
-      name: 'Lava',
-      mobs: [
-        {
-          name: '§aFiery Scuttler',
-          cap: 400,
-          mobs: ['fiery_scuttler_475'],
-          bracket: 5
-        },
-        {
-          name: '§aFire Eel',
-          cap: 1000,
-          mobs: ['fire_eel_240'],
-          bracket: 4
-        },
-        {
-          name: '§aFireproof Witch',
-          cap: 1000,
-          mobs: ['fireproof_witch_75'],
-          bracket: 4
-        },
-        {
-          name: '§aFlaming Worm',
-          cap: 4000,
-          mobs: ['flaming_worm_50'],
-          bracket: 3
-        },
-        {
-          name: '§aFried Chicken',
-          cap: 3000,
-          mobs: ['fried_chicken_30'],
-          bracket: 4
-        },
-        {
-          name: '§aLava Blaze',
-          cap: 1000,
-          mobs: ['lava_blaze_100'],
-          bracket: 4
-        },
-        {
-          name: '§aLava Flame',
-          cap: 1000,
-          mobs: ['lava_flame_230'],
-          bracket: 4
-        },
-        {
-          name: '§aLava Leech',
-          cap: 4000,
-          mobs: ['lava_leech_220'],
-          bracket: 3
-        },
-        {
-          name: '§aLava Pigman',
-          cap: 1000,
-          mobs: ['lava_pigman_100'],
-          bracket: 4
-        },
-        {
-          name: '§aLord Jawbus',
-          cap: 100,
-          mobs: ['lord_jawbus_600'],
-          bracket: 7
-        },
-        {
-          name: '§aMagma Slug',
-          cap: 10000,
-          mobs: ['magma_slug_200'],
-          bracket: 2
-        },
-        {
-          name: '§aMoogma',
-          cap: 4000,
-          mobs: ['moogma_210'],
-          bracket: 3
-        },
-        {
-          name: '§aPlhlegblast',
-          cap: 7,
-          mobs: ['pond_squid_300'],
-          bracket: 7
-        },
-        {
-          name: '§aPyroclastic Worm',
-          cap: 1000,
-          mobs: ['pyroclastic_worm_240'],
-          bracket: 4
-        },
-        {
-          name: '§aRagnarok',
-          cap: 100,
-          mobs: ['ragnarok_666'],
-          bracket: 7
-        },
-        {
-          name: '§aTaurus',
-          cap: 1000,
-          mobs: ['pig_rider_250'],
-          bracket: 4
-        },
-        {
-          name: '§aThunder',
-          cap: 400,
-          mobs: ['thunder_400'],
-          bracket: 5
-        }
-      ]
-    },
-    spooky_festival: {
-      name: 'Spooky Festival',
-      mobs: [
-        {
-          name: '§aGrim Reaper',
-          cap: 100,
-          mobs: ['grim_reaper_190'],
-          bracket: 7
-        },
-        {
-          name: '§aNightmare',
-          cap: 1000,
-          mobs: ['nightmare_24'],
-          bracket: 4
-        },
-        {
-          name: '§aPhantom Fisher',
-          cap: 250,
-          mobs: ['phantom_fisherman_160'],
-          bracket: 6
-        },
-        {
-          name: '§aScarecrow',
-          cap: 4000,
-          mobs: ['scarecrow_9'],
-          bracket: 3
-        },
-        {
-          name: '§aWerewolf',
-          cap: 1000,
-          mobs: ['werewolf_50'],
-          bracket: 4
-        }
-      ]
-    },
-    fishing_festival: {
-      name: 'Fishing Festival',
-      mobs: [
-        {
-          name: '§aBlue Shark',
-          cap: 1000,
-          mobs: ['blue_shark_20'],
-          bracket: 4
-        },
-        {
-          name: '§aGreat White Shark',
-          cap: 400,
-          mobs: ['great_white_shark_180'],
-          bracket: 5
-        },
-        {
-          name: '§aNurse Shark',
-          cap: 4000,
-          mobs: ['nurse_shark_6'],
-          bracket: 3
-        },
-        {
-          name: '§aTiger Shark',
-          cap: 1000,
-          mobs: ['tiger_shark_50'],
-          bracket: 4
-        }
-      ]
-    },
-    winter: {
-      name: 'Winter',
-      mobs: [
-        {
-          name: '§aFrosty',
-          cap: 4000,
-          mobs: ['frosty_the_snowman_13'],
-          bracket: 3
-        },
-        {
-          name: '§aFrozen Steve',
-          cap: 4000,
-          mobs: ['frozen_steve_7'],
-          bracket: 3
-        },
-        {
-          name: '§aGrinch',
-          cap: 250,
-          mobs: ['grinch_21'],
-          bracket: 6
-        },
-        {
-          name: '§aNutcracker',
-          cap: 400,
-          mobs: ['nutcracker_50'],
-          bracket: 5
-        },
-        {
-          name: '§aReindrake',
-          cap: 100,
-          mobs: ['reindrake_100'],
-          bracket: 7
-        },
-        {
-          name: '§aYeti',
-          cap: 250,
-          mobs: ['yeti_175'],
-          bracket: 6
-        }
-      ]
-    },
-    backwater_bayou: {
-      name: 'Backwater Bayou',
-      mobs: [
-        {
-          name: '§aAlligator',
-          cap: 400,
-          mobs: ['alligator_120'],
-          bracket: 5
-        },
-        {
-          name: '§aBanshee',
-          cap: 1000,
-          mobs: ['banshee_10'],
-          bracket: 4
-        },
-        {
-          name: '§aBayou Sludge',
-          cap: 1000,
-          mobs: ['bayou_sludge_25'],
-          bracket: 4
-        },
-        {
-          name: '§aDumpster Diver',
-          cap: 1000,
-          mobs: ['dumpster_diver_15'],
-          bracket: 4
-        },
-        {
-          name: '§aTitanoboa',
-          cap: 100,
-          mobs: ['titanoboa_240'],
-          bracket: 7
-        },
-        {
-          name: '§aTrash Gobbler',
-          cap: 1000,
-          mobs: ['trash_gobbler_8'],
-          bracket: 4
-        }
-      ]
-    }
+    mobs: [
+      {
+        name: '§aAbyssal Miner',
+        cap: 250,
+        mobs: ['zombie_miner_150'],
+        bracket: 6
+      },
+      {
+        name: '§aAgarimoo',
+        cap: 4000,
+        mobs: ['agarimoo_35'],
+        bracket: 3
+      },
+      {
+        name: '§aBlue Ringed Octopus',
+        cap: 400,
+        mobs: ['blue_ringed_octopus_275'],
+        bracket: 5
+      },
+      {
+        name: '§aCarrot King',
+        cap: 400,
+        mobs: ['carrot_king_25'],
+        bracket: 5
+      },
+      {
+        name: '§aCatfish',
+        cap: 1000,
+        mobs: ['catfish_23'],
+        bracket: 4
+      },
+      {
+        name: '§aDeep Sea Protector',
+        cap: 1000,
+        mobs: ['deep_sea_protector_60'],
+        bracket: 4
+      },
+      {
+        name: '§aFrog Man',
+        cap: 3000,
+        mobs: ['frog_man_10'],
+        bracket: 4
+      },
+      {
+        name: '§aGuardian Defender',
+        cap: 1000,
+        mobs: ['guardian_defender_45'],
+        bracket: 4
+      },
+      {
+        name: '§aMithril Grubber',
+        cap: 300,
+        mobs: [
+          'small_mithril_grubber_15',
+          'medium_mithril_grubber_15',
+          'large_mithril_grubber_15',
+          'bloated_mithril_grubber_15'
+        ],
+        bracket: 3
+      },
+      {
+        name: '§aNight Squid',
+        cap: 1000,
+        mobs: ['night_squid_6'],
+        bracket: 4
+      },
+      {
+        name: '§aOasis Rabbit',
+        cap: 300,
+        mobs: ['oasis_rabbit_10'],
+        bracket: 3
+      },
+      {
+        name: '§aOasis Sheep',
+        cap: 300,
+        mobs: ['oasis_sheep_10'],
+        bracket: 3
+      },
+      {
+        name: '§aPoisoned Water Worm',
+        cap: 1000,
+        mobs: ['poisoned_water_worm_25'],
+        bracket: 4
+      },
+      {
+        name: '§aRider of the Deep',
+        cap: 4000,
+        mobs: ['zombie_deep_20', 'chicken_deep_20'],
+        bracket: 3
+      },
+      {
+        name: '§aSea Archer',
+        cap: 4000,
+        mobs: ['sea_archer_15'],
+        bracket: 3
+      },
+      {
+        name: '§aSea Guardian',
+        cap: 4000,
+        mobs: ['sea_guardian_10'],
+        bracket: 3
+      },
+      {
+        name: '§aSea Leech',
+        cap: 1000,
+        mobs: ['sea_leech_30'],
+        bracket: 4
+      },
+      {
+        name: '§aSea Walker',
+        cap: 4000,
+        mobs: ['sea_walker_4'],
+        bracket: 3
+      },
+      {
+        name: '§aSea Witch',
+        cap: 4000,
+        mobs: ['sea_witch_15'],
+        bracket: 3
+      },
+      {
+        name: '§aSnapping Turtle',
+        cap: 1000,
+        mobs: ['snapping_turtle_30'],
+        bracket: 4
+      },
+      {
+        name: '§aSquid',
+        cap: 10000,
+        mobs: ['pond_squid_1'],
+        bracket: 2
+      },
+      {
+        name: '§aWater Hydra',
+        cap: 400,
+        mobs: ['water_hydra_100'],
+        bracket: 5
+      },
+      {
+        name: '§aWater Worm',
+        cap: 1000,
+        mobs: ['water_worm_20'],
+        bracket: 4
+      },
+      {
+        name: '§aWetwing',
+        cap: 1000,
+        mobs: ['wetwing_chicken_18'],
+        bracket: 4
+      },
+      {
+        name: '§aWiki Tiki',
+        cap: 100,
+        mobs: ['wiki_tiki_400'],
+        bracket: 7
+      }
+    ]
+  },
+  lava: {
+    name: 'Lava',
+    mobs: [
+      {
+        name: '§aFiery Scuttler',
+        cap: 400,
+        mobs: ['fiery_scuttler_475'],
+        bracket: 5
+      },
+      {
+        name: '§aFire Eel',
+        cap: 1000,
+        mobs: ['fire_eel_240'],
+        bracket: 4
+      },
+      {
+        name: '§aFireproof Witch',
+        cap: 1000,
+        mobs: ['fireproof_witch_75'],
+        bracket: 4
+      },
+      {
+        name: '§aFlaming Worm',
+        cap: 4000,
+        mobs: ['flaming_worm_50'],
+        bracket: 3
+      },
+      {
+        name: '§aFried Chicken',
+        cap: 3000,
+        mobs: ['fried_chicken_30'],
+        bracket: 4
+      },
+      {
+        name: '§aLava Blaze',
+        cap: 1000,
+        mobs: ['lava_blaze_100'],
+        bracket: 4
+      },
+      {
+        name: '§aLava Flame',
+        cap: 1000,
+        mobs: ['lava_flame_230'],
+        bracket: 4
+      },
+      {
+        name: '§aLava Leech',
+        cap: 4000,
+        mobs: ['lava_leech_220'],
+        bracket: 3
+      },
+      {
+        name: '§aLava Pigman',
+        cap: 1000,
+        mobs: ['lava_pigman_100'],
+        bracket: 4
+      },
+      {
+        name: '§aLord Jawbus',
+        cap: 100,
+        mobs: ['lord_jawbus_600'],
+        bracket: 7
+      },
+      {
+        name: '§aMagma Slug',
+        cap: 10000,
+        mobs: ['magma_slug_200'],
+        bracket: 2
+      },
+      {
+        name: '§aMoogma',
+        cap: 4000,
+        mobs: ['moogma_210'],
+        bracket: 3
+      },
+      {
+        name: '§aPlhlegblast',
+        cap: 7,
+        mobs: ['pond_squid_300'],
+        bracket: 7
+      },
+      {
+        name: '§aPyroclastic Worm',
+        cap: 1000,
+        mobs: ['pyroclastic_worm_240'],
+        bracket: 4
+      },
+      {
+        name: '§aRagnarok',
+        cap: 100,
+        mobs: ['ragnarok_666'],
+        bracket: 7
+      },
+      {
+        name: '§aTaurus',
+        cap: 1000,
+        mobs: ['pig_rider_250'],
+        bracket: 4
+      },
+      {
+        name: '§aThunder',
+        cap: 400,
+        mobs: ['thunder_400'],
+        bracket: 5
+      }
+    ]
+  },
+  spooky_festival_fishing: {
+    name: 'Spooky Festival Fishing',
+    mobs: [
+      {
+        name: '§aGrim Reaper',
+        cap: 100,
+        mobs: ['grim_reaper_190'],
+        bracket: 7
+      },
+      {
+        name: '§aNightmare',
+        cap: 1000,
+        mobs: ['nightmare_24'],
+        bracket: 4
+      },
+      {
+        name: '§aPhantom Fisher',
+        cap: 250,
+        mobs: ['phantom_fisherman_160'],
+        bracket: 6
+      },
+      {
+        name: '§aScarecrow',
+        cap: 4000,
+        mobs: ['scarecrow_9'],
+        bracket: 3
+      },
+      {
+        name: '§aWerewolf',
+        cap: 1000,
+        mobs: ['werewolf_50'],
+        bracket: 4
+      }
+    ]
+  },
+  fishing_festival: {
+    name: 'Fishing Festival',
+    mobs: [
+      {
+        name: '§aBlue Shark',
+        cap: 1000,
+        mobs: ['blue_shark_20'],
+        bracket: 4
+      },
+      {
+        name: '§aGreat White Shark',
+        cap: 400,
+        mobs: ['great_white_shark_180'],
+        bracket: 5
+      },
+      {
+        name: '§aNurse Shark',
+        cap: 4000,
+        mobs: ['nurse_shark_6'],
+        bracket: 3
+      },
+      {
+        name: '§aTiger Shark',
+        cap: 1000,
+        mobs: ['tiger_shark_50'],
+        bracket: 4
+      }
+    ]
+  },
+  winter: {
+    name: 'Winter',
+    mobs: [
+      {
+        name: '§aFrosty',
+        cap: 4000,
+        mobs: ['frosty_the_snowman_13'],
+        bracket: 3
+      },
+      {
+        name: '§aFrozen Steve',
+        cap: 4000,
+        mobs: ['frozen_steve_7'],
+        bracket: 3
+      },
+      {
+        name: '§aGrinch',
+        cap: 250,
+        mobs: ['grinch_21'],
+        bracket: 6
+      },
+      {
+        name: '§aNutcracker',
+        cap: 400,
+        mobs: ['nutcracker_50'],
+        bracket: 5
+      },
+      {
+        name: '§aReindrake',
+        cap: 100,
+        mobs: ['reindrake_100'],
+        bracket: 7
+      },
+      {
+        name: '§aYeti',
+        cap: 250,
+        mobs: ['yeti_175'],
+        bracket: 6
+      }
+    ]
+  },
+  backwater_bayou: {
+    name: 'Backwater Bayou',
+    mobs: [
+      {
+        name: '§aAlligator',
+        cap: 400,
+        mobs: ['alligator_120'],
+        bracket: 5
+      },
+      {
+        name: '§aBanshee',
+        cap: 1000,
+        mobs: ['banshee_10'],
+        bracket: 4
+      },
+      {
+        name: '§aBayou Sludge',
+        cap: 1000,
+        mobs: ['bayou_sludge_25'],
+        bracket: 4
+      },
+      {
+        name: '§aDumpster Diver',
+        cap: 1000,
+        mobs: ['dumpster_diver_15'],
+        bracket: 4
+      },
+      {
+        name: '§aTitanoboa',
+        cap: 100,
+        mobs: ['titanoboa_240'],
+        bracket: 7
+      },
+      {
+        name: '§aTrash Gobbler',
+        cap: 1000,
+        mobs: ['trash_gobbler_8'],
+        bracket: 4
+      }
+    ]
   },
   catacombs: {
     name: 'Catacombs',
