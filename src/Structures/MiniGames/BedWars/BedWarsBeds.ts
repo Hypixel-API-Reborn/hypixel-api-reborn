@@ -9,7 +9,7 @@ class BedWarsBeds {
     mode = mode ? `${mode}_` : '';
     this.broken = data?.[`${mode}beds_broken_bedwars`] || 0;
     this.lost = data?.[`${mode}beds_lost_bedwars`] || 0;
-    this.BLRatio = Divide(data?.[`${mode}beds_broken_bedwars`], data?.[`${mode}_beds_lost_bedwars`]);
+    this.BLRatio = Divide(this.broken, this.lost);
   }
 }
 
