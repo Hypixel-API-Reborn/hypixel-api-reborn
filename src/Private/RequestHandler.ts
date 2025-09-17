@@ -1,5 +1,6 @@
 const BASE_URL = 'https://api.hypixel.net/v2';
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestData from './RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
@@ -24,32 +25,29 @@ class RequestHandler {
     const res = await fetch(BASE_URL + endpoint, { headers: { 'API-Key': this.client.key } });
     if (500 <= res.status && 528 > res.status) {
       throw new Error(
-        this.client.errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
+        Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
     }
     const parsedRes = (await res.json()) as Record<string, any>;
     if (400 === res.status) {
       throw new Error(
-        this.client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(
-          /{cause}/,
-          parsedRes.cause || 'Unknown'
-        )
+        Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || 'Unknown')
       );
     }
-    if (403 === res.status) throw new Error(this.client.errors.INVALID_API_KEY);
-    if (422 === res.status) throw new Error(this.client.errors.UNEXPECTED_ERROR);
+    if (403 === res.status) throw new Error(Errors.INVALID_API_KEY);
+    if (422 === res.status) throw new Error(Errors.UNEXPECTED_ERROR);
     if (
       429 === res.status &&
       'You have already looked up this player too recently, please try again shortly' === parsedRes.cause
     ) {
-      throw new Error(this.client.errors.RECENT_REQUEST);
+      throw new Error(Errors.RECENT_REQUEST);
     }
-    if (429 === res.status) throw new Error(this.client.errors.RATE_LIMIT_EXCEEDED);
+    if (429 === res.status) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
     if (200 !== res.status) {
-      throw new Error(this.client.errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
+      throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     }
     if (!parsedRes.success && !endpoint.startsWith('/housing')) {
-      throw new Error(this.client.errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.statusText));
+      throw new Error(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.statusText));
     }
     this.client.rateLimit.requests++;
     const headers: Record<string, any> = {};
@@ -68,8 +66,8 @@ class RequestHandler {
   }
 
   async toUUID(input: string): Promise<string> {
-    if (!input) throw new Error(this.client.errors.NO_NICKNAME_UUID);
-    if ('string' !== typeof input) throw new Error(this.client.errors.UUID_NICKNAME_MUST_BE_A_STRING);
+    if (!input) throw new Error(Errors.NO_NICKNAME_UUID);
+    if ('string' !== typeof input) throw new Error(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
     if (this.client.functions.isUUID(input)) return input.replace(/-/g, '');
     const url = `https://mowojang.matdoes.dev/${input}`;
     if (this.client.cacheHandler.has(url)) {
@@ -78,23 +76,20 @@ class RequestHandler {
     const res = await fetch(url);
     if (500 <= res.status && 528 > res.status) {
       throw new Error(
-        this.client.errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
+        Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
     }
     const parsedRes = (await res.json()) as Record<string, any>;
     if (400 === res.status) {
       throw new Error(
-        this.client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(
-          /{cause}/,
-          parsedRes.cause || ''
-        )
+        Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || '')
       );
     }
     if (200 !== res.status) {
-      throw new Error(this.client.errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
+      throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     }
     if ('string' !== typeof parsedRes.id || 'string' !== typeof parsedRes.name) {
-      throw new Error(this.client.errors.MALFORMED_UUID);
+      throw new Error(Errors.MALFORMED_UUID);
     }
     if (this.client.options.cache) {
       this.client.cacheHandler.set(url, parsedRes.id);

@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestHandler from './RequestHandler.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
@@ -17,12 +18,10 @@ test('RequestHandler', async () => {
   expect(data).toBe('14727faefbdc4aff848cd2713eb9939e');
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.requestHandler.toUUID()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.requestHandler.toUUID()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.requestHandler.toUUID(-1)).rejects.toThrowError(
-    client.errors.UUID_NICKNAME_MUST_BE_A_STRING
-  );
+  await expect(() => client.requestHandler.toUUID(-1)).rejects.toThrowError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
 
   client.destroy();
 });
@@ -36,7 +35,7 @@ test('RequestHandler (Invalid API Key)', async () => {
     status: 403,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.INVALID_API_KEY);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.INVALID_API_KEY);
   vi.restoreAllMocks();
   client.destroy();
 });
@@ -51,7 +50,7 @@ test('RequestHandler (400 Bad Request)', async () => {
     json: () => Promise.resolve({ success: false, cause: 'meow' })
   } as any);
   await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
-    client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'meow')
+    Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'meow')
   );
   vi.restoreAllMocks();
   client.destroy();
@@ -67,7 +66,7 @@ test('RequestHandler (400 Bad Request No Cause)', async () => {
     json: () => Promise.resolve({ success: false })
   } as any);
   await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
-    client.errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'Unknown')
+    Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'Unknown')
   );
   vi.restoreAllMocks();
   client.destroy();
@@ -82,7 +81,7 @@ test('RequestHandler (Unprocessable Entity)', async () => {
     status: 422,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(client.errors.UNEXPECTED_ERROR);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.UNEXPECTED_ERROR);
   vi.restoreAllMocks();
   client.destroy();
 });
@@ -96,9 +95,7 @@ test('RequestHandler (Rate Limited)', async () => {
     status: 429,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
-    client.errors.RATE_LIMIT_EXCEEDED
-  );
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.RATE_LIMIT_EXCEEDED);
   vi.restoreAllMocks();
   client.destroy();
 });

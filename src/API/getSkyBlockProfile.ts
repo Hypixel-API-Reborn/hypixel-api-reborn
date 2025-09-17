@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
@@ -14,10 +15,10 @@ class getSkyBlockProfile extends Endpoint {
   }
 
   override async execute(profileId: string, options?: SkyBlockRequestOptions): Promise<SkyBlockProfile | RequestData> {
-    if (!profileId) throw new Error(this.client.errors.NO_UUID);
+    if (!profileId) throw new Error(Errors.NO_UUID);
     const res = await this.client.requestHandler.request(`/skyblock/profile?profile=${profileId}`, options);
     if (res.options.raw) return res;
-    if (!res.data.profile) throw new Error(this.client.errors.NO_SKYBLOCK_PROFILES);
+    if (!res.data.profile) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
     const garden = await this.handleGettingSkyBlockGarden(res.data.profile.profile_id);
     const museum = await this.handleGettingSkyBlockMuseum(res.data.profile.profile_id);
     const parsedProfile = new SkyBlockProfile(res.data.profile, { uuid: null, garden, museum });

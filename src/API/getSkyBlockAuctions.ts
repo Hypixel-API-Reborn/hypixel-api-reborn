@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
+import Errors from '../Errors.ts';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type RequestData from '../Private/RequestData.js';
@@ -17,9 +18,9 @@ class getSkyBlockAuctions extends Endpoint {
     query: number | '*',
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionsResult | RequestData> {
-    if (!query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
-    if ('number' === typeof query && 0 >= query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
-    if ('number' !== typeof query && '*' !== query) throw new Error(this.client.errors.INVALID_OPTION_VALUE);
+    if (!query) throw new Error(Errors.INVALID_OPTION_VALUE);
+    if ('number' === typeof query && 0 >= query) throw new Error(Errors.INVALID_OPTION_VALUE);
+    if ('number' !== typeof query && '*' !== query) throw new Error(Errors.INVALID_OPTION_VALUE);
     if ('*' === query) return await this.getAllPages();
     return await this.getPage(query, options);
   }

@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RateLimit from './RateLimit.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
@@ -86,7 +87,7 @@ test('Ratelimit (Bad Sync Data)', async () => {
     ...defaultRequestData,
     headers: new Headers({ hello: '100' })
   } as any);
-  await expect(() => client.rateLimit.sync()).rejects.toThrowError(client.errors.RATE_LIMIT_INIT_ERROR);
+  await expect(() => client.rateLimit.sync()).rejects.toThrowError(Errors.RATE_LIMIT_INIT_ERROR);
   vi.restoreAllMocks();
   client.destroy();
 });

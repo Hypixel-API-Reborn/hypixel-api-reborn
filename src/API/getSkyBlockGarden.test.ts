@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockGardenActiveVisitor from '../Structures/SkyBlock/Garden/SkyBlockGardenActiveVisitor.js';
@@ -13,7 +14,7 @@ test('getSkyBlockGarden (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockGarden()).rejects.toThrowError(client.errors.NO_UUID);
+  await expect(() => client.getSkyBlockGarden()).rejects.toThrowError(Errors.NO_UUID);
   client.destroy();
 });
 

@@ -5,10 +5,9 @@ import RequestHandler from './Private/RequestHandler.js';
 import Updater from './Private/Updater.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { ClientOptions } from './Types/Client.js';
-const errors = new Errors();
 
 test('Client (No Key)', () => {
-  expect(() => new Client('')).toThrowError(errors.NO_API_KEY);
+  expect(() => new Client('')).toThrowError(Errors.NO_API_KEY);
 });
 
 test('Client (No Options)', () => {
@@ -67,10 +66,6 @@ test('Client (No Options)', () => {
   expect(client.updater).toBeDefined();
   expect(client.updater).toBeInstanceOf(Updater);
   expectTypeOf(client.updater).toEqualTypeOf<Updater>();
-
-  expect(client.errors).toBeDefined();
-  expect(client.errors).toBeInstanceOf(Errors);
-  expectTypeOf(client.errors).toEqualTypeOf<Errors>();
 
   client.destroy();
 });
@@ -140,10 +135,6 @@ test('Client (Options)', () => {
   expect(client.updater).toBeDefined();
   expect(client.updater).toBeInstanceOf(Updater);
   expectTypeOf(client.updater).toEqualTypeOf<Updater>();
-
-  expect(client.errors).toBeDefined();
-  expect(client.errors).toBeInstanceOf(Errors);
-  expectTypeOf(client.errors).toEqualTypeOf<Errors>();
 
   client.destroy();
 });

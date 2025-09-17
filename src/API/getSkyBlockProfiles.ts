@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
@@ -18,11 +19,11 @@ class getSkyBlockProfiles extends Endpoint {
     query: string,
     options?: SkyBlockRequestOptions
   ): Promise<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
-    if (!query) throw new Error(this.client.errors.NO_NICKNAME_UUID);
+    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/skyblock/profiles?uuid=${query}`, options);
     if (res.options.raw) return res;
-    if (!res.data.profiles || !res.data.profiles.length) throw new Error(this.client.errors.NO_SKYBLOCK_PROFILES);
+    if (!res.data.profiles || !res.data.profiles.length) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
     const profiles: Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> = new Map();
     for (const profile of res.data.profiles) {
       const garden = await this.handleGettingSkyBlockGarden(profile.profile_id);

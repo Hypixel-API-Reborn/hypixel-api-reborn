@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
 import { defaultRequestData } from '../../vitest.setup.js';
@@ -62,7 +63,7 @@ test('getLeaderboards (Missing Data)', async () => {
   } as any);
 
   await expect(() => client.getLeaderboards()).rejects.toThrowError(
-    client.errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.')
+    Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.')
   );
   vi.restoreAllMocks();
   client.destroy();

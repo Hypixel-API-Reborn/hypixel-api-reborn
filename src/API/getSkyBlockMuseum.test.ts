@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import SkyBlockMuseumMember from '../Structures/SkyBlock/Museum/SkyBlockMuseumMember.js';
@@ -19,7 +20,7 @@ test('getSkyBlockMuseum (No input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockMuseum()).rejects.toThrowError(client.errors.NO_UUID);
+  await expect(() => client.getSkyBlockMuseum()).rejects.toThrowError(Errors.NO_UUID);
   client.destroy();
 });
 

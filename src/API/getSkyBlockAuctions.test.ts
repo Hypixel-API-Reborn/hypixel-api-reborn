@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import { expect, expectTypeOf, test } from 'vitest';
@@ -9,19 +10,19 @@ test('getSkyBlockAuctions (No Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuctions()).rejects.toThrowError(client.errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions()).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
 test('getSkyBlockAuctions (Negative Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  await expect(() => client.getSkyBlockAuctions(-1)).rejects.toThrowError(client.errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions(-1)).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
 test('getSkyBlockAuctions (Page 0)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  await expect(() => client.getSkyBlockAuctions(0)).rejects.toThrowError(client.errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions(0)).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
@@ -29,7 +30,7 @@ test('getSkyBlockAuctions (String Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuctions('hi')).rejects.toThrowError(client.errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions('hi')).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 

@@ -1,14 +1,16 @@
+/* eslint-disable max-len */
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockMember from '../Structures/SkyBlock/Member/SkyBlockMember.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import SkyBlockProfileBanking from '../Structures/SkyBlock/Profile/Banking/SkyBlockProfileBanking.js';
-// eslint-disable-next-line max-len
 import SkyBlockProfileCommunityUpgrades from '../Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock.js';
 import type { WithRaw } from '../Types/API.js';
+/* eslint-enable max-len */
 
 test('getSkyBlockProfiles (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
@@ -24,14 +26,14 @@ test('getSkyBlockProfiles (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockProfiles()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.getSkyBlockProfiles()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
 test('getSkyBlockProfiles (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   await expect(() => client.getSkyBlockProfiles('b491990d53fd4c5fa61e19d58cc7eddf')).rejects.toThrowError(
-    client.errors.NO_SKYBLOCK_PROFILES
+    Errors.NO_SKYBLOCK_PROFILES
   );
   client.destroy();
 });

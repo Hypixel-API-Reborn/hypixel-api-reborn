@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import Game from '../Structures/Game.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
@@ -9,7 +10,7 @@ test('getRecentGames (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getRecentGames()).rejects.toThrowError(client.errors.NO_NICKNAME_UUID);
+  await expect(() => client.getRecentGames()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 

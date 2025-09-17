@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Color from '../Structures/Color.js';
+import Errors from '../Errors.ts';
 import Game from '../Structures/Game.js';
 import Guild from '../Structures/Guild/Guild.js';
 import GuildMember from '../Structures/Guild/GuildMember.js';
@@ -14,23 +15,21 @@ test('Invalid Guild Type', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getGuild('invalid', 'invalid')).rejects.toThrowError(
-    client.errors.INVALID_GUILD_SEARCH_PARAMETER
-  );
+  await expect(() => client.getGuild('invalid', 'invalid')).rejects.toThrowError(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   client.destroy();
 });
 
 test('Invalid Guild', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   await expect(() => client.getGuild('name', 'this guild dose not exist')).rejects.toThrowError(
-    client.errors.GUILD_DOES_NOT_EXIST
+    Errors.GUILD_DOES_NOT_EXIST
   );
   client.destroy();
 });
 
 test('Invalid Guild ID', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  await expect(() => client.getGuild('id', 'invalid guild id')).rejects.toThrowError(client.errors.INVALID_GUILD_ID);
+  await expect(() => client.getGuild('id', 'invalid guild id')).rejects.toThrowError(Errors.INVALID_GUILD_ID);
   client.destroy();
 });
 
@@ -38,7 +37,7 @@ test('No Guild Query', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getGuild('id')).rejects.toThrowError(client.errors.NO_GUILD_QUERY);
+  await expect(() => client.getGuild('id')).rejects.toThrowError(Errors.NO_GUILD_QUERY);
   client.destroy();
 });
 

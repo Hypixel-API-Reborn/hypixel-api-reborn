@@ -1,4 +1,5 @@
 import Client from '../Client.js';
+import Errors from '../Errors.ts';
 import Updater from './Updater.js';
 import packageJSON from '../../package.json' with { type: 'json' };
 import { defaultRequestData } from '../../vitest.setup.js';
@@ -54,7 +55,7 @@ test('Updater (getLatestVersion error)', async () => {
     status: 404,
     json: () => Promise.resolve({ 'dist-tags': { latest: '1.0.0' } })
   } as any);
-  await expect(() => client.updater.getLatestVersion()).rejects.toThrowError(client.errors.UPDATER_REQUEST_NOT_OK);
+  await expect(() => client.updater.getLatestVersion()).rejects.toThrowError(Errors.UPDATER_REQUEST_NOT_OK);
   vi.restoreAllMocks();
   client.destroy();
 });

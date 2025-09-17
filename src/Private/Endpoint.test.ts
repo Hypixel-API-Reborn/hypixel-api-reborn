@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Endpoint from './Endpoint.js';
+import Errors from '../Errors.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Endpoint', () => {
@@ -17,7 +18,7 @@ test('Endpoint', () => {
 
   expect(endpoint.execute).toBeDefined();
   expectTypeOf(endpoint.execute).toBeFunction();
-  expect(() => endpoint.execute()).toThrowError(client.errors.NOT_IMPLEMENTED);
+  expect(() => endpoint.execute()).toThrowError(Errors.NOT_IMPLEMENTED);
 
   client.destroy();
 });
