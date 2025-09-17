@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
@@ -9,12 +8,6 @@ import type { SkyBlockProfileName } from '../Types/SkyBlock.js';
 import type { SkyBlockRequestOptions, WithRaw } from '../Types/API.js';
 
 class getSkyBlockProfiles extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(
     query: string,
     options?: SkyBlockRequestOptions

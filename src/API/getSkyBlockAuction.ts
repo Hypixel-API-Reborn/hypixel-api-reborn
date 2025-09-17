@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
@@ -7,12 +6,6 @@ import SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBas
 import type { AuctionFetchOptions, AuctionRequestOptions, SkyBlockAuctionResult } from '../Types/API.js';
 
 class getSkyBlockAction extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(
     type: AuctionFetchOptions,
     query: string,

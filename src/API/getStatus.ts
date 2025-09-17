@@ -1,16 +1,9 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
 import Status from '../Structures/Status.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getStatus extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(query: string, options?: RequestOptions): Promise<Status | RequestData> {
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/status?uuid=${query}`, options);

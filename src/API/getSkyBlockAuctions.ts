@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
@@ -7,13 +6,6 @@ import type RequestData from '../Private/RequestData.js';
 import type { AuctionRequestOptions, SkyBlockAuctionsResult } from '../Types/API.js';
 
 class getSkyBlockAuctions extends Endpoint {
-  override readonly client: Client;
-  declare options: AuctionRequestOptions;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(
     query: number | '*',
     options?: AuctionRequestOptions

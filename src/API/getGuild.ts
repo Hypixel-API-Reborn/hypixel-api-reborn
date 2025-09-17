@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import Guild from '../Structures/Guild/Guild.js';
@@ -7,12 +6,6 @@ import type { GuildFetchOptions } from '../Types/API.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getGuild extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(
     searchParameter: GuildFetchOptions,
     query: string,

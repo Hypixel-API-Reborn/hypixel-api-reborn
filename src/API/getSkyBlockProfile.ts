@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
@@ -8,12 +7,6 @@ import type SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js
 import type { SkyBlockRequestOptions } from '../Types/API.js';
 
 class getSkyBlockProfile extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(profileId: string, options?: SkyBlockRequestOptions): Promise<SkyBlockProfile | RequestData> {
     if (!profileId) throw new Error(Errors.NO_UUID);
     const res = await this.client.requestHandler.request(`/skyblock/profile?profile=${profileId}`, options);

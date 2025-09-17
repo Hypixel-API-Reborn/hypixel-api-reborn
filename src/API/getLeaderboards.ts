@@ -1,4 +1,3 @@
-import Client from '../Client.js';
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.ts';
 import Leaderboard from '../Structures/Leaderboard.js';
@@ -7,12 +6,6 @@ import type { RequestOptions } from '../Types/Requests.js';
 import type { WithRaw } from '../Types/API.ts';
 
 class getLeaderboards extends Endpoint {
-  override readonly client: Client;
-  constructor(client: Client) {
-    super(client);
-    this.client = client;
-  }
-
   override async execute(options?: RequestOptions): Promise<WithRaw<Record<string, Leaderboard[]>> | RequestData> {
     const res = await this.client.requestHandler.request('/leaderboards', options);
     if (res.options.raw) return res;
