@@ -8,14 +8,7 @@ export default [
   prettier,
   {
     ignores: ['**/node_modules/', '**/build/', '**/pnpm-lock.yaml'],
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: 'module',
-      globals: {
-        ...globals.es2022,
-        ...globals.node
-      }
-    },
+    languageOptions: { ecmaVersion: 2022, sourceType: 'module', globals: { ...globals.es2022, ...globals.node } },
     plugins: { 'sort-imports': sortImports },
     rules: {
       'sort-imports/sort-imports': [

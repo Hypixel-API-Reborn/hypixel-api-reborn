@@ -1,4 +1,5 @@
 {
+  "objectWrap": "collapse",
   "bracketSameLine": true,
   "trailingComma": "none",
   "arrowParens": "always",

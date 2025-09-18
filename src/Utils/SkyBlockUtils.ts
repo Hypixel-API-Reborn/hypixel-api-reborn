@@ -70,16 +70,7 @@ export function getPetLevel(petExp: number, type: SkyBlockPetId | 'UNKNOWN', rar
   const xpForNext: number | null = levels[level - 1] ?? null;
   const progress = null !== xpForNext ? (isNaN(currentXp / xpForNext) ? 0 : currentXp / xpForNext) : 0;
 
-  return {
-    xp: petExp,
-    level,
-    xpForNext,
-    progress,
-    maxed: maxLevel === level,
-    maxLevel,
-    xpMaxLevel,
-    currentXp
-  };
+  return { xp: petExp, level, xpForNext, progress, maxed: maxLevel === level, maxLevel, xpMaxLevel, currentXp };
 }
 
 // CREDITS: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/slayer.ts#L24-L59 (modified)
@@ -112,14 +103,7 @@ export function getSlayerLevel(slayer: SkyBlockSlayer, xp: number): LevelData {
     }
   }
 
-  return {
-    xp,
-    xpForNext: 0,
-    level: 0,
-    maxLevel,
-    maxed: false,
-    progress: 0
-  };
+  return { xp, xpForNext: 0, level: 0, maxLevel, maxed: false, progress: 0 };
 }
 
 function getXpTable(type: SkyBlockXPTables): Record<number, number> {
@@ -202,13 +186,5 @@ export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): Sk
   const progress = level >= maxLevel && !isInfiniteLevelAble ? 0 : Math.max(0, Math.min(currentXp / xpForNext, 1));
   const maxed = level >= maxLevel;
 
-  return {
-    xp,
-    level,
-    xpForNext,
-    progress,
-    maxed,
-    maxLevel,
-    currentXp
-  };
+  return { xp, level, xpForNext, progress, maxed, maxLevel, currentXp };
 }

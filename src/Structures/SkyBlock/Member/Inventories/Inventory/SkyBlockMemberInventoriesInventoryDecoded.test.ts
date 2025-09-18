@@ -56,10 +56,7 @@ test('SkyBlockMemberInventoriesInventoryDecoded', () => {
           modifier: 'withered',
           art_of_war_count: 1,
           upgrade_level: 10,
-          enchantments: {
-            impaling: 3,
-            champion: 10
-          },
+          enchantments: { impaling: 3, champion: 10 },
           uuid: '89dd6816-0a32-4dcf-808b-ba558c793c91',
           hot_potato_count: 15,
           gems: {

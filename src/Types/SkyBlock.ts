@@ -473,10 +473,7 @@ export type MiningForgeItemName =
   | 'PET';
 
 export type MiningForgeItemsData = {
-  [key in MiningForgeItemId | 'UNKNOWN']: {
-    name: MiningForgeItemName | 'UNKNOWN';
-    duration: number;
-  };
+  [key in MiningForgeItemId | 'UNKNOWN']: { name: MiningForgeItemName | 'UNKNOWN'; duration: number };
 };
 
 export type SkyBlockArea =
@@ -3477,12 +3474,7 @@ export type BestiaryMob = {
   maxTier: number;
 };
 
-export type BestiaryCategory = {
-  name: string;
-  mobs: BestiaryMob[];
-  mobsUnlocked: number;
-  mobsMaxed: number;
-};
+export type BestiaryCategory = { name: string; mobs: BestiaryMob[]; mobsUnlocked: number; mobsMaxed: number };
 
 export type BestiaryStats = {
   level: number;

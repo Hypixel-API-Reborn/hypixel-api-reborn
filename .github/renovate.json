@@ -13,10 +13,6 @@
   "prHourlyLimit": 0,
   "timezone": "UTC",
   "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
-      "commitMessagePrefix": "chore(deps):"
-    }
+    { "matchUpdateTypes": ["minor", "patch"], "matchCurrentVersion": "!/^0/", "commitMessagePrefix": "chore(deps):" }
   ]
 }
