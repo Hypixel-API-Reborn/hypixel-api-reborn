@@ -1,4 +1,3 @@
-
 import Client from '../Client.js';
 import Errors from '../Errors.ts';
 import packageJson from '../../package.json' with { type: 'json' };

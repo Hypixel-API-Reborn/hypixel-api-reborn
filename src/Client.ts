@@ -74,7 +74,6 @@ class Client {
       this[func] = endpoint.execute.bind(endpoint);
     }
     if (clients.find((x) => x.key === key)) {
-
       console.warn(Errors.MULTIPLE_INSTANCES);
       const found = clients.find((x) => x.key === key);
       if (found) {
