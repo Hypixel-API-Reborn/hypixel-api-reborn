@@ -15,15 +15,15 @@ class SkyBlockMemberCrimsonIsleDojoMinigame {
   }
 
   private getScore(points: number): CrimsonIsleDojoRank {
-    if (1000 <= points) {
+    if (points >= 1000) {
       return 'S';
-    } else if (800 <= points) {
+    } else if (points >= 800) {
       return 'A';
-    } else if (600 <= points) {
+    } else if (points >= 600) {
       return 'B';
-    } else if (400 <= points) {
+    } else if (points >= 400) {
       return 'C';
-    } else if (200 <= points) {
+    } else if (points >= 200) {
       return 'D';
     }
     return 'F';

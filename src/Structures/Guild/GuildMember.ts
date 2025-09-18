@@ -20,7 +20,7 @@ class GuildMember {
     this.rank = data?.rank || 'Member';
     this.mutedUntilTimestamp = data?.mutedTill || null;
     this.mutedUntil = this.mutedUntilTimestamp ? new Date(this.mutedUntilTimestamp) : null;
-    const xpCheck = data.expHistory && 'number' === typeof Object.values(data.expHistory)[0];
+    const xpCheck = data.expHistory && typeof Object.values(data.expHistory)[0] === 'number';
     this.expHistory = parseHistory(data?.expHistory || {});
     this.weeklyExperience = xpCheck
       ? Number(Object.values(data.expHistory).reduce((pV: any, cV: any) => pV + cV, 0))

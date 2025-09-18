@@ -64,7 +64,7 @@ class Client {
     this.functions = new Functions(this);
     this.updater = new Updater(this);
     this.rateLimit = new RateLimit(this);
-    if ('NONE' !== this.options.rateLimit) this.rateLimit.initialize();
+    if (this.options.rateLimit !== 'NONE') this.rateLimit.initialize();
     for (const func in API) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
@@ -74,7 +74,7 @@ class Client {
       this[func] = endpoint.execute.bind(endpoint);
     }
     if (clients.find((x) => x.key === key)) {
-      // eslint-disable-next-line no-console
+
       console.warn(Errors.MULTIPLE_INSTANCES);
       const found = clients.find((x) => x.key === key);
       if (found) {
@@ -96,7 +96,7 @@ class Client {
 
   destroy() {
     const clientIndex = clients.findIndex((client) => client.key === this.key);
-    if (-1 !== clientIndex) clients.splice(clientIndex, 1);
+    if (clientIndex !== -1) clients.splice(clientIndex, 1);
     if (this.interval) clearInterval(this.interval);
     if (this.rateLimit.interval) clearInterval(this.rateLimit.interval);
   }

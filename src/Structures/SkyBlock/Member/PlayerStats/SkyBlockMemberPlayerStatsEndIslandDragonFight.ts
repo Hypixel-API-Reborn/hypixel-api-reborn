@@ -1,4 +1,4 @@
-// eslint-disable-next-line max-len
+// eslint-disable-next-line @stylistic/max-len
 import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.js';
 
 class SkyBlockMemberPlayerStatsEndIslandDragonFight {

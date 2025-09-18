@@ -19,7 +19,7 @@ class SkyBlockMemberDungeonsTreasuresChest {
     this.quality = data?.quality || 0;
     this.shinyEligible = data?.shiny_eligible || false;
     this.paid = data?.paid || false;
-    this.rerolls = 0 !== (data?.rerolls || 0);
+    this.rerolls = (data?.rerolls || 0) !== 0;
   }
 
   toString(): string {

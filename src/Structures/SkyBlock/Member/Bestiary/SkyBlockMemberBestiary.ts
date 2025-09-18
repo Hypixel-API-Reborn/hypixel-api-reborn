@@ -63,7 +63,7 @@ class SkyBlockMemberBestiary {
       };
 
       categories[category].mobsUnlocked = categories[category].mobs.reduce(
-        (acc, mob) => acc + (0 < mob.kills ? 1 : 0),
+        (acc, mob) => acc + (mob.kills > 0 ? 1 : 0),
         0
       );
       categories[category].mobsMaxed = categories[category].mobs.reduce(
@@ -76,7 +76,7 @@ class SkyBlockMemberBestiary {
     const maxMilestone = mobs.map((mob) => mob.maxTier).reduce((acc, cur) => acc + cur, 0);
     const milestone = mobs.map((mob) => mob.tier).reduce((acc, cur) => acc + cur, 0);
     const familiesMaxed = mobs.filter((mob) => mob.tier === mob.maxTier).length;
-    const familiesUnlocked = mobs.filter((mob) => 0 < mob.kills).length;
+    const familiesUnlocked = mobs.filter((mob) => mob.kills > 0).length;
     const totalFamilies = mobs.length;
 
     return {

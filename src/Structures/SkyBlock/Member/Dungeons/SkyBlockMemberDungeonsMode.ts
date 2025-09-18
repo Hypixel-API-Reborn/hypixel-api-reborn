@@ -13,7 +13,7 @@ class SkyBlockMemberDungeonsMode {
   floor7: SkyBlockMemberDungeonsFloor;
   constructor(data: Record<string, any>, type: DungeonGamemode) {
     this.highestFloorCompleted = data?.[type]?.highest_tier_completed || 0;
-    this.floor0 = 'catacombs' === type ? new SkyBlockMemberDungeonsFloor(data?.[type] || {}, '0') : null;
+    this.floor0 = type === 'catacombs' ? new SkyBlockMemberDungeonsFloor(data?.[type] || {}, '0') : null;
     this.floor1 = new SkyBlockMemberDungeonsFloor(data?.[type] || {}, '1');
     this.floor2 = new SkyBlockMemberDungeonsFloor(data?.[type] || {}, '2');
     this.floor3 = new SkyBlockMemberDungeonsFloor(data?.[type] || {}, '3');

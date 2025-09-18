@@ -15,11 +15,11 @@ export function parseHistory(historyData: Record<string, any>): ExpHistory[] {
     day: x[0],
     date: x[0].match(dateRegExp)
       ? parseDate(
-          x[0]
-            .match(dateRegExp)!
-            .slice(1)
-            .map((x) => parseInt(x, 10))
-        )
+        x[0]
+          .match(dateRegExp)!
+          .slice(1)
+          .map((x) => parseInt(x, 10))
+      )
       : undefined,
     exp: x[1] || 0,
     totalExp:
@@ -31,18 +31,31 @@ export function parseHistory(historyData: Record<string, any>): ExpHistory[] {
 
 export function getGuildLevel(exp: number) {
   const EXP_NEEDED: number[] = [
-    100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000,
-    2500000, 3000000
+    100000,
+    150000,
+    250000,
+    500000,
+    750000,
+    1000000,
+    1250000,
+    1500000,
+    2000000,
+    2500000,
+    2500000,
+    2500000,
+    2500000,
+    2500000,
+    3000000
   ];
   let level = 0;
-  for (let i = 0; 1000 >= i; i += 1) {
+  for (let i = 0; i <= 1000; i += 1) {
     let need: number;
     if (i >= EXP_NEEDED.length) {
       need = EXP_NEEDED[EXP_NEEDED.length - 1] || 0;
     } else {
       need = EXP_NEEDED[i] || 0;
     }
-    if (0 > exp - need) {
+    if (exp - need < 0) {
       return Math.round((level + exp / need) * 100) / 100;
     }
     level += 1;
@@ -58,7 +71,7 @@ export function ranks(data: Record<string, any>) {
 }
 
 export function expLimit(exp: number) {
-  return 2e5 < exp ? (7e5 < exp ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
+  return exp > 2e5 ? (exp > 7e5 ? 2.5e5 + Math.round(exp * 0.03) : 2e5 + Math.round((exp - 2e5) / 10)) : exp;
 }
 
 export function calculateExpHistory(data: GuildMember[]): ExpHistory[] {

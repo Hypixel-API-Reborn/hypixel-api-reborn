@@ -11,9 +11,9 @@ class getSkyBlockAuctions extends Endpoint {
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionsResult | RequestData> {
     if (!query) throw new Error(Errors.INVALID_OPTION_VALUE);
-    if ('number' === typeof query && 0 >= query) throw new Error(Errors.INVALID_OPTION_VALUE);
-    if ('number' !== typeof query && '*' !== query) throw new Error(Errors.INVALID_OPTION_VALUE);
-    if ('*' === query) return await this.getAllPages();
+    if (typeof query === 'number' && query <= 0) throw new Error(Errors.INVALID_OPTION_VALUE);
+    if (typeof query !== 'number' && query !== '*') throw new Error(Errors.INVALID_OPTION_VALUE);
+    if (query === '*') return await this.getAllPages();
     return await this.getPage(query, options);
   }
 

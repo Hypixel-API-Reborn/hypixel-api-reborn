@@ -13,7 +13,7 @@ class Quest {
     this.name = (data?.name || '').trim();
     this.description = (data?.description || '').trim();
     this.rewards = data.rewards || [];
-    this.type = 'DailyResetQuestRequirement' === data.requirements?.[0].type ? 'Daily' : 'Weekly';
+    this.type = data.requirements?.[0].type === 'DailyResetQuestRequirement' ? 'Daily' : 'Weekly';
     this.objectives = (data?.objectives || []).map((objective: any) => new QuestObjective(objective));
   }
 

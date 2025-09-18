@@ -5,7 +5,7 @@ import SkyWarsPackages from './SkyWarsPackages.js';
 import type { SkyWarsPrestige } from '../../../Types/Player.js';
 
 function getSkyWarsPrestige(level: number): SkyWarsPrestige {
-  if (60 <= level) return 'Mythic';
+  if (level >= 60) return 'Mythic';
   return (['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][
     Math.floor(level / 5)
   ] || 'Iron') as SkyWarsPrestige;
@@ -13,10 +13,10 @@ function getSkyWarsPrestige(level: number): SkyWarsPrestige {
 
 function getSkyWarsLevel(xp: number): number {
   const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  if (0 === xp) return 0;
-  if (15000 <= xp) return Math.floor((xp - 15000) / 10000 + 12);
-  const level = totalXp.findIndex((x) => 0 < x * 10 - xp);
-  return -1 === level ? 0 : level;
+  if (xp === 0) return 0;
+  if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
+  const level = totalXp.findIndex((x) => x * 10 - xp > 0);
+  return level === -1 ? 0 : level;
 }
 
 function getSkyWarsLevelProgress(xp: number) {
@@ -25,22 +25,22 @@ function getSkyWarsLevelProgress(xp: number) {
   let percent;
   let xpToNextLevel;
   let currentLevelXp = xp;
-  if (15000 <= xp) {
+  if (xp >= 15000) {
     currentLevelXp -= 15000;
-    if (0 === currentLevelXp) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
-    if (10000 < currentLevelXp) {
+    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
+    if (currentLevelXp > 10000) {
       do {
         currentLevelXp -= 10000;
-      } while (10000 <= currentLevelXp);
+      } while (currentLevelXp >= 10000);
     }
     xpToNextLevel = 10000 - currentLevelXp;
     percent = Math.round(currentLevelXp) / 100;
     const percentRemaining = Math.round((100 - percent) * 100) / 100;
     return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: 10000, percentRemaining };
   }
-  const totalXpToNextLevel = (xpToNextLvl?.[totalXp.findIndex((x) => 0 < x * 10 - xp)] || 0) * 10;
+  const totalXpToNextLevel = (xpToNextLvl?.[totalXp.findIndex((x) => x * 10 - xp > 0)] || 0) * 10;
   for (let i = 0; i < xpToNextLvl.length; i++) {
-    if (0 > currentLevelXp - (xpToNextLvl?.[i] || 0) * 10) break;
+    if (currentLevelXp - (xpToNextLvl?.[i] || 0) * 10 < 0) break;
     currentLevelXp -= (xpToNextLvl?.[i] || 0) * 10;
   }
   xpToNextLevel = totalXpToNextLevel - currentLevelXp;
@@ -104,9 +104,9 @@ class SkyWars {
     this.levelProgress = getSkyWarsLevelProgress(data?.skywars_experience);
     this.levelFormatted = data?.levelFormatted
       ? data?.levelFormatted
-          ?.replace(/§l/gm, '**')
-          ?.replace(/§([a-f]|[1-9])/gm, '')
-          ?.replace(/§r/gm, '')
+        ?.replace(/§l/gm, '**')
+        ?.replace(/§([a-f]|[1-9])/gm, '')
+        ?.replace(/§r/gm, '')
       : null;
     this.prestige = getSkyWarsPrestige(this.level);
     this.opals = data?.opals || 0;

@@ -1,5 +1,5 @@
 /* v8 ignore next 1000 */
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len  */
 
 import Client from './Client.js';
 import Errors from './Errors.js';

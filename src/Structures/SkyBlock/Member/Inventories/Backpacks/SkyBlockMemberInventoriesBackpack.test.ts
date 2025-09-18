@@ -3,7 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesBackpack', () => {
   /* eslint-disable quote-props */
-  /* eslint-disable max-len */
+  /* eslint-disable @stylistic/max-len  */
   const data = new SkyBlockMemberInventoriesBackpack(
     {
       backpackIcons: {
@@ -20,7 +20,7 @@ test('SkyBlockMemberInventoriesBackpack', () => {
     '0'
   );
   /* eslint-enable quote-props */
-  /* eslint-enable max-len */
+  /* eslint-enable @stylistic/max-len  */
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberInventoriesBackpack);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberInventoriesBackpack>();

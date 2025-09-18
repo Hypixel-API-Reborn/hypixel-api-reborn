@@ -34,15 +34,15 @@ class SkyBlockMemberCrimsonIsleDojo {
   }
 
   private getBelt(points: number): CrimsonIsleBelt {
-    if (7000 <= points) {
+    if (points >= 7000) {
       return 'Black';
-    } else if (6000 <= points) {
+    } else if (points >= 6000) {
       return 'Brown';
-    } else if (4000 <= points) {
+    } else if (points >= 4000) {
       return 'Blue';
-    } else if (2000 <= points) {
+    } else if (points >= 2000) {
       return 'Green';
-    } else if (1000 <= points) {
+    } else if (points >= 1000) {
       return 'Yellow';
     }
     return 'White';

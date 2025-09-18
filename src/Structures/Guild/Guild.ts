@@ -62,7 +62,7 @@ class Guild {
   }
 
   guildMaster(): GuildMember | undefined {
-    return this.members.find((member) => 'Guild Master' === member.rank);
+    return this.members.find((member) => member.rank === 'Guild Master');
   }
 
   isRaw(): this is RequestData {

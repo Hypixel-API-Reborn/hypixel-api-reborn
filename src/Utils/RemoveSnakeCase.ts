@@ -1,5 +1,5 @@
 export function validateJSON(obj: any) {
-  return 'object' === typeof obj && '{' === JSON.stringify(obj)[0];
+  return typeof obj === 'object' && JSON.stringify(obj)[0] === '{';
 }
 
 export function recursive(obj: any, lowerCase: boolean = false): any {

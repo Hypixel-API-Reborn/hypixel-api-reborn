@@ -25,7 +25,7 @@ class RateLimit {
   }
 
   reset() {
-    if (false === this.initialized) return;
+    if (this.initialized === false) return;
     this.requests = 0;
   }
 

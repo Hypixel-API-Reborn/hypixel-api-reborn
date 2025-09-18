@@ -55,7 +55,7 @@ test('getGuild (raw)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  if (null === data) return;
+  if (data === null) return;
   expect(data.isRaw()).toBe(true);
   client.destroy();
 });
@@ -66,7 +66,7 @@ test('getGuild (Name)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  if (null === data) return;
+  if (data === null) return;
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
   expect(data.id).toBeDefined();
@@ -110,7 +110,7 @@ test('getGuild (Name)', async () => {
   });
   expect(data.me).toBeDefined();
   expectTypeOf(data.me).toEqualTypeOf<GuildMember | null>();
-  if (null !== data.me) {
+  if (data.me !== null) {
     expect(data.me).toBeDefined();
     expectTypeOf(data.me).toEqualTypeOf<GuildMember>();
     expect(data.me.uuid).toBeDefined();
@@ -250,7 +250,7 @@ test('getGuild (Id)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  if (null === data) return;
+  if (data === null) return;
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
   expect(data.id).toBeDefined();
@@ -294,7 +294,7 @@ test('getGuild (Id)', async () => {
   });
   expect(data.me).toBeDefined();
   expectTypeOf(data.me).toEqualTypeOf<GuildMember | null>();
-  if (null !== data.me) {
+  if (data.me !== null) {
     expect(data.me).toBeDefined();
     expectTypeOf(data.me).toEqualTypeOf<GuildMember>();
     expect(data.me.uuid).toBeDefined();
@@ -434,7 +434,7 @@ test('getGuild (Player)', async () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
-  if (null === data) return;
+  if (data === null) return;
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
   expect(data.id).toBeDefined();
@@ -478,7 +478,7 @@ test('getGuild (Player)', async () => {
   });
   expect(data.me).toBeDefined();
   expectTypeOf(data.me).toEqualTypeOf<GuildMember | null>();
-  if (null !== data.me) {
+  if (data.me !== null) {
     expect(data.me).toBeDefined();
     expectTypeOf(data.me).toEqualTypeOf<GuildMember>();
     expect(data.me.uuid).toBeDefined();

@@ -36,7 +36,7 @@ class SkyBlockMemberChocolateFactory {
     this.supremeChocolateBars = data?.supreme_chocolate_bars || 0;
     this.eggs = new SkyBlockMemberChocolateFactoryEggs(data?.rabbits?.collected_eggs || {});
     this.foundRabbits = Object.keys(data?.rabbits || {})
-      .filter((key) => 'collected_eggs' !== key && 'collected_locations' !== key)
+      .filter((key) => key !== 'collected_eggs' && key !== 'collected_locations')
       .reduce((obj: Record<string, number>, key: string) => {
         obj[key] = data.rabbits[key];
         return obj;

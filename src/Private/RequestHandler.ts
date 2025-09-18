@@ -23,27 +23,27 @@ class RequestHandler {
       });
     }
     const res = await fetch(BASE_URL + endpoint, { headers: { 'API-Key': this.client.key } });
-    if (500 <= res.status && 528 > res.status) {
+    if (res.status >= 500 && res.status < 528) {
       throw new Error(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
     }
     const parsedRes = (await res.json()) as Record<string, any>;
-    if (400 === res.status) {
+    if (res.status === 400) {
       throw new Error(
         Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || 'Unknown')
       );
     }
-    if (403 === res.status) throw new Error(Errors.INVALID_API_KEY);
-    if (422 === res.status) throw new Error(Errors.UNEXPECTED_ERROR);
+    if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);
+    if (res.status === 422) throw new Error(Errors.UNEXPECTED_ERROR);
     if (
-      429 === res.status &&
-      'You have already looked up this player too recently, please try again shortly' === parsedRes.cause
+      res.status === 429 &&
+      parsedRes.cause === 'You have already looked up this player too recently, please try again shortly'
     ) {
       throw new Error(Errors.RECENT_REQUEST);
     }
-    if (429 === res.status) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
-    if (200 !== res.status) {
+    if (res.status === 429) throw new Error(Errors.RATE_LIMIT_EXCEEDED);
+    if (res.status !== 200) {
       throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     }
     if (!parsedRes.success && !endpoint.startsWith('/housing')) {
@@ -67,28 +67,28 @@ class RequestHandler {
 
   async toUUID(input: string): Promise<string> {
     if (!input) throw new Error(Errors.NO_NICKNAME_UUID);
-    if ('string' !== typeof input) throw new Error(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
+    if (typeof input !== 'string') throw new Error(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
     if (this.client.functions.isUUID(input)) return input.replace(/-/g, '');
     const url = `https://mowojang.matdoes.dev/${input}`;
     if (this.client.cacheHandler.has(url)) {
       return this.client.cacheHandler.get(url);
     }
     const res = await fetch(url);
-    if (500 <= res.status && 528 > res.status) {
+    if (res.status >= 500 && res.status < 528) {
       throw new Error(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
       );
     }
     const parsedRes = (await res.json()) as Record<string, any>;
-    if (400 === res.status) {
+    if (res.status === 400) {
       throw new Error(
         Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || '')
       );
     }
-    if (200 !== res.status) {
+    if (res.status !== 200) {
       throw new Error(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
     }
-    if ('string' !== typeof parsedRes.id || 'string' !== typeof parsedRes.name) {
+    if (typeof parsedRes.id !== 'string' || typeof parsedRes.name !== 'string') {
       throw new Error(Errors.MALFORMED_UUID);
     }
     if (this.client.options.cache) {

@@ -24,7 +24,7 @@ test('getLeaderboards', async () => {
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
   Object.keys(data).forEach((key) => {
-    if ('isRaw' === key) return;
+    if (key === 'isRaw') return;
     if (undefined === data[key]) return;
     expect(data[key]).toBeDefined();
     expectTypeOf(data[key]).toEqualTypeOf<Leaderboard[]>();

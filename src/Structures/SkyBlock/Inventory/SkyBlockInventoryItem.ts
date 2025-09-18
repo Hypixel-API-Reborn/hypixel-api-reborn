@@ -88,20 +88,20 @@ class SkyBlockInventoryItem {
     this.statsBook = data?.tag?.ExtraAttributes?.stats_book || null;
     this.runes = data?.tag?.ExtraAttributes?.runes
       ? Object.keys(data?.tag?.ExtraAttributes?.runes).map(
-          (rune) => new SkyBlockInventoryItemRune({ id: rune, tier: data?.tag?.ExtraAttributes?.runes?.[rune] })
-        )
+        (rune) => new SkyBlockInventoryItemRune({ id: rune, tier: data?.tag?.ExtraAttributes?.runes?.[rune] })
+      )
       : null;
     this.reforge = data?.tag?.ExtraAttributes?.modifier || 'none';
     this.hasArtOfWar = Boolean(data?.tag?.ExtraAttributes?.art_of_war_count || 0);
     this.starCount = data?.tag?.ExtraAttributes?.upgrade_level || 0;
     this.enchantments = data?.tag?.ExtraAttributes?.enchantments
       ? Object.keys(data?.tag?.ExtraAttributes?.enchantments).map(
-          (enchantment) =>
-            new SkyBlockInventoryItemEnchantment({
-              id: enchantment,
-              level: data?.tag?.ExtraAttributes?.enchantments?.[enchantment]
-            })
-        )
+        (enchantment) =>
+          new SkyBlockInventoryItemEnchantment({
+            id: enchantment,
+            level: data?.tag?.ExtraAttributes?.enchantments?.[enchantment]
+          })
+      )
       : null;
     this.uuid = data?.tag?.ExtraAttributes?.uuid || null;
     this.hotPotatoBookCount = data?.tag?.ExtraAttributes?.hot_potato_count || null;
@@ -126,12 +126,12 @@ class SkyBlockInventoryItem {
     this.isShiny = Boolean(data?.tag?.ExtraAttributes?.is_shiny || 0);
     this.attributes = data?.tag?.ExtraAttributes?.attributes
       ? Object.keys(data?.tag?.ExtraAttributes?.attributes).map(
-          (attribute) =>
-            new SkyBlockInventoryItemAttribute({
-              id: attribute,
-              level: data?.tag?.ExtraAttributes?.attributes[attribute]
-            })
-        )
+        (attribute) =>
+          new SkyBlockInventoryItemAttribute({
+            id: attribute,
+            level: data?.tag?.ExtraAttributes?.attributes[attribute]
+          })
+      )
       : null;
     this.jalapenoCount = data?.tag?.ExtraAttributes?.jalapeono_count || null;
     this.hecatombSRuns = data?.tag?.ExtraAttributes?.hecatomb_s_runs || null;

@@ -19,7 +19,7 @@ class Game {
     this.id = result?.id || null;
     this.code = result?.code || null;
     this.name = result?.name || null;
-    this.found = null !== result;
+    this.found = result !== null;
   }
 
   toString(): GameString | null {

@@ -86,10 +86,10 @@ class CopsAndCrims {
     this.winsOnRuins = data?.game_wins_ruins || 0;
     this.winsOnRiviera = data?.game_wins_riviera || 0;
     this.winsOnHarbor = data?.game_wins_harbor || 0;
-    this.winsOnAtomicV1 = data?.[`game_wins_atomic v1`] || 0;
-    this.winsOnAtomicV2 = data?.[`game_wins_atomic v2`] || 0;
-    this.winsOnMelonFactory = data?.[`game_wins_melon factory`] || 0;
-    this.winsOnMelonFactoryV2 = data?.[`game_wins_melon factory v2`] || 0;
+    this.winsOnAtomicV1 = data?.['game_wins_atomic v1'] || 0;
+    this.winsOnAtomicV2 = data?.['game_wins_atomic v2'] || 0;
+    this.winsOnMelonFactory = data?.['game_wins_melon factory'] || 0;
+    this.winsOnMelonFactoryV2 = data?.['game_wins_melon factory v2'] || 0;
     this.wins = data?.game_wins || 0;
     this.gamesPlayed = data?.game_plays || 0;
     this.losses = this.gamesPlayed - this.wins;

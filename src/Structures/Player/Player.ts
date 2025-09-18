@@ -117,7 +117,7 @@ class Player {
     } else {
       switch (player.newPackageRank) {
         case 'MVP_PLUS':
-          return 'SUPERSTAR' !== player.monthlyPackageRank ? 'MVP+' : 'MVP++';
+          return player.monthlyPackageRank !== 'SUPERSTAR' ? 'MVP+' : 'MVP++';
         case 'MVP':
           return 'MVP';
         case 'VIP_PLUS':
@@ -144,7 +144,7 @@ class Player {
   private xpToNextLevel(xp: number): number {
     const lvl = this.getPlayerLevel(xp);
     const xpToNext = 2500 * Math.floor(lvl) + 5000;
-    if (10000 > xp) return 10000;
+    if (xp < 10000) return 10000;
     return xpToNext;
   }
 

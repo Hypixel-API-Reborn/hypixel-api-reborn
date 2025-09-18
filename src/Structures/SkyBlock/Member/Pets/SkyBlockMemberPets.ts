@@ -36,11 +36,11 @@ class SkyBlockMemberPets {
     const highestRarity = {} as Record<string, number>;
     const highestLevel = {} as Record<string, number>;
     for (const pet of this.pets) {
-      if ('UNKNOWN' === pet.type) continue;
-      if ('UNKNOWN' === pet.tier) continue;
+      if (pet.type === 'UNKNOWN') continue;
+      if (pet.tier === 'UNKNOWN') continue;
 
       // ? NOTE: FRACTURED_MONTEZUMA_SOUL is a rift pet so it's not accounted in the calculation
-      if ('FRACTURED_MONTEZUMA_SOUL' === pet.type) {
+      if (pet.type === 'FRACTURED_MONTEZUMA_SOUL') {
         continue;
       }
 

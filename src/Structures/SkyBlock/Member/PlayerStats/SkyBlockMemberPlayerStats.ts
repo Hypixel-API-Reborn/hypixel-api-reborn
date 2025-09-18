@@ -31,7 +31,7 @@ class SkyBlockMemberPlayerStats {
     this.kills = {
       total: Object.values(data?.kills || {}).reduce((acc: any, curr) => acc + curr, 0) as number,
       ...Object.keys(data?.kills || {})
-        .filter((key) => 'total' !== key)
+        .filter((key) => key !== 'total')
         .sort((a, b) => data?.kills[b] - data?.kills[a])
         .map((key) => ({ [key]: data?.kills[key] }))
         .reduce((acc, curr) => ({ ...acc, ...curr }), {})
@@ -39,7 +39,7 @@ class SkyBlockMemberPlayerStats {
     this.deaths = {
       total: Object.values(data?.deaths || {}).reduce((acc: any, curr) => acc + curr, 0) as number,
       ...Object.keys(data?.deaths || {})
-        .filter((key) => 'total' !== key)
+        .filter((key) => key !== 'total')
         .sort((a, b) => data?.deaths[b] - data?.deaths[a])
         .map((key) => ({ [key]: data?.deaths[key] }))
         .reduce((acc, curr) => ({ ...acc, ...curr }), {})

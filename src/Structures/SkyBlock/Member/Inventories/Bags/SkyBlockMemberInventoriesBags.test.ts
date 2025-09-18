@@ -4,7 +4,7 @@ import SkyBlockMemberInventoriesInventory from '../Inventory/SkyBlockMemberInven
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesBags', () => {
-  /* eslint-disable max-len */
+  /* eslint-disable @stylistic/max-len  */
   /* eslint-disable camelcase */
   const data = new SkyBlockMemberInventoriesBags({
     potion_bag: {
@@ -23,7 +23,7 @@ test('SkyBlockMemberInventoriesBags', () => {
       data: 'H4sIAAAAAAAA/+3WzW7TQBAH8EmatomFaEVPSIC2El8SULUSafm44CapciAJcoUQJ7S1J7Ylx668m5a+AS/B2e/hR+FBEGMHBBUVhV64/H2I4t2d8f5/p3GIOtSIHSJ60qRmHDRWGrTcy+apvePQktVhh1qc+hFVzxJ1hnHAB4kOjbx+dWg1iM1xos/k1Oss57asrtJ6Wez19UyH/EKVhf+oK6u3y2L3jTYmPpHFPk85Naw8Dua+jbOUdqVkGFuj4jCVPlKmu/fkdy+bKqvzkO0DUy1++fzpR7Vsbknjm2Xx7NBqKdVBwIE6jThVJsrsZnWP52WReK43UK7nTd61qTXWM6YN2XDzWZabKJcSN8+zU3JobfDR5tq1No+P5pZNuwKhddcbTbzDoTfof6i7EDVpZZGPqv/n1F5BDWpQgxrUoAY1qEENalCDGtSgBjWoQQ1qUIMa1KAGNahBDWpQgxrUoAY1qEENalCDGtSg9v/U/kqq9ZvUzp8D3SiLqQTqTUajyfh8pOuydZDEqb0kzTIiIAIiIAIiIMK/RXh5xYHAuXAg2Ph1INiX/v7ZJt2Vg/U9jYr0CSstx7m7XU8CfqRTn5XN6Ja8HVUV1ZvSaWYjzr+PCVt0X3brfmzU/Lg6IZ98WnVYnDCPFWu5/8OfXQLWQhRWB3cWY0fCxqigvvJVh4w12VjkuoT+2v7k7bj3/qLhQp5v1qQw2WIwAAA='
     }
   });
-  /* eslint-enable max-len */
+  /* eslint-enable @stylistic/max-len  */
   /* eslint-enable camelcase */
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberInventoriesBags);

@@ -144,7 +144,7 @@ test('Pit Inventory', async () => {
   expectTypeOf(pitArmor).toEqualTypeOf<PitArmor>();
   expect(pitArmor.helmet).toBeDefined();
   expectTypeOf(pitArmor.helmet).toEqualTypeOf<PitInventoryItem | null>();
-  if (null !== pitArmor.helmet) {
+  if (pitArmor.helmet !== null) {
     expect(pitArmor.helmet).toBeDefined();
     expect(pitArmor.helmet).toBeInstanceOf(PitInventoryItem);
     expectTypeOf(pitArmor.helmet).toEqualTypeOf<PitInventoryItem>();
@@ -163,7 +163,7 @@ test('Pit Inventory', async () => {
   }
   expect(pitArmor.chestplate).toBeDefined();
   expectTypeOf(pitArmor.chestplate).toEqualTypeOf<PitInventoryItem | null>();
-  if (null !== pitArmor.chestplate) {
+  if (pitArmor.chestplate !== null) {
     expect(pitArmor.chestplate).toBeDefined();
     expect(pitArmor.chestplate).toBeInstanceOf(PitInventoryItem);
     expectTypeOf(pitArmor.chestplate).toEqualTypeOf<PitInventoryItem>();
@@ -182,7 +182,7 @@ test('Pit Inventory', async () => {
   }
   expect(pitArmor.leggings).toBeDefined();
   expectTypeOf(pitArmor.leggings).toEqualTypeOf<PitInventoryItem | null>();
-  if (null !== pitArmor.leggings) {
+  if (pitArmor.leggings !== null) {
     expect(pitArmor.leggings).toBeDefined();
     expect(pitArmor.leggings).toBeInstanceOf(PitInventoryItem);
     expectTypeOf(pitArmor.leggings).toEqualTypeOf<PitInventoryItem>();
@@ -201,7 +201,7 @@ test('Pit Inventory', async () => {
   }
   expect(pitArmor.boots).toBeDefined();
   expectTypeOf(pitArmor.boots).toEqualTypeOf<PitInventoryItem | null>();
-  if (null !== pitArmor.boots) {
+  if (pitArmor.boots !== null) {
     expect(pitArmor.boots).toBeDefined();
     expect(pitArmor.boots).toBeInstanceOf(PitInventoryItem);
     expectTypeOf(pitArmor.boots).toEqualTypeOf<PitInventoryItem>();

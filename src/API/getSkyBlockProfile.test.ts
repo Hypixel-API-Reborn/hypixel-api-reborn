@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable @stylistic/max-len  */
 import Client from '../Client.js';
 import Errors from '../Errors.ts';
 import RequestData from '../Private/RequestData.js';
@@ -9,7 +9,7 @@ import SkyBlockProfileBanking from '../Structures/SkyBlock/Profile/Banking/SkyBl
 import SkyBlockProfileCommunityUpgrades from '../Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock.js';
-/* eslint-enable max-len */
+/* eslint-enable @stylistic/max-len  */
 
 test('getSkyBlockProfile (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });

@@ -28,7 +28,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
 async function generateBaseIndex() {
   const lines: string[] = [
     '/* v8 ignore next 1000 */',
-    '/* eslint-disable max-len */',
+    '/* eslint-disable @stylistic/max-len  */',
     '',
     '',
     "import Client from './Client.js';",

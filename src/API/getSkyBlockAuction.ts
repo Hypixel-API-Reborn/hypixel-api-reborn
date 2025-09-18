@@ -34,7 +34,7 @@ class getSkyBlockAction extends Endpoint {
       }
     }
 
-    if (null === filter) throw new Error(Errors.BAD_AUCTION_FILTER);
+    if (filter === null) throw new Error(Errors.BAD_AUCTION_FILTER);
 
     const res = await this.client.requestHandler.request(`/skyblock/auction?${filter}=${query}`, options);
     if (res.options.raw) return res;

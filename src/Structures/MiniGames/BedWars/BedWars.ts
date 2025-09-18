@@ -9,13 +9,13 @@ import type { BedWarsPrestige } from '../../../Types/Player.js';
 function getBedWarsLevel(xp: number): number {
   let level = Math.floor(xp / 487000) * 100;
   xp = xp % 487000;
-  if (500 > xp) return level + xp / 500;
+  if (xp < 500) return level + xp / 500;
   level++;
-  if (1500 > xp) return level + (xp - 500) / 1000;
+  if (xp < 1500) return level + (xp - 500) / 1000;
   level++;
-  if (3500 > xp) return level + (xp - 1500) / 2000;
+  if (xp < 3500) return level + (xp - 1500) / 2000;
   level++;
-  if (7000 > xp) return level + (xp - 3500) / 3500;
+  if (xp < 7000) return level + (xp - 3500) / 3500;
   level++;
   xp -= 7000;
   return level + xp / 5000;

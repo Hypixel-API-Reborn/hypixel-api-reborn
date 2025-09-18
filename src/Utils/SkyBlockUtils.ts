@@ -48,12 +48,12 @@ export async function decode(base64: any, isBuffer: boolean = false): Promise<an
 // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/pets.ts#L70-L101 (modified)
 export function getPetLevel(petExp: number, type: SkyBlockPetId | 'UNKNOWN', rarity: Rarity | 'UNKNOWN'): PetLevelData {
   const rarityOffset =
-    'BINGO' === type ? (CustomPetLeveling[type]?.rarityOffset?.[rarity] ?? petRarityOffset[rarity]) : 0;
+    type === 'BINGO' ? (CustomPetLeveling[type]?.rarityOffset?.[rarity] ?? petRarityOffset[rarity]) : 0;
 
-  const maxLevel = 'GOLDEN_DRAGON' === type ? CustomPetLeveling[type]?.maxLevel : 100;
+  const maxLevel = type === 'GOLDEN_DRAGON' ? CustomPetLeveling[type]?.maxLevel : 100;
 
   const levels: number[] = PetLevels.slice(rarityOffset, rarityOffset + maxLevel - 1).concat(
-    'GOLDEN_DRAGON' === type ? CustomPetLeveling[type]?.petLevels : PetLevels
+    type === 'GOLDEN_DRAGON' ? CustomPetLeveling[type]?.petLevels : PetLevels
   );
 
   let level: number = 1;
@@ -68,7 +68,7 @@ export function getPetLevel(petExp: number, type: SkyBlockPetId | 'UNKNOWN', rar
   }
 
   const xpForNext: number | null = levels[level - 1] ?? null;
-  const progress = null !== xpForNext ? (isNaN(currentXp / xpForNext) ? 0 : currentXp / xpForNext) : 0;
+  const progress = xpForNext !== null ? (isNaN(currentXp / xpForNext) ? 0 : currentXp / xpForNext) : 0;
 
   return { xp: petExp, level, xpForNext, progress, maxed: maxLevel === level, maxLevel, xpMaxLevel, currentXp };
 }
@@ -143,7 +143,7 @@ export type Extra = { type: SkyBlockXPTables; cap?: number };
 // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/leveling/leveling.ts#L43-L126 (modified)
 export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): SkillLevelData {
   const xpTable = getXpTable(extra.type) as Record<number, number>;
-  if ('number' !== typeof xp || isNaN(xp)) {
+  if (typeof xp !== 'number' || isNaN(xp)) {
     xp = 0;
   }
 

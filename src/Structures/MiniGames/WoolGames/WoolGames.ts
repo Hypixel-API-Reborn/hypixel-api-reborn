@@ -36,7 +36,7 @@ class WoolGames {
     const expToLevel100 = 49e4;
     if (exp < baseExp) return minimalExp?.findIndex((x) => exp < x);
     const theoreticalLevel = (exp - baseExp) / 5e3 + baseLevel;
-    if (100 < theoreticalLevel) return 100 + this.convertXPToLevel(exp - expToLevel100);
+    if (theoreticalLevel > 100) return 100 + this.convertXPToLevel(exp - expToLevel100);
     return theoreticalLevel;
   }
 }

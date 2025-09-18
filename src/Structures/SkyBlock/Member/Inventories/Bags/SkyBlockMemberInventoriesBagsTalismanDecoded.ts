@@ -10,8 +10,8 @@ class SkyBlockMemberInventoriesBagsTalismanDecoded extends SkyBlockMemberInvento
   }
 
   private getMagicalPowerItem(rarity: Rarity, id: string = 'UNKNOWN') {
-    if ('HEGEMONY_ARTIFACT' === id) return 2 * (magicalPowerValues?.[rarity] || 0);
-    if ('RIFT_PRISM' === id) return 11;
+    if (id === 'HEGEMONY_ARTIFACT') return 2 * (magicalPowerValues?.[rarity] || 0);
+    if (id === 'RIFT_PRISM') return 11;
     return magicalPowerValues?.[rarity] || 0;
   }
 

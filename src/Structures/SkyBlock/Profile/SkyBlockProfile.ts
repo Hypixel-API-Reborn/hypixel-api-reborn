@@ -30,7 +30,7 @@ class SkyBlockProfile {
     this.createdAt = this.createdTimestamp ? new Date(this.createdTimestamp) : null;
     const members = data?.members || {};
     this.members = Object.keys(members).map((uuid) => new SkyBlockMember(uuid, members?.[uuid] || {}));
-    this.me = null !== extra.uuid ? this.members.find((x) => x.uuid === extra.uuid) || null : null;
+    this.me = extra.uuid !== null ? this.members.find((x) => x.uuid === extra.uuid) || null : null;
     this.gameMode = data?.game_mode || null;
     this.banking = new SkyBlockProfileBanking(data?.banking || {});
     this.profileName = data?.cute_name || 'UNKNOWN';

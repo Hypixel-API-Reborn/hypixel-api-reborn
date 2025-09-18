@@ -13,7 +13,7 @@ class Functions {
   }
 
   isGuildID(id: string): boolean {
-    return 24 === id.length;
+    return id.length === 24;
   }
 }
 

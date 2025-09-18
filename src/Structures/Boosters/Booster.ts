@@ -3,7 +3,7 @@ import type RequestData from '../../Private/RequestData.ts';
 import type { BoosterType } from '../../Types/Booster.js';
 
 export function parseType(data: Record<string, any>): BoosterType {
-  if (true === data.stacked) return 'STACKED';
+  if (data.stacked === true) return 'STACKED';
   if (!data.stacked) return 'QUEUED';
   return 'ACTIVE';
 }
@@ -31,7 +31,7 @@ class Booster {
     this.isActive = Array.isArray(data.stacked);
     this.type = parseType(data);
     this.stackers = Array.isArray(data.stacked) ? Array.from(data.stacked) : [];
-    this.expired = 0 > data.length;
+    this.expired = data.length < 0;
   }
 
   toString(): string {
