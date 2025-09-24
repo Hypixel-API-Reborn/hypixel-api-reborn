@@ -180,8 +180,9 @@ import SkyBlockMemberCrimsonIsleDojoMinigame from './Structures/SkyBlock/Member/
 import SkyBlockMemberCrimsonIsleKuudra from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleKuudra.js';
 import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleKuudraPartyFinder.js';
 import SkyBlockMemberCrimsonIsleMatriarch from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleMatriarch.js';
-import SkyBlockMemberCrimsonIsleTrophyFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFish.js';
-import SkyBlockMemberCrimsonIsleTrophyFishFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFishFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFishCaught from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
+import SkyBlockMemberCrimsonIsleTrophyFishFish from './Structures/SkyBlock/Member/CrimsonIsle/SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFishFish.js';
 import SkyBlockMemberCurrencies from './Structures/SkyBlock/Member/SkyBlockMemberCurrencies.js';
 import SkyBlockMemberDungeons from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeons.js';
 import SkyBlockMemberDungeonsClasses from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsClasses.js';
@@ -490,6 +491,7 @@ export {
   SkyBlockMemberCrimsonIsleKuudraPartyFinder,
   SkyBlockMemberCrimsonIsleMatriarch,
   SkyBlockMemberCrimsonIsleTrophyFish,
+  SkyBlockMemberCrimsonIsleTrophyFishCaught,
   SkyBlockMemberCrimsonIsleTrophyFishFish,
   SkyBlockMemberCurrencies,
   SkyBlockMemberDungeons,
@@ -800,6 +802,7 @@ export default {
   SkyBlockMemberCrimsonIsleKuudraPartyFinder,
   SkyBlockMemberCrimsonIsleMatriarch,
   SkyBlockMemberCrimsonIsleTrophyFish,
+  SkyBlockMemberCrimsonIsleTrophyFishCaught,
   SkyBlockMemberCrimsonIsleTrophyFishFish,
   SkyBlockMemberCurrencies,
   SkyBlockMemberDungeons,

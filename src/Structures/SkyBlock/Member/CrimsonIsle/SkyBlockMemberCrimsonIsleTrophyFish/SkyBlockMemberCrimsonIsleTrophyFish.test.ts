@@ -1,7 +1,8 @@
 import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
 import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleTrophyFishRank } from '../../../../Types/SkyBlock.js';
+import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -48,6 +49,8 @@ test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
   expectTypeOf(data.karateFish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.moldfin).toBeDefined();
   expectTypeOf(data.moldfin).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
+  expect(data.caught).toBeDefined();
+  expectTypeOf(data.caught).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishCaught>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => CrimsonIsleTrophyFishRank>();
   expect(data.toString()).toBeDefined();

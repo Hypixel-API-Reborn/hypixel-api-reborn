@@ -1,11 +1,13 @@
+/* eslint-disable @stylistic/max-len */
 import SkyBlockMemberCrimsonIsle from './SkyBlockMemberCrimsonIsle.js';
 import SkyBlockMemberCrimsonIsleAbiphone from './SkyBlockMemberCrimsonIsleAbiphone.js';
 import SkyBlockMemberCrimsonIsleDojo from './SkyBlockMemberCrimsonIsleDojo.js';
 import SkyBlockMemberCrimsonIsleKuudra from './SkyBlockMemberCrimsonIsleKuudra.js';
 import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.js';
-import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFish.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { CrimsonIsleBoss, CrimsonIsleFaction } from '../../../../Types/SkyBlock.js';
+/* eslint-enable @stylistic/max-len */
 
 test('SkyBlockMemberCrimsonIsle', () => {
   const data = new SkyBlockMemberCrimsonIsle({ stats: 'meow' }, { stats: 'meow' });
