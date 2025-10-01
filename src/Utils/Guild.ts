@@ -15,11 +15,11 @@ export function parseHistory(historyData: Record<string, any>): ExpHistory[] {
     day: x[0],
     date: x[0].match(dateRegExp)
       ? parseDate(
-        x[0]
-          .match(dateRegExp)!
-          .slice(1)
-          .map((x) => parseInt(x, 10))
-      )
+          x[0]
+            .match(dateRegExp)!
+            .slice(1)
+            .map((x) => parseInt(x, 10))
+        )
       : undefined,
     exp: x[1] || 0,
     totalExp:
@@ -31,21 +31,8 @@ export function parseHistory(historyData: Record<string, any>): ExpHistory[] {
 
 export function getGuildLevel(exp: number) {
   const EXP_NEEDED: number[] = [
-    100000,
-    150000,
-    250000,
-    500000,
-    750000,
-    1000000,
-    1250000,
-    1500000,
-    2000000,
-    2500000,
-    2500000,
-    2500000,
-    2500000,
-    2500000,
-    3000000
+    100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000,
+    2500000, 3000000
   ];
   let level = 0;
   for (let i = 0; i <= 1000; i += 1) {
