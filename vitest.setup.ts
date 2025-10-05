@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 config();
-if (1 > (process.env.HYPIXEL_KEY || '').length) throw new Error('No API Key specified!');
+if ((process.env.HYPIXEL_KEY || '').length < 1) throw new Error('No API Key specified!');
 
 export const defaultRequestData = {
   ok: true,
@@ -11,21 +11,21 @@ export const defaultRequestData = {
   statusText: '',
   type: 'basic',
   url: '',
-  clone: function (): Response {
+  clone: (): Response => {
     throw new Error('Function not implemented.');
   },
   body: null,
   bodyUsed: false,
-  arrayBuffer: function (): Promise<ArrayBuffer> {
+  arrayBuffer: (): Promise<ArrayBuffer> => {
     throw new Error('Function not implemented.');
   },
-  blob: function (): Promise<Blob> {
+  blob: (): Promise<Blob> => {
     throw new Error('Function not implemented.');
   },
-  formData: function (): Promise<FormData> {
+  formData: (): Promise<FormData> => {
     throw new Error('Function not implemented.');
   },
-  text: function (): Promise<string> {
+  text: (): Promise<string> => {
     throw new Error('Function not implemented.');
   }
 };

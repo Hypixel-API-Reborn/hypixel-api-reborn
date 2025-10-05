@@ -34,23 +34,23 @@ const info = {
   coveredmethods: Number(codeStats.coveredmethods)
 };
 
-if (95 > (info.coveredstatements / info.statements) * 100) {
+if ((info.coveredstatements / info.statements) * 100 < 95) {
   throw new Error('Statements is required to be 95% or higher');
 }
 
-if (95 > (info.coveredconditionals / info.conditionals) * 100) {
+if ((info.coveredconditionals / info.conditionals) * 100 < 95) {
   throw new Error('Conditionals is required to be 95% or higher');
 }
 
-if (95 > (info.coveredmethods / info.methods) * 100) {
+if ((info.coveredmethods / info.methods) * 100 < 95) {
   throw new Error('Methods is required to be 95% or higher');
 }
 
 if (
-  95 >
   ((info.coveredstatements + info.coveredconditionals + info.coveredmethods) /
     (info.statements + info.conditionals + info.methods)) *
-    100
+    100 <
+  95
 ) {
   throw new Error('Everythng Combinded is required to be 95% or higher');
 }

@@ -17,8 +17,8 @@
     "url": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn/issues"
   },
   "scripts": {
-    "lint:check": "pnpm exec eslint src/",
-    "lint": "pnpm exec eslint src/ --fix",
+    "lint": "pnpm lint:check --fix",
+    "lint:check": "pnpm exec eslint",
     "prettier:check": "pnpm exec prettier --check .",
     "prettier": "pnpm exec prettier --write .",
     "build": "pnpm exec tsc",
