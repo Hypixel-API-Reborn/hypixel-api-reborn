@@ -7,7 +7,7 @@ import SkyBlockMemberInventoriesInventory from './Inventory/SkyBlockMemberInvent
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventories', () => {
-  const data = new SkyBlockMemberInventories({ stats: 'meow' });
+  const data = new SkyBlockMemberInventories({ stats: 'meow' }, { stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberInventories);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberInventories>();
@@ -34,4 +34,8 @@ test('SkyBlockMemberInventories', () => {
     expect(data.sacksCounts[item]).toBeGreaterThanOrEqual(0);
     expectTypeOf(data.sacksCounts[item]).toEqualTypeOf<number>();
   });
+  expect(data.candy).toBeDefined();
+  expectTypeOf(data.candy).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.carnivalMask).toBeDefined();
+  expectTypeOf(data.carnivalMask).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
 });

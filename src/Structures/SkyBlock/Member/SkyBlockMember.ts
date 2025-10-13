@@ -70,7 +70,7 @@ class SkyBlockMember {
     this.quests = new SkyBlockMemberQuests(data?.quests || {});
     this.slayers = new SkyBlockMemberSlayers(data?.slayer || {});
     this.rift = new SkyBlockMemberRift(data?.rift || {});
-    this.inventory = new SkyBlockMemberInventories(data?.inventory || {});
+    this.inventory = new SkyBlockMemberInventories(data?.inventory || {}, data?.shared_inventory || {});
   }
 
   toString(): UUID {

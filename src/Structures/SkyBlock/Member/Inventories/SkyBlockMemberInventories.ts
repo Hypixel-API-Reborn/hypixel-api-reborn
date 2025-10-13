@@ -14,7 +14,9 @@ class SkyBlockMemberInventories {
   personalVault: SkyBlockMemberInventoriesInventory;
   wardrobe: SkyBlockMemberInventoriesInventory;
   sacksCounts: Record<string, number>;
-  constructor(data: Record<string, any>) {
+  candy: SkyBlockMemberInventoriesInventory;
+  carnivalMask: SkyBlockMemberInventoriesInventory;
+  constructor(data: Record<string, any>, shared: Record<string, any>) {
     this.inventory = new SkyBlockMemberInventoriesInventory(data?.inv_contents || {});
     this.armor = new SkyBlockMemberInventoriesArmor(data?.inv_armor || {});
     this.equipment = new SkyBlockMemberInventoriesEquipment(data?.equipment_contents || {});
@@ -27,6 +29,8 @@ class SkyBlockMemberInventories {
     this.personalVault = new SkyBlockMemberInventoriesInventory(data?.personal_vault_contents || {});
     this.wardrobe = new SkyBlockMemberInventoriesInventory({ ...(data?.wardrobe_contents || {}) });
     this.sacksCounts = data?.sacks_counts || {};
+    this.candy = new SkyBlockMemberInventoriesInventory(shared?.candy_inventory_contents || {});
+    this.carnivalMask = new SkyBlockMemberInventoriesInventory(shared?.carnival_mask_inventory_contents || {});
   }
 }
 
