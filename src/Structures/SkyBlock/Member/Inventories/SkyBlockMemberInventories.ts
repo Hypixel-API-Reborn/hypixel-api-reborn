@@ -13,6 +13,7 @@ class SkyBlockMemberInventories {
   bags: SkyBlockMemberInventoriesBags;
   personalVault: SkyBlockMemberInventoriesInventory;
   wardrobe: SkyBlockMemberInventoriesInventory;
+  sacksCounts: Record<string, number>;
   constructor(data: Record<string, any>) {
     this.inventory = new SkyBlockMemberInventoriesInventory(data?.inv_contents || {});
     this.armor = new SkyBlockMemberInventoriesArmor(data?.inv_armor || {});
@@ -25,6 +26,7 @@ class SkyBlockMemberInventories {
     this.bags = new SkyBlockMemberInventoriesBags(data?.bag_contents || {});
     this.personalVault = new SkyBlockMemberInventoriesInventory(data?.personal_vault_contents || {});
     this.wardrobe = new SkyBlockMemberInventoriesInventory({ ...(data?.wardrobe_contents || {}) });
+    this.sacksCounts = data?.sacks_counts || {};
   }
 }
 

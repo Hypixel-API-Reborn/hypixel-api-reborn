@@ -27,4 +27,11 @@ test('SkyBlockMemberInventories', () => {
   expectTypeOf(data.personalVault).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
   expect(data.wardrobe).toBeDefined();
   expectTypeOf(data.wardrobe).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.sacksCounts).toBeDefined();
+  expectTypeOf(data.sacksCounts).toEqualTypeOf<Record<string, number>>();
+  Object.keys(data.sacksCounts).forEach((item) => {
+    expect(data.sacksCounts[item]).toBeDefined();
+    expect(data.sacksCounts[item]).toBeGreaterThanOrEqual(0);
+    expectTypeOf(data.sacksCounts[item]).toEqualTypeOf<number>();
+  });
 });
