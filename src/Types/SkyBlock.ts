@@ -1,5 +1,7 @@
 /* v8 ignore next 10000 */
 
+import type SkyBlockMemberLeveling from '../Structures/SkyBlock/Member/SkyBlockMemberLeveling.ts';
+import type SkyBlockMemberPlayerData from '../Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerData.ts';
 import type { SortName } from './Global.js';
 
 export interface RawAbiphoneData {
@@ -3523,4 +3525,100 @@ export interface BestiaryMobsData {
   backwater_bayou: RawBestiaryIsland;
   catacombs: RawBestiaryIsland;
   garden: RawBestiaryIsland;
+}
+
+export interface SkyHelperNetWorthProfileCurrenciesEssenceEssence {
+  current: number;
+}
+
+export interface SkyHelperNetWorthProfileCurrenciesEssence {
+  WITHER: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  DRAGON: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  SPIDER: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  UNDEAD: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  DIAMOND: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  GOLD: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  ICE: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+  CRIMSON: SkyHelperNetWorthProfileCurrenciesEssenceEssence;
+}
+
+export interface SkyHelperNetWorthProfileCurrencies {
+  coin_purse: number;
+  essence: SkyHelperNetWorthProfileCurrenciesEssence;
+}
+
+export interface SkyHelperNetWorthProfileProfile {
+  bank_account: number;
+}
+
+export interface SkyHelperNetWorthProfileInventoryInventory {
+  data: string;
+}
+
+export interface SkyHelperNetWorthProfileInventoryBackpack {
+  '0': SkyHelperNetWorthProfileInventoryInventory;
+  '1': SkyHelperNetWorthProfileInventoryInventory;
+  '2': SkyHelperNetWorthProfileInventoryInventory;
+  '3': SkyHelperNetWorthProfileInventoryInventory;
+  '4': SkyHelperNetWorthProfileInventoryInventory;
+  '5': SkyHelperNetWorthProfileInventoryInventory;
+  '6': SkyHelperNetWorthProfileInventoryInventory;
+  '7': SkyHelperNetWorthProfileInventoryInventory;
+  '8': SkyHelperNetWorthProfileInventoryInventory;
+  '9': SkyHelperNetWorthProfileInventoryInventory;
+  '10': SkyHelperNetWorthProfileInventoryInventory;
+  '11': SkyHelperNetWorthProfileInventoryInventory;
+  '12': SkyHelperNetWorthProfileInventoryInventory;
+  '13': SkyHelperNetWorthProfileInventoryInventory;
+  '14': SkyHelperNetWorthProfileInventoryInventory;
+  '15': SkyHelperNetWorthProfileInventoryInventory;
+  '16': SkyHelperNetWorthProfileInventoryInventory;
+  '17': SkyHelperNetWorthProfileInventoryInventory;
+}
+
+export interface SkyHelperNetWorthProfileInventoryBagContents {
+  talisman_bag: SkyHelperNetWorthProfileInventoryInventory;
+  fishing_bag: SkyHelperNetWorthProfileInventoryInventory;
+  potion_bag: SkyHelperNetWorthProfileInventoryInventory;
+  sacks_bag: SkyHelperNetWorthProfileInventoryInventory;
+  quiver: SkyHelperNetWorthProfileInventoryInventory;
+}
+
+export interface SkyHelperNetWorthProfileInventory {
+  inv_armor: SkyHelperNetWorthProfileInventoryInventory;
+  equipment_contents: SkyHelperNetWorthProfileInventoryInventory;
+  wardrobe_contents: SkyHelperNetWorthProfileInventoryInventory;
+  inv_contents: SkyHelperNetWorthProfileInventoryInventory;
+  ender_chest_contents: SkyHelperNetWorthProfileInventoryInventory;
+  personal_vault_contents: SkyHelperNetWorthProfileInventoryInventory;
+  backpack_contents: SkyHelperNetWorthProfileInventoryBackpack;
+  backpack_icons: SkyHelperNetWorthProfileInventoryBackpack;
+  bag_contents: SkyHelperNetWorthProfileInventoryBagContents;
+}
+
+export interface SkyHelperNetWorthProfileSharedInventory {
+  candy_inventory_contents: SkyHelperNetWorthProfileInventoryInventory;
+  carnival_mask_inventory_contents: SkyHelperNetWorthProfileInventoryInventory;
+}
+
+export interface SkyHelperNetWorthProfilePetsDataPet {
+  type: SkyBlockPetId | 'UNKNOWN';
+  tier: 'UNKNOWN' | Rarity;
+  exp: number;
+  heldItem: string | null;
+  skin: string | null;
+}
+
+export interface SkyHelperNetWorthProfilePetsData {
+  pets: SkyHelperNetWorthProfilePetsDataPet[];
+}
+
+export interface SkyHelperNetWorthProfile {
+  currencies: SkyHelperNetWorthProfileCurrencies;
+  profile: SkyHelperNetWorthProfileProfile;
+  player_data: SkyBlockMemberPlayerData;
+  leveling: SkyBlockMemberLeveling;
+  inventory: SkyHelperNetWorthProfileInventory;
+  shared_inventory: SkyHelperNetWorthProfileSharedInventory;
+  pets_data: SkyHelperNetWorthProfilePetsData;
 }

@@ -23,6 +23,7 @@ import {
   petRarityOffset
 } from './Constants.js';
 import { parse, simplify } from 'prismarine-nbt';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
 import type {
   LevelData,
   PetLevelData,
@@ -30,7 +31,8 @@ import type {
   SkillLevelData,
   SkyBlockPetId,
   SkyBlockSlayer,
-  SkyBlockXPTables
+  SkyBlockXPTables,
+  SkyHelperNetWorthProfile
 } from '../Types/SkyBlock.js';
 
 export async function decode(base64: any, isBuffer: boolean = false): Promise<any[]> {
@@ -187,4 +189,95 @@ export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): Sk
   const maxed = level >= maxLevel;
 
   return { xp, level, xpForNext, progress, maxed, maxLevel, currentXp };
+}
+
+export function PrepareSkyBlockProfileForSkyHelperNetWorth(
+  profile: SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> }
+): SkyHelperNetWorthProfile {
+  /* eslint-disable camelcase */
+  /* eslint-disable quote-props */
+  return {
+    currencies: {
+      coin_purse: profile.me.currencies.purse,
+      essence: {
+        WITHER: { current: profile.me.currencies.witherEssence },
+        DRAGON: { current: profile.me.currencies.dragonEssence },
+        SPIDER: { current: profile.me.currencies.spiderEssence },
+        UNDEAD: { current: profile.me.currencies.undeadEssence },
+        DIAMOND: { current: profile.me.currencies.diamondEssence },
+        GOLD: { current: profile.me.currencies.goldEssence },
+        ICE: { current: profile.me.currencies.iceEssence },
+        CRIMSON: { current: profile.me.currencies.crimsonEssence }
+      }
+    },
+    profile: { bank_account: profile.banking.balance },
+    player_data: profile.me.playerData,
+    leveling: profile.me.leveling,
+    inventory: {
+      inv_armor: { data: profile.me.inventory.armor.base64 ?? '' },
+      equipment_contents: { data: profile.me.inventory.equipment.base64 ?? '' },
+      wardrobe_contents: { data: profile.me.inventory.wardrobe.base64 ?? '' },
+      inv_contents: { data: profile.me.inventory.inventory.base64 ?? '' },
+      ender_chest_contents: { data: profile.me.inventory.enderChest.base64 ?? '' },
+      personal_vault_contents: { data: profile.me.inventory.personalVault.base64 ?? '' },
+      backpack_contents: {
+        '0': { data: profile.me.inventory.backpacks.backpack1?.backpackContentsBase64 ?? '' },
+        '1': { data: profile.me.inventory.backpacks.backpack2?.backpackContentsBase64 ?? '' },
+        '2': { data: profile.me.inventory.backpacks.backpack3?.backpackContentsBase64 ?? '' },
+        '3': { data: profile.me.inventory.backpacks.backpack4?.backpackContentsBase64 ?? '' },
+        '4': { data: profile.me.inventory.backpacks.backpack5?.backpackContentsBase64 ?? '' },
+        '5': { data: profile.me.inventory.backpacks.backpack6?.backpackContentsBase64 ?? '' },
+        '6': { data: profile.me.inventory.backpacks.backpack7?.backpackContentsBase64 ?? '' },
+        '7': { data: profile.me.inventory.backpacks.backpack8?.backpackContentsBase64 ?? '' },
+        '8': { data: profile.me.inventory.backpacks.backpack9?.backpackContentsBase64 ?? '' },
+        '9': { data: profile.me.inventory.backpacks.backpack10?.backpackContentsBase64 ?? '' },
+        '10': { data: profile.me.inventory.backpacks.backpack11?.backpackContentsBase64 ?? '' },
+        '11': { data: profile.me.inventory.backpacks.backpack12?.backpackContentsBase64 ?? '' },
+        '12': { data: profile.me.inventory.backpacks.backpack13?.backpackContentsBase64 ?? '' },
+        '13': { data: profile.me.inventory.backpacks.backpack14?.backpackContentsBase64 ?? '' },
+        '14': { data: profile.me.inventory.backpacks.backpack15?.backpackContentsBase64 ?? '' },
+        '15': { data: profile.me.inventory.backpacks.backpack16?.backpackContentsBase64 ?? '' },
+        '16': { data: profile.me.inventory.backpacks.backpack17?.backpackContentsBase64 ?? '' },
+        '17': { data: profile.me.inventory.backpacks.backpack18?.backpackContentsBase64 ?? '' }
+      },
+      backpack_icons: {
+        '0': { data: profile.me.inventory.backpacks.backpack1?.backpackItemBase64 ?? '' },
+        '1': { data: profile.me.inventory.backpacks.backpack2?.backpackItemBase64 ?? '' },
+        '2': { data: profile.me.inventory.backpacks.backpack3?.backpackItemBase64 ?? '' },
+        '3': { data: profile.me.inventory.backpacks.backpack4?.backpackItemBase64 ?? '' },
+        '4': { data: profile.me.inventory.backpacks.backpack5?.backpackItemBase64 ?? '' },
+        '5': { data: profile.me.inventory.backpacks.backpack6?.backpackItemBase64 ?? '' },
+        '6': { data: profile.me.inventory.backpacks.backpack7?.backpackItemBase64 ?? '' },
+        '7': { data: profile.me.inventory.backpacks.backpack8?.backpackItemBase64 ?? '' },
+        '8': { data: profile.me.inventory.backpacks.backpack9?.backpackItemBase64 ?? '' },
+        '9': { data: profile.me.inventory.backpacks.backpack10?.backpackItemBase64 ?? '' },
+        '10': { data: profile.me.inventory.backpacks.backpack11?.backpackItemBase64 ?? '' },
+        '11': { data: profile.me.inventory.backpacks.backpack12?.backpackItemBase64 ?? '' },
+        '12': { data: profile.me.inventory.backpacks.backpack13?.backpackItemBase64 ?? '' },
+        '13': { data: profile.me.inventory.backpacks.backpack14?.backpackItemBase64 ?? '' },
+        '14': { data: profile.me.inventory.backpacks.backpack15?.backpackItemBase64 ?? '' },
+        '15': { data: profile.me.inventory.backpacks.backpack16?.backpackItemBase64 ?? '' },
+        '16': { data: profile.me.inventory.backpacks.backpack17?.backpackItemBase64 ?? '' },
+        '17': { data: profile.me.inventory.backpacks.backpack18?.backpackItemBase64 ?? '' }
+      },
+      bag_contents: {
+        talisman_bag: { data: profile.me.inventory.bags.talisman.base64 ?? '' },
+        fishing_bag: { data: profile.me.inventory.bags.fishing.base64 ?? '' },
+        potion_bag: { data: profile.me.inventory.bags.potion.base64 ?? '' },
+        sacks_bag: { data: profile.me.inventory.bags.sacks.base64 ?? '' },
+        quiver: { data: profile.me.inventory.bags.quiver.base64 ?? '' }
+      }
+    },
+    shared_inventory: {
+      candy_inventory_contents: { data: profile.me.inventory.candy.base64 ?? '' },
+      carnival_mask_inventory_contents: { data: profile.me.inventory.carnivalMask.base64 ?? '' }
+    },
+    pets_data: {
+      pets: profile.me.pets.pets.map((pet) => {
+        return { type: pet.type, tier: pet.tier, exp: pet.level.xp, heldItem: pet.heldItem, skin: pet.skin };
+      })
+    }
+  };
+  /* eslint-enable camelcase */
+  /* eslint-enable quote-props */
 }

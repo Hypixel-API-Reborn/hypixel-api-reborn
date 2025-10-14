@@ -3,6 +3,7 @@
 
 import Client from './Client.js';
 import Errors from './Errors.js';
+
 export * from './Types/API.js';
 export * from './Types/Booster.js';
 export * from './Types/Client.js';
@@ -14,6 +15,15 @@ export * from './Types/Player.js';
 export * from './Types/Requests.js';
 export * from './Types/SkyBlock.js';
 export * from './Types/Static.js';
+
+export * from './Utils/Constants.js';
+export * from './Utils/Divide.js';
+export * from './Utils/Guild.js';
+export * from './Utils/Oscillation.js';
+export * from './Utils/RemoveSnakeCase.js';
+export * from './Utils/Romanize.js';
+export * from './Utils/SkyBlockUtils.js';
+export * from './Utils/TicksToMilliseconds.js';
 
 import Achievements from './Structures/Static/Achievements/Achievements.js';
 import Arcade from './Structures/MiniGames/Arcade/Arcade.js';

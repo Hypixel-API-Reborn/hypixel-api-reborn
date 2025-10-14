@@ -32,11 +32,20 @@ async function generateBaseIndex() {
     '',
     '',
     "import Client from './Client.js';",
-    "import Errors from './Errors.js';"
+    "import Errors from './Errors.js';",
+    ''
   ];
 
   const typesPaths = await scanDirectory('./src/Types/');
   typesPaths.forEach((path) => {
+    const fixedPath = path.replaceAll('.ts', '.js');
+    lines.push(`export * from '${fixedPath}';`);
+  });
+
+  lines.push('');
+
+  const utilsPaths = await scanDirectory('./src/Utils/');
+  utilsPaths.forEach((path) => {
     const fixedPath = path.replaceAll('.ts', '.js');
     lines.push(`export * from '${fixedPath}';`);
   });
