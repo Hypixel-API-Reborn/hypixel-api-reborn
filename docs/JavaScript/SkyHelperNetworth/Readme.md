@@ -2,7 +2,7 @@
 
 This will explain how to convert a Hypixel-API-Reborn API request into useable data that can be parsed into SkyHelper
 Networth. This assumes that you will be using JavaScript. Please checkout
-[the TypeScript version](../TypeScript/SkyHelperNetWorth.md) of this guide if you need JavaScript
+[the TypeScript version](../TypeScript/SkyHelperNetWorth.md) of this guide if you need TypeScript
 
 ## Requirements
 
