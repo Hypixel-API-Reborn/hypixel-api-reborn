@@ -4,6 +4,7 @@ import type RequestData from '../Private/RequestData.ts';
 import type SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
 import type { RequestOptions } from './Requests.js';
 
 export interface PlayerRequestOptions extends RequestOptions {
@@ -33,6 +34,9 @@ export interface SkyBlockAuctionsResult {
   isRaw(): this is RequestData;
 }
 export type WithRaw<T> = T & { isRaw(): this is RequestData };
+export type WithSelectedProfile<T> = WithRaw<T> & {
+  selectedProfile?: SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> };
+};
 
 export type GuildFetchOptions = 'id' | 'name' | 'player';
 export type AuctionFetchOptions = 'PROFILE' | 'PLAYER' | 'AUCTION_ID';

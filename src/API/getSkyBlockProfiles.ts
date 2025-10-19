@@ -5,13 +5,13 @@ import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import type SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import type { SkyBlockProfileName } from '../Types/SkyBlock.js';
-import type { SkyBlockRequestOptions, WithRaw } from '../Types/API.js';
+import type { SkyBlockRequestOptions, WithSelectedProfile } from '../Types/API.js';
 
 class getSkyBlockProfiles extends Endpoint {
   override async execute(
     query: string,
     options?: SkyBlockRequestOptions
-  ): Promise<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
+  ): Promise<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
     if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/skyblock/profiles?uuid=${query}`, options);
@@ -25,11 +25,21 @@ class getSkyBlockProfiles extends Endpoint {
       profiles.set(parsedProfile.profileName, parsedProfile);
     }
 
+    const selectedProfile = Array.from(profiles.values()).find(
+      (profile): profile is SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> } =>
+        profile.selected === true && this.hasMe(profile)
+    );
+
     return Object.assign(profiles, {
       isRaw(): this is RequestData {
         return false;
-      }
+      },
+      selectedProfile
     });
+  }
+
+  private hasMe(profile: SkyBlockProfile): profile is SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> } {
+    return profile.me !== null;
   }
 
   private async handleGettingSkyBlockGarden(profileId: string): Promise<SkyBlockGarden | null> {

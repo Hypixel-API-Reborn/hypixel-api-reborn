@@ -191,7 +191,7 @@ export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): Sk
   return { xp, level, xpForNext, progress, maxed, maxLevel, currentXp };
 }
 
-export function PrepareSkyBlockProfileForSkyHelperNetWorth(
+export function PrepareSkyBlockProfileForSkyHelperNetworth(
   profile: SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> }
 ): SkyHelperNetWorthProfile {
   /* eslint-disable camelcase */

@@ -1,0 +1,14 @@
+{
+  "name": "@hypixel-api-reborn-docs/typescript-sky-helper-networth",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm exec tsc --build"
+  },
+  "dependencies": {
+    "hypixel-api-reborn": "catalog:"
+  },
+  "devDependencies": {
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

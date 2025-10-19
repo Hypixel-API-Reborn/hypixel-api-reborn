@@ -38,7 +38,8 @@ import type {
   SkyBlockAuctionResult,
   SkyBlockAuctionsResult,
   SkyBlockRequestOptions,
-  WithRaw
+  WithRaw,
+  WithSelectedProfile
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
 import type { RequestOptions } from './Types/Requests.js';
@@ -235,7 +236,7 @@ class Client {
   public getSkyBlockProfiles(
     query: string,
     options?: SkyBlockRequestOptions
-  ): Promise<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
+  ): Promise<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
     throw new Error(Errors.ENDPOINT_NOT_LOADED);
   }
 

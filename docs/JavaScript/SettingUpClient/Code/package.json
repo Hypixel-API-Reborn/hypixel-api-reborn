@@ -1,0 +1,7 @@
+{
+  "name": "@hypixel-api-reborn-docs/javascript-setting-up-client",
+  "type": "module",
+  "dependencies": {
+    "hypixel-api-reborn": "catalog:"
+  }
+}

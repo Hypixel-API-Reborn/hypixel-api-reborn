@@ -9,7 +9,7 @@ import SkyBlockProfileBanking from '../Structures/SkyBlock/Profile/Banking/SkyBl
 import SkyBlockProfileCommunityUpgrades from '../Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock.js';
-import type { WithRaw } from '../Types/API.js';
+import type { WithSelectedProfile } from '../Types/API.js';
 /* eslint-enable @stylistic/max-len  */
 
 test('getSkyBlockProfiles (raw)', async () => {
@@ -17,7 +17,9 @@ test('getSkyBlockProfiles (raw)', async () => {
   const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e', { raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<
+    WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData
+  >();
   expect(data.isRaw()).toBe(true);
   client.destroy();
 });
@@ -42,7 +44,9 @@ test('getSkyBlockProfiles', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
   const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<WithRaw<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData>();
+  expectTypeOf(data).toEqualTypeOf<
+    WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData
+  >();
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
   data.forEach((profile) => {

@@ -1,0 +1,29 @@
+{
+  "name": "@hypixel-api-reborn-docs/root",
+  "scripts": {
+    "generate-packages": "pnpm exec tsx ./src/GeneratePackages.ts"
+  },
+  "packageManager": "pnpm@9.9.0",
+  "type": "module",
+  "workspaces": {
+    "packages": [
+      "./TypeScript/SettingUpClient/Code/*",
+      "./TypeScript/SkyHelperNetworth/Code/*",
+      "./JavaScript/SettingUpClient/Code/*",
+      "./JavaScript/SkyHelperNetworth/Code/*"
+    ]
+  },
+  "engines": {
+    "node": ">=20.16.0",
+    "pnpm": ">=9.9.0",
+    "npm": "forbidden, use pnpm instead",
+    "yarn": "forbidden, use pnpm instead",
+    "bun": "forbidden, use pnpm instead"
+  },
+  "devDependencies": {
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "prettier": "catalog:",
+    "yaml": "catalog:"
+  }
+}
