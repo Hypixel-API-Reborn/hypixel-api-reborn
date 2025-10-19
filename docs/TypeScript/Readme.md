@@ -7,3 +7,4 @@ These guides assumes that you will be using TypeScript. Please checkout
 
 - [Setting up Hypixel-API-Reborn's Client](SettingUpClient/Readme.md)
 - [Fetching SkyHelper Networth using Hypixel-API-Reborn](SkyHelperNetworth/Readme.md)
+- [Understanding Is Raw](UnderstandingIsRaw/Readme.md)
