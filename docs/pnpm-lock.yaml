@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     hypixel-api-reborn:
-      specifier: 12.0.0-13
-      version: 12.0.0-13
+      specifier: 12.0.0-14
+      version: 12.0.0-14
     prettier:
       specifier: ^3.6.2
       version: 3.6.2
@@ -43,19 +43,19 @@ importers:
     dependencies:
       hypixel-api-reborn:
         specifier: 'catalog:'
-        version: 12.0.0-13
+        version: 12.0.0-14
 
   JavaScript/SkyHelperNetworth/Code:
     dependencies:
       hypixel-api-reborn:
         specifier: 'catalog:'
-        version: 12.0.0-13
+        version: 12.0.0-14
 
   TypeScript/SettingUpClient/Code:
     dependencies:
       hypixel-api-reborn:
         specifier: 'catalog:'
-        version: 12.0.0-13
+        version: 12.0.0-14
     devDependencies:
       tsx:
         specifier: 'catalog:'
@@ -68,7 +68,7 @@ importers:
     dependencies:
       hypixel-api-reborn:
         specifier: 'catalog:'
-        version: 12.0.0-13
+        version: 12.0.0-14
     devDependencies:
       tsx:
         specifier: 'catalog:'
@@ -282,8 +282,8 @@ packages:
   get-tsconfig@4.12.0:
     resolution: {integrity: sha512-LScr2aNr2FbjAjZh2C6X6BxRx1/x+aTDExct/xyq2XKbYOiG5c0aK7pMsSuyc0brz3ibr/lbQiHD9jzt4lccJw==}
 
-  hypixel-api-reborn@12.0.0-13:
-    resolution: {integrity: sha512-sIL4fCMVfPGepMVGYAaEbYT7DKegk8QeVe+dFhBh0+haSDQZvMqCeR6JMADVJjaTpNGewL3STpYg685MT1BElQ==}
+  hypixel-api-reborn@12.0.0-14:
+    resolution: {integrity: sha512-HnInZRj7P1TvCnPnIVYuhuiYsWzTSoSbj1dWHREbO5L6o9RuDeqUd5aPIF1lQ57tZ/gp8bLZrxzhd/B78NXOAA==}
     engines: {node: '>=20.16.0'}
 
   ieee754@1.2.1:
@@ -517,7 +517,7 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
-  hypixel-api-reborn@12.0.0-13:
+  hypixel-api-reborn@12.0.0-14:
     dependencies:
       minecraft-data: 3.99.1
       node-cache: 5.1.2
