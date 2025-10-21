@@ -266,7 +266,8 @@ export function PrepareSkyBlockProfileForSkyHelperNetworth(
         potion_bag: { data: profile.me.inventory.bags.potion.base64 ?? '' },
         sacks_bag: { data: profile.me.inventory.bags.sacks.base64 ?? '' },
         quiver: { data: profile.me.inventory.bags.quiver.base64 ?? '' }
-      }
+      },
+      sacks_counts: profile.me.inventory.sacksCounts
     },
     shared_inventory: {
       candy_inventory_contents: { data: profile.me.inventory.candy.base64 ?? '' },
@@ -276,7 +277,8 @@ export function PrepareSkyBlockProfileForSkyHelperNetworth(
       pets: profile.me.pets.pets.map((pet) => {
         return { type: pet.type, tier: pet.tier, exp: pet.level.xp, heldItem: pet.heldItem, skin: pet.skin };
       })
-    }
+    },
+    sacks_counts: profile.me.inventory.sacksCounts
   };
   /* eslint-enable camelcase */
   /* eslint-enable quote-props */

@@ -3594,6 +3594,7 @@ export interface SkyHelperNetWorthProfileInventory {
   backpack_contents: SkyHelperNetWorthProfileInventoryBackpack;
   backpack_icons: SkyHelperNetWorthProfileInventoryBackpack;
   bag_contents: SkyHelperNetWorthProfileInventoryBagContents;
+  sacks_counts: Record<string, number>;
 }
 
 export interface SkyHelperNetWorthProfileSharedInventory {
@@ -3621,4 +3622,5 @@ export interface SkyHelperNetWorthProfile {
   inventory: SkyHelperNetWorthProfileInventory;
   shared_inventory: SkyHelperNetWorthProfileSharedInventory;
   pets_data: SkyHelperNetWorthProfilePetsData;
+  sacks_counts: Record<string, number>;
 }
