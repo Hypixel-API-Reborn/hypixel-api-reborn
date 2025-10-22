@@ -1,5 +1,5 @@
-import { config } from 'dotenv';
-config();
+import 'dotenv/config';
+
 if ((process.env.HYPIXEL_KEY || '').length < 1) throw new Error('No API Key specified!');
 
 export const defaultRequestData = {
