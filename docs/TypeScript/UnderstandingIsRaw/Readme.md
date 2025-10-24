@@ -6,14 +6,14 @@ This assumes that you will be using TypeScript. There will not be a JavaScript v
 
 ## Requirements
 
-- Hypixel-API-Reborn v12.0.0-14 or **higher**
+- Hypixel-API-Reborn v12.0.0-15 or **higher**
 - TypeScript v5.9.2 or **higher**
 
 ## Assumptions
 
 This guide assumes the following
 
-- You are using Hypixel-API-Reborn v12.0.0-14
+- You are using Hypixel-API-Reborn v12.0.0-15
 - You are using TypeScript v5.9.2
 
 ## Why
