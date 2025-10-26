@@ -27,8 +27,12 @@ class RequestHandler {
   }
 
   async request(endpoint: string, options?: RequestOptions): Promise<RequestData> {
-    options = { raw: options?.raw ?? false, noCache: options?.noCache ?? false };
-    if (this.client.cacheHandler.has(endpoint)) {
+    options = {
+      raw: options?.raw ?? false,
+      noCache: options?.noCache ?? false,
+      noCacheCheck: options?.noCacheCheck ?? false
+    };
+    if (options.noCacheCheck && this.client.cacheHandler.has(endpoint)) {
       const data = this.client.cacheHandler.get(endpoint);
       return new RequestData(data.data, data.headers, {
         status: 200,
