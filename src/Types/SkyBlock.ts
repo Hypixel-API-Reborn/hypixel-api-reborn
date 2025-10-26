@@ -2,6 +2,7 @@
 
 import type SkyBlockMemberLeveling from '../Structures/SkyBlock/Member/SkyBlockMemberLeveling.ts';
 import type SkyBlockMemberPlayerData from '../Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerData.ts';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
 import type { SortName } from './Global.js';
 
 export interface RawAbiphoneData {
@@ -3624,3 +3625,5 @@ export interface SkyHelperNetWorthProfile {
   pets_data: SkyHelperNetWorthProfilePetsData;
   sacks_counts: Record<string, number>;
 }
+
+export type SkyblockProfileWithMe = SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> };
