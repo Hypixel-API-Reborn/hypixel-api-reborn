@@ -12,6 +12,7 @@ import type { BarnPlot, BarnSkin, SkillLevelData } from '../Types/SkyBlock.js';
 
 test('getSkyBlockGarden (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   await expect(() => client.getSkyBlockGarden()).rejects.toThrowError(Errors.NO_UUID);
@@ -20,6 +21,7 @@ test('getSkyBlockGarden (no input)', async () => {
 
 test('getSkyBlockGarden (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494', { raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -29,6 +31,7 @@ test('getSkyBlockGarden (raw)', async () => {
 
 test('getSkyBlockGarden', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockGarden);

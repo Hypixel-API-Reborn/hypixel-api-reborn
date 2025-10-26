@@ -89,6 +89,7 @@ test('Pit', () => {
 
 test('Pit Inventory', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getPlayer('3457688aa57c4d71ab9d22b04f9160db');
   expect(data.isRaw()).toBe(false);
   if (data.isRaw()) return;
@@ -218,4 +219,5 @@ test('Pit Inventory', async () => {
     expect(pitArmor.boots.extraAttributes).toBeDefined();
     expectTypeOf(pitArmor.boots.extraAttributes).toEqualTypeOf<object | null>();
   }
+  client.destroy();
 });

@@ -6,6 +6,7 @@ import { expect, expectTypeOf, test, vi } from 'vitest';
 
 test('RateLimit (None)', () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client).toBeDefined();
   expectTypeOf(client).toEqualTypeOf<Client>();
 
@@ -36,8 +37,7 @@ test('RateLimit (None)', () => {
 
 test('RateLimit (Auto)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { rateLimit: 'NONE' });
-  expect(client).toBeDefined();
-  expectTypeOf(client).toEqualTypeOf<Client>();
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
 
   expect(client.rateLimit).toBeDefined();
   expectTypeOf(client.rateLimit).toEqualTypeOf<RateLimit>();
@@ -67,6 +67,7 @@ test('RateLimit (Auto)', async () => {
 
 test('Ratelimit (Sync)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '');
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   client.updater.currentVersion = '1.0.0';
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
@@ -82,6 +83,7 @@ test('Ratelimit (Sync)', async () => {
 
 test('Ratelimit (Bad Sync Data)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '');
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   client.updater.currentVersion = '1.0.0';
   vi.spyOn(global, 'fetch').mockResolvedValue({ ...defaultRequestData, headers: new Headers({ hello: '100' }) } as any);
   await expect(() => client.rateLimit.sync()).rejects.toThrowError(Errors.RATE_LIMIT_INIT_ERROR);

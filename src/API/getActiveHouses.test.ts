@@ -6,6 +6,7 @@ import type { WithRaw } from '../Types/API.js';
 
 test('getActiveHouses (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getActiveHouses({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -16,6 +17,7 @@ test('getActiveHouses (raw)', async () => {
 
 test('getActiveHouses', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getActiveHouses();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<WithRaw<House[]> | RequestData>();

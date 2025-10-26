@@ -4,6 +4,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 
 test('Functions', () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client).toBeDefined();
   expectTypeOf(client).toEqualTypeOf<Client>();
   expect(client.functions).toBeDefined();
@@ -51,4 +52,6 @@ test('Functions', () => {
     expect(client.functions.isGuildID(id)).toBe(false);
     expectTypeOf(client.functions.isGuildID(id)).toBeBoolean();
   });
+
+  client.destroy();
 });

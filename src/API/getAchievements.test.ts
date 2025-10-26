@@ -9,6 +9,7 @@ import type { AchievementTier } from '../Types/Static.js';
 
 test('getAchievements (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getAchievements({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -19,6 +20,7 @@ test('getAchievements (raw)', async () => {
 
 test('getAchievements', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getAchievements();
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Achievements);

@@ -6,6 +6,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 
 test('getSkyBlockCollections (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockCollections({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -16,6 +17,7 @@ test('getSkyBlockCollections (raw)', async () => {
 
 test('getSkyBlockCollections', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockCollections();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockCollections | RequestData>();

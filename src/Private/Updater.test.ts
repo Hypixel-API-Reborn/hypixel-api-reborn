@@ -8,6 +8,7 @@ import { vi } from 'vitest';
 
 test('Updater', () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client).toBeDefined();
   expectTypeOf(client).toEqualTypeOf<Client>();
 
@@ -38,6 +39,7 @@ test('Updater', () => {
 
 test('Updater (getLatestVersion)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     json: () => Promise.resolve({ 'dist-tags': { latest: '1.0.0' } })
@@ -50,6 +52,7 @@ test('Updater (getLatestVersion)', async () => {
 
 test('Updater (getLatestVersion error)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     status: 404,
@@ -62,6 +65,7 @@ test('Updater (getLatestVersion error)', async () => {
 
 test('Updater (check version)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const consoleLogSpy = vi.spyOn(console, 'log');
   client.updater.currentVersion = '1.0.0';
   vi.spyOn(global, 'fetch').mockResolvedValue({

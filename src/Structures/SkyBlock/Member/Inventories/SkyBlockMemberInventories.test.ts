@@ -32,7 +32,7 @@ test('SkyBlockMemberInventories', () => {
   Object.keys(data.sacksCounts).forEach((item) => {
     expect(data.sacksCounts[item]).toBeDefined();
     expect(data.sacksCounts[item]).toBeGreaterThanOrEqual(0);
-    expectTypeOf(data.sacksCounts[item]).toEqualTypeOf<number>();
+    expectTypeOf(data.sacksCounts[item]).toEqualTypeOf<number | undefined>();
   });
   expect(data.candy).toBeDefined();
   expectTypeOf(data.candy).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();

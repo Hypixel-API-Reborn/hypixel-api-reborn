@@ -6,9 +6,7 @@ import { expect, expectTypeOf, test, vi } from 'vitest';
 
 test('RequestHandler', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  expect(client).toBeDefined();
-  expectTypeOf(client).toEqualTypeOf<Client>();
-
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler).toBeDefined();
   expectTypeOf(client.requestHandler).toEqualTypeOf<RequestHandler>();
 
@@ -28,6 +26,7 @@ test('RequestHandler', async () => {
 
 test('RequestHandler (Invalid API Key)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
   vi.spyOn(global, 'fetch').mockResolvedValue({
@@ -42,6 +41,7 @@ test('RequestHandler (Invalid API Key)', async () => {
 
 test('RequestHandler (400 Bad Request)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
   vi.spyOn(global, 'fetch').mockResolvedValue({
@@ -58,6 +58,7 @@ test('RequestHandler (400 Bad Request)', async () => {
 
 test('RequestHandler (400 Bad Request No Cause)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
   vi.spyOn(global, 'fetch').mockResolvedValue({
@@ -74,6 +75,7 @@ test('RequestHandler (400 Bad Request No Cause)', async () => {
 
 test('RequestHandler (Unprocessable Entity)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
   vi.spyOn(global, 'fetch').mockResolvedValue({
@@ -88,6 +90,7 @@ test('RequestHandler (Unprocessable Entity)', async () => {
 
 test('RequestHandler (Rate Limited)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client.requestHandler.request).toBeDefined();
   expectTypeOf(client.requestHandler.request).toBeFunction();
   vi.spyOn(global, 'fetch').mockResolvedValue({

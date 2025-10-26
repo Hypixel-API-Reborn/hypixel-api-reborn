@@ -7,6 +7,7 @@ import type { SkyBlockAuctionResult } from '../Types/API.js';
 
 test('getSkyBlockEndedAuctions (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockEndedAuctions({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -17,6 +18,7 @@ test('getSkyBlockEndedAuctions (raw)', async () => {
 
 test('getSkyBlockEndedAuctions', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockEndedAuctions();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();

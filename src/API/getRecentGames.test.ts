@@ -8,6 +8,7 @@ import type { WithRaw } from '../Types/API.js';
 
 test('getRecentGames (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   await expect(() => client.getRecentGames()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
@@ -16,6 +17,7 @@ test('getRecentGames (no input)', async () => {
 
 test('getRecentGames (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getRecentGames('3b76b69ae5134296a730ed49171ad6f8', { raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -26,6 +28,7 @@ test('getRecentGames (raw)', async () => {
 
 test('getRecentGames', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getRecentGames('ea805d40e8284d8d8e64e9fc8ac301ca');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<WithRaw<RecentGame[]> | RequestData>();

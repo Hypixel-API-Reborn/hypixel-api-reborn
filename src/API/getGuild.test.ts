@@ -13,7 +13,7 @@ import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 test('Invalid Guild Type', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL); // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   await expect(() => client.getGuild('invalid', 'invalid')).rejects.toThrowError(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   client.destroy();
@@ -21,6 +21,7 @@ test('Invalid Guild Type', async () => {
 
 test('Invalid Guild', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   await expect(() => client.getGuild('name', 'this guild dose not exist')).rejects.toThrowError(
     Errors.GUILD_DOES_NOT_EXIST
   );
@@ -29,13 +30,14 @@ test('Invalid Guild', async () => {
 
 test('Invalid Guild ID', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   await expect(() => client.getGuild('id', 'invalid guild id')).rejects.toThrowError(Errors.INVALID_GUILD_ID);
   client.destroy();
 });
 
 test('No Guild Query', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL); // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   await expect(() => client.getGuild('id')).rejects.toThrowError(Errors.NO_GUILD_QUERY);
   client.destroy();
@@ -43,6 +45,7 @@ test('No Guild Query', async () => {
 
 test('User not in a guild', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuild('player', '37501e7512b845ab8796e2baf9e9677a');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<Guild | null | RequestData>();
@@ -51,6 +54,7 @@ test('User not in a guild', async () => {
 
 test('getGuild (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuild('name', 'Pixelic', { raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -62,6 +66,7 @@ test('getGuild (raw)', async () => {
 
 test('getGuild (Name)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuild('name', 'Pixelic');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
@@ -246,6 +251,7 @@ test('getGuild (Name)', async () => {
 
 test('getGuild (Id)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuild('id', '64b54f9d8ea8c96aaedafe84');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);
@@ -430,6 +436,7 @@ test('getGuild (Id)', async () => {
 
 test('getGuild (Player)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuild('player', '14727faefbdc4aff848cd2713eb9939e');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Guild);

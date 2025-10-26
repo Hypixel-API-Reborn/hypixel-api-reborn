@@ -6,6 +6,7 @@ import type SkyBlockBingoGoal from '../Structures/SkyBlock/Bingo/SkyBlockBingoGo
 
 test('getSkyBlockBingo (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBingo({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -16,6 +17,7 @@ test('getSkyBlockBingo (raw)', async () => {
 
 test('getSkyBlockBingo', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBingo();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockBingo | RequestData>();

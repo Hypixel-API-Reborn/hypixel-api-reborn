@@ -8,6 +8,7 @@ import type { WithRaw } from '../Types/API.js';
 
 test('getBoosters (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getBoosters({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -18,6 +19,7 @@ test('getBoosters (raw)', async () => {
 
 test('getBoosters', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getBoosters();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<WithRaw<Booster[]> | RequestData>();

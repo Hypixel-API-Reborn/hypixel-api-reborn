@@ -13,6 +13,7 @@ import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock
 
 test('getSkyBlockProfile (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockProfile('14727faefbdc4aff848cd2713eb9939e', { raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -23,6 +24,7 @@ test('getSkyBlockProfile (raw)', async () => {
 
 test('getSkyBlockProfile (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   await expect(() => client.getSkyBlockProfile()).rejects.toThrowError(Errors.NO_UUID);
@@ -31,6 +33,7 @@ test('getSkyBlockProfile (no input)', async () => {
 
 test('getSkyBlockProfile (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   await expect(() => client.getSkyBlockProfile('ce6685dd-78dd-4418-9f6f-b01cf9778daa')).rejects.toThrowError(
     Errors.NO_SKYBLOCK_PROFILES
   );
@@ -39,6 +42,7 @@ test('getSkyBlockProfile (no profiles)', async () => {
 
 test('getSkyBlockProfile', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockProfile('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile | RequestData>();

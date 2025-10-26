@@ -1,4 +1,3 @@
-const BASE_URL = 'https://api.hypixel.net/v2';
 import Client from '../Client.js';
 import Errors from '../Errors.ts';
 import RequestData from './RequestData.js';
@@ -6,8 +5,25 @@ import type { RequestOptions } from '../Types/Requests.js';
 
 class RequestHandler {
   readonly client: Client;
+  private BASE_URL: string;
   constructor(client: Client) {
     this.client = client;
+    this.BASE_URL = 'https://api.hypixel.net/v2';
+  }
+
+  setBaseURL(url: string = 'https://api.hypixel.net/v2'): this {
+    if (
+      !url.startsWith('http') ||
+      !url.includes('://') ||
+      (url.includes('.') && url.includes(':')) ||
+      (!url.includes('.') && !url.includes(':'))
+    ) {
+      throw new Error(Errors.INVALID_BASE_URL);
+    }
+
+    if (url.endsWith('/')) throw new Error(Errors.INVALID_BASE_URL_SLASH);
+    this.BASE_URL = url;
+    return this;
   }
 
   async request(endpoint: string, options?: RequestOptions): Promise<RequestData> {
@@ -22,7 +38,7 @@ class RequestHandler {
         timestamp: data.timestamp
       });
     }
-    const res = await fetch(BASE_URL + endpoint, { headers: { 'API-Key': this.client.key } });
+    const res = await fetch(this.BASE_URL + endpoint, { headers: { 'API-Key': this.client.key } });
     if (res.status >= 500 && res.status < 528) {
       throw new Error(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)

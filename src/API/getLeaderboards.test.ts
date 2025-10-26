@@ -8,6 +8,7 @@ import type { WithRaw } from '../Types/API.js';
 
 test('getLeaderboards (raw)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getLeaderboards({ raw: true });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(RequestData);
@@ -18,6 +19,7 @@ test('getLeaderboards (raw)', async () => {
 
 test('getLeaderboards', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getLeaderboards();
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<WithRaw<Record<string, Leaderboard[]>> | RequestData>();
@@ -57,6 +59,7 @@ test('getLeaderboards', async () => {
 
 test('getLeaderboards (Missing Data)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '');
+  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
     json: () => Promise.resolve({ success: true })

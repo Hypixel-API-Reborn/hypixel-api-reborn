@@ -41,6 +41,8 @@ class Errors {
     '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to de-synchronization.';
   static ENDPOINT_NOT_LOADED: string =
     '[hypixel-api-reborn] This endpoint has not been loaded yet. Please restart your code';
+  static INVALID_BASE_URL: string = '[Hypixel-API-Reborn] Invalid Request URL.';
+  static INVALID_BASE_URL_SLASH: string = "[Hypixel-API-Reborn] Invalid Request URL. Please don't end with a /";
 }
 
 export default Errors;
