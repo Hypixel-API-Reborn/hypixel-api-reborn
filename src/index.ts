@@ -50,7 +50,12 @@ import BlockingDead from './Structures/MiniGames/Arcade/BlockingDead.js';
 import Booster from './Structures/Boosters/Booster.js';
 import BountyHunters from './Structures/MiniGames/Arcade/BountyHunters.js';
 import BowSpleef from './Structures/MiniGames/TNTGames/BowSpleef.js';
-import BuildBattle from './Structures/MiniGames/BuildBattle.js';
+import BuildBattle from './Structures/MiniGames/BuildBattle/BuildBattle.js';
+import BuildBattleEmblem from './Structures/MiniGames/BuildBattle/Emblem/BuildBattleEmblem.js';
+import BuildBattleEmblemColors from './Structures/MiniGames/BuildBattle/Emblem/BuildBattleEmblemColors.js';
+import BuildBattleLastWin from './Structures/MiniGames/BuildBattle/BuildBattleLastWin.js';
+import BuildBattleLeaderboardSettings from './Structures/MiniGames/BuildBattle/BuildBattleLeaderboardSettings.js';
+import BuildBattleVotes from './Structures/MiniGames/BuildBattle/BuildBattleVotes.js';
 import CaptureTheWool from './Structures/MiniGames/WoolGames/CaptureTheWool.js';
 import Challenge from './Structures/Static/Challenge.js';
 import Challenges from './Structures/Static/Challenges.js';
@@ -361,6 +366,11 @@ export {
   BountyHunters,
   BowSpleef,
   BuildBattle,
+  BuildBattleEmblem,
+  BuildBattleEmblemColors,
+  BuildBattleLastWin,
+  BuildBattleLeaderboardSettings,
+  BuildBattleVotes,
   CaptureTheWool,
   Challenge,
   Challenges,
@@ -672,6 +682,11 @@ export default {
   BountyHunters,
   BowSpleef,
   BuildBattle,
+  BuildBattleEmblem,
+  BuildBattleEmblemColors,
+  BuildBattleLastWin,
+  BuildBattleLeaderboardSettings,
+  BuildBattleVotes,
   CaptureTheWool,
   Challenge,
   Challenges,

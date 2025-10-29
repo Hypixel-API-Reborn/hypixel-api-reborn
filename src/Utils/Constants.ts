@@ -6,7 +6,7 @@ import type {
   SkyBlockSlayer,
   SkyBlockXPTables
 } from '../Types/SkyBlock.js';
-import type { DuelsBaseDivision } from '../Types/Player.js';
+import type { BuildBattleTitle, DuelsBaseDivision } from '../Types/Player.js';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 export const games: { id: GameID; code: GameCode; name: GameString }[] = [
@@ -2452,3 +2452,25 @@ export const BestiaryMobs: BestiaryMobsData = {
     ]
   }
 };
+
+export const BuildBattleTitleRequirements: { title: BuildBattleTitle; requirement: number }[] = [
+  { title: 'Rookie', requirement: 0 },
+  { title: 'Untrained', requirement: 100 },
+  { title: 'Amatuer', requirement: 250 },
+  { title: 'Prospect', requirement: 550 },
+  { title: 'Apprentice', requirement: 1000 },
+  { title: 'Experienced', requirement: 2000 },
+  { title: 'Seasoned', requirement: 3500 },
+  { title: 'Trained', requirement: 5000 },
+  { title: 'Skilled', requirement: 7500 },
+  { title: 'Talented', requirement: 10000 },
+  { title: 'Professional', requirement: 15000 },
+  { title: 'Artisan', requirement: 20000 },
+  { title: 'Expert', requirement: 30000 },
+  { title: 'Master', requirement: 50000 },
+  { title: 'Legend', requirement: 100000 },
+  { title: 'Grandmaster', requirement: 200000 },
+  { title: 'Celestial', requirement: 300000 },
+  { title: 'Divine', requirement: 400000 },
+  { title: 'Ascended', requirement: 500000 }
+];

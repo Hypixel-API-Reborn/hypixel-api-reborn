@@ -2,7 +2,7 @@ import Arcade from '../MiniGames/Arcade/Arcade.js';
 import ArenaBrawl from '../MiniGames/ArenaBrawl/ArenaBrawl.js';
 import BedWars from '../MiniGames/BedWars/BedWars.js';
 import BlitzSurvivalGames from '../MiniGames/BlitzSurvivalGames/BlitzSurvivalGames.js';
-import BuildBattle from '../MiniGames/BuildBattle.js';
+import BuildBattle from '../MiniGames/BuildBattle/BuildBattle.js';
 import CopsAndCrims from '../MiniGames/CopsAndCrims/CopsAndCrims.js';
 import Duels from '../MiniGames/Duels/Duels.js';
 import MegaWalls from '../MiniGames/MegaWalls/MegaWalls.js';
