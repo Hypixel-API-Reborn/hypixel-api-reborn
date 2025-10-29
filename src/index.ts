@@ -51,10 +51,7 @@ import Booster from './Structures/Boosters/Booster.js';
 import BountyHunters from './Structures/MiniGames/Arcade/BountyHunters.js';
 import BowSpleef from './Structures/MiniGames/TNTGames/BowSpleef.js';
 import BuildBattle from './Structures/MiniGames/BuildBattle/BuildBattle.js';
-import BuildBattleEmblem from './Structures/MiniGames/BuildBattle/Emblem/BuildBattleEmblem.js';
-import BuildBattleEmblemColors from './Structures/MiniGames/BuildBattle/Emblem/BuildBattleEmblemColors.js';
 import BuildBattleLastWin from './Structures/MiniGames/BuildBattle/BuildBattleLastWin.js';
-import BuildBattleLeaderboardSettings from './Structures/MiniGames/BuildBattle/BuildBattleLeaderboardSettings.js';
 import BuildBattleVotes from './Structures/MiniGames/BuildBattle/BuildBattleVotes.js';
 import CaptureTheWool from './Structures/MiniGames/WoolGames/CaptureTheWool.js';
 import Challenge from './Structures/Static/Challenge.js';
@@ -73,6 +70,8 @@ import DuelsMegaWalls from './Structures/MiniGames/Duels/DuelsMegaWalls.js';
 import DuelsOP from './Structures/MiniGames/Duels/DuelsOP.js';
 import DuelsSkyWars from './Structures/MiniGames/Duels/DuelsSkyWars.js';
 import DuelsUHC from './Structures/MiniGames/Duels/DuelsUHC.js';
+import Emblem from './Structures/MiniGames/Shared/Emblem/Emblem.js';
+import EmblemColors from './Structures/MiniGames/Shared/Emblem/EmblemColors.js';
 import EnderSpleef from './Structures/MiniGames/Arcade/EnderSpleef.js';
 import FarmHunt from './Structures/MiniGames/Arcade/FarmHunt.js';
 import Football from './Structures/MiniGames/Arcade/Football.js';
@@ -92,12 +91,19 @@ import House from './Structures/House.js';
 import HypixelSays from './Structures/MiniGames/Arcade/HypixelSays.js';
 import ItemBytes from './Structures/ItemBytes.js';
 import Leaderboard from './Structures/Leaderboard.js';
+import LeaderboardSettings from './Structures/MiniGames/Shared/LeaderboardSettings.js';
 import MegaWalls from './Structures/MiniGames/MegaWalls/MegaWalls.js';
 import MegaWallsKitStats from './Structures/MiniGames/MegaWalls/MegaWallsKitStats.js';
 import MegaWallsModeStats from './Structures/MiniGames/MegaWalls/MegaWallsModeStats.js';
 import MiniWalls from './Structures/MiniGames/Arcade/MiniWalls.js';
 import MurderMystery from './Structures/MiniGames/MurderMystery/MurderMystery.js';
-import MurderMysteryModeStats from './Structures/MiniGames/MurderMystery/MurderMysteryModeStats.js';
+import MurderMysteryDescent from './Structures/MiniGames/MurderMystery/MurderMysteryDescent.js';
+import MurderMysteryDescentItem from './Structures/MiniGames/MurderMystery/MurderMysteryDescentItem.js';
+import MurderMysteryFavorites from './Structures/MiniGames/MurderMystery/MurderMysteryFavorites.js';
+import MurderMysteryGamemode from './Structures/MiniGames/MurderMystery/MurderMysteryGamemode.js';
+import MurderMysteryKnifeSkinPrestige from './Structures/MiniGames/MurderMystery/MurderMysteryKnifeSkinPrestige.js';
+import MurderMysteryKnifeSkinPrestigeXp from './Structures/MiniGames/MurderMystery/MurderMysteryKnifeSkinPrestigeXp.js';
+import MurderMysteryMap from './Structures/MiniGames/MurderMystery/MurderMysteryMap.js';
 import OneTimeAchievement from './Structures/Static/Achievements/OneTimeAchievement.js';
 import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.js';
 import Paintball from './Structures/MiniGames/Paintball.js';
@@ -366,10 +372,7 @@ export {
   BountyHunters,
   BowSpleef,
   BuildBattle,
-  BuildBattleEmblem,
-  BuildBattleEmblemColors,
   BuildBattleLastWin,
-  BuildBattleLeaderboardSettings,
   BuildBattleVotes,
   CaptureTheWool,
   Challenge,
@@ -388,6 +391,8 @@ export {
   DuelsOP,
   DuelsSkyWars,
   DuelsUHC,
+  Emblem,
+  EmblemColors,
   EnderSpleef,
   FarmHunt,
   Football,
@@ -407,12 +412,19 @@ export {
   HypixelSays,
   ItemBytes,
   Leaderboard,
+  LeaderboardSettings,
   MegaWalls,
   MegaWallsKitStats,
   MegaWallsModeStats,
   MiniWalls,
   MurderMystery,
-  MurderMysteryModeStats,
+  MurderMysteryDescent,
+  MurderMysteryDescentItem,
+  MurderMysteryFavorites,
+  MurderMysteryGamemode,
+  MurderMysteryKnifeSkinPrestige,
+  MurderMysteryKnifeSkinPrestigeXp,
+  MurderMysteryMap,
   OneTimeAchievement,
   PVPRun,
   Paintball,
@@ -682,10 +694,7 @@ export default {
   BountyHunters,
   BowSpleef,
   BuildBattle,
-  BuildBattleEmblem,
-  BuildBattleEmblemColors,
   BuildBattleLastWin,
-  BuildBattleLeaderboardSettings,
   BuildBattleVotes,
   CaptureTheWool,
   Challenge,
@@ -704,6 +713,8 @@ export default {
   DuelsOP,
   DuelsSkyWars,
   DuelsUHC,
+  Emblem,
+  EmblemColors,
   EnderSpleef,
   FarmHunt,
   Football,
@@ -723,12 +734,19 @@ export default {
   HypixelSays,
   ItemBytes,
   Leaderboard,
+  LeaderboardSettings,
   MegaWalls,
   MegaWallsKitStats,
   MegaWallsModeStats,
   MiniWalls,
   MurderMystery,
-  MurderMysteryModeStats,
+  MurderMysteryDescent,
+  MurderMysteryDescentItem,
+  MurderMysteryFavorites,
+  MurderMysteryGamemode,
+  MurderMysteryKnifeSkinPrestige,
+  MurderMysteryKnifeSkinPrestigeXp,
+  MurderMysteryMap,
   OneTimeAchievement,
   PVPRun,
   Paintball,

@@ -1,31 +1,33 @@
-import BuildBattleEmblem from './Emblem/BuildBattleEmblem.ts';
 import BuildBattleLastWin from './BuildBattleLastWin.js';
-import BuildBattleLeaderboardSettings from './BuildBattleLeaderboardSettings.js';
 import BuildBattleVotes from './BuildBattleVotes.js';
+import Emblem from '../Shared/Emblem/Emblem.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
 import { BuildBattleTitleRequirements } from '../../../Utils/Constants.ts';
 import { monthAB } from '../../../Utils/Oscillation.ts';
 import type {
   BuildBattleBackdrop,
+  BuildBattleEmblemIcon,
   BuildBattleHat,
   BuildBattleIsland,
+  BuildBattleLeaderboardSettingsMode,
   BuildBattleMovementTrail,
   BuildBattlePackageItem,
-  BuildBattleShopSort,
   BuildBattleSong,
   BuildBattleSuit,
   BuildBattleTitle,
-  BuildBattleVictoryDance
+  BuildBattleVictoryDance,
+  ShopSort
 } from '../../../Types/Player.ts';
 
 class BuildBattle {
   activeIsland: BuildBattleIsland | 'island_none';
   activeMovementTrail: BuildBattleMovementTrail | 'movement_trail_none';
   correctGuesses: number;
-  emblem: BuildBattleEmblem;
+  emblem: Emblem<BuildBattleEmblemIcon>;
   playedGames: number;
   lastPurchasedSong: BuildBattleSong | 'UNKNOWN';
   lastWon: BuildBattleLastWin;
-  leaderboardSettings: BuildBattleLeaderboardSettings;
+  leaderboardSettings: LeaderboardSettings<BuildBattleLeaderboardSettingsMode>;
   loadout: string[];
   monthlyTokensA: number;
   monthlyTokensB: number;
@@ -38,7 +40,7 @@ class BuildBattle {
   score: number;
   title: BuildBattleTitle;
   selectedBackdrop: BuildBattleBackdrop | 'backdrops_none';
-  shopSort: BuildBattleShopSort | 'UNKNOWN';
+  shopSort: ShopSort | 'UNKNOWN';
   shopSortEnableOwnedFirst: boolean;
   soloMostPoints: number;
   superVotes: number;
@@ -59,11 +61,13 @@ class BuildBattle {
     this.activeIsland = data?.active_island || 'island_none';
     this.activeMovementTrail = data?.active_movement_trail || 'movement_trail_none';
     this.correctGuesses = data?.correct_guesses || 0;
-    this.emblem = new BuildBattleEmblem(data?.emblem || {});
+    this.emblem = new Emblem<BuildBattleEmblemIcon>(data?.emblem || {});
     this.playedGames = data?.games_played || 0;
     this.lastPurchasedSong = data?.last_purchased_song || 'UNKNOWN';
     this.lastWon = new BuildBattleLastWin(data?.last_won || {});
-    this.leaderboardSettings = new BuildBattleLeaderboardSettings(data?.leaderboardSettings || {});
+    this.leaderboardSettings = new LeaderboardSettings<BuildBattleLeaderboardSettingsMode>(
+      data?.leaderboardSettings || {}
+    );
     this.loadout = data?.buildbattle_loadout || [];
     this.monthlyTokensA = data?.monthly_tokens_a || data?.monthly_coins_a || 0;
     this.monthlyTokensB = data?.monthly_tokens_b || data?.monthly_coins_b || 0;
@@ -76,7 +80,7 @@ class BuildBattle {
     this.score = data?.score || 0;
     this.title = BuildBattle.getBuildBattleTitle(this.score);
     this.selectedBackdrop = data?.selected_backdrop || 'backdrops_none';
-    this.shopSort = data?.shop_sort || false;
+    this.shopSort = data?.shop_sort || 'UNKNOWN';
     this.shopSortEnableOwnedFirst = data?.shop_sort_enable_owned_first || false;
     this.soloMostPoints = data?.solo_most_points || 0;
     this.superVotes = data?.super_votes || 0;

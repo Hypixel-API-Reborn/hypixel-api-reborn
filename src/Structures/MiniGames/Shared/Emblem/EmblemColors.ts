@@ -1,4 +1,4 @@
-class BuildBattleEmblemColors {
+class EmblemColors {
   aqua: boolean;
   black: boolean;
   blue: boolean;
@@ -31,4 +31,4 @@ class BuildBattleEmblemColors {
   }
 }
 
-export default BuildBattleEmblemColors;
+export default EmblemColors;
