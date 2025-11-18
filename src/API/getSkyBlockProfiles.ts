@@ -19,8 +19,8 @@ class getSkyBlockProfiles extends Endpoint {
     if (!res.data.profiles || !res.data.profiles.length) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
     const profiles: Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> = new Map();
     for (const profile of res.data.profiles) {
-      const garden = options?.garden != false ? await this.handleGettingSkyBlockGarden(profile.profile_id) : null;
-      const museum = options?.museum != false ? await this.handleGettingSkyBlockMuseum(profile.profile_id) : null;
+      const garden = options?.garden !== false ? await this.handleGettingSkyBlockGarden(profile.profile_id) : null;
+      const museum = options?.museum !== false ? await this.handleGettingSkyBlockMuseum(profile.profile_id) : null;
       const parsedProfile = new SkyBlockProfile(profile, { uuid: query, garden, museum });
       profiles.set(parsedProfile.profileName, parsedProfile);
     }
