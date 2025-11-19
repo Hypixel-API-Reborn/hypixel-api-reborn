@@ -12,15 +12,7 @@ class RequestHandler {
   }
 
   setBaseURL(url: string = 'https://api.hypixel.net/v2'): this {
-    if (
-      !url.startsWith('http') ||
-      !url.includes('://') ||
-      (url.includes('.') && url.includes(':')) ||
-      (!url.includes('.') && !url.includes(':'))
-    ) {
-      throw new Error(Errors.INVALID_BASE_URL);
-    }
-
+    if (!url.startsWith('http') || !url.includes('://')) throw new Error(Errors.INVALID_BASE_URL);
     if (url.endsWith('/')) throw new Error(Errors.INVALID_BASE_URL_SLASH);
     this.BASE_URL = url;
     return this;
