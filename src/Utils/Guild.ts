@@ -67,7 +67,7 @@ export function calculateExpHistory(data: GuildMember[]): ExpHistory[] {
   Object.keys(data[0].expHistory).forEach((day, index) => {
     let GEXP = 0;
     data.forEach((member) => (GEXP += member.expHistory?.[index]?.exp || 0));
-    finalObj[data[0]?.expHistory[index]?.day || 'Unknown'] = expLimit(GEXP);
+    finalObj[data[0]?.expHistory[index]?.day || 'UNKNOWN'] = expLimit(GEXP);
   });
   return parseHistory(finalObj);
 }

@@ -30,8 +30,8 @@ class Guild {
   preferredGames: Game[];
   constructor(data: Record<string, any>, uuid?: string) {
     // eslint-disable-next-line no-underscore-dangle
-    this.id = data._id || 'Unknown';
-    this.name = data.name || 'Unknown';
+    this.id = data._id || 'UNKNOWN';
+    this.name = data.name || 'UNKNOWN';
     this.description = data.description ?? '';
     this.experience = data.exp || 0;
     this.level = getGuildLevel(this.experience);

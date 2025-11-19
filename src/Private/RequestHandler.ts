@@ -43,7 +43,7 @@ class RequestHandler {
     const parsedRes = (await res.json()) as Record<string, any>;
     if (res.status === 400) {
       throw new Error(
-        Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || 'Unknown')
+        Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || 'UNKNOWN')
       );
     }
     if (res.status === 403) throw new Error(Errors.INVALID_API_KEY);

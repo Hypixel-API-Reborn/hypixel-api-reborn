@@ -10,7 +10,7 @@ class PlayerAchievementsRewards {
         return parseInt(keyA) - parseInt(keyB);
       })
       .forEach((item) => {
-        const key: string = Object.keys(item)?.[0] || 'Unknown';
+        const key: string = Object.keys(item)?.[0] || 'UNKNOWN';
         this[key] = item[key];
       });
   }

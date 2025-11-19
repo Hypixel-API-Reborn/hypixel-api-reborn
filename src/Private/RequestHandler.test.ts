@@ -67,7 +67,7 @@ test('RequestHandler (400 Bad Request No Cause)', async () => {
     json: () => Promise.resolve({ success: false })
   } as any);
   await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
-    Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'Unknown')
+    Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'UNKNOWN')
   );
   vi.restoreAllMocks();
   client.destroy();

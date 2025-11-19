@@ -9,7 +9,7 @@ class GameCounts {
     this.playerCount = data.playerCount;
     for (const game in data.games) {
       if (Object.prototype.hasOwnProperty.call(MiniGamesString, game)) {
-        const objectName = (MiniGamesString[game] || 'Unknown').toUpperCase().replace(/ +/g, '_');
+        const objectName = (MiniGamesString[game] || 'UNKNOWN').toUpperCase().replace(/ +/g, '_');
         this[RemoveSnakeCaseString(objectName)] = recursive(data.games[game], true);
       } else {
         this[RemoveSnakeCaseString(game)] = recursive(data.games[game], true);

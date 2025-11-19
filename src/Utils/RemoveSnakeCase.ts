@@ -7,7 +7,7 @@ export function recursive(obj: any, lowerCase: boolean = false): any {
   return Object.keys(obj).reduce(
     (pV, cV) => ({
       ...pV,
-      [(lowerCase ? cV : cV.toLowerCase()).replace(/_[a-z]/gi, (x) => (x?.[1] || 'Unknown').toUpperCase())]: recursive(
+      [(lowerCase ? cV : cV.toLowerCase()).replace(/_[a-z]/gi, (x) => (x?.[1] || 'UNKNOWN').toUpperCase())]: recursive(
         obj[cV]
       )
     }),
@@ -16,5 +16,5 @@ export function recursive(obj: any, lowerCase: boolean = false): any {
 }
 
 export function RemoveSnakeCaseString(str: string): string {
-  return str.toLowerCase().replace(/_[a-z]/gi, (x) => (x?.[1] || 'Unknown').toUpperCase());
+  return str.toLowerCase().replace(/_[a-z]/gi, (x) => (x?.[1] || 'UNKNOWN').toUpperCase());
 }
