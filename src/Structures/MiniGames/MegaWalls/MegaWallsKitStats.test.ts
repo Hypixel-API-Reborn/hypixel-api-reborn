@@ -6,7 +6,7 @@ test('MegaWallsKitStats', () => {
   const data = new MegaWallsKitStats({ stats: 'meow' }, 'angel');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(MegaWallsKitStats);
-  expectTypeOf(data).toMatchTypeOf<MegaWallsKitStats>();
+  expectTypeOf(data).toEqualTypeOf<MegaWallsKitStats>();
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.kills).toEqualTypeOf<number>();
@@ -65,7 +65,9 @@ test('MegaWallsKitStats', () => {
   expect(data.damageDealt).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.damageDealt).toEqualTypeOf<number>();
   expect(data.faceOff).toBeDefined();
+  expect(data.faceOff).toBeInstanceOf(MegaWallsModeStats);
   expectTypeOf(data.faceOff).toEqualTypeOf<MegaWallsModeStats>();
   expect(data.casualBrawl).toBeDefined();
+  expect(data.casualBrawl).toBeInstanceOf(MegaWallsModeStats);
   expectTypeOf(data.casualBrawl).toEqualTypeOf<MegaWallsModeStats>();
 });

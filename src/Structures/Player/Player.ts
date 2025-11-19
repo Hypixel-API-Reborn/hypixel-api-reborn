@@ -48,7 +48,7 @@ class Player {
   recentGames: RecentGame[] | null;
   constructor(
     data: Record<string, any>,
-    extra: { guild: Guild | null; houses: House[] | null; recentGames: RecentGame[] | null }
+    extra: { guild?: Guild | null; houses?: House[] | null; recentGames?: RecentGame[] | null }
   ) {
     this.nickname = data?.displayname || 'UNKNOWN';
     this.uuid = data?.uuid || 'UNKNOWN';
@@ -86,9 +86,9 @@ class Player {
         .filter((key) => key.startsWith('scorpius_bribe_'))
         .map((bribe) => new PlayerScorpiusBribe(data[bribe], bribe.split('scorpius_bribe_')[1] || 'UNKNOWN')) || [];
 
-    this.guild = extra.guild;
-    this.houses = extra.houses;
-    this.recentGames = extra.recentGames;
+    this.guild = extra.guild || null;
+    this.houses = extra.houses || null;
+    this.recentGames = extra.recentGames || null;
   }
 
   private getRank(player: Record<string, any>): PlayerRank {

@@ -12,12 +12,15 @@ test('SkyBlockMemberDungeonsTreasureRun', () => {
   expect(data.runId).toBeDefined();
   expectTypeOf(data.runId).toEqualTypeOf<string>();
   expect(data.completionTimestamp).toBeDefined();
+  expect(data.completionTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.completionTimestamp).toEqualTypeOf<number>();
   expect(data.completionDate).toBeDefined();
+  expect(data.completionDate).toBeInstanceOf(Date);
   expectTypeOf(data.completionDate).toEqualTypeOf<Date>();
   expect(data.type).toBeDefined();
   expectTypeOf(data.type).toEqualTypeOf<DungeonGamemode>();
   expect(data.dungeonTier).toBeDefined();
+  expect(data.dungeonTier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.dungeonTier).toEqualTypeOf<number>();
   expect(data.participants).toBeDefined();
   expectTypeOf(data.participants).toEqualTypeOf<
@@ -28,6 +31,6 @@ test('SkyBlockMemberDungeonsTreasureRun', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.runId);
+  expect(data.toString()).toBe(data.runId);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

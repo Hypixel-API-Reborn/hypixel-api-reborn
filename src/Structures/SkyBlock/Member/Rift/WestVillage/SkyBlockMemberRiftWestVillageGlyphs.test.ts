@@ -13,6 +13,7 @@ test('SkyBlockMemberRiftWestVillageGlyphs', () => {
   expect(data.currentGlyphCompleted).toBeDefined();
   expectTypeOf(data.currentGlyphCompleted).toEqualTypeOf<boolean>();
   expect(data.currentGlyph).toBeDefined();
+  expect(data.currentGlyph).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.currentGlyph).toEqualTypeOf<number>();
   expect(data.completed).toBeDefined();
   expectTypeOf(data.completed).toEqualTypeOf<boolean>();

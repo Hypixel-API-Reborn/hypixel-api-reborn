@@ -6,7 +6,7 @@ class GameCounts {
   playerCount: number;
   [x: string]: object | number;
   constructor(data: Record<string, any>) {
-    this.playerCount = data.playerCount;
+    this.playerCount = data.playerCount || 0;
     for (const game in data.games) {
       if (Object.prototype.hasOwnProperty.call(MiniGamesString, game)) {
         const objectName = (MiniGamesString[game] || 'UNKNOWN').toUpperCase().replace(/ +/g, '_');

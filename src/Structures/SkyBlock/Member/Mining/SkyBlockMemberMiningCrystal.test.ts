@@ -9,12 +9,14 @@ test('SkyBlockMemberMiningCrystal', () => {
   expect(data.found).toBeDefined();
   expectTypeOf(data.found).toEqualTypeOf<boolean>();
   expect(data.totalFound).toBeDefined();
+  expect(data.totalFound).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.totalFound).toEqualTypeOf<number>();
   expect(data.totalPlaced).toBeDefined();
+  expect(data.totalPlaced).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.totalPlaced).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => boolean>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.found);
+  expect(data.toString()).toBe(data.found);
   expectTypeOf(data.toString()).toEqualTypeOf<boolean>();
 });

@@ -1,5 +1,3 @@
-/* v8 ignore next 1000 */
-
 import { parseStringPromise } from 'xml2js';
 import { readFileSync } from 'fs';
 

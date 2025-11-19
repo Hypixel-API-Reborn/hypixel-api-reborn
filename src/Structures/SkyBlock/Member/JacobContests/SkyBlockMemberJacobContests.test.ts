@@ -12,10 +12,13 @@ test('SkyBlockMemberJacobContests', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberJacobContests);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberJacobContests>();
   expect(data.perks).toBeDefined();
+  expect(data.perks).toBeInstanceOf(SkyBlockMemberJacobContestsPerks);
   expectTypeOf(data.perks).toEqualTypeOf<SkyBlockMemberJacobContestsPerks>();
   expect(data.medals).toBeDefined();
+  expect(data.medals).toBeInstanceOf(SkyBlockMemberJacobContestsMedals);
   expectTypeOf(data.medals).toEqualTypeOf<SkyBlockMemberJacobContestsMedals>();
   expect(data.uniqueBrackets).toBeDefined();
+  expect(data.uniqueBrackets).toBeInstanceOf(SkyBlockMemberJacobContestsUniqueBrackets);
   expectTypeOf(data.uniqueBrackets).toEqualTypeOf<SkyBlockMemberJacobContestsUniqueBrackets>();
   expect(data.personalBests).toBeDefined();
   expectTypeOf(data.personalBests).toEqualTypeOf<Record<keyof JacobCrops, number>>();

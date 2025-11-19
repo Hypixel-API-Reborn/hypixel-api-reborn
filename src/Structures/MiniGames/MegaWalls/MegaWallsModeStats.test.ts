@@ -2,10 +2,10 @@ import MegaWallsModeStats from './MegaWallsModeStats.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MegaWallsModeStats', () => {
-  const data = new MegaWallsModeStats({ stats: 'meow' }, 'face_off');
+  const data = new MegaWallsModeStats({ stats: 'meow' }, 'face_off', 'angel');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(MegaWallsModeStats);
-  expectTypeOf(data).toMatchTypeOf<MegaWallsModeStats>();
+  expectTypeOf(data).toEqualTypeOf<MegaWallsModeStats>();
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.kills).toEqualTypeOf<number>();

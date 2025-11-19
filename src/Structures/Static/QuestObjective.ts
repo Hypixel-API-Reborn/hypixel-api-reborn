@@ -5,7 +5,7 @@ class QuestObjective {
   type: QuestObjectiveType;
   amountNeeded: number;
   constructor(objective: Record<string, any>) {
-    this.id = objective.id;
+    this.id = objective.id || 'UNKNOWN';
     this.type = objective.type === 'IntegerObjective' ? 'Integer' : 'Boolean';
     this.amountNeeded = parseInt(objective.integer || '1', 10);
   }

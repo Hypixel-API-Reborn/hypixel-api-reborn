@@ -8,12 +8,12 @@ class GuildAchievements {
   oneTimeAchievements: OneTimeAchievement[];
   tieredAchievements: TieredAchievement[];
   constructor(data: Record<string, any>) {
-    this.lastUpdatedTimestamp = data.lastUpdated;
+    this.lastUpdatedTimestamp = data.lastUpdated || 0;
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
-    this.oneTimeAchievements = Object.keys(data.one_time).map(
+    this.oneTimeAchievements = Object.keys(data.one_time || {}).map(
       (achievementKey) => new OneTimeAchievement(achievementKey, data.one_time[achievementKey])
     );
-    this.tieredAchievements = Object.keys(data.tiered).map(
+    this.tieredAchievements = Object.keys(data.tiered || {}).map(
       (achievementKey) => new TieredAchievement(achievementKey, data.tiered[achievementKey])
     );
   }

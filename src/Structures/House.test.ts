@@ -1,5 +1,6 @@
 import House from './House.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { UUID } from '../Types/Global.js';
 
 test('House', () => {
   const data = new House({ stats: 'meow' });
@@ -9,7 +10,7 @@ test('House', () => {
   expect(data.name).toBeDefined();
   expectTypeOf(data.name).toEqualTypeOf<string>();
   expect(data.uuid).toBeDefined();
-  expectTypeOf(data.uuid).toEqualTypeOf<string>();
+  expectTypeOf(data.uuid).toEqualTypeOf<UUID>();
   expect(data.owner).toBeDefined();
   expectTypeOf(data.owner).toEqualTypeOf<string>();
   expect(data.createdAtTimestamp).toBeDefined();
@@ -22,4 +23,9 @@ test('House', () => {
   expect(data.cookies).toBeDefined();
   expect(data.cookies).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.cookies).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.name);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

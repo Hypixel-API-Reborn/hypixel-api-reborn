@@ -20,8 +20,10 @@ test('Quakecraft', () => {
   expect(data.coins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.coins).toEqualTypeOf<number>();
   expect(data.solo).toBeDefined();
+  expect(data.solo).toBeInstanceOf(QuakecraftMode);
   expectTypeOf(data.solo).toEqualTypeOf<QuakecraftMode>();
   expect(data.teams).toBeDefined();
+  expect(data.teams).toBeInstanceOf(QuakecraftMode);
   expectTypeOf(data.teams).toEqualTypeOf<QuakecraftMode>();
   expect(data.wins).toBeDefined();
   expect(data.wins).toBeGreaterThanOrEqual(0);

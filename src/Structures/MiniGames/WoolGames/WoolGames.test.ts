@@ -33,9 +33,12 @@ test('WoolGames', () => {
   expect(data.playtime).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.playtime).toEqualTypeOf<number>();
   expect(data.woolWars).toBeDefined();
+  expect(data.woolWars).toBeInstanceOf(WoolWars);
   expectTypeOf(data.woolWars).toEqualTypeOf<WoolWars>();
   expect(data.captureTheWool).toBeDefined();
+  expect(data.captureTheWool).toBeInstanceOf(CaptureTheWool);
   expectTypeOf(data.captureTheWool).toEqualTypeOf<CaptureTheWool>();
   expect(data.sheepWars).toBeDefined();
+  expect(data.sheepWars).toBeInstanceOf(SheepWars);
   expectTypeOf(data.sheepWars).toEqualTypeOf<SheepWars>();
 });

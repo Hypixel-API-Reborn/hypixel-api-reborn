@@ -8,12 +8,13 @@ test('SkyBlockMemberPetsCare', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberPetsCare);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberPetsCare>();
   expect(data.coinsSpent).toBeDefined();
+  expect(data.coinsSpent).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.coinsSpent).toEqualTypeOf<number>();
   expect(data.petsSacrificed).toBeDefined();
   expectTypeOf(data.petsSacrificed).toEqualTypeOf<SacrificedPets[]>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.coinsSpent);
+  expect(data.toString()).toBe(data.coinsSpent);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

@@ -17,5 +17,6 @@ test('SkyBlockMemberRiftWyldWoods', () => {
   expect(data.siriusClaimedDoubloon).toBeDefined();
   expectTypeOf(data.siriusClaimedDoubloon).toEqualTypeOf<boolean>();
   expect(data.bughunterStep).toBeDefined();
+  expect(data.bughunterStep).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.bughunterStep).toEqualTypeOf<number>();
 });

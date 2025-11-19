@@ -8,8 +8,10 @@ test('SkyBlockMemberLeveling', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberLeveling);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberLeveling>();
   expect(data.experience).toBeDefined();
+  expect(data.experience).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.experience).toEqualTypeOf<number>();
   expect(data.level).toBeDefined();
+  expect(data.level).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.level).toEqualTypeOf<number>();
   expect(data.completions).toBeDefined();
   expectTypeOf(data.completions).toEqualTypeOf<Record<string, number>>();
@@ -20,10 +22,13 @@ test('SkyBlockMemberLeveling', () => {
   expect(data.lastViewedTasks).toBeDefined();
   expectTypeOf(data.lastViewedTasks).toEqualTypeOf<string[]>();
   expect(data.highestPetScore).toBeDefined();
+  expect(data.highestPetScore).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.highestPetScore).toEqualTypeOf<number>();
   expect(data.miningFiestaOresMined).toBeDefined();
+  expect(data.miningFiestaOresMined).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.miningFiestaOresMined).toEqualTypeOf<number>();
   expect(data.fishingFestivalSharksKilled).toBeDefined();
+  expect(data.fishingFestivalSharksKilled).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.fishingFestivalSharksKilled).toEqualTypeOf<number>();
   expect(data.taskSort).toBeDefined();
   expectTypeOf(data.taskSort).toEqualTypeOf<TaskLevelingSort | 'UNKNOWN'>();
@@ -31,4 +36,9 @@ test('SkyBlockMemberLeveling', () => {
   expectTypeOf(data.claimedTalisman).toEqualTypeOf<boolean>();
   expect(data.emblemUnlocks).toBeDefined();
   expectTypeOf(data.emblemUnlocks).toEqualTypeOf<string[]>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.level);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

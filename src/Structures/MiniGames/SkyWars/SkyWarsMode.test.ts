@@ -1,7 +1,7 @@
 import SkyWarsMode from './SkyWarsMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('SkyWars (Mode)', () => {
+test('SkyWarsMode', () => {
   const data = new SkyWarsMode({ stats: 'meow' }, 'lab');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyWarsMode);

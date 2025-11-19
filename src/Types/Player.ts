@@ -1,4 +1,3 @@
-/* v8 ignore next 10000 */
 // Credits: Pixelic: https://github.com/pixelicc - Most types in player
 
 import PitInventoryItem from '../Structures/MiniGames/Pit/PitInventoryItem.js';

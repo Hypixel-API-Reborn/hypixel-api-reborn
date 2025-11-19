@@ -2,7 +2,7 @@ import UHCGamemode from './UHCGamemode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('UHCGamemode', () => {
-  const data = new UHCGamemode({ stats: 'meow' });
+  const data = new UHCGamemode({ stats: 'meow' }, 'brawl');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(UHCGamemode);
   expectTypeOf(data).toEqualTypeOf<UHCGamemode>();
@@ -12,6 +12,9 @@ test('UHCGamemode', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
+  expect(data.KDR).toBeDefined();
+  expect(data.KDR).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.KDR).toEqualTypeOf<number>();
   expect(data.wins).toBeDefined();
   expect(data.wins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.wins).toEqualTypeOf<number>();

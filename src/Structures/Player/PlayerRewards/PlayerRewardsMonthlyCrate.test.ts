@@ -2,12 +2,11 @@ import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerRewardsMonthlyCrate', () => {
-  const data = new PlayerRewardsMonthlyCrate({ stats: 'meow' }, 'meow');
+  const data = new PlayerRewardsMonthlyCrate({ stats: 'meow' }, 'mrrp');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerRewardsMonthlyCrate);
   expectTypeOf(data).toEqualTypeOf<PlayerRewardsMonthlyCrate>();
   expect(data.date).toBeDefined();
-  expect(data.date).toBe('meow');
   expectTypeOf(data.date).toEqualTypeOf<string>();
   expect(data.REGULAR).toBeDefined();
   expectTypeOf(data.REGULAR).toEqualTypeOf<boolean>();

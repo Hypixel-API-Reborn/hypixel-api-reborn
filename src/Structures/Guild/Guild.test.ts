@@ -18,8 +18,10 @@ test('Guild', () => {
   expect(data.description).toBeDefined();
   expectTypeOf(data.description).toEqualTypeOf<string>();
   expect(data.experience).toBeDefined();
+  expect(data.experience).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.experience).toEqualTypeOf<number>();
   expect(data.level).toBeDefined();
+  expect(data.level).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.level).toEqualTypeOf<number>();
   expect(data.members).toBeDefined();
   expectTypeOf(data.members).toEqualTypeOf<GuildMember[]>();
@@ -28,6 +30,7 @@ test('Guild', () => {
   expect(data.ranks).toBeDefined();
   expectTypeOf(data.ranks).toEqualTypeOf<GuildRank[]>();
   expect(data.totalWeeklyGEXP).toBeDefined();
+  expect(data.totalWeeklyGEXP).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.totalWeeklyGEXP).toEqualTypeOf<number>();
   expect(data.createdAtTimestamp).toBeDefined();
   expectTypeOf(data.createdAtTimestamp).toEqualTypeOf<number | null>();
@@ -53,9 +56,9 @@ test('Guild', () => {
   expectTypeOf(data.achievements).toEqualTypeOf<{ winners: number; experienceKings: number; onlinePlayers: number }>();
   expect(data.preferredGames).toBeDefined();
   expectTypeOf(data.preferredGames).toEqualTypeOf<Game[]>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
   expect(data.toString()).toBe(data.name);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
-  expect(data.guildMaster).toBeDefined();
-  expectTypeOf(data.guildMaster()).toEqualTypeOf<GuildMember | undefined>();
 });

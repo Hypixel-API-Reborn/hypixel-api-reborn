@@ -24,6 +24,6 @@ test('SkyBlockMemberPetsAutoPetRule', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.id);
+  expect(data.toString()).toBe(data.name);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

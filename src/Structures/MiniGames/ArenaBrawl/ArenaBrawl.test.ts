@@ -5,6 +5,7 @@ import type { ArenaBrawlRunes } from '../../../Types/Player.js';
 
 test('ArenaBrawl', () => {
   const data = new ArenaBrawl({ stats: 'meow' });
+  expect(data).toBeDefined();
   expect(data).toBeInstanceOf(ArenaBrawl);
   expectTypeOf(data).toEqualTypeOf<ArenaBrawl>();
   expect(data.coins).toBeDefined();
@@ -25,9 +26,12 @@ test('ArenaBrawl', () => {
   expect(data.rune).toBeDefined();
   expectTypeOf(data.rune).toEqualTypeOf<ArenaBrawlRunes | 'None'>();
   expect(data['1v1']).toBeDefined();
+  expect(data['1v1']).toBeInstanceOf(ArenaBrawlMode);
   expectTypeOf(data['1v1']).toEqualTypeOf<ArenaBrawlMode>();
   expect(data['2v2']).toBeDefined();
+  expect(data['2v2']).toBeInstanceOf(ArenaBrawlMode);
   expectTypeOf(data['2v2']).toEqualTypeOf<ArenaBrawlMode>();
   expect(data['4v4']).toBeDefined();
+  expect(data['4v4']).toBeInstanceOf(ArenaBrawlMode);
   expectTypeOf(data['4v4']).toEqualTypeOf<ArenaBrawlMode>();
 });

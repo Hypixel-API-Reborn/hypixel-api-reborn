@@ -3,7 +3,8 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { CopsAndCrimsGuns } from '../../../Types/Player.js';
 
 test('CopsAndCrimsGun', () => {
-  const data = new CopsAndCrimsGun({ stats: 'meow' }, 'smg');
+  const data = new CopsAndCrimsGun({ stats: 'meow' }, 'auto_shotgun');
+  expect(data).toBeDefined();
   expect(data).toBeInstanceOf(CopsAndCrimsGun);
   expectTypeOf(data).toEqualTypeOf<CopsAndCrimsGun>();
   expect(data.gunName).toBeDefined();

@@ -11,12 +11,15 @@ test('SkyBlockMemberDungeons', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberDungeons);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberDungeons>();
   expect(data.catacombs).toBeDefined();
+  expect(data.catacombs).toBeInstanceOf(SkyBlockMemberDungeonsMode);
   expectTypeOf(data.catacombs).toEqualTypeOf<SkyBlockMemberDungeonsMode>();
   expect(data.masterCatacombs).toBeDefined();
+  expect(data.masterCatacombs).toBeInstanceOf(SkyBlockMemberDungeonsMode);
   expectTypeOf(data.masterCatacombs).toEqualTypeOf<SkyBlockMemberDungeonsMode>();
   expect(data.level).toBeDefined();
   expectTypeOf(data.level).toEqualTypeOf<SkillLevelData>();
   expect(data.classes).toBeDefined();
+  expect(data.classes).toBeInstanceOf(SkyBlockMemberDungeonsClasses);
   expectTypeOf(data.classes).toEqualTypeOf<SkyBlockMemberDungeonsClasses>();
   expect(data.unlockedJournals).toBeDefined();
   expectTypeOf(data.unlockedJournals).toEqualTypeOf<string[]>();
@@ -25,10 +28,11 @@ test('SkyBlockMemberDungeons', () => {
   expect(data.lastDungeonRun).toBeDefined();
   expectTypeOf(data.lastDungeonRun).toEqualTypeOf<DungeonFloor | 'UNKNOWN'>();
   expect(data.secrets).toBeDefined();
+  expect(data.secrets).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.secrets).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.level.level);
+  expect(data.toString()).toBe(data.level.level);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

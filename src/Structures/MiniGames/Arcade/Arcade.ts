@@ -1,4 +1,4 @@
-import ArcadeOptions from './ArcadeOptions.js';
+import ArcadeOptions from './ArcadeOptions.ts';
 import BlockingDead from './BlockingDead.ts';
 import DragonWars from './DragonWars.ts';
 import DrawTheirThing from './DrawTheirThing.ts';

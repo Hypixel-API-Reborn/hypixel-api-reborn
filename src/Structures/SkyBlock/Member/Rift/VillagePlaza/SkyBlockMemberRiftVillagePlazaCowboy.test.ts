@@ -8,8 +8,10 @@ test('SkyBlockMemberRiftVillagePlazaCowboy', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberRiftVillagePlazaCowboy);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberRiftVillagePlazaCowboy>();
   expect(data.stage).toBeDefined();
+  expect(data.stage).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.stage).toEqualTypeOf<number>();
   expect(data.hayEaten).toBeDefined();
+  expect(data.hayEaten).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.hayEaten).toEqualTypeOf<number>();
   expect(data.rabbitName).toBeDefined();
   expectTypeOf(data.rabbitName).toEqualTypeOf<RiftVillagePlazaCowboyRabbit | 'UNKNOWN'>();

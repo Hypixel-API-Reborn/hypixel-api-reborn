@@ -19,9 +19,4 @@ test('Leaderboard', () => {
   expectTypeOf(data.count).toEqualTypeOf<number>();
   expect(data.leaders).toBeDefined();
   expectTypeOf(data.leaders).toEqualTypeOf<string[]>();
-
-  data.leaders.forEach((leader: string) => {
-    expect(leader).toBeDefined();
-    expectTypeOf(leader).toEqualTypeOf<string>();
-  });
 });

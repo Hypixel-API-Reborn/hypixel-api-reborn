@@ -11,5 +11,6 @@ test('SkyBlockMemberRiftEnigma', () => {
   expect(data.foundSouls).toBeDefined();
   expectTypeOf(data.foundSouls).toEqualTypeOf<string[]>();
   expect(data.claimedBonusIndex).toBeDefined();
+  expect(data.claimedBonusIndex).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.claimedBonusIndex).toEqualTypeOf<number>();
 });

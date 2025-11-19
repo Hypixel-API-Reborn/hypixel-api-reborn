@@ -5,9 +5,9 @@ class Challenge {
   name: string;
   rewards: ChallengeReward[];
   constructor(data: Record<string, any>) {
-    this.id = data.id;
-    this.name = data.name;
-    this.rewards = data.rewards;
+    this.id = data.id || 'UNKNOWN';
+    this.name = data.name || 'UNKNOWN';
+    this.rewards = data.rewards || [];
   }
 }
 

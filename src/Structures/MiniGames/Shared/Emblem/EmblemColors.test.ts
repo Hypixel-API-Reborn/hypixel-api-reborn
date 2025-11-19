@@ -1,0 +1,37 @@
+import EmblemColors from './EmblemColors.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('EmblemColors', () => {
+  const data = new EmblemColors({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(EmblemColors);
+  expectTypeOf(data).toEqualTypeOf<EmblemColors>();
+  expect(data.aqua).toBeDefined();
+  expectTypeOf(data.aqua).toEqualTypeOf<boolean>();
+  expect(data.black).toBeDefined();
+  expectTypeOf(data.black).toEqualTypeOf<boolean>();
+  expect(data.blue).toBeDefined();
+  expectTypeOf(data.blue).toEqualTypeOf<boolean>();
+  expect(data.darkAqua).toBeDefined();
+  expectTypeOf(data.darkAqua).toEqualTypeOf<boolean>();
+  expect(data.darkBlue).toBeDefined();
+  expectTypeOf(data.darkBlue).toEqualTypeOf<boolean>();
+  expect(data.darkGray).toBeDefined();
+  expectTypeOf(data.darkGray).toEqualTypeOf<boolean>();
+  expect(data.darkGreen).toBeDefined();
+  expectTypeOf(data.darkGreen).toEqualTypeOf<boolean>();
+  expect(data.darkPurple).toBeDefined();
+  expectTypeOf(data.darkPurple).toEqualTypeOf<boolean>();
+  expect(data.darkRed).toBeDefined();
+  expectTypeOf(data.darkRed).toEqualTypeOf<boolean>();
+  expect(data.gray).toBeDefined();
+  expectTypeOf(data.gray).toEqualTypeOf<boolean>();
+  expect(data.green).toBeDefined();
+  expectTypeOf(data.green).toEqualTypeOf<boolean>();
+  expect(data.lightPurple).toBeDefined();
+  expectTypeOf(data.lightPurple).toEqualTypeOf<boolean>();
+  expect(data.red).toBeDefined();
+  expectTypeOf(data.red).toEqualTypeOf<boolean>();
+  expect(data.yellow).toBeDefined();
+  expectTypeOf(data.yellow).toEqualTypeOf<boolean>();
+});

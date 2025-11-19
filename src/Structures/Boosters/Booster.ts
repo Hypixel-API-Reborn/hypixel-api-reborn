@@ -21,11 +21,11 @@ class Booster {
   stackers: string[];
   expired: boolean;
   constructor(data: Record<string, any>) {
-    this.purchaser = data.purchaserUuid;
-    this.amount = data.amount;
-    this.originalLength = data.originalLength;
-    this.remaining = data.length;
-    this.activatedTimestamp = data.dateActivated;
+    this.purchaser = data.purchaserUuid || 'UNKNOWN';
+    this.amount = data.amount || 0;
+    this.originalLength = data.originalLength || 0;
+    this.remaining = data.length || 0;
+    this.activatedTimestamp = data.dateActivated || 0;
     this.activated = new Date(data.dateActivated);
     this.game = new Game(data.gameType);
     this.isActive = Array.isArray(data.stacked);

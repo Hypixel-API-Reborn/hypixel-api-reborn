@@ -13,14 +13,17 @@ test('SkyBlockMemberAccessoryBag', () => {
   expect(data.unlockedPowers).toBeDefined();
   expectTypeOf(data.unlockedPowers).toEqualTypeOf<SkyBlockMemberPower[]>();
   expect(data.bagUpgradesPurchased).toBeDefined();
+  expect(data.bagUpgradesPurchased).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.bagUpgradesPurchased).toEqualTypeOf<number>();
   expect(data.highestMagicalPower).toBeDefined();
+  expect(data.highestMagicalPower).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.highestMagicalPower).toEqualTypeOf<number>();
   expect(data.tuning).toBeDefined();
+  expect(data.tuning).toBeInstanceOf(SkyBlockMemberAccessoryBagTuning);
   expectTypeOf(data.tuning).toEqualTypeOf<SkyBlockMemberAccessoryBagTuning>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockMemberPower | null>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.selectedPower);
+  expect(data.toString()).toBe(data.selectedPower);
   expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockMemberPower | null>();
 });

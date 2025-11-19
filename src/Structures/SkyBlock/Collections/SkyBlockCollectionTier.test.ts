@@ -6,10 +6,11 @@ test('SkyBlockCollectionTier', () => {
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockCollectionTier);
   expectTypeOf(data).toEqualTypeOf<SkyBlockCollectionTier>();
-
   expect(data.tier).toBeDefined();
+  expect(data.tier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier).toEqualTypeOf<number>();
   expect(data.amountRequired).toBeDefined();
+  expect(data.amountRequired).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.amountRequired).toEqualTypeOf<number>();
   expect(data.unlocks).toBeDefined();
   expectTypeOf(data.unlocks).toEqualTypeOf<string[]>();

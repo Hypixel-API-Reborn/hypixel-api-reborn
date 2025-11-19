@@ -16,9 +16,11 @@ test('SkyBlockBazaarProduct', () => {
   expect(data.buySummary).toBeDefined();
   expectTypeOf(data.buySummary).toEqualTypeOf<SkyBlockBazaarProductOrder[]>();
   expect(data.quickStatus).toBeDefined();
+  expect(data.quickStatus).toBeInstanceOf(SkyBlockBazaarQuickStatus);
   expectTypeOf(data.quickStatus).toEqualTypeOf<SkyBlockBazaarQuickStatus>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => BazaarProduct | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.productId);
   expectTypeOf(data.toString()).toEqualTypeOf<BazaarProduct | 'UNKNOWN'>();
 });

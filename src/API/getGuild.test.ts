@@ -242,10 +242,6 @@ test('getGuild (Name)', async () => {
   });
   expect(data.toString()).toBeDefined();
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
-  expect(data.guildMaster()).toBeDefined();
-  expect(data.guildMaster()).toBeInstanceOf(GuildMember);
-  expect(['Guild Master', 'GUILDMASTER']).toContain(data.guildMaster()?.rank);
-  expectTypeOf(data.guildMaster()).toEqualTypeOf<GuildMember | undefined>();
   client.destroy();
 });
 
@@ -427,10 +423,6 @@ test('getGuild (Id)', async () => {
   });
   expect(data.toString()).toBeDefined();
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
-  expect(data.guildMaster()).toBeDefined();
-  expect(data.guildMaster()).toBeInstanceOf(GuildMember);
-  expect(['Guild Master', 'GUILDMASTER']).toContain(data.guildMaster()?.rank);
-  expectTypeOf(data.guildMaster()).toEqualTypeOf<GuildMember | undefined>();
   client.destroy();
 });
 
@@ -612,9 +604,5 @@ test('getGuild (Player)', async () => {
   });
   expect(data.toString()).toBeDefined();
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
-  expect(data.guildMaster()).toBeDefined();
-  expect(data.guildMaster()).toBeInstanceOf(GuildMember);
-  expect(['Guild Master', 'GUILDMASTER']).toContain(data.guildMaster()?.rank);
-  expectTypeOf(data.guildMaster()).toEqualTypeOf<GuildMember | undefined>();
   client.destroy();
 });

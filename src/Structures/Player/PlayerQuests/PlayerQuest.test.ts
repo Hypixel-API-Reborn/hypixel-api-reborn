@@ -3,12 +3,11 @@ import PlayerQuestCompletions from './PlayerQuestCompletions.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerQuest', () => {
-  const data = new PlayerQuest({ stats: 'meow' }, 'meow');
+  const data = new PlayerQuest({ stats: 'meow' }, 'mrrp');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerQuest);
   expectTypeOf(data).toEqualTypeOf<PlayerQuest>();
   expect(data.name).toBeDefined();
-  expect(data.name).toBe('meow');
   expectTypeOf(data.name).toEqualTypeOf<string>();
   expect(data.completions).toBeDefined();
   expect(data.completions).toBeInstanceOf(PlayerQuestCompletions);

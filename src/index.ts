@@ -1,4 +1,4 @@
-/* v8 ignore next 1000 */
+/* v8 ignore next 10000 */
 /* eslint-disable @stylistic/max-len  */
 
 import Client from './Client.js';
@@ -20,6 +20,7 @@ export * from './Utils/Constants.js';
 export * from './Utils/Divide.js';
 export * from './Utils/Guild.js';
 export * from './Utils/Oscillation.js';
+export * from './Utils/ParseBoosterType.js';
 export * from './Utils/RemoveSnakeCase.js';
 export * from './Utils/Romanize.js';
 export * from './Utils/SkyBlockUtils.js';

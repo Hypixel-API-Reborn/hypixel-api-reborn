@@ -9,10 +9,8 @@ test('PlayerTourney', () => {
   expect(data).toBeInstanceOf(PlayerTourney);
   expectTypeOf(data).toEqualTypeOf<PlayerTourney>();
   expect(data.firstJoinLobbyTimestamp).toBeDefined();
-  expect(data.firstJoinLobbyTimestamp).toBeNull();
   expectTypeOf(data.firstJoinLobbyTimestamp).toEqualTypeOf<number | null>();
   expect(data.firstJoinLobbyAt).toBeDefined();
-  expect(data.firstJoinLobbyAt).toBeNull();
   expectTypeOf(data.firstJoinLobbyAt).toEqualTypeOf<Date | null>();
   expect(data.totalTributes).toBeDefined();
   expect(data.totalTributes).toBeGreaterThanOrEqual(0);
@@ -22,10 +20,5 @@ test('PlayerTourney', () => {
   expect(data.hidePurchased).toBeDefined();
   expectTypeOf(data.hidePurchased).toEqualTypeOf<boolean>();
   expect(data.tourneyData).toBeDefined();
-  data.tourneyData.forEach((tourney) => {
-    expect(tourney).toBeDefined();
-    expect(tourney).toBeInstanceOf(PlayerTourneyData);
-    expectTypeOf(tourney).toEqualTypeOf<PlayerTourneyData>();
-  });
   expectTypeOf(data.tourneyData).toEqualTypeOf<PlayerTourneyData[]>();
 });

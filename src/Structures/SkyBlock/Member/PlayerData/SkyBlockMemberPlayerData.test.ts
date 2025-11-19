@@ -1,8 +1,8 @@
 import SkyBlockMemberPlayerData from './SkyBlockMemberPlayerData.js';
+import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
+import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
+import SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
-import type SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
-import type SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
 import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberPlayerData', () => {
@@ -17,10 +17,13 @@ test('SkyBlockMemberPlayerData', () => {
   expect(data.disabledPotionEffects).toBeDefined();
   expectTypeOf(data.disabledPotionEffects).toEqualTypeOf<SkyBlockPotionEffectName[]>();
   expect(data.reaperPeppersEaten).toBeDefined();
+  expect(data.reaperPeppersEaten).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.reaperPeppersEaten).toEqualTypeOf<number>();
   expect(data.deaths).toBeDefined();
+  expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
   expect(data.lastDeath).toBeDefined();
+  expect(data.lastDeath).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.lastDeath).toEqualTypeOf<number>();
   expect(data.visitedZones).toBeDefined();
   expectTypeOf(data.visitedZones).toEqualTypeOf<string[]>();
@@ -33,11 +36,15 @@ test('SkyBlockMemberPlayerData', () => {
   expect(data.perks).toBeDefined();
   expectTypeOf(data.perks).toEqualTypeOf<Record<string, number>>();
   expect(data.minions).toBeDefined();
+  expect(data.minions).toBeInstanceOf(SkyBlockMemberPlayerDataMinions);
   expectTypeOf(data.minions).toEqualTypeOf<SkyBlockMemberPlayerDataMinions>();
   expect(data.fastestTargetPractice).toBeDefined();
+  expect(data.fastestTargetPractice).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.fastestTargetPractice).toEqualTypeOf<number>();
   expect(data.fishingTreasureCaught).toBeDefined();
+  expect(data.fishingTreasureCaught).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.fishingTreasureCaught).toEqualTypeOf<number>();
   expect(data.skills).toBeDefined();
+  expect(data.skills).toBeInstanceOf(SkyBlockMemberPlayerDataSkills);
   expectTypeOf(data.skills).toEqualTypeOf<SkyBlockMemberPlayerDataSkills>();
 });

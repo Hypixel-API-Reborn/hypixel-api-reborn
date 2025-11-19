@@ -15,6 +15,9 @@ test('Status', () => {
   expectTypeOf(data.mode).toEqualTypeOf<string | null>();
   expect(data.map).toBeDefined();
   expectTypeOf(data.map).toEqualTypeOf<string | null>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => 'Online' | 'Offline'>();
   expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.online ? 'Online' : 'Offline');
   expectTypeOf(data.toString()).toEqualTypeOf<'Online' | 'Offline'>();
 });

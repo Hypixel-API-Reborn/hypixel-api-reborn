@@ -5,8 +5,8 @@ class SkyWarsPackages {
   cages: any;
   kits: SkyWarsKits;
   achievements: any;
-  constructor(data: Record<string, any>) {
-    this.rawPackages = data;
+  constructor(data: Record<string, any>[]) {
+    this.rawPackages = data || [];
     this.cages = this.parseCages();
     this.kits = new SkyWarsKits(data);
     this.achievements = this.rawPackages

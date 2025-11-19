@@ -9,6 +9,7 @@ import type { BedWarsPrestige } from '../../../Types/Player.js';
 
 test('BedWars', () => {
   const data = new BedWars({ stats: 'meow' });
+  expect(data).toBeDefined();
   expect(data).toBeInstanceOf(BedWars);
   expectTypeOf(data).toEqualTypeOf<BedWars>();
   expect(data.tokens).toBeDefined();
@@ -73,12 +74,18 @@ test('BedWars', () => {
   expect(data.fours).toBeDefined();
   expect(data.fours).toBeInstanceOf(BedWarsMode);
   expectTypeOf(data.fours).toEqualTypeOf<BedWarsMode>();
+  expect(data['4v4']).toBeDefined();
+  expect(data['4v4']).toBeInstanceOf(BedWarsMode);
+  expectTypeOf(data['4v4']).toEqualTypeOf<BedWarsMode>();
   expect(data.dream).toBeDefined();
   expect(data.dream).toBeInstanceOf(BedWarsDreamStats);
   expectTypeOf(data.dream).toEqualTypeOf<BedWarsDreamStats>();
   expect(data.castle).toBeDefined();
   expect(data.castle).toBeInstanceOf(BedWarsMode);
   expectTypeOf(data.castle).toEqualTypeOf<BedWarsMode>();
+  expect(data.oneBlock).toBeDefined();
+  expect(data.oneBlock).toBeInstanceOf(BedWarsMode);
+  expectTypeOf(data.oneBlock).toEqualTypeOf<BedWarsMode>();
   expect(data.practice).toBeDefined();
   expect(data.practice).toBeInstanceOf(BedWarsPracticeStats);
   expectTypeOf(data.practice).toEqualTypeOf<BedWarsPracticeStats>();

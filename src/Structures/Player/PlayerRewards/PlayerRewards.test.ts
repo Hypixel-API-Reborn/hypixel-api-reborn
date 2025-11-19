@@ -34,9 +34,5 @@ test('PlayerRewards', () => {
   expect(data.totalRewards).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.totalRewards).toEqualTypeOf<number>();
   expect(data.monthlyCrates).toBeDefined();
-  data.monthlyCrates.forEach((crate) => {
-    expect(crate).toBeDefined();
-    expectTypeOf(crate).toEqualTypeOf<PlayerRewardsMonthlyCrate>();
-  });
   expectTypeOf(data.monthlyCrates).toEqualTypeOf<PlayerRewardsMonthlyCrate[]>();
 });

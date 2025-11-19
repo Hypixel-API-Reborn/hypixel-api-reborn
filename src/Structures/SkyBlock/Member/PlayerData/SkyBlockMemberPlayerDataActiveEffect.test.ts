@@ -7,7 +7,9 @@ test('SkyBlockMemberPlayerDataActiveEffect', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberPlayerDataActiveEffect);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberPlayerDataActiveEffect>();
   expect(data.expireAt).toBeDefined();
+  expect(data.expireAt).toBeInstanceOf(Date);
   expectTypeOf(data.expireAt).toEqualTypeOf<Date>();
   expect(data.expireTimestamp).toBeDefined();
+  expect(data.expireTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.expireTimestamp).toEqualTypeOf<number>();
 });

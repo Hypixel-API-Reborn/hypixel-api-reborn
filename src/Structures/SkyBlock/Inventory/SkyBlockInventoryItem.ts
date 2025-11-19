@@ -22,7 +22,7 @@ class SkyBlockInventoryItem {
   starCount: number;
   enchantments: SkyBlockInventoryItemEnchantment[] | null;
   uuid: UUID | null;
-  hotPotatoBookCount: number;
+  hotPotatoBookCount: number | null;
   championCombatXP: number | null;
   id: string;
   hasDonatedItem: boolean;

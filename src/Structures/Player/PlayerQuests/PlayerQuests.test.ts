@@ -8,11 +8,6 @@ test('PlayerQuests', () => {
   expect(data).toBeInstanceOf(PlayerQuests);
   expectTypeOf(data).toEqualTypeOf<PlayerQuests>();
   expect(data.quests).toBeDefined();
-  data.quests.forEach((quest) => {
-    expect(quest).toBeDefined();
-    expect(quest).toBeInstanceOf(PlayerQuest);
-    expectTypeOf(quest).toEqualTypeOf<PlayerQuest>();
-  });
   expectTypeOf(data.quests).toEqualTypeOf<PlayerQuest[]>();
   expect(data.autoActivate).toBeDefined();
   expectTypeOf(data.autoActivate).toEqualTypeOf<boolean>();

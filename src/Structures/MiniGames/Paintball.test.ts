@@ -1,5 +1,6 @@
 import Paintball from './Paintball.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type { PaintballHats } from '../../Types/Player.js';
 
 test('Paintball', () => {
   const data = new Paintball({ stats: 'meow' });
@@ -31,6 +32,7 @@ test('Paintball', () => {
   expect(data.forceFieldTime).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.forceFieldTime).toEqualTypeOf<number>();
   expect(data.hat).toBeDefined();
+  expectTypeOf(data.hat).toEqualTypeOf<PaintballHats | 'None'>();
   expect(data.adrenaline).toBeDefined();
   expect(data.adrenaline).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.adrenaline).toEqualTypeOf<number>();

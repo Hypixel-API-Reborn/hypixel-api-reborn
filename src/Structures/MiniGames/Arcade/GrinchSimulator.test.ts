@@ -1,0 +1,33 @@
+import GrinchSimulator from './GrinchSimulator.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('GrinchSimulator', () => {
+  const data = new GrinchSimulator({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(GrinchSimulator);
+  expectTypeOf(data).toEqualTypeOf<GrinchSimulator>();
+  expect(data.gifts).toBeDefined();
+  expect(data.gifts).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.gifts).toEqualTypeOf<number>();
+  expect(data.giftsTourney).toBeDefined();
+  expect(data.giftsTourney).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.giftsTourney).toEqualTypeOf<number>();
+  expect(data.giftsTourneyGrinchSimulator1).toBeDefined();
+  expect(data.giftsTourneyGrinchSimulator1).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.giftsTourneyGrinchSimulator1).toEqualTypeOf<number>();
+  expect(data.lossesTourney).toBeDefined();
+  expect(data.lossesTourney).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.lossesTourney).toEqualTypeOf<number>();
+  expect(data.lossesTourneyGrinchSimulator1).toBeDefined();
+  expect(data.lossesTourneyGrinchSimulator1).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.lossesTourneyGrinchSimulator1).toEqualTypeOf<number>();
+  expect(data.wins).toBeDefined();
+  expect(data.wins).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wins).toEqualTypeOf<number>();
+  expect(data.winsTourney).toBeDefined();
+  expect(data.winsTourney).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winsTourney).toEqualTypeOf<number>();
+  expect(data.winsTourneyGrinchSimulator1).toBeDefined();
+  expect(data.winsTourneyGrinchSimulator1).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winsTourneyGrinchSimulator1).toEqualTypeOf<number>();
+});

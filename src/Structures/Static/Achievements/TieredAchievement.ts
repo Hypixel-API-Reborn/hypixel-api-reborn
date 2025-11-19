@@ -5,7 +5,7 @@ class TieredAchievement extends BaseAchievement {
   tiers: AchievementTier[];
   constructor(achievementName: string, data: Record<string, any>) {
     super(achievementName, data);
-    this.tiers = data.tiers;
+    this.tiers = data.tiers || [];
   }
 }
 

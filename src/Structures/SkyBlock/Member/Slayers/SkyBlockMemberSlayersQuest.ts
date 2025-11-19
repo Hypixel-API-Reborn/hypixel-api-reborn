@@ -1,6 +1,6 @@
 import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/SkyBlock.js';
 
-class SkyBlockMemberSlayerQuest {
+class SkyBlockMemberSlayersQuest {
   type: SkyBlockSlayer | 'UNKNOWN';
   tier: number;
   startTimestamp: number;
@@ -33,4 +33,4 @@ class SkyBlockMemberSlayerQuest {
   }
 }
 
-export default SkyBlockMemberSlayerQuest;
+export default SkyBlockMemberSlayersQuest;

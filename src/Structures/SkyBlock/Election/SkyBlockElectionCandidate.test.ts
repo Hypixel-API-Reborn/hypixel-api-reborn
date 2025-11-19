@@ -15,10 +15,11 @@ test('SkyBlockElectionCandidate', () => {
   expect(data.perks).toBeDefined();
   expectTypeOf(data.perks).toEqualTypeOf<SkyBlockElectionCandidatePerk[]>();
   expect(data.votesReceived).toBeDefined();
+  expect(data.votesReceived).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.votesReceived).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockMayor | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.name);
+  expect(data.toString()).toBe(data.name);
   expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockMayor | 'UNKNOWN'>();
 });

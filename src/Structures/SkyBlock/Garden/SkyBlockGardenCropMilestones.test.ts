@@ -27,9 +27,12 @@ test('SkyBlockGardenCropMilestones', () => {
   expectTypeOf(data.mushroom).toEqualTypeOf<SkillLevelData>();
   expect(data.netherWart).toBeDefined();
   expectTypeOf(data.netherWart).toEqualTypeOf<SkillLevelData>();
+  expect(data.average).toBeDefined();
+  expect(data.average).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.average).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.average);
+  expect(data.toString()).toBe(data.average);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

@@ -1,7 +1,7 @@
 import SpeedUHCMode from './SpeedUHCMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('SpeedUHC', () => {
+test('SpeedUHCMode', () => {
   const data = new SpeedUHCMode({ stats: 'meow' }, 'solo');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SpeedUHCMode);

@@ -25,9 +25,11 @@ test('SkyBlockMemberCrimsonIsleAbiphone', () => {
   expect(data.operatorChip).toBeDefined();
   expectTypeOf(data.operatorChip).toEqualTypeOf<Record<string, number>>();
   expect(data.trioContactAddons).toBeDefined();
+  expect(data.trioContactAddons).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.trioContactAddons).toEqualTypeOf<number>();
   expect(data.hasUsedSiriusPersonalPhoneNumberItem).toBeDefined();
   expectTypeOf(data.hasUsedSiriusPersonalPhoneNumberItem).toEqualTypeOf<boolean>();
   expect(data.lastDyeCalledYear).toBeDefined();
+  expect(data.lastDyeCalledYear).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.lastDyeCalledYear).toEqualTypeOf<number>();
 });

@@ -25,10 +25,5 @@ test('PlayerHousing', () => {
   expect(data.playerSettings).toBeInstanceOf(PlayerHousingPlayerSettings);
   expectTypeOf(data.playerSettings).toEqualTypeOf<PlayerHousingPlayerSettings>();
   expect(data.givenCookies).toBeDefined();
-  data.givenCookies.forEach((cookie) => {
-    expect(cookie).toBeDefined();
-    expect(cookie).toBeInstanceOf(PlayerHousingGivenCookies);
-    expectTypeOf(cookie).toEqualTypeOf<PlayerHousingGivenCookies>();
-  });
   expectTypeOf(data.givenCookies).toEqualTypeOf<PlayerHousingGivenCookies[]>();
 });

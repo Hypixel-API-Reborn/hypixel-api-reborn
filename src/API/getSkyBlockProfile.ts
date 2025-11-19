@@ -18,21 +18,21 @@ class getSkyBlockProfile extends Endpoint {
     return parsedProfile;
   }
 
-  private async handleGettingSkyBlockGarden(profileId: string): Promise<SkyBlockGarden | null> {
+  private async handleGettingSkyBlockGarden(profileId: string): Promise<SkyBlockGarden | undefined> {
     try {
       const garden = await this.client.getSkyBlockGarden(profileId);
       return garden as SkyBlockGarden;
     } catch {
-      return null;
+      return undefined;
     }
   }
 
-  private async handleGettingSkyBlockMuseum(profileId: string): Promise<SkyBlockMuseum | null> {
+  private async handleGettingSkyBlockMuseum(profileId: string): Promise<SkyBlockMuseum | undefined> {
     try {
       const museum = await this.client.getSkyBlockMuseum(profileId);
       return museum as SkyBlockMuseum;
     } catch {
-      return null;
+      return undefined;
     }
   }
 }

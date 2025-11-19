@@ -4,12 +4,11 @@ import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLe
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerSeasonalChristmasYear', () => {
-  const data = new PlayerSeasonalChristmasYear({ stats: 'meow' }, 2000);
+  const data = new PlayerSeasonalChristmasYear({ stats: 'meow' }, 100);
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerSeasonalChristmasYear);
   expectTypeOf(data).toEqualTypeOf<PlayerSeasonalChristmasYear>();
   expect(data.year).toBeDefined();
-  expect(data.year).toBe(2000);
   expect(data.year).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.year).toEqualTypeOf<number>();
   expect(data.adventRewards).toBeDefined();

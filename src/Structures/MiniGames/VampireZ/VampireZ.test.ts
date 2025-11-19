@@ -19,8 +19,10 @@ test('VampireZ', () => {
   expect(data.zombieKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.zombieKills).toEqualTypeOf<number>();
   expect(data.human).toBeDefined();
+  expect(data.human).toBeInstanceOf(VampireZRole);
   expectTypeOf(data.human).toEqualTypeOf<VampireZRole>();
   expect(data.vampire).toBeDefined();
+  expect(data.vampire).toBeInstanceOf(VampireZRole);
   expectTypeOf(data.vampire).toEqualTypeOf<VampireZRole>();
   expect(data.kills).toBeDefined();
   expect(data.kills).toBeGreaterThanOrEqual(0);

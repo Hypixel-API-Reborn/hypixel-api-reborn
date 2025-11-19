@@ -1,0 +1,30 @@
+import SkyBlockPotionEffect from './SkyBlockPotionEffect.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { SkyBlockPotionEffectName } from '../../../Types/SkyBlock.js';
+
+test('SkyBlockPotionEffect', () => {
+  const data = new SkyBlockPotionEffect({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyBlockPotionEffect);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockPotionEffect>();
+  expect(data.effect).toBeDefined();
+  expectTypeOf(data.effect).toEqualTypeOf<SkyBlockPotionEffectName | 'UNKNOWN'>();
+  expect(data.level).toBeDefined();
+  expect(data.level).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.level).toEqualTypeOf<number>();
+  expect(data.modifiers).toBeDefined();
+  expectTypeOf(data.modifiers).toEqualTypeOf<{ key: string; amp: number }[]>();
+  expect(data.durationTicks).toBeDefined();
+  expect(data.durationTicks).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.durationTicks).toEqualTypeOf<number>();
+  expect(data.duration).toBeDefined();
+  expect(data.duration).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.duration).toEqualTypeOf<number>();
+  expect(data.infinite).toBeDefined();
+  expectTypeOf(data.infinite).toEqualTypeOf<boolean>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockPotionEffectName | 'UNKNOWN'>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.effect);
+  expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockPotionEffectName | 'UNKNOWN'>();
+});

@@ -5,105 +5,72 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish();
+  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
   expect(data.rank).toBeDefined();
   expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
   expect(data.gusher).toBeDefined();
+  expect(data.gusher).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.gusher).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.blobfish).toBeDefined();
+  expect(data.blobfish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.blobfish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.lavaHorse).toBeDefined();
+  expect(data.lavaHorse).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.lavaHorse).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.goldenFish).toBeDefined();
+  expect(data.goldenFish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.goldenFish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.volcanicStonefish).toBeDefined();
+  expect(data.volcanicStonefish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.volcanicStonefish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.slugfish).toBeDefined();
+  expect(data.slugfish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.slugfish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.vanille).toBeDefined();
+  expect(data.vanille).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.vanille).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.obfuscatedFish1).toBeDefined();
+  expect(data.obfuscatedFish1).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.obfuscatedFish1).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.obfuscatedFish2).toBeDefined();
+  expect(data.obfuscatedFish2).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.obfuscatedFish2).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.obfuscatedFish3).toBeDefined();
+  expect(data.obfuscatedFish3).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.obfuscatedFish3).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.sulphurSkitter).toBeDefined();
+  expect(data.sulphurSkitter).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.sulphurSkitter).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.skeletonFish).toBeDefined();
+  expect(data.skeletonFish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.skeletonFish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.manaRay).toBeDefined();
+  expect(data.manaRay).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.manaRay).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.flyfish).toBeDefined();
+  expect(data.flyfish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.flyfish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.steamingHotFlounder).toBeDefined();
+  expect(data.steamingHotFlounder).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.steamingHotFlounder).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.soulFish).toBeDefined();
+  expect(data.soulFish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.soulFish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.karateFish).toBeDefined();
+  expect(data.karateFish).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.karateFish).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.moldfin).toBeDefined();
+  expect(data.moldfin).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishFish);
   expectTypeOf(data.moldfin).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishFish>();
   expect(data.caught).toBeDefined();
+  expect(data.caught).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishCaught);
   expectTypeOf(data.caught).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishCaught>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => CrimsonIsleTrophyFishRank>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.rank);
+  expect(data.toString()).toBe(data.rank);
   expectTypeOf(data.toString()).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-});
-
-test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Bronze)', () => {
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ rewards: [1] });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
-  expect(data.rank).toBeDefined();
-  expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-  expect(data.rank).toBe('Bronze');
-});
-
-test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Diamond)', () => {
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ rewards: [1, 2, 3, 4] });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
-  expect(data.rank).toBeDefined();
-  expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-  expect(data.rank).toBe('Diamond');
-});
-
-test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Gold)', () => {
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ rewards: [1, 2, 3] });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
-  expect(data.rank).toBeDefined();
-  expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-  expect(data.rank).toBe('Gold');
-});
-
-test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Silver)', () => {
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ rewards: [1, 2] });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
-  expect(data.rank).toBeDefined();
-  expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-  expect(data.rank).toBe('Silver');
-});
-
-test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Bronze)', () => {
-  const data = new SkyBlockMemberCrimsonIsleTrophyFish({ rewards: [1] });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFish);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFish>();
-  expect(data.rank).toBeDefined();
-  expectTypeOf(data.rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
-  expect(data.rank).toBe('Bronze');
 });

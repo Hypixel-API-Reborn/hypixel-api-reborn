@@ -1,7 +1,7 @@
+import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
 import SkyBlockMemberSlayers from './SkyBlockMemberSlayers.js';
 import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
 
 test('SkyBlockMemberSlayers', () => {
   const data = new SkyBlockMemberSlayers({ stats: 'meow' });
@@ -11,15 +11,21 @@ test('SkyBlockMemberSlayers', () => {
   expect(data.activeSlayer).toBeDefined();
   expectTypeOf(data.activeSlayer).toEqualTypeOf<SkyBlockMemberSlayersQuest | null>();
   expect(data.zombie).toBeDefined();
+  expect(data.zombie).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.zombie).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.spider).toBeDefined();
+  expect(data.spider).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.spider).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.wolf).toBeDefined();
+  expect(data.wolf).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.wolf).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.enderman).toBeDefined();
+  expect(data.enderman).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.enderman).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.blaze).toBeDefined();
+  expect(data.blaze).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.blaze).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.vampire).toBeDefined();
+  expect(data.vampire).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data.vampire).toEqualTypeOf<SkyBlockMemberSlayer>();
 });

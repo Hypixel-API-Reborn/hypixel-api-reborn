@@ -3,7 +3,7 @@ import SkyWarsModeStats from './SkyWarsModeStats.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyWarsKitNames } from '../../../Types/Player.js';
 
-test('SkyWars (Mode Stats)', () => {
+test('SkyWarsModeStats', () => {
   const data = new SkyWarsModeStats({ stats: 'meow' }, 'solo');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyWarsModeStats);
@@ -80,7 +80,9 @@ test('SkyWars (Mode Stats)', () => {
   expect(data.heads).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.heads).toEqualTypeOf<number>();
   expect(data.normal).toBeDefined();
+  expect(data.normal).toBeInstanceOf(SkyWarsMode);
   expectTypeOf(data.normal).toEqualTypeOf<SkyWarsMode>();
   expect(data.insane).toBeDefined();
+  expect(data.insane).toBeInstanceOf(SkyWarsMode);
   expectTypeOf(data.insane).toEqualTypeOf<SkyWarsMode>();
 });

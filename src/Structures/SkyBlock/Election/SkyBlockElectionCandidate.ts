@@ -1,7 +1,7 @@
 import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.js';
 import type { SkyBlockCandidateKeyBenefit, SkyBlockMayor } from '../../../Types/SkyBlock.js';
 
-class SkyBlockElectronCandidate {
+class SkyBlockElectionCandidate {
   name: SkyBlockMayor | 'UNKNOWN';
   keyBenefit: SkyBlockCandidateKeyBenefit | 'UNKNOWN';
   perks: SkyBlockElectionCandidatePerk[];
@@ -18,4 +18,4 @@ class SkyBlockElectronCandidate {
   }
 }
 
-export default SkyBlockElectronCandidate;
+export default SkyBlockElectionCandidate;

@@ -21,6 +21,7 @@ test('SkyBlockMemberPet', () => {
   expect(data.heldItem).toBeDefined();
   expectTypeOf(data.heldItem).toEqualTypeOf<string | null>();
   expect(data.candyUsed).toBeDefined();
+  expect(data.candyUsed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.candyUsed).toEqualTypeOf<number>();
   expect(data.skin).toBeDefined();
   expectTypeOf(data.skin).toEqualTypeOf<string | null>();
@@ -29,6 +30,6 @@ test('SkyBlockMemberPet', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockPetId | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.type);
+  expect(data.toString()).toBe(data.type);
   expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockPetId | 'UNKNOWN'>();
 });

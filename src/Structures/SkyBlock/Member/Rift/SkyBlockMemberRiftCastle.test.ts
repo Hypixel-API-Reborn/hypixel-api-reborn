@@ -9,7 +9,9 @@ test('SkyBlockMemberRiftCastle', () => {
   expect(data.unlockedPathwaySkip).toBeDefined();
   expectTypeOf(data.unlockedPathwaySkip).toEqualTypeOf<boolean>();
   expect(data.fairyStep).toBeDefined();
+  expect(data.fairyStep).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.fairyStep).toEqualTypeOf<number>();
   expect(data.grubberStacks).toBeDefined();
+  expect(data.grubberStacks).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.grubberStacks).toEqualTypeOf<number>();
 });

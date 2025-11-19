@@ -13,6 +13,7 @@ test('SkyBlockItem', () => {
   expect(data.id).toBeDefined();
   expectTypeOf(data.id).toEqualTypeOf<string>();
   expect(data.durability).toBeDefined();
+  expect(data.durability).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.durability).toEqualTypeOf<number>();
   expect(data.skin).toBeDefined();
   expectTypeOf(data.skin).toEqualTypeOf<Record<string, any>>();
@@ -21,6 +22,7 @@ test('SkyBlockItem', () => {
   expect(data.tier).toBeDefined();
   expectTypeOf(data.tier).toEqualTypeOf<string>();
   expect(data.npcSellPrice).toBeDefined();
+  expect(data.npcSellPrice).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.npcSellPrice).toEqualTypeOf<number>();
   expect(data.salvages).toBeDefined();
   expectTypeOf(data.salvages).toEqualTypeOf<Record<string, any>[]>();
@@ -55,6 +57,7 @@ test('SkyBlockItem', () => {
   expect(data.generator).toBeDefined();
   expectTypeOf(data.generator).toEqualTypeOf<string>();
   expect(data.generatorTier).toBeDefined();
+  expect(data.generatorTier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.generatorTier).toEqualTypeOf<number>();
   expect(data.furniture).toBeDefined();
   expectTypeOf(data.furniture).toEqualTypeOf<string>();
@@ -65,6 +68,7 @@ test('SkyBlockItem', () => {
   expect(data.upgradeCosts).toBeDefined();
   expectTypeOf(data.upgradeCosts).toEqualTypeOf<Array<Array<Record<string, any>>>>();
   expect(data.gearScore).toBeDefined();
+  expect(data.gearScore).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.gearScore).toEqualTypeOf<number>();
   expect(data.dungeonItem).toBeDefined();
   expectTypeOf(data.dungeonItem).toEqualTypeOf<boolean>();
@@ -91,10 +95,12 @@ test('SkyBlockItem', () => {
   expect(data.swordType).toBeDefined();
   expectTypeOf(data.swordType).toEqualTypeOf<string>();
   expect(data.abilityDamageScaling).toBeDefined();
+  expect(data.abilityDamageScaling).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.abilityDamageScaling).toEqualTypeOf<number>();
   expect(data.tieredStats).toBeDefined();
   expectTypeOf(data.tieredStats).toEqualTypeOf<Record<string, any>>();
   expect(data.motesSellPrice).toBeDefined();
+  expect(data.motesSellPrice).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.motesSellPrice).toEqualTypeOf<number>();
   expect(data.crystal).toBeDefined();
   expectTypeOf(data.crystal).toEqualTypeOf<string>();
@@ -115,6 +121,7 @@ test('SkyBlockItem', () => {
   expect(data.canInteractEntity).toBeDefined();
   expectTypeOf(data.canInteractEntity).toEqualTypeOf<boolean>();
   expect(data.miningFortune).toBeDefined();
+  expect(data.miningFortune).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.miningFortune).toEqualTypeOf<number>();
   expect(data.recipes).toBeDefined();
   expectTypeOf(data.recipes).toEqualTypeOf<Record<string, any>[]>();
@@ -124,4 +131,9 @@ test('SkyBlockItem', () => {
   expectTypeOf(data.loseMotesValueOnTransfer).toEqualTypeOf<boolean>();
   expect(data.prestige).toBeDefined();
   expectTypeOf(data.prestige).toEqualTypeOf<Record<string, any>>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.name);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

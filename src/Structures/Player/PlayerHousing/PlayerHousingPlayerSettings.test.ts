@@ -8,6 +8,7 @@ test('PlayerHousingPlayerSettings', () => {
   expect(data).toBeInstanceOf(PlayerHousingPlayerSettings);
   expectTypeOf(data).toEqualTypeOf<PlayerHousingPlayerSettings>();
   expect(data.playerVisibility).toBeDefined();
+  expect(data.playerVisibility).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.playerVisibility).toEqualTypeOf<number>();
   expect(data.showBorder).toBeDefined();
   expectTypeOf(data.showBorder).toEqualTypeOf<boolean>();

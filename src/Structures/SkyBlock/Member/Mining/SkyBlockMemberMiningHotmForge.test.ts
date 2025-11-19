@@ -1,11 +1,9 @@
 import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.js';
+import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
 
 test('SkyBlockMemberMiningHotmForge', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const data = new SkyBlockMemberMiningHotmForge();
+  const data = new SkyBlockMemberMiningHotmForge({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberMiningHotmForge);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberMiningHotmForge>();

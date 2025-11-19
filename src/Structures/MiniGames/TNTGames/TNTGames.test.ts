@@ -21,13 +21,18 @@ test('TNTGames', () => {
   expect(data.wins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.wins).toEqualTypeOf<number>();
   expect(data.tntrun).toBeDefined();
+  expect(data.tntrun).toBeInstanceOf(TNTRun);
   expectTypeOf(data.tntrun).toEqualTypeOf<TNTRun>();
   expect(data.pvpRun).toBeDefined();
+  expect(data.pvpRun).toBeInstanceOf(PVPRun);
   expectTypeOf(data.pvpRun).toEqualTypeOf<PVPRun>();
   expect(data.bowSpleef).toBeDefined();
+  expect(data.bowSpleef).toBeInstanceOf(BowSpleef);
   expectTypeOf(data.bowSpleef).toEqualTypeOf<BowSpleef>();
   expect(data.tnttag).toBeDefined();
+  expect(data.tnttag).toBeInstanceOf(TNTTag);
   expectTypeOf(data.tnttag).toEqualTypeOf<TNTTag>();
   expect(data.wizards).toBeDefined();
+  expect(data.wizards).toBeInstanceOf(TNTWizards);
   expectTypeOf(data.wizards).toEqualTypeOf<TNTWizards>();
 });

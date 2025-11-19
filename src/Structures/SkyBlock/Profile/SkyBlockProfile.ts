@@ -22,7 +22,7 @@ class SkyBlockProfile {
   museum: SkyBlockMuseum | null;
   constructor(
     data: Record<string, any>,
-    extra: { uuid: UUID | null; garden: SkyBlockGarden | null; museum: SkyBlockMuseum | null }
+    extra: { uuid: UUID | null; garden?: SkyBlockGarden; museum?: SkyBlockMuseum }
   ) {
     this.profileId = data?.profile_id || 'UNKNOWN';
     this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades || {});
@@ -35,8 +35,8 @@ class SkyBlockProfile {
     this.banking = new SkyBlockProfileBanking(data?.banking || {});
     this.profileName = data?.cute_name || 'UNKNOWN';
     this.selected = data?.selected || false;
-    this.garden = extra.garden;
-    this.museum = extra.museum;
+    this.garden = extra.garden || null;
+    this.museum = extra.museum || null;
   }
 
   toString(): SkyBlockProfileName | 'UNKNOWN' {

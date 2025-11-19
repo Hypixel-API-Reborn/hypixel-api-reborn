@@ -3,7 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { PlayerCosmeticsPetName } from '../../../../Types/Player.js';
 
 test('PlayerCosmeticsPet', () => {
-  const data = new PlayerCosmeticsPet('meow', { stats: 'meow' });
+  const data = new PlayerCosmeticsPet('mrrp', { stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerCosmeticsPet);
   expectTypeOf(data).toEqualTypeOf<PlayerCosmeticsPet>();

@@ -4,7 +4,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { QuestReward, QuestType } from '../../Types/Static.js';
 
 test('Quest', () => {
-  const data = new Quest({ status: 'meow' });
+  const data = new Quest({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(Quest);
   expectTypeOf(data).toEqualTypeOf<Quest>();
@@ -20,6 +20,9 @@ test('Quest', () => {
   expectTypeOf(data.type).toEqualTypeOf<QuestType>();
   expect(data.objectives).toBeDefined();
   expectTypeOf(data.objectives).toEqualTypeOf<QuestObjective[]>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.name);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

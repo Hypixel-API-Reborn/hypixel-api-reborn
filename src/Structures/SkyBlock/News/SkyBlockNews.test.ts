@@ -14,4 +14,9 @@ test('SkyBlockNews', () => {
   expectTypeOf(data.date).toEqualTypeOf<Date | null>();
   expect(data.version).toBeDefined();
   expectTypeOf(data.version).toEqualTypeOf<string | null>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.title);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

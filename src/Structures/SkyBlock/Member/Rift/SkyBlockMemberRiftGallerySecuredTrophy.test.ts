@@ -10,9 +10,12 @@ test('SkyBlockMemberRiftGallerySecuredTrophy', () => {
   expect(data.type).toBeDefined();
   expectTypeOf(data.type).toEqualTypeOf<RiftGalleryTrophy | 'UNKNOWN'>();
   expect(data.timestamp).toBeDefined();
+  expect(data.timestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.timestamp).toEqualTypeOf<number>();
   expect(data.timestampAt).toBeDefined();
+  expect(data.timestampAt).toBeInstanceOf(Date);
   expectTypeOf(data.timestampAt).toEqualTypeOf<Date>();
   expect(data.visits).toBeDefined();
+  expect(data.visits).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.visits).toEqualTypeOf<number>();
 });

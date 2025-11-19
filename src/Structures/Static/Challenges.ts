@@ -6,10 +6,10 @@ class Challenges {
   lastUpdatedAt: Date;
   challengesPerGame: Record<string, GameChallenges>;
   constructor(data: Record<string, any>) {
-    this.lastUpdatedTimestamp = data.lastUpdated;
+    this.lastUpdatedTimestamp = data.lastUpdated || 0;
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
     this.challengesPerGame = {};
-    Object.keys(data.challenges).forEach((game) => {
+    Object.keys(data?.challenges || {}).forEach((game) => {
       this.challengesPerGame[game] = new GameChallenges(game, data.challenges[game]);
     });
   }

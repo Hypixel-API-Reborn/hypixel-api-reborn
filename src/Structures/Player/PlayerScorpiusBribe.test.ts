@@ -2,7 +2,7 @@ import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerScorpiusBribe', () => {
-  const data = new PlayerScorpiusBribe(0, '2000');
+  const data = new PlayerScorpiusBribe(0, '100');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerScorpiusBribe);
   expectTypeOf(data).toEqualTypeOf<PlayerScorpiusBribe>();
@@ -13,5 +13,6 @@ test('PlayerScorpiusBribe', () => {
   expect(data.claimedTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.claimedTimestamp).toEqualTypeOf<number>();
   expect(data.claimedAt).toBeDefined();
+  expect(data.claimedAt).toBeInstanceOf(Date);
   expectTypeOf(data.claimedAt).toEqualTypeOf<Date>();
 });

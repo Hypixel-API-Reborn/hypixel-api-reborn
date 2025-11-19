@@ -3,7 +3,7 @@ import SkyBlockCollectionTier from './SkyBlockCollectionTier.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockCollection', () => {
-  const data = new SkyBlockCollection({ stats: 'meow' }, 'a');
+  const data = new SkyBlockCollection({ stats: 'meow' }, 'mrrp');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockCollection);
   expectTypeOf(data).toEqualTypeOf<SkyBlockCollection>();
@@ -12,12 +12,13 @@ test('SkyBlockCollection', () => {
   expect(data.name).toBeDefined();
   expectTypeOf(data.name).toEqualTypeOf<string>();
   expect(data.maxTiers).toBeDefined();
+  expect(data.maxTiers).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.maxTiers).toEqualTypeOf<number>();
   expect(data.tiers).toBeDefined();
   expectTypeOf(data.tiers).toEqualTypeOf<SkyBlockCollectionTier[]>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.id);
+  expect(data.toString()).toBe(data.id);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

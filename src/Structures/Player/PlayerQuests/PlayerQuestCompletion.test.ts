@@ -7,6 +7,7 @@ test('PlayerQuestCompletion', () => {
   expect(data).toBeInstanceOf(PlayerQuestCompletion);
   expectTypeOf(data).toEqualTypeOf<PlayerQuestCompletion>();
   expect(data.amount).toBeDefined();
+  expect(data.amount).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.amount).toEqualTypeOf<number>();
   expect(data.timestamp).toBeDefined();
   expectTypeOf(data.timestamp).toEqualTypeOf<number | null>();

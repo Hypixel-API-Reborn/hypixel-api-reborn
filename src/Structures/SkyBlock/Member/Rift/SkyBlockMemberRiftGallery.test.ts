@@ -1,6 +1,6 @@
 import SkyBlockMemberRiftGallery from './SkyBlockMemberRiftGallery.js';
+import SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.js';
 import type { RiftGalleryTrophy } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberRiftGallery', () => {
@@ -9,6 +9,7 @@ test('SkyBlockMemberRiftGallery', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberRiftGallery);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberRiftGallery>();
   expect(data.eliseStep).toBeDefined();
+  expect(data.eliseStep).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.eliseStep).toEqualTypeOf<number>();
   expect(data.securedTrophies).toBeDefined();
   expectTypeOf(data.securedTrophies).toEqualTypeOf<SkyBlockMemberRiftGallerySecuredTrophy[]>();

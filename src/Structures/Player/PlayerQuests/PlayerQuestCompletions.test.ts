@@ -11,10 +11,5 @@ test('PlayerQuestCompletions', () => {
   expect(data.amount).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.amount).toEqualTypeOf<number>();
   expect(data.completions).toBeDefined();
-  data.completions.forEach((completion) => {
-    expect(completion).toBeDefined();
-    expect(completion).toBeInstanceOf(PlayerQuestCompletion);
-    expectTypeOf(completion).toEqualTypeOf<PlayerQuestCompletion>();
-  });
   expectTypeOf(data.completions).toEqualTypeOf<PlayerQuestCompletion[]>();
 });

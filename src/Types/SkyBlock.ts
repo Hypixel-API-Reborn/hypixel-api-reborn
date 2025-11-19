@@ -1,5 +1,3 @@
-/* v8 ignore next 10000 */
-
 import type SkyBlockMemberLeveling from '../Structures/SkyBlock/Member/SkyBlockMemberLeveling.ts';
 import type SkyBlockMemberPlayerData from '../Structures/SkyBlock/Member/PlayerData/SkyBlockMemberPlayerData.ts';
 import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';

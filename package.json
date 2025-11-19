@@ -23,6 +23,7 @@
     "prettier": "pnpm exec prettier --write .",
     "build": "pnpm exec tsc",
     "test": "pnpm exec vitest run",
+    "test:generate": "pnpm exec tsx .github/scripts/generateBasicTests.ts",
     "test:coverage": "pnpm exec vitest run --coverage",
     "test:coverage:check": "pnpm exec tsx .github/scripts/checkCoverage.ts",
     "test:ui": "pnpm exec vitest --ui --coverage",

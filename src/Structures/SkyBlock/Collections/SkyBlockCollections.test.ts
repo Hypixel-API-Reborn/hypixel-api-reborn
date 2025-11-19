@@ -3,15 +3,15 @@ import SkyBlockCollections from './SkyBlockCollections.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockCollections', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const data = new SkyBlockCollections();
+  const data = new SkyBlockCollections({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockCollections);
   expectTypeOf(data).toEqualTypeOf<SkyBlockCollections>();
   expect(data.lastUpdated).toBeDefined();
+  expect(data.lastUpdated).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.lastUpdated).toEqualTypeOf<number>();
   expect(data.lastUpdatedAt).toBeDefined();
+  expect(data.lastUpdatedAt).toBeInstanceOf(Date);
   expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date>();
   expect(data.version).toBeDefined();
   expectTypeOf(data.version).toEqualTypeOf<string>();
@@ -30,6 +30,6 @@ test('SkyBlockCollections', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.version);
+  expect(data.toString()).toBe(data.version);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

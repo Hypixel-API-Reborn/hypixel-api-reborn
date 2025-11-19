@@ -1,10 +1,11 @@
+import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish.js';
 import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberCrimsonIsleTrophyFishCaught', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const data = new SkyBlockMemberCrimsonIsleTrophyFishCaught({});
+  const data = new SkyBlockMemberCrimsonIsleTrophyFishCaught(
+    new SkyBlockMemberCrimsonIsleTrophyFish({ stats: 'meow' })
+  );
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberCrimsonIsleTrophyFishCaught);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberCrimsonIsleTrophyFishCaught>();
@@ -26,6 +27,6 @@ test('SkyBlockMemberCrimsonIsleTrophyFishCaught', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.total);
+  expect(data.toString()).toBe(data.total);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

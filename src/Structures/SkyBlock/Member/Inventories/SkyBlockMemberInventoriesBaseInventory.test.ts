@@ -8,6 +8,4 @@ test('SkyBlockMemberInventoriesBaseInventory', () => {
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberInventoriesBaseInventory>();
   expect(data.base64).toBeDefined();
   expectTypeOf(data.base64).toEqualTypeOf<string | null>();
-  expect(data.decodeData).toBeDefined();
-  expectTypeOf(data.decodeData).toEqualTypeOf<() => Promise<any> | any>();
 });

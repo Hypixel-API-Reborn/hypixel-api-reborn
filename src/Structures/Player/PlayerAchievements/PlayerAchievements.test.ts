@@ -10,6 +10,7 @@ test('PlayerAchievements', () => {
   expect(data).toBeInstanceOf(PlayerAchievements);
   expectTypeOf(data).toEqualTypeOf<PlayerAchievements>();
   expect(data.points).toBeDefined();
+  expect(data.points).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.points).toEqualTypeOf<number>();
   expect(data.rewards).toBeDefined();
   expect(data.rewards).toBeInstanceOf(PlayerAchievementsRewards);

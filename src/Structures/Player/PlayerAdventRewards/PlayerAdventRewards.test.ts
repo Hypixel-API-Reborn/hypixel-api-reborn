@@ -3,11 +3,12 @@ import PlayerAdventRewardsDay from './PlayerAdventRewardsDay.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerAdventRewards', () => {
-  const data = new PlayerAdventRewards({ stats: 'meow' }, '2000');
+  const data = new PlayerAdventRewards({ stats: 'meow' }, '100');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerAdventRewards);
   expectTypeOf(data).toEqualTypeOf<PlayerAdventRewards>();
   expect(data.year).toBeDefined();
+  expect(data.year).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.year).toEqualTypeOf<number>();
   expect(data.day1).toBeDefined();
   expect(data.day1).toBeInstanceOf(PlayerAdventRewardsDay);

@@ -29,4 +29,15 @@ test('SkyBlockMemberPlayerDataSkills', () => {
   expectTypeOf(data.carpentry).toEqualTypeOf<SkillLevelData>();
   expect(data.combat).toBeDefined();
   expectTypeOf(data.combat).toEqualTypeOf<SkillLevelData>();
+  expect(data.average).toBeDefined();
+  expect(data.average).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.average).toEqualTypeOf<number>();
+  expect(data.nonCosmeticAverage).toBeDefined();
+  expect(data.nonCosmeticAverage).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.nonCosmeticAverage).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.average);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

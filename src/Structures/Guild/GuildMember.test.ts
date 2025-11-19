@@ -1,19 +1,21 @@
 import GuildMember from './GuildMember.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { ExpHistory } from '../../Types/Guild.js';
+import type { UUID } from '../../Types/Global.js';
 
-test('Guild Member', () => {
+test('GuildMember', () => {
   const data = new GuildMember({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(GuildMember);
   expectTypeOf(data).toEqualTypeOf<GuildMember>();
   expect(data.uuid).toBeDefined();
-  expectTypeOf(data.uuid).toEqualTypeOf<string>();
+  expectTypeOf(data.uuid).toEqualTypeOf<UUID>();
   expect(data.joinedAtTimestamp).toBeDefined();
   expectTypeOf(data.joinedAtTimestamp).toEqualTypeOf<number | null>();
   expect(data.joinedAt).toBeDefined();
   expectTypeOf(data.joinedAt).toEqualTypeOf<Date | null>();
   expect(data.questParticipation).toBeDefined();
+  expect(data.questParticipation).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.questParticipation).toEqualTypeOf<number>();
   expect(data.rank).toBeDefined();
   expectTypeOf(data.rank).toEqualTypeOf<string>();
@@ -24,7 +26,10 @@ test('Guild Member', () => {
   expect(data.expHistory).toBeDefined();
   expectTypeOf(data.expHistory).toEqualTypeOf<ExpHistory[]>();
   expect(data.weeklyExperience).toBeDefined();
+  expect(data.weeklyExperience).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.weeklyExperience).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
   expect(data.toString()).toBe(data.uuid);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();

@@ -1,33 +1,12 @@
-/* v8 ignore next 1000 */
-
 import { format } from 'prettier';
 import { readFileSync, writeFileSync } from 'fs';
-import { readdir } from 'fs/promises';
-
-async function scanDirectory(directoryPath: string, goDeep: boolean = true): Promise<string[]> {
-  const filePaths: string[] = [];
-  const files = await readdir(directoryPath, { withFileTypes: true });
-
-  for (const file of files) {
-    const fullPath = directoryPath + file.name;
-    if (file.isDirectory() && goDeep) {
-      const paths = await scanDirectory(`${fullPath}/`);
-      paths.forEach((path) => filePaths.push(path));
-    } else {
-      if (fullPath.endsWith('.test.ts')) continue;
-      if (fullPath.endsWith('index.ts')) continue;
-      filePaths.push(fullPath.replaceAll('./src/', './'));
-    }
-  }
-
-  return filePaths;
-}
+import { scanDirectory } from './Utils';
 
 const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'));
 
 async function generateBaseIndex() {
   const lines: string[] = [
-    '/* v8 ignore next 1000 */',
+    '',
     '/* eslint-disable @stylistic/max-len  */',
     '',
     '',
@@ -36,7 +15,7 @@ async function generateBaseIndex() {
     ''
   ];
 
-  const typesPaths = await scanDirectory('./src/Types/');
+  const typesPaths = await scanDirectory('./src/Types/', { replaceSrc: true });
   typesPaths.forEach((path) => {
     const fixedPath = path.replaceAll('.ts', '.js');
     lines.push(`export * from '${fixedPath}';`);
@@ -44,7 +23,7 @@ async function generateBaseIndex() {
 
   lines.push('');
 
-  const utilsPaths = await scanDirectory('./src/Utils/');
+  const utilsPaths = await scanDirectory('./src/Utils/', { replaceSrc: true });
   utilsPaths.forEach((path) => {
     const fixedPath = path.replaceAll('.ts', '.js');
     lines.push(`export * from '${fixedPath}';`);
@@ -52,7 +31,7 @@ async function generateBaseIndex() {
 
   lines.push('');
 
-  const structuresPaths = await scanDirectory('./src/Structures/');
+  const structuresPaths = await scanDirectory('./src/Structures/', { replaceSrc: true });
   const fixedStructuresPaths: string[] = [];
   const importNames: string[] = [];
 
@@ -89,7 +68,7 @@ async function generateAPIIndex() {
 
   const importNames: string[] = [];
 
-  const apiPaths = await scanDirectory('./src/API/', false);
+  const apiPaths = await scanDirectory('./src/API/', { goDeep: false, replaceSrc: true });
   const fixedAPIPaths: string[] = [];
 
   apiPaths.forEach((path) => {

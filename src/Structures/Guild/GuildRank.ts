@@ -14,7 +14,7 @@ class GuildRank {
     this.priority = data?.priority || 0;
   }
 
-  toString() {
+  toString(): string {
     return this.name;
   }
 }

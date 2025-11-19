@@ -1,6 +1,6 @@
+import SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.js';
 import SkyBlockMemberRiftDeadCats from './SkyBlockMemberRiftDeadCats.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.js';
 
 test('SkyBlockMemberRiftDeadCats', () => {
   const data = new SkyBlockMemberRiftDeadCats({ stats: 'meow' });
@@ -16,5 +16,6 @@ test('SkyBlockMemberRiftDeadCats', () => {
   expect(data.unlockedPet).toBeDefined();
   expectTypeOf(data.unlockedPet).toEqualTypeOf<boolean>();
   expect(data.montezuma).toBeDefined();
+  expect(data.montezuma).toBeInstanceOf(SkyBlockMemberPet);
   expectTypeOf(data.montezuma).toEqualTypeOf<SkyBlockMemberPet>();
 });

@@ -18,6 +18,7 @@ test('SkyBlockBingoGoal', () => {
   expect(data.lore).toBeDefined();
   expectTypeOf(data.lore).toEqualTypeOf<string>();
   expect(data.progress).toBeDefined();
+  expect(data.progress).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.progress).toEqualTypeOf<number>();
   expect(data.tiers).toBeDefined();
   expectTypeOf(data.tiers).toEqualTypeOf<number[]>();
@@ -28,6 +29,6 @@ test('SkyBlockBingoGoal', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.id);
+  expect(data.toString()).toBe(data.id);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

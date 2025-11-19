@@ -18,6 +18,7 @@ test('SkyBlockMemberDungeonsTreasuresChest', () => {
   expect(data.rolledRNGMeter).toBeDefined();
   expectTypeOf(data.rolledRNGMeter).toEqualTypeOf<boolean>();
   expect(data.quality).toBeDefined();
+  expect(data.quality).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.quality).toEqualTypeOf<number>();
   expect(data.shinyEligible).toBeDefined();
   expectTypeOf(data.shinyEligible).toEqualTypeOf<boolean>();
@@ -25,4 +26,9 @@ test('SkyBlockMemberDungeonsTreasuresChest', () => {
   expectTypeOf(data.paid).toEqualTypeOf<boolean>();
   expect(data.rerolls).toBeDefined();
   expectTypeOf(data.rerolls).toEqualTypeOf<boolean>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.runId);
+  expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

@@ -11,7 +11,9 @@ test('SkyBlockGardenVisitors', () => {
   expect(data.completed).toBeDefined();
   expectTypeOf(data.completed).toEqualTypeOf<Record<string, number>>();
   expect(data.totalCompleted).toBeDefined();
+  expect(data.totalCompleted).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.totalCompleted).toEqualTypeOf<number>();
   expect(data.uniqueNpcsServed).toBeDefined();
+  expect(data.uniqueNpcsServed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.uniqueNpcsServed).toEqualTypeOf<number>();
 });

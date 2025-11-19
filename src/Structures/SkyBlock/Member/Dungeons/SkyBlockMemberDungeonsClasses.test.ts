@@ -20,10 +20,11 @@ test('SkyBlockMemberDungeonsClasses', () => {
   expect(data.tank).toBeDefined();
   expectTypeOf(data.tank).toEqualTypeOf<SkillLevelData>();
   expect(data.average).toBeDefined();
+  expect(data.average).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.average).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => DungeonClass | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.selected);
+  expect(data.toString()).toBe(data.selected);
   expectTypeOf(data.toString()).toEqualTypeOf<DungeonClass | 'UNKNOWN'>();
 });

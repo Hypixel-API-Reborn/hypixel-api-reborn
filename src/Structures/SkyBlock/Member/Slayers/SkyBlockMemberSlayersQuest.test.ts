@@ -2,7 +2,7 @@ import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/SkyBlock.js';
 
-test('SkyBlockMemberSlayersQuest', () => {
+test('SkyBlockMemberSlayerQuest', () => {
   const data = new SkyBlockMemberSlayersQuest({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberSlayersQuest);
@@ -10,27 +10,35 @@ test('SkyBlockMemberSlayersQuest', () => {
   expect(data.type).toBeDefined();
   expectTypeOf(data.type).toEqualTypeOf<SkyBlockSlayer | 'UNKNOWN'>();
   expect(data.tier).toBeDefined();
+  expect(data.tier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier).toEqualTypeOf<number>();
   expect(data.startTimestamp).toBeDefined();
+  expect(data.startTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.startTimestamp).toEqualTypeOf<number>();
   expect(data.startAt).toBeDefined();
+  expect(data.startAt).toBeInstanceOf(Date);
   expectTypeOf(data.startAt).toEqualTypeOf<Date>();
   expect(data.completionState).toBeDefined();
+  expect(data.completionState).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.completionState).toEqualTypeOf<number>();
   expect(data.usedArmor).toBeDefined();
   expectTypeOf(data.usedArmor).toEqualTypeOf<boolean>();
   expect(data.solo).toBeDefined();
   expectTypeOf(data.solo).toEqualTypeOf<boolean>();
   expect(data.combatXp).toBeDefined();
+  expect(data.combatXp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.combatXp).toEqualTypeOf<number>();
   expect(data.recentMobKills).toBeDefined();
   expectTypeOf(data.recentMobKills).toEqualTypeOf<{ xp: number; timestamp: number; timestampAt: Date }[]>();
   expect(data.lastKilledMobIsland).toBeDefined();
   expectTypeOf(data.lastKilledMobIsland).toEqualTypeOf<SkyBlockArea | 'UNKNOWN'>();
   expect(data.xpOnLastFollowerSpawn).toBeDefined();
+  expect(data.xpOnLastFollowerSpawn).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.xpOnLastFollowerSpawn).toEqualTypeOf<number>();
   expect(data.spawnTimestamp).toBeDefined();
+  expect(data.spawnTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.spawnTimestamp).toEqualTypeOf<number>();
   expect(data.spawnAt).toBeDefined();
+  expect(data.spawnAt).toBeInstanceOf(Date);
   expectTypeOf(data.spawnAt).toEqualTypeOf<Date>();
 });

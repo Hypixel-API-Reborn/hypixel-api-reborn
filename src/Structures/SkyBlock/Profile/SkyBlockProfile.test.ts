@@ -1,19 +1,21 @@
+import SkyBlockGarden from '../Garden/SkyBlockGarden.js';
+import SkyBlockMember from '../Member/SkyBlockMember.js';
+import SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
 import SkyBlockProfile from './SkyBlockProfile.js';
+import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
+import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockGarden from '../Garden/SkyBlockGarden.js';
-import type SkyBlockMember from '../Member/SkyBlockMember.js';
-import type SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
-import type SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
 
 test('SkyBlockProfile', () => {
-  const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow', garden: null, museum: null });
+  const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockProfile);
   expectTypeOf(data).toEqualTypeOf<SkyBlockProfile>();
   expect(data.profileId).toBeDefined();
   expectTypeOf(data.profileId).toEqualTypeOf<string>();
   expect(data.communityUpgrades).toBeDefined();
+  expect(data.communityUpgrades).toBeInstanceOf(SkyBlockProfileCommunityUpgrades);
   expectTypeOf(data.communityUpgrades).toEqualTypeOf<SkyBlockProfileCommunityUpgrades>();
   expect(data.createdTimestamp).toBeDefined();
   expectTypeOf(data.createdTimestamp).toEqualTypeOf<number | null>();
@@ -26,6 +28,7 @@ test('SkyBlockProfile', () => {
   expect(data.gameMode).toBeDefined();
   expectTypeOf(data.gameMode).toEqualTypeOf<SkyBlockProfileType | null>();
   expect(data.banking).toBeDefined();
+  expect(data.banking).toBeInstanceOf(SkyBlockProfileBanking);
   expectTypeOf(data.banking).toEqualTypeOf<SkyBlockProfileBanking>();
   expect(data.profileName).toBeDefined();
   expectTypeOf(data.profileName).toEqualTypeOf<SkyBlockProfileName | 'UNKNOWN'>();
@@ -33,4 +36,11 @@ test('SkyBlockProfile', () => {
   expectTypeOf(data.selected).toEqualTypeOf<boolean>();
   expect(data.garden).toBeDefined();
   expectTypeOf(data.garden).toEqualTypeOf<SkyBlockGarden | null>();
+  expect(data.museum).toBeDefined();
+  expectTypeOf(data.museum).toEqualTypeOf<SkyBlockMuseum | null>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockProfileName | 'UNKNOWN'>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.profileName);
+  expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockProfileName | 'UNKNOWN'>();
 });

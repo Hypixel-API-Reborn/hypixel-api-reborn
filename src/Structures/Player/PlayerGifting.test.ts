@@ -13,9 +13,6 @@ test('PlayerGifting', () => {
   expect(data.bundlesGiven).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.bundlesGiven).toEqualTypeOf<number>();
   expect(data.milestones).toBeDefined();
-  data.milestones.forEach((milestone) => {
-    expect(milestone).toBeDefined();
-  });
   expectTypeOf(data.milestones).toEqualTypeOf<string[]>();
   expect(data.giftsGiven).toBeDefined();
   expect(data.giftsGiven).toBeGreaterThanOrEqual(0);
@@ -24,8 +21,5 @@ test('PlayerGifting', () => {
   expect(data.ranksGiven).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.ranksGiven).toEqualTypeOf<number>();
   expect(data.ranksGivenMilestones).toBeDefined();
-  data.ranksGivenMilestones.forEach((ranksGivenMilestone) => {
-    expect(ranksGivenMilestone).toBeDefined();
-  });
   expectTypeOf(data.ranksGivenMilestones).toEqualTypeOf<string[]>();
 });

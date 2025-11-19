@@ -12,8 +12,10 @@ test('SkyBlockAuction', () => {
   expect(data.coop).toBeDefined();
   expectTypeOf(data.coop).toEqualTypeOf<UUID[]>();
   expect(data.auctionStartTimestamp).toBeDefined();
+  expect(data.auctionStartTimestamp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.auctionStartTimestamp).toEqualTypeOf<number>();
   expect(data.auctionStartAt).toBeDefined();
+  expect(data.auctionStartAt).toBeInstanceOf(Date);
   expectTypeOf(data.auctionStartAt).toEqualTypeOf<Date>();
   expect(data.auctionEndTimestamp).toBeDefined();
   expectTypeOf(data.auctionEndTimestamp).toEqualTypeOf<number | null>();
@@ -26,16 +28,13 @@ test('SkyBlockAuction', () => {
   expect(data.rarity).toBeDefined();
   expectTypeOf(data.rarity).toEqualTypeOf<Rarity | 'UNKNOWN'>();
   expect(data.startingBid).toBeDefined();
+  expect(data.startingBid).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.startingBid).toEqualTypeOf<number>();
   expect(data.highestBid).toBeDefined();
+  expect(data.highestBid).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.highestBid).toEqualTypeOf<number>();
   expect(data.bids).toBeDefined();
   expectTypeOf(data.bids).toEqualTypeOf<SkyBlockAuctionBid[]>();
-  data.bids.forEach((bid: SkyBlockAuctionBid) => {
-    expect(bid).toBeDefined();
-    expect(bid).toBeInstanceOf(SkyBlockAuctionBid);
-    expectTypeOf(bid).toEqualTypeOf<SkyBlockAuctionBid>();
-  });
   expect(data.claimed).toBeDefined();
   expectTypeOf(data.claimed).toEqualTypeOf<boolean>();
   expect(data.claimedBidders).toBeDefined();
@@ -43,6 +42,6 @@ test('SkyBlockAuction', () => {
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.item);
+  expect(data.toString()).toBe(data.item);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });

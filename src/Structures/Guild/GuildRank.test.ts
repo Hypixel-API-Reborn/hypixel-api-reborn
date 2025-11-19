@@ -1,7 +1,7 @@
 import GuildRank from './GuildRank.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
-test('Guild Rank', () => {
+test('GuildRank', () => {
   const data = new GuildRank({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(GuildRank);
@@ -17,7 +17,10 @@ test('Guild Rank', () => {
   expect(data.createdAt).toBeDefined();
   expectTypeOf(data.createdAt).toEqualTypeOf<Date | null>();
   expect(data.priority).toBeDefined();
+  expect(data.priority).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.priority).toEqualTypeOf<number>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => string>();
   expect(data.toString()).toBeDefined();
   expect(data.toString()).toBe(data.name);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();

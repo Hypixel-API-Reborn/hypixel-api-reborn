@@ -5,8 +5,8 @@ class SkyBlockMemberInventoriesBackpack {
   backpackItemBase64: string;
   backpackContentsBase64: string;
   constructor(data: Record<string, any>, slot: string) {
-    this.backpackItemBase64 = data?.backpackIcons?.[slot]?.data;
-    this.backpackContentsBase64 = data?.backpackContents?.[slot]?.data;
+    this.backpackItemBase64 = data?.backpackIcons?.[slot]?.data || 'UNKNOWN';
+    this.backpackContentsBase64 = data?.backpackContents?.[slot]?.data || 'UNKNOWN';
   }
 
   async decodeData(): Promise<SkyBlockMemberInventoriesBackpackDecoded | null> {

@@ -1,5 +1,3 @@
-/* v8 ignore next 10000 */
-
 import type RequestData from '../Private/RequestData.ts';
 import type SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';

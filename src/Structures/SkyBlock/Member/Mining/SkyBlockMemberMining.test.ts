@@ -1,22 +1,22 @@
 import SkyBlockMemberMining from './SkyBlockMemberMining.js';
+import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
+import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
+import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
-import type SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
-import type SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
 import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberMining', () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const data = new SkyBlockMemberMining();
+  const data = new SkyBlockMemberMining({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberMining);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberMining>();
   expect(data.powder).toBeDefined();
+  expect(data.powder).toBeInstanceOf(SkyBlockMemberMiningPowders);
   expectTypeOf(data.powder).toEqualTypeOf<SkyBlockMemberMiningPowders>();
   expect(data.crystals).toBeDefined();
   expectTypeOf(data.crystals).toEqualTypeOf<Record<MiningCrystal, SkyBlockMemberMiningCrystal>>();
   expect(data.hotm).toBeDefined();
+  expect(data.hotm).toBeInstanceOf(SkyBlockMemberMiningHotm);
   expectTypeOf(data.hotm).toEqualTypeOf<SkyBlockMemberMiningHotm>();
   expect(data.pickaxeAbility).toBeDefined();
   expectTypeOf(data.pickaxeAbility).toEqualTypeOf<MiningPickaxeAbility | 'UNKNOWN'>();

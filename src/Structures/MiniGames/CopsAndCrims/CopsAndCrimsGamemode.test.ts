@@ -3,6 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 
 test('CopsAndCrimsGamemode', () => {
   const data = new CopsAndCrimsGamemode({ stats: 'meow' }, 'deathmatch');
+  expect(data).toBeDefined();
   expect(data).toBeInstanceOf(CopsAndCrimsGamemode);
   expectTypeOf(data).toEqualTypeOf<CopsAndCrimsGamemode>();
   expect(data.kills).toBeDefined();

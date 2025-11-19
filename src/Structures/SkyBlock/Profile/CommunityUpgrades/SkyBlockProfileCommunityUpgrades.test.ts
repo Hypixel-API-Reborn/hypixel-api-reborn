@@ -1,7 +1,7 @@
 import SkyBlockProfileCommunityUpgrades from './SkyBlockProfileCommunityUpgrades.js';
+import SkyBlockProfileCommunityUpgradesUpgraded from './SkyBlockProfileCommunityUpgradesUpgraded.js';
+import SkyBlockProfileCommunityUpgradesUpgrading from './SkyBlockProfileCommunityUpgradesUpgrading.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockProfileCommunityUpgradesUpgraded from './SkyBlockProfileCommunityUpgradesUpgraded.js';
-import type SkyBlockProfileCommunityUpgradesUpgrading from './SkyBlockProfileCommunityUpgradesUpgrading.js';
 
 test('SkyBlockProfileCommunityUpgrades', () => {
   const data = new SkyBlockProfileCommunityUpgrades({ stats: 'meow' });
@@ -12,4 +12,9 @@ test('SkyBlockProfileCommunityUpgrades', () => {
   expectTypeOf(data.currentlyUpgrading).toEqualTypeOf<SkyBlockProfileCommunityUpgradesUpgrading | null>();
   expect(data.upgrades).toBeDefined();
   expectTypeOf(data.upgrades).toEqualTypeOf<SkyBlockProfileCommunityUpgradesUpgraded[]>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockProfileCommunityUpgradesUpgrading | null>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.currentlyUpgrading);
+  expectTypeOf(data.toString()).toEqualTypeOf<SkyBlockProfileCommunityUpgradesUpgrading | null>();
 });

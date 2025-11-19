@@ -2,7 +2,7 @@ import PlayerHousingGivenCookies from './PlayerHousingGivenCookies.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerHousingGivenCookies', () => {
-  const data = new PlayerHousingGivenCookies('meow', ['meow']);
+  const data = new PlayerHousingGivenCookies('mrrp', ['meow']);
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(PlayerHousingGivenCookies);
   expectTypeOf(data).toEqualTypeOf<PlayerHousingGivenCookies>();

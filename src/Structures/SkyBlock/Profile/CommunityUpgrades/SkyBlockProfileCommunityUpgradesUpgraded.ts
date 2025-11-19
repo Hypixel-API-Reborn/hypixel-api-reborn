@@ -9,7 +9,7 @@ class SkyBlockProfileCommunityUpgradesUpgraded extends SkyBlockProfileCommunityU
   fasttracked: boolean;
   constructor(data: Record<string, any>) {
     super(data);
-    this.tier = data.tier || 'UNKNOWN';
+    this.tier = data.tier || 0;
     this.startedBy = data.started_by || 0;
     this.claimedTimestamp = data.claimed_ms || 0;
     this.claimedAt = new Date(this.claimedTimestamp);

@@ -18,29 +18,25 @@ test('SkyBlockGarden', () => {
   expectTypeOf(data.barnSkin).toEqualTypeOf<BarnSkin>();
   expect(data.unlockedBarnSkins).toBeDefined();
   expectTypeOf(data.unlockedBarnSkins).toEqualTypeOf<BarnSkin[]>();
-  data.unlockedBarnSkins.forEach((unlockedSkin) => {
-    expect(unlockedSkin).toBeDefined();
-    expectTypeOf(unlockedSkin).toEqualTypeOf<BarnSkin>();
-  });
   expect(data.unlockedPlots).toBeDefined();
   expectTypeOf(data.unlockedPlots).toEqualTypeOf<BarnPlot[]>();
-  data.unlockedPlots.forEach((unlockedPlot) => {
-    expect(unlockedPlot).toBeDefined();
-    expectTypeOf(unlockedPlot).toEqualTypeOf<BarnPlot>();
-  });
   expect(data.visitors).toBeDefined();
+  expect(data.visitors).toBeInstanceOf(SkyBlockGardenVisitors);
   expectTypeOf(data.visitors).toEqualTypeOf<SkyBlockGardenVisitors>();
   expect(data.currentVisitors).toBeDefined();
   expectTypeOf(data.currentVisitors).toEqualTypeOf<SkyBlockGardenActiveVisitor[]>();
   expect(data.cropMilestones).toBeDefined();
+  expect(data.cropMilestones).toBeInstanceOf(SkyBlockGardenCropMilestones);
   expectTypeOf(data.cropMilestones).toEqualTypeOf<SkyBlockGardenCropMilestones>();
   expect(data.composter).toBeDefined();
+  expect(data.composter).toBeInstanceOf(SkyBlockGardenComposter);
   expectTypeOf(data.composter).toEqualTypeOf<SkyBlockGardenComposter>();
   expect(data.cropUpgrades).toBeDefined();
+  expect(data.cropUpgrades).toBeInstanceOf(SkyBlockGardenCropsUpgrades);
   expectTypeOf(data.cropUpgrades).toEqualTypeOf<SkyBlockGardenCropsUpgrades>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.level.level);
+  expect(data.toString()).toBe(data.level.level);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

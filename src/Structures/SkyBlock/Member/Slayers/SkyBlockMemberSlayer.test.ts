@@ -1,25 +1,36 @@
 import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
+import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.js';
 import type { LevelData } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberSlayer', () => {
-  const data = new SkyBlockMemberSlayer({ stats: 'meow' }, 'zombie');
+  const data = new SkyBlockMemberSlayer({ stats: 'meow' }, 'blaze');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberSlayer);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberSlayer>();
   expect(data.claimedLevels).toBeDefined();
+  expect(data.claimedLevels).toBeInstanceOf(SkyBlockMemberSlayerClaimedLevels);
   expectTypeOf(data.claimedLevels).toEqualTypeOf<SkyBlockMemberSlayerClaimedLevels>();
   expect(data.tier1Kills).toBeDefined();
+  expect(data.tier1Kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier1Kills).toEqualTypeOf<number>();
   expect(data.tier2Kills).toBeDefined();
+  expect(data.tier2Kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier2Kills).toEqualTypeOf<number>();
   expect(data.tier3Kills).toBeDefined();
+  expect(data.tier3Kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier3Kills).toEqualTypeOf<number>();
   expect(data.tier4Kills).toBeDefined();
+  expect(data.tier4Kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier4Kills).toEqualTypeOf<number>();
   expect(data.tier5Kills).toBeDefined();
+  expect(data.tier5Kills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier5Kills).toEqualTypeOf<number>();
   expect(data.level).toBeDefined();
   expectTypeOf(data.level).toEqualTypeOf<LevelData>();
+  expect(data.toString).toBeDefined();
+  expectTypeOf(data.toString).toEqualTypeOf<() => number>();
+  expect(data.toString()).toBeDefined();
+  expect(data.toString()).toBe(data.level.level);
+  expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

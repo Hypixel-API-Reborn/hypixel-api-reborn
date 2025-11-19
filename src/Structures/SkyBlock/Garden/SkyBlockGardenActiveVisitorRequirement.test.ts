@@ -9,14 +9,16 @@ test('SkyBlockGardenActiveVisitorRequirement', () => {
   expect(data.originalItem).toBeDefined();
   expectTypeOf(data.originalItem).toEqualTypeOf<string>();
   expect(data.originalAmount).toBeDefined();
+  expect(data.originalAmount).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.originalAmount).toEqualTypeOf<number>();
   expect(data.item).toBeDefined();
   expectTypeOf(data.item).toEqualTypeOf<string>();
   expect(data.amount).toBeDefined();
+  expect(data.amount).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.amount).toEqualTypeOf<number>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();
-  expect(data.toString()).toEqual(data.amount);
+  expect(data.toString()).toBe(data.amount);
   expectTypeOf(data.toString()).toEqualTypeOf<number>();
 });

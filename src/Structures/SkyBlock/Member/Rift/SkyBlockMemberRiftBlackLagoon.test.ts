@@ -13,5 +13,6 @@ test('SkyBlockMemberRiftBlackLagoon', () => {
   expect(data.deliveredSciencePaper).toBeDefined();
   expectTypeOf(data.deliveredSciencePaper).toEqualTypeOf<boolean>();
   expect(data.completedStep).toBeDefined();
+  expect(data.completedStep).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.completedStep).toEqualTypeOf<number>();
 });

@@ -1,6 +1,6 @@
 import SkyBlockMemberPlayerStatsAuctions from './SkyBlockMemberPlayerStatsAuctions.js';
+import SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.js';
 
 test('SkyBlockMemberPlayerStatsAuctions', () => {
   const data = new SkyBlockMemberPlayerStatsAuctions({ stats: 'meow' });
@@ -8,25 +8,36 @@ test('SkyBlockMemberPlayerStatsAuctions', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberPlayerStatsAuctions);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberPlayerStatsAuctions>();
   expect(data.bids).toBeDefined();
+  expect(data.bids).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.bids).toEqualTypeOf<number>();
   expect(data.highestBid).toBeDefined();
+  expect(data.highestBid).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.highestBid).toEqualTypeOf<number>();
   expect(data.won).toBeDefined();
+  expect(data.won).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.won).toEqualTypeOf<number>();
   expect(data.goldSpent).toBeDefined();
+  expect(data.goldSpent).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.goldSpent).toEqualTypeOf<number>();
   expect(data.created).toBeDefined();
+  expect(data.created).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.created).toEqualTypeOf<number>();
   expect(data.fees).toBeDefined();
+  expect(data.fees).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.fees).toEqualTypeOf<number>();
   expect(data.completed).toBeDefined();
+  expect(data.completed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.completed).toEqualTypeOf<number>();
   expect(data.goldEarned).toBeDefined();
+  expect(data.goldEarned).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.goldEarned).toEqualTypeOf<number>();
   expect(data.noBids).toBeDefined();
+  expect(data.noBids).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.noBids).toEqualTypeOf<number>();
   expect(data.auctionsSold).toBeDefined();
+  expect(data.auctionsSold).toBeInstanceOf(SkyBlockMemberPlayerStatsAuctionsStats);
   expectTypeOf(data.auctionsSold).toEqualTypeOf<SkyBlockMemberPlayerStatsAuctionsStats>();
   expect(data.auctionsBought).toBeDefined();
+  expect(data.auctionsBought).toBeInstanceOf(SkyBlockMemberPlayerStatsAuctionsStats);
   expectTypeOf(data.auctionsBought).toEqualTypeOf<SkyBlockMemberPlayerStatsAuctionsStats>();
 });
