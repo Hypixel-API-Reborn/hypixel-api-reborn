@@ -125,8 +125,5 @@ jobs:
           HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
         run: pnpm test:coverage
 
-      - name: Move Coverage Data
-        run: mv coverage/clover.xml .github/coverageData.xml
-
       - name: Check Coverage
-        run: npx tsx .github/scripts/checkCoverage.ts
+        run: pnpm test:coverage:check

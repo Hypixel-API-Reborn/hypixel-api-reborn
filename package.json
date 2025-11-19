@@ -24,6 +24,7 @@
     "build": "pnpm exec tsc",
     "test": "pnpm exec vitest run",
     "test:coverage": "pnpm exec vitest run --coverage",
+    "test:coverage:check": "pnpm exec tsx .github/scripts/checkCoverage.ts",
     "test:ui": "pnpm exec vitest --ui --coverage",
     "docgen": "pnpm exec typedoc"
   },
@@ -64,6 +65,7 @@
     "eslint-plugin-import": "^2.32.0",
     "globals": "^16.5.0",
     "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
     "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.4.1",
     "typedoc-plugin-rename-defaults": "^0.7.3",
