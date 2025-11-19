@@ -11,7 +11,6 @@ export type PlayerTourneyShopSort = 'highest_cost' | SortName;
 export type PlayerAchievementsOneTimeSort = 'highest_points' | SortName;
 export type SeasonName = 'christmas' | 'easter' | 'summer' | 'halloween' | 'anniversary';
 export type SocialMediaId = 'DISCORD' | 'TWITTER' | 'YOUTUBE' | 'INSTAGRAM' | 'TIKTOK' | 'TWITCH' | 'HYPIXEL';
-export type ZombiesMaps = 'deadend' | 'badblood' | 'alienarcadium' | 'prison';
 export type EnderSpleefTrails = 'RAINBOW' | 'GREEN' | 'DEFAULT' | 'RED' | 'BLUE';
 export type TurboKartRacersMaps = 'retro' | 'hypixelgp' | 'olympus' | 'junglerush' | 'canyon';
 export type VampireZRoles = 'human' | 'vampire';
@@ -2582,3 +2581,183 @@ export type MurderMysteryEmblemIcon =
   | 'RICH'
   | 'SIGMA'
   | 'ZERO';
+export type ArcadePartyGamesGame =
+  | 'animal_slaughter'
+  | 'anvil_spleef'
+  | 'avalanche'
+  | 'bombardment'
+  | 'cannon_painting'
+  | 'chicken_rings'
+  | 'dive'
+  | 'fire_leapers'
+  | 'frozen_floor'
+  | 'high_ground'
+  | 'hoe_hoe_hoe'
+  | 'jigsaw_rush'
+  | 'jungle_jump'
+  | 'lab_escape'
+  | 'lawn_moower'
+  | 'minecart_racing'
+  | 'pig_fishing'
+  | 'pig_jousting'
+  | 'rpg_16'
+  | 'shooting_range'
+  | 'spider_maze'
+  | 'super_sheep'
+  | 'the_floor_is_lava'
+  | 'trampolinio'
+  | 'volcano'
+  | 'workshop';
+export type ArcadeZombiesMaps = 'alienarcadium' | 'badblood' | 'deadend' | 'prison';
+export type ArcadeEnderSpleefTrail = 'BLUE' | 'DEFAULT' | 'GREEN' | 'RAINBOW' | 'RED';
+export type ArcadeHoleInTheWallColor = 'CYAN' | 'DEFAULT' | 'FROSTED' | 'GREEN' | 'PUMPKIN' | 'RED' | 'YELLOW';
+export type ArcadeThrowOutDisguise = 'COW' | 'PIG' | 'SHEEP' | 'SNOWMAN' | 'ZOMBIE';
+export type ArcadeBountyHead = 'DEFAULT' | 'EMOTION' | 'HUNTER' | 'MOB' | 'TARGET';
+export type ArcadeMeleeWeapon =
+  | 'BASEBALL_BAT'
+  | 'CLIMBER_PICKAXE'
+  | 'COMBAT_KNIFE'
+  | 'CRICKET_BAT'
+  | 'FIRE_AXE'
+  | 'GOLF_CLUB'
+  | 'KATANA'
+  | 'KNIFE'
+  | 'MACHETE'
+  | 'POLICE_BATON';
+export type ArcadeMovementTrail =
+  | 'movement_trail_black_smoke'
+  | 'movement_trail_fire'
+  | 'movement_trail_frosty'
+  | 'movement_trail_green_star'
+  | 'movement_trail_magic'
+  | 'movement_trail_notes'
+  | 'movement_trail_rainbow'
+  | 'movement_trail_white_smoke';
+export type ArcadeProjectileTrail =
+  | 'projectile_trail_angry_villager'
+  | 'projectile_trail_bee'
+  | 'projectile_trail_black_smoke'
+  | 'projectile_trail_blood'
+  | 'projectile_trail_blue_dust'
+  | 'projectile_trail_bone'
+  | 'projectile_trail_candy_basket'
+  | 'projectile_trail_cursedflame'
+  | 'projectile_trail_ender'
+  | 'projectile_trail_fanged'
+  | 'projectile_trail_fire'
+  | 'projectile_trail_fireball'
+  | 'projectile_trail_firework'
+  | 'projectile_trail_flame_rings'
+  | 'projectile_trail_green_star'
+  | 'projectile_trail_hearts'
+  | 'projectile_trail_howling_wind'
+  | 'projectile_trail_icicle'
+  | 'projectile_trail_jack_o_lantern_trail'
+  | 'projectile_trail_lava'
+  | 'projectile_trail_magic'
+  | 'projectile_trail_notes'
+  | 'projectile_trail_potion'
+  | 'projectile_trail_pumpkin_pie'
+  | 'projectile_trail_pumpkin_spice_powered'
+  | 'projectile_trail_pumpkin_volley_trail'
+  | 'projectile_trail_purple_dust'
+  | 'projectile_trail_rainbow'
+  | 'projectile_trail_random'
+  | 'projectile_trail_red_dust'
+  | 'projectile_trail_rose'
+  | 'projectile_trail_slime'
+  | 'projectile_trail_sparkler'
+  | 'projectile_trail_spiders_silk'
+  | 'projectile_trail_stormy'
+  | 'projectile_trail_twirling_snowflake'
+  | 'projectile_trail_water'
+  | 'projectile_trail_white_smoke'
+  | 'projectile_trail_wisp_whirlwind';
+export type ArcadeVictoryDance =
+  | 'victory_dance_animal_rain'
+  | 'victory_dance_anvil_rain'
+  | 'victory_dance_chicken_rider'
+  | 'victory_dance_cold_snap'
+  | 'victory_dance_dragon_fire'
+  | 'victory_dance_egg_meteors'
+  | 'victory_dance_fireworks'
+  | 'victory_dance_graveyardrave'
+  | 'victory_dance_guardians'
+  | 'victory_dance_heat_wave'
+  | 'victory_dance_meteor_shower'
+  | 'victory_dance_pumpkin_bomber'
+  | 'victory_dance_pumpkin_laser'
+  | 'victory_dance_rooted'
+  | 'victory_dance_snow_bomber'
+  | 'victory_dance_special_fireworks'
+  | 'victory_dance_toy_stick'
+  | 'victory_dance_twerk_apocalypse'
+  | 'victory_dance_winter_twister'
+  | 'victory_dance_wither_rider';
+export type ArcadeTrail =
+  | 'blue_trail'
+  | 'emotion_trail'
+  | 'green_trail'
+  | 'hunter_trail'
+  | 'mob_trail'
+  | 'rainbow_trail'
+  | 'red_trail'
+  | 'target_trail';
+export type ArcadeWall = 'cyan_wall' | 'frosted_wall' | 'green_wall' | 'pumpkin_wall' | 'red_wall' | 'yellow_wall';
+export type ArcadeMelee =
+  | 'baseball_bat_melee'
+  | 'climber_pickaxe_melee'
+  | 'combat_knife_melee'
+  | 'cricket_bat_melee'
+  | 'fire_axe_melee'
+  | 'golf_club_melee'
+  | 'katana_melee'
+  | 'machete_melee'
+  | 'police_baton_melee';
+export type ArcadePixelPartyPants =
+  | 'aqua_pixel_party_pants'
+  | 'bling_pixel_party_pants'
+  | 'blurple_pixel_party_pants'
+  | 'breathable_pixel_party_pants'
+  | 'bright_pink_pixel_party_pants'
+  | 'cold_hearted_pixel_party_pants'
+  | 'deep_ocean_pixel_party_pants'
+  | 'disco_pixel_party_pants'
+  | 'hot_pink_pixel_party_pants'
+  | 'light_blue_pixel_party_pants'
+  | 'lime_pixel_party_pants'
+  | 'mint_pixel_party_pants'
+  | 'peach_pixel_party_pants'
+  | 'purple_pixel_party_pants'
+  | 'rank_color_pixel_party_pants'
+  | 'snow_pixel_party_pants'
+  | 'yellow_pixel_party_pants';
+export type ArcadePixelPartyDiscoHelmet =
+  | 'blue_pixel_party_disco_helmet'
+  | 'cyan_pixel_party_disco_helmet'
+  | 'green_pixel_party_disco_helmet'
+  | 'light_blue_pixel_party_disco_helmet'
+  | 'lime_pixel_party_disco_helmet'
+  | 'magenta_pixel_party_disco_helmet'
+  | 'orange_pixel_party_disco_helmet'
+  | 'party_pixel_party_disco_helmet'
+  | 'pink_pixel_party_disco_helmet'
+  | 'purple_pixel_party_disco_helmet'
+  | 'red_pixel_party_disco_helmet'
+  | 'spaceman_pixel_party_disco_helmet'
+  | 'yellow_pixel_party_disco_helmet';
+export type ArcadePixelParty = ArcadePixelPartyPants | ArcadePixelPartyDiscoHelmet;
+export type ArcadeDisguise = 'cow_disguise' | 'sheep_disguise' | 'snowman_disguise' | 'zombie_disguise';
+export type ArcadePackage =
+  | 'mini_walls_mini_me'
+  | 'setbbtheme'
+  | ArcadeMovementTrail
+  | ArcadeProjectileTrail
+  | ArcadeVictoryDance
+  | ArcadeTrail
+  | ArcadeWall
+  | ArcadeMelee
+  | ArcadePixelPartyPants
+  | ArcadePixelPartyDiscoHelmet
+  | ArcadePixelParty
+  | ArcadeDisguise;

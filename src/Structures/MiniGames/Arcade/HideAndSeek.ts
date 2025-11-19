@@ -1,16 +1,17 @@
-import PartyPooper from './PartyPooper.js';
-import PropHunt from './PropHunt.js';
-
 class HideAndSeek {
-  partyPooper: PartyPooper;
-  propHunt: PropHunt;
-  winsAsSeeker: number;
-  winsAsHider: number;
+  hiderWins: number;
+  partyPooperHiderWins: number;
+  partyPooperSeekerWins: number;
+  propHuntHiderWins: number;
+  propHuntSeekerWins: number;
+  seekerWins: number;
   constructor(data: Record<string, any>) {
-    this.partyPooper = new PartyPooper(data);
-    this.propHunt = new PropHunt(data);
-    this.winsAsSeeker = data?.seeker_wins_hide_and_seek || 0;
-    this.winsAsHider = data?.hider_wins_hide_and_seek || 0;
+    this.hiderWins = data?.hider_wins_hide_and_seek || 0;
+    this.partyPooperHiderWins = data?.party_pooper_hider_wins_hide_and_seek || 0;
+    this.partyPooperSeekerWins = data?.party_pooper_seeker_wins_hide_and_seek || 0;
+    this.propHuntHiderWins = data?.prop_hunt_hider_wins_hide_and_seek || 0;
+    this.propHuntSeekerWins = data?.prop_hunt_seeker_wins_hide_and_seek || 0;
+    this.seekerWins = data?.seeker_wins_hide_and_seek || 0;
   }
 }
 

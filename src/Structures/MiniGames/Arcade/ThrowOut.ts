@@ -1,15 +1,15 @@
-import Divide from '../../../Utils/Divide.js';
+import type { ArcadeThrowOutDisguise } from '../../../Types/Player.ts';
 
 class ThrowOut {
-  wins: number;
-  kills: number;
   deaths: number;
-  KDR: number;
+  kills: number;
+  wins: number;
+  disguise: ArcadeThrowOutDisguise | 'UNKNOWN';
   constructor(data: Record<string, any>) {
-    this.wins = data?.wins_throw_out || 0;
-    this.kills = data?.kills_throw_out || 0;
     this.deaths = data?.deaths_throw_out || 0;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.kills = data?.kills_throw_out || 0;
+    this.wins = data?.wins_throw_out || 0;
+    this.disguise = data?.throwout_disguise || 'UNKNOWN';
   }
 }
 

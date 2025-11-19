@@ -27,6 +27,7 @@ export * from './Utils/TicksToMilliseconds.js';
 
 import Achievements from './Structures/Static/Achievements/Achievements.js';
 import Arcade from './Structures/MiniGames/Arcade/Arcade.js';
+import ArcadeOptions from './Structures/MiniGames/Arcade/ArcadeOptions.js';
 import ArenaBrawl from './Structures/MiniGames/ArenaBrawl/ArenaBrawl.js';
 import ArenaBrawlMode from './Structures/MiniGames/ArenaBrawl/ArenaBrawlMode.js';
 import BaseAchievement from './Structures/Static/Achievements/BaseAchievement.js';
@@ -48,7 +49,6 @@ import BlitzSurvivalGames from './Structures/MiniGames/BlitzSurvivalGames/BlitzS
 import BlitzSurvivalGamesKit from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGamesKit.js';
 import BlockingDead from './Structures/MiniGames/Arcade/BlockingDead.js';
 import Booster from './Structures/Boosters/Booster.js';
-import BountyHunters from './Structures/MiniGames/Arcade/BountyHunters.js';
 import BowSpleef from './Structures/MiniGames/TNTGames/BowSpleef.js';
 import BuildBattle from './Structures/MiniGames/BuildBattle/BuildBattle.js';
 import BuildBattleLastWin from './Structures/MiniGames/BuildBattle/BuildBattleLastWin.js';
@@ -61,8 +61,10 @@ import CopsAndCrims from './Structures/MiniGames/CopsAndCrims/CopsAndCrims.js';
 import CopsAndCrimsGamemode from './Structures/MiniGames/CopsAndCrims/CopsAndCrimsGamemode.js';
 import CopsAndCrimsGun from './Structures/MiniGames/CopsAndCrims/CopsAndCrimsGun.js';
 import DragonWars from './Structures/MiniGames/Arcade/DragonWars.js';
-import Dropper from './Structures/MiniGames/Arcade/Dropper.js';
-import DropperMap from './Structures/MiniGames/Arcade/DropperMap.js';
+import DrawTheirThing from './Structures/MiniGames/Arcade/DrawTheirThing.js';
+import Dropper from './Structures/MiniGames/Arcade/Dropper/Dropper.js';
+import DropperMap from './Structures/MiniGames/Arcade/Dropper/DropperMap.js';
+import Dtt from './Structures/MiniGames/Arcade/Dtt.js';
 import Duels from './Structures/MiniGames/Duels/Duels.js';
 import DuelsBridge from './Structures/MiniGames/Duels/DuelsBridge.js';
 import DuelsGamemode from './Structures/MiniGames/Duels/DuelsGamemode.js';
@@ -70,26 +72,30 @@ import DuelsMegaWalls from './Structures/MiniGames/Duels/DuelsMegaWalls.js';
 import DuelsOP from './Structures/MiniGames/Duels/DuelsOP.js';
 import DuelsSkyWars from './Structures/MiniGames/Duels/DuelsSkyWars.js';
 import DuelsUHC from './Structures/MiniGames/Duels/DuelsUHC.js';
+import EasterSimulator from './Structures/MiniGames/Arcade/EasterSimulator.js';
 import Emblem from './Structures/MiniGames/Shared/Emblem/Emblem.js';
 import EmblemColors from './Structures/MiniGames/Shared/Emblem/EmblemColors.js';
 import EnderSpleef from './Structures/MiniGames/Arcade/EnderSpleef.js';
 import FarmHunt from './Structures/MiniGames/Arcade/FarmHunt.js';
-import Football from './Structures/MiniGames/Arcade/Football.js';
+import FootBall from './Structures/MiniGames/Arcade/FootBall.js';
 import GalaxyWars from './Structures/MiniGames/Arcade/GalaxyWars.js';
 import Game from './Structures/Game.js';
 import GameAchievements from './Structures/Static/Achievements/GameAchievements.js';
 import GameChallenges from './Structures/Static/GameChallenges.js';
 import GameCounts from './Structures/GameCounts.js';
 import GameQuests from './Structures/Static/GameQuests.js';
+import GrinchSimulator from './Structures/MiniGames/Arcade/GrinchSimulator.js';
 import Guild from './Structures/Guild/Guild.js';
 import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
 import GuildMember from './Structures/Guild/GuildMember.js';
 import GuildRank from './Structures/Guild/GuildRank.js';
+import HalloweenSimulator from './Structures/MiniGames/Arcade/HalloweenSimulator.js';
 import HideAndSeek from './Structures/MiniGames/Arcade/HideAndSeek.js';
 import HoleInTheWall from './Structures/MiniGames/Arcade/HoleInTheWall.js';
 import House from './Structures/House.js';
-import HypixelSays from './Structures/MiniGames/Arcade/HypixelSays.js';
+import HypixelSports from './Structures/MiniGames/Arcade/HypixelSports.js';
 import ItemBytes from './Structures/ItemBytes.js';
+import LawnMoower from './Structures/MiniGames/Arcade/PartyGames/LawnMoower.js';
 import Leaderboard from './Structures/Leaderboard.js';
 import LeaderboardSettings from './Structures/MiniGames/Shared/LeaderboardSettings.js';
 import MegaWalls from './Structures/MiniGames/MegaWalls/MegaWalls.js';
@@ -104,15 +110,14 @@ import MurderMysteryGamemode from './Structures/MiniGames/MurderMystery/MurderMy
 import MurderMysteryKnifeSkinPrestige from './Structures/MiniGames/MurderMystery/MurderMysteryKnifeSkinPrestige.js';
 import MurderMysteryKnifeSkinPrestigeXp from './Structures/MiniGames/MurderMystery/MurderMysteryKnifeSkinPrestigeXp.js';
 import MurderMysteryMap from './Structures/MiniGames/MurderMystery/MurderMysteryMap.js';
+import OneInTheQuiver from './Structures/MiniGames/Arcade/OneInTheQuiver.js';
 import OneTimeAchievement from './Structures/Static/Achievements/OneTimeAchievement.js';
 import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.js';
 import Paintball from './Structures/MiniGames/Paintball.js';
-import PartyGames from './Structures/MiniGames/Arcade/PartyGames.js';
-import PartyPooper from './Structures/MiniGames/Arcade/PartyPooper.js';
+import PartyGames from './Structures/MiniGames/Arcade/PartyGames/PartyGames.js';
+import PartyGamesGame from './Structures/MiniGames/Arcade/PartyGames/PartyGamesGame.js';
 import Pit from './Structures/MiniGames/Pit/Pit.js';
 import PitInventoryItem from './Structures/MiniGames/Pit/PitInventoryItem.js';
-import PixelParty from './Structures/MiniGames/Arcade/PixelParty.js';
-import PixelPartyGameMode from './Structures/MiniGames/Arcade/PixelPartyGameMode.js';
 import Player from './Structures/Player/Player.js';
 import PlayerAchievements from './Structures/Player/PlayerAchievements/PlayerAchievements.js';
 import PlayerAchievementsRewards from './Structures/Player/PlayerAchievements/PlayerAchievementsRewards.js';
@@ -143,14 +148,18 @@ import PlayerSocialMedia from './Structures/Player/PlayerSocialMedia.js';
 import PlayerStats from './Structures/Player/PlayerStats.js';
 import PlayerTourney from './Structures/Player/PlayerTourney/PlayerTourney.js';
 import PlayerTourneyData from './Structures/Player/PlayerTourney/PlayerTourneyData.js';
-import PropHunt from './Structures/MiniGames/Arcade/PropHunt.js';
 import Quakecraft from './Structures/MiniGames/Quakecraft/Quakecraft.js';
 import QuakecraftMode from './Structures/MiniGames/Quakecraft/QuakecraftMode.js';
 import Quest from './Structures/Static/Quest.js';
 import QuestObjective from './Structures/Static/QuestObjective.js';
 import Quests from './Structures/Static/Quests.js';
+import RPG16 from './Structures/MiniGames/Arcade/PartyGames/RPG16.js';
 import RecentGame from './Structures/RecentGame.js';
+import SantaSays from './Structures/MiniGames/Arcade/SantaSays.js';
+import SantaSimulator from './Structures/MiniGames/Arcade/SantaSimulator.js';
+import ScubaSimulator from './Structures/MiniGames/Arcade/ScubaSimulator.js';
 import SheepWars from './Structures/MiniGames/WoolGames/SheepWars.js';
+import SimonSays from './Structures/MiniGames/Arcade/SimonSays.js';
 import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionBid from './Structures/SkyBlock/Auctions/SkyBlockAuctionBid.js';
 import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
@@ -318,6 +327,7 @@ import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
+import Soccer from './Structures/MiniGames/Arcade/Soccer.js';
 import SpeedUHC from './Structures/MiniGames/SpeedUHC/SpeedUHC.js';
 import SpeedUHCMode from './Structures/MiniGames/SpeedUHC/SpeedUHCMode.js';
 import Status from './Structures/Status.js';
@@ -338,16 +348,18 @@ import Warlords from './Structures/MiniGames/Warlords/Warlords.js';
 import WarlordsClass from './Structures/MiniGames/Warlords/WarlordsClass.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
 import WoolGames from './Structures/MiniGames/WoolGames/WoolGames.js';
+import WoolHunt from './Structures/MiniGames/Arcade/WoolHunt.js';
 import WoolWars from './Structures/MiniGames/WoolGames/WoolWars.js';
 import WoolWarsClass from './Structures/MiniGames/WoolGames/WoolWarsClass.js';
-import Zombies from './Structures/MiniGames/Arcade/Zombies.js';
-import ZombiesStats from './Structures/MiniGames/Arcade/ZombiesStats.js';
+import Zombies from './Structures/MiniGames/Arcade/Zombies/Zombies.js';
+import ZombiesMap from './Structures/MiniGames/Arcade/Zombies/ZombiesMap.js';
 
 export {
   Client,
   Errors,
   Achievements,
   Arcade,
+  ArcadeOptions,
   ArenaBrawl,
   ArenaBrawlMode,
   BaseAchievement,
@@ -369,7 +381,6 @@ export {
   BlitzSurvivalGamesKit,
   BlockingDead,
   Booster,
-  BountyHunters,
   BowSpleef,
   BuildBattle,
   BuildBattleLastWin,
@@ -382,8 +393,10 @@ export {
   CopsAndCrimsGamemode,
   CopsAndCrimsGun,
   DragonWars,
+  DrawTheirThing,
   Dropper,
   DropperMap,
+  Dtt,
   Duels,
   DuelsBridge,
   DuelsGamemode,
@@ -391,26 +404,30 @@ export {
   DuelsOP,
   DuelsSkyWars,
   DuelsUHC,
+  EasterSimulator,
   Emblem,
   EmblemColors,
   EnderSpleef,
   FarmHunt,
-  Football,
+  FootBall,
   GalaxyWars,
   Game,
   GameAchievements,
   GameChallenges,
   GameCounts,
   GameQuests,
+  GrinchSimulator,
   Guild,
   GuildAchievements,
   GuildMember,
   GuildRank,
+  HalloweenSimulator,
   HideAndSeek,
   HoleInTheWall,
   House,
-  HypixelSays,
+  HypixelSports,
   ItemBytes,
+  LawnMoower,
   Leaderboard,
   LeaderboardSettings,
   MegaWalls,
@@ -425,15 +442,14 @@ export {
   MurderMysteryKnifeSkinPrestige,
   MurderMysteryKnifeSkinPrestigeXp,
   MurderMysteryMap,
+  OneInTheQuiver,
   OneTimeAchievement,
   PVPRun,
   Paintball,
   PartyGames,
-  PartyPooper,
+  PartyGamesGame,
   Pit,
   PitInventoryItem,
-  PixelParty,
-  PixelPartyGameMode,
   Player,
   PlayerAchievements,
   PlayerAchievementsRewards,
@@ -464,14 +480,18 @@ export {
   PlayerStats,
   PlayerTourney,
   PlayerTourneyData,
-  PropHunt,
   Quakecraft,
   QuakecraftMode,
   Quest,
   QuestObjective,
   Quests,
+  RPG16,
   RecentGame,
+  SantaSays,
+  SantaSimulator,
+  ScubaSimulator,
   SheepWars,
+  SimonSays,
   SkyBlockAuction,
   SkyBlockAuctionBid,
   SkyBlockAuctionInfo,
@@ -639,6 +659,7 @@ export {
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
+  Soccer,
   SpeedUHC,
   SpeedUHCMode,
   Status,
@@ -659,10 +680,11 @@ export {
   WarlordsClass,
   WatchdogStats,
   WoolGames,
+  WoolHunt,
   WoolWars,
   WoolWarsClass,
   Zombies,
-  ZombiesStats
+  ZombiesMap
 };
 
 export default {
@@ -670,6 +692,7 @@ export default {
   Errors,
   Achievements,
   Arcade,
+  ArcadeOptions,
   ArenaBrawl,
   ArenaBrawlMode,
   BaseAchievement,
@@ -691,7 +714,6 @@ export default {
   BlitzSurvivalGamesKit,
   BlockingDead,
   Booster,
-  BountyHunters,
   BowSpleef,
   BuildBattle,
   BuildBattleLastWin,
@@ -704,8 +726,10 @@ export default {
   CopsAndCrimsGamemode,
   CopsAndCrimsGun,
   DragonWars,
+  DrawTheirThing,
   Dropper,
   DropperMap,
+  Dtt,
   Duels,
   DuelsBridge,
   DuelsGamemode,
@@ -713,26 +737,30 @@ export default {
   DuelsOP,
   DuelsSkyWars,
   DuelsUHC,
+  EasterSimulator,
   Emblem,
   EmblemColors,
   EnderSpleef,
   FarmHunt,
-  Football,
+  FootBall,
   GalaxyWars,
   Game,
   GameAchievements,
   GameChallenges,
   GameCounts,
   GameQuests,
+  GrinchSimulator,
   Guild,
   GuildAchievements,
   GuildMember,
   GuildRank,
+  HalloweenSimulator,
   HideAndSeek,
   HoleInTheWall,
   House,
-  HypixelSays,
+  HypixelSports,
   ItemBytes,
+  LawnMoower,
   Leaderboard,
   LeaderboardSettings,
   MegaWalls,
@@ -747,15 +775,14 @@ export default {
   MurderMysteryKnifeSkinPrestige,
   MurderMysteryKnifeSkinPrestigeXp,
   MurderMysteryMap,
+  OneInTheQuiver,
   OneTimeAchievement,
   PVPRun,
   Paintball,
   PartyGames,
-  PartyPooper,
+  PartyGamesGame,
   Pit,
   PitInventoryItem,
-  PixelParty,
-  PixelPartyGameMode,
   Player,
   PlayerAchievements,
   PlayerAchievementsRewards,
@@ -786,14 +813,18 @@ export default {
   PlayerStats,
   PlayerTourney,
   PlayerTourneyData,
-  PropHunt,
   Quakecraft,
   QuakecraftMode,
   Quest,
   QuestObjective,
   Quests,
+  RPG16,
   RecentGame,
+  SantaSays,
+  SantaSimulator,
+  ScubaSimulator,
   SheepWars,
+  SimonSays,
   SkyBlockAuction,
   SkyBlockAuctionBid,
   SkyBlockAuctionInfo,
@@ -961,6 +992,7 @@ export default {
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
+  Soccer,
   SpeedUHC,
   SpeedUHCMode,
   Status,
@@ -981,8 +1013,9 @@ export default {
   WarlordsClass,
   WatchdogStats,
   WoolGames,
+  WoolHunt,
   WoolWars,
   WoolWarsClass,
   Zombies,
-  ZombiesStats
+  ZombiesMap
 };

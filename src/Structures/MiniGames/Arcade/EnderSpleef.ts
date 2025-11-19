@@ -1,21 +1,19 @@
-import type { EnderSpleefTrails } from '../../../Types/Player.js';
+import type { ArcadeEnderSpleefTrail } from '../../../Types/Player.ts';
 
 class EnderSpleef {
-  wins: number;
-  kills: number;
-  trail: EnderSpleefTrails | 'None';
+  bigshotPowerupActivations: number;
   blocksDestroyed: number;
-  bigShotActivations: number;
-  tripleShotActivations: number;
-  totalPowerUpActivations: number;
+  spleefTrail: ArcadeEnderSpleefTrail | 'UNKNOWN';
+  powerupActivations: number;
+  tripleshotPowerupActivations: number;
+  wins: number;
   constructor(data: Record<string, any>) {
-    this.wins = data?.wins_ender || 0;
-    this.kills = data?.kills_dragonwars2 || 0;
-    this.trail = data?.enderspleef_trail || 'None';
+    this.bigshotPowerupActivations = data?.bigshot_powerup_activations_ender || 0;
     this.blocksDestroyed = data?.blocks_destroyed_ender || 0;
-    this.bigShotActivations = data?.bigshot_powerup_activations_ender || 0;
-    this.tripleShotActivations = data?.tripleshot_powerup_activations_ender || 0;
-    this.totalPowerUpActivations = this.bigShotActivations + this.tripleShotActivations;
+    this.spleefTrail = data?.enderspleef_trail || 'UNKNOWN';
+    this.powerupActivations = data?.powerup_activations_ender || 0;
+    this.tripleshotPowerupActivations = data?.tripleshot_powerup_activations_ender || 0;
+    this.wins = data?.wins_ender || 0;
   }
 }
 

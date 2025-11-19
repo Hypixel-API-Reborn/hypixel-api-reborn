@@ -1,26 +1,31 @@
-import Divide from '../../../Utils/Divide.js';
-import { monthAB, weekAB } from '../../../Utils/Oscillation.js';
+import { monthAB, weekAB } from '../../../Utils/Oscillation.ts';
 
 class GalaxyWars {
-  wins: number;
-  kills: number;
   deaths: number;
-  KDR: number;
+  empireKills: number;
+  gameWins: number;
+  kills: number;
+  monthlyKills: number;
+  monthlyKillsA: number;
+  monthlyKillsB: number;
+  rebelKills: number;
   shotsFired: number;
   weeklyKills: number;
-  monthlyKills: number;
-  attackerKills: number;
-  defenderKills: number;
+  weeklyKillsA: number;
+  weeklyKillsB: number;
   constructor(data: Record<string, any>) {
-    this.wins = data?.sw_game_wins || 0;
-    this.kills = data?.sw_kills || 0;
     this.deaths = data?.sw_deaths || 0;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.empireKills = data?.sw_empire_kills || 0;
+    this.gameWins = data?.sw_game_wins || 0;
+    this.kills = data?.sw_kills || 0;
+    this.monthlyKills = parseInt(data?.[`sw_monthly_kills_${monthAB()}`] || 0, 10);
+    this.monthlyKillsA = data?.sw_monthly_kills_a || 0;
+    this.monthlyKillsB = data?.sw_monthly_kills_b || 0;
+    this.rebelKills = data?.sw_rebel_kills || 0;
     this.shotsFired = data?.sw_shots_fired || 0;
-    this.weeklyKills = parseInt(data?.[`weekly_kills_${weekAB()}`] || 0, 10);
-    this.monthlyKills = parseInt(data?.[`monthly_kills_${monthAB()}`] || 0, 10);
-    this.attackerKills = data?.sw_rebel_kills || 0;
-    this.defenderKills = data?.sw_empire_kills || 0;
+    this.weeklyKills = parseInt(data?.[`sw_weekly_kills_${weekAB()}`] || 0, 10);
+    this.weeklyKillsA = data?.sw_weekly_kills_a || 0;
+    this.weeklyKillsB = data?.sw_weekly_kills_b || 0;
   }
 }
 
