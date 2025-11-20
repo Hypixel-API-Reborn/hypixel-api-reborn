@@ -71,7 +71,7 @@ class RequestHandler {
       cached: false
     });
     if (options.noCache) return requestData;
-    if (this.client.options.cache && !options.raw) {
+    if (this.client.options.cache) {
       this.client.cacheHandler.set(endpoint, requestData);
     }
     return requestData;
