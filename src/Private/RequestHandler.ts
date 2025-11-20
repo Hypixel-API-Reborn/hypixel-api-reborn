@@ -24,7 +24,7 @@ class RequestHandler {
       noCache: options?.noCache ?? false,
       noCacheCheck: options?.noCacheCheck ?? false
     };
-    if (options.noCacheCheck && this.client.cacheHandler.has(endpoint)) {
+    if (!options.noCacheCheck && this.client.cacheHandler.has(endpoint)) {
       const data = this.client.cacheHandler.get(endpoint);
       return new RequestData(data.data, data.headers, {
         status: 200,
@@ -71,7 +71,7 @@ class RequestHandler {
       cached: false
     });
     if (options.noCache) return requestData;
-    if (this.client.options.cache && !options.raw) {
+    if (this.client.options.cache) {
       this.client.cacheHandler.set(endpoint, requestData);
     }
     return requestData;
