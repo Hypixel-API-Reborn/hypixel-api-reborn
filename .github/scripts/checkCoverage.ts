@@ -18,24 +18,24 @@ const baseline = 95;
 
 const statementsCoverage = (info.coveredStatements / info.statements) * 100;
 if (statementsCoverage <= baseline) {
-  console.log(`Statements is required to be ${baseline}% or higher. Currently ${statementsCoverage.toFixed(2)}`);
-  process.exit();
+  throw new Error(`Statements is required to be ${baseline}% or higher. Currently ${statementsCoverage.toFixed(2)}`);
 }
 
 const conditionalsCoverage = (info.coveredConditionals / info.conditionals) * 100;
 if (conditionalsCoverage <= baseline) {
-  console.log(`Conditionals is required to be ${baseline}% or higher. Currently ${conditionalsCoverage.toFixed(2)}`);
-  process.exit();
+  throw new Error(
+    `Conditionals is required to be ${baseline}% or higher. Currently ${conditionalsCoverage.toFixed(2)}`
+  );
 }
 
 const methodsCoverage = (info.coveredMethods / info.methods) * 100;
 if (methodsCoverage <= baseline) {
-  console.log(`Methods is required to be ${baseline}% or higher. Currently ${methodsCoverage.toFixed(2)}`);
-  process.exit();
+  throw new Error(`Methods is required to be ${baseline}% or higher. Currently ${methodsCoverage.toFixed(2)}`);
 }
 
 const combinedCoverage = statementsCoverage + conditionalsCoverage + methodsCoverage;
 if (combinedCoverage <= baseline) {
-  console.log(`Everything Combined is required to be ${baseline}% or higher. Currently ${combinedCoverage.toFixed(2)}`);
-  process.exit();
+  throw new Error(
+    `Everything Combined is required to be ${baseline}% or higher. Currently ${combinedCoverage.toFixed(2)}`
+  );
 }
