@@ -12,8 +12,8 @@ class getSkyBlockProfile extends Endpoint {
     const res = await this.client.requestHandler.request(`/skyblock/profile?profile=${profileId}`, options);
     if (res.options.raw) return res;
     if (!res.data.profile) throw new Error(Errors.NO_SKYBLOCK_PROFILES);
-    const garden = await this.handleGettingSkyBlockGarden(res.data.profile.profile_id);
-    const museum = await this.handleGettingSkyBlockMuseum(res.data.profile.profile_id);
+    const garden = options?.museum ? await this.handleGettingSkyBlockGarden(res.data.profile.profile_id) : null;
+    const museum = options?.museum ? await this.handleGettingSkyBlockMuseum(res.data.profile.profile_id) : null;
     const parsedProfile = new SkyBlockProfile(res.data.profile, { uuid: null, garden, museum });
     return parsedProfile;
   }
