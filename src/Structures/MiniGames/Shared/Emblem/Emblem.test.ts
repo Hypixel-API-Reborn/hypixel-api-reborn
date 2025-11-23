@@ -1,7 +1,7 @@
 import Emblem from './Emblem.js';
 import EmblemColors from './EmblemColors.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BuildBattleEmblemIcon } from '../../../../Types/Player.ts';
+import type { BuildBattleEmblemIcon } from '../../../../Types/Player.js';
 import type { ColorCode } from '../../../../Types/Color.js';
 
 test('Emblem', () => {

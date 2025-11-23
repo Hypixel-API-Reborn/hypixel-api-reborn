@@ -1,6 +1,6 @@
-import LawnMoower from './LawnMoower.ts';
-import PartyGamesGame from './PartyGamesGame.ts';
-import RPG16 from './RPG16.ts';
+import LawnMoower from './LawnMoower.js';
+import PartyGamesGame from './PartyGamesGame.js';
+import RPG16 from './RPG16.js';
 
 class PartyGames {
   animalSlaughter: PartyGamesGame;

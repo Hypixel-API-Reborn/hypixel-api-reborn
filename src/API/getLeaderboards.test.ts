@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
 import { defaultRequestData } from '../../vitest.setup.js';

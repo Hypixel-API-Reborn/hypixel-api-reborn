@@ -1,6 +1,6 @@
 import Client from '../Client.js';
 import Endpoint from './Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Endpoint', () => {

@@ -1,6 +1,6 @@
-import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.ts';
-import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.ts';
-import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.ts';
+import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
+import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
+import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberCrimsonIsleTrophyFish {
   rank: CrimsonIsleTrophyFishRank;

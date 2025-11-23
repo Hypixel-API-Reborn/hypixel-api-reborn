@@ -2,7 +2,7 @@ import Endpoint from '../Private/Endpoint.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockItem from '../Structures/SkyBlock/SkyBlockItem.js';
 import type { RequestOptions } from '../Types/Requests.js';
-import type { WithRaw } from '../Types/API.ts';
+import type { WithRaw } from '../Types/API.js';
 
 class getSkyBlockItems extends Endpoint {
   override async execute(options?: RequestOptions): Promise<WithRaw<SkyBlockItem[]> | RequestData> {

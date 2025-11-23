@@ -1,9 +1,9 @@
 import Endpoint from '../Private/Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
-import type { WithRaw } from '../Types/API.ts';
+import type { WithRaw } from '../Types/API.js';
 
 class getRecentGames extends Endpoint {
   override async execute(query: string, options?: RequestOptions): Promise<WithRaw<RecentGame[]> | RequestData> {

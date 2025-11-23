@@ -1,5 +1,5 @@
 import Game from '../Game.js';
-import type RequestData from '../../Private/RequestData.ts';
+import type RequestData from '../../Private/RequestData.js';
 import type { BoosterType } from '../../Types/Booster.js';
 
 export function parseType(data: Record<string, any>): BoosterType {

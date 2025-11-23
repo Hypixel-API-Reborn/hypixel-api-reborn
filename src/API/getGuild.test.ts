@@ -1,6 +1,6 @@
 import Client from '../Client.js';
 import Color from '../Structures/Color.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Game from '../Structures/Game.js';
 import Guild from '../Structures/Guild/Guild.js';
 import GuildMember from '../Structures/Guild/GuildMember.js';

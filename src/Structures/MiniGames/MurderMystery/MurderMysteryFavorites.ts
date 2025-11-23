@@ -8,7 +8,7 @@ import type {
   MurderMysteryLastWordsRaw,
   MurderMysteryProjectileTrailRaw,
   MurderMysteryVictoryDanceRaw
-} from '../../../Types/Player.ts';
+} from '../../../Types/Player.js';
 
 class MurderMysteryFavorites {
   animatedHat: MurderMysteryAnimatedHatRaw[];

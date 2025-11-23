@@ -4,7 +4,7 @@ import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
 import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
 import { getLevelByXp } from '../../../Utils/SkyBlockUtils.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/SkyBlock.js';
 
 class SkyBlockGarden {

@@ -1,5 +1,5 @@
 import SkyBlockSkill from './SkyBlockSkill.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockSkills {
   lastUpdated: number;

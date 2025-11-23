@@ -1,4 +1,4 @@
-import type { PlayerAchievementsTotemColors, PlayerAchievementsTotemParts } from '../../../Types/Player.ts';
+import type { PlayerAchievementsTotemColors, PlayerAchievementsTotemParts } from '../../../Types/Player.js';
 
 class PlayerAchievementsTotem {
   canCustomize: boolean;

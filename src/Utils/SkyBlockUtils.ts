@@ -23,7 +23,7 @@ import {
   petRarityOffset
 } from './Constants.js';
 import { parse, simplify } from 'prismarine-nbt';
-import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import type {
   LevelData,
   PetLevelData,

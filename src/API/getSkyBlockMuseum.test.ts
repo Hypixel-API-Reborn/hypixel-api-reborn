@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import SkyBlockMuseumMember from '../Structures/SkyBlock/Museum/SkyBlockMuseumMember.js';

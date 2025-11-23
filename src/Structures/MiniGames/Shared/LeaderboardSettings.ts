@@ -1,4 +1,4 @@
-import type { LeaderboardSettingsResetType } from '../../../Types/Player.ts';
+import type { LeaderboardSettingsResetType } from '../../../Types/Player.js';
 
 class LeaderboardSettings<ModeType> {
   mode: ModeType | 'UNKNOWN';

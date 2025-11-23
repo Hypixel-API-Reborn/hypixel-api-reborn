@@ -1,4 +1,4 @@
-import type { ArcadeThrowOutDisguise } from '../../../Types/Player.ts';
+import type { ArcadeThrowOutDisguise } from '../../../Types/Player.js';
 
 class ThrowOut {
   deaths: number;

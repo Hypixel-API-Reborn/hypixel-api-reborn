@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 
 class Endpoint {
   readonly client: Client;

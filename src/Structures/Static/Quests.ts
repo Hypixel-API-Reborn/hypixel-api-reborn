@@ -1,5 +1,5 @@
 import GameQuests from './GameQuests.js';
-import type RequestData from '../../Private/RequestData.ts';
+import type RequestData from '../../Private/RequestData.js';
 
 class Quests {
   lastUpdatedTimestamp: number;

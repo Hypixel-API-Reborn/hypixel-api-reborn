@@ -1,5 +1,5 @@
 import Endpoint from '../Private/Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockMuseum from '../Structures/SkyBlock/Museum/SkyBlockMuseum.js';
 import type { RequestOptions } from '../Types/Requests.js';

@@ -1,5 +1,5 @@
 import GameChallenges from './GameChallenges.js';
-import type RequestData from '../../Private/RequestData.ts';
+import type RequestData from '../../Private/RequestData.js';
 
 class Challenges {
   lastUpdatedTimestamp: number;

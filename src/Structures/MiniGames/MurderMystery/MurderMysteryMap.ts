@@ -1,5 +1,5 @@
-import MurderMysteryGamemode from './MurderMysteryGamemode.ts';
-import type { MurderMysteryMapName } from '../../../Types/Player.ts';
+import MurderMysteryGamemode from './MurderMysteryGamemode.js';
+import type { MurderMysteryMapName } from '../../../Types/Player.js';
 
 class MurderMysteryMap {
   alphaWins: number;

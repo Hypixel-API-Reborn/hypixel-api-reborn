@@ -1,5 +1,5 @@
 import Endpoint from '../Private/Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Guild from '../Structures/Guild/Guild.js';
 import RequestData from '../Private/RequestData.js';
 import type { GuildFetchOptions } from '../Types/API.js';

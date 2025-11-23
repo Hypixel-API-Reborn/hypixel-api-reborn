@@ -1,4 +1,4 @@
-import { monthAB, weekAB } from '../../../Utils/Oscillation.ts';
+import { monthAB, weekAB } from '../../../Utils/Oscillation.js';
 
 class GalaxyWars {
   deaths: number;

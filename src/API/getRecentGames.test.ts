@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Game from '../Structures/Game.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';

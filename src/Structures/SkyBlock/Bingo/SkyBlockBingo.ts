@@ -1,5 +1,5 @@
 import SkyBlockBingoGoal from './SkyBlockBingoGoal.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockBingo {
   lastUpdatedTimestamp: number;

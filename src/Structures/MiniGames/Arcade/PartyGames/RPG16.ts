@@ -1,4 +1,4 @@
-import PartyGamesGame from './PartyGamesGame.ts';
+import PartyGamesGame from './PartyGamesGame.js';
 
 class RPG16 extends PartyGamesGame {
   constructor(data: Record<string, any>) {

@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockGardenActiveVisitor from '../Structures/SkyBlock/Garden/SkyBlockGardenActiveVisitor.js';

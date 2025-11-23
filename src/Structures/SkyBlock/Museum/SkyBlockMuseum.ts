@@ -1,5 +1,5 @@
 import SkyBlockMuseumMember from './SkyBlockMuseumMember.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 import type { UUID } from '../../../Types/Global.js';
 
 class SkyBlockMuseum {

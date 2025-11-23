@@ -1,5 +1,5 @@
 import SkyBlockElection from './SkyBlockElection.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockElectionData {
   lastUpdatedTimestamp: number;

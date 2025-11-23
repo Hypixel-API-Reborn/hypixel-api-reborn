@@ -1,4 +1,4 @@
-import type { ArcadeZombiesMaps } from '../../../../Types/Player.ts';
+import type { ArcadeZombiesMaps } from '../../../../Types/Player.js';
 
 class ZombiesMap {
   bestRoundZombies: number;

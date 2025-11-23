@@ -1,4 +1,4 @@
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 const dateRegExp = /(\d{1,2})(?:st|nd|rd|th|) ([A-Za-z]+) (\d+)/;
 const versionRegExp = /v\d+(\.\d+){1,}/;

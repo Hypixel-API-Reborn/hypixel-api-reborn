@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from './RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 

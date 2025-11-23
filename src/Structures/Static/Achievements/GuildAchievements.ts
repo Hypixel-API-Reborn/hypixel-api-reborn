@@ -1,6 +1,6 @@
 import OneTimeAchievement from './OneTimeAchievement.js';
 import TieredAchievement from './TieredAchievement.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class GuildAchievements {
   lastUpdatedTimestamp: number;

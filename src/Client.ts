@@ -43,7 +43,7 @@ import type {
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
 import type { RequestOptions } from './Types/Requests.js';
-import type { SkyBlockProfileName } from './Types/SkyBlock.ts';
+import type { SkyBlockProfileName } from './Types/SkyBlock.js';
 
 const clients: Client[] = [];
 

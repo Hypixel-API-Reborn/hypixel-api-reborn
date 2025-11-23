@@ -1,5 +1,5 @@
 import SkyBlockCollection from './SkyBlockCollection.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockCollections {
   lastUpdated: number;

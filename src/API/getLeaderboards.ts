@@ -1,9 +1,9 @@
 import Endpoint from '../Private/Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
-import type { WithRaw } from '../Types/API.ts';
+import type { WithRaw } from '../Types/API.js';
 
 class getLeaderboards extends Endpoint {
   override async execute(options?: RequestOptions): Promise<WithRaw<Record<string, Leaderboard[]>> | RequestData> {

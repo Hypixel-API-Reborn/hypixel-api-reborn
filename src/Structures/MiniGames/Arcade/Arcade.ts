@@ -1,31 +1,31 @@
-import ArcadeOptions from './ArcadeOptions.ts';
-import BlockingDead from './BlockingDead.ts';
-import DragonWars from './DragonWars.ts';
-import DrawTheirThing from './DrawTheirThing.ts';
-import Dropper from './Dropper/Dropper.ts';
-import Dtt from './Dtt.ts';
-import EasterSimulator from './EasterSimulator.ts';
-import EnderSpleef from './EnderSpleef.ts';
-import FarmHunt from './FarmHunt.ts';
-import FootBall from './FootBall.ts';
-import GalaxyWars from './GalaxyWars.ts';
-import GrinchSimulator from './GrinchSimulator.ts';
-import HalloweenSimulator from './HalloweenSimulator.ts';
-import HideAndSeek from './HideAndSeek.ts';
-import HoleInTheWall from './HoleInTheWall.ts';
-import HypixelSports from './HypixelSports.ts';
-import MiniWalls from './MiniWalls.ts';
-import OneInTheQuiver from './OneInTheQuiver.ts';
+import ArcadeOptions from './ArcadeOptions.js';
+import BlockingDead from './BlockingDead.js';
+import DragonWars from './DragonWars.js';
+import DrawTheirThing from './DrawTheirThing.js';
+import Dropper from './Dropper/Dropper.js';
+import Dtt from './Dtt.js';
+import EasterSimulator from './EasterSimulator.js';
+import EnderSpleef from './EnderSpleef.js';
+import FarmHunt from './FarmHunt.js';
+import FootBall from './FootBall.js';
+import GalaxyWars from './GalaxyWars.js';
+import GrinchSimulator from './GrinchSimulator.js';
+import HalloweenSimulator from './HalloweenSimulator.js';
+import HideAndSeek from './HideAndSeek.js';
+import HoleInTheWall from './HoleInTheWall.js';
+import HypixelSports from './HypixelSports.js';
+import MiniWalls from './MiniWalls.js';
+import OneInTheQuiver from './OneInTheQuiver.js';
 import PartyGames from './PartyGames/PartyGames.js';
-import SantaSays from './SantaSays.ts';
-import SantaSimulator from './SantaSimulator.ts';
-import ScubaSimulator from './ScubaSimulator.ts';
-import SimonSays from './SimonSays.ts';
-import Soccer from './Soccer.ts';
-import ThrowOut from './ThrowOut.ts';
-import WoolHunt from './WoolHunt.ts';
-import Zombies from './Zombies/Zombies.ts';
-import { monthAB, weekAB } from '../../../Utils/Oscillation.ts';
+import SantaSays from './SantaSays.js';
+import SantaSimulator from './SantaSimulator.js';
+import ScubaSimulator from './ScubaSimulator.js';
+import SimonSays from './SimonSays.js';
+import Soccer from './Soccer.js';
+import ThrowOut from './ThrowOut.js';
+import WoolHunt from './WoolHunt.js';
+import Zombies from './Zombies/Zombies.js';
+import { monthAB, weekAB } from '../../../Utils/Oscillation.js';
 import type {
   ArcadeBountyHead,
   ArcadeMeleeWeapon,
@@ -36,7 +36,7 @@ import type {
   Language,
   PlayerGeneralSelectedCosmetic,
   ShopSort
-} from '../../../Types/Player.ts';
+} from '../../../Types/Player.js';
 
 class Arcade {
   activeMovementTrail: ArcadeMovementTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN';

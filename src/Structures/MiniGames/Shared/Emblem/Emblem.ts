@@ -1,5 +1,5 @@
-import EmblemColors from './EmblemColors.ts';
-import type { ColorCode } from '../../../../Types/Color.ts';
+import EmblemColors from './EmblemColors.js';
+import type { ColorCode } from '../../../../Types/Color.js';
 
 class Emblem<Icons> {
   colorUnlocked: EmblemColors;

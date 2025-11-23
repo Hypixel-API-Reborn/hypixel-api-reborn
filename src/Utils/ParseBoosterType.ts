@@ -1,4 +1,4 @@
-import type { BoosterType } from '../Types/Booster.ts';
+import type { BoosterType } from '../Types/Booster.js';
 
 export default function ParseBoosterType(data: Record<string, any>): BoosterType {
   if (data.stacked === true) return 'STACKED';

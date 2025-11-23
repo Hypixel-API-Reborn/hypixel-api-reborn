@@ -1,6 +1,6 @@
 /* eslint-disable @stylistic/max-len  */
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockMember from '../Structures/SkyBlock/Member/SkyBlockMember.js';

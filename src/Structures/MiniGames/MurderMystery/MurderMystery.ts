@@ -1,10 +1,10 @@
 import Emblem from '../Shared/Emblem/Emblem.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
 import MurderMysteryDescent from './MurderMysteryDescent.js';
-import MurderMysteryFavorites from './MurderMysteryFavorites.ts';
-import MurderMysteryGamemode from './MurderMysteryGamemode.ts';
-import MurderMysteryKnifeSkinPrestige from './MurderMysteryKnifeSkinPrestige.ts';
-import MurderMysteryMap from './MurderMysteryMap.ts';
+import MurderMysteryFavorites from './MurderMysteryFavorites.js';
+import MurderMysteryGamemode from './MurderMysteryGamemode.js';
+import MurderMysteryKnifeSkinPrestige from './MurderMysteryKnifeSkinPrestige.js';
+import MurderMysteryMap from './MurderMysteryMap.js';
 import type {
   MurderMysteryAnimatedHat,
   MurderMysteryDeathCry,
@@ -21,7 +21,7 @@ import type {
   MurderMysteryRole,
   MurderMysteryVictoryDance,
   ShopSort
-} from '../../../Types/Player.ts';
+} from '../../../Types/Player.js';
 
 class MurderMystery {
   activeAnimatedHat: MurderMysteryAnimatedHat | 'UNKNOWN';

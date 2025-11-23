@@ -1,9 +1,9 @@
 import BuildBattleLastWin from './BuildBattleLastWin.js';
 import BuildBattleVotes from './BuildBattleVotes.js';
-import Emblem from '../Shared/Emblem/Emblem.ts';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
-import { BuildBattleTitleRequirements } from '../../../Utils/Constants.ts';
-import { monthAB } from '../../../Utils/Oscillation.ts';
+import Emblem from '../Shared/Emblem/Emblem.js';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
+import { BuildBattleTitleRequirements } from '../../../Utils/Constants.js';
+import { monthAB } from '../../../Utils/Oscillation.js';
 import type {
   BuildBattleBackdrop,
   BuildBattleEmblemIcon,
@@ -17,7 +17,7 @@ import type {
   BuildBattleTitle,
   BuildBattleVictoryDance,
   ShopSort
-} from '../../../Types/Player.ts';
+} from '../../../Types/Player.js';
 
 class BuildBattle {
   activeIsland: BuildBattleIsland | 'island_none';

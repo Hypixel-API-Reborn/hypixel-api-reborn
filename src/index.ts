@@ -20,6 +20,7 @@ export * from './Utils/Constants.js';
 export * from './Utils/Divide.js';
 export * from './Utils/Guild.js';
 export * from './Utils/Oscillation.js';
+export * from './Utils/ParseBedWarsMode.js';
 export * from './Utils/ParseBoosterType.js';
 export * from './Utils/RemoveSnakeCase.js';
 export * from './Utils/Romanize.js';

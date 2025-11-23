@@ -1,5 +1,5 @@
 import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockBazaar {
   lastUpdated: number;

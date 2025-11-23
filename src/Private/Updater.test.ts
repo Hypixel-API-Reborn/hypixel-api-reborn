@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import Updater from './Updater.js';
 import packageJSON from '../../package.json' with { type: 'json' };
 import { defaultRequestData } from '../../vitest.setup.js';

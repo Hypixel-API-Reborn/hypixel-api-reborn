@@ -1,5 +1,5 @@
 import Game from './Game.js';
-import type RequestData from '../Private/RequestData.ts';
+import type RequestData from '../Private/RequestData.js';
 
 class RecentGame {
   game: Game | null;

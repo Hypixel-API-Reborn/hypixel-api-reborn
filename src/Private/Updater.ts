@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import packageJson from '../../package.json' with { type: 'json' };
 
 class Updater {

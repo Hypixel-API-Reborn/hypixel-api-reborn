@@ -1,6 +1,6 @@
 import { MiniGamesString } from '../Utils/Constants.js';
 import { RemoveSnakeCaseString, recursive } from '../Utils/RemoveSnakeCase.js';
-import type RequestData from '../Private/RequestData.ts';
+import type RequestData from '../Private/RequestData.js';
 
 class GameCounts {
   playerCount: number;

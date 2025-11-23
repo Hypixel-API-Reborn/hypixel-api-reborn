@@ -1,5 +1,5 @@
 import Endpoint from '../Private/Endpoint.js';
-import Errors from '../Errors.ts';
+import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';

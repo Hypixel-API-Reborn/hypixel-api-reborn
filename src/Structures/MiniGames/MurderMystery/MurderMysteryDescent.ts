@@ -1,4 +1,4 @@
-import MurderMysteryDescentItem from './MurderMysteryDescentItem.ts';
+import MurderMysteryDescentItem from './MurderMysteryDescentItem.js';
 
 class MurderMysteryDescent {
   Armed: MurderMysteryDescentItem;

@@ -1,4 +1,4 @@
-import PartyGamesGame from './PartyGamesGame.ts';
+import PartyGamesGame from './PartyGamesGame.js';
 
 class LawnMoower extends PartyGamesGame {
   constructor(data: Record<string, any>) {

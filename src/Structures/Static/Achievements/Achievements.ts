@@ -1,5 +1,5 @@
 import GameAchievements from './GameAchievements.js';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 
 class Achievements {
   lastUpdatedTimestamp: number;

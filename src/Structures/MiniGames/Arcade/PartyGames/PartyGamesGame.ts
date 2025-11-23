@@ -1,4 +1,4 @@
-import type { ArcadePartyGamesGame } from '../../../../Types/Player.ts';
+import type { ArcadePartyGamesGame } from '../../../../Types/Player.js';
 
 class PartyGamesGame {
   bestScore: number;
