@@ -35,6 +35,7 @@ import type {
   ArcadeProjectileTrail,
   ArcadeVictoryDance,
   Language,
+  PlayerGeneralSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.js';
 
@@ -44,11 +45,15 @@ test('Arcade', () => {
   expect(data).toBeInstanceOf(Arcade);
   expectTypeOf(data).toEqualTypeOf<Arcade>();
   expect(data.activeMovementTrail).toBeDefined();
-  expectTypeOf(data.activeMovementTrail).toEqualTypeOf<ArcadeMovementTrail | 'UNKNOWN'>();
+  expectTypeOf(data.activeMovementTrail).toEqualTypeOf<
+    ArcadeMovementTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.activeProjectileTrail).toBeDefined();
-  expectTypeOf(data.activeProjectileTrail).toEqualTypeOf<ArcadeProjectileTrail | 'UNKNOWN'>();
+  expectTypeOf(data.activeProjectileTrail).toEqualTypeOf<
+    ArcadeProjectileTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.activeVictoryDance).toBeDefined();
-  expectTypeOf(data.activeVictoryDance).toEqualTypeOf<ArcadeVictoryDance | 'UNKNOWN'>();
+  expectTypeOf(data.activeVictoryDance).toEqualTypeOf<ArcadeVictoryDance | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
   expect(data.blood).toBeDefined();
   expectTypeOf(data.blood).toEqualTypeOf<boolean>();
   expect(data.bountyHead).toBeDefined();

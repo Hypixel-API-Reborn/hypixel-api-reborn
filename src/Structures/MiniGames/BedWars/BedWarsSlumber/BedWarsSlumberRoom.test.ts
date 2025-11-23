@@ -1,0 +1,35 @@
+import BedWarsSlumberRoom from './BedWarsSlumberRoom.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('BedWarsSlumberRoom', () => {
+  const data = new BedWarsSlumberRoom({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(BedWarsSlumberRoom);
+  expectTypeOf(data).toEqualTypeOf<BedWarsSlumberRoom>();
+  expect(data.ownersOffice).toBeDefined();
+  expectTypeOf(data.ownersOffice).toEqualTypeOf<boolean>();
+  expect(data.room1).toBeDefined();
+  expectTypeOf(data.room1).toEqualTypeOf<boolean>();
+  expect(data.room2).toBeDefined();
+  expectTypeOf(data.room2).toEqualTypeOf<boolean>();
+  expect(data.room3).toBeDefined();
+  expectTypeOf(data.room3).toEqualTypeOf<boolean>();
+  expect(data.room4).toBeDefined();
+  expectTypeOf(data.room4).toEqualTypeOf<boolean>();
+  expect(data.room5).toBeDefined();
+  expectTypeOf(data.room5).toEqualTypeOf<boolean>();
+  expect(data.room6).toBeDefined();
+  expectTypeOf(data.room6).toEqualTypeOf<boolean>();
+  expect(data.room7).toBeDefined();
+  expectTypeOf(data.room7).toEqualTypeOf<boolean>();
+  expect(data.room8).toBeDefined();
+  expectTypeOf(data.room8).toEqualTypeOf<boolean>();
+  expect(data.room9).toBeDefined();
+  expectTypeOf(data.room9).toEqualTypeOf<boolean>();
+  expect(data.room10).toBeDefined();
+  expectTypeOf(data.room10).toEqualTypeOf<boolean>();
+  expect(data.room11).toBeDefined();
+  expectTypeOf(data.room11).toEqualTypeOf<boolean>();
+  expect(data.room12).toBeDefined();
+  expectTypeOf(data.room12).toEqualTypeOf<boolean>();
+});

@@ -1,35 +1,31 @@
 import BedWarsBeds from './BedWarsBeds.js';
+import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.js';
+import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
 import Divide from '../../../Utils/Divide.js';
-import type { BedWarsGamemodeName } from '../../../Types/Player.js';
+import ParseBedWarsMode from '../../../Utils/ParseBedWarsMode.js';
+import type { BedWarsModeId } from '../../../Types/Player.js';
 
 class BedWarsMode {
-  mode: BedWarsGamemodeName;
-  winStreak: number;
-  playedGames: number;
-  kills: number;
-  deaths: number;
+  resourcesCollected: BedWarsResourcesCollected;
+  kills: BedWarsKillsDeaths;
+  finals: BedWarsKillsDeaths;
+  beds: BedWarsBeds;
+  winstreak: number;
   wins: number;
   losses: number;
-  finalKills: number;
-  finalDeaths: number;
-  beds: BedWarsBeds;
-  KDR: number;
-  WLR: number;
-  FKDR: number;
-  constructor(data: Record<string, any>, mode: BedWarsGamemodeName) {
-    this.mode = mode;
-    this.winStreak = data?.[`${mode}_winstreak`] || 0;
-    this.playedGames = data?.[`${mode}_games_played_bedwars`] || 0;
-    this.kills = data?.[`${mode}_kills_bedwars`] || 0;
-    this.deaths = data?.[`${mode}_deaths_bedwars`] || 0;
-    this.wins = data?.[`${mode}_wins_bedwars`] || 0;
-    this.losses = data?.[`${mode}_losses_bedwars`] || 0;
-    this.finalKills = data?.[`${mode}_final_kills_bedwars`] || 0;
-    this.finalDeaths = data?.[`${mode}_final_deaths_bedwars`] || 0;
+  winLossRatio: number;
+  gamesPlayed: number;
+  constructor(data: Record<string, any>, mode?: BedWarsModeId) {
+    mode = ParseBedWarsMode(mode) as BedWarsModeId;
+    this.resourcesCollected = new BedWarsResourcesCollected(data, mode);
+    this.kills = new BedWarsKillsDeaths(data, mode);
+    this.finals = new BedWarsKillsDeaths(data, mode, true);
     this.beds = new BedWarsBeds(data, mode);
-    this.KDR = Divide(data?.[`${mode}_kills_bedwars`], data?.[`${mode}_deaths_bedwars`]);
-    this.WLR = Divide(data?.[`${mode}_wins_bedwars`], data?.[`${mode}_losses_bedwars`]);
-    this.FKDR = Divide(data?.[`${mode}_final_kills_bedwars`], data?.[`${mode}_final_deaths_bedwars`]);
+    this.winstreak = data?.[`${mode}winstreak`] || 0;
+    this.wins = data?.[`${mode}wins_bedwars`] || 0;
+    this.losses = data?.[`${mode}losses_bedwars`] || 0;
+    this.winLossRatio = Divide(this.wins, this.losses);
+    this.gamesPlayed = data?.[`${mode}games_played_bedwars`] || 0;
   }
 }
 

@@ -34,13 +34,14 @@ import type {
   ArcadeProjectileTrail,
   ArcadeVictoryDance,
   Language,
+  PlayerGeneralSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.ts';
 
 class Arcade {
-  activeMovementTrail: ArcadeMovementTrail | 'UNKNOWN';
-  activeProjectileTrail: ArcadeProjectileTrail | 'UNKNOWN';
-  activeVictoryDance: ArcadeVictoryDance | 'UNKNOWN';
+  activeMovementTrail: ArcadeMovementTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
+  activeProjectileTrail: ArcadeProjectileTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
+  activeVictoryDance: ArcadeVictoryDance | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
   blood: boolean;
   bountyHead: ArcadeBountyHead;
   tokens: number;

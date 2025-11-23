@@ -12,7 +12,7 @@ test('BedWarsBeds', () => {
   expect(data.lost).toBeDefined();
   expect(data.lost).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.lost).toEqualTypeOf<number>();
-  expect(data.BLRatio).toBeDefined();
-  expect(data.BLRatio).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.BLRatio).toEqualTypeOf<number>();
+  expect(data.ratio).toBeDefined();
+  expect(data.ratio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.ratio).toEqualTypeOf<number>();
 });

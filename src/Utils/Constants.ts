@@ -1,3 +1,4 @@
+import type { BedWarsPrestige, BuildBattleTitle, DuelsBaseDivision } from '../Types/Player.js';
 import type {
   BestiaryMobsData,
   CustomPetLevelingData,
@@ -6,7 +7,6 @@ import type {
   SkyBlockSlayer,
   SkyBlockXPTables
 } from '../Types/SkyBlock.js';
-import type { BuildBattleTitle, DuelsBaseDivision } from '../Types/Player.js';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 export const games: { id: GameID; code: GameCode; name: GameString }[] = [
@@ -2473,4 +2473,58 @@ export const BuildBattleTitleRequirements: { title: BuildBattleTitle; requiremen
   { title: 'Celestial', requirement: 300000 },
   { title: 'Divine', requirement: 400000 },
   { title: 'Ascended', requirement: 500000 }
+];
+
+export const BedWarsPrestiges: { prestige: BedWarsPrestige; requirement: number }[] = [
+  { prestige: 'Stone', requirement: 0 },
+  { prestige: 'Iron', requirement: 100 },
+  { prestige: 'Gold', requirement: 200 },
+  { prestige: 'Diamond', requirement: 300 },
+  { prestige: 'Emerald', requirement: 400 },
+  { prestige: 'Sapphire', requirement: 500 },
+  { prestige: 'Ruby', requirement: 600 },
+  { prestige: 'Crystal', requirement: 700 },
+  { prestige: 'Opal', requirement: 800 },
+  { prestige: 'Amethyst', requirement: 900 },
+  { prestige: 'Rainbow', requirement: 1000 },
+  { prestige: 'Iron', requirement: 1100 },
+  { prestige: 'Gold', requirement: 1200 },
+  { prestige: 'Diamond', requirement: 1300 },
+  { prestige: 'Emerald', requirement: 1400 },
+  { prestige: 'Sapphire', requirement: 1500 },
+  { prestige: 'Ruby', requirement: 1600 },
+  { prestige: 'Crystal', requirement: 1700 },
+  { prestige: 'Opal', requirement: 1800 },
+  { prestige: 'Amethyst', requirement: 1900 },
+  { prestige: 'Mirror', requirement: 2000 },
+  { prestige: 'Light', requirement: 2100 },
+  { prestige: 'Dawn', requirement: 2200 },
+  { prestige: 'Dusk', requirement: 2300 },
+  { prestige: 'Air', requirement: 2400 },
+  { prestige: 'Wind', requirement: 2500 },
+  { prestige: 'Nebula', requirement: 2600 },
+  { prestige: 'Thunder', requirement: 2700 },
+  { prestige: 'Earth', requirement: 2800 },
+  { prestige: 'Water', requirement: 2900 },
+  { prestige: 'Fire', requirement: 3000 },
+  { prestige: 'Sunrise', requirement: 3100 },
+  { prestige: 'Eclipse', requirement: 3200 },
+  { prestige: 'Gamma', requirement: 3300 },
+  { prestige: 'Majestic', requirement: 3400 },
+  { prestige: 'Andesine', requirement: 3500 },
+  { prestige: 'Marine', requirement: 3600 },
+  { prestige: 'Element', requirement: 3700 },
+  { prestige: 'Galaxy', requirement: 3800 },
+  { prestige: 'Atomic', requirement: 3900 },
+  { prestige: 'Sunset', requirement: 4000 },
+  { prestige: 'Time', requirement: 4100 },
+  { prestige: 'Winter', requirement: 4200 },
+  { prestige: 'Obsidian', requirement: 4300 },
+  { prestige: 'Spring', requirement: 4400 },
+  { prestige: 'Ice', requirement: 4500 },
+  { prestige: 'Summer', requirement: 4600 },
+  { prestige: 'Spinel', requirement: 4700 },
+  { prestige: 'Autumn', requirement: 4800 },
+  { prestige: 'Mystic', requirement: 4900 },
+  { prestige: 'Eternal', requirement: 5000 }
 ];

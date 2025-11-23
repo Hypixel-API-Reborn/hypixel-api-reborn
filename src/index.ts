@@ -34,18 +34,42 @@ import ArenaBrawlMode from './Structures/MiniGames/ArenaBrawl/ArenaBrawlMode.js'
 import BaseAchievement from './Structures/Static/Achievements/BaseAchievement.js';
 import BedWars from './Structures/MiniGames/BedWars/BedWars.js';
 import BedWarsBeds from './Structures/MiniGames/BedWars/BedWarsBeds.js';
-import BedWarsCollectedItems from './Structures/MiniGames/BedWars/BedWarsCollectedItems.js';
-import BedWarsDreamMode from './Structures/MiniGames/BedWars/BedWarsDreamMode.js';
-import BedWarsDreamStats from './Structures/MiniGames/BedWars/BedWarsDreamStats.js';
+import BedWarsBoxes from './Structures/MiniGames/BedWars/BedWarsBoxes.js';
+import BedWarsChallenge from './Structures/MiniGames/BedWars/BedWarsChallenges/BedWarsChallenge.js';
+import BedWarsChallenges from './Structures/MiniGames/BedWars/BedWarsChallenges/BedWarsChallenges.js';
+import BedWarsEightOne from './Structures/MiniGames/BedWars/BedWarsEightOne.js';
+import BedWarsEightTwo from './Structures/MiniGames/BedWars/BedWarsEightTwo.js';
+import BedWarsFavorites from './Structures/MiniGames/BedWars/BedWarsFavorites.js';
+import BedWarsFigurines from './Structures/MiniGames/BedWars/BedWarsFigurines.js';
+import BedWarsFourFour from './Structures/MiniGames/BedWars/BedWarsFourFour.js';
+import BedWarsFourThree from './Structures/MiniGames/BedWars/BedWarsFourThree.js';
+import BedWarsItemsPurchased from './Structures/MiniGames/BedWars/BedWarsItemsPurchased.js';
+import BedWarsKillsDeaths from './Structures/MiniGames/BedWars/BedWarsKillsDeaths/BedWarsKillsDeaths.js';
+import BedWarsKillsDeathsType from './Structures/MiniGames/BedWars/BedWarsKillsDeaths/BedWarsKillsDeathsType.js';
 import BedWarsMode from './Structures/MiniGames/BedWars/BedWarsMode.js';
-import BedWarsPracticeBase from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeBase.js';
-import BedWarsPracticeBaseBlocksPlaced from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeBaseBlocksPlaced.js';
-import BedWarsPracticeBridging from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeBridging.js';
-import BedWarsPracticeBridgingRecords from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeBridgingRecords.js';
-import BedWarsPracticeModeAttempts from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeModeAttempts.js';
-import BedWarsPracticeRecord from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeRecord.js';
-import BedWarsPracticeRecordElevation from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeRecordElevation.js';
-import BedWarsPracticeStats from './Structures/MiniGames/BedWars/Practice/BedWarsPracticeStats.js';
+import BedWarsPractice from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPractice.js';
+import BedWarsPracticeBridging from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridging.js';
+import BedWarsPracticeBridgingRecords from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecords.js';
+import BedWarsPracticeBridgingRecordsDistance from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecordsDistance.js';
+import BedWarsPracticeBridgingRecordsEevation from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecordsEevation.js';
+import BedWarsPracticeMode from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeMode.js';
+import BedWarsPrivateGameSettings from './Structures/MiniGames/BedWars/BedWarsPrivateGameSettings.js';
+import BedWarsResourcesCollected from './Structures/MiniGames/BedWars/BedWarsResourcesCollected.js';
+import BedWarsSettings from './Structures/MiniGames/BedWars/BedWarsSettings.js';
+import BedWarsSlumber from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumber.js';
+import BedWarsSlumberMinion from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberMinion.js';
+import BedWarsSlumberPhase from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberPhase.js';
+import BedWarsSlumberPhaseThree from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberPhaseThree.js';
+import BedWarsSlumberQuest from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuest.js';
+import BedWarsSlumberQuestGamblerGeorge from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestGamblerGeorge.js';
+import BedWarsSlumberQuestItem from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestItem.js';
+import BedWarsSlumberQuestNPC from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPC.js';
+import BedWarsSlumberQuestNPCSBoolean from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCSBoolean.js';
+import BedWarsSlumberQuestNPCSNumber from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCSNumber.js';
+import BedWarsSlumberQuestObjective from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestObjective.js';
+import BedWarsSlumberRoom from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberRoom.js';
+import BedWarsSlumberSandman from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberSandman.js';
+import BedWarsTwoFour from './Structures/MiniGames/BedWars/BedWarsTwoFour.js';
 import BlitzSurvivalGames from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGames.js';
 import BlitzSurvivalGamesKit from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGamesKit.js';
 import BlockingDead from './Structures/MiniGames/Arcade/BlockingDead.js';
@@ -366,18 +390,42 @@ export {
   BaseAchievement,
   BedWars,
   BedWarsBeds,
-  BedWarsCollectedItems,
-  BedWarsDreamMode,
-  BedWarsDreamStats,
+  BedWarsBoxes,
+  BedWarsChallenge,
+  BedWarsChallenges,
+  BedWarsEightOne,
+  BedWarsEightTwo,
+  BedWarsFavorites,
+  BedWarsFigurines,
+  BedWarsFourFour,
+  BedWarsFourThree,
+  BedWarsItemsPurchased,
+  BedWarsKillsDeaths,
+  BedWarsKillsDeathsType,
   BedWarsMode,
-  BedWarsPracticeBase,
-  BedWarsPracticeBaseBlocksPlaced,
+  BedWarsPractice,
   BedWarsPracticeBridging,
   BedWarsPracticeBridgingRecords,
-  BedWarsPracticeModeAttempts,
-  BedWarsPracticeRecord,
-  BedWarsPracticeRecordElevation,
-  BedWarsPracticeStats,
+  BedWarsPracticeBridgingRecordsDistance,
+  BedWarsPracticeBridgingRecordsEevation,
+  BedWarsPracticeMode,
+  BedWarsPrivateGameSettings,
+  BedWarsResourcesCollected,
+  BedWarsSettings,
+  BedWarsSlumber,
+  BedWarsSlumberMinion,
+  BedWarsSlumberPhase,
+  BedWarsSlumberPhaseThree,
+  BedWarsSlumberQuest,
+  BedWarsSlumberQuestGamblerGeorge,
+  BedWarsSlumberQuestItem,
+  BedWarsSlumberQuestNPC,
+  BedWarsSlumberQuestNPCSBoolean,
+  BedWarsSlumberQuestNPCSNumber,
+  BedWarsSlumberQuestObjective,
+  BedWarsSlumberRoom,
+  BedWarsSlumberSandman,
+  BedWarsTwoFour,
   BlitzSurvivalGames,
   BlitzSurvivalGamesKit,
   BlockingDead,
@@ -699,18 +747,42 @@ export default {
   BaseAchievement,
   BedWars,
   BedWarsBeds,
-  BedWarsCollectedItems,
-  BedWarsDreamMode,
-  BedWarsDreamStats,
+  BedWarsBoxes,
+  BedWarsChallenge,
+  BedWarsChallenges,
+  BedWarsEightOne,
+  BedWarsEightTwo,
+  BedWarsFavorites,
+  BedWarsFigurines,
+  BedWarsFourFour,
+  BedWarsFourThree,
+  BedWarsItemsPurchased,
+  BedWarsKillsDeaths,
+  BedWarsKillsDeathsType,
   BedWarsMode,
-  BedWarsPracticeBase,
-  BedWarsPracticeBaseBlocksPlaced,
+  BedWarsPractice,
   BedWarsPracticeBridging,
   BedWarsPracticeBridgingRecords,
-  BedWarsPracticeModeAttempts,
-  BedWarsPracticeRecord,
-  BedWarsPracticeRecordElevation,
-  BedWarsPracticeStats,
+  BedWarsPracticeBridgingRecordsDistance,
+  BedWarsPracticeBridgingRecordsEevation,
+  BedWarsPracticeMode,
+  BedWarsPrivateGameSettings,
+  BedWarsResourcesCollected,
+  BedWarsSettings,
+  BedWarsSlumber,
+  BedWarsSlumberMinion,
+  BedWarsSlumberPhase,
+  BedWarsSlumberPhaseThree,
+  BedWarsSlumberQuest,
+  BedWarsSlumberQuestGamblerGeorge,
+  BedWarsSlumberQuestItem,
+  BedWarsSlumberQuestNPC,
+  BedWarsSlumberQuestNPCSBoolean,
+  BedWarsSlumberQuestNPCSNumber,
+  BedWarsSlumberQuestObjective,
+  BedWarsSlumberRoom,
+  BedWarsSlumberSandman,
+  BedWarsTwoFour,
   BlitzSurvivalGames,
   BlitzSurvivalGamesKit,
   BlockingDead,

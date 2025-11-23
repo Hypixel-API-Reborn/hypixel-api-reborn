@@ -1,0 +1,34 @@
+import BedWarsItemsPurchased from './BedWarsItemsPurchased.js';
+import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('BedWarsResourcesCollected', () => {
+  const data = new BedWarsResourcesCollected({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(BedWarsResourcesCollected);
+  expectTypeOf(data).toEqualTypeOf<BedWarsResourcesCollected>();
+  expect(data.total).toBeDefined();
+  expect(data.total).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.total).toEqualTypeOf<number>();
+  expect(data.emerald).toBeDefined();
+  expect(data.emerald).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.emerald).toEqualTypeOf<number>();
+  expect(data.diamond).toBeDefined();
+  expect(data.diamond).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.diamond).toEqualTypeOf<number>();
+  expect(data.gold).toBeDefined();
+  expect(data.gold).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.gold).toEqualTypeOf<number>();
+  expect(data.iron).toBeDefined();
+  expect(data.iron).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.iron).toEqualTypeOf<number>();
+  expect(data.wrappedPresent).toBeDefined();
+  expect(data.wrappedPresent).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wrappedPresent).toEqualTypeOf<number>();
+  expect(data.bed).toBeDefined();
+  expect(data.bed).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.bed).toEqualTypeOf<number>();
+  expect(data.itemsPurchased).toBeDefined();
+  expect(data.itemsPurchased).toBeInstanceOf(BedWarsItemsPurchased);
+  expectTypeOf(data.itemsPurchased).toEqualTypeOf<BedWarsItemsPurchased>();
+});

@@ -27,6 +27,7 @@
     "test:coverage": "pnpm exec vitest run --coverage",
     "test:coverage:check": "pnpm exec tsx .github/scripts/checkCoverage.ts",
     "test:ui": "pnpm exec vitest --ui --coverage",
+    "scripts:generate:index": "pnpm exec tsx .github/scripts/generateIndexFile.ts",
     "docgen": "pnpm exec typedoc"
   },
   "engines": {

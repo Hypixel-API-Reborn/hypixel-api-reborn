@@ -6,7 +6,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
 
 async function generateBaseIndex() {
   const lines: string[] = [
-    '',
+    '/* v8 ignore next 10000 */',
     '/* eslint-disable @stylistic/max-len  */',
     '',
     '',
@@ -64,7 +64,7 @@ async function generateBaseIndex() {
 }
 
 async function generateAPIIndex() {
-  const lines: string[] = ['/* v8 ignore next 400 */', ''];
+  const lines: string[] = ['/* v8 ignore next 10000 */', ''];
 
   const importNames: string[] = [];
 

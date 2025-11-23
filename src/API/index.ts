@@ -1,4 +1,4 @@
-/* v8 ignore next 400 */
+/* v8 ignore next 10000 */
 
 import getAchievements from './getAchievements.js';
 import getActiveHouses from './getActiveHouses.js';

@@ -1,0 +1,75 @@
+import BedWarsChallenge from './BedWarsChallenge.js';
+import type { BedWarsChallengeName } from '../../../../Types/Player.js';
+
+class BedWarsChallenges {
+  uniqueChallengesCompleted: number;
+  selectedChallengeType: BedWarsChallengeName | 'NONE';
+  totalChallengesCompleted: number;
+  archerOnly: BedWarsChallenge;
+  assassin: BedWarsChallenge;
+  cantTouchThis: BedWarsChallenge;
+  cappedResources: BedWarsChallenge;
+  collector: BedWarsChallenge;
+  defuser: BedWarsChallenge;
+  delayedHitting: BedWarsChallenge;
+  hotbar: BedWarsChallenge;
+  invisibleShop: BedWarsChallenge;
+  knockbackStickOnly: BedWarsChallenge;
+  masterAssassin: BedWarsChallenge;
+  miningFatigue: BedWarsChallenge;
+  noHealing: BedWarsChallenge;
+  noHitting: BedWarsChallenge;
+  noShift: BedWarsChallenge;
+  noSprint: BedWarsChallenge;
+  noSwords: BedWarsChallenge;
+  noTeamUpgrades: BedWarsChallenge;
+  noUtilities: BedWarsChallenge;
+  patriot: BedWarsChallenge;
+  protectThePresident: BedWarsChallenge;
+  resetArmor: BedWarsChallenge;
+  selfish: BedWarsChallenge;
+  slowGenerator: BedWarsChallenge;
+  sponge: BedWarsChallenge;
+  stamina: BedWarsChallenge;
+  stopLight: BedWarsChallenge;
+  toxicRain: BedWarsChallenge;
+  weightedItems: BedWarsChallenge;
+  woodworker: BedWarsChallenge;
+  constructor(data: Record<string, any>) {
+    this.uniqueChallengesCompleted = data?.bw_unique_challenges_completed || 0;
+    this.selectedChallengeType = data?.selected_challenge_type || 'NONE';
+    this.totalChallengesCompleted = data?.total_challenges_completed || 0;
+    this.archerOnly = new BedWarsChallenge(data, 'archer_only');
+    this.assassin = new BedWarsChallenge(data, 'assassin');
+    this.cantTouchThis = new BedWarsChallenge(data, 'cant_touch_this');
+    this.cappedResources = new BedWarsChallenge(data, 'capped_resources');
+    this.collector = new BedWarsChallenge(data, 'collector');
+    this.defuser = new BedWarsChallenge(data, 'defuser');
+    this.delayedHitting = new BedWarsChallenge(data, 'delayed_hitting');
+    this.hotbar = new BedWarsChallenge(data, 'hotbar');
+    this.invisibleShop = new BedWarsChallenge(data, 'invisible_shop');
+    this.knockbackStickOnly = new BedWarsChallenge(data, 'knockback_stick_only');
+    this.masterAssassin = new BedWarsChallenge(data, 'master_assassin');
+    this.miningFatigue = new BedWarsChallenge(data, 'mining_fatigue');
+    this.noHealing = new BedWarsChallenge(data, 'no_healing');
+    this.noHitting = new BedWarsChallenge(data, 'no_hitting');
+    this.noShift = new BedWarsChallenge(data, 'no_shift');
+    this.noSprint = new BedWarsChallenge(data, 'no_sprint');
+    this.noSwords = new BedWarsChallenge(data, 'no_swords');
+    this.noTeamUpgrades = new BedWarsChallenge(data, 'no_team_upgrades');
+    this.noUtilities = new BedWarsChallenge(data, 'no_utilities');
+    this.patriot = new BedWarsChallenge(data, 'patriot');
+    this.protectThePresident = new BedWarsChallenge(data, 'protect_the_president');
+    this.resetArmor = new BedWarsChallenge(data, 'reset_armor');
+    this.selfish = new BedWarsChallenge(data, 'selfish');
+    this.slowGenerator = new BedWarsChallenge(data, 'slow_generator');
+    this.sponge = new BedWarsChallenge(data, 'sponge');
+    this.stamina = new BedWarsChallenge(data, 'stamina');
+    this.stopLight = new BedWarsChallenge(data, 'stop_light');
+    this.toxicRain = new BedWarsChallenge(data, 'toxic_rain');
+    this.weightedItems = new BedWarsChallenge(data, 'weighted_items');
+    this.woodworker = new BedWarsChallenge(data, 'woodworker');
+  }
+}
+
+export default BedWarsChallenges;
