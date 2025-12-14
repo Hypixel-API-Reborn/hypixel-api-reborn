@@ -1,9 +1,14 @@
 import BedWarsBoxes from './BedWarsBoxes.js';
+import BedWarsEightOne from './BedWarsEightOne.ts';
+import BedWarsEightTwo from './BedWarsEightTwo.ts';
 import BedWarsFavorites from './BedWarsFavorites.js';
 import BedWarsFigurines from './BedWarsFigurines.js';
+import BedWarsFourFour from './BedWarsFourFour.ts';
+import BedWarsFourThree from './BedWarsFourThree.ts';
 import BedWarsMode from './BedWarsMode.js';
 import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
 import BedWarsSettings from './BedWarsSettings.js';
+import BedWarsTwoFour from './BedWarsTwoFour.ts';
 import { BedWarsPrestiges } from '../../../Utils/Constants.js';
 import type {
   BedWarsBedDestroy,
@@ -24,11 +29,6 @@ import type {
   PlayerGeneralSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.js';
-import BedWarsEightOne from './BedWarsEightOne.ts';
-import BedWarsEightTwo from './BedWarsEightTwo.ts';
-import BedWarsFourThree from './BedWarsFourThree.ts';
-import BedWarsFourFour from './BedWarsFourFour.ts';
-import BedWarsTwoFour from './BedWarsTwoFour.ts';
 
 class BedWars extends BedWarsMode {
   experience: number;
