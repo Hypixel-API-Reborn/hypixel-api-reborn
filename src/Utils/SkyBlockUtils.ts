@@ -10,6 +10,7 @@ import {
   HOTM_XP,
   INFINITE,
   MELON,
+  MOONFLOWER,
   MUSHROOM,
   NETHER_WART,
   POTATO,
@@ -19,7 +20,9 @@ import {
   SLAYER_XP,
   SOCIAL_XP,
   SUGAR_CANE,
+  SUNFLOWER,
   WHEAT,
+  WILD_ROSE,
   petRarityOffset
 } from './Constants.js';
 import { parse, simplify } from 'prismarine-nbt';
@@ -134,7 +137,10 @@ function getXpTable(type: SkyBlockXPTables): Record<number, number> {
     cactus: CACTUS,
     cocoaBeans: COCOA_BEANS,
     mushroom: MUSHROOM,
-    netherWart: NETHER_WART
+    netherWart: NETHER_WART,
+    moonFlower: MOONFLOWER,
+    sunFlower: SUNFLOWER,
+    wildRose: WILD_ROSE
   };
 
   return SKILL_TABLES[type] ?? DEFAULT_LEVELING_XP;

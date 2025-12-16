@@ -65,7 +65,10 @@ export type GardenCrops =
   | 'cactus'
   | 'cocoaBeans'
   | 'mushroom'
-  | 'netherWart';
+  | 'netherWart'
+  | 'moonFlower'
+  | 'sunFlower'
+  | 'wildRose';
 
 export type BankingTransactionAction = 'DEPOSIT' | 'WITHDRAW';
 export type CommunityUpgradesUpgrades =
