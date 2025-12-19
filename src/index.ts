@@ -20,8 +20,8 @@ export * from './Utils/Constants.js';
 export * from './Utils/Divide.js';
 export * from './Utils/Guild.js';
 export * from './Utils/Oscillation.js';
-export * from './Utils/ParseBedWarsMode.js';
 export * from './Utils/ParseBoosterType.js';
+export * from './Utils/ParseMode.js';
 export * from './Utils/RemoveSnakeCase.js';
 export * from './Utils/Romanize.js';
 export * from './Utils/SkyBlockUtils.js';
@@ -33,6 +33,7 @@ import ArcadeOptions from './Structures/MiniGames/Arcade/ArcadeOptions.js';
 import ArenaBrawl from './Structures/MiniGames/ArenaBrawl/ArenaBrawl.js';
 import ArenaBrawlMode from './Structures/MiniGames/ArenaBrawl/ArenaBrawlMode.js';
 import BaseAchievement from './Structures/Static/Achievements/BaseAchievement.js';
+import BaseKillDeathsType from './Structures/MiniGames/Shared/BaseKillDeathsType.js';
 import BedWars from './Structures/MiniGames/BedWars/BedWars.js';
 import BedWarsBeds from './Structures/MiniGames/BedWars/BedWarsBeds.js';
 import BedWarsBoxes from './Structures/MiniGames/BedWars/BedWarsBoxes.js';
@@ -345,11 +346,36 @@ import SkyBlockSkill from './Structures/SkyBlock/Skills/SkyBlockSkill.js';
 import SkyBlockSkillLevel from './Structures/SkyBlock/Skills/SkyBlockSkillLevel.js';
 import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import SkyWars from './Structures/MiniGames/SkyWars/SkyWars.js';
-import SkyWarsKit from './Structures/MiniGames/SkyWars/SkyWarsKit.js';
-import SkyWarsKits from './Structures/MiniGames/SkyWars/SkyWarsKits.js';
-import SkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode.js';
-import SkyWarsModeStats from './Structures/MiniGames/SkyWars/SkyWarsModeStats.js';
-import SkyWarsPackages from './Structures/MiniGames/SkyWars/SkyWarsPackages.js';
+import SkyWarsHeads from './Structures/MiniGames/SkyWars/SkyWarsHeads.js';
+import SkyWarsKillsDeaths from './Structures/MiniGames/SkyWars/SkyWarsKillsDeaths.js';
+import SkyWarsKillsDeathsType from './Structures/MiniGames/SkyWars/SkyWarsKillsDeathsType.js';
+import SkyWarsKitsMythic from './Structures/MiniGames/SkyWars/SkyWarsKitsMythics/SkyWarsKitsMythic.js';
+import SkyWarsKitsMythics from './Structures/MiniGames/SkyWars/SkyWarsKitsMythics/SkyWarsKitsMythics.js';
+import SkyWarsMega from './Structures/MiniGames/SkyWars/SkyWarsMega/SkyWarsMega.js';
+import SkyWarsMegaKits from './Structures/MiniGames/SkyWars/SkyWarsMega/SkyWarsMegaKits.js';
+import SkyWarsMini from './Structures/MiniGames/SkyWars/SkyWarsMini.js';
+import SkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode/SkyWarsMode.js';
+import SkyWarsModePerk from './Structures/MiniGames/SkyWars/SkyWarsMode/SkyWarsModePerk.js';
+import SkyWarsPrivateGames from './Structures/MiniGames/SkyWars/SkyWarsPrivateGames.js';
+import SkyWarsRanked from './Structures/MiniGames/SkyWars/SkyWarsRanked/SkyWarsRanked.js';
+import SkyWarsRankedKits from './Structures/MiniGames/SkyWars/SkyWarsRanked/SkyWarsRankedKits.js';
+import SkyWarsSolo from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSolo.js';
+import SkyWarsSoloKits from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKits.js';
+import SkyWarsSoloKitsAdvanced from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsAdvanced.js';
+import SkyWarsSoloKitsBasic from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsBasic.js';
+import SkyWarsSoloKitsLab from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsLab/SkyWarsSoloKitsLab.js';
+import SkyWarsSoloKitsLabAdvanced from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsLab/SkyWarsSoloKitsLabAdvanced.js';
+import SkyWarsSoloKitsLabBasic from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsLab/SkyWarsSoloKitsLabBasic.js';
+import SkyWarsSoloKitsMini from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsMini.js';
+import SkyWarsSoloKitsTourney from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourney.js';
+import SkyWarsSoloKitsTourneyAdvanced from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourneyAdvanced.js';
+import SkyWarsSoloKitsTourneyBasic from './Structures/MiniGames/SkyWars/SkyWarsSolo/SkyWarsSoloKits/SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourneyBasic.js';
+import SkyWarsTeams from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeams.js';
+import SkyWarsTeamsKits from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKits.js';
+import SkyWarsTeamsKitsAttacking from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsAttacking.js';
+import SkyWarsTeamsKitsDefending from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsDefending.js';
+import SkyWarsTeamsKitsMining from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsMining.js';
+import SkyWarsTeamsKitsSupporting from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsSupporting.js';
 import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
@@ -389,6 +415,7 @@ export {
   ArenaBrawl,
   ArenaBrawlMode,
   BaseAchievement,
+  BaseKillDeathsType,
   BedWars,
   BedWarsBeds,
   BedWarsBoxes,
@@ -701,11 +728,36 @@ export {
   SkyBlockSkillLevel,
   SkyBlockSkills,
   SkyWars,
-  SkyWarsKit,
-  SkyWarsKits,
+  SkyWarsHeads,
+  SkyWarsKillsDeaths,
+  SkyWarsKillsDeathsType,
+  SkyWarsKitsMythic,
+  SkyWarsKitsMythics,
+  SkyWarsMega,
+  SkyWarsMegaKits,
+  SkyWarsMini,
   SkyWarsMode,
-  SkyWarsModeStats,
-  SkyWarsPackages,
+  SkyWarsModePerk,
+  SkyWarsPrivateGames,
+  SkyWarsRanked,
+  SkyWarsRankedKits,
+  SkyWarsSolo,
+  SkyWarsSoloKits,
+  SkyWarsSoloKitsAdvanced,
+  SkyWarsSoloKitsBasic,
+  SkyWarsSoloKitsLab,
+  SkyWarsSoloKitsLabAdvanced,
+  SkyWarsSoloKitsLabBasic,
+  SkyWarsSoloKitsMini,
+  SkyWarsSoloKitsTourney,
+  SkyWarsSoloKitsTourneyAdvanced,
+  SkyWarsSoloKitsTourneyBasic,
+  SkyWarsTeams,
+  SkyWarsTeamsKits,
+  SkyWarsTeamsKitsAttacking,
+  SkyWarsTeamsKitsDefending,
+  SkyWarsTeamsKitsMining,
+  SkyWarsTeamsKitsSupporting,
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
@@ -746,6 +798,7 @@ export default {
   ArenaBrawl,
   ArenaBrawlMode,
   BaseAchievement,
+  BaseKillDeathsType,
   BedWars,
   BedWarsBeds,
   BedWarsBoxes,
@@ -1058,11 +1111,36 @@ export default {
   SkyBlockSkillLevel,
   SkyBlockSkills,
   SkyWars,
-  SkyWarsKit,
-  SkyWarsKits,
+  SkyWarsHeads,
+  SkyWarsKillsDeaths,
+  SkyWarsKillsDeathsType,
+  SkyWarsKitsMythic,
+  SkyWarsKitsMythics,
+  SkyWarsMega,
+  SkyWarsMegaKits,
+  SkyWarsMini,
   SkyWarsMode,
-  SkyWarsModeStats,
-  SkyWarsPackages,
+  SkyWarsModePerk,
+  SkyWarsPrivateGames,
+  SkyWarsRanked,
+  SkyWarsRankedKits,
+  SkyWarsSolo,
+  SkyWarsSoloKits,
+  SkyWarsSoloKitsAdvanced,
+  SkyWarsSoloKitsBasic,
+  SkyWarsSoloKitsLab,
+  SkyWarsSoloKitsLabAdvanced,
+  SkyWarsSoloKitsLabBasic,
+  SkyWarsSoloKitsMini,
+  SkyWarsSoloKitsTourney,
+  SkyWarsSoloKitsTourneyAdvanced,
+  SkyWarsSoloKitsTourneyBasic,
+  SkyWarsTeams,
+  SkyWarsTeamsKits,
+  SkyWarsTeamsKitsAttacking,
+  SkyWarsTeamsKitsDefending,
+  SkyWarsTeamsKitsMining,
+  SkyWarsTeamsKitsSupporting,
   SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,

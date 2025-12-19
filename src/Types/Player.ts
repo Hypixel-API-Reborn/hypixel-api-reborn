@@ -21,7 +21,6 @@ export type ArenaBrawlRunes = 'slowing' | 'energy' | 'damage' | 'tank' | 'speed'
 export type MiniWallsKits = 'soldier' | 'archer' | 'builder';
 export type WoolWarsClassNames = 'ASSAULT' | 'TANK' | 'GOLEM' | 'SWORDSMAN' | 'ENGINEER' | 'ARCHER';
 export type SmashHeoresModes = 'normal' | '2v2' | 'teams';
-export type SkyWarsBaseModes = 'solo' | 'team';
 export type MegaWallsModes = 'face_off' | 'gvg';
 export type SpeedUHCModes = 'solo' | 'solo_normal' | 'solo_insane' | 'team' | 'team_normal' | 'team_insane';
 export type UHCModes = 'solo' | 'red_vs_blue' | 'no_diamonds' | 'brawl' | 'solo_brawl' | 'duo_brawl';
@@ -92,15 +91,6 @@ export type MegaWallsKits =
   | 'phoenix'
   | 'renegade'
   | 'snowman';
-
-export type SkyWarsModes =
-  | 'mega'
-  | 'mega_doubles'
-  | 'lab'
-  | 'solo_normal'
-  | 'solo_insane'
-  | 'team_normal'
-  | 'team_insane';
 
 export type SmashHeoresHeros =
   | 'THE_BULK'
@@ -259,72 +249,6 @@ export type QuakecraftSights =
   | 'PINK'
   | 'GREEN';
 
-export type SkyWarsKitNames =
-  | 'kit_mythical_end-lord'
-  | 'kit_supporting_team_armorsmith'
-  | 'ecologist'
-  | 'rookie'
-  | 'enchanter'
-  | 'snowman'
-  | 'armorsmith'
-  | 'scout'
-  | 'knight'
-  | 'armorer'
-  | 'energix'
-  | 'enderchest'
-  | 'healer'
-  | 'frog'
-  | 'grenade'
-  | 'batguy'
-  | 'pharaoh'
-  | 'disco'
-  | 'princess'
-  | 'enderman'
-  | 'pyro'
-  | 'speleologist'
-  | 'farmer'
-  | 'cannoneer'
-  | 'fisherman'
-  | 'troll'
-  | 'hunter'
-  | 'guardian'
-  | 'engineer'
-  | 'salmon'
-  | 'slime'
-  | 'magician'
-  | 'sloth'
-  | 'zookeeper'
-  | 'jester'
-  | 'golem'
-  | 'cactus'
-  | 'warlock'
-  | 'archeologist'
-  | 'kit_advanced_solo_pig-rider'
-  | 'kit_attacking_team_scout'
-  | 'kit_basic_solo_archeologist'
-  | 'kit_basic_solo_frog'
-  | 'kit_defending_team_armorer'
-  | 'kit_advanced_solo_armorer'
-  | 'kit_defending_team_batguy'
-  | 'kit_supporting_team_ecologist'
-  | 'kit_basic_solo_disco'
-  | 'kit_attacking_team_knight'
-  | 'kit_advanced_solo_farmer'
-  | 'kit_advanced_solo_hunter'
-  | 'kit_basic_solo_ecologist'
-  | 'kit_supporting_team_rookie'
-  | 'kit_supporting_team_healer'
-  | 'kit_mining_team_cannoneer'
-  | 'kit_defending_team_disco'
-  | 'kit_mining_team_default'
-  | 'kit_advanced_solo_pyro'
-  | 'kit_defending_team_baseball-player'
-  | 'kit_basic_solo_speleologist'
-  | 'kit_attacking_team_energix'
-  | 'kit_defending_team_frog'
-  | 'kit_advanced_solo_enderman'
-  | 'kit_basic_solo_baseball-player';
-
 export type UHCKits =
   | 'ARCHERY_TOOLS'
   | 'WORKING_TOOLS'
@@ -411,19 +335,6 @@ export type BedWarsPrestige =
   | 'Autumn'
   | 'Mystic'
   | 'Eternal';
-
-export type SkyWarsPrestige =
-  | 'Iron'
-  | 'Gold'
-  | 'Diamond'
-  | 'Emerald'
-  | 'Sapphire'
-  | 'Ruby'
-  | 'Crystal'
-  | 'Opal'
-  | 'Amethyst'
-  | 'Rainbow'
-  | 'Mythic';
 
 export type TurboKartRacersHorn =
   | 'DEFAULT'
@@ -1607,6 +1518,9 @@ export type BuildBattleTitle =
   | 'Ascended';
 
 export type LeaderboardSettingsResetType = 'MONTHLY' | 'NEVER' | 'WEEKLY';
+
+export type PrivateGameSettingsGameSpeed = 'No Speed' | 'Speed I' | 'Speed II' | 'Speed III';
+export type PrivateGameSettingsHealthBuff = 'Normal Health' | 'Double Health' | 'Triple Health';
 
 export type MurderMysteryDescentMode = 'ASSASSINS' | 'CLASSIC' | 'INFECTION';
 export type MurderMysteryMode =
@@ -2843,9 +2757,7 @@ export type BedWarsChallengeName =
   | 'STOP_LIGHT'
   | 'TOXIC_RAIN';
 export type BedWarsPrivateGameSettingsEventTime = '0.5x - Slower' | '1x - Normal' | '2x - Faster' | '4x - Fastest';
-export type BedWarsPrivateGameSettingsHealthBuff = 'Normal Health' | 'Double Health' | 'Triple Health';
 export type BedWarsPrivateGameSettingsRespawnTime = '1 Second' | '5 Seconds' | '10 Seconds';
-export type BedWarsPrivateGameSettingsGameSpeed = 'No Speed' | 'Speed I' | 'Speed II' | 'Speed III';
 export type BedWarsSettingsDeposit = 'ENABLED' | 'DISABLED' | 'HOLOGRAMS_HIDDEN';
 export type BedWarsSettingsSlumberItemNotification = 'CHAT_MESSAGES' | 'ABOVE_HOTBAR' | 'DISABLED';
 export type BedWarsSlumberBag =
@@ -4031,3 +3943,328 @@ export type PlayerGeneralSelectedCosmetic = 'random_cosmetic' | 'random_favorite
 export type BedWarsPracticeModeId = 'BOW' | 'BRIDGING' | 'FIREBALL_JUMPING' | 'MLG' | 'PEARL_CLUTCHING';
 export type BedWarsPracticeBridgingRecordsDistances = '100' | '50' | '30';
 export type BedWarsPracticeBridgingRecordsElevations = 'NONE' | 'SLIGHT' | 'STAIRCASE';
+
+export type SkyWarsModeSolo = 'solo_normal' | 'solo_insane' | 'lab_solo' | 'solo';
+export type SkyWarsModeTeam = 'team_normal' | 'team_insane' | 'team';
+export type SkyWarsModeMege = 'mega_doubles_normal' | 'mega_doubles' | 'mega_normal' | 'mega';
+export type SkyWarsModeMini = 'mini_normal' | 'mini';
+export type SkyWarsModeRanked = 'ranked_normal' | 'ranked';
+export type SkyWarsModeTourney = 'crazytourney_normal' | 'tourney_crazytourney' | 'crazytourney' | 'tourney';
+export type SkyWarsModeId =
+  | SkyWarsModeSolo
+  | SkyWarsModeTeam
+  | SkyWarsModeMege
+  | SkyWarsModeMini
+  | SkyWarsModeRanked
+  | SkyWarsModeTourney
+  | 'lab';
+
+export type SkyWarsMythicKitId =
+  | 'kit_mythical_chronobreaker'
+  | 'kit_mythical_nether-lord'
+  | 'kit_mythical_end-lord'
+  | 'kit_mythical_monster-trainer'
+  | 'kit_mythical_cryomancer'
+  | 'kit_mythical_thundermeister'
+  | 'kit_mythical_fishmonger';
+export type SkyWarsBasicSoloKitId =
+  | 'kit_basic_solo_default'
+  | 'kit_basic_solo_armorsmith'
+  | 'kit_basic_solo_ecologist'
+  | 'kit_basic_solo_fisherman'
+  | 'kit_basic_solo_speleologist'
+  | 'kit_basic_solo_troll'
+  | 'kit_basic_solo_snowman'
+  | 'kit_basic_solo_rookie'
+  | 'kit_basic_solo_scout'
+  | 'kit_basic_solo_energix'
+  | 'kit_basic_solo_grenade'
+  | 'kit_basic_solo_pharaoh'
+  | 'kit_basic_solo_disco'
+  | 'kit_basic_solo_frog'
+  | 'kit_basic_solo_baseball-player'
+  | 'kit_basic_solo_princess'
+  | 'kit_basic_solo_batguy'
+  | 'kit_basic_solo_healer'
+  | 'kit_basic_solo_cactus'
+  | 'kit_basic_solo_warlock'
+  | 'kit_basic_solo_archeologist'
+  | 'kit_basic_solo_fallen-angel';
+export type SkyWarsAdvancedSoloKitId =
+  | 'kit_advanced_solo_farmer'
+  | 'kit_advanced_solo_enchanter'
+  | 'kit_advanced_solo_hunter'
+  | 'kit_advanced_solo_knight'
+  | 'kit_advanced_solo_armorer'
+  | 'kit_advanced_solo_cannoneer'
+  | 'kit_advanced_solo_pyro'
+  | 'kit_advanced_solo_salmon'
+  | 'kit_advanced_solo_zookeeper'
+  | 'kit_advanced_solo_enderman'
+  | 'kit_advanced_solo_slime'
+  | 'kit_advanced_solo_pig-rider'
+  | 'kit_advanced_solo_sloth'
+  | 'kit_advanced_solo_jester'
+  | 'kit_advanced_solo_guardian'
+  | 'kit_advanced_solo_engineer'
+  | 'kit_advanced_solo_magician';
+export type SkyWarsMiniSoloKitId =
+  | 'kit_mini_solo_athlete'
+  | 'kit_mini_solo_scout'
+  | 'kit_mini_solo_champion'
+  | 'kit_mini_solo_magician'
+  | 'kit_mini_solo_bowman'
+  | 'kit_mini_solo_healer'
+  | 'kit_mini_solo_pyromancer'
+  | 'kit_mini_solo_armorer'
+  | 'kit_mini_solo_blacksmith'
+  | 'kit_mini_solo_hound'
+  | 'kit_mini_solo_paladin';
+export type SkyWarsBasicLabSoloKitId =
+  | 'lab_kit_basic_solo_scout'
+  | 'lab_kit_basic_solo_ecologist'
+  | 'lab_kit_basic_solo_speleologist'
+  | 'lab_kit_basic_solo_armorsmith'
+  | 'lab_kit_basic_solo_energix'
+  | 'lab_kit_basic_solo_baseball-player'
+  | 'lab_kit_basic_solo_disco'
+  | 'lab_kit_basic_solo_pharaoh'
+  | 'lab_kit_basic_solo_default'
+  | 'lab_kit_basic_solo_frog'
+  | 'lab_kit_basic_solo_grenade'
+  | 'lab_kit_basic_solo_fisherman'
+  | 'lab_kit_basic_solo_rookie'
+  | 'lab_kit_basic_solo_troll'
+  | 'lab_kit_basic_solo_snowman'
+  | 'lab_kit_basic_solo_princess'
+  | 'lab_kit_basic_solo_batguy';
+export type SkyWarsAdvancedLabSoloKitId =
+  | 'lab_kit_advanced_solo_armorer'
+  | 'lab_kit_advanced_solo_salmon'
+  | 'lab_kit_advanced_solo_knight'
+  | 'lab_kit_advanced_solo_pyro'
+  | 'lab_kit_advanced_solo_zookeeper'
+  | 'lab_kit_advanced_solo_slime'
+  | 'lab_kit_advanced_solo_farmer'
+  | 'lab_kit_advanced_solo_enchanter'
+  | 'lab_kit_advanced_solo_jester'
+  | 'lab_kit_advanced_solo_engineer'
+  | 'lab_kit_advanced_solo_enderman'
+  | 'lab_kit_advanced_solo_cannoneer'
+  | 'lab_kit_advanced_solo_hunter'
+  | 'lab_kit_advanced_solo_sloth'
+  | 'lab_kit_advanced_solo_pig-rider'
+  | 'lab_kit_advanced_solo_magician';
+export type SkyWarsLabSoloKitId =
+  | SkyWarsBasicLabSoloKitId
+  | SkyWarsAdvancedLabSoloKitId
+  | 'lab_kit_enderchest_solo_enderchest';
+export type SkyWarsBasicTourneySoloKitId =
+  | 'tourney_kit_basic_solo_frog'
+  | 'tourney_kit_basic_solo_disco'
+  | 'tourney_kit_basic_solo_armorsmith'
+  | 'tourney_kit_basic_solo_fisherman'
+  | 'tourney_kit_basic_solo_pharaoh'
+  | 'tourney_kit_basic_solo_ecologist'
+  | 'tourney_kit_basic_solo_healer'
+  | 'tourney_kit_basic_solo_energix'
+  | 'tourney_kit_basic_solo_speleologist'
+  | 'tourney_kit_basic_solo_cactus'
+  | 'tourney_kit_basic_solo_rookie'
+  | 'tourney_kit_basic_solo_baseball-player'
+  | 'tourney_kit_basic_solo_default'
+  | 'tourney_kit_basic_solo_scout'
+  | 'tourney_kit_basic_solo_snowman'
+  | 'tourney_kit_basic_solo_princess'
+  | 'tourney_kit_basic_solo_grenade'
+  | 'tourney_kit_basic_solo_troll'
+  | 'tourney_kit_basic_solo_warlock'
+  | 'tourney_kit_basic_solo_batguy';
+export type SkyWarsAdvancedTourneySoloKitId =
+  | 'tourney_kit_advanced_solo_armorer'
+  | 'tourney_kit_advanced_solo_enderman'
+  | 'tourney_kit_advanced_solo_knight'
+  | 'tourney_kit_advanced_solo_enchanter'
+  | 'tourney_kit_advanced_solo_farmer'
+  | 'tourney_kit_advanced_solo_cannoneer'
+  | 'tourney_kit_advanced_solo_jester'
+  | 'tourney_kit_advanced_solo_hunter'
+  | 'tourney_kit_advanced_solo_magician'
+  | 'tourney_kit_advanced_solo_zookeeper'
+  | 'tourney_kit_advanced_solo_slime'
+  | 'tourney_kit_advanced_solo_engineer'
+  | 'tourney_kit_advanced_solo_pig-rider'
+  | 'tourney_kit_advanced_solo_guardian';
+export type SkyWarsTourneySoloKitId =
+  | SkyWarsBasicTourneySoloKitId
+  | SkyWarsAdvancedTourneySoloKitId
+  | 'tourney_kit_enderchest_solo_enderchest';
+export type SkyWarsSoloKitId =
+  | SkyWarsTourneySoloKitId
+  | SkyWarsLabSoloKitId
+  | SkyWarsBasicSoloKitId
+  | SkyWarsAdvancedSoloKitId
+  | SkyWarsMiniSoloKitId
+  | 'kit_enderchest_solo_enderchest';
+
+export type SkyWarsMegaKitId =
+  | 'kit_mega_mega_default'
+  | 'kit_mega_mega_hunter'
+  | 'kit_mega_mega_scout'
+  | 'kit_mega_mega_baseball-player'
+  | 'kit_mega_mega_armorer'
+  | 'kit_mega_mega_knight'
+  | 'kit_mega_mega_cannoneer'
+  | 'kit_mega_mega_hellhound'
+  | 'kit_mega_mega_witch'
+  | 'kit_mega_mega_fisherman'
+  | 'kit_mega_mega_armorsmith'
+  | 'kit_mega_mega_pyromaniac'
+  | 'kit_mega_mega_paladin'
+  | 'kit_mega_mega_healer'
+  | 'kit_mega_mega_skeletor'
+  | 'kit_mega_mega_enderman';
+
+export type SkyWarsRankedPerkId =
+  | 'kit_ranked_ranked_default'
+  | 'kit_ranked_ranked_scout'
+  | 'kit_ranked_ranked_armorer'
+  | 'kit_ranked_ranked_bowman'
+  | 'kit_ranked_ranked_champion'
+  | 'kit_ranked_ranked_pyromancer'
+  | 'kit_ranked_ranked_hound'
+  | 'kit_ranked_ranked_athlete'
+  | 'kit_ranked_ranked_magician'
+  | 'kit_ranked_ranked_healer'
+  | 'kit_ranked_ranked_paladin'
+  | 'kit_ranked_ranked_blacksmith';
+
+export type SkyWarsMiningTeamsKitId =
+  | 'kit_mining_team_default'
+  | 'kit_mining_team_cannoneer'
+  | 'kit_mining_team_speleologist'
+  | 'kit_mining_teams_default';
+export type SkyWarsDefendingTeamsKitId =
+  | 'kit_defending_team_armorer'
+  | 'kit_defending_team_baseball-player'
+  | 'kit_defending_team_guardian'
+  | 'kit_defending_team_batguy'
+  | 'kit_defending_team_frog'
+  | 'kit_defending_team_disco'
+  | 'kit_defending_team_farmer'
+  | 'kit_defending_team_cactus'
+  | 'kit_defending_team_golem';
+export type SkyWarsSupportingTeamsKitId =
+  | 'kit_supporting_team_healer'
+  | 'kit_supporting_team_ecologist'
+  | 'kit_supporting_team_armorsmith'
+  | 'kit_supporting_team_rookie'
+  | 'kit_supporting_team_enchanter'
+  | 'kit_supporting_team_pyro'
+  | 'kit_supporting_team_pharaoh'
+  | 'kit_supporting_team_warlock'
+  | 'kit_supporting_team_zookeeper'
+  | 'kit_supporting_team_princess'
+  | 'kit_supporting_team_troll';
+export type SkyWarsAttackingTeamsKitId =
+  | 'kit_attacking_team_scout'
+  | 'kit_attacking_team_knight'
+  | 'kit_attacking_team_snowman'
+  | 'kit_attacking_team_hunter'
+  | 'kit_attacking_team_enderman'
+  | 'kit_attacking_team_energix'
+  | 'kit_attacking_team_slime'
+  | 'kit_attacking_team_salmon'
+  | 'kit_attacking_team_sloth'
+  | 'kit_attacking_team_pig-rider'
+  | 'kit_attacking_team_grenade'
+  | 'kit_attacking_team_engineer'
+  | 'kit_attacking_team_magician'
+  | 'kit_attacking_team_default'
+  | 'kit_attacking_team_jester'
+  | 'kit_attacking_team_fisherman'
+  | 'kit_attacking_team_archeologist'
+  | 'kit_attacking_teams_default'
+  | 'kit_attacking_team_fallen-angel';
+export type SkyWarsTeamsKitId =
+  | SkyWarsMiningTeamsKitId
+  | SkyWarsDefendingTeamsKitId
+  | SkyWarsSupportingTeamsKitId
+  | SkyWarsAttackingTeamsKitId
+  | 'kit_enderchest_team_enderchest';
+
+export type SkyWarsKitId =
+  | SkyWarsSoloKitId
+  | SkyWarsMegaKitId
+  | SkyWarsMythicKitId
+  | SkyWarsRankedPerkId
+  | SkyWarsTeamsKitId;
+export type SkyWarsKillType = '' | 'melee' | 'void' | 'bow' | 'mob' | 'fall';
+export type SkyWarsSoloPerkId =
+  | 'ender_mastery'
+  | 'arrow_recovery'
+  | 'mining_expertise'
+  | 'blazing_arrows'
+  | 'instant_smelting'
+  | 'resistance_boost'
+  | 'speed_boost'
+  | 'bulldozer'
+  | 'marksmanship'
+  | 'juggernaut'
+  | 'knowledge'
+  | 'fat'
+  | 'nourishment'
+  | 'annoy'
+  | 'revenge'
+  | 'lucky_charm'
+  | 'bridger'
+  | 'environmental_expert'
+  | 'necromancer'
+  | 'black_magic'
+  | 'robbery'
+  | 'frost'
+  | 'barbarian'
+  | 'savior';
+export type SkyWarsMegePerkId =
+  | 'rusher'
+  | 'mining_expertise'
+  | 'ender_mastery'
+  | 'blazing_arrows'
+  | 'arrow_recovery'
+  | 'juggernaut'
+  | 'tank'
+  | 'nourishment'
+  | 'notoriety'
+  | 'instant_smelting'
+  | 'marksmanship'
+  | 'environmental_expert'
+  | 'bridger'
+  | 'lucky_charm'
+  | 'black_magic'
+  | 'necromancer'
+  | 'telekinesis';
+export type SkyWarsTeamsPerkId =
+  | 'instant_smelting'
+  | 'ender_mastery'
+  | 'resistance_boost'
+  | 'mining_expertise'
+  | 'juggernaut'
+  | 'blazing_arrows'
+  | 'arrow_recovery'
+  | 'speed_boost'
+  | 'fat'
+  | 'nourishment'
+  | 'knowledge'
+  | 'savior'
+  | 'marksmanship'
+  | 'bridger'
+  | 'lucky_charm'
+  | 'necromancer'
+  | 'black_magic'
+  | 'environmental_expert'
+  | 'robbery'
+  | 'frost'
+  | 'annoy-o-mite'
+  | 'bulldozer'
+  | 'barbarian';
+export type SkyWarsPerkId = SkyWarsSoloPerkId | SkyWarsMegePerkId | SkyWarsTeamsPerkId;

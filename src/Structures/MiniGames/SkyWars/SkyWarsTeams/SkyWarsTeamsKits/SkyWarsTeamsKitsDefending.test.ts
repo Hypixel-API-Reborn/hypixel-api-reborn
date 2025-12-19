@@ -1,0 +1,37 @@
+import SkyWarsMode from '../../SkyWarsMode/SkyWarsMode.js';
+import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyWarsTeamsKitsDefending', () => {
+  const data = new SkyWarsTeamsKitsDefending({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyWarsTeamsKitsDefending);
+  expectTypeOf(data).toEqualTypeOf<SkyWarsTeamsKitsDefending>();
+  expect(data.armorer).toBeDefined();
+  expect(data.armorer).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.armorer).toEqualTypeOf<SkyWarsMode>();
+  expect(data.baseballPlayer).toBeDefined();
+  expect(data.baseballPlayer).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.baseballPlayer).toEqualTypeOf<SkyWarsMode>();
+  expect(data.guardian).toBeDefined();
+  expect(data.guardian).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.guardian).toEqualTypeOf<SkyWarsMode>();
+  expect(data.batguy).toBeDefined();
+  expect(data.batguy).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.batguy).toEqualTypeOf<SkyWarsMode>();
+  expect(data.frog).toBeDefined();
+  expect(data.frog).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.frog).toEqualTypeOf<SkyWarsMode>();
+  expect(data.disco).toBeDefined();
+  expect(data.disco).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.disco).toEqualTypeOf<SkyWarsMode>();
+  expect(data.farmer).toBeDefined();
+  expect(data.farmer).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.farmer).toEqualTypeOf<SkyWarsMode>();
+  expect(data.cactus).toBeDefined();
+  expect(data.cactus).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.cactus).toEqualTypeOf<SkyWarsMode>();
+  expect(data.golem).toBeDefined();
+  expect(data.golem).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.golem).toEqualTypeOf<SkyWarsMode>();
+});

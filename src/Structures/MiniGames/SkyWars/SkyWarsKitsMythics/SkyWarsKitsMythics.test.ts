@@ -1,0 +1,31 @@
+import SkyWarsKitsMythic from './SkyWarsKitsMythic.js';
+import SkyWarsKitsMythics from './SkyWarsKitsMythics.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyWarsKitsMythics', () => {
+  const data = new SkyWarsKitsMythics({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyWarsKitsMythics);
+  expectTypeOf(data).toEqualTypeOf<SkyWarsKitsMythics>();
+  expect(data.chronobreaker).toBeDefined();
+  expect(data.chronobreaker).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.chronobreaker).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.netherLord).toBeDefined();
+  expect(data.netherLord).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.netherLord).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.endLord).toBeDefined();
+  expect(data.endLord).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.endLord).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.monsterTrainer).toBeDefined();
+  expect(data.monsterTrainer).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.monsterTrainer).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.cryomancer).toBeDefined();
+  expect(data.cryomancer).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.cryomancer).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.thundermeister).toBeDefined();
+  expect(data.thundermeister).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.thundermeister).toEqualTypeOf<SkyWarsKitsMythic>();
+  expect(data.fishmonger).toBeDefined();
+  expect(data.fishmonger).toBeInstanceOf(SkyWarsKitsMythic);
+  expectTypeOf(data.fishmonger).toEqualTypeOf<SkyWarsKitsMythic>();
+});

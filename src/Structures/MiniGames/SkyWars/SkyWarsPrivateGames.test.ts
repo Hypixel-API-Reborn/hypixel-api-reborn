@@ -1,0 +1,36 @@
+import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type { PrivateGameSettingsGameSpeed, PrivateGameSettingsHealthBuff } from '../../../Types/Player.js';
+
+test('SkyWarsPrivateGames', () => {
+  const data = new SkyWarsPrivateGames({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyWarsPrivateGames);
+  expectTypeOf(data).toEqualTypeOf<SkyWarsPrivateGames>();
+  expect(data.maxKitsAndPerks).toBeDefined();
+  expectTypeOf(data.maxKitsAndPerks).toEqualTypeOf<boolean>();
+  expect(data.legacyItems).toBeDefined();
+  expectTypeOf(data.legacyItems).toEqualTypeOf<boolean>();
+  expect(data.speed).toBeDefined();
+  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsGameSpeed | 'UNKNOWN'>();
+  expect(data.dragons).toBeDefined();
+  expectTypeOf(data.dragons).toEqualTypeOf<string | 'UNKNOWN'>();
+  expect(data.noKits).toBeDefined();
+  expectTypeOf(data.noKits).toEqualTypeOf<boolean>();
+  expect(data.nightTime).toBeDefined();
+  expectTypeOf(data.nightTime).toEqualTypeOf<boolean>();
+  expect(data.healthBuff).toBeDefined();
+  expectTypeOf(data.healthBuff).toEqualTypeOf<PrivateGameSettingsHealthBuff | 'UNKNOWN'>();
+  expect(data.teleportMayhem).toBeDefined();
+  expectTypeOf(data.teleportMayhem).toEqualTypeOf<boolean>();
+  expect(data.chestSwords).toBeDefined();
+  expectTypeOf(data.chestSwords).toEqualTypeOf<string | 'UNKNOWN'>();
+  expect(data.chestArmour).toBeDefined();
+  expectTypeOf(data.chestArmour).toEqualTypeOf<string | 'UNKNOWN'>();
+  expect(data.oneHitOneKill).toBeDefined();
+  expectTypeOf(data.oneHitOneKill).toEqualTypeOf<boolean>();
+  expect(data.lowGravity).toBeDefined();
+  expectTypeOf(data.lowGravity).toEqualTypeOf<boolean>();
+  expect(data.chestBows).toBeDefined();
+  expectTypeOf(data.chestBows).toEqualTypeOf<string | 'UNKNOWN'>();
+});

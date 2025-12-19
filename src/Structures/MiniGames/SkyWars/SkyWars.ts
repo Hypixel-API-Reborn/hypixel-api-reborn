@@ -1,152 +1,111 @@
-import Divide from '../../../Utils/Divide.js';
-import SkyWarsMode from './SkyWarsMode.js';
-import SkyWarsModeStats from './SkyWarsModeStats.js';
-import SkyWarsPackages from './SkyWarsPackages.js';
-import type { SkyWarsPrestige } from '../../../Types/Player.js';
+import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.ts';
+import SkyWarsMega from './SkyWarsMega/SkyWarsMega.ts';
+import SkyWarsMini from './SkyWarsMini.ts';
+import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
+import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.ts';
+import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.js';
+import { weekAB } from '../../../Utils/Oscillation.ts';
+import type { ShopSort } from '../../../Types/Player.ts';
 
-function getSkyWarsPrestige(level: number): SkyWarsPrestige {
-  if (level >= 60) return 'Mythic';
-  return (['Iron', 'Iron', 'Gold', 'Diamond', 'Emerald', 'Sapphire', 'Ruby', 'Crystal', 'Opal', 'Amethyst', 'Rainbow'][
-    Math.floor(level / 5)
-  ] || 'Iron') as SkyWarsPrestige;
-}
-
-function getSkyWarsLevel(xp: number): number {
-  const totalXp = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  if (xp === 0) return 0;
-  if (xp >= 15000) return Math.floor((xp - 15000) / 10000 + 12);
-  const level = totalXp.findIndex((x) => x * 10 - xp > 0);
-  return level === -1 ? 0 : level;
-}
-
-function getSkyWarsLevelProgress(xp: number) {
-  const totalXp: number[] = [0, 2, 7, 15, 25, 50, 100, 200, 350, 600, 1000, 1500];
-  const xpToNextLvl: number[] = [0, 2, 5, 8, 10, 25, 50, 100, 150, 250, 400, 500];
-  let percent;
-  let xpToNextLevel;
-  let currentLevelXp = xp;
-  if (xp >= 15000) {
-    currentLevelXp -= 15000;
-    if (currentLevelXp === 0) return { currentLevelXp: 0, xpToNextLevel: 10000, percent: 0, xpNextLevel: 10000 };
-    if (currentLevelXp > 10000) {
-      do {
-        currentLevelXp -= 10000;
-      } while (currentLevelXp >= 10000);
-    }
-    xpToNextLevel = 10000 - currentLevelXp;
-    percent = Math.round(currentLevelXp) / 100;
-    const percentRemaining = Math.round((100 - percent) * 100) / 100;
-    return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: 10000, percentRemaining };
-  }
-  const totalXpToNextLevel = (xpToNextLvl?.[totalXp.findIndex((x) => x * 10 - xp > 0)] || 0) * 10;
-  for (let i = 0; i < xpToNextLvl.length; i++) {
-    if (currentLevelXp - (xpToNextLvl?.[i] || 0) * 10 < 0) break;
-    currentLevelXp -= (xpToNextLvl?.[i] || 0) * 10;
-  }
-  xpToNextLevel = totalXpToNextLevel - currentLevelXp;
-  percent = Math.round((currentLevelXp / totalXpToNextLevel) * 10000) / 100;
-  return { currentLevelXp, xpToNextLevel, percent, xpNextLevel: totalXpToNextLevel };
-}
-
-class SkyWars {
+class SkyWars extends SkyWarsMode {
+  activeKillEffect: string | 'UNKNOWN';
+  activeVictoryDance: string | 'UNKNOWN';
+  activeKillMessages: string | 'UNKNOWN';
+  activeDeathCry: string | 'UNKNOWN';
+  activeBalloon: string | 'UNKNOWN';
+  activeCage: string | 'UNKNOWN';
+  activeSprays: string | 'UNKNOWN';
+  activeProjectileTrail: string | 'UNKNOWN';
+  shopSort: ShopSort | 'UNKNOWN';
   coins: number;
-  souls: number;
   tokens: number;
-  experience: number;
-  level: number;
-  levelProgress: any;
-  levelFormatted: string | null;
-  prestige: SkyWarsPrestige;
-  opals: number;
-  avarice: number;
-  tenacity: number;
-  shards: number;
+  xp: number;
+  mythicalKits: SkyWarsKitsMythics;
+  selectedPrestigeIcon: string | 'UNKNOWN';
   angelOfDeathLevel: number;
-  killStreak: number;
-  kills: number;
-  voidKills: number;
-  meleeKills: number;
-  bowKills: number;
-  mobKills: number;
-  assists: number;
-  deaths: number;
-  KDR: number;
-  wins: number;
-  losses: number;
-  WLR: number;
-  gamesPlayed: number;
-  survivedPlayers: number;
-  chestsOpened: number;
-  timePlayed: number;
-  shard: number;
-  longestBowShot: number;
-  arrowsShot: number;
-  arrowsHit: number;
-  bowAccuracy: number;
-  fastestWin: number;
-  heads: number;
-  blocksPlaced: number;
-  blocksBroken: number;
-  eggThrown: number;
-  enderpearlsThrown: number;
-  solo: SkyWarsModeStats;
-  team: SkyWarsModeStats;
-  mega: SkyWarsMode;
-  megaDoubles: SkyWarsMode;
-  lab: SkyWarsMode;
-  packages: SkyWarsPackages;
+  quits: number;
+  souls: number;
+  soulWell: number;
+  soulsGathered: number;
+  paidSouls: number;
+  soulWellRares: number;
+  soulWellLegendaries: number;
+  refillChestDestroy: number;
+  harvestingSeason: number;
+  xezbethLuck: number;
+  extraWheels: number;
+  weeklyKills: number;
+  weeklyKillsA: number;
+  weeklyKillsB: number;
+  monthlyKills: number;
+  monthlyKillsA: number;
+  monthlyKillsB: number;
+  quickjoinUsesTotal: number;
+  quickjoinUsesRandom: number;
+  chests: number;
+  chestHistory: string[];
+  goldenBoxes: number;
+  halloweenBoxes: number;
+  christmasBoxes: number;
+  lunarBoxes: number;
+  easterBoxes: number;
+  beastChance: number;
+  privateGamesSettings: SkyWarsPrivateGames;
+  solo: SkyWarsSolo;
+  teams: SkyWarsTeams;
+  mega: SkyWarsMega;
+  mini: SkyWarsMini;
   constructor(data: Record<string, any>) {
+    super(data);
+    this.activeKillEffect = data?.active_killeffect || 'UNKNOWN';
+    this.activeVictoryDance = data?.active_victorydance || 'UNKNOWN';
+    this.activeKillMessages = data?.active_killmessages || 'UNKNOWN';
+    this.activeDeathCry = data?.active_deathcry || 'UNKNOWN';
+    this.activeBalloon = data?.active_balloon || 'UNKNOWN';
+    this.activeCage = data?.active_cage || 'UNKNOWN';
+    this.activeSprays = data?.active_sprays || 'UNKNOWN';
+    this.activeProjectileTrail = data?.active_projectiletrail || 'UNKNOWN';
+    this.shopSort = data?.shop_sort || 'UNKNOWN';
     this.coins = data?.coins || 0;
-    this.souls = data?.souls || 0;
     this.tokens = data?.cosmetic_tokens || 0;
-    this.experience = data?.skywars_experience || 0;
-    this.level = getSkyWarsLevel(data?.skywars_experience);
-    this.levelProgress = getSkyWarsLevelProgress(data?.skywars_experience);
-    this.levelFormatted = data?.levelFormatted
-      ? data?.levelFormatted
-          ?.replace(/§l/gm, '**')
-          ?.replace(/§([a-f]|[1-9])/gm, '')
-          ?.replace(/§r/gm, '')
-      : null;
-    this.prestige = getSkyWarsPrestige(this.level);
-    this.opals = data?.opals || 0;
-    this.avarice = data?.avarice || 0;
-    this.tenacity = data?.tenacity || 0;
-    this.shards = data?.shard || 0;
-    this.angelOfDeathLevel = data?.angel_of_death_level || 0;
-    this.killStreak = data?.killstreak || 0;
-    this.kills = data?.kills || 0;
-    this.voidKills = data?.void_kills || 0;
-    this.meleeKills = data?.melee_kills || 0;
-    this.bowKills = data?.bow_kills || 0;
-    this.mobKills = data?.mob_kills || 0;
-    this.assists = data?.assists || 0;
-    this.deaths = data?.deaths || 0;
-    this.KDR = Divide(data?.kills, data?.deaths);
-    this.wins = data?.wins || 0;
-    this.losses = data?.losses || 0;
-    this.WLR = Divide(data?.wins, data?.losses);
-    this.gamesPlayed = data?.games || 0;
-    this.survivedPlayers = data?.survived_players || 0;
-    this.chestsOpened = data?.chests_opened || 0;
-    this.timePlayed = data?.time_played || 0;
-    this.shard = data?.shard || 0;
-    this.longestBowShot = data?.longest_bow_shot || 0;
-    this.arrowsShot = data?.arrows_shot || 0;
-    this.arrowsHit = data?.arrows_hit || 0;
-    this.bowAccuracy = Divide(this.arrowsHit, this.arrowsShot);
-    this.fastestWin = data?.fastest_win || 0;
     this.heads = data?.heads || 0;
-    this.blocksPlaced = data?.blocks_placed || 0;
-    this.blocksBroken = data?.blocks_broken || 0;
-    this.eggThrown = data?.egg_thrown || 0;
-    this.enderpearlsThrown = data?.enderpearls_thrown || 0;
-    this.solo = new SkyWarsModeStats(data, 'solo');
-    this.team = new SkyWarsModeStats(data, 'team');
-    this.mega = new SkyWarsMode(data, 'mega');
-    this.megaDoubles = new SkyWarsMode(data, 'mega_doubles');
-    this.lab = new SkyWarsMode(data, 'lab');
-    this.packages = new SkyWarsPackages(data?.packages || []);
+    this.xp = data?.skywars_experience || 0;
+    this.mythicalKits = new SkyWarsKitsMythics(data);
+    this.selectedPrestigeIcon = data?.selected_prestige_icon || 'UNKNOWN';
+    this.angelOfDeathLevel = data?.angel_of_death_level || 0;
+    this.quits = data?.quits || 0;
+    this.souls = data?.souls || 0;
+    this.soulWell = data?.soul_well || 0;
+    this.soulsGathered = data?.souls_gathered || 0;
+    this.paidSouls = data?.paid_souls || 0;
+    this.soulWellRares = data?.soul_well_rares || 0;
+    this.soulWellLegendaries = data?.soul_well_legendaries || 0;
+    this.refillChestDestroy = data?.refill_chest_destroy || 0;
+    this.harvestingSeason = data?.harvesting_season || 0;
+    this.xezbethLuck = data?.xezbeth_luck || 0;
+    this.extraWheels = data?.extra_wheels || 0;
+    this.weeklyKills = parseInt(data?.[`kills_weekly_${weekAB()}`] || 0, 10);
+    this.weeklyKillsA = data?.kills_weekly_a || 0;
+    this.weeklyKillsB = data?.kills_weekly_b || 0;
+    this.monthlyKills = parseInt(data?.[`kills_monthly_${weekAB()}`] || 0, 10);
+    this.monthlyKillsA = data?.kills_monthly_a || 0;
+    this.monthlyKillsB = data?.kills_monthly_b || 0;
+    this.quickjoinUsesTotal = data?.quickjoin_uses_total || 0;
+    this.quickjoinUsesRandom = data?.quickjoin_uses_random || 0;
+    this.chests = data?.skywars_chests || 0;
+    this.chestHistory = data?.skywars_chest_history || [];
+    this.goldenBoxes = data?.skywars_golden_boxes || 0;
+    this.halloweenBoxes = data?.skywars_halloween_boxes || 0;
+    this.christmasBoxes = data?.skywars_christmas_boxes || 0;
+    this.lunarBoxes = data?.skywars_lunar_boxes || 0;
+    this.easterBoxes = data?.skywars_easter_boxes || 0;
+    this.beastChance = data?.beast_chance || 0;
+    this.privateGamesSettings = new SkyWarsPrivateGames(data?.privategames || {});
+    this.solo = new SkyWarsSolo(data);
+    this.teams = new SkyWarsTeams(data);
+    this.mega = new SkyWarsMega(data);
+    this.mini = new SkyWarsMini(data);
   }
 }
 

@@ -1,0 +1,33 @@
+import SkyWarsMode from '../../SkyWarsMode/SkyWarsMode.js';
+import SkyWarsSoloKits from './SkyWarsSoloKits.js';
+import SkyWarsSoloKitsAdvanced from './SkyWarsSoloKitsAdvanced.js';
+import SkyWarsSoloKitsBasic from './SkyWarsSoloKitsBasic.js';
+import SkyWarsSoloKitsLab from './SkyWarsSoloKitsLab/SkyWarsSoloKitsLab.js';
+import SkyWarsSoloKitsMini from './SkyWarsSoloKitsMini.js';
+import SkyWarsSoloKitsTourney from './SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourney.js';
+import { expect, expectTypeOf, test } from 'vitest';
+
+test('SkyWarsSoloKits', () => {
+  const data = new SkyWarsSoloKits({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(SkyWarsSoloKits);
+  expectTypeOf(data).toEqualTypeOf<SkyWarsSoloKits>();
+  expect(data.lab).toBeDefined();
+  expect(data.lab).toBeInstanceOf(SkyWarsSoloKitsLab);
+  expectTypeOf(data.lab).toEqualTypeOf<SkyWarsSoloKitsLab>();
+  expect(data.basic).toBeDefined();
+  expect(data.basic).toBeInstanceOf(SkyWarsSoloKitsBasic);
+  expectTypeOf(data.basic).toEqualTypeOf<SkyWarsSoloKitsBasic>();
+  expect(data.advanced).toBeDefined();
+  expect(data.advanced).toBeInstanceOf(SkyWarsSoloKitsAdvanced);
+  expectTypeOf(data.advanced).toEqualTypeOf<SkyWarsSoloKitsAdvanced>();
+  expect(data.mini).toBeDefined();
+  expect(data.mini).toBeInstanceOf(SkyWarsSoloKitsMini);
+  expectTypeOf(data.mini).toEqualTypeOf<SkyWarsSoloKitsMini>();
+  expect(data.tourney).toBeDefined();
+  expect(data.tourney).toBeInstanceOf(SkyWarsSoloKitsTourney);
+  expectTypeOf(data.tourney).toEqualTypeOf<SkyWarsSoloKitsTourney>();
+  expect(data.enderChest).toBeDefined();
+  expect(data.enderChest).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.enderChest).toEqualTypeOf<SkyWarsMode>();
+});

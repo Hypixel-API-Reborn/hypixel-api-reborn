@@ -1,22 +1,22 @@
 import type {
   BedWarsPrivateGameSettingsEventTime,
-  BedWarsPrivateGameSettingsGameSpeed,
-  BedWarsPrivateGameSettingsHealthBuff,
-  BedWarsPrivateGameSettingsRespawnTime
+  BedWarsPrivateGameSettingsRespawnTime,
+  PrivateGameSettingsGameSpeed,
+  PrivateGameSettingsHealthBuff
 } from '../../../Types/Player.js';
 
 class BedWarsPrivateGameSettings {
   bedInstaBreak: boolean;
   disableBlockProtection: boolean;
   eventTime: BedWarsPrivateGameSettingsEventTime;
-  healthBuff: BedWarsPrivateGameSettingsHealthBuff;
+  healthBuff: PrivateGameSettingsHealthBuff;
   lowGravity: boolean;
   maxTeamUpgrades: boolean;
   noDiamonds: boolean;
   noEmeralds: boolean;
   oneHitOneKill: boolean;
   respawnTime: BedWarsPrivateGameSettingsRespawnTime;
-  speed: BedWarsPrivateGameSettingsGameSpeed;
+  speed: PrivateGameSettingsGameSpeed;
   constructor(data: Record<string, any>) {
     this.bedInstaBreak = data?.bed_instabreak || false;
     this.disableBlockProtection = data?.disable_block_protection || false;

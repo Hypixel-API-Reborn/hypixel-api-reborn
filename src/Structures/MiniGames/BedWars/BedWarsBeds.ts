@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import ParseBedWarsMode from '../../../Utils/ParseBedWarsMode.js';
+import { ParseModeBefore } from '../../../Utils/ParseMode.ts';
 import type { BedWarsModeId } from '../../../Types/Player.js';
 
 class BedWarsBeds {
@@ -7,7 +7,7 @@ class BedWarsBeds {
   lost: number;
   ratio: number;
   constructor(data: Record<string, any>, mode?: BedWarsModeId) {
-    mode = ParseBedWarsMode(mode) as BedWarsModeId;
+    mode = ParseModeBefore(mode) as BedWarsModeId;
     this.broken = data?.[`${mode}beds_broken_bedwars`] || 0;
     this.lost = data?.[`${mode}beds_lost_bedwars`] || 0;
     this.ratio = Divide(this.broken, this.lost);
