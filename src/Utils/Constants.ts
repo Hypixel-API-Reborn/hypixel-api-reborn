@@ -2678,3 +2678,16 @@ export const BedWarsPrestiges: { prestige: BedWarsPrestige; requirement: number 
   { prestige: 'Mystic', requirement: 4900 },
   { prestige: 'Eternal', requirement: 5000 }
 ];
+
+// Credit: https://github.com/Statsify/statsify/blob/main/packages/schemas/src/player/gamemodes/skywars/util.ts#L12-L25
+export const SKYWARS_XP_TO_NEXT_LEVEL = [
+  0, 10, 25, 50, 75, 100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 3500, 4000, 4500
+];
+
+export const SKYWARS_TOTAL_XP = SKYWARS_XP_TO_NEXT_LEVEL.map((_, index) =>
+  SKYWARS_XP_TO_NEXT_LEVEL.slice(0, index + 1).reduce((acc, xp) => acc + xp, 0)
+);
+
+export const SKYWARS_CONSTANT_LEVELING_XP = SKYWARS_XP_TO_NEXT_LEVEL.reduce((acc, xp) => acc + xp, 0);
+export const SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL = 5000;
+export const SKYWARS_LEVEL_MAX = 10_000;

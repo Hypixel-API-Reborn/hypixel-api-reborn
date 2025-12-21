@@ -40,6 +40,12 @@ test('SkyWars', () => {
   expect(data.xp).toBeDefined();
   expect(data.xp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.xp).toEqualTypeOf<number>();
+  expect(data.level).toBeDefined();
+  expectTypeOf(data.level).toEqualTypeOf<number>();
+  expect(data.levelWithProgress).toBeDefined();
+  expectTypeOf(data.levelWithProgress).toEqualTypeOf<{ currentXp: number; required: number }>();
+  expect(data.levelFormatted).toBeDefined();
+  expectTypeOf(data.levelFormatted).toEqualTypeOf<string | null>();
   expect(data.mythicalKits).toBeDefined();
   expect(data.mythicalKits).toBeInstanceOf(SkyWarsKitsMythics);
   expectTypeOf(data.mythicalKits).toEqualTypeOf<SkyWarsKitsMythics>();

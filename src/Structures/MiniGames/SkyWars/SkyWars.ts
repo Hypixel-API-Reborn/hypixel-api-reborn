@@ -5,6 +5,13 @@ import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
 import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
 import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.ts';
 import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.js';
+import {
+  SKYWARS_CONSTANT_LEVELING_XP,
+  SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL,
+  SKYWARS_LEVEL_MAX,
+  SKYWARS_TOTAL_XP,
+  SKYWARS_XP_TO_NEXT_LEVEL
+} from '../../../Utils/Constants.ts';
 import { weekAB } from '../../../Utils/Oscillation.ts';
 import type { ShopSort } from '../../../Types/Player.ts';
 
@@ -21,6 +28,9 @@ class SkyWars extends SkyWarsMode {
   coins: number;
   tokens: number;
   xp: number;
+  level: number;
+  levelWithProgress: { currentXp: number; required: number };
+  levelFormatted: string | null;
   mythicalKits: SkyWarsKitsMythics;
   selectedPrestigeIcon: string | 'UNKNOWN';
   angelOfDeathLevel: number;
@@ -71,6 +81,14 @@ class SkyWars extends SkyWarsMode {
     this.tokens = data?.cosmetic_tokens || 0;
     this.heads = data?.heads || 0;
     this.xp = data?.skywars_experience || 0;
+    this.level = SkyWars.getLevel(this.xp);
+    this.levelWithProgress = SkyWars.getLevelProgress(this.xp, this.level);
+    this.levelFormatted = data?.levelFormatted
+      ? data?.levelFormatted
+          ?.replace(/§l/gm, '**')
+          ?.replace(/§([a-f]|[1-9])/gm, '')
+          ?.replace(/§r/gm, '')
+      : null;
     this.mythicalKits = new SkyWarsKitsMythics(data);
     this.selectedPrestigeIcon = data?.selected_prestige_icon || 'UNKNOWN';
     this.angelOfDeathLevel = data?.angel_of_death_level || 0;
@@ -106,6 +124,38 @@ class SkyWars extends SkyWarsMode {
     this.teams = new SkyWarsTeams(data);
     this.mega = new SkyWarsMega(data);
     this.mini = new SkyWarsMini(data);
+  }
+
+  // Credit: https://github.com/Statsify/statsify/blob/main/packages/schemas/src/player/gamemodes/skywars/util.ts#L27-L38
+  static getLevel(xp: number): number {
+    if (xp >= SKYWARS_CONSTANT_LEVELING_XP) {
+      const level =
+        Math.floor((xp - SKYWARS_CONSTANT_LEVELING_XP) / SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL) +
+        SKYWARS_XP_TO_NEXT_LEVEL.length;
+
+      return Math.min(level, SKYWARS_LEVEL_MAX);
+    }
+
+    const level = SKYWARS_TOTAL_XP.findIndex((x) => x > xp);
+    return level;
+  }
+
+  // Credit: https://github.com/Statsify/statsify/blob/main/packages/schemas/src/player/gamemodes/skywars/util.ts#L40-L63
+  static getLevelProgress(xp: number, level: number): { currentXp: number; required: number } {
+    let currentXp = xp;
+
+    if (xp >= SKYWARS_CONSTANT_LEVELING_XP) {
+      currentXp -= SKYWARS_CONSTANT_LEVELING_XP;
+      currentXp %= SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL;
+      return { currentXp, required: level >= SKYWARS_LEVEL_MAX ? 0 : SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL };
+    }
+
+    for (const element of SKYWARS_XP_TO_NEXT_LEVEL) {
+      if (currentXp < element) break;
+      currentXp -= element;
+    }
+
+    return { currentXp, required: SKYWARS_XP_TO_NEXT_LEVEL[SKYWARS_TOTAL_XP.findIndex((x) => x > xp)] || 0 };
   }
 }
 
