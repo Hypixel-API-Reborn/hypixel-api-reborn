@@ -1,15 +1,15 @@
-import SkyWarsMode from '../../SkyWarsMode/SkyWarsMode.ts';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
 
 class SkyWarsTeamsKitsMining {
-  default: SkyWarsMode;
-  cannoneer: SkyWarsMode;
-  speleologist: SkyWarsMode;
-  defaultTeams: SkyWarsMode;
+  default: BaseSkyWarsMode;
+  cannoneer: BaseSkyWarsMode;
+  speleologist: BaseSkyWarsMode;
+  defaultTeams: BaseSkyWarsMode;
   constructor(data: Record<string, any>) {
-    this.default = new SkyWarsMode(data, 'kit_mining_team_default');
-    this.cannoneer = new SkyWarsMode(data, 'kit_mining_team_cannoneer');
-    this.speleologist = new SkyWarsMode(data, 'kit_mining_team_speleologist');
-    this.defaultTeams = new SkyWarsMode(data, 'kit_mining_teams_default');
+    this.default = new BaseSkyWarsMode(data, 'kit_mining_team_default');
+    this.cannoneer = new BaseSkyWarsMode(data, 'kit_mining_team_cannoneer');
+    this.speleologist = new BaseSkyWarsMode(data, 'kit_mining_team_speleologist');
+    this.defaultTeams = new BaseSkyWarsMode(data, 'kit_mining_teams_default');
   }
 }
 

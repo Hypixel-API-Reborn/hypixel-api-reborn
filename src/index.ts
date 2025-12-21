@@ -34,6 +34,7 @@ import ArenaBrawl from './Structures/MiniGames/ArenaBrawl/ArenaBrawl.js';
 import ArenaBrawlMode from './Structures/MiniGames/ArenaBrawl/ArenaBrawlMode.js';
 import BaseAchievement from './Structures/Static/Achievements/BaseAchievement.js';
 import BaseKillDeathsType from './Structures/MiniGames/Shared/BaseKillDeathsType.js';
+import BaseSkyWarsMode from './Structures/MiniGames/SkyWars/SkyWarsMode/BaseSkyWarsMode.js';
 import BedWars from './Structures/MiniGames/BedWars/BedWars.js';
 import BedWarsBeds from './Structures/MiniGames/BedWars/BedWarsBeds.js';
 import BedWarsBoxes from './Structures/MiniGames/BedWars/BedWarsBoxes.js';
@@ -416,6 +417,7 @@ export {
   ArenaBrawlMode,
   BaseAchievement,
   BaseKillDeathsType,
+  BaseSkyWarsMode,
   BedWars,
   BedWarsBeds,
   BedWarsBoxes,
@@ -799,6 +801,7 @@ export default {
   ArenaBrawlMode,
   BaseAchievement,
   BaseKillDeathsType,
+  BaseSkyWarsMode,
   BedWars,
   BedWarsBeds,
   BedWarsBoxes,

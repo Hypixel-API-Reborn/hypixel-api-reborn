@@ -1,33 +1,33 @@
-import SkyWarsMode from '../../../SkyWarsMode/SkyWarsMode.ts';
+import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.ts';
 
 class SkyWarsSoloKitsTourneyAdvanced {
-  armorer: SkyWarsMode;
-  enderman: SkyWarsMode;
-  knight: SkyWarsMode;
-  enchanter: SkyWarsMode;
-  farmer: SkyWarsMode;
-  cannoneer: SkyWarsMode;
-  jester: SkyWarsMode;
-  hunter: SkyWarsMode;
-  magician: SkyWarsMode;
-  zookeeper: SkyWarsMode;
-  slime: SkyWarsMode;
-  engineer: SkyWarsMode;
-  pigRider: SkyWarsMode;
+  armorer: BaseSkyWarsMode;
+  enderman: BaseSkyWarsMode;
+  knight: BaseSkyWarsMode;
+  enchanter: BaseSkyWarsMode;
+  farmer: BaseSkyWarsMode;
+  cannoneer: BaseSkyWarsMode;
+  jester: BaseSkyWarsMode;
+  hunter: BaseSkyWarsMode;
+  magician: BaseSkyWarsMode;
+  zookeeper: BaseSkyWarsMode;
+  slime: BaseSkyWarsMode;
+  engineer: BaseSkyWarsMode;
+  pigRider: BaseSkyWarsMode;
   constructor(data: Record<string, any>) {
-    this.armorer = new SkyWarsMode(data, 'tourney_kit_advanced_solo_armorer');
-    this.enderman = new SkyWarsMode(data, 'tourney_kit_advanced_solo_enderman');
-    this.knight = new SkyWarsMode(data, 'tourney_kit_advanced_solo_knight');
-    this.enchanter = new SkyWarsMode(data, 'tourney_kit_advanced_solo_enchanter');
-    this.farmer = new SkyWarsMode(data, 'tourney_kit_advanced_solo_farmer');
-    this.cannoneer = new SkyWarsMode(data, 'tourney_kit_advanced_solo_cannoneer');
-    this.jester = new SkyWarsMode(data, 'tourney_kit_advanced_solo_jester');
-    this.hunter = new SkyWarsMode(data, 'tourney_kit_advanced_solo_hunter');
-    this.magician = new SkyWarsMode(data, 'tourney_kit_advanced_solo_magician');
-    this.zookeeper = new SkyWarsMode(data, 'tourney_kit_advanced_solo_zookeeper');
-    this.slime = new SkyWarsMode(data, 'tourney_kit_advanced_solo_slime');
-    this.engineer = new SkyWarsMode(data, 'tourney_kit_advanced_solo_engineer');
-    this.pigRider = new SkyWarsMode(data, 'tourney_kit_advanced_solo_pig-rider');
+    this.armorer = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_armorer');
+    this.enderman = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_enderman');
+    this.knight = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_knight');
+    this.enchanter = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_enchanter');
+    this.farmer = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_farmer');
+    this.cannoneer = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_cannoneer');
+    this.jester = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_jester');
+    this.hunter = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_hunter');
+    this.magician = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_magician');
+    this.zookeeper = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_zookeeper');
+    this.slime = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_slime');
+    this.engineer = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_engineer');
+    this.pigRider = new BaseSkyWarsMode(data, 'tourney_kit_advanced_solo_pig-rider');
   }
 }
 

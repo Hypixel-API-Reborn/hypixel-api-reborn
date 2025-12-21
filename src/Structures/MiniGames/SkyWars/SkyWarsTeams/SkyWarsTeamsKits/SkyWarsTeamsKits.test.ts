@@ -1,4 +1,4 @@
-import SkyWarsMode from '../../SkyWarsMode/SkyWarsMode.js';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
 import SkyWarsTeamsKits from './SkyWarsTeamsKits.js';
 import SkyWarsTeamsKitsAttacking from './SkyWarsTeamsKitsAttacking.js';
 import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.js';
@@ -24,6 +24,6 @@ test('SkyWarsTeamsKits', () => {
   expect(data.attacking).toBeInstanceOf(SkyWarsTeamsKitsAttacking);
   expectTypeOf(data.attacking).toEqualTypeOf<SkyWarsTeamsKitsAttacking>();
   expect(data.enderChest).toBeDefined();
-  expect(data.enderChest).toBeInstanceOf(SkyWarsMode);
-  expectTypeOf(data.enderChest).toEqualTypeOf<SkyWarsMode>();
+  expect(data.enderChest).toBeInstanceOf(BaseSkyWarsMode);
+  expectTypeOf(data.enderChest).toEqualTypeOf<BaseSkyWarsMode>();
 });

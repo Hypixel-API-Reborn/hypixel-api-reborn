@@ -41,6 +41,7 @@ test('SkyWars', () => {
   expect(data.xp).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.xp).toEqualTypeOf<number>();
   expect(data.level).toBeDefined();
+  expect(data.level).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.level).toEqualTypeOf<number>();
   expect(data.levelWithProgress).toBeDefined();
   expectTypeOf(data.levelWithProgress).toEqualTypeOf<{ currentXp: number; required: number }>();

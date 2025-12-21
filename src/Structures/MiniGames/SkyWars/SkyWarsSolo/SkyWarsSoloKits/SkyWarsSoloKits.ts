@@ -1,4 +1,4 @@
-import SkyWarsMode from '../../SkyWarsMode/SkyWarsMode.ts';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
 import SkyWarsSoloKitsAdvanced from './SkyWarsSoloKitsAdvanced.ts';
 import SkyWarsSoloKitsBasic from './SkyWarsSoloKitsBasic.ts';
 import SkyWarsSoloKitsLab from './SkyWarsSoloKitsLab/SkyWarsSoloKitsLab.ts';
@@ -11,14 +11,14 @@ class SkyWarsSoloKits {
   advanced: SkyWarsSoloKitsAdvanced;
   mini: SkyWarsSoloKitsMini;
   tourney: SkyWarsSoloKitsTourney;
-  enderChest: SkyWarsMode;
+  enderChest: BaseSkyWarsMode;
   constructor(data: Record<string, any>) {
     this.lab = new SkyWarsSoloKitsLab(data);
     this.basic = new SkyWarsSoloKitsBasic(data);
     this.advanced = new SkyWarsSoloKitsAdvanced(data);
     this.mini = new SkyWarsSoloKitsMini(data);
     this.tourney = new SkyWarsSoloKitsTourney(data);
-    this.enderChest = new SkyWarsMode(data, 'kit_enderchest_solo_enderchest');
+    this.enderChest = new BaseSkyWarsMode(data, 'kit_enderchest_solo_enderchest');
   }
 }
 

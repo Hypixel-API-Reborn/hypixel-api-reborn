@@ -1,8 +1,8 @@
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.ts';
 import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/ParseMode.ts';
 import type { SkyWarsMythicKitId } from '../../../../Types/Player.ts';
 
-class SkyWarsKitsMythic extends SkyWarsMode {
+class SkyWarsKitsMythic extends BaseSkyWarsMode {
   autoEquipArmor: boolean;
   xp: number;
   constructor(data: Record<string, any>, kit?: SkyWarsMythicKitId) {
