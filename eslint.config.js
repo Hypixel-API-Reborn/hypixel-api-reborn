@@ -85,6 +85,7 @@ export default [
       'no-implicit-coercion': 'error',
       '@stylistic/eol-last': 'error',
       'no-use-before-define': 'warn',
+      '@stylistic/linebreak-style': 'off',
       'no-underscore-dangle': 'warn',
       'no-unneeded-ternary': 'error',
       '@stylistic/no-tabs': 'error',
