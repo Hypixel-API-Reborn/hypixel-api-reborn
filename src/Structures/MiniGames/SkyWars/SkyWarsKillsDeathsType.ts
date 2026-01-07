@@ -6,9 +6,7 @@ class SkyWarsKillsDeathsType extends BaseKillsDeathsType {
   constructor(data: Record<string, any>, type?: SkyWarsKillType, mode?: SkyWarsModeId | SkyWarsKitId) {
     type = ParseModeBefore(type) as SkyWarsKillType;
     mode = ParseModeAfter(mode) as SkyWarsModeId;
-    super(data);
-    this.kills = data?.[`${type}kills${mode}`] || 0;
-    this.deaths = data?.[`${type}kills${mode}`] || 0;
+    super({ kills: data?.[`${type}kills${mode}`] || 0, deaths: data?.[`${type}deaths${mode}`] || 0 });
   }
 }
 
