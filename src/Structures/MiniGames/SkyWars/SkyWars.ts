@@ -66,6 +66,7 @@ class SkyWars extends SkyWarsMode {
   teams: SkyWarsTeams;
   mega: SkyWarsMega;
   mini: SkyWarsMini;
+  ranked: SkyWarsMode;
   constructor(data: Record<string, any>) {
     super(data);
     this.activeKillEffect = data?.active_killeffect || 'UNKNOWN';
@@ -124,6 +125,7 @@ class SkyWars extends SkyWarsMode {
     this.teams = new SkyWarsTeams(data);
     this.mega = new SkyWarsMega(data);
     this.mini = new SkyWarsMini(data);
+    this.ranked = new SkyWarsMode(data, 'ranked');
   }
 
   // Credit: https://github.com/Statsify/statsify/blob/main/packages/schemas/src/player/gamemodes/skywars/util.ts#L27-L38
