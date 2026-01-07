@@ -3,7 +3,7 @@ export function ParseModeBefore(mode?: string): string {
 }
 
 export function ParseModeAfter(mode?: string): string {
-  return mode && mode.trim() !== '' ? `_${mode.replace(/_$/, '')}` : '';
+  return mode && mode.trim() !== '' ? `_${mode.replace(/^_|_$/g, '')}` : '';
 }
 
 export function ParseModeBeforeAfter(mode?: string): string {
