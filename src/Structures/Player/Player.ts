@@ -111,6 +111,8 @@ class Player {
           return 'Admin';
         case 'GAME_MASTER':
           return 'Game Master';
+        case 'YOUTUBER':
+          return 'YouTube';
         default:
           return null;
       }
