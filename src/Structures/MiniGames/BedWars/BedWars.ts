@@ -71,6 +71,7 @@ class BedWars extends BedWarsMode {
   fourThree: BedWarsFourThree;
   fourFour: BedWarsFourFour;
   twoFour: BedWarsTwoFour;
+  castle: BedWarsMode;
   constructor(data: Record<string, any>) {
     super(data);
     this.experience = data?.Experience || 0;
@@ -113,6 +114,7 @@ class BedWars extends BedWarsMode {
     this.fourThree = new BedWarsFourThree(data || {});
     this.fourFour = new BedWarsFourFour(data || {});
     this.twoFour = new BedWarsTwoFour(data || {});
+    this.castle = new BedWarsMode(data, 'castle');
   }
 
   static getPrestige(level: number): BedWarsPrestige {
