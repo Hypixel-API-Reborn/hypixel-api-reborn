@@ -1,11 +1,11 @@
 export function ParseModeBefore(mode?: string): string {
-  return mode && mode.trim() !== '' ? `${mode.replace(/_$/, '')}_` : '';
+  return mode?.trim() ? `${mode.trim().replace(/_+$/, '')}_` : '';
 }
 
 export function ParseModeAfter(mode?: string): string {
-  return mode && mode.trim() !== '' ? `_${mode.replace(/_$/, '')}` : '';
+  return mode?.trim() ? `_${mode.trim().replace(/^_+/, '')}` : '';
 }
 
 export function ParseModeBeforeAfter(mode?: string): string {
-  return mode && mode.trim() !== '' ? `_${mode.replace(/_$/, '')}_` : '';
+  return mode?.trim() ? `_${mode.trim().replace(/^_+|_+$/g, '')}_` : '';
 }
