@@ -1,7 +1,7 @@
 import BaseKillsDeathsType from '../Shared/BaseKillDeathsType.ts';
+import Divide from '../../../Utils/Divide.ts';
 import { ParseModeAfter, ParseModeBefore } from '../../../Utils/ParseMode.ts';
 import type { SkyWarsKillType, SkyWarsKitId, SkyWarsModeId } from '../../../Types/Player.ts';
-import Divide from '../../../Utils/Divide.ts';
 
 class SkyWarsKillsDeathsType extends BaseKillsDeathsType {
   constructor(data: Record<string, any>, type?: SkyWarsKillType, mode?: SkyWarsModeId | SkyWarsKitId) {

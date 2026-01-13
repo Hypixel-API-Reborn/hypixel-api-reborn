@@ -1,7 +1,7 @@
 import BaseKillsDeathsType from '../../Shared/BaseKillDeathsType.ts';
+import Divide from '../../../../Utils/Divide.ts';
 import { ParseModeBefore } from '../../../../Utils/ParseMode.ts';
 import type { BedWarsFinalType, BedWarsModeId } from '../../../../Types/Player.js';
-import Divide from '../../../../Utils/Divide.ts';
 
 class BedWarsKillsDeathsType extends BaseKillsDeathsType {
   constructor(data: Record<string, any>, type?: BedWarsFinalType, mode?: BedWarsModeId, finals: boolean = false) {
