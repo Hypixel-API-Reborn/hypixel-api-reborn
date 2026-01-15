@@ -9,7 +9,7 @@ class SkyWarsKillsDeathsType extends BaseKillsDeathsType {
     mode = ParseModeAfter(mode) as SkyWarsModeId;
     super(data);
     this.kills = data?.[`${type}kills${mode}`] || 0;
-    this.deaths = data?.[`${type}kills${mode}`] || 0;
+    this.deaths = data?.[`${type}deaths${mode}`] || 0;
     this.ratio = Divide(this.kills, this.deaths);
   }
 }
