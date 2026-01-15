@@ -4,9 +4,9 @@ packages:
   - ./JavaScript/SettingUpClient/Code
   - ./JavaScript/SkyHelperNetworth/Code
 catalog:
-  tsx: ^4.20.6
+  tsx: ^4.21.0
   typescript: ^5.9.3
-  prettier: ^3.6.2
+  prettier: ^3.8.0
   hypixel-api-reborn: 12.0.0-15
-  yaml: ^2.8.1
+  yaml: ^2.8.2
   skyhelper-networth: ^2.5.1
