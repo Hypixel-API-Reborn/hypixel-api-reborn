@@ -1,4 +1,5 @@
 import Zombies from './Zombies.js';
+import ZombiesMap from './ZombiesMap.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Zombies', () => {
@@ -12,9 +13,9 @@ test('Zombies', () => {
   expect(data.basketballZombieKills).toBeDefined();
   expect(data.basketballZombieKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.basketballZombieKills).toEqualTypeOf<number>();
-  expect(data.bestRoundZombies).toBeDefined();
-  expect(data.bestRoundZombies).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.bestRoundZombies).toEqualTypeOf<number>();
+  expect(data.bestRound).toBeDefined();
+  expect(data.bestRound).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.bestRound).toEqualTypeOf<number>();
   expect(data.blazeZombieKills).toBeDefined();
   expect(data.blazeZombieKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.blazeZombieKills).toEqualTypeOf<number>();
@@ -323,4 +324,28 @@ test('Zombies', () => {
   expectTypeOf(data.zombieKills).toEqualTypeOf<number>();
   expect(data.hideTutorials).toBeDefined();
   expectTypeOf(data.hideTutorials).toEqualTypeOf<boolean>();
+  expect(data.alienArcadium).toBeDefined();
+  expect(data.alienArcadium).toBeInstanceOf(ZombiesMap);
+  expectTypeOf(data.alienArcadium).toEqualTypeOf<ZombiesMap>();
+  expect(data.alienArcadium.normal).toBeUndefined();
+  expect(data.alienArcadium.hard).toBeUndefined();
+  expect(data.alienArcadium.rip).toBeUndefined();
+  expect(data.badBlood).toBeDefined();
+  expect(data.badBlood).toBeInstanceOf(ZombiesMap);
+  expect(data.badBlood.normal).toBeDefined();
+  expect(data.badBlood.hard).toBeDefined();
+  expect(data.badBlood.rip).toBeDefined();
+  expectTypeOf(data.badBlood).toEqualTypeOf<ZombiesMap>();
+  expect(data.deadEnd).toBeDefined();
+  expect(data.deadEnd).toBeInstanceOf(ZombiesMap);
+  expectTypeOf(data.deadEnd).toEqualTypeOf<ZombiesMap>();
+  expect(data.deadEnd.normal).toBeDefined();
+  expect(data.deadEnd.hard).toBeDefined();
+  expect(data.deadEnd.rip).toBeDefined();
+  expect(data.prison).toBeDefined();
+  expect(data.prison).toBeInstanceOf(ZombiesMap);
+  expectTypeOf(data.prison).toEqualTypeOf<ZombiesMap>();
+  expect(data.prison.normal).toBeDefined();
+  expect(data.prison.hard).toBeDefined();
+  expect(data.prison.rip).toBeDefined();
 });

@@ -1,7 +1,9 @@
+import ZombiesMap from './ZombiesMap.js';
+
 class Zombies {
   basicZombieKills: number;
   basketballZombieKills: number;
-  bestRoundZombies: number;
+  bestRound: number;
   blazeZombieKills: number;
   blobZombieKills: number;
   bombZombieKills: number;
@@ -105,10 +107,14 @@ class Zombies {
   wormZombieKills: number;
   zombieKills: number;
   hideTutorials: boolean;
+  alienArcadium: ZombiesMap;
+  badBlood: ZombiesMap;
+  deadEnd: ZombiesMap;
+  prison: ZombiesMap;
   constructor(data: Record<string, any>) {
     this.basicZombieKills = data?.basic_zombie_kills_zombies || 0;
     this.basketballZombieKills = data?.basketball_zombie_zombie_kills_zombies || 0;
-    this.bestRoundZombies = data?.best_round_zombies || 0;
+    this.bestRound = data?.best_round_zombies || 0;
     this.blazeZombieKills = data?.blaze_zombie_kills_zombies || 0;
     this.blobZombieKills = data?.blob_zombie_kills_zombies || 0;
     this.bombZombieKills = data?.bomb_zombie_kills_zombies || 0;
@@ -212,6 +218,10 @@ class Zombies {
     this.wormZombieKills = data?.worm_zombie_kills_zombies || 0;
     this.zombieKills = data?.zombie_kills_zombies || 0;
     this.hideTutorials = data?.zombies_hideTutorials || false;
+    this.alienArcadium = new ZombiesMap(data, 'alienarcadium', false);
+    this.badBlood = new ZombiesMap(data, 'badblood', true);
+    this.deadEnd = new ZombiesMap(data, 'deadend', true);
+    this.prison = new ZombiesMap(data, 'prison', true);
   }
 }
 
