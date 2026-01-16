@@ -2499,6 +2499,7 @@ export type ArcadePartyGamesGame =
   | 'volcano'
   | 'workshop';
 export type ArcadeZombiesMaps = 'alienarcadium' | 'badblood' | 'deadend' | 'prison';
+export type ArcadeZombiesDifficulty = 'normal' | 'hard' | 'rip';
 export type ArcadeEnderSpleefTrail = 'BLUE' | 'DEFAULT' | 'GREEN' | 'RAINBOW' | 'RED';
 export type ArcadeHoleInTheWallColor = 'CYAN' | 'DEFAULT' | 'FROSTED' | 'GREEN' | 'PUMPKIN' | 'RED' | 'YELLOW';
 export type ArcadeThrowOutDisguise = 'COW' | 'PIG' | 'SHEEP' | 'SNOWMAN' | 'ZOMBIE';
