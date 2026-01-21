@@ -58,7 +58,7 @@ new feature, make sure to include tests for it. If you are fixing a bug, make su
 information. When making a pull request we have a few requirements:
 
 - Tests must pass (`pnpm test`)
-- Code must be linted (`pnpm lint`)
+- Code must be linted (`pnpm eslint`)
 - Code must be formatted (`pnpm prettier`)
 - A clear and detailed description of the changes that you have done
 - Checkboxes for the changes you made
