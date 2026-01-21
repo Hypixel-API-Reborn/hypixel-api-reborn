@@ -74,3 +74,31 @@ test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
   expect(data.toString()).toBe(data.rank);
   expectTypeOf(data.toString()).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
 });
+
+test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Bronze)', () => {
+  const rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(1);
+  expect(rank).toBeDefined();
+  expectTypeOf(rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
+  expect(rank).toBe('Bronze');
+});
+
+test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Silver)', () => {
+  const rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(2);
+  expect(rank).toBeDefined();
+  expectTypeOf(rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
+  expect(rank).toBe('Silver');
+});
+
+test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Gold)', () => {
+  const rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(3);
+  expect(rank).toBeDefined();
+  expectTypeOf(rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
+  expect(rank).toBe('Gold');
+});
+
+test('SkyBlockMemberCrimsonIsleTrophyFish getTrophyFishRank (Diamond)', () => {
+  const rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(4);
+  expect(rank).toBeDefined();
+  expectTypeOf(rank).toEqualTypeOf<CrimsonIsleTrophyFishRank>();
+  expect(rank).toBe('Diamond');
+});

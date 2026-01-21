@@ -107,10 +107,8 @@ class Player {
       }
     } else if (player.rank) {
       switch (player.rank) {
-        case 'ADMIN':
-          return 'Admin';
-        case 'GAME_MASTER':
-          return 'Game Master';
+        case 'STAFF':
+          return 'Staff';
         case 'YOUTUBER':
           return 'YouTube';
         default:

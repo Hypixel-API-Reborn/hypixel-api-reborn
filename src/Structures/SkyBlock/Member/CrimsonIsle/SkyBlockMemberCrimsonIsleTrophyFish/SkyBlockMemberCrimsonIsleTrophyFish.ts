@@ -25,25 +25,25 @@ class SkyBlockMemberCrimsonIsleTrophyFish {
   caught: SkyBlockMemberCrimsonIsleTrophyFishCaught;
   constructor(data: Record<string, any>) {
     const rewards = data?.rewards || [1];
-    this.rank = this.getTrophyFishRank(rewards[rewards.length - 1]);
-    this.gusher = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'gusher');
-    this.blobfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'blobfish');
-    this.lavaHorse = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'lava_horse');
-    this.goldenFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'golden_fish');
-    this.volcanicStonefish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'volcanic_stonefish');
-    this.slugfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'slugfish');
-    this.vanille = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'vanille');
-    this.obfuscatedFish1 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'obfuscated_fish_1');
-    this.obfuscatedFish2 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'obfuscated_fish_2');
-    this.obfuscatedFish3 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'obfuscated_fish_3');
-    this.sulphurSkitter = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'sulphur_skitter');
-    this.skeletonFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'skeleton_fish');
-    this.manaRay = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'mana_ray');
-    this.flyfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'flyfish');
-    this.steamingHotFlounder = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'steaming_hot_flounder');
-    this.soulFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'soul_fish');
-    this.karateFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'karate_fish');
-    this.moldfin = new SkyBlockMemberCrimsonIsleTrophyFishFish(data || {}, 'moldfin');
+    this.rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(rewards[rewards.length - 1]);
+    this.gusher = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'gusher');
+    this.blobfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'blobfish');
+    this.lavaHorse = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'lava_horse');
+    this.goldenFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'golden_fish');
+    this.volcanicStonefish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'volcanic_stonefish');
+    this.slugfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'slugfish');
+    this.vanille = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'vanille');
+    this.obfuscatedFish1 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'obfuscated_fish_1');
+    this.obfuscatedFish2 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'obfuscated_fish_2');
+    this.obfuscatedFish3 = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'obfuscated_fish_3');
+    this.sulphurSkitter = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'sulphur_skitter');
+    this.skeletonFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'skeleton_fish');
+    this.manaRay = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'mana_ray');
+    this.flyfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'flyfish');
+    this.steamingHotFlounder = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'steaming_hot_flounder');
+    this.soulFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'soul_fish');
+    this.karateFish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'karate_fish');
+    this.moldfin = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'moldfin');
     this.caught = new SkyBlockMemberCrimsonIsleTrophyFishCaught(this);
   }
 
@@ -51,7 +51,7 @@ class SkyBlockMemberCrimsonIsleTrophyFish {
     return this.rank;
   }
 
-  private getTrophyFishRank(level: number): CrimsonIsleTrophyFishRank {
+  static getTrophyFishRank(level: number): CrimsonIsleTrophyFishRank {
     switch (level) {
       case 2:
         return 'Silver';

@@ -57,3 +57,16 @@ test('PlayerSeasonalChristmasYearAdventRewards', () => {
   expect(data.day25).toBeDefined();
   expectTypeOf(data.day25).toEqualTypeOf<Date | null>();
 });
+
+test('PlayerSeasonalChristmasYearAdventRewards (Valid Dates)', () => {
+  const input: Record<string, string> = {};
+  for (let i = 1; i <= 25; i++) {
+    input[`day${i}`] = `2025-12-${String(i).padStart(2, '0')}T00:00:00.000Z`;
+  }
+  const data = new PlayerSeasonalChristmasYearAdventRewards(input);
+  for (let i = 1; i <= 25; i++) {
+    const key = `day${i}` as keyof PlayerSeasonalChristmasYearAdventRewards;
+    expect(data[key]).toBeInstanceOf(Date);
+    expect((data[key] as Date).toISOString()).toBe(`2025-12-${String(i).padStart(2, '0')}T00:00:00.000Z`);
+  }
+});

@@ -42,3 +42,24 @@ test('Booster', () => {
   expect(data.toString()).toBe(`${data.purchaser}'s booster in ${data.game}`);
   expectTypeOf(data.toString()).toEqualTypeOf<string>();
 });
+
+test('Booster parseType (STACKED)', () => {
+  const type = Booster.parseType({ stacked: true });
+  expect(type).toBeDefined();
+  expectTypeOf(type).toEqualTypeOf<BoosterType>();
+  expect(type).toBe('STACKED');
+});
+
+test('Booster parseType (QUEUED)', () => {
+  const type = Booster.parseType({ stacked: false });
+  expect(type).toBeDefined();
+  expectTypeOf(type).toEqualTypeOf<BoosterType>();
+  expect(type).toBe('QUEUED');
+});
+
+test('Booster parseType (ACTIVE)', () => {
+  const type = Booster.parseType({});
+  expect(type).toBeDefined();
+  expectTypeOf(type).toEqualTypeOf<BoosterType>();
+  expect(type).toBe('ACTIVE');
+});

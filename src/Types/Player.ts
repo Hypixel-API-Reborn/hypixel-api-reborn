@@ -403,14 +403,12 @@ export type PlayerRank =
   | 'MVP'
   | 'MVP+'
   | 'MVP++'
-  | 'Game Master'
-  | 'Admin'
   | 'YouTube'
-  | 'Events'
-  | 'Mojang'
-  | 'Owner'
+  | 'Staff'
+  | 'Innit'
   | 'PIG+++'
-  | 'Innit';
+  | 'Mojang'
+  | 'Events';
 
 export interface LevelProgress {
   level: number;

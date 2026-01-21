@@ -40,41 +40,41 @@ class PlayerCosmetics {
       this.cosmetics.filter((x) => x.startsWith('pet_'))
     );
 
-    this.unlockedSuits = (this.cosmetics || [])
+    this.unlockedSuits = this.cosmetics
       .filter((x) => x.startsWith('suit_'))
       .map((x) => x.replace('suit_', '') as PlayerCosmeticsSuit);
 
-    this.unlockedHats = (this.cosmetics || [])
+    this.unlockedHats = this.cosmetics
       .filter((x) => x.startsWith('hat_'))
       .map((x) => x.replace('hat_', '') as PlayerCosmeticsHat);
 
     this.selectedGadget = data?.currentGadget || null;
-    this.unlockedGadgets = (this.cosmetics || [])
+    this.unlockedGadgets = this.cosmetics
       .filter((x) => x.startsWith('gadget_'))
       .map((x) => x.replace('gadget_', '') as PlayerCosmeticsGadget);
 
-    this.unlockedMorphs = (this.cosmetics || [])
+    this.unlockedMorphs = this.cosmetics
       .filter((x) => x.startsWith('morph_'))
       .map((x) => x.replace('morph_', '') as PlayerCosmeticsMorph);
 
-    this.unlockedCloaks = (this.cosmetics || [])
+    this.unlockedCloaks = this.cosmetics
       .filter((x) => x.startsWith('cloak_'))
       .map((x) => x.replace('cloak_', '') as PlayerCosmeticsCloak);
 
-    this.unlockedTaunts = (this.cosmetics || [])
+    this.unlockedTaunts = this.cosmetics
       .filter((x) => x.startsWith('taunt_'))
       .map((x) => x.replace('taunt_', '') as PlayerCosmeticsTaunt);
 
-    this.unlockedRankColors = (this.cosmetics || [])
+    this.unlockedRankColors = this.cosmetics
       .filter((x) => x.startsWith('rankcolor_'))
       .map((x) => x.replace('rankcolor_', '') as PlayerCosmeticsRankColor);
 
     this.selectedParticlePack = data?.particlePack || null;
-    this.unlockedParticlePacks = (this.cosmetics || [])
+    this.unlockedParticlePacks = this.cosmetics
       .filter((x) => x.startsWith('particlepack_'))
       .map((x) => x.replace('particlepack_', '') as PlayerCosmeticsParticlePack);
 
-    this.unlockedClickEffects = (this.cosmetics || [])
+    this.unlockedClickEffects = this.cosmetics
       .filter((x) => x.startsWith('clickeffects_'))
       .map((x) => x.replace('clickeffects_', '') as PlayerCosmeticsClickEffects);
   }

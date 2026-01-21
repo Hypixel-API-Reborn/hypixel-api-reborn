@@ -2,12 +2,6 @@ import Game from '../Game.js';
 import type RequestData from '../../Private/RequestData.js';
 import type { BoosterType } from '../../Types/Booster.js';
 
-export function parseType(data: Record<string, any>): BoosterType {
-  if (data.stacked === true) return 'STACKED';
-  if (!data.stacked) return 'QUEUED';
-  return 'ACTIVE';
-}
-
 class Booster {
   purchaser: string;
   amount: number;
@@ -29,7 +23,7 @@ class Booster {
     this.activated = new Date(data.dateActivated);
     this.game = new Game(data.gameType);
     this.isActive = Array.isArray(data.stacked);
-    this.type = parseType(data);
+    this.type = Booster.parseType(data);
     this.stackers = Array.isArray(data.stacked) ? Array.from(data.stacked) : [];
     this.expired = data.length < 0;
   }
@@ -40,6 +34,12 @@ class Booster {
 
   isRaw(): this is RequestData {
     return false;
+  }
+
+  static parseType(data: Record<string, any>): BoosterType {
+    if (data.stacked === true) return 'STACKED';
+    if (data.stacked === false) return 'QUEUED';
+    return 'ACTIVE';
   }
 }
 
