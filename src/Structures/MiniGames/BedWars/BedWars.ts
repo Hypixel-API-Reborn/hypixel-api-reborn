@@ -29,6 +29,7 @@ import type {
   PlayerGeneralSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.js';
+import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.ts';
 
 class BedWars extends BedWarsMode {
   experience: number;
@@ -72,6 +73,7 @@ class BedWars extends BedWarsMode {
   fourFour: BedWarsFourFour;
   twoFour: BedWarsTwoFour;
   castle: BedWarsMode;
+  slumber: BedWarsSlumber;
   constructor(data: Record<string, any>) {
     super(data);
     this.experience = data?.Experience || 0;
@@ -109,12 +111,13 @@ class BedWars extends BedWarsMode {
     this.figurines = new BedWarsFigurines(data?.figurines || {});
     this.privateGameSettings = new BedWarsPrivateGameSettings(data?.privategames || {});
     this.settings = new BedWarsSettings(data?.settings || {});
-    this.eightOne = new BedWarsEightOne(data || {});
-    this.eightTwo = new BedWarsEightTwo(data || {});
-    this.fourThree = new BedWarsFourThree(data || {});
-    this.fourFour = new BedWarsFourFour(data || {});
-    this.twoFour = new BedWarsTwoFour(data || {});
+    this.eightOne = new BedWarsEightOne(data);
+    this.eightTwo = new BedWarsEightTwo(data);
+    this.fourThree = new BedWarsFourThree(data);
+    this.fourFour = new BedWarsFourFour(data);
+    this.twoFour = new BedWarsTwoFour(data);
     this.castle = new BedWarsMode(data, 'castle');
+    this.slumber = new BedWarsSlumber(data?.slumber || {});
   }
 
   static getPrestige(level: number): BedWarsPrestige {
