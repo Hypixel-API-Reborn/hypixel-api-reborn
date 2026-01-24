@@ -408,6 +408,7 @@ import WoolWars from './Structures/MiniGames/WoolGames/WoolWars.js';
 import WoolWarsClass from './Structures/MiniGames/WoolGames/WoolWarsClass.js';
 import Zombies from './Structures/MiniGames/Arcade/Zombies/Zombies.js';
 import ZombiesMap from './Structures/MiniGames/Arcade/Zombies/ZombiesMap.js';
+import ZombiesMapMode from './Structures/MiniGames/Arcade/Zombies/ZombiesMapMode.js';
 
 export {
   Client,
@@ -792,7 +793,8 @@ export {
   WoolWars,
   WoolWarsClass,
   Zombies,
-  ZombiesMap
+  ZombiesMap,
+  ZombiesMapMode
 };
 
 export default {
@@ -1178,5 +1180,6 @@ export default {
   WoolWars,
   WoolWarsClass,
   Zombies,
-  ZombiesMap
+  ZombiesMap,
+  ZombiesMapMode
 };
