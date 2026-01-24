@@ -293,7 +293,7 @@ async function getIgnoredTypes(): Promise<string[]> {
 
 (async () => {
   const ignoredTypes = await getIgnoredTypes();
-  const structuresPaths = await scanDirectory('./src/Structures/');
+  const structuresPaths = await scanDirectory(process.argv[2] ?? './src/Structures/');
   for (const file of structuresPaths) {
     await parseFile(file, ignoredTypes);
   }
