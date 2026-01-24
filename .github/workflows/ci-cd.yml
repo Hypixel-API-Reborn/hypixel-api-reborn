@@ -77,9 +77,69 @@ jobs:
       - name: Check eslint
         run: pnpm eslint:check
 
+  index:
+    name: check building (index)
+    needs: [pnpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Run index generation
+        run: pnpm scripts:generate:index
+
+      - name: Check index
+        run: |
+          if ! git diff --exit-code --quiet -- src/index.ts; then
+            echo "Index file isn't up to date. Please run 'pnpm scripts:gneerate:index'"
+            exit 1
+          fi
+
+  api-index:
+    name: check building (API index)
+    needs: [pnpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install node dependencies
+        run: pnpm i
+
+      - name: Run API index generation
+        run: pnpm scripts:generate:index:api
+
+      - name: Check API index
+        run: |
+          if ! git diff --exit-code --quiet -- src/API/index.ts; then
+            echo "Index file isn't up to date. Please run 'pnpm scripts:gneerate:index:api'"
+            exit 1
+          fi
+
   build:
     name: build
-    needs: [pnpm, eslint]
+    needs: [pnpm, eslint, index, api-index]
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
@@ -102,7 +162,7 @@ jobs:
 
   tests:
     name: tests
-    needs: [pnpm, eslint, build]
+    needs: [pnpm, eslint, index, api-index, build]
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
