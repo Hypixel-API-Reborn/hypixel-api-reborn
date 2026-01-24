@@ -74,7 +74,9 @@ import BedWarsSlumberRoom from './Structures/MiniGames/BedWars/BedWarsSlumber/Be
 import BedWarsSlumberSandman from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberSandman.js';
 import BedWarsTwoFour from './Structures/MiniGames/BedWars/BedWarsTwoFour.js';
 import BlitzSurvivalGames from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGames.js';
+import BlitzSurvivalGamesData from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGamesData.js';
 import BlitzSurvivalGamesKit from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGamesKit.js';
+import BlitzSurvivalGamesPrivateGames from './Structures/MiniGames/BlitzSurvivalGames/BlitzSurvivalGamesPrivateGames.js';
 import BlockingDead from './Structures/MiniGames/Arcade/BlockingDead.js';
 import Booster from './Structures/Boosters/Booster.js';
 import BowSpleef from './Structures/MiniGames/TNTGames/BowSpleef.js';
@@ -457,7 +459,9 @@ export {
   BedWarsSlumberSandman,
   BedWarsTwoFour,
   BlitzSurvivalGames,
+  BlitzSurvivalGamesData,
   BlitzSurvivalGamesKit,
+  BlitzSurvivalGamesPrivateGames,
   BlockingDead,
   Booster,
   BowSpleef,
@@ -841,7 +845,9 @@ export default {
   BedWarsSlumberSandman,
   BedWarsTwoFour,
   BlitzSurvivalGames,
+  BlitzSurvivalGamesData,
   BlitzSurvivalGamesKit,
+  BlitzSurvivalGamesPrivateGames,
   BlockingDead,
   Booster,
   BowSpleef,

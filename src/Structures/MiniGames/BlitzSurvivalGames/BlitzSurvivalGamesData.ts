@@ -1,0 +1,77 @@
+import Divide from '../../../Utils/Divide.ts';
+import { ParseModeAfter } from '../../../Utils/ParseMode.ts';
+import type { BlitzSurvivalGamesKitId } from '../../../Types/Player.ts';
+
+class BlitzSurvivalGamesData {
+  wins: number;
+  winsTeams: number;
+  gamesPlayed: number;
+  losses: number;
+  WLRatio: number;
+  arrowsHit: number;
+  arrowsFired: number;
+  bowAccuracy: number;
+  blocksTraveledBoat: number;
+  blocksTraveledHorse: number;
+  blocksTraveledMinecart: number;
+  blocksTraveledPig: number;
+  bottlesThrown: number;
+  chestsOpened: number;
+  damage: number;
+  damageTaken: number;
+  eggsCollected: number;
+  eggsThrown: number;
+  explosiveKills: number;
+  fallDamage: number;
+  fallKills: number;
+  itemsEnchanted: number;
+  kills: number;
+  deaths: number;
+  KDRatio: number;
+  mobsSpawned: number;
+  potionsDrunk: number;
+  potionsThrown: number;
+  railsPlaced: number;
+  snowballsThrown: number;
+  tauntKills: number;
+  timePlayed: number;
+  tntPlaced: number;
+  constructor(data: Record<string, any>, kitName?: BlitzSurvivalGamesKitId) {
+    kitName = ParseModeAfter(kitName) as BlitzSurvivalGamesKitId;
+    this.wins = data?.[`wins${kitName}`] || 0;
+    this.winsTeams = data?.[`wins_teams${kitName}`] || 0;
+    this.gamesPlayed = data?.[`games_played${kitName}`] || 0;
+    this.losses = this.gamesPlayed - this.wins;
+    this.WLRatio = Divide(this.wins, this.losses);
+    this.arrowsHit = data?.[`arrows_hit${kitName}`] || 0;
+    this.arrowsFired = data?.[`arrows_fired${kitName}`] || 0;
+    this.bowAccuracy = Divide(this.arrowsHit, this.arrowsFired);
+    this.blocksTraveledBoat = data?.[`blocks_traveled_boat${kitName}`] || 0;
+    this.blocksTraveledHorse = data?.[`blocks_traveled_horse${kitName}`] || 0;
+    this.blocksTraveledMinecart = data?.[`blocks_traveled_minecart${kitName}`] || 0;
+    this.blocksTraveledPig = data?.[`blocks_traveled_pig${kitName}`] || 0;
+    this.bottlesThrown = data?.[`bottles_thrown${kitName}`] || 0;
+    this.chestsOpened = data?.[`chests_opened${kitName}`] || 0;
+    this.damage = data?.[`damage${kitName}`] || 0;
+    this.damageTaken = data?.[`damage_taken${kitName}`] || 0;
+    this.eggsCollected = data?.[`eggs_collected${kitName}`] || 0;
+    this.eggsThrown = data?.[`eggs_thrown${kitName}`] || 0;
+    this.explosiveKills = data?.[`explosive_kills${kitName}`] || 0;
+    this.fallDamage = data?.[`fall_damage${kitName}`] || 0;
+    this.fallKills = data?.[`fall_kills${kitName}`] || 0;
+    this.itemsEnchanted = data?.[`items_enchanted${kitName}`] || 0;
+    this.kills = data?.[`kills${kitName}`] || 0;
+    this.deaths = data?.[`deaths_${kitName}`] || 0;
+    this.KDRatio = Divide(this.kills, this.deaths);
+    this.mobsSpawned = data?.[`mobs_spawned${kitName}`] || 0;
+    this.potionsDrunk = data?.[`potions_drunk${kitName}`] || 0;
+    this.potionsThrown = data?.[`potions_thrown${kitName}`] || 0;
+    this.railsPlaced = data?.[`rails_placed${kitName}`] || 0;
+    this.snowballsThrown = data?.[`snowballs_thrown${kitName}`] || 0;
+    this.tauntKills = data?.[`taunt_kills${kitName}`] || 0;
+    this.timePlayed = data?.[`time_played${kitName}`] || 0;
+    this.tntPlaced = data?.[`tnt_placed${kitName}`] || 0;
+  }
+}
+
+export default BlitzSurvivalGamesData;
