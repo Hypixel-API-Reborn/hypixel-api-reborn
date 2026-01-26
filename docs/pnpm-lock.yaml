@@ -10,8 +10,8 @@ catalogs:
       specifier: 12.0.0-15
       version: 12.0.0-15
     prettier:
-      specifier: ^3.8.0
-      version: 3.8.0
+      specifier: ^3.8.1
+      version: 3.8.1
     tsx:
       specifier: ^4.21.0
       version: 4.21.0
@@ -28,7 +28,7 @@ importers:
     devDependencies:
       prettier:
         specifier: 'catalog:'
-        version: 3.8.0
+        version: 3.8.1
       tsx:
         specifier: 'catalog:'
         version: 4.21.0
@@ -302,8 +302,8 @@ packages:
     resolution: {integrity: sha512-t1QzWwnk4sjLWaQAS8CHgOJ+RAfmHpxFWmc36IWTiWHQfs0w5JDMBS1b1ZxQteo0vVVuWJvIUKHDkkeK7vIGCg==}
     engines: {node: '>= 8.0.0'}
 
-  prettier@3.8.0:
-    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -536,7 +536,7 @@ snapshots:
     dependencies:
       clone: 2.1.2
 
-  prettier@3.8.0: {}
+  prettier@3.8.1: {}
 
   prismarine-nbt@2.7.0:
     dependencies:
