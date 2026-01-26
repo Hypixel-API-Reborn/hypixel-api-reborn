@@ -29,7 +29,8 @@
     "test:ui": "pnpm exec vitest --ui --coverage",
     "scripts:generate:index": "pnpm exec tsx .github/scripts/generateIndexFile.ts",
     "scripts:generate:index:api": "pnpm exec tsx .github/scripts/generateAPIIndexFile.ts",
-    "docgen": "pnpm exec typedoc"
+    "docgen": "pnpm exec typedoc",
+    "prepare": "pnpm build"
   },
   "engines": {
     "node": ">=20.19.5"
