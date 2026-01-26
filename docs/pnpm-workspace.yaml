@@ -6,7 +6,7 @@ packages:
 catalog:
   tsx: ^4.21.0
   typescript: ^5.9.3
-  prettier: ^3.8.0
+  prettier: ^3.8.1
   hypixel-api-reborn: 12.0.0-15
   yaml: ^2.8.2
   skyhelper-networth: ^2.5.1
