@@ -1,0 +1,1 @@
+{"version":3,"file":"FootBall.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/FootBall.ts"],"names":[],"mappings":"AAAA,cAAM,QAAQ;IACZ,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;IACd,UAAU,EAAE,MAAM,CAAC;IACnB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAMtC;AAED,eAAe,QAAQ,CAAC"}

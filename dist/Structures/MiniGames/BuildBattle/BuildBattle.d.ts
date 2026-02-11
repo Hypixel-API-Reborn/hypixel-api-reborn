@@ -1,0 +1,48 @@
+import BuildBattleLastWin from './BuildBattleLastWin.js';
+import BuildBattleVotes from './BuildBattleVotes.js';
+import Emblem from '../Shared/Emblem/Emblem.js';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
+import type { BuildBattleBackdrop, BuildBattleEmblemIcon, BuildBattleHat, BuildBattleIsland, BuildBattleLeaderboardSettingsMode, BuildBattleMovementTrail, BuildBattlePackageItem, BuildBattleSong, BuildBattleSuit, BuildBattleTitle, BuildBattleVictoryDance, ShopSort } from '../../../Types/Player.js';
+declare class BuildBattle {
+    activeIsland: BuildBattleIsland | 'island_none';
+    activeMovementTrail: BuildBattleMovementTrail | 'movement_trail_none';
+    correctGuesses: number;
+    emblem: Emblem<BuildBattleEmblemIcon>;
+    playedGames: number;
+    lastPurchasedSong: BuildBattleSong | 'UNKNOWN';
+    lastWon: BuildBattleLastWin;
+    leaderboardSettings: LeaderboardSettings<BuildBattleLeaderboardSettingsMode>;
+    loadout: string[];
+    monthlyTokensA: number;
+    monthlyTokensB: number;
+    monthlyTokens: number;
+    music: boolean;
+    selectedHat: BuildBattleHat | 'hats_none';
+    suit: BuildBattleSuit | 'suit_none';
+    victoryDance: BuildBattleVictoryDance | 'victory_dance_none';
+    packages: BuildBattlePackageItem[];
+    score: number;
+    title: BuildBattleTitle;
+    selectedBackdrop: BuildBattleBackdrop | 'backdrops_none';
+    shopSort: ShopSort | 'UNKNOWN';
+    shopSortEnableOwnedFirst: boolean;
+    soloMostPoints: number;
+    superVotes: number;
+    teamsMostPoints: number;
+    tokens: number;
+    totalVotes: number;
+    weeklyTokensA: number;
+    weeklyTokensB: number;
+    votes: BuildBattleVotes;
+    wins: number;
+    winsGuessTheBuild: number;
+    winsHalloween: number;
+    winsSoloNormal: number;
+    winsSoloPro: number;
+    winsSpeedBuilders: number;
+    winsTeamsNormal: number;
+    constructor(data: Record<string, any>);
+    static getBuildBattleTitle(score: number): BuildBattleTitle;
+}
+export default BuildBattle;
+//# sourceMappingURL=BuildBattle.d.ts.map

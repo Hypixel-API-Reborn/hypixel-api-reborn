@@ -1,0 +1,1 @@
+{"version":3,"file":"GameQuests.d.ts","sourceRoot":"","sources":["../../../src/Structures/Static/GameQuests.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,YAAY,CAAC;AAE/B,cAAM,UAAU;IACd,IAAI,EAAE,MAAM,CAAC;IACb,MAAM,EAAE,KAAK,EAAE,CAAC;gBACJ,IAAI,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,EAAE;CAItD;AAED,eAAe,UAAU,CAAC"}

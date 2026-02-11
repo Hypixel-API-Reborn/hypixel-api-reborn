@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockInventoryItemEnchantment.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Inventory/SkyBlockInventoryItemEnchantment.ts"],"names":[],"mappings":"AAAA,cAAM,gCAAgC;IACpC,IAAI,EAAE,MAAM,GAAG,SAAS,CAAC;IACzB,KAAK,EAAE,MAAM,CAAC;gBACF,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAKrC,QAAQ,IAAI,MAAM,GAAG,SAAS;CAG/B;AAED,eAAe,gCAAgC,CAAC"}

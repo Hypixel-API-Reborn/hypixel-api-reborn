@@ -1,0 +1,1 @@
+{"version":3,"file":"GameChallenges.d.ts","sourceRoot":"","sources":["../../../src/Structures/Static/GameChallenges.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,cAAM,cAAc;IAClB,QAAQ,EAAE,MAAM,CAAC;IACjB,UAAU,EAAE,SAAS,EAAE,CAAC;gBACZ,IAAI,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,EAAE;CAItD;AAED,eAAe,cAAc,CAAC"}

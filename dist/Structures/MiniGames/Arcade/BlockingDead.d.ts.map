@@ -1,0 +1,1 @@
+{"version":3,"file":"BlockingDead.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/BlockingDead.ts"],"names":[],"mappings":"AAAA,cAAM,YAAY;IAChB,SAAS,EAAE,MAAM,CAAC;IAClB,KAAK,EAAE,MAAM,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,YAAY,CAAC"}

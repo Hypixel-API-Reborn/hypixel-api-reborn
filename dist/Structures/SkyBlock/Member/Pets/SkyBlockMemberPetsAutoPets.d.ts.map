@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockMemberPetsAutoPets.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/SkyBlock/Member/Pets/SkyBlockMemberPetsAutoPets.ts"],"names":[],"mappings":"AAAA,OAAO,6BAA6B,MAAM,oCAAoC,CAAC;AAE/E,cAAM,0BAA0B;IAC9B,UAAU,EAAE,MAAM,CAAC;IACnB,KAAK,EAAE,6BAA6B,EAAE,CAAC;gBAC3B,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,0BAA0B,CAAC"}

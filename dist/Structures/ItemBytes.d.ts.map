@@ -1,0 +1,1 @@
+{"version":3,"file":"ItemBytes.d.ts","sourceRoot":"","sources":["../../src/Structures/ItemBytes.ts"],"names":[],"mappings":"AAAA,cAAM,SAAS;IACb,WAAW,EAAE,MAAM,CAAC;gBACR,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAIrC,MAAM,IAAI,MAAM;CAGjB;AAED,eAAe,SAAS,CAAC"}

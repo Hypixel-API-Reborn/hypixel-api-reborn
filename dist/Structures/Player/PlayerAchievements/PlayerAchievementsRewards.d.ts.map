@@ -1,0 +1,1 @@
+{"version":3,"file":"PlayerAchievementsRewards.d.ts","sourceRoot":"","sources":["../../../../src/Structures/Player/PlayerAchievements/PlayerAchievementsRewards.ts"],"names":[],"mappings":"AAAA,cAAM,yBAAyB;IAC7B,CAAC,GAAG,EAAE,MAAM,GAAG,MAAM,CAAC;gBACV,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CActC;AAED,eAAe,yBAAyB,CAAC"}

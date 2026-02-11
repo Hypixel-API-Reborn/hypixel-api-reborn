@@ -1,0 +1,66 @@
+import SkyWarsMode from "../SkyWarsMode/SkyWarsMode.js";
+import SkyWarsModePerk from "../SkyWarsMode/SkyWarsModePerk.js";
+import SkyWarsSoloKits from './SkyWarsSoloKits/SkyWarsSoloKits.js';
+class SkyWarsSolo extends SkyWarsMode {
+    normal;
+    insane;
+    lab;
+    kits;
+    enderMastery;
+    arrowRecovery;
+    miningExpertise;
+    blazingArrows;
+    instantSmelting;
+    resistanceBoost;
+    speedBoost;
+    bulldozer;
+    marksmanship;
+    juggernaut;
+    knowledge;
+    fat;
+    nourishment;
+    annoy;
+    revenge;
+    luckyCharm;
+    bridger;
+    environmentalExpert;
+    necromancer;
+    blackMagic;
+    robbery;
+    frost;
+    barbarian;
+    savior;
+    constructor(data) {
+        super(data, 'solo');
+        this.normal = new SkyWarsMode(data, 'solo_normal');
+        this.insane = new SkyWarsMode(data, 'solo_insane');
+        this.lab = new SkyWarsMode(data, 'lab_solo');
+        this.kits = new SkyWarsSoloKits(data);
+        this.enderMastery = new SkyWarsModePerk(data, 'ender_mastery', 'solo');
+        this.arrowRecovery = new SkyWarsModePerk(data, 'arrow_recovery', 'solo');
+        this.miningExpertise = new SkyWarsModePerk(data, 'mining_expertise', 'solo');
+        this.blazingArrows = new SkyWarsModePerk(data, 'blazing_arrows', 'solo');
+        this.instantSmelting = new SkyWarsModePerk(data, 'instant_smelting', 'solo');
+        this.resistanceBoost = new SkyWarsModePerk(data, 'resistance_boost', 'solo');
+        this.speedBoost = new SkyWarsModePerk(data, 'speed_boost', 'solo');
+        this.bulldozer = new SkyWarsModePerk(data, 'bulldozer', 'solo');
+        this.marksmanship = new SkyWarsModePerk(data, 'marksmanship', 'solo');
+        this.juggernaut = new SkyWarsModePerk(data, 'juggernaut', 'solo');
+        this.knowledge = new SkyWarsModePerk(data, 'knowledge', 'solo');
+        this.fat = new SkyWarsModePerk(data, 'fat', 'solo');
+        this.nourishment = new SkyWarsModePerk(data, 'nourishment', 'solo');
+        this.annoy = new SkyWarsModePerk(data, 'annoy', 'solo');
+        this.revenge = new SkyWarsModePerk(data, 'revenge', 'solo');
+        this.luckyCharm = new SkyWarsModePerk(data, 'lucky_charm', 'solo');
+        this.bridger = new SkyWarsModePerk(data, 'bridger', 'solo');
+        this.environmentalExpert = new SkyWarsModePerk(data, 'environmental_expert', 'solo');
+        this.necromancer = new SkyWarsModePerk(data, 'necromancer', 'solo');
+        this.blackMagic = new SkyWarsModePerk(data, 'black_magic', 'solo');
+        this.robbery = new SkyWarsModePerk(data, 'robbery', 'solo');
+        this.frost = new SkyWarsModePerk(data, 'frost', 'solo');
+        this.barbarian = new SkyWarsModePerk(data, 'barbarian', 'solo');
+        this.savior = new SkyWarsModePerk(data, 'savior', 'solo');
+    }
+}
+export default SkyWarsSolo;
+//# sourceMappingURL=SkyWarsSolo.js.map

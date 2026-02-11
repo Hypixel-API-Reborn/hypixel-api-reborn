@@ -1,0 +1,1 @@
+{"version":3,"file":"SantaSimulator.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/SantaSimulator.ts"],"names":[],"mappings":"AAAA,cAAM,cAAc;IAClB,SAAS,EAAE,MAAM,CAAC;IAClB,OAAO,EAAE,MAAM,CAAC;IAChB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,cAAc,CAAC"}

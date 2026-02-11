@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseKillDeathsType.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Shared/BaseKillDeathsType.ts"],"names":[],"mappings":"AAEA,cAAM,mBAAmB;IACvB,KAAK,EAAE,MAAM,CAAC;IACd,MAAM,EAAE,MAAM,CAAC;IACf,KAAK,EAAE,MAAM,CAAC;gBACF,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,mBAAmB,CAAC"}

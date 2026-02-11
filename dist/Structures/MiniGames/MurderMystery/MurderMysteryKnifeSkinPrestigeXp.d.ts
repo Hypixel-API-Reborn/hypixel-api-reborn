@@ -1,0 +1,48 @@
+declare class MurderMysteryKnifeSkinPrestigeXp {
+    '10000Spoons': number;
+    apple: number;
+    bastedTurkey: number;
+    blazeStick: number;
+    bloodyBrick: number;
+    bone: number;
+    campfireLeftovers: number;
+    carrotOnStick: number;
+    cheapo: number;
+    cheese: number;
+    chewedBush: number;
+    diamondShovel: number;
+    doubleDeathScythe: number;
+    dragonEgg: number;
+    earthenDagger: number;
+    easterBasket: number;
+    farmingImplement: number;
+    feather: number;
+    fragilePlant: number;
+    frisbee: number;
+    glisteningMelon: number;
+    goldDigger: number;
+    grilledSteak: number;
+    grimoire: number;
+    iceShard: number;
+    mouseTrap: number;
+    prickly: number;
+    pumpkinPie: number;
+    rudolphsNose: number;
+    rudolphsSnack: number;
+    salmon: number;
+    scythe: number;
+    shears: number;
+    shinySnack: number;
+    shovel: number;
+    shred: number;
+    sprayPaintedShovel: number;
+    stake: number;
+    stick: number;
+    stickWithHat: number;
+    sweetTreat: number;
+    timber: number;
+    woodAxe: number;
+    constructor(data: Record<string, any>);
+}
+export default MurderMysteryKnifeSkinPrestigeXp;
+//# sourceMappingURL=MurderMysteryKnifeSkinPrestigeXp.d.ts.map

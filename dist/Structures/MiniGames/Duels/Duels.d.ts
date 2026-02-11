@@ -1,0 +1,48 @@
+import DuelsBridge from './DuelsBridge.js';
+import DuelsGamemode from './DuelsGamemode.js';
+import DuelsMegaWalls from './DuelsMegaWalls.js';
+import DuelsOP from './DuelsOP.js';
+import DuelsSkyWars from './DuelsSkyWars.js';
+import DuelsUHC from './DuelsUHC.js';
+import type { DuelsModes } from '../../../Types/Player.js';
+export declare function getTitle(data: Record<string, any>, mode: 'all_modes' | DuelsModes): string;
+declare class Duels {
+    tokens: number;
+    title: string | null;
+    kills: number;
+    deaths: number;
+    KDR: number;
+    wins: number;
+    losses: number;
+    WLR: number;
+    playedGames: number;
+    winStreak: number;
+    bestWinStreak: number;
+    ping: number;
+    blocksPlaced: number;
+    swings: number;
+    hits: number;
+    meleeAccuracy: number;
+    bowShots: number;
+    bowHits: number;
+    bowAccuracy: number;
+    healthRegenerated: number;
+    goldenApplesEaten: number;
+    uhc: DuelsUHC;
+    skywars: DuelsSkyWars;
+    megawalls: DuelsMegaWalls;
+    blitz: DuelsGamemode;
+    op: DuelsOP;
+    classic: DuelsGamemode;
+    bow: DuelsGamemode;
+    noDebuff: DuelsGamemode;
+    combo: DuelsGamemode;
+    bowSpleef: DuelsGamemode;
+    sumo: DuelsGamemode;
+    bridge: DuelsBridge;
+    parkour: DuelsGamemode;
+    arena: DuelsGamemode;
+    constructor(data: Record<string, any>);
+}
+export default Duels;
+//# sourceMappingURL=Duels.d.ts.map

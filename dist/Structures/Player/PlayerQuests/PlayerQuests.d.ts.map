@@ -1,0 +1,1 @@
+{"version":3,"file":"PlayerQuests.d.ts","sourceRoot":"","sources":["../../../../src/Structures/Player/PlayerQuests/PlayerQuests.ts"],"names":[],"mappings":"AAAA,OAAO,WAAW,MAAM,kBAAkB,CAAC;AAE3C,cAAM,YAAY;IAChB,MAAM,EAAE,WAAW,EAAE,CAAC;IACtB,YAAY,EAAE,OAAO,CAAC;gBACV,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,EAAE,YAAY,EAAE,OAAO;CAI7D;AAED,eAAe,YAAY,CAAC"}

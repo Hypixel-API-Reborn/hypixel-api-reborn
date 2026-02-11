@@ -1,0 +1,1 @@
+{"version":3,"file":"PlayerHousingGivenCookies.d.ts","sourceRoot":"","sources":["../../../../src/Structures/Player/PlayerHousing/PlayerHousingGivenCookies.ts"],"names":[],"mappings":"AAAA,cAAM,yBAAyB;IAC7B,IAAI,EAAE,MAAM,CAAC;IACb,MAAM,EAAE,MAAM,EAAE,CAAC;gBACL,IAAI,EAAE,MAAM,EAAE,MAAM,EAAE,MAAM,EAAE;CAI3C;AAED,eAAe,yBAAyB,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Soccer.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/Soccer.ts"],"names":[],"mappings":"AAAA,cAAM,MAAM;IACV,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;IACd,UAAU,EAAE,MAAM,CAAC;IACnB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAMtC;AAED,eAAe,MAAM,CAAC"}

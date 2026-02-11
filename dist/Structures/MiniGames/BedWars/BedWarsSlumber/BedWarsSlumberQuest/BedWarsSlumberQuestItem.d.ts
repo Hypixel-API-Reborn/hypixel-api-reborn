@@ -1,0 +1,47 @@
+declare class BedWarsSlumberQuestItem {
+    airFreshener: number;
+    amulet: number;
+    bedSheets: number;
+    blitzStar: number;
+    blockOfMegaWallsObsidian: number;
+    boots: number;
+    cable: number;
+    cleanedUpMurderKnife: number;
+    comfyPillow: number;
+    diamondFragment: number;
+    discardedKartWheel: number;
+    dwarvenMithril: number;
+    emeraldShard: number;
+    enchantedHammer: number;
+    enderDust: number;
+    fadedBlitzStar: number;
+    gloves: number;
+    glowingSandPaper: number;
+    goldBar: number;
+    goldenTicket: number;
+    imperialLeather: number;
+    indigosMap: number;
+    ironNugget: number;
+    limboDust: number;
+    missingAmulet: number;
+    moonStoneNugget: number;
+    murderWeapon: number;
+    netherStar: number;
+    oasisWater: number;
+    perfume: number;
+    proofOfSuccess: number;
+    ratmanMask: number;
+    silverBladeReplay: number;
+    silverCoins: number;
+    soul: number;
+    sparkPlug: number;
+    timewornMysteryBox: number;
+    tokenOfFerocity: number;
+    trustyRope: number;
+    unusedBombMaterials: number;
+    victimPhoto: number;
+    weaponMold: number;
+    constructor(data: Record<string, any>);
+}
+export default BedWarsSlumberQuestItem;
+//# sourceMappingURL=BedWarsSlumberQuestItem.d.ts.map

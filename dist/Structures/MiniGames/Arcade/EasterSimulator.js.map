@@ -1,0 +1,1 @@
+{"version":3,"file":"EasterSimulator.js","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/EasterSimulator.ts"],"names":[],"mappings":"AAAA,MAAM,eAAe;IACnB,SAAS,CAAS;IAClB,IAAI,CAAS;IACb,YAAY,IAAyB;QACnC,IAAI,CAAC,SAAS,GAAG,IAAI,EAAE,2BAA2B,IAAI,CAAC,CAAC;QACxD,IAAI,CAAC,IAAI,GAAG,IAAI,EAAE,qBAAqB,IAAI,CAAC,CAAC;IAC/C,CAAC;CACF;AAED,eAAe,eAAe,CAAC"}

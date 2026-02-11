@@ -1,0 +1,62 @@
+import SkyWarsMode from "../SkyWarsMode/SkyWarsMode.js";
+import SkyWarsModePerk from "../SkyWarsMode/SkyWarsModePerk.js";
+import SkyWarsTeamsKits from "./SkyWarsTeamsKits/SkyWarsTeamsKits.js";
+class SkyWarsTeams extends SkyWarsMode {
+    normal;
+    insane;
+    kits;
+    instantSmelting;
+    enderMastery;
+    resistanceBoost;
+    miningExpertise;
+    juggernaut;
+    blazingArrows;
+    arrowRecovery;
+    speedBoost;
+    fat;
+    nourishment;
+    knowledge;
+    savior;
+    marksmanship;
+    bridger;
+    luckyCharm;
+    necromancer;
+    blackMagic;
+    environmentalExpert;
+    robbery;
+    frost;
+    annoyOMite;
+    bulldozer;
+    barbarian;
+    constructor(data) {
+        super(data, 'team');
+        this.normal = new SkyWarsMode(data, 'team_normal');
+        this.insane = new SkyWarsMode(data, 'team_insane');
+        this.kits = new SkyWarsTeamsKits(data);
+        this.instantSmelting = new SkyWarsModePerk(data, 'instant_smelting', 'team');
+        this.enderMastery = new SkyWarsModePerk(data, 'ender_mastery', 'team');
+        this.resistanceBoost = new SkyWarsModePerk(data, 'resistance_boost', 'team');
+        this.miningExpertise = new SkyWarsModePerk(data, 'mining_expertise', 'team');
+        this.juggernaut = new SkyWarsModePerk(data, 'juggernaut', 'team');
+        this.blazingArrows = new SkyWarsModePerk(data, 'blazing_arrows', 'team');
+        this.arrowRecovery = new SkyWarsModePerk(data, 'arrow_recovery', 'team');
+        this.speedBoost = new SkyWarsModePerk(data, 'speed_boost', 'team');
+        this.fat = new SkyWarsModePerk(data, 'fat', 'team');
+        this.nourishment = new SkyWarsModePerk(data, 'nourishment', 'team');
+        this.knowledge = new SkyWarsModePerk(data, 'knowledge', 'team');
+        this.savior = new SkyWarsModePerk(data, 'savior', 'team');
+        this.marksmanship = new SkyWarsModePerk(data, 'marksmanship', 'team');
+        this.bridger = new SkyWarsModePerk(data, 'bridger', 'team');
+        this.luckyCharm = new SkyWarsModePerk(data, 'lucky_charm', 'team');
+        this.necromancer = new SkyWarsModePerk(data, 'necromancer', 'team');
+        this.blackMagic = new SkyWarsModePerk(data, 'black_magic', 'team');
+        this.environmentalExpert = new SkyWarsModePerk(data, 'environmental_expert', 'team');
+        this.robbery = new SkyWarsModePerk(data, 'robbery', 'team');
+        this.frost = new SkyWarsModePerk(data, 'frost', 'team');
+        this.annoyOMite = new SkyWarsModePerk(data, 'annoy-o-mite', 'team');
+        this.bulldozer = new SkyWarsModePerk(data, 'bulldozer', 'team');
+        this.barbarian = new SkyWarsModePerk(data, 'barbarian', 'team');
+    }
+}
+export default SkyWarsTeams;
+//# sourceMappingURL=SkyWarsTeams.js.map

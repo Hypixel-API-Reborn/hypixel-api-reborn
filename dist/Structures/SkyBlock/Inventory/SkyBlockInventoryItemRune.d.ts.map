@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockInventoryItemRune.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Inventory/SkyBlockInventoryItemRune.ts"],"names":[],"mappings":"AAAA,cAAM,yBAAyB;IAC7B,MAAM,EAAE,MAAM,GAAG,SAAS,CAAC;IAC3B,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAKrC,QAAQ,IAAI,MAAM,GAAG,SAAS;CAG/B;AAED,eAAe,yBAAyB,CAAC"}

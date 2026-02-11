@@ -1,0 +1,1 @@
+{"version":3,"file":"BedWarsTwoFour.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/BedWars/BedWarsTwoFour.ts"],"names":[],"mappings":"AAAA,OAAO,WAAW,MAAM,kBAAkB,CAAC;AAE3C,cAAM,cAAe,SAAQ,WAAW;IACtC,OAAO,EAAE,WAAW,CAAC;gBACT,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,cAAc,CAAC"}

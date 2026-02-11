@@ -1,0 +1,40 @@
+import BedWarsChallenge from './BedWarsChallenge.js';
+import type { BedWarsChallengeName } from '../../../../Types/Player.js';
+declare class BedWarsChallenges {
+    uniqueChallengesCompleted: number;
+    selectedChallengeType: BedWarsChallengeName | 'NONE';
+    totalChallengesCompleted: number;
+    archerOnly: BedWarsChallenge;
+    assassin: BedWarsChallenge;
+    cantTouchThis: BedWarsChallenge;
+    cappedResources: BedWarsChallenge;
+    collector: BedWarsChallenge;
+    defuser: BedWarsChallenge;
+    delayedHitting: BedWarsChallenge;
+    hotbar: BedWarsChallenge;
+    invisibleShop: BedWarsChallenge;
+    knockbackStickOnly: BedWarsChallenge;
+    masterAssassin: BedWarsChallenge;
+    miningFatigue: BedWarsChallenge;
+    noHealing: BedWarsChallenge;
+    noHitting: BedWarsChallenge;
+    noShift: BedWarsChallenge;
+    noSprint: BedWarsChallenge;
+    noSwords: BedWarsChallenge;
+    noTeamUpgrades: BedWarsChallenge;
+    noUtilities: BedWarsChallenge;
+    patriot: BedWarsChallenge;
+    protectThePresident: BedWarsChallenge;
+    resetArmor: BedWarsChallenge;
+    selfish: BedWarsChallenge;
+    slowGenerator: BedWarsChallenge;
+    sponge: BedWarsChallenge;
+    stamina: BedWarsChallenge;
+    stopLight: BedWarsChallenge;
+    toxicRain: BedWarsChallenge;
+    weightedItems: BedWarsChallenge;
+    woodworker: BedWarsChallenge;
+    constructor(data: Record<string, any>);
+}
+export default BedWarsChallenges;
+//# sourceMappingURL=BedWarsChallenges.d.ts.map

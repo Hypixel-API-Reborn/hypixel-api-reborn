@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockSkillLevel.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Skills/SkyBlockSkillLevel.ts"],"names":[],"mappings":"AAAA,cAAM,kBAAkB;IACtB,KAAK,EAAE,MAAM,CAAC;IACd,gBAAgB,EAAE,MAAM,CAAC;IACzB,OAAO,EAAE,MAAM,EAAE,CAAC;gBACN,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAMrC,QAAQ,IAAI,MAAM;CAGnB;AAED,eAAe,kBAAkB,CAAC"}

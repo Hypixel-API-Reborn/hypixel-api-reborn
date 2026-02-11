@@ -1,0 +1,1 @@
+{"version":3,"file":"ScubaSimulator.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/ScubaSimulator.ts"],"names":[],"mappings":"AAAA,cAAM,cAAc;IAClB,UAAU,EAAE,MAAM,CAAC;IACnB,WAAW,EAAE,MAAM,CAAC;IACpB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,cAAc,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockElection.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Election/SkyBlockElection.ts"],"names":[],"mappings":"AAAA,OAAO,yBAAyB,MAAM,gCAAgC,CAAC;AAEvE,cAAM,gBAAgB;IACpB,IAAI,EAAE,MAAM,CAAC;IACb,UAAU,EAAE,yBAAyB,EAAE,CAAC;gBAC5B,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAOrC,QAAQ,IAAI,MAAM;CAGnB;AAED,eAAe,gBAAgB,CAAC"}

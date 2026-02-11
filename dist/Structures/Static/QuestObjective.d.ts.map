@@ -1,0 +1,1 @@
+{"version":3,"file":"QuestObjective.d.ts","sourceRoot":"","sources":["../../../src/Structures/Static/QuestObjective.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,uBAAuB,CAAC;AAEhE,cAAM,cAAc;IAClB,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,kBAAkB,CAAC;IACzB,YAAY,EAAE,MAAM,CAAC;gBACT,SAAS,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAK3C;AAED,eAAe,cAAc,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockBaseAuctionInfo.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.ts"],"names":[],"mappings":"AAAA,cAAM,uBAAuB;IAC3B,oBAAoB,EAAE,MAAM,CAAC;IAC7B,aAAa,EAAE,IAAI,CAAC;gBACR,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,uBAAuB,CAAC"}

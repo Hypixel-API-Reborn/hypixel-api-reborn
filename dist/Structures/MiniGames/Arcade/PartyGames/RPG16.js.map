@@ -1,0 +1,1 @@
+{"version":3,"file":"RPG16.js","sourceRoot":"","sources":["../../../../../src/Structures/MiniGames/Arcade/PartyGames/RPG16.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,qBAAqB,CAAC;AAEjD,MAAM,KAAM,SAAQ,cAAc;IAChC,YAAY,IAAyB;QACnC,KAAK,CAAC,IAAI,EAAE,QAAQ,CAAC,CAAC;QACtB,IAAI,CAAC,SAAS,GAAG,IAAI,EAAE,6BAA6B,IAAI,CAAC,CAAC;IAC5D,CAAC;CACF;AAED,eAAe,KAAK,CAAC"}

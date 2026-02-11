@@ -1,0 +1,61 @@
+import LawnMoower from './LawnMoower.js';
+import PartyGamesGame from './PartyGamesGame.js';
+import RPG16 from './RPG16.js';
+class PartyGames {
+    animalSlaughter;
+    anvilSpleef;
+    avalanche;
+    bombardment;
+    cannonPainting;
+    chickenRings;
+    dive;
+    fireLeapers;
+    frozenFloor;
+    highGround;
+    hoeHoeHoe;
+    jigsawRush;
+    jungleJump;
+    labEscape;
+    lawnMoower;
+    minecartRacing;
+    pigFishing;
+    pigJousting;
+    rpg16;
+    shootingRange;
+    spiderMaze;
+    superSheep;
+    theFloorIsLava;
+    trampolinio;
+    volcano;
+    workshop;
+    constructor(data) {
+        this.animalSlaughter = new PartyGamesGame(data, 'animal_slaughter');
+        this.anvilSpleef = new PartyGamesGame(data, 'anvil_spleef');
+        this.avalanche = new PartyGamesGame(data, 'avalanche');
+        this.bombardment = new PartyGamesGame(data, 'bombardment');
+        this.cannonPainting = new PartyGamesGame(data, 'cannon_painting');
+        this.chickenRings = new PartyGamesGame(data, 'chicken_rings');
+        this.dive = new PartyGamesGame(data, 'dive');
+        this.fireLeapers = new PartyGamesGame(data, 'fire_leapers');
+        this.frozenFloor = new PartyGamesGame(data, 'frozen_floor');
+        this.highGround = new PartyGamesGame(data, 'high_ground');
+        this.hoeHoeHoe = new PartyGamesGame(data, 'hoe_hoe_hoe');
+        this.jigsawRush = new PartyGamesGame(data, 'jigsaw_rush');
+        this.jungleJump = new PartyGamesGame(data, 'jungle_jump');
+        this.labEscape = new PartyGamesGame(data, 'lab_escape');
+        this.lawnMoower = new LawnMoower(data);
+        this.minecartRacing = new PartyGamesGame(data, 'minecart_racing');
+        this.pigFishing = new PartyGamesGame(data, 'pig_fishing');
+        this.pigJousting = new PartyGamesGame(data, 'pig_jousting');
+        this.rpg16 = new RPG16(data);
+        this.shootingRange = new PartyGamesGame(data, 'shooting_range');
+        this.spiderMaze = new PartyGamesGame(data, 'spider_maze');
+        this.superSheep = new PartyGamesGame(data, 'super_sheep');
+        this.theFloorIsLava = new PartyGamesGame(data, 'the_floor_is_lava');
+        this.trampolinio = new PartyGamesGame(data, 'trampolinio');
+        this.volcano = new PartyGamesGame(data, 'volcano');
+        this.workshop = new PartyGamesGame(data, 'workshop');
+    }
+}
+export default PartyGames;
+//# sourceMappingURL=PartyGames.js.map

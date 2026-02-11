@@ -1,0 +1,1 @@
+{"version":3,"file":"Challenge.d.ts","sourceRoot":"","sources":["../../../src/Structures/Static/Challenge.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,uBAAuB,CAAC;AAE7D,cAAM,SAAS;IACb,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,MAAM,CAAC;IACb,OAAO,EAAE,eAAe,EAAE,CAAC;gBACf,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,SAAS,CAAC"}

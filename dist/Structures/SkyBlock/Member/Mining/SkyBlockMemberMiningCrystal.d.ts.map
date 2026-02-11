@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockMemberMiningCrystal.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/SkyBlock/Member/Mining/SkyBlockMemberMiningCrystal.ts"],"names":[],"mappings":"AAAA,cAAM,2BAA2B;IAC/B,KAAK,EAAE,OAAO,CAAC;IACf,UAAU,EAAE,MAAM,CAAC;IACnB,WAAW,EAAE,MAAM,CAAC;gBACR,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAMrC,QAAQ,IAAI,OAAO;CAGpB;AAED,eAAe,2BAA2B,CAAC"}

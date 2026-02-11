@@ -1,0 +1,56 @@
+class PlayerSeasonalChristmasYearAdventRewards {
+    day1;
+    day2;
+    day3;
+    day4;
+    day5;
+    day6;
+    day7;
+    day8;
+    day9;
+    day10;
+    day11;
+    day12;
+    day13;
+    day14;
+    day15;
+    day16;
+    day17;
+    day18;
+    day19;
+    day20;
+    day21;
+    day22;
+    day23;
+    day24;
+    day25;
+    constructor(data) {
+        this.day1 = data.day1 ? new Date(data?.day1) : null;
+        this.day2 = data.day2 ? new Date(data?.day2) : null;
+        this.day3 = data.day3 ? new Date(data?.day3) : null;
+        this.day4 = data.day4 ? new Date(data?.day4) : null;
+        this.day5 = data.day5 ? new Date(data?.day5) : null;
+        this.day6 = data.day6 ? new Date(data?.day6) : null;
+        this.day7 = data.day7 ? new Date(data?.day7) : null;
+        this.day8 = data.day8 ? new Date(data?.day8) : null;
+        this.day9 = data.day9 ? new Date(data?.day9) : null;
+        this.day10 = data.day10 ? new Date(data?.day10) : null;
+        this.day11 = data.day11 ? new Date(data?.day11) : null;
+        this.day12 = data.day12 ? new Date(data?.day12) : null;
+        this.day13 = data.day13 ? new Date(data?.day13) : null;
+        this.day14 = data.day14 ? new Date(data?.day14) : null;
+        this.day15 = data.day15 ? new Date(data?.day15) : null;
+        this.day16 = data.day16 ? new Date(data?.day16) : null;
+        this.day17 = data.day17 ? new Date(data?.day17) : null;
+        this.day18 = data.day18 ? new Date(data?.day18) : null;
+        this.day19 = data.day19 ? new Date(data?.day19) : null;
+        this.day20 = data.day20 ? new Date(data?.day20) : null;
+        this.day21 = data.day21 ? new Date(data?.day21) : null;
+        this.day22 = data.day22 ? new Date(data?.day22) : null;
+        this.day23 = data.day23 ? new Date(data?.day23) : null;
+        this.day24 = data.day24 ? new Date(data?.day24) : null;
+        this.day25 = data.day25 ? new Date(data?.day25) : null;
+    }
+}
+export default PlayerSeasonalChristmasYearAdventRewards;
+//# sourceMappingURL=PlayerSeasonalChristmasYearAdventRewards.js.map

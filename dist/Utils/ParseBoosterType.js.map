@@ -1,0 +1,1 @@
+{"version":3,"file":"ParseBoosterType.js","sourceRoot":"","sources":["../../src/Utils/ParseBoosterType.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,UAAU,gBAAgB,CAAC,IAAyB;IAChE,IAAI,IAAI,CAAC,OAAO,KAAK,IAAI;QAAE,OAAO,SAAS,CAAC;IAC5C,IAAI,CAAC,IAAI,CAAC,OAAO;QAAE,OAAO,QAAQ,CAAC;IACnC,OAAO,QAAQ,CAAC;AAClB,CAAC"}

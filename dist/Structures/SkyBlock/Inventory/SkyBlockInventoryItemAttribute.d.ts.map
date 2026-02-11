@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockInventoryItemAttribute.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Inventory/SkyBlockInventoryItemAttribute.ts"],"names":[],"mappings":"AAAA,cAAM,8BAA8B;IAClC,EAAE,EAAE,MAAM,GAAG,SAAS,CAAC;IACvB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;IAKrC,QAAQ,IAAI,MAAM,GAAG,SAAS;CAG/B;AAED,eAAe,8BAA8B,CAAC"}

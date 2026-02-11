@@ -1,0 +1,1 @@
+{"version":3,"file":"SimonSays.d.ts","sourceRoot":"","sources":["../../../../src/Structures/MiniGames/Arcade/SimonSays.ts"],"names":[],"mappings":"AAAA,cAAM,SAAS;IACb,SAAS,EAAE,MAAM,CAAC;IAClB,MAAM,EAAE,MAAM,CAAC;IACf,QAAQ,EAAE,MAAM,CAAC;IACjB,IAAI,EAAE,MAAM,CAAC;gBACD,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAMtC;AAED,eAAe,SAAS,CAAC"}

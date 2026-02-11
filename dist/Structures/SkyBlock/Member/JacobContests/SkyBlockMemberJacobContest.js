@@ -1,0 +1,14 @@
+class SkyBlockMemberJacobContest {
+    collected;
+    claimedRewards;
+    claimedPosition;
+    claimedParticipants;
+    constructor(data) {
+        this.collected = data?.collected || null;
+        this.claimedRewards = data?.claimed_rewards || null;
+        this.claimedPosition = data?.claimed_position || null;
+        this.claimedParticipants = data?.claimed_participants || null;
+    }
+}
+export default SkyBlockMemberJacobContest;
+//# sourceMappingURL=SkyBlockMemberJacobContest.js.map

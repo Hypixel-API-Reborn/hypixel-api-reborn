@@ -1,0 +1,1 @@
+{"version":3,"file":"SkyBlockCollectionTier.d.ts","sourceRoot":"","sources":["../../../../src/Structures/SkyBlock/Collections/SkyBlockCollectionTier.ts"],"names":[],"mappings":"AAAA,cAAM,sBAAsB;IAC1B,IAAI,EAAE,MAAM,CAAC;IACb,cAAc,EAAE,MAAM,CAAC;IACvB,OAAO,EAAE,MAAM,EAAE,CAAC;gBACN,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,sBAAsB,CAAC"}
