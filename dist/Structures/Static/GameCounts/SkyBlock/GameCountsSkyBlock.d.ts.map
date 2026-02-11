@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsSkyBlock.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/SkyBlock/GameCountsSkyBlock.ts"],"names":[],"mappings":"AAAA,OAAO,iCAAiC,MAAM,8BAA8B,CAAC;AAC7E,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,kBAAmB,SAAQ,iBAAiB;IAChD,KAAK,EAAE,iCAAiC,CAAC;gBAC7B,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,kBAAkB,CAAC"}

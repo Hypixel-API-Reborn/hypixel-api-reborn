@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsBedWars.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/BedWars/GameCountsBedWars.ts"],"names":[],"mappings":"AAAA,OAAO,gCAAgC,MAAM,6BAA6B,CAAC;AAC3E,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,iBAAkB,SAAQ,iBAAiB;IAC/C,KAAK,EAAE,gCAAgC,CAAC;gBAC5B,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,iBAAiB,CAAC"}

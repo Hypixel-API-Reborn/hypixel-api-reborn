@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsBasicModes.d.ts","sourceRoot":"","sources":["../../../../src/Structures/Static/GameCounts/GameCountsBasicModes.ts"],"names":[],"mappings":"AAAA,cAAM,oBAAoB;IACxB,UAAU,EAAE,MAAM,CAAC;IACnB,UAAU,EAAE,MAAM,CAAC;gBACP,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,oBAAoB,CAAC"}

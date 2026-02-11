@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsBattleGroundModes.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/BattleGround/GameCountsBattleGroundModes.ts"],"names":[],"mappings":"AAAA,cAAM,0BAA0B;IAC9B,OAAO,EAAE,MAAM,CAAC;IAChB,UAAU,EAAE,MAAM,CAAC;IACnB,cAAc,EAAE,MAAM,CAAC;gBACX,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,0BAA0B,CAAC"}

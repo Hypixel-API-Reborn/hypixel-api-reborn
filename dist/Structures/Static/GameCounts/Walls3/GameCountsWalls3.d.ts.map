@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsWalls3.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/Walls3/GameCountsWalls3.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AACxD,OAAO,qBAAqB,MAAM,4BAA4B,CAAC;AAE/D,cAAM,gBAAiB,SAAQ,iBAAiB;IAC9C,KAAK,EAAE,qBAAqB,CAAC;gBACjB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,gBAAgB,CAAC"}

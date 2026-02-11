@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsSpeedUHC.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/SpeedUHC/GameCountsSpeedUHC.ts"],"names":[],"mappings":"AAAA,OAAO,oBAAoB,MAAM,4BAA4B,CAAC;AAC9D,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,kBAAmB,SAAQ,iBAAiB;IAChD,KAAK,EAAE,oBAAoB,CAAC;gBAChB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,kBAAkB,CAAC"}

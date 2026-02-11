@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsMCGOModes.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/MCGO/GameCountsMCGOModes.ts"],"names":[],"mappings":"AAAA,cAAM,mBAAmB;IACvB,MAAM,EAAE,MAAM,CAAC;IACf,OAAO,EAAE,MAAM,CAAC;IAChB,UAAU,EAAE,MAAM,CAAC;gBACP,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,mBAAmB,CAAC"}

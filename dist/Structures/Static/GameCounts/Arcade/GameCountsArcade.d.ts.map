@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsArcade.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/Arcade/GameCountsArcade.ts"],"names":[],"mappings":"AAAA,OAAO,qBAAqB,MAAM,4BAA4B,CAAC;AAC/D,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,gBAAiB,SAAQ,iBAAiB;IAC9C,KAAK,EAAE,qBAAqB,CAAC;gBACjB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,gBAAgB,CAAC"}

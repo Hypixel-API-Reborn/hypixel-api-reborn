@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsMCGO.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/MCGO/GameCountsMCGO.ts"],"names":[],"mappings":"AAAA,OAAO,6BAA6B,MAAM,0BAA0B,CAAC;AACrE,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,cAAe,SAAQ,iBAAiB;IAC5C,KAAK,EAAE,6BAA6B,CAAC;gBACzB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,cAAc,CAAC"}

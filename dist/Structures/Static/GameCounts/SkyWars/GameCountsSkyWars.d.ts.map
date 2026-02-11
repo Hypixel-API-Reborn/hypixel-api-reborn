@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsSkyWars.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/SkyWars/GameCountsSkyWars.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AACxD,OAAO,mBAAmB,MAAM,6BAA6B,CAAC;AAE9D,cAAM,iBAAkB,SAAQ,iBAAiB;IAC/C,KAAK,EAAE,mBAAmB,CAAC;gBACf,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,iBAAiB,CAAC"}

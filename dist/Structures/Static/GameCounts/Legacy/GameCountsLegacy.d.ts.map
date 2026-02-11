@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsLegacy.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/Legacy/GameCountsLegacy.ts"],"names":[],"mappings":"AAAA,OAAO,+BAA+B,MAAM,4BAA4B,CAAC;AACzE,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,gBAAiB,SAAQ,iBAAiB;IAC9C,KAAK,EAAE,+BAA+B,CAAC;gBAC3B,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,gBAAgB,CAAC"}

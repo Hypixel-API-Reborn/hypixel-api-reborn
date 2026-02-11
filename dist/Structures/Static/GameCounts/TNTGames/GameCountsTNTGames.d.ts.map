@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsTNTGames.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/TNTGames/GameCountsTNTGames.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AACxD,OAAO,uBAAuB,MAAM,8BAA8B,CAAC;AAEnE,cAAM,kBAAmB,SAAQ,iBAAiB;IAChD,KAAK,EAAE,uBAAuB,CAAC;gBACnB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,kBAAkB,CAAC"}

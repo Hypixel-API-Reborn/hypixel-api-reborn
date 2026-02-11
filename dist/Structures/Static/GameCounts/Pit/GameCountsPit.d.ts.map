@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsPit.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/Pit/GameCountsPit.ts"],"names":[],"mappings":"AAAA,OAAO,4BAA4B,MAAM,yBAAyB,CAAC;AACnE,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AAExD,cAAM,aAAc,SAAQ,iBAAiB;IAC3C,KAAK,EAAE,4BAA4B,CAAC;gBACxB,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,aAAa,CAAC"}

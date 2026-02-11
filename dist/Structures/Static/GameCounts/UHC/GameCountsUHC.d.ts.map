@@ -1,0 +1,1 @@
+{"version":3,"file":"GameCountsUHC.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/Static/GameCounts/UHC/GameCountsUHC.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,yBAAyB,CAAC;AACxD,OAAO,kBAAkB,MAAM,yBAAyB,CAAC;AAEzD,cAAM,aAAc,SAAQ,iBAAiB;IAC3C,KAAK,EAAE,kBAAkB,CAAC;gBACd,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,aAAa,CAAC"}
