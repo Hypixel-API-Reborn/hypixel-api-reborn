@@ -1,4 +1,5 @@
 import BlitzSurvivalGames from './BlitzSurvivalGames.js';
+import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
 import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
 import { expect, expectTypeOf, test } from 'vitest';
