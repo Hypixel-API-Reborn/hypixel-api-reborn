@@ -8,7 +8,7 @@ import Updater from './Private/Updater.js';
 import type Achievements from './Structures/Static/Achievements/Achievements.js';
 import type Booster from './Structures/Boosters/Booster.js';
 import type Challenges from './Structures/Static/Challenges.js';
-import type GameCounts from './Structures/GameCounts.js';
+import type GameCounts from './Structures/Static/GameCounts/GameCounts.ts';
 import type Guild from './Structures/Guild/Guild.js';
 import type GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
 import type House from './Structures/House.js';

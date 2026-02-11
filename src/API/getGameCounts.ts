@@ -1,5 +1,5 @@
 import Endpoint from '../Private/Endpoint.js';
-import GameCounts from '../Structures/GameCounts.js';
+import GameCounts from '../Structures/Static/GameCounts/GameCounts.ts';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 

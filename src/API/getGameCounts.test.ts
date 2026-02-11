@@ -1,5 +1,5 @@
 import Client from '../Client.js';
-import GameCounts from '../Structures/GameCounts.js';
+import GameCounts from '../Structures/Static/GameCounts/GameCounts.js';
 import RequestData from '../Private/RequestData.js';
 import { expect, expectTypeOf, test } from 'vitest';
 

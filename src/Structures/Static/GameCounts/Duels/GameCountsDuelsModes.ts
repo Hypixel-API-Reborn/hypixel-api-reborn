@@ -1,0 +1,62 @@
+class GameCountsDuelsModes {
+  bowSpleefDuel: number;
+  bowDuel: number;
+  megaWallsDuel: number;
+  UHCFour: number;
+  UHCMeetup: number;
+  quakeDuel: number;
+  skyWarsDoubles: number;
+  UHCDoubles: number;
+  bridgeFour: number;
+  duelsSumoDuel: number;
+  bridgeThrees: number;
+  twoOneDuels: number;
+  opDuel: number;
+  duelsArena: number;
+  twoOneRust: number;
+  comboDuel: number;
+  bridgeDoubles: number;
+  boxingDuel: number;
+  UHCDuel: number;
+  classicDoubles: number;
+  spleefDuel: number;
+  opDuels: number;
+  parkourEight: number;
+  blitzDuel: number;
+  classicDuel: number;
+  pottionDuel: number;
+  bridgeDuel: number;
+  skyWarsDuel: number;
+  constructor(data: Record<string, any>) {
+    this.bowSpleefDuel = data?.DUELS_BOWSPLEEF_DUEL || 0;
+    this.bowDuel = data?.DUELS_BOW_DUEL || 0;
+    this.megaWallsDuel = data?.DUELS_MW_DUEL || 0;
+    this.UHCFour = data?.DUELS_UHC_FOUR || 0;
+    this.UHCMeetup = data?.DUELS_UHC_MEETUP || 0;
+    this.quakeDuel = data?.DUELS_QUAKE_DUEL || 0;
+    this.skyWarsDoubles = data?.DUELS_SW_DOUBLES || 0;
+    this.UHCDoubles = data?.DUELS_UHC_DOUBLES || 0;
+    this.bridgeFour = data?.DUELS_BRIDGE_FOUR || 0;
+    this.duelsSumoDuel = data?.DUELS_SUMO_DUEL || 0;
+    this.bridgeThrees = data?.DUELS_BRIDGE_THREES || 0;
+    this.twoOneDuels = data?.BEDWARS_TWO_ONE_DUELS || 0;
+    this.opDuel = data?.DUELS_OP_DUEL || 0;
+    this.duelsArena = data?.DUELS_DUEL_ARENA || 0;
+    this.twoOneRust = data?.BEDWARS_TWO_ONE_DUELS_RUSH || 0;
+    this.comboDuel = data?.DUELS_COMBO_DUEL || 0;
+    this.bridgeDoubles = data?.DUELS_BRIDGE_DOUBLES || 0;
+    this.boxingDuel = data?.DUELS_BOXING_DUEL || 0;
+    this.UHCDuel = data?.DUELS_UHC_DUEL || 0;
+    this.classicDoubles = data?.DUELS_CLASSIC_DOUBLES || 0;
+    this.spleefDuel = data?.DUELS_SPLEEF_DUEL || 0;
+    this.opDuels = data?.DUELS_OP_DOUBLES || 0;
+    this.parkourEight = data?.DUELS_PARKOUR_EIGHT || 0;
+    this.blitzDuel = data?.DUELS_BLITZ_DUEL || 0;
+    this.classicDuel = data?.DUELS_CLASSIC_DUEL || 0;
+    this.pottionDuel = data?.DUELS_POTION_DUEL || 0;
+    this.bridgeDuel = data?.DUELS_BRIDGE_DUEL || 0;
+    this.skyWarsDuel = data?.DUELS_SW_DUEL || 0;
+  }
+}
+
+export default GameCountsDuelsModes;

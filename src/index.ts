@@ -112,7 +112,46 @@ import GalaxyWars from './Structures/MiniGames/Arcade/GalaxyWars.js';
 import Game from './Structures/Game.js';
 import GameAchievements from './Structures/Static/Achievements/GameAchievements.js';
 import GameChallenges from './Structures/Static/GameChallenges.js';
-import GameCounts from './Structures/GameCounts.js';
+import GameCounts from './Structures/Static/GameCounts/GameCounts.js';
+import GameCountsArcade from './Structures/Static/GameCounts/Arcade/GameCountsArcade.js';
+import GameCountsArcadeModes from './Structures/Static/GameCounts/Arcade/GameCountsArcadeModes.js';
+import GameCountsBasicModes from './Structures/Static/GameCounts/GameCountsBasicModes.js';
+import GameCountsBattleGround from './Structures/Static/GameCounts/BattleGround/GameCountsBattleGround.js';
+import GameCountsBattleGroundModes from './Structures/Static/GameCounts/BattleGround/GameCountsBattleGroundModes.js';
+import GameCountsBedWars from './Structures/Static/GameCounts/BedWars/GameCountsBedWars.js';
+import GameCountsBedWarsModes from './Structures/Static/GameCounts/BedWars/GameCountsBedWarsModes.js';
+import GameCountsBuildBattle from './Structures/Static/GameCounts/BuildBattle/GameCountsBuildBattle.js';
+import GameCountsBuildBattleModes from './Structures/Static/GameCounts/BuildBattle/GameCountsBuildBattleModes.js';
+import GameCountsDuels from './Structures/Static/GameCounts/Duels/GameCountsDuels.js';
+import GameCountsDuelsModes from './Structures/Static/GameCounts/Duels/GameCountsDuelsModes.js';
+import GameCountsGames from './Structures/Static/GameCounts/GameCountsGames.js';
+import GameCountsGeneric from './Structures/Static/GameCounts/GameCountsGeneric.js';
+import GameCountsLegacy from './Structures/Static/GameCounts/Legacy/GameCountsLegacy.js';
+import GameCountsLegacyModes from './Structures/Static/GameCounts/Legacy/GameCountsLegacyModes.js';
+import GameCountsMCGO from './Structures/Static/GameCounts/MCGO/GameCountsMCGO.js';
+import GameCountsMCGOModes from './Structures/Static/GameCounts/MCGO/GameCountsMCGOModes.js';
+import GameCountsMurderMystery from './Structures/Static/GameCounts/MurderMystery/GameCountsMurderMystery.js';
+import GameCountsMurderMysteryModes from './Structures/Static/GameCounts/MurderMystery/GameCountsMurderMysteryModes.js';
+import GameCountsPit from './Structures/Static/GameCounts/Pit/GameCountsPit.js';
+import GameCountsPitModes from './Structures/Static/GameCounts/Pit/GameCountsPitModes.js';
+import GameCountsReplay from './Structures/Static/GameCounts/Replay/GameCountsReplay.js';
+import GameCountsReplayModes from './Structures/Static/GameCounts/Replay/GameCountsReplayModes.js';
+import GameCountsSkyBlock from './Structures/Static/GameCounts/SkyBlock/GameCountsSkyBlock.js';
+import GameCountsSkyBlockModes from './Structures/Static/GameCounts/SkyBlock/GameCountsSkyBlockModes.js';
+import GameCountsSkyWars from './Structures/Static/GameCounts/SkyWars/GameCountsSkyWars.js';
+import GameCountsSkyWarsModes from './Structures/Static/GameCounts/SkyWars/GameCountsSkyWarsModes.js';
+import GameCountsSpeedUHC from './Structures/Static/GameCounts/SpeedUHC/GameCountsSpeedUHC.js';
+import GameCountsSuperSmash from './Structures/Static/GameCounts/SuperSmash/GameCountsSuperSmash.js';
+import GameCountsSuperSmashModes from './Structures/Static/GameCounts/SuperSmash/GameCountsSuperSmashModes.js';
+import GameCountsSurvivalGames from './Structures/Static/GameCounts/SurvivalGames/GameCountsSurvivalGames.js';
+import GameCountsTNTGames from './Structures/Static/GameCounts/TNTGames/GameCountsTNTGames.js';
+import GameCountsTNTGamesModes from './Structures/Static/GameCounts/TNTGames/GameCountsTNTGamesModes.js';
+import GameCountsUHC from './Structures/Static/GameCounts/UHC/GameCountsUHC.js';
+import GameCountsUHCModes from './Structures/Static/GameCounts/UHC/GameCountsUHCModes.js';
+import GameCountsWalls3 from './Structures/Static/GameCounts/Walls3/GameCountsWalls3.js';
+import GameCountsWalls3Modes from './Structures/Static/GameCounts/Walls3/GameCountsWalls3Modes.js';
+import GameCountsWoolGames from './Structures/Static/GameCounts/WoolGames/GameCountsWoolGames.js';
+import GameCountsWoolGamesModes from './Structures/Static/GameCounts/WoolGames/GameCountsWoolGamesModes.js';
 import GameQuests from './Structures/Static/GameQuests.js';
 import GrinchSimulator from './Structures/MiniGames/Arcade/GrinchSimulator.js';
 import Guild from './Structures/Guild/Guild.js';
@@ -499,6 +538,45 @@ export {
   GameAchievements,
   GameChallenges,
   GameCounts,
+  GameCountsArcade,
+  GameCountsArcadeModes,
+  GameCountsBasicModes,
+  GameCountsBattleGround,
+  GameCountsBattleGroundModes,
+  GameCountsBedWars,
+  GameCountsBedWarsModes,
+  GameCountsBuildBattle,
+  GameCountsBuildBattleModes,
+  GameCountsDuels,
+  GameCountsDuelsModes,
+  GameCountsGames,
+  GameCountsGeneric,
+  GameCountsLegacy,
+  GameCountsLegacyModes,
+  GameCountsMCGO,
+  GameCountsMCGOModes,
+  GameCountsMurderMystery,
+  GameCountsMurderMysteryModes,
+  GameCountsPit,
+  GameCountsPitModes,
+  GameCountsReplay,
+  GameCountsReplayModes,
+  GameCountsSkyBlock,
+  GameCountsSkyBlockModes,
+  GameCountsSkyWars,
+  GameCountsSkyWarsModes,
+  GameCountsSpeedUHC,
+  GameCountsSuperSmash,
+  GameCountsSuperSmashModes,
+  GameCountsSurvivalGames,
+  GameCountsTNTGames,
+  GameCountsTNTGamesModes,
+  GameCountsUHC,
+  GameCountsUHCModes,
+  GameCountsWalls3,
+  GameCountsWalls3Modes,
+  GameCountsWoolGames,
+  GameCountsWoolGamesModes,
   GameQuests,
   GrinchSimulator,
   Guild,
@@ -886,6 +964,45 @@ export default {
   GameAchievements,
   GameChallenges,
   GameCounts,
+  GameCountsArcade,
+  GameCountsArcadeModes,
+  GameCountsBasicModes,
+  GameCountsBattleGround,
+  GameCountsBattleGroundModes,
+  GameCountsBedWars,
+  GameCountsBedWarsModes,
+  GameCountsBuildBattle,
+  GameCountsBuildBattleModes,
+  GameCountsDuels,
+  GameCountsDuelsModes,
+  GameCountsGames,
+  GameCountsGeneric,
+  GameCountsLegacy,
+  GameCountsLegacyModes,
+  GameCountsMCGO,
+  GameCountsMCGOModes,
+  GameCountsMurderMystery,
+  GameCountsMurderMysteryModes,
+  GameCountsPit,
+  GameCountsPitModes,
+  GameCountsReplay,
+  GameCountsReplayModes,
+  GameCountsSkyBlock,
+  GameCountsSkyBlockModes,
+  GameCountsSkyWars,
+  GameCountsSkyWarsModes,
+  GameCountsSpeedUHC,
+  GameCountsSuperSmash,
+  GameCountsSuperSmashModes,
+  GameCountsSurvivalGames,
+  GameCountsTNTGames,
+  GameCountsTNTGamesModes,
+  GameCountsUHC,
+  GameCountsUHCModes,
+  GameCountsWalls3,
+  GameCountsWalls3Modes,
+  GameCountsWoolGames,
+  GameCountsWoolGamesModes,
   GameQuests,
   GrinchSimulator,
   Guild,
