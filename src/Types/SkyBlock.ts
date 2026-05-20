@@ -543,7 +543,7 @@ export type JacobCrops =
   | 'SUGAR_CANE'
   | 'MUSHROOM_COLLECTION'
   | 'PUMPKIN'
-  | 'NETHER_STALKk'
+  | 'NETHER_STALK'
   | 'WHEAT'
   | 'MELON';
 

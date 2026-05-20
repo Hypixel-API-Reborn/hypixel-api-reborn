@@ -8,7 +8,7 @@ class SkyBlockMemberJacobContests {
   perks: SkyBlockMemberJacobContestsPerks;
   medals: SkyBlockMemberJacobContestsMedals;
   uniqueBrackets: SkyBlockMemberJacobContestsUniqueBrackets;
-  personalBests: Record<keyof JacobCrops, number>;
+  personalBests: Record<JacobCrops, number>;
   contests: Record<string, SkyBlockMemberJacobContest>;
   constructor(data: Record<string, any>) {
     this.perks = new SkyBlockMemberJacobContestsPerks(data?.perks || {});

@@ -61,6 +61,7 @@ class SkyWars extends SkyWarsMode {
   lunarBoxes: number;
   easterBoxes: number;
   beastChance: number;
+  opals: number;
   privateGamesSettings: SkyWarsPrivateGames;
   solo: SkyWarsSolo;
   teams: SkyWarsTeams;
@@ -120,6 +121,7 @@ class SkyWars extends SkyWarsMode {
     this.lunarBoxes = data?.skywars_lunar_boxes || 0;
     this.easterBoxes = data?.skywars_easter_boxes || 0;
     this.beastChance = data?.beast_chance || 0;
+    this.opals = data?.opals || 0;
     this.privateGamesSettings = new SkyWarsPrivateGames(data?.privategames || {});
     this.solo = new SkyWarsSolo(data);
     this.teams = new SkyWarsTeams(data);
