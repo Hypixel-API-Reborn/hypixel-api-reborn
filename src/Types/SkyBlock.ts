@@ -222,7 +222,15 @@ export type ForgeItemType =
   | 'OTHER'
   | 'PETS'
   | 'GEAR';
-export type SkyBlockXPTables = Skills | 'default' | 'runecrafting' | 'dungeoneering' | 'hotm' | 'garden' | GardenCrops;
+export type SkyBlockXPTables =
+  | Skills
+  | 'default'
+  | 'runecrafting'
+  | 'dungeoneering'
+  | 'mining_tree'
+  | 'foraging_tree'
+  | 'garden'
+  | GardenCrops;
 export type MiningPower = 'mithril' | 'gemstone' | 'glacite';
 export type MiningCrystal =
   | 'jade'
@@ -3628,3 +3636,6 @@ export interface SkyHelperNetWorthProfile {
 }
 
 export type SkyblockProfileWithMe = SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> };
+
+export type SkyBlockMemberSkillTreeName = 'mining' | 'foraging';
+export type SkyBlockMemberSkillTreeTokenName = 'mountain' | 'forest';

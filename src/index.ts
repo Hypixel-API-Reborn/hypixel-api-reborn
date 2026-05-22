@@ -291,6 +291,7 @@ import SkyBlockMemberDungeonsMode from './Structures/SkyBlock/Member/Dungeons/Sk
 import SkyBlockMemberDungeonsTreasureRun from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasureRun.js';
 import SkyBlockMemberDungeonsTreasuresChest from './Structures/SkyBlock/Member/Dungeons/SkyBlockMemberDungeonsTreasuresChest.js';
 import SkyBlockMemberFairySouls from './Structures/SkyBlock/Member/SkyBlockMemberFairySouls.js';
+import SkyBlockMemberGarden from './Structures/SkyBlock/Member/Garden/SkyBlockMemberGarden.js';
 import SkyBlockMemberInventories from './Structures/SkyBlock/Member/Inventories/SkyBlockMemberInventories.js';
 import SkyBlockMemberInventoriesArmor from './Structures/SkyBlock/Member/Inventories/Armor/SkyBlockMemberInventoriesArmor.js';
 import SkyBlockMemberInventoriesArmorDecoded from './Structures/SkyBlock/Member/Inventories/Armor/SkyBlockMemberInventoriesArmorDecoded.js';
@@ -368,6 +369,8 @@ import SkyBlockMemberRiftWestVillageMirrorverse from './Structures/SkyBlock/Memb
 import SkyBlockMemberRiftWitherCage from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWitherCage.js';
 import SkyBlockMemberRiftWizardTower from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWizardTower.js';
 import SkyBlockMemberRiftWyldWoods from './Structures/SkyBlock/Member/Rift/SkyBlockMemberRiftWyldWoods.js';
+import SkyBlockMemberSkillTree from './Structures/SkyBlock/Member/SkillTree/SkyBlockMemberSkillTree.js';
+import SkyBlockMemberSkillTrees from './Structures/SkyBlock/Member/SkillTree/SkyBlockMemberSkillTrees.js';
 import SkyBlockMemberSlayer from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayer.js';
 import SkyBlockMemberSlayerClaimedLevels from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayerClaimedLevels.js';
 import SkyBlockMemberSlayers from './Structures/SkyBlock/Member/Slayers/SkyBlockMemberSlayers.js';
@@ -716,6 +719,7 @@ export {
   SkyBlockMemberDungeonsTreasureRun,
   SkyBlockMemberDungeonsTreasuresChest,
   SkyBlockMemberFairySouls,
+  SkyBlockMemberGarden,
   SkyBlockMemberInventories,
   SkyBlockMemberInventoriesArmor,
   SkyBlockMemberInventoriesArmorDecoded,
@@ -793,6 +797,8 @@ export {
   SkyBlockMemberRiftWitherCage,
   SkyBlockMemberRiftWizardTower,
   SkyBlockMemberRiftWyldWoods,
+  SkyBlockMemberSkillTree,
+  SkyBlockMemberSkillTrees,
   SkyBlockMemberSlayer,
   SkyBlockMemberSlayerClaimedLevels,
   SkyBlockMemberSlayers,
@@ -1142,6 +1148,7 @@ export default {
   SkyBlockMemberDungeonsTreasureRun,
   SkyBlockMemberDungeonsTreasuresChest,
   SkyBlockMemberFairySouls,
+  SkyBlockMemberGarden,
   SkyBlockMemberInventories,
   SkyBlockMemberInventoriesArmor,
   SkyBlockMemberInventoriesArmorDecoded,
@@ -1219,6 +1226,8 @@ export default {
   SkyBlockMemberRiftWitherCage,
   SkyBlockMemberRiftWizardTower,
   SkyBlockMemberRiftWyldWoods,
+  SkyBlockMemberSkillTree,
+  SkyBlockMemberSkillTrees,
   SkyBlockMemberSlayer,
   SkyBlockMemberSlayerClaimedLevels,
   SkyBlockMemberSlayers,

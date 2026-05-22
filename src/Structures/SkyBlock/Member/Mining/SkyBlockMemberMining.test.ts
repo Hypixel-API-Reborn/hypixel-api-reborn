@@ -2,11 +2,12 @@ import SkyBlockMemberMining from './SkyBlockMemberMining.js';
 import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
 import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
 import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
+import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberMining', () => {
-  const data = new SkyBlockMemberMining({ stats: 'meow' });
+  const data = new SkyBlockMemberMining({ stats: 'meow' }, new SkyBlockMemberSkillTrees({ stats: 'meow' }));
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberMining);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberMining>();

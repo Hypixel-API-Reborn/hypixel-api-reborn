@@ -5,6 +5,7 @@ import SkyBlockMemberCrimsonIsle from './CrimsonIsle/SkyBlockMemberCrimsonIsle.j
 import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.js';
 import SkyBlockMemberDungeons from './Dungeons/SkyBlockMemberDungeons.js';
 import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.js';
+import SkyBlockMemberGarden from './Garden/SkyBlockMemberGarden.ts';
 import SkyBlockMemberInventories from './Inventories/SkyBlockMemberInventories.js';
 import SkyBlockMemberJacobContests from './JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberLeveling from './SkyBlockMemberLeveling.js';
@@ -16,6 +17,7 @@ import SkyBlockMemberPlayerStats from './PlayerStats/SkyBlockMemberPlayerStats.j
 import SkyBlockMemberProfile from './SkyBlockMemberProfile.js';
 import SkyBlockMemberQuests from './Quests/SkyBlockMemberQuests.js';
 import SkyBlockMemberRift from './Rift/SkyBlockMemberRift.js';
+import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.ts';
 import SkyBlockMemberSlayers from './Slayers/SkyBlockMemberSlayers.js';
 import type { SkyBlockArrow } from '../../../Types/SkyBlock.js';
 import type { UUID } from '../../../Types/Global.js';
@@ -28,6 +30,8 @@ class SkyBlockMember {
   currencies: SkyBlockMemberCurrencies;
   dungeons: SkyBlockMemberDungeons;
   chocolateFactory: SkyBlockMemberChocolateFactory;
+  garden: SkyBlockMemberGarden;
+  skillTrees: SkyBlockMemberSkillTrees;
   fairySouls: SkyBlockMemberFairySouls;
   soulflow: number;
   favoriteArrow: SkyBlockArrow;
@@ -52,12 +56,14 @@ class SkyBlockMember {
     this.currencies = new SkyBlockMemberCurrencies(data?.currencies || {});
     this.dungeons = new SkyBlockMemberDungeons(data?.dungeons || {});
     this.chocolateFactory = new SkyBlockMemberChocolateFactory(data?.events?.easter || {});
+    this.garden = new SkyBlockMemberGarden(data?.garden_player_data || {});
+    this.skillTrees = new SkyBlockMemberSkillTrees(data?.skill_tree || {});
     this.fairySouls = new SkyBlockMemberFairySouls(data?.fairy_soul || {});
     this.soulflow = data?.item_data?.soulflow || 0;
     this.favoriteArrow = data?.item_data?.favorite_arrow || 'ARROW';
     this.jacobContests = new SkyBlockMemberJacobContests(data?.jacobs_contest || {});
     this.leveling = new SkyBlockMemberLeveling(data?.leveling || {});
-    this.mining = new SkyBlockMemberMining({ ...(data?.mining_core || {}), ...(data?.forge || {}) });
+    this.mining = new SkyBlockMemberMining({ ...(data?.mining_core || {}), ...(data?.forge || {}) }, this.skillTrees);
     this.crimsonIsle = new SkyBlockMemberCrimsonIsle(data?.nether_island_player_data || {}, data?.trophy_fish || {});
     this.objectives = new SkyBlockMemberObjectives(data?.objectives || {});
     this.pets = new SkyBlockMemberPets({ ...(data?.pets_data || {}), ...(data?.player_stats?.pets || {}) });

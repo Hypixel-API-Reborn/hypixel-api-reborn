@@ -6,6 +6,7 @@ import SkyBlockMemberCrimsonIsle from './CrimsonIsle/SkyBlockMemberCrimsonIsle.j
 import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.js';
 import SkyBlockMemberDungeons from './Dungeons/SkyBlockMemberDungeons.js';
 import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.js';
+import SkyBlockMemberGarden from './Garden/SkyBlockMemberGarden.js';
 import SkyBlockMemberInventories from './Inventories/SkyBlockMemberInventories.js';
 import SkyBlockMemberJacobContests from './JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberLeveling from './SkyBlockMemberLeveling.js';
@@ -17,6 +18,7 @@ import SkyBlockMemberPlayerStats from './PlayerStats/SkyBlockMemberPlayerStats.j
 import SkyBlockMemberProfile from './SkyBlockMemberProfile.js';
 import SkyBlockMemberQuests from './Quests/SkyBlockMemberQuests.js';
 import SkyBlockMemberRift from './Rift/SkyBlockMemberRift.js';
+import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.js';
 import SkyBlockMemberSlayers from './Slayers/SkyBlockMemberSlayers.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockArrow } from '../../../Types/SkyBlock.js';
@@ -46,6 +48,12 @@ test('SkyBlockMember', () => {
   expect(data.chocolateFactory).toBeDefined();
   expect(data.chocolateFactory).toBeInstanceOf(SkyBlockMemberChocolateFactory);
   expectTypeOf(data.chocolateFactory).toEqualTypeOf<SkyBlockMemberChocolateFactory>();
+  expect(data.garden).toBeDefined();
+  expect(data.garden).toBeInstanceOf(SkyBlockMemberGarden);
+  expectTypeOf(data.garden).toEqualTypeOf<SkyBlockMemberGarden>();
+  expect(data.skillTrees).toBeDefined();
+  expect(data.skillTrees).toBeInstanceOf(SkyBlockMemberSkillTrees);
+  expectTypeOf(data.skillTrees).toEqualTypeOf<SkyBlockMemberSkillTrees>();
   expect(data.fairySouls).toBeDefined();
   expect(data.fairySouls).toBeInstanceOf(SkyBlockMemberFairySouls);
   expectTypeOf(data.fairySouls).toEqualTypeOf<SkyBlockMemberFairySouls>();
