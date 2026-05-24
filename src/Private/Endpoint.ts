@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
+import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 
 class Endpoint {
   readonly client: Client;
@@ -8,7 +9,7 @@ class Endpoint {
   }
 
   execute(...args: any[]): Promise<any> | any {
-    throw new Error(Errors.NOT_IMPLEMENTED);
+    throw new HypixelAPIRebornError(Errors.NOT_IMPLEMENTED);
   }
 }
 

@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
+import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 
 class RateLimit {
   readonly client: Client;
@@ -18,7 +19,7 @@ class RateLimit {
   async sync() {
     const { headers } = await this.client.requestHandler.request('/boosters', { raw: true });
     if (headers?.['ratelimit-limit'] === undefined || headers?.['ratelimit-remaining'] === undefined) {
-      throw new Error(Errors.RATE_LIMIT_INIT_ERROR);
+      throw new HypixelAPIRebornError(Errors.RATE_LIMIT_INIT_ERROR);
     }
     this.requests = headers['ratelimit-limit'] - headers['ratelimit-remaining'];
     this.limit = Number(headers['ratelimit-limit']);

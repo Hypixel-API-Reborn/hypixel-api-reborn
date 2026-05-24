@@ -1,5 +1,6 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
+import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 import packageJson from '../../package.json' with { type: 'json' };
 
 class Updater {
@@ -26,7 +27,7 @@ class Updater {
 
   async getLatestVersion(): Promise<string> {
     const request = await this.client.requestHandler.fetchExternalData('https://registry.npmjs.org/hypixel-api-reborn');
-    if (request.statusCode !== 200) throw new Error(Errors.UPDATER_REQUEST_NOT_OK);
+    if (request.statusCode !== 200) throw new HypixelAPIRebornError(Errors.UPDATER_REQUEST_NOT_OK);
     return request.data['dist-tags'].latest;
   }
 

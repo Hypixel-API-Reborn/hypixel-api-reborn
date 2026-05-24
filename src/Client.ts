@@ -2,6 +2,7 @@ import API from './API/index.js';
 import CacheHandler from './Private/CacheHandler.js';
 import Errors from './Errors.js';
 import Functions from './Private/Functions.js';
+import HypixelAPIRebornError from './Private/HypixelAPIRebornError.ts';
 import RateLimit from './Private/RateLimit.js';
 import RequestHandler from './Private/RequestHandler.js';
 import Updater from './Private/Updater.js';
@@ -58,7 +59,7 @@ class Client {
   declare interval: NodeJS.Timeout;
   constructor(key: string, options?: ClientOptions) {
     this.key = key;
-    if (!this.key.length) throw new Error(Errors.NO_API_KEY);
+    if (!this.key.length) throw new HypixelAPIRebornError(Errors.NO_API_KEY);
     this.options = this.parasOptions(options);
     this.requestHandler = new RequestHandler(this);
     this.cacheHandler = new CacheHandler(this);
@@ -116,23 +117,23 @@ class Client {
 
   /* v8 ignore next 140 */
   public getAchievements(options?: RequestOptions): Promise<Achievements | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getActiveHouses(options?: RequestOptions): Promise<WithRaw<House[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getBoosters(options?: RequestOptions): Promise<WithRaw<Booster[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getChallenges(options?: RequestOptions): Promise<Challenges | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getGameCounts(options?: RequestOptions): Promise<GameCounts | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getGuild(
@@ -140,35 +141,35 @@ class Client {
     query: string,
     options?: RequestOptions
   ): Promise<Guild | null | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getGuildAchievements(options?: RequestOptions): Promise<GuildAchievements | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getHouse(query: string, options?: RequestOptions): Promise<House | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getLeaderboards(options?: RequestOptions): Promise<WithRaw<Record<string, Leaderboard[]>> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getPlayer(query: string, options?: PlayerRequestOptions): Promise<Player | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getPlayerHouses(query: string, options?: RequestOptions): Promise<WithRaw<House[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getQuests(options?: RequestOptions): Promise<Quests | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getRecentGames(query: string, options?: RequestOptions): Promise<WithRaw<RecentGame[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockAuction(
@@ -176,80 +177,80 @@ class Client {
     query: string,
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionResult | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockAuctions(
     query: number | '*',
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionsResult | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockBazaar(options?: RequestOptions): Promise<SkyBlockBazaar | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockBingo(options?: RequestOptions): Promise<SkyBlockBingo | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockCollections(options?: RequestOptions): Promise<SkyBlockCollections | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockElection(options?: RequestOptions): Promise<SkyBlockElectionData | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockEndedAuctions(options?: AuctionRequestOptions): Promise<SkyBlockAuctionResult | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockFireSales(options?: RequestOptions): Promise<WithRaw<SkyBlockFireSale[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockGarden(profileId: string, options?: RequestOptions): Promise<SkyBlockGarden | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockItems(options?: RequestOptions): Promise<WithRaw<SkyBlockItem[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockMuseum(profileId: string, options?: RequestOptions): Promise<SkyBlockMuseum | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockNews(options?: RequestOptions): Promise<WithRaw<SkyBlockNews[]> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockProfile(
     profileId: string,
     options?: SkyBlockRequestOptions
   ): Promise<SkyBlockProfile | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockProfiles(
     query: string,
     options?: SkyBlockRequestOptions
   ): Promise<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getSkyBlockSkills(options?: RequestOptions): Promise<SkyBlockSkills | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getStatus(query: string, options?: RequestOptions): Promise<Status | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 
   public getWatchdogStats(options?: RequestOptions): Promise<WatchdogStats | RequestData> {
-    throw new Error(Errors.ENDPOINT_NOT_LOADED);
+    throw new HypixelAPIRebornError(Errors.ENDPOINT_NOT_LOADED);
   }
 }
 

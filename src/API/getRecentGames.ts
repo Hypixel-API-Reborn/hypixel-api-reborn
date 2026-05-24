@@ -1,5 +1,6 @@
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.js';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
@@ -7,7 +8,7 @@ import type { WithRaw } from '../Types/API.js';
 
 class getRecentGames extends Endpoint {
   override async execute(query: string, options?: RequestOptions): Promise<WithRaw<RecentGame[]> | RequestData> {
-    if (!query) throw new Error(Errors.NO_NICKNAME_UUID);
+    if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/recentgames?uuid=${query}`, options);
     if (res.options.raw) return res;

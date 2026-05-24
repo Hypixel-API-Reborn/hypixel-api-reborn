@@ -12,6 +12,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
     '',
     "import Client from './Client.js';",
     "import Errors from './Errors.js';",
+    "import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';",
     ''
   ];
 
@@ -48,6 +49,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   lines.push('export {');
   lines.push('Client,');
   lines.push('Errors,');
+  lines.push('HypixelAPIRebornError,');
   importNames.sort().forEach((importName) => lines.push(`${importName},`));
   lines.push('};');
 
@@ -56,6 +58,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   lines.push('export default {');
   lines.push('Client,');
   lines.push('Errors,');
+  lines.push('HypixelAPIRebornError,');
   importNames.sort().forEach((importName) => lines.push(`${importName},`));
   lines.push('};');
 

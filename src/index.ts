@@ -3,6 +3,7 @@
 
 import Client from './Client.js';
 import Errors from './Errors.js';
+import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';
 
 export * from './Types/API.js';
 export * from './Types/Booster.js';
@@ -455,6 +456,7 @@ import ZombiesMapMode from './Structures/MiniGames/Arcade/Zombies/ZombiesMapMode
 export {
   Client,
   Errors,
+  HypixelAPIRebornError,
   Achievements,
   Arcade,
   ArcadeOptions,
@@ -884,6 +886,7 @@ export {
 export default {
   Client,
   Errors,
+  HypixelAPIRebornError,
   Achievements,
   Arcade,
   ArcadeOptions,
