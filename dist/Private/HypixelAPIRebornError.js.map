@@ -1,0 +1,1 @@
+{"version":3,"file":"HypixelAPIRebornError.js","sourceRoot":"","sources":["../../src/Private/HypixelAPIRebornError.ts"],"names":[],"mappings":"AAAA,MAAM,qBAAsB,SAAQ,KAAK;IACvC,YAAY,OAAe;QACzB,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,oBAAoB,CAAC;IACnC,CAAC;IAEQ,QAAQ;QACf,OAAO,IAAI,CAAC,OAAO,CAAC;IACtB,CAAC;CACF;AAED,eAAe,qBAAqB,CAAC"}
