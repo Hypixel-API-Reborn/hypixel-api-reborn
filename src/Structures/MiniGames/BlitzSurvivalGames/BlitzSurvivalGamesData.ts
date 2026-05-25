@@ -61,7 +61,7 @@ class BlitzSurvivalGamesData {
     this.fallKills = data?.[`fall_kills${kitName}`] || 0;
     this.itemsEnchanted = data?.[`items_enchanted${kitName}`] || 0;
     this.kills = data?.[`kills${kitName}`] || 0;
-    this.deaths = data?.[`deaths_${kitName}`] || 0;
+    this.deaths = data?.[`deaths${kitName}`] || 0;
     this.KDRatio = Divide(this.kills, this.deaths);
     this.mobsSpawned = data?.[`mobs_spawned${kitName}`] || 0;
     this.potionsDrunk = data?.[`potions_drunk${kitName}`] || 0;
