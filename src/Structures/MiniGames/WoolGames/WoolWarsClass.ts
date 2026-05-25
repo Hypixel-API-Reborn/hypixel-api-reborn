@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { WoolWarsClassNames } from '../../../Types/Player.js';
+import type { WoolWarsClassName } from '../../../Types/Player.js';
 
 class WoolWarsClass {
   wins: number;
@@ -12,7 +12,7 @@ class WoolWarsClass {
   blocksBroken: number;
   placeBreakRatio: number;
   powerUps: number;
-  constructor(data: Record<string, any>, classInput: WoolWarsClassNames) {
+  constructor(data: Record<string, any>, classInput: WoolWarsClassName) {
     const className = classInput.toLowerCase();
     this.wins = data?.[className]?.wins || 0;
     this.kills = data?.[className]?.kills || 0;

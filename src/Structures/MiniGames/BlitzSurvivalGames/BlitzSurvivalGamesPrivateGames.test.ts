@@ -1,7 +1,7 @@
 import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
-  BlitzSurvivalGamesPrivateGamesExtraStars,
+  BlitzSurvivalGamesPrivateGamesExtraStar,
   PrivateGameSettingsGameSpeed,
   PrivateGameSettingsHealthBuff
 } from '../../../Types/Player.js';
@@ -18,7 +18,7 @@ test('BlitzSurvivalGamesPrivateGames', () => {
   expect(data.speed).toBeDefined();
   expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsGameSpeed | 'UNKNOWN'>();
   expect(data.extraBlitzStars).toBeDefined();
-  expectTypeOf(data.extraBlitzStars).toEqualTypeOf<BlitzSurvivalGamesPrivateGamesExtraStars>();
+  expectTypeOf(data.extraBlitzStars).toEqualTypeOf<BlitzSurvivalGamesPrivateGamesExtraStar>();
   expect(data.oneHitOneKill).toBeDefined();
   expectTypeOf(data.oneHitOneKill).toEqualTypeOf<boolean>();
   expect(data.nightTime).toBeDefined();

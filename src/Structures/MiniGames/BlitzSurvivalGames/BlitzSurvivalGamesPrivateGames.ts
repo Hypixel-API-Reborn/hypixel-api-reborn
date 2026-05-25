@@ -1,5 +1,5 @@
 import type {
-  BlitzSurvivalGamesPrivateGamesExtraStars,
+  BlitzSurvivalGamesPrivateGamesExtraStar,
   PrivateGameSettingsGameSpeed,
   PrivateGameSettingsHealthBuff
 } from '../../../Types/Player.ts';
@@ -8,7 +8,7 @@ class BlitzSurvivalGamesPrivateGames {
   healthBuff: PrivateGameSettingsHealthBuff | 'UNKNOWN';
   lowGravity: boolean;
   speed: PrivateGameSettingsGameSpeed | 'UNKNOWN';
-  extraBlitzStars: BlitzSurvivalGamesPrivateGamesExtraStars;
+  extraBlitzStars: BlitzSurvivalGamesPrivateGamesExtraStar;
   oneHitOneKill: boolean;
   nightTime: boolean;
   noKits: boolean;

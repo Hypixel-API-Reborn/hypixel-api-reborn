@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { SpeedUHCModes } from '../../../Types/Player.js';
+import type { SpeedUHCModeId } from '../../../Types/Player.js';
 
 class SpeedUHCMode {
   kills: number;
@@ -12,7 +12,7 @@ class SpeedUHCMode {
   winStreak: number;
   killStreak: number;
   assists: number;
-  constructor(data: Record<string, any>, mode: SpeedUHCModes) {
+  constructor(data: Record<string, any>, mode: SpeedUHCModeId) {
     this.kills = data?.[`kills_${mode}`] || 0;
     this.deaths = data?.[`deaths_${mode}`] || 0;
     this.KDR = Divide(this.kills, this.deaths);

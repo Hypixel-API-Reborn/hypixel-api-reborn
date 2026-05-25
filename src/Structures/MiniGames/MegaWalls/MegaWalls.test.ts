@@ -2,7 +2,7 @@ import MegaWalls from './MegaWalls.js';
 import MegaWallsKitStats from './MegaWallsKitStats.js';
 import MegaWallsModeStats from './MegaWallsModeStats.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MegaWallsKits } from '../../../Types/Player.js';
+import type { MegaWallsKit } from '../../../Types/Player.js';
 
 test('MegaWalls', () => {
   const data = new MegaWalls({ stats: 'meow' });
@@ -10,7 +10,7 @@ test('MegaWalls', () => {
   expect(data).toBeInstanceOf(MegaWalls);
   expectTypeOf(data).toEqualTypeOf<MegaWalls>();
   expect(data.selectedClass).toBeDefined();
-  expectTypeOf(data.selectedClass).toEqualTypeOf<MegaWallsKits | 'None'>();
+  expectTypeOf(data.selectedClass).toEqualTypeOf<MegaWallsKit | 'None'>();
   expect(data.coins).toBeDefined();
   expect(data.coins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.coins).toEqualTypeOf<number>();

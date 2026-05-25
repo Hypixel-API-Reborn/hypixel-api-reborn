@@ -1,6 +1,6 @@
 import SmashHeoresHero from './SmashHeoresHero.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SmashHeoresHeros } from '../../../Types/Player.js';
+import type { SmashHeoresHeroId } from '../../../Types/Player.js';
 
 test('SmashHeoresHero', () => {
   const data = new SmashHeoresHero({ stats: 'meow' }, 'BOTMUN');
@@ -8,7 +8,7 @@ test('SmashHeoresHero', () => {
   expect(data).toBeInstanceOf(SmashHeoresHero);
   expectTypeOf(data).toEqualTypeOf<SmashHeoresHero>();
   expect(data.name).toBeDefined();
-  expectTypeOf(data.name).toEqualTypeOf<SmashHeoresHeros>();
+  expectTypeOf(data.name).toEqualTypeOf<SmashHeoresHeroId>();
   expect(data.level).toBeDefined();
   expect(data.level).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.level).toEqualTypeOf<number>();

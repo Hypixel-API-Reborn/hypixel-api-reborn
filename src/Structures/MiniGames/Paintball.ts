@@ -1,5 +1,5 @@
 import Divide from '../../Utils/Divide.js';
-import type { PaintballHats } from '../../Types/Player.js';
+import type { PaintballHat } from '../../Types/Player.js';
 
 class Paintball {
   coins: number;
@@ -10,7 +10,7 @@ class Paintball {
   shotsFired: number;
   killStreaks: number;
   forceFieldTime: number;
-  hat: PaintballHats | 'None';
+  hat: PaintballHat | 'None';
   adrenaline: number;
   endurance: number;
   fortune: number;

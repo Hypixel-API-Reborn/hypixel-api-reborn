@@ -1,5 +1,5 @@
 import ArenaBrawlMode from './ArenaBrawlMode.js';
-import type { ArenaBrawlRunes } from '../../../Types/Player.js';
+import type { ArenaBrawlRune } from '../../../Types/Player.js';
 
 class ArenaBrawl {
   coins: number;
@@ -7,7 +7,7 @@ class ArenaBrawl {
   wins: number;
   keys: number;
   chests: number;
-  rune: ArenaBrawlRunes | 'None';
+  rune: ArenaBrawlRune | 'None';
   '1v1': ArenaBrawlMode;
   '2v2': ArenaBrawlMode;
   '4v4': ArenaBrawlMode;

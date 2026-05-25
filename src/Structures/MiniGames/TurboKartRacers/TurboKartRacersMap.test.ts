@@ -1,6 +1,6 @@
 import TurboKartRacersMap from './TurboKartRacersMap.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { TurboKartRacersMaps } from '../../../Types/Player.js';
+import type { TurboKartRacersMapId } from '../../../Types/Player.js';
 
 test('TurboKartRacersMap', () => {
   const data = new TurboKartRacersMap({ stats: 'meow' }, 'canyon');
@@ -8,7 +8,7 @@ test('TurboKartRacersMap', () => {
   expect(data).toBeInstanceOf(TurboKartRacersMap);
   expectTypeOf(data).toEqualTypeOf<TurboKartRacersMap>();
   expect(data.map).toBeDefined();
-  expectTypeOf(data.map).toEqualTypeOf<TurboKartRacersMaps>();
+  expectTypeOf(data.map).toEqualTypeOf<TurboKartRacersMapId>();
   expect(data.plays).toBeDefined();
   expect(data.plays).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.plays).toEqualTypeOf<number>();

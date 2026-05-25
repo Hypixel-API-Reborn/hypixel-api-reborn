@@ -7,15 +7,7 @@ import DuelsSkyWars from './DuelsSkyWars.js';
 import DuelsUHC from './DuelsUHC.js';
 import Romanize from '../../../Utils/Romanize.js';
 import { duelsDivisions } from '../../../Utils/Constants.js';
-import type { DuelsModes } from '../../../Types/Player.js';
-
-export function getTitle(data: Record<string, any>, mode: 'all_modes' | DuelsModes): string {
-  for (const div of duelsDivisions.slice().reverse()) {
-    const prestige = data?.[`${mode}_${div.key}_title_prestige`];
-    if (prestige) return `${div.name} ${Romanize(prestige)}`;
-  }
-  return '';
-}
+import type { DuelsMode } from '../../../Types/Player.js';
 
 class Duels {
   tokens: number;
@@ -55,7 +47,7 @@ class Duels {
   arena: DuelsGamemode;
   constructor(data: Record<string, any>) {
     this.tokens = data?.coins || data?.tokens || 0;
-    this.title = getTitle(data, 'all_modes');
+    this.title = Duels.getTitle(data, 'all_modes');
     this.kills = data?.kills || 0;
     this.deaths = data?.deaths || 0;
     this.KDR = Divide(this.kills, this.deaths);
@@ -78,17 +70,25 @@ class Duels {
     this.uhc = new DuelsUHC(data);
     this.skywars = new DuelsSkyWars(data);
     this.megawalls = new DuelsMegaWalls(data);
-    this.blitz = new DuelsGamemode(data, 'blitz_duel', getTitle(data, 'blitz'));
+    this.blitz = new DuelsGamemode(data, 'blitz_duel', Duels.getTitle(data, 'blitz'));
     this.op = new DuelsOP(data);
-    this.classic = new DuelsGamemode(data, 'classic_duel', getTitle(data, 'classic'));
-    this.bow = new DuelsGamemode(data, 'bow_duel', getTitle(data, 'bow'));
-    this.noDebuff = new DuelsGamemode(data, 'potion_duel', getTitle(data, 'no_debuff'));
-    this.combo = new DuelsGamemode(data, 'combo_duel', getTitle(data, 'combo'));
-    this.bowSpleef = new DuelsGamemode(data, 'bowspleef_duel', getTitle(data, 'tnt_games'));
-    this.sumo = new DuelsGamemode(data, 'sumo_duel', getTitle(data, 'sumo'));
+    this.classic = new DuelsGamemode(data, 'classic_duel', Duels.getTitle(data, 'classic'));
+    this.bow = new DuelsGamemode(data, 'bow_duel', Duels.getTitle(data, 'bow'));
+    this.noDebuff = new DuelsGamemode(data, 'potion_duel', Duels.getTitle(data, 'no_debuff'));
+    this.combo = new DuelsGamemode(data, 'combo_duel', Duels.getTitle(data, 'combo'));
+    this.bowSpleef = new DuelsGamemode(data, 'bowspleef_duel', Duels.getTitle(data, 'tnt_games'));
+    this.sumo = new DuelsGamemode(data, 'sumo_duel', Duels.getTitle(data, 'sumo'));
     this.bridge = new DuelsBridge(data);
-    this.parkour = new DuelsGamemode(data, 'parkour_eight', getTitle(data, 'parkour'));
+    this.parkour = new DuelsGamemode(data, 'parkour_eight', Duels.getTitle(data, 'parkour'));
     this.arena = new DuelsGamemode(data, 'duel_arena');
+  }
+
+  static getTitle(data: Record<string, any>, mode: 'all_modes' | DuelsMode): string {
+    for (const div of duelsDivisions.slice().reverse()) {
+      const prestige = data?.[`${mode}_${div.key}_title_prestige`];
+      if (prestige) return `${div.name} ${Romanize(prestige)}`;
+    }
+    return '';
   }
 }
 

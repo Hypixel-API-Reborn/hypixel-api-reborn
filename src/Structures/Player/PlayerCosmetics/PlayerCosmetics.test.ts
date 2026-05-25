@@ -3,7 +3,7 @@ import PlayerCosmetics from './PlayerCosmetics.js';
 import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
-  PlayerCosmeticsClickEffects,
+  PlayerCosmeticsClickEffect,
   PlayerCosmeticsCloak,
   PlayerCosmeticsGadget,
   PlayerCosmeticsHat,
@@ -52,5 +52,5 @@ test('PlayerCosmetics', () => {
   expect(data.unlockedParticlePacks).toBeDefined();
   expectTypeOf(data.unlockedParticlePacks).toEqualTypeOf<PlayerCosmeticsParticlePack[]>();
   expect(data.unlockedClickEffects).toBeDefined();
-  expectTypeOf(data.unlockedClickEffects).toEqualTypeOf<PlayerCosmeticsClickEffects[]>();
+  expectTypeOf(data.unlockedClickEffects).toEqualTypeOf<PlayerCosmeticsClickEffect[]>();
 });

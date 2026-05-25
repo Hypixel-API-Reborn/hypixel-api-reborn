@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { MegaWallsKits, MegaWallsModes } from '../../../Types/Player.js';
+import type { MegaWallsKit, MegaWallsMode } from '../../../Types/Player.js';
 
 class MegaWallsModeStats {
   kills: number;
@@ -21,7 +21,7 @@ class MegaWallsModeStats {
   blocksBroken: number;
   meleeKills: number;
   damageDealt: number;
-  constructor(data: Record<string, any>, mode: MegaWallsModes, kit?: MegaWallsKits) {
+  constructor(data: Record<string, any>, mode: MegaWallsMode, kit?: MegaWallsKit) {
     const kitName = kit ? `${kit}_` : '';
     this.kills = data?.[`${kitName}kills_${mode}`] || 0;
     this.assists = data?.[`${kitName}assists_${mode}`] || 0;

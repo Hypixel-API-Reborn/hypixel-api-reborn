@@ -35,7 +35,7 @@ import type {
   SkillLevelData,
   SkyBlockPetId,
   SkyBlockSlayer,
-  SkyBlockXPTables,
+  SkyBlockXPTable,
   SkyHelperNetWorthProfile
 } from '../Types/SkyBlock.js';
 
@@ -112,7 +112,7 @@ export function getSlayerLevel(slayer: SkyBlockSlayer, xp: number): LevelData {
   return { xp, xpForNext: 0, level: 0, maxLevel, maxed: false, progress: 0 };
 }
 
-function getXpTable(type: SkyBlockXPTables): Record<number, number> {
+function getXpTable(type: SkyBlockXPTable): Record<number, number> {
   const SKILL_TABLES = {
     default: DEFAULT_LEVELING_XP,
     runecrafting: RUNECRAFTING_XP,
@@ -148,7 +148,7 @@ function getXpTable(type: SkyBlockXPTables): Record<number, number> {
   return SKILL_TABLES[type] ?? DEFAULT_LEVELING_XP;
 }
 
-export type Extra = { type: SkyBlockXPTables; cap?: number };
+export type Extra = { type: SkyBlockXPTable; cap?: number };
 
 // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/leveling/leveling.ts#L43-L126 (modified)
 export function getLevelByXp(xp: number, extra: Extra = { type: 'default' }): SkillLevelData {

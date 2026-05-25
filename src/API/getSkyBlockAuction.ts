@@ -4,11 +4,11 @@ import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
-import type { AuctionFetchOptions, AuctionRequestOptions, SkyBlockAuctionResult } from '../Types/API.js';
+import type { AuctionFetchOption, AuctionRequestOptions, SkyBlockAuctionResult } from '../Types/API.js';
 
 class getSkyBlockAction extends Endpoint {
   override async execute(
-    type: AuctionFetchOptions,
+    type: AuctionFetchOption,
     query: string,
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionResult | RequestData> {

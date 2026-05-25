@@ -10,7 +10,7 @@ import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
 import BedWarsSettings from './BedWarsSettings.js';
 import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.ts';
 import BedWarsTwoFour from './BedWarsTwoFour.ts';
-import { BedWarsPrestiges } from '../../../Utils/Constants.js';
+import { BedWarsPrestigeRequirements } from '../../../Utils/Constants.js';
 import type {
   BedWarsBedDestroy,
   BedWarsDeathCry,
@@ -123,9 +123,9 @@ class BedWars extends BedWarsMode {
   static getPrestige(level: number): BedWarsPrestige {
     return (
       (
-        BedWarsPrestiges.slice()
+        BedWarsPrestigeRequirements.slice()
           .reverse()
-          .find((t) => level >= t.requirement) || BedWarsPrestiges[0]
+          .find((t) => level >= t.requirement) || BedWarsPrestigeRequirements[0]
       )?.prestige || 'Stone'
     );
   }

@@ -1,11 +1,11 @@
-import type { JacobCrops } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberJacobContestsUniqueBrackets {
-  bronze: JacobCrops[];
-  silver: JacobCrops[];
-  gold: JacobCrops[];
-  platinum: JacobCrops[];
-  diamond: JacobCrops[];
+  bronze: JacobCrop[];
+  silver: JacobCrop[];
+  gold: JacobCrop[];
+  platinum: JacobCrop[];
+  diamond: JacobCrop[];
   constructor(data: Record<string, any>) {
     this.bronze = data?.bronze || [];
     this.silver = data?.silver || [];

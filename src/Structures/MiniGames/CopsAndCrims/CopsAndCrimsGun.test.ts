@@ -1,14 +1,14 @@
 import CopsAndCrimsGun from './CopsAndCrimsGun.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CopsAndCrimsGuns } from '../../../Types/Player.js';
+import type { CopsAndCrimsGunId } from '../../../Types/Player.js';
 
 test('CopsAndCrimsGun', () => {
   const data = new CopsAndCrimsGun({ stats: 'meow' }, 'auto_shotgun');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(CopsAndCrimsGun);
   expectTypeOf(data).toEqualTypeOf<CopsAndCrimsGun>();
-  expect(data.gunName).toBeDefined();
-  expectTypeOf(data.gunName).toEqualTypeOf<CopsAndCrimsGuns>();
+  expect(data.gunId).toBeDefined();
+  expectTypeOf(data.gunId).toEqualTypeOf<CopsAndCrimsGunId>();
   expect(data.damageIncrease).toBeDefined();
   expect(data.damageIncrease).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.damageIncrease).toEqualTypeOf<number>();

@@ -1,7 +1,7 @@
 import Warlords from './Warlords.js';
 import WarlordsClass from './WarlordsClass.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WarlordsClasses } from '../../../Types/Player.js';
+import type { WarlordsClassId } from '../../../Types/Player.js';
 
 test('Warlords', () => {
   const data = new Warlords({ stats: 'meow' });
@@ -36,7 +36,7 @@ test('Warlords', () => {
   expect(data.assists).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.assists).toEqualTypeOf<number>();
   expect(data.class).toBeDefined();
-  expectTypeOf(data.class).toEqualTypeOf<WarlordsClasses | 'None'>();
+  expectTypeOf(data.class).toEqualTypeOf<WarlordsClassId | 'None'>();
   expect(data.pyromancer).toBeDefined();
   expect(data.pyromancer).toBeInstanceOf(WarlordsClass);
   expectTypeOf(data.pyromancer).toEqualTypeOf<WarlordsClass>();

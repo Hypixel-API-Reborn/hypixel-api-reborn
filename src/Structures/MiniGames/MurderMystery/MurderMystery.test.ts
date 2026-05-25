@@ -17,7 +17,7 @@ import type {
   MurderMysteryItem,
   MurderMysteryKillNote,
   MurderMysteryKnifeSkin,
-  MurderMysteryLastWords,
+  MurderMysteryLastWord,
   MurderMysteryMapName,
   MurderMysteryProjectileTrail,
   MurderMysteryRole,
@@ -43,7 +43,7 @@ test('MurderMystery', () => {
   expect(data.activeKnifeSkin).toBeDefined();
   expectTypeOf(data.activeKnifeSkin).toEqualTypeOf<MurderMysteryKnifeSkin | 'UNKNOWN'>();
   expect(data.activeLastWords).toBeDefined();
-  expectTypeOf(data.activeLastWords).toEqualTypeOf<MurderMysteryLastWords | 'UNKNOWN'>();
+  expectTypeOf(data.activeLastWords).toEqualTypeOf<MurderMysteryLastWord | 'UNKNOWN'>();
   expect(data.activeProjectileTrail).toBeDefined();
   expectTypeOf(data.activeProjectileTrail).toEqualTypeOf<MurderMysteryProjectileTrail | 'UNKNOWN'>();
   expect(data.activeVictoryDance).toBeDefined();

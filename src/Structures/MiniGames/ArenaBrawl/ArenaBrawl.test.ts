@@ -1,7 +1,7 @@
 import ArenaBrawl from './ArenaBrawl.js';
 import ArenaBrawlMode from './ArenaBrawlMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ArenaBrawlRunes } from '../../../Types/Player.js';
+import type { ArenaBrawlRune } from '../../../Types/Player.js';
 
 test('ArenaBrawl', () => {
   const data = new ArenaBrawl({ stats: 'meow' });
@@ -24,7 +24,7 @@ test('ArenaBrawl', () => {
   expect(data.chests).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.chests).toEqualTypeOf<number>();
   expect(data.rune).toBeDefined();
-  expectTypeOf(data.rune).toEqualTypeOf<ArenaBrawlRunes | 'None'>();
+  expectTypeOf(data.rune).toEqualTypeOf<ArenaBrawlRune | 'None'>();
   expect(data['1v1']).toBeDefined();
   expect(data['1v1']).toBeInstanceOf(ArenaBrawlMode);
   expectTypeOf(data['1v1']).toEqualTypeOf<ArenaBrawlMode>();

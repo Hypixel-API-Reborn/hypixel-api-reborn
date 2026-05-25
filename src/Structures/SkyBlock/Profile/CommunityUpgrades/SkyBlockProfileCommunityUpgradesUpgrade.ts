@@ -1,7 +1,7 @@
-import type { CommunityUpgradesUpgrades } from '../../../../Types/SkyBlock.js';
+import type { CommunityUpgradesUpgrade } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockProfileCommunityUpgradesUpgrade {
-  upgrade: CommunityUpgradesUpgrades | 'UNKNOWN';
+  upgrade: CommunityUpgradesUpgrade | 'UNKNOWN';
   startedTimestamp: number;
   startedAt: Date;
   constructor(data: Record<string, any>) {
@@ -10,7 +10,7 @@ class SkyBlockProfileCommunityUpgradesUpgrade {
     this.startedAt = new Date(this.startedTimestamp);
   }
 
-  toString(): CommunityUpgradesUpgrades | 'UNKNOWN' {
+  toString(): CommunityUpgradesUpgrade | 'UNKNOWN' {
     return this.upgrade;
   }
 }

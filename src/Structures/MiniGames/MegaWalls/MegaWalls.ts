@@ -1,10 +1,10 @@
 import Divide from '../../../Utils/Divide.js';
 import MegaWallsKitStats from './MegaWallsKitStats.js';
 import MegaWallsModeStats from './MegaWallsModeStats.js';
-import type { MegaWallsKits } from '../../../Types/Player.js';
+import type { MegaWallsKit } from '../../../Types/Player.js';
 
 class MegaWalls {
-  selectedClass: MegaWallsKits | 'None';
+  selectedClass: MegaWallsKit | 'None';
   coins: number;
   kills: number;
   assists: number;

@@ -2,13 +2,13 @@ import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMeda
 import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
 import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
 import type SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.js';
-import type { JacobCrops } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberJacobContests {
   perks: SkyBlockMemberJacobContestsPerks;
   medals: SkyBlockMemberJacobContestsMedals;
   uniqueBrackets: SkyBlockMemberJacobContestsUniqueBrackets;
-  personalBests: Record<JacobCrops, number>;
+  personalBests: Record<JacobCrop, number>;
   contests: Record<string, SkyBlockMemberJacobContest>;
   constructor(data: Record<string, any>) {
     this.perks = new SkyBlockMemberJacobContestsPerks(data?.perks || {});

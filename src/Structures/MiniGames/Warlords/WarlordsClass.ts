@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { WarlordsClasses } from '../../../Types/Player.js';
+import type { WarlordsClassId } from '../../../Types/Player.ts';
 
 class WarlordsClass {
   wins: number;
@@ -9,7 +9,7 @@ class WarlordsClass {
   damage: number;
   heal: number;
   damagePrevented: number;
-  constructor(data: Record<string, any>, className: WarlordsClasses) {
+  constructor(data: Record<string, any>, className: WarlordsClassId) {
     this.wins = data?.[`wins_${className}`] || 0;
     this.losses = data?.[`losses_${className}`] || 0;
     this.WLR = Divide(this.wins, this.losses);

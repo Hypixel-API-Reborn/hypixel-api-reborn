@@ -1,7 +1,7 @@
 import Divide from '../../../Utils/Divide.js';
 import SmashHeoresHero from './SmashHeoresHero.js';
 import SmashHeroesMode from './SmashHeroesMode.js';
-import type { SmashHeoresHeros } from '../../../Types/Player.js';
+import type { SmashHeoresHeroId } from '../../../Types/Player.js';
 
 class SmashHeroes {
   coins: number;
@@ -18,7 +18,7 @@ class SmashHeroes {
   '1v1v1v1': SmashHeroesMode;
   '2v2': SmashHeroesMode;
   '2v2v2': SmashHeroesMode;
-  activeHero: SmashHeoresHeros | 'None';
+  activeHero: SmashHeoresHeroId | 'None';
   theBulk: SmashHeoresHero;
   cakeMonster: SmashHeoresHero;
   generalCluck: SmashHeoresHero;

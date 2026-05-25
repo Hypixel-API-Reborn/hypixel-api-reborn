@@ -1,6 +1,6 @@
 import Divide from '../../../Utils/Divide.js';
+import Duels from './Duels.ts';
 import DuelsGamemode from './DuelsGamemode.js';
-import { getTitle } from './Duels.js';
 
 class DuelsUHC {
   title: string;
@@ -27,7 +27,7 @@ class DuelsUHC {
   healthRegenerated: number;
   goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
-    this.title = getTitle(data, 'uhc');
+    this.title = Duels.getTitle(data, 'uhc');
     this.winStreak = data?.current_uhc_winstreak || 0;
     this.bestWinStreak = data?.best_uhc_winstreak || 0;
     this.solo = new DuelsGamemode(data, 'uhc_duel', this.title);

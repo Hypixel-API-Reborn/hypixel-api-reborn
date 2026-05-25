@@ -4,7 +4,7 @@ import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMeda
 import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
 import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { JacobCrops } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberJacobContests', () => {
   const data = new SkyBlockMemberJacobContests({ stats: 'meow' });
@@ -21,7 +21,7 @@ test('SkyBlockMemberJacobContests', () => {
   expect(data.uniqueBrackets).toBeInstanceOf(SkyBlockMemberJacobContestsUniqueBrackets);
   expectTypeOf(data.uniqueBrackets).toEqualTypeOf<SkyBlockMemberJacobContestsUniqueBrackets>();
   expect(data.personalBests).toBeDefined();
-  expectTypeOf(data.personalBests).toEqualTypeOf<Record<keyof JacobCrops, number>>();
+  expectTypeOf(data.personalBests).toEqualTypeOf<Record<JacobCrop, number>>();
   expect(data.contests).toBeDefined();
   expectTypeOf(data.contests).toEqualTypeOf<Record<string, SkyBlockMemberJacobContest>>();
 });

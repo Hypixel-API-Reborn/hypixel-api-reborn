@@ -2,10 +2,11 @@ import type { BedWarsPrestige, BuildBattleTitle, DuelsBaseDivision } from '../Ty
 import type {
   BestiaryMobsData,
   CustomPetLevelingData,
-  MiningForgeItemsData,
+  MiningForgeItemData,
+  MiningForgeItemId,
   Rarity,
   SkyBlockSlayer,
-  SkyBlockXPTables
+  SkyBlockXPTable
 } from '../Types/SkyBlock.js';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
@@ -178,7 +179,7 @@ export const pit: { Prestiges: PitPrestigeData[]; Levels: PitLevelData[] } = {
 
 // credit: https://github.com/SkyCryptWebsite/SkyCrypt/blob/b9842bea6f1494fa2d2fd005b64f57d84646c188/src/constants/forge.js#L1 (Modified)
 // Times in milliseconds
-export const MiningForgeItems: MiningForgeItemsData = {
+export const MiningForgeItems: { [key in MiningForgeItemId | 'UNKNOWN']: MiningForgeItemData } = {
   REFINED_DIAMOND: { name: 'Refined Diamond', duration: 28800000 },
   REFINED_MITHRIL: { name: 'Refined Mithril', duration: 21600000 },
   REFINED_TITANIUM: { name: 'Refined Titanium', duration: 43200000 },
@@ -414,7 +415,7 @@ export const SLAYER_XP: { [key in SkyBlockSlayer]: Record<number, number> } = {
   vampire: { 1: 20, 2: 75, 3: 240, 4: 840, 5: 2400 }
 };
 
-export const DEFAULT_SKILL_CAPS: { [key in SkyBlockXPTables]: number } = {
+export const DEFAULT_SKILL_CAPS: { [key in SkyBlockXPTable]: number } = {
   farming: 50,
   mining: 60,
   combat: 60,
@@ -2628,7 +2629,7 @@ export const BuildBattleTitleRequirements: { title: BuildBattleTitle; requiremen
   { title: 'Ascended', requirement: 500000 }
 ];
 
-export const BedWarsPrestiges: { prestige: BedWarsPrestige; requirement: number }[] = [
+export const BedWarsPrestigeRequirements: { prestige: BedWarsPrestige; requirement: number }[] = [
   { prestige: 'Stone', requirement: 0 },
   { prestige: 'Iron', requirement: 100 },
   { prestige: 'Gold', requirement: 200 },

@@ -3,12 +3,12 @@ import QuakecraftMode from './QuakecraftMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { ColorCode } from '../../../Types/Color.js';
 import type {
-  QuakecraftBarrels,
+  QuakecraftBarrel,
   QuakecraftCase,
-  QuakecraftKillSounds,
+  QuakecraftKillSound,
   QuakecraftMuzzle,
-  QuakecraftSights,
-  QuakecraftTriggers
+  QuakecraftSight,
+  QuakecraftTrigger
 } from '../../../Types/Player.js';
 
 test('Quakecraft', () => {
@@ -56,15 +56,15 @@ test('Quakecraft', () => {
   expect(data.showPrefix).toBeDefined();
   expectTypeOf(data.showPrefix).toEqualTypeOf<boolean>();
   expect(data.killSound).toBeDefined();
-  expectTypeOf(data.killSound).toEqualTypeOf<QuakecraftKillSounds | 'None'>();
+  expectTypeOf(data.killSound).toEqualTypeOf<QuakecraftKillSound | 'None'>();
   expect(data.barrel).toBeDefined();
-  expectTypeOf(data.barrel).toEqualTypeOf<QuakecraftBarrels | 'None'>();
+  expectTypeOf(data.barrel).toEqualTypeOf<QuakecraftBarrel | 'None'>();
   expect(data.case).toBeDefined();
   expectTypeOf(data.case).toEqualTypeOf<QuakecraftCase | 'None'>();
   expect(data.muzzle).toBeDefined();
   expectTypeOf(data.muzzle).toEqualTypeOf<QuakecraftMuzzle | 'None'>();
   expect(data.sight).toBeDefined();
-  expectTypeOf(data.sight).toEqualTypeOf<QuakecraftSights | 'None'>();
+  expectTypeOf(data.sight).toEqualTypeOf<QuakecraftSight | 'None'>();
   expect(data.trigger).toBeDefined();
-  expectTypeOf(data.trigger).toEqualTypeOf<QuakecraftTriggers | 'None'>();
+  expectTypeOf(data.trigger).toEqualTypeOf<QuakecraftTrigger | 'None'>();
 });

@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { ArenaBrawlModes } from '../../../Types/Player.js';
+import type { ArenaBrawlModeId } from '../../../Types/Player.js';
 
 class ArenaBrawlMode {
   damage: number;
@@ -12,7 +12,7 @@ class ArenaBrawlMode {
   WLR: number;
   games: number;
   winStreak: number;
-  constructor(data: Record<string, any>, mode: ArenaBrawlModes) {
+  constructor(data: Record<string, any>, mode: ArenaBrawlModeId) {
     this.damage = data?.[`damage_${mode}`] || 0;
     this.kills = data?.[`kills_${mode}`] || 0;
     this.deaths = data?.[`deaths_${mode}`] || 0;

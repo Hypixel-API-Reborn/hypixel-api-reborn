@@ -1,9 +1,9 @@
 import Divide from '../../../Utils/Divide.js';
 import WoolWarsClass from './WoolWarsClass.js';
-import type { WoolWarsClassNames } from '../../../Types/Player.js';
+import type { WoolWarsClassName } from '../../../Types/Player.js';
 
 class WoolWars {
-  selectedClass: WoolWarsClassNames | 'None';
+  selectedClass: WoolWarsClassName | 'None';
   wins: number;
   kills: number;
   assists: number;

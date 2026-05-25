@@ -1,6 +1,6 @@
 import Divide from '../../../Utils/Divide.js';
 import WarlordsClass from './WarlordsClass.js';
-import type { WarlordsClasses } from '../../../Types/Player.js';
+import type { WarlordsClassId } from '../../../Types/Player.js';
 
 class Warlords {
   coins: number;
@@ -12,7 +12,7 @@ class Warlords {
   WLR: number;
   winStreak: number;
   assists: number;
-  class: WarlordsClasses | 'None';
+  class: WarlordsClassId | 'None';
   pyromancer: WarlordsClass;
   mage: WarlordsClass;
   thunderlord: WarlordsClass;

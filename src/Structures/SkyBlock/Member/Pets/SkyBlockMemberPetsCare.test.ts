@@ -1,6 +1,6 @@
 import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SacrificedPets } from '../../../../Types/SkyBlock.js';
+import type { SacrificedPet } from '../../../../Types/SkyBlock.js';
 
 test('SkyBlockMemberPetsCare', () => {
   const data = new SkyBlockMemberPetsCare({ stats: 'meow' });
@@ -11,7 +11,7 @@ test('SkyBlockMemberPetsCare', () => {
   expect(data.coinsSpent).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.coinsSpent).toEqualTypeOf<number>();
   expect(data.petsSacrificed).toBeDefined();
-  expectTypeOf(data.petsSacrificed).toEqualTypeOf<SacrificedPets[]>();
+  expectTypeOf(data.petsSacrificed).toEqualTypeOf<SacrificedPet[]>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();

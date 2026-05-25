@@ -2,7 +2,7 @@ import SmashHeoresHero from './SmashHeoresHero.js';
 import SmashHeroes from './SmashHeroes.js';
 import SmashHeroesMode from './SmashHeroesMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SmashHeoresHeros } from '../../../Types/Player.js';
+import type { SmashHeoresHeroId } from '../../../Types/Player.js';
 
 test('SmashHeroes', () => {
   const data = new SmashHeroes({ stats: 'meow' });
@@ -52,7 +52,7 @@ test('SmashHeroes', () => {
   expect(data['2v2v2']).toBeInstanceOf(SmashHeroesMode);
   expectTypeOf(data['2v2v2']).toEqualTypeOf<SmashHeroesMode>();
   expect(data.activeHero).toBeDefined();
-  expectTypeOf(data.activeHero).toEqualTypeOf<SmashHeoresHeros | 'None'>();
+  expectTypeOf(data.activeHero).toEqualTypeOf<SmashHeoresHeroId | 'None'>();
   expect(data.theBulk).toBeDefined();
   expect(data.theBulk).toBeInstanceOf(SmashHeoresHero);
   expectTypeOf(data.theBulk).toEqualTypeOf<SmashHeoresHero>();

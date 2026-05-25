@@ -1,7 +1,7 @@
 import WoolWars from './WoolWars.js';
 import WoolWarsClass from './WoolWarsClass.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WoolWarsClassNames } from '../../../Types/Player.js';
+import type { WoolWarsClassName } from '../../../Types/Player.js';
 
 test('WoolWars', () => {
   const data = new WoolWars({ stats: 'meow' });
@@ -9,7 +9,7 @@ test('WoolWars', () => {
   expect(data).toBeInstanceOf(WoolWars);
   expectTypeOf(data).toEqualTypeOf<WoolWars>();
   expect(data.selectedClass).toBeDefined();
-  expectTypeOf(data.selectedClass).toEqualTypeOf<WoolWarsClassNames | 'None'>();
+  expectTypeOf(data.selectedClass).toEqualTypeOf<WoolWarsClassName | 'None'>();
   expect(data.wins).toBeDefined();
   expect(data.wins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.wins).toEqualTypeOf<number>();

@@ -1,6 +1,6 @@
 import PlayerAchievementsTotem from './PlayerAchievementsTotem.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerAchievementsTotemColors, PlayerAchievementsTotemParts } from '../../../Types/Player.js';
+import type { PlayerAchievementsTotemColor, PlayerAchievementsTotemPart } from '../../../Types/Player.js';
 
 test('PlayerAchievementsTotem', () => {
   const data = new PlayerAchievementsTotem({ stats: 'meow' });
@@ -13,11 +13,11 @@ test('PlayerAchievementsTotem', () => {
   expect(data.allowedMaxHeight).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.allowedMaxHeight).toEqualTypeOf<number>();
   expect(data.unlockedParts).toBeDefined();
-  expectTypeOf(data.unlockedParts).toEqualTypeOf<PlayerAchievementsTotemParts[]>();
+  expectTypeOf(data.unlockedParts).toEqualTypeOf<PlayerAchievementsTotemPart[]>();
   expect(data.selectedParts).toBeDefined();
-  expectTypeOf(data.selectedParts).toEqualTypeOf<Record<string, PlayerAchievementsTotemParts>>();
+  expectTypeOf(data.selectedParts).toEqualTypeOf<Record<string, PlayerAchievementsTotemPart>>();
   expect(data.unlockedColors).toBeDefined();
-  expectTypeOf(data.unlockedColors).toEqualTypeOf<PlayerAchievementsTotemColors[]>();
+  expectTypeOf(data.unlockedColors).toEqualTypeOf<PlayerAchievementsTotemColor[]>();
   expect(data.selectedColors).toBeDefined();
-  expectTypeOf(data.selectedColors).toEqualTypeOf<Record<string, PlayerAchievementsTotemColors>>();
+  expectTypeOf(data.selectedColors).toEqualTypeOf<Record<string, PlayerAchievementsTotemColor>>();
 });

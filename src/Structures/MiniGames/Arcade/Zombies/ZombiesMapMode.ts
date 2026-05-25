@@ -1,4 +1,4 @@
-import type { ArcadeZombiesDifficulty, ArcadeZombiesMaps } from '../../../../Types/Player.js';
+import type { ArcadeZombiesDifficulty, ArcadeZombiesMap } from '../../../../Types/Player.js';
 
 class ZombiesMapMode {
   bestRound: number;
@@ -13,7 +13,7 @@ class ZombiesMapMode {
   windowsRepaired: number;
   wins: number;
   zombieKills: number;
-  constructor(data: Record<string, any>, map: ArcadeZombiesMaps, mode: ArcadeZombiesDifficulty) {
+  constructor(data: Record<string, any>, map: ArcadeZombiesMap, mode: ArcadeZombiesDifficulty) {
     this.bestRound = data?.[`best_round_zombies_${map}_${mode}`] || 0;
     this.deaths = data?.[`deaths_zombies_${map}_${mode}`] || 0;
     this.doorsOpened = data?.[`doors_opened_zombies_${map}_${mode}`] || 0;

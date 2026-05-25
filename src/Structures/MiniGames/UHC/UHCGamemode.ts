@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { UHCModes } from '../../../Types/Player.js';
+import type { UHCMode } from '../../../Types/Player.js';
 
 class UHCGamemode {
   kills: number;
@@ -9,7 +9,7 @@ class UHCGamemode {
   headsEaten: number;
   ultimatesCrafted: number;
   extraUltimatesCrafted: number;
-  constructor(data: Record<string, any>, mode?: UHCModes) {
+  constructor(data: Record<string, any>, mode?: UHCMode) {
     const modeName = mode ? `_${mode}` : '';
     this.kills = data?.[`kills${modeName}`] || 0;
     this.deaths = data?.[`deaths${modeName}`] || 0;

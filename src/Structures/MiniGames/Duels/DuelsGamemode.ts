@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { DuelsModes } from '../../../Types/Player.js';
+import type { DuelsMode } from '../../../Types/Player.js';
 
 class DuelsGamemode {
   title: string;
@@ -21,7 +21,7 @@ class DuelsGamemode {
   blocksPlaced: number;
   healthRegenerated: number;
   goldenApplesEaten: number;
-  constructor(data: Record<string, any>, mode: DuelsModes, title: string = '') {
+  constructor(data: Record<string, any>, mode: DuelsMode, title: string = '') {
     this.title = title;
     this.winStreak = data?.[`current_winstreak_mode_${mode}`] || 0;
     this.bestWinStreak = data?.[`best_winstreak_mode_${mode}`] || 0;

@@ -1,5 +1,5 @@
 import ZombiesMapMode from './ZombiesMapMode.js';
-import type { ArcadeZombiesMaps } from '../../../../Types/Player.js';
+import type { ArcadeZombiesMap } from '../../../../Types/Player.js';
 
 function minPositive(...values: number[]): number {
   const positives = values.filter((v) => v > 0);
@@ -22,7 +22,7 @@ class ZombiesMap {
   normal?: ZombiesMapMode;
   hard?: ZombiesMapMode;
   rip?: ZombiesMapMode;
-  constructor(data: Record<string, any>, map: ArcadeZombiesMaps, hasModes: boolean = false) {
+  constructor(data: Record<string, any>, map: ArcadeZombiesMap, hasModes: boolean = false) {
     this.bestRound = data?.[`best_round_zombies_${map}`] || 0;
     this.deaths = data?.[`deaths_zombies_${map}`] || 0;
     this.doorsOpened = data?.[`doors_opened_zombies_${map}`] || 0;

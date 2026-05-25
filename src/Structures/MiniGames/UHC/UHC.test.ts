@@ -1,7 +1,7 @@
 import UHC from './UHC.js';
 import UHCGamemode from './UHCGamemode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UHCKits } from '../../../Types/Player.js';
+import type { UHCKit } from '../../../Types/Player.js';
 
 test('UHC', () => {
   const data = new UHC({ stats: 'meow' });
@@ -15,7 +15,7 @@ test('UHC', () => {
   expect(data.score).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.score).toEqualTypeOf<number>();
   expect(data.kit).toBeDefined();
-  expectTypeOf(data.kit).toEqualTypeOf<UHCKits | 'None'>();
+  expectTypeOf(data.kit).toEqualTypeOf<UHCKit | 'None'>();
   expect(data.solo).toBeDefined();
   expect(data.solo).toBeInstanceOf(UHCGamemode);
   expectTypeOf(data.solo).toEqualTypeOf<UHCGamemode>();

@@ -3,12 +3,12 @@ import Errors from '../Errors.js';
 import Guild from '../Structures/Guild/Guild.js';
 import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
 import RequestData from '../Private/RequestData.js';
-import type { GuildFetchOptions } from '../Types/API.js';
+import type { GuildFetchOption } from '../Types/API.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getGuild extends Endpoint {
   override async execute(
-    searchParameter: GuildFetchOptions,
+    searchParameter: GuildFetchOption,
     query: string,
     options?: RequestOptions
   ): Promise<Guild | null | RequestData> {

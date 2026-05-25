@@ -1,5 +1,7 @@
-export type QuestObjectiveType = 'Integer' | 'Boolean';
-export type QuestType = 'Daily' | 'Weekly';
+export const QuestObjectiveTypes = ['Integer', 'Boolean'] as const;
+export type QuestObjectiveType = (typeof QuestObjectiveTypes)[number];
+export const QuestTypes = ['Daily', 'Weekly'] as const;
+export type QuestType = (typeof QuestTypes)[number];
 
 export interface QuestReward {
   type: string;

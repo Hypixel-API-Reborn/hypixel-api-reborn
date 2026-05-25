@@ -15,7 +15,7 @@ import type {
   MurderMysteryItem,
   MurderMysteryKillNote,
   MurderMysteryKnifeSkin,
-  MurderMysteryLastWords,
+  MurderMysteryLastWord,
   MurderMysteryMapName,
   MurderMysteryProjectileTrail,
   MurderMysteryRole,
@@ -30,7 +30,7 @@ class MurderMystery {
   activeGravestone: MurderMysteryGravestone | 'UNKNOWN';
   activeKillNote: MurderMysteryKillNote | 'UNKNOWN';
   activeKnifeSkin: MurderMysteryKnifeSkin | 'UNKNOWN';
-  activeLastWords: MurderMysteryLastWords | 'UNKNOWN';
+  activeLastWords: MurderMysteryLastWord | 'UNKNOWN';
   activeProjectileTrail: MurderMysteryProjectileTrail | 'UNKNOWN';
   activeVictoryDance: MurderMysteryVictoryDance | 'UNKNOWN';
   alphaWins: number;

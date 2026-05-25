@@ -56,7 +56,7 @@ test('BlitzSurvivalGames', () => {
   expect(data.autoArmor).toBeDefined();
   expectTypeOf(data.autoArmor).toEqualTypeOf<boolean>();
   expect(data.defaultKit).toBeDefined();
-  expectTypeOf(data.defaultKit).toEqualTypeOf<BlitzSurvivalGamesKitName | 'UNKNOWN'>();
+  expectTypeOf(data.defaultKit).toEqualTypeOf<BlitzSurvivalGamesKitName | 'None'>();
   expect(data.combatTracker).toBeDefined();
   expectTypeOf(data.combatTracker).toEqualTypeOf<boolean>();
   expect(data.alternativeKillMessageEnabled).toBeDefined();

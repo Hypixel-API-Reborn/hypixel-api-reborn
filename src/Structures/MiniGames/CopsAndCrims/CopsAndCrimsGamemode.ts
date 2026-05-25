@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { CopsAndCrimsGamemodes } from '../../../Types/Player.js';
+import type { CopsAndCrimsGamemodeId } from '../../../Types/Player.js';
 
 class CopsAndCrimsGamemode {
   kills: number;
@@ -12,7 +12,7 @@ class CopsAndCrimsGamemode {
   gamesPlayed: number;
   losses: number;
   WLR: number;
-  constructor(data: Record<string, any>, mode: CopsAndCrimsGamemodes) {
+  constructor(data: Record<string, any>, mode: CopsAndCrimsGamemodeId) {
     this.kills = data?.[`kills_${mode}`] || 0;
     this.criminalKills = data?.[`criminal_kills_${mode}`] || 0;
     this.copKills = data?.[`cop_kills_${mode}`] || 0;

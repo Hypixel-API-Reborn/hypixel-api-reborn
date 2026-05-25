@@ -34,5 +34,7 @@ export interface SkyBlockAuctionsResult {
 export type WithRaw<T> = T & { isRaw(): this is RequestData };
 export type WithSelectedProfile<T> = WithRaw<T> & { selectedProfile?: SkyblockProfileWithMe };
 
-export type GuildFetchOptions = 'id' | 'name' | 'player';
-export type AuctionFetchOptions = 'PROFILE' | 'PLAYER' | 'AUCTION_ID';
+export const GuildFetchOptions = ['id', 'name', 'player'] as const;
+export type GuildFetchOption = (typeof GuildFetchOptions)[number];
+export const AuctionFetchOptions = ['PROFILE', 'PLAYER', 'AUCTION_ID'] as const;
+export type AuctionFetchOption = (typeof AuctionFetchOptions)[number];

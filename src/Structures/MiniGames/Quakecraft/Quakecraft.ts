@@ -2,12 +2,12 @@ import Divide from '../../../Utils/Divide.js';
 import QuakecraftMode from './QuakecraftMode.js';
 import type { ColorCode } from '../../../Types/Color.js';
 import type {
-  QuakecraftBarrels,
+  QuakecraftBarrel,
   QuakecraftCase,
-  QuakecraftKillSounds,
+  QuakecraftKillSound,
   QuakecraftMuzzle,
-  QuakecraftSights,
-  QuakecraftTriggers
+  QuakecraftSight,
+  QuakecraftTrigger
 } from '../../../Types/Player.js';
 
 class Quakecraft {
@@ -25,12 +25,12 @@ class Quakecraft {
   instantRespawn: boolean;
   killPrefixColor: ColorCode;
   showPrefix: boolean;
-  killSound: QuakecraftKillSounds | 'None';
-  barrel: QuakecraftBarrels | 'None';
+  killSound: QuakecraftKillSound | 'None';
+  barrel: QuakecraftBarrel | 'None';
   case: QuakecraftCase | 'None';
   muzzle: QuakecraftMuzzle | 'None';
-  sight: QuakecraftSights | 'None';
-  trigger: QuakecraftTriggers | 'None';
+  sight: QuakecraftSight | 'None';
+  trigger: QuakecraftTrigger | 'None';
   constructor(data: Record<string, any>) {
     this.coins = data?.coins || data?.tokens || 0;
     this.solo = new QuakecraftMode(data);

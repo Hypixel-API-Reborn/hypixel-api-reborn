@@ -1,7 +1,7 @@
 import Color from '../../Color.js';
 import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.js';
 import type {
-  PlayerCosmeticsClickEffects,
+  PlayerCosmeticsClickEffect,
   PlayerCosmeticsCloak,
   PlayerCosmeticsGadget,
   PlayerCosmeticsHat,
@@ -29,7 +29,7 @@ class PlayerCosmetics {
   unlockedRankColors: PlayerCosmeticsRankColor[];
   selectedParticlePack: PlayerCosmeticsParticlePack | 'UNKNOWN';
   unlockedParticlePacks: PlayerCosmeticsParticlePack[];
-  unlockedClickEffects: PlayerCosmeticsClickEffects[];
+  unlockedClickEffects: PlayerCosmeticsClickEffect[];
   constructor(data: Record<string, any>) {
     this.menuSort = data?.collectibles_menu_sort || 'UNKNOWN';
     this.rankPlusColor = data?.rankPlusColor ? new Color(data?.rankPlusColor) : null;
@@ -76,7 +76,7 @@ class PlayerCosmetics {
 
     this.unlockedClickEffects = this.cosmetics
       .filter((x) => x.startsWith('clickeffects_'))
-      .map((x) => x.replace('clickeffects_', '') as PlayerCosmeticsClickEffects);
+      .map((x) => x.replace('clickeffects_', '') as PlayerCosmeticsClickEffect);
   }
 }
 

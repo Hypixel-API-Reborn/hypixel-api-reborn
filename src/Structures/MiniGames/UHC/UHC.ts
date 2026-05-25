@@ -1,6 +1,6 @@
 import Divide from '../../../Utils/Divide.js';
 import UHCGamemode from './UHCGamemode.js';
-import type { UHCKits } from '../../../Types/Player.js';
+import type { UHCKit } from '../../../Types/Player.js';
 
 function getStarLevel(kills: number, wins: number): number {
   const sum = kills + wins * 10;
@@ -13,7 +13,7 @@ function getStarLevel(kills: number, wins: number): number {
 class UHC {
   coins: number;
   score: number;
-  kit: UHCKits | 'None';
+  kit: UHCKit | 'None';
   solo: UHCGamemode;
   team: UHCGamemode;
   redVsBlue: UHCGamemode;

@@ -32,9 +32,9 @@ import type SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js'
 import type Status from './Structures/Status.js';
 import type WatchdogStats from './Structures/WatchdogStats.js';
 import type {
-  AuctionFetchOptions,
+  AuctionFetchOption,
   AuctionRequestOptions,
-  GuildFetchOptions,
+  GuildFetchOption,
   PlayerRequestOptions,
   SkyBlockAuctionResult,
   SkyBlockAuctionsResult,
@@ -137,7 +137,7 @@ class Client {
   }
 
   public getGuild(
-    searchParameter: GuildFetchOptions,
+    searchParameter: GuildFetchOption,
     query: string,
     options?: RequestOptions
   ): Promise<Guild | null | RequestData> {
@@ -173,7 +173,7 @@ class Client {
   }
 
   public getSkyBlockAuction(
-    type: AuctionFetchOptions,
+    type: AuctionFetchOption,
     query: string,
     options?: AuctionRequestOptions
   ): Promise<SkyBlockAuctionResult | RequestData> {

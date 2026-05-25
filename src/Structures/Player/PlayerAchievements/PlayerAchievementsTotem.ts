@@ -1,12 +1,12 @@
-import type { PlayerAchievementsTotemColors, PlayerAchievementsTotemParts } from '../../../Types/Player.js';
+import type { PlayerAchievementsTotemColor, PlayerAchievementsTotemPart } from '../../../Types/Player.js';
 
 class PlayerAchievementsTotem {
   canCustomize: boolean;
   allowedMaxHeight: number;
-  unlockedParts: PlayerAchievementsTotemParts[];
-  selectedParts: Record<string, PlayerAchievementsTotemParts>;
-  unlockedColors: PlayerAchievementsTotemColors[];
-  selectedColors: Record<string, PlayerAchievementsTotemColors>;
+  unlockedParts: PlayerAchievementsTotemPart[];
+  selectedParts: Record<string, PlayerAchievementsTotemPart>;
+  unlockedColors: PlayerAchievementsTotemColor[];
+  selectedColors: Record<string, PlayerAchievementsTotemColor>;
   constructor(data: Record<string, any>) {
     this.canCustomize = data?.canCustomize || false;
     this.allowedMaxHeight = data?.allowed_max_height || 0;
