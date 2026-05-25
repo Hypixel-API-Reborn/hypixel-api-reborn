@@ -29,7 +29,7 @@ class BlitzSurvivalGames extends BlitzSurvivalGamesData {
   weeklyKillsA: number;
   weeklyKillsB: number;
   autoArmor: boolean;
-  defaultKit: BlitzSurvivalGamesKitName | 'UNKNOWN';
+  defaultKit: BlitzSurvivalGamesKitName | 'None';
   combatTracker: boolean;
   alternativeKillMessageEnabled: boolean;
   prefersFullKitsMenu: boolean;
@@ -101,7 +101,7 @@ class BlitzSurvivalGames extends BlitzSurvivalGamesData {
     this.weeklyKillsA = data?.weekly_kills_a || 0;
     this.weeklyKillsB = data?.weekly_kills_b || 0;
     this.autoArmor = data?.autoarmor || true;
-    this.defaultKit = data?.defaultkit || 'UNKNOWN';
+    this.defaultKit = data?.defaultkit || 'None';
     this.combatTracker = data?.combatTracker || true;
     this.alternativeKillMessageEnabled = data?.alternative_kill_message_enabled || true;
     this.prefersFullKitsMenu = data?.prefers_full_kits_menu || true;
