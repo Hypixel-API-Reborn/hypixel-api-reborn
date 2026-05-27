@@ -111,7 +111,8 @@ class Client {
       rateLimit: options?.rateLimit ?? 'AUTO',
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
-      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60
+      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,
+      mowojangAPI: options?.mowojangAPI ?? {}
     };
   }
 

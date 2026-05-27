@@ -1,5 +1,8 @@
+import type { ClientOptions as MowojangClientOptions } from 'mowojang';
+
 export const ClientRateLimitOptions = ['AUTO', 'NONE'] as const;
 export type ClientRateLimitOption = (typeof ClientRateLimitOptions)[number];
+
 export interface ClientOptions {
   cache?: boolean;
   cacheTime?: number;
@@ -9,4 +12,5 @@ export interface ClientOptions {
   silent?: boolean;
   checkForUpdates?: boolean;
   checkForUpdatesInterval?: number;
+  mowojangAPI?: MowojangClientOptions;
 }

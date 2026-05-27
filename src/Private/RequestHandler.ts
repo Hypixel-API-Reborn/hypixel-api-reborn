@@ -2,13 +2,16 @@ import Client from '../Client.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 import RequestData from './RequestData.js';
+import { Client as MowojangClient } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class RequestHandler {
   readonly client: Client;
+  readonly mowojangAPI: MowojangClient;
   private BASE_URL: string;
   constructor(client: Client) {
     this.client = client;
+    this.mowojangAPI = new MowojangClient(this.client.options.mowojangAPI);
     this.BASE_URL = 'https://api.hypixel.net/v2';
   }
 
@@ -82,32 +85,9 @@ class RequestHandler {
     if (!input) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
     if (typeof input !== 'string') throw new HypixelAPIRebornError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
     if (this.client.functions.isUUID(input)) return input.replace(/-/g, '');
-    const url = `https://mowojang.matdoes.dev/${input}`;
-    if (this.client.cacheHandler.has(url)) {
-      return this.client.cacheHandler.get(url);
-    }
-    const res = await fetch(url);
-    if (res.status >= 500 && res.status < 528) {
-      throw new HypixelAPIRebornError(
-        Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
-      );
-    }
-    const parsedRes = (await res.json()) as Record<string, any>;
-    if (res.status === 400) {
-      throw new HypixelAPIRebornError(
-        Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || '')
-      );
-    }
-    if (res.status !== 200) {
-      throw new HypixelAPIRebornError(Errors.ERROR_STATUSTEXT.replace(/{statustext}/, res.statusText));
-    }
-    if (typeof parsedRes.id !== 'string' || typeof parsedRes.name !== 'string') {
-      throw new HypixelAPIRebornError(Errors.MALFORMED_UUID);
-    }
-    if (this.client.options.cache) {
-      this.client.cacheHandler.set(url, parsedRes.id);
-    }
-    return parsedRes.id;
+    const UUID = await this.mowojangAPI.getUUID(input);
+    if (UUID === null) throw new HypixelAPIRebornError(Errors.PLAYER_DOES_NOT_EXIST);
+    return UUID;
   }
 
   async fetchExternalData(url: string): Promise<RequestData> {

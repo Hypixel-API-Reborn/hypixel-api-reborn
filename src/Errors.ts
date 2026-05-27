@@ -12,6 +12,7 @@ class Errors {
   static NO_UUID: string = '[Hypixel-API-Reborn] No uuid specified.';
   static UUID_NICKNAME_MUST_BE_A_STRING: string = '[Hypixel-API-Reborn] Nickname or uuid must be a string.';
   static MALFORMED_UUID: string = '[Hypixel-API-Reborn] Malformed UUID!';
+  static PLAYER_DOES_NOT_EXIST: string = '[hypixel-api-reborn] Player does not exist.';
   static PLAYER_HAS_NEVER_LOGGED: string = '[Hypixel-API-Reborn] Player has never logged into Hypixel.';
   static NO_GUILD_QUERY: string = '[Hypixel-API-Reborn] No guild search query specified.';
   static INVALID_GUILD_ID: string = '[Hypixel-API-Reborn] Specified Guild ID is invalid.';
