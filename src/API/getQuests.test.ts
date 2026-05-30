@@ -8,7 +8,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { QuestReward, QuestType } from '../Types/Static.js';
 
 test('getQuests (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getQuests({ raw: true });
   expect(data).toBeDefined();
@@ -19,7 +19,7 @@ test('getQuests (raw)', async () => {
 });
 
 test('getQuests', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getQuests();
   expect(data).toBeDefined();

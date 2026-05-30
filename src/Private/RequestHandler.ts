@@ -65,7 +65,6 @@ class RequestHandler {
     if (!parsedRes.success && !endpoint.startsWith('/housing')) {
       throw new HypixelAPIRebornError(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.statusText));
     }
-    this.client.rateLimit.requests++;
     const headers: Record<string, any> = {};
     res.headers.forEach((value, key) => (headers[key] = value));
     const requestData = new RequestData(parsedRes, headers, {

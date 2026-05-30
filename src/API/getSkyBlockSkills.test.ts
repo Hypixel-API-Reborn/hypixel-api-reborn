@@ -5,7 +5,7 @@ import SkyBlockSkills from '../Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('getSkyBlockSkills (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockSkills({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getSkyBlockSkills (raw)', async () => {
 });
 
 test('getSkyBlockSkills', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockSkills();
   expect(data).toBeDefined();

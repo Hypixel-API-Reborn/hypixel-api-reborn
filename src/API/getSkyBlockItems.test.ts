@@ -5,7 +5,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { WithRaw } from '../Types/API.js';
 
 test('getSkyBlockItems (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockItems({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getSkyBlockItems (raw)', async () => {
 });
 
 test('getSkyBlockItems', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockItems();
   expect(data).toBeDefined();

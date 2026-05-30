@@ -5,7 +5,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type SkyBlockBazaarProduct from '../Structures/SkyBlock/Bazaar/SkyBlockBazaarProduct.js';
 
 test('getSkyBlockBazaar (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBazaar({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getSkyBlockBazaar (raw)', async () => {
 });
 
 test('getSkyBlockBazaar', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBazaar();
   expect(data).toBeDefined();

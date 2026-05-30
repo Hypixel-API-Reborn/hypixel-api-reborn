@@ -13,7 +13,7 @@ import type { WithSelectedProfile } from '../Types/API.js';
 /* eslint-enable @stylistic/max-len */
 
 test('getSkyBlockProfiles (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e', { raw: true });
   expect(data).toBeDefined();
@@ -26,7 +26,7 @@ test('getSkyBlockProfiles (raw)', async () => {
 });
 
 test('getSkyBlockProfiles (no input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -35,7 +35,7 @@ test('getSkyBlockProfiles (no input)', async () => {
 });
 
 test('getSkyBlockProfiles (no profiles)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   await expect(() => client.getSkyBlockProfiles('b491990d53fd4c5fa61e19d58cc7eddf')).rejects.toThrowError(
     Errors.NO_SKYBLOCK_PROFILES
@@ -44,7 +44,7 @@ test('getSkyBlockProfiles (no profiles)', async () => {
 });
 
 test('getSkyBlockProfiles', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');
   expect(data).toBeDefined();

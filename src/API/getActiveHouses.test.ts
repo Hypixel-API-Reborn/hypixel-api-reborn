@@ -5,7 +5,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { WithRaw } from '../Types/API.js';
 
 test('getActiveHouses (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getActiveHouses({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getActiveHouses (raw)', async () => {
 });
 
 test('getActiveHouses', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getActiveHouses();
   expect(data).toBeDefined();

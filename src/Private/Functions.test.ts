@@ -3,7 +3,7 @@ import Functions from './Functions.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Functions', () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   expect(client).toBeDefined();
   expectTypeOf(client).toEqualTypeOf<Client>();

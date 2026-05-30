@@ -3,7 +3,6 @@ import CacheHandler from './Private/CacheHandler.js';
 import Errors from './Errors.js';
 import Functions from './Private/Functions.js';
 import HypixelAPIRebornError from './Private/HypixelAPIRebornError.ts';
-import RateLimit from './Private/RateLimit.js';
 import RequestHandler from './Private/RequestHandler.js';
 import Updater from './Private/Updater.js';
 import type Achievements from './Structures/Static/Achievements/Achievements.js';
@@ -54,7 +53,6 @@ class Client {
   declare cacheHandler: CacheHandler;
   declare functions: Functions;
   declare updater: Updater;
-  declare rateLimit: RateLimit;
   readonly key: string;
   declare interval: NodeJS.Timeout;
   constructor(key: string, options?: ClientOptions) {
@@ -65,8 +63,6 @@ class Client {
     this.cacheHandler = new CacheHandler(this);
     this.functions = new Functions(this);
     this.updater = new Updater(this);
-    this.rateLimit = new RateLimit(this);
-    if (this.options.rateLimit !== 'NONE') this.rateLimit.initialize();
     for (const func in API) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
@@ -99,7 +95,6 @@ class Client {
     const clientIndex = clients.findIndex((client) => client.key === this.key);
     if (clientIndex !== -1) clients.splice(clientIndex, 1);
     if (this.interval) clearInterval(this.interval);
-    if (this.rateLimit.interval) clearInterval(this.rateLimit.interval);
   }
 
   private parasOptions(options?: ClientOptions): ClientOptions {
@@ -108,7 +103,6 @@ class Client {
       cacheTime: options?.cacheTime ?? 300,
       cacheMaxKeys: options?.cacheMaxKeys ?? -1,
       cacheCheckPeriod: options?.cacheCheckPeriod ?? 180,
-      rateLimit: options?.rateLimit ?? 'AUTO',
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
       checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,

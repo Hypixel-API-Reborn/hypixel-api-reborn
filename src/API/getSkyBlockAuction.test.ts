@@ -7,7 +7,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockAuctionResult } from '../Types/API.js';
 
 test('getSkyBlockAuction (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const auctions = await client.getSkyBlockAuctions(1);
   if (auctions.isRaw()) return;
@@ -22,7 +22,7 @@ test('getSkyBlockAuction (raw)', async () => {
 });
 
 test('getSkyBlockAuction (No Type Input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -31,7 +31,7 @@ test('getSkyBlockAuction (No Type Input)', async () => {
 });
 
 test('getSkyBlockAuction (Bad Type Input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -40,7 +40,7 @@ test('getSkyBlockAuction (Bad Type Input)', async () => {
 });
 
 test('getSkyBlockAuction (No Query Input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -49,7 +49,7 @@ test('getSkyBlockAuction (No Query Input)', async () => {
 });
 
 test('getSkyBlockAuction (PROFILE)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const auctions = await client.getSkyBlockAuctions(1);
   if (auctions.isRaw()) return;
@@ -68,7 +68,7 @@ test('getSkyBlockAuction (PROFILE)', async () => {
 });
 
 test('getSkyBlockAuction (PLAYER)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const auctions = await client.getSkyBlockAuctions(1);
   if (auctions.isRaw()) return;

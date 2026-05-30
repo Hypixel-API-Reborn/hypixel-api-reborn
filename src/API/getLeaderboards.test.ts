@@ -7,7 +7,7 @@ import { expect, expectTypeOf, test, vi } from 'vitest';
 import type { WithRaw } from '../Types/API.js';
 
 test('getLeaderboards (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getLeaderboards({ raw: true });
   expect(data).toBeDefined();
@@ -18,7 +18,7 @@ test('getLeaderboards (raw)', async () => {
 });
 
 test('getLeaderboards', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getLeaderboards();
   expect(data).toBeDefined();

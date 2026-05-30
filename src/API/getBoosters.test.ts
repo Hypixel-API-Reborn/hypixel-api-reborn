@@ -7,7 +7,7 @@ import type { GameCode, GameID, GameString } from '../Types/Game.js';
 import type { WithRaw } from '../Types/API.js';
 
 test('getBoosters (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getBoosters({ raw: true });
   expect(data).toBeDefined();
@@ -18,7 +18,7 @@ test('getBoosters (raw)', async () => {
 });
 
 test('getBoosters', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getBoosters();
   expect(data).toBeDefined();

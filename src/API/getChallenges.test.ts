@@ -7,7 +7,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { ChallengeReward } from '../Types/Static.js';
 
 test('getChallenges (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getChallenges({ raw: true });
   expect(data).toBeDefined();
@@ -18,7 +18,7 @@ test('getChallenges (raw)', async () => {
 });
 
 test('getChallenges', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getChallenges();
   expect(data).toBeDefined();

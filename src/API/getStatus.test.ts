@@ -6,7 +6,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 test('getStatus (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getStatus('4982eac19ae7422891b61a17a74c87a2', { raw: true });
   expect(data).toBeDefined();
@@ -17,7 +17,7 @@ test('getStatus (raw)', async () => {
 });
 
 test('getStatus', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getStatus('370d6421b761456fadf28c43fe5c4bcf');
   expect(data).toBeDefined();

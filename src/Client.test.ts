@@ -38,10 +38,6 @@ test('Client (No Options)', () => {
   expectTypeOf(client.options.cacheCheckPeriod).toEqualTypeOf<number | undefined>();
   expect(client.options.cacheCheckPeriod).toBe(180);
 
-  expect(client.options.rateLimit).toBeDefined();
-  expectTypeOf(client.options.rateLimit).toEqualTypeOf<'AUTO' | 'NONE' | undefined>();
-  expect(client.options.rateLimit).toBe('AUTO');
-
   expect(client.options.silent).toBeDefined();
   expectTypeOf(client.options.silent).toEqualTypeOf<boolean | undefined>();
   expect(client.options.silent).toBe(false);
@@ -76,7 +72,6 @@ test('Client (Options)', () => {
     cacheTime: 600,
     cacheMaxKeys: 100,
     cacheCheckPeriod: 300,
-    rateLimit: 'NONE',
     silent: true,
     checkForUpdates: false,
     checkForUpdatesInterval: 120
@@ -106,10 +101,6 @@ test('Client (Options)', () => {
   expect(client.options.cacheCheckPeriod).toBeDefined();
   expectTypeOf(client.options.cacheCheckPeriod).toEqualTypeOf<number | undefined>();
   expect(client.options.cacheCheckPeriod).toBe(300);
-
-  expect(client.options.rateLimit).toBeDefined();
-  expectTypeOf(client.options.rateLimit).toEqualTypeOf<'AUTO' | 'NONE' | undefined>();
-  expect(client.options.rateLimit).toBe('NONE');
 
   expect(client.options.silent).toBeDefined();
   expectTypeOf(client.options.silent).toEqualTypeOf<boolean | undefined>();

@@ -5,7 +5,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type SkyBlockBingoGoal from '../Structures/SkyBlock/Bingo/SkyBlockBingoGoal.js';
 
 test('getSkyBlockBingo (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBingo({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getSkyBlockBingo (raw)', async () => {
 });
 
 test('getSkyBlockBingo', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockBingo();
   expect(data).toBeDefined();

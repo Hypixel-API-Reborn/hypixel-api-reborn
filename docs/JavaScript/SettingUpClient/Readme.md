@@ -30,9 +30,10 @@ const HypixelAPIReborn = new Client("YOUR API_KEY");
 
 ## Sharing your Client Instance
 
-We recommend not creating multiple instances of Client because of how we manage ratelimiting and having it cause desync
-issues. Instead we recommend making one instance of Client then exporting it and importing it an any files that need the
-Client instance.
+We recommend not creating multiple instanced of Client as it will use more memory because of caching. It's also bad
+because hypixel only lets you request the same player so many times in a minute. This is where we cache stuff. Instead
+we recommend making one instance of Client then exporting it and importing it an any files that need the Client
+instance.
 
 ```JavaScript
 // File HypixelAPIReborn.js

@@ -5,7 +5,7 @@ import SkyBlockCollections from '../Structures/SkyBlock/Collections/SkyBlockColl
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('getSkyBlockCollections (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockCollections({ raw: true });
   expect(data).toBeDefined();
@@ -16,7 +16,7 @@ test('getSkyBlockCollections (raw)', async () => {
 });
 
 test('getSkyBlockCollections', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockCollections();
   expect(data).toBeDefined();

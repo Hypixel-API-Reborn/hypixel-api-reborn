@@ -8,7 +8,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { AchievementTier } from '../Types/Static.js';
 
 test('getAchievements (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getAchievements({ raw: true });
   expect(data).toBeDefined();
@@ -19,7 +19,7 @@ test('getAchievements (raw)', async () => {
 });
 
 test('getAchievements', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getAchievements();
   expect(data).toBeDefined();

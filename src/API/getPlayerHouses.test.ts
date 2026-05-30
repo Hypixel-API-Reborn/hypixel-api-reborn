@@ -6,7 +6,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { WithRaw } from '../Types/API.js';
 
 test('getPlayerHouses (No input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
@@ -15,7 +15,7 @@ test('getPlayerHouses (No input)', async () => {
 });
 
 test('getPlayerHouses (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getPlayerHouses('69e04609da2a4e7dabb83546a971969e', { raw: true });
   expect(data).toBeDefined();
@@ -26,7 +26,7 @@ test('getPlayerHouses (raw)', async () => {
 });
 
 test('getPlayerHouses', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getPlayerHouses('69e04609da2a4e7dabb83546a971969e');
   expect(data).toBeDefined();

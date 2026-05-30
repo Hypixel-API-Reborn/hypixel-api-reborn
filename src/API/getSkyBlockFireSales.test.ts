@@ -6,7 +6,7 @@ import { expect, expectTypeOf, test, vi } from 'vitest';
 import type { WithRaw } from '../Types/API.js';
 
 test('getSkyBlockFireSales (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockFireSales({ raw: true });
   expect(data).toBeDefined();
@@ -17,7 +17,7 @@ test('getSkyBlockFireSales (raw)', async () => {
 });
 
 test('getSkyBlockFireSales', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false, rateLimit: 'NONE' });
+  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   vi.spyOn(global, 'fetch').mockResolvedValue({
     ...defaultRequestData,
