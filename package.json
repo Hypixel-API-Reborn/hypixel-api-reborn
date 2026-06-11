@@ -74,7 +74,7 @@
     "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.4.1",
     "typedoc-plugin-rename-defaults": "^0.7.3",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.0",
     "vitest": "^3.2.6",
     "xml2js": "^0.6.2"
