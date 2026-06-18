@@ -42,6 +42,7 @@ import type {
   WithSelectedProfile
 } from './Types/API.js';
 import type { ClientOptions } from './Types/Client.js';
+import type { ClientOptions as MowojangClientOptions } from 'mowojang';
 import type { RequestOptions } from './Types/Requests.js';
 import type { SkyBlockProfileName } from './Types/SkyBlock.js';
 
@@ -58,7 +59,7 @@ class Client {
   constructor(key: string, options?: ClientOptions) {
     this.key = key;
     if (!this.key.length) throw new HypixelAPIRebornError(Errors.NO_API_KEY);
-    this.options = this.parasOptions(options);
+    this.options = this.parseOptions(options);
     this.requestHandler = new RequestHandler(this);
     this.cacheHandler = new CacheHandler(this);
     this.functions = new Functions(this);
@@ -97,7 +98,7 @@ class Client {
     if (this.interval) clearInterval(this.interval);
   }
 
-  private parasOptions(options?: ClientOptions): ClientOptions {
+  private parseOptions(options?: ClientOptions): ClientOptions {
     return {
       cache: options?.cache ?? true,
       cacheTime: options?.cacheTime ?? 300,
@@ -106,8 +107,12 @@ class Client {
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
       checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,
-      mowojangAPI: options?.mowojangAPI ?? {}
+      mowojangAPI: this.praseMowojangOptions(options?.mowojangAPI ?? {})
     };
+  }
+
+  private praseMowojangOptions(options?: MowojangClientOptions): MowojangClientOptions {
+    return { baseURL: options?.baseURL ?? 'https://mowojang.seraph.si' };
   }
 
   /* v8 ignore next 140 */
