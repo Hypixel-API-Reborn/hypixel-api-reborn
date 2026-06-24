@@ -3697,7 +3697,6 @@ export interface SkyHelperNetWorthProfileInventoryBagContents {
 export interface SkyHelperNetWorthProfileInventory {
   inv_armor: SkyHelperNetWorthProfileInventoryInventory;
   equipment_contents: SkyHelperNetWorthProfileInventoryInventory;
-  wardrobe_contents: SkyHelperNetWorthProfileInventoryInventory;
   inv_contents: SkyHelperNetWorthProfileInventoryInventory;
   ender_chest_contents: SkyHelperNetWorthProfileInventoryInventory;
   personal_vault_contents: SkyHelperNetWorthProfileInventoryInventory;
@@ -3724,6 +3723,48 @@ export interface SkyHelperNetWorthProfilePetsData {
   pets: SkyHelperNetWorthProfilePetsDataPet[];
 }
 
+export interface SkyHelperNetWorthProfileLoadoutArmorSlot {
+  id: number;
+  HELMET?: SkyHelperNetWorthProfileInventoryInventory;
+  CHESTPLATE?: SkyHelperNetWorthProfileInventoryInventory;
+  LEGGINGS?: SkyHelperNetWorthProfileInventoryInventory;
+  BOOTS?: SkyHelperNetWorthProfileInventoryInventory;
+}
+
+export interface SkyHelperNetWorthProfileLoadoutArmor {
+  '1'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '2'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '3'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '4'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '5'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '6'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '7'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '8'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '9'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '10'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '11'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '12'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '13'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '14'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '15'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '16'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '17'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '18'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '19'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '20'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '21'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '22'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '23'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '24'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '25'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '26'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+  '27'?: SkyHelperNetWorthProfileLoadoutArmorSlot;
+}
+
+export interface SkyHelperNetWorthProfileLoadout {
+  armor: SkyHelperNetWorthProfileLoadoutArmor;
+}
+
 export interface SkyHelperNetWorthProfile {
   currencies: SkyHelperNetWorthProfileCurrencies;
   profile: SkyHelperNetWorthProfileProfile;
@@ -3733,6 +3774,7 @@ export interface SkyHelperNetWorthProfile {
   shared_inventory: SkyHelperNetWorthProfileSharedInventory;
   pets_data: SkyHelperNetWorthProfilePetsData;
   sacks_counts: Record<string, number>;
+  loadout: SkyHelperNetWorthProfileLoadout;
 }
 
 export type SkyblockProfileWithMe = SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> };

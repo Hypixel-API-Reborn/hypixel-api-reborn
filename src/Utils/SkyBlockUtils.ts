@@ -224,7 +224,6 @@ export function PrepareSkyBlockProfileForSkyHelperNetworth(
     inventory: {
       inv_armor: { data: profile.me.inventory.armor.base64 ?? '' },
       equipment_contents: { data: profile.me.inventory.equipment.base64 ?? '' },
-      wardrobe_contents: { data: profile.me.inventory.wardrobe.base64 ?? '' },
       inv_contents: { data: profile.me.inventory.inventory.base64 ?? '' },
       ender_chest_contents: { data: profile.me.inventory.enderChest.base64 ?? '' },
       personal_vault_contents: { data: profile.me.inventory.personalVault.base64 ?? '' },
@@ -286,7 +285,200 @@ export function PrepareSkyBlockProfileForSkyHelperNetworth(
         return { type: pet.type, tier: pet.tier, exp: pet.level.xp, heldItem: pet.heldItem, skin: pet.skin };
       })
     },
-    sacks_counts: profile.me.inventory.sacksCounts
+    sacks_counts: profile.me.inventory.sacksCounts,
+    loadout: {
+      armor: {
+        '1': {
+          id: 1,
+          HELMET: { data: profile.me.inventory.wardrobe.slot1?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot1?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot1?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot1?.boots?.base64 ?? '' }
+        },
+        '2': {
+          id: 2,
+          HELMET: { data: profile.me.inventory.wardrobe.slot2?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot2?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot2?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot2?.boots?.base64 ?? '' }
+        },
+        '3': {
+          id: 3,
+          HELMET: { data: profile.me.inventory.wardrobe.slot3?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot3?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot3?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot3?.boots?.base64 ?? '' }
+        },
+        '4': {
+          id: 4,
+          HELMET: { data: profile.me.inventory.wardrobe.slot4?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot4?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot4?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot4?.boots?.base64 ?? '' }
+        },
+        '5': {
+          id: 5,
+          HELMET: { data: profile.me.inventory.wardrobe.slot5?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot5?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot5?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot5?.boots?.base64 ?? '' }
+        },
+        '6': {
+          id: 6,
+          HELMET: { data: profile.me.inventory.wardrobe.slot6?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot6?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot6?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot6?.boots?.base64 ?? '' }
+        },
+        '7': {
+          id: 7,
+          HELMET: { data: profile.me.inventory.wardrobe.slot7?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot7?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot7?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot7?.boots?.base64 ?? '' }
+        },
+        '8': {
+          id: 8,
+          HELMET: { data: profile.me.inventory.wardrobe.slot8?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot8?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot8?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot8?.boots?.base64 ?? '' }
+        },
+        '9': {
+          id: 9,
+          HELMET: { data: profile.me.inventory.wardrobe.slot9?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot9?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot9?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot9?.boots?.base64 ?? '' }
+        },
+        '10': {
+          id: 10,
+          HELMET: { data: profile.me.inventory.wardrobe.slot10?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot10?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot10?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot10?.boots?.base64 ?? '' }
+        },
+        '11': {
+          id: 11,
+          HELMET: { data: profile.me.inventory.wardrobe.slot11?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot11?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot11?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot11?.boots?.base64 ?? '' }
+        },
+        '12': {
+          id: 12,
+          HELMET: { data: profile.me.inventory.wardrobe.slot12?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot12?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot12?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot12?.boots?.base64 ?? '' }
+        },
+        '13': {
+          id: 13,
+          HELMET: { data: profile.me.inventory.wardrobe.slot13?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot13?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot13?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot13?.boots?.base64 ?? '' }
+        },
+        '14': {
+          id: 14,
+          HELMET: { data: profile.me.inventory.wardrobe.slot14?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot14?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot14?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot14?.boots?.base64 ?? '' }
+        },
+        '15': {
+          id: 15,
+          HELMET: { data: profile.me.inventory.wardrobe.slot15?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot15?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot15?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot15?.boots?.base64 ?? '' }
+        },
+        '16': {
+          id: 16,
+          HELMET: { data: profile.me.inventory.wardrobe.slot16?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot16?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot16?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot16?.boots?.base64 ?? '' }
+        },
+        '17': {
+          id: 17,
+          HELMET: { data: profile.me.inventory.wardrobe.slot17?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot17?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot17?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot17?.boots?.base64 ?? '' }
+        },
+        '18': {
+          id: 18,
+          HELMET: { data: profile.me.inventory.wardrobe.slot18?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot18?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot18?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot18?.boots?.base64 ?? '' }
+        },
+        '19': {
+          id: 19,
+          HELMET: { data: profile.me.inventory.wardrobe.slot19?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot19?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot19?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot19?.boots?.base64 ?? '' }
+        },
+        '20': {
+          id: 20,
+          HELMET: { data: profile.me.inventory.wardrobe.slot20?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot20?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot20?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot20?.boots?.base64 ?? '' }
+        },
+        '21': {
+          id: 21,
+          HELMET: { data: profile.me.inventory.wardrobe.slot21?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot21?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot21?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot21?.boots?.base64 ?? '' }
+        },
+        '22': {
+          id: 22,
+          HELMET: { data: profile.me.inventory.wardrobe.slot22?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot22?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot22?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot22?.boots?.base64 ?? '' }
+        },
+        '23': {
+          id: 23,
+          HELMET: { data: profile.me.inventory.wardrobe.slot23?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot23?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot23?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot23?.boots?.base64 ?? '' }
+        },
+        '24': {
+          id: 24,
+          HELMET: { data: profile.me.inventory.wardrobe.slot24?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot24?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot24?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot24?.boots?.base64 ?? '' }
+        },
+        '25': {
+          id: 25,
+          HELMET: { data: profile.me.inventory.wardrobe.slot25?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot25?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot25?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot25?.boots?.base64 ?? '' }
+        },
+        '26': {
+          id: 26,
+          HELMET: { data: profile.me.inventory.wardrobe.slot26?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot26?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot26?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot26?.boots?.base64 ?? '' }
+        },
+        '27': {
+          id: 27,
+          HELMET: { data: profile.me.inventory.wardrobe.slot27?.helmet?.base64 ?? '' },
+          CHESTPLATE: { data: profile.me.inventory.wardrobe.slot27?.chestplate?.base64 ?? '' },
+          LEGGINGS: { data: profile.me.inventory.wardrobe.slot27?.leggings?.base64 ?? '' },
+          BOOTS: { data: profile.me.inventory.wardrobe.slot27?.boots?.base64 ?? '' }
+        }
+      }
+    }
   };
   /* eslint-enable camelcase */
   /* eslint-enable quote-props */

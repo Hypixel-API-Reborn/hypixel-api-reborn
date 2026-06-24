@@ -4,10 +4,11 @@ import SkyBlockMemberInventoriesBackpacks from './Backpacks/SkyBlockMemberInvent
 import SkyBlockMemberInventoriesBags from './Bags/SkyBlockMemberInventoriesBags.js';
 import SkyBlockMemberInventoriesEquipment from './Equipment/SkyBlockMemberInventoriesEquipment.js';
 import SkyBlockMemberInventoriesInventory from './Inventory/SkyBlockMemberInventoriesInventory.js';
+import SkyBlockMemberInventoriesWardrobe from './Wardrobe/SkyBlockMemberInventoriesWardrobe.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventories', () => {
-  const data = new SkyBlockMemberInventories({ stats: 'meow' }, { stats: 'meow' });
+  const data = new SkyBlockMemberInventories({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberInventories);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberInventories>();
@@ -33,8 +34,8 @@ test('SkyBlockMemberInventories', () => {
   expect(data.personalVault).toBeInstanceOf(SkyBlockMemberInventoriesInventory);
   expectTypeOf(data.personalVault).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
   expect(data.wardrobe).toBeDefined();
-  expect(data.wardrobe).toBeInstanceOf(SkyBlockMemberInventoriesInventory);
-  expectTypeOf(data.wardrobe).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
+  expect(data.wardrobe).toBeInstanceOf(SkyBlockMemberInventoriesWardrobe);
+  expectTypeOf(data.wardrobe).toEqualTypeOf<SkyBlockMemberInventoriesWardrobe>();
   expect(data.sacksCounts).toBeDefined();
   expectTypeOf(data.sacksCounts).toEqualTypeOf<Record<string, number>>();
   expect(data.candy).toBeDefined();

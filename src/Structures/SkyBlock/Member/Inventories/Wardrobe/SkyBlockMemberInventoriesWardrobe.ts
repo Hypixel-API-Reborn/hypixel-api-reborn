@@ -1,0 +1,61 @@
+import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.ts';
+
+class SkyBlockMemberInventoriesWardrobe {
+  slot1: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot2: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot3: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot4: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot5: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot6: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot7: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot8: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot9: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot10: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot11: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot12: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot13: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot14: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot15: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot16: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot17: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot18: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot19: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot20: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot21: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot22: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot23: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot24: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot25: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot26: SkyBlockMemberInventoriesWardrobeSlot | null;
+  slot27: SkyBlockMemberInventoriesWardrobeSlot | null;
+  constructor(data: Record<string, any>) {
+    this.slot1 = data?.[1] ? new SkyBlockMemberInventoriesWardrobeSlot(data[1]) : null;
+    this.slot2 = data?.[2] ? new SkyBlockMemberInventoriesWardrobeSlot(data[2]) : null;
+    this.slot3 = data?.[3] ? new SkyBlockMemberInventoriesWardrobeSlot(data[3]) : null;
+    this.slot4 = data?.[4] ? new SkyBlockMemberInventoriesWardrobeSlot(data[4]) : null;
+    this.slot5 = data?.[5] ? new SkyBlockMemberInventoriesWardrobeSlot(data[5]) : null;
+    this.slot6 = data?.[6] ? new SkyBlockMemberInventoriesWardrobeSlot(data[6]) : null;
+    this.slot7 = data?.[7] ? new SkyBlockMemberInventoriesWardrobeSlot(data[7]) : null;
+    this.slot8 = data?.[8] ? new SkyBlockMemberInventoriesWardrobeSlot(data[8]) : null;
+    this.slot9 = data?.[9] ? new SkyBlockMemberInventoriesWardrobeSlot(data[9]) : null;
+    this.slot10 = data?.[10] ? new SkyBlockMemberInventoriesWardrobeSlot(data[10]) : null;
+    this.slot11 = data?.[11] ? new SkyBlockMemberInventoriesWardrobeSlot(data[11]) : null;
+    this.slot12 = data?.[12] ? new SkyBlockMemberInventoriesWardrobeSlot(data[12]) : null;
+    this.slot13 = data?.[13] ? new SkyBlockMemberInventoriesWardrobeSlot(data[13]) : null;
+    this.slot14 = data?.[14] ? new SkyBlockMemberInventoriesWardrobeSlot(data[14]) : null;
+    this.slot15 = data?.[15] ? new SkyBlockMemberInventoriesWardrobeSlot(data[15]) : null;
+    this.slot16 = data?.[16] ? new SkyBlockMemberInventoriesWardrobeSlot(data[16]) : null;
+    this.slot17 = data?.[17] ? new SkyBlockMemberInventoriesWardrobeSlot(data[17]) : null;
+    this.slot18 = data?.[18] ? new SkyBlockMemberInventoriesWardrobeSlot(data[18]) : null;
+    this.slot19 = data?.[19] ? new SkyBlockMemberInventoriesWardrobeSlot(data[19]) : null;
+    this.slot20 = data?.[20] ? new SkyBlockMemberInventoriesWardrobeSlot(data[20]) : null;
+    this.slot21 = data?.[21] ? new SkyBlockMemberInventoriesWardrobeSlot(data[21]) : null;
+    this.slot22 = data?.[22] ? new SkyBlockMemberInventoriesWardrobeSlot(data[22]) : null;
+    this.slot23 = data?.[23] ? new SkyBlockMemberInventoriesWardrobeSlot(data[23]) : null;
+    this.slot24 = data?.[24] ? new SkyBlockMemberInventoriesWardrobeSlot(data[24]) : null;
+    this.slot25 = data?.[25] ? new SkyBlockMemberInventoriesWardrobeSlot(data[25]) : null;
+    this.slot26 = data?.[26] ? new SkyBlockMemberInventoriesWardrobeSlot(data[26]) : null;
+    this.slot27 = data?.[27] ? new SkyBlockMemberInventoriesWardrobeSlot(data[27]) : null;
+  }
+}
+export default SkyBlockMemberInventoriesWardrobe;

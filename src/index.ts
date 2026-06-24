@@ -224,6 +224,7 @@ import Quest from './Structures/Static/Quest.js';
 import QuestObjective from './Structures/Static/QuestObjective.js';
 import Quests from './Structures/Static/Quests.js';
 import RPG16 from './Structures/MiniGames/Arcade/PartyGames/RPG16.js';
+import RawSkyBlockInventoryItem from './Structures/SkyBlock/Inventory/RawSkyBlockInventoryItem.js';
 import RecentGame from './Structures/RecentGame.js';
 import SantaSays from './Structures/MiniGames/Arcade/SantaSays.js';
 import SantaSimulator from './Structures/MiniGames/Arcade/SantaSimulator.js';
@@ -307,6 +308,8 @@ import SkyBlockMemberInventoriesEquipment from './Structures/SkyBlock/Member/Inv
 import SkyBlockMemberInventoriesEquipmentDecoded from './Structures/SkyBlock/Member/Inventories/Equipment/SkyBlockMemberInventoriesEquipmentDecoded.js';
 import SkyBlockMemberInventoriesInventory from './Structures/SkyBlock/Member/Inventories/Inventory/SkyBlockMemberInventoriesInventory.js';
 import SkyBlockMemberInventoriesInventoryDecoded from './Structures/SkyBlock/Member/Inventories/Inventory/SkyBlockMemberInventoriesInventoryDecoded.js';
+import SkyBlockMemberInventoriesWardrobe from './Structures/SkyBlock/Member/Inventories/Wardrobe/SkyBlockMemberInventoriesWardrobe.js';
+import SkyBlockMemberInventoriesWardrobeSlot from './Structures/SkyBlock/Member/Inventories/Wardrobe/SkyBlockMemberInventoriesWardrobeSlot.js';
 import SkyBlockMemberJacobContest from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContest.js';
 import SkyBlockMemberJacobContests from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberJacobContestsMedals from './Structures/SkyBlock/Member/JacobContests/SkyBlockMemberJacobContestsMedals.js';
@@ -653,6 +656,7 @@ export {
   QuestObjective,
   Quests,
   RPG16,
+  RawSkyBlockInventoryItem,
   RecentGame,
   SantaSays,
   SantaSimulator,
@@ -736,6 +740,8 @@ export {
   SkyBlockMemberInventoriesEquipmentDecoded,
   SkyBlockMemberInventoriesInventory,
   SkyBlockMemberInventoriesInventoryDecoded,
+  SkyBlockMemberInventoriesWardrobe,
+  SkyBlockMemberInventoriesWardrobeSlot,
   SkyBlockMemberJacobContest,
   SkyBlockMemberJacobContests,
   SkyBlockMemberJacobContestsMedals,
@@ -1083,6 +1089,7 @@ export default {
   QuestObjective,
   Quests,
   RPG16,
+  RawSkyBlockInventoryItem,
   RecentGame,
   SantaSays,
   SantaSimulator,
@@ -1166,6 +1173,8 @@ export default {
   SkyBlockMemberInventoriesEquipmentDecoded,
   SkyBlockMemberInventoriesInventory,
   SkyBlockMemberInventoriesInventoryDecoded,
+  SkyBlockMemberInventoriesWardrobe,
+  SkyBlockMemberInventoriesWardrobeSlot,
   SkyBlockMemberJacobContest,
   SkyBlockMemberJacobContests,
   SkyBlockMemberJacobContestsMedals,
