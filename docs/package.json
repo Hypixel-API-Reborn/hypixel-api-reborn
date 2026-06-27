@@ -20,6 +20,10 @@
     "yarn": "forbidden, use pnpm instead",
     "bun": "forbidden, use pnpm instead"
   },
+  "dependencies": {
+    "hypixel-api-reborn": "catalog:",
+    "skyhelper-networth": "catalog:"
+  },
   "devDependencies": {
     "tsx": "catalog:",
     "typescript": "catalog:",

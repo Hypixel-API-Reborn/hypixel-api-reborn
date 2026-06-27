@@ -2,6 +2,7 @@
   "name": "@hypixel-api-reborn-docs/javascript-sky-helper-networth",
   "type": "module",
   "dependencies": {
-    "hypixel-api-reborn": "catalog:"
+    "hypixel-api-reborn": "catalog:",
+    "skyhelper-networth": "catalog:"
   }
 }
