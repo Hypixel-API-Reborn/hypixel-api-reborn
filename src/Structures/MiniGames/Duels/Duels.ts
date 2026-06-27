@@ -45,6 +45,9 @@ class Duels {
   bridge: DuelsBridge;
   parkour: DuelsGamemode;
   arena: DuelsGamemode;
+  boxing: DuelsGamemode;
+  bedwars: DuelsGamemode;
+  bedwarsRush: DuelsGamemode;
   constructor(data: Record<string, any>) {
     this.tokens = data?.coins || data?.tokens || 0;
     this.title = Duels.getTitle(data, 'all_modes');
@@ -81,6 +84,9 @@ class Duels {
     this.bridge = new DuelsBridge(data);
     this.parkour = new DuelsGamemode(data, 'parkour_eight', Duels.getTitle(data, 'parkour'));
     this.arena = new DuelsGamemode(data, 'duel_arena');
+    this.boxing = new DuelsGamemode(data, 'boxing_duel');
+    this.bedwars = new DuelsGamemode(data, 'bedwars_two_one_duels');
+    this.bedwarsRush = new DuelsGamemode(data, 'bedwars_two_one_duels_rush');
   }
 
   static getTitle(data: Record<string, any>, mode: 'all_modes' | DuelsMode): string {

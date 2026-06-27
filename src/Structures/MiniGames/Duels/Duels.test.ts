@@ -116,4 +116,13 @@ test('Duels', () => {
   expect(data.arena).toBeDefined();
   expect(data.arena).toBeInstanceOf(DuelsGamemode);
   expectTypeOf(data.arena).toEqualTypeOf<DuelsGamemode>();
+  expect(data.boxing).toBeDefined();
+  expect(data.boxing).toBeInstanceOf(DuelsGamemode);
+  expectTypeOf(data.boxing).toEqualTypeOf<DuelsGamemode>();
+  expect(data.bedwars).toBeDefined();
+  expect(data.bedwars).toBeInstanceOf(DuelsGamemode);
+  expectTypeOf(data.bedwars).toEqualTypeOf<DuelsGamemode>();
+  expect(data.bedwarsRush).toBeDefined();
+  expect(data.bedwarsRush).toBeInstanceOf(DuelsGamemode);
+  expectTypeOf(data.bedwarsRush).toEqualTypeOf<DuelsGamemode>();
 });

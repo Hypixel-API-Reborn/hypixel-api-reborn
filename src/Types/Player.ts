@@ -166,7 +166,10 @@ export const DuelsModes = [
   'parkour_eight',
   'duel_arena',
   'op_duel',
-  'op_doubles'
+  'op_doubles',
+  'boxing_duel',
+  'bedwars_two_one_duels_rush',
+  'bedwars_two_one_duels'
 ] as const;
 export type DuelsMode = (typeof DuelsModes)[number];
 
