@@ -10,8 +10,8 @@ catalogs:
       specifier: 12.0.0-27
       version: 12.0.0-27
     prettier:
-      specifier: 3.8.4
-      version: 3.8.4
+      specifier: 3.9.4
+      version: 3.9.4
     skyhelper-networth:
       specifier: 2.7.5
       version: 2.7.5
@@ -38,7 +38,7 @@ importers:
     devDependencies:
       prettier:
         specifier: 'catalog:'
-        version: 3.8.4
+        version: 3.9.4
       tsx:
         specifier: 'catalog:'
         version: 4.22.4
@@ -447,8 +447,8 @@ packages:
   object-code@2.0.0:
     resolution: {integrity: sha512-qOwMF43O/VAD51nJAB7MKsf1yWksql6O1i0DHRo1yaOQM6xJQH0NAE9UKJzYB7lyKw1jnpeb2BmB8qakjxiYZA==}
 
-  prettier@3.8.4:
-    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
+  prettier@3.9.4:
+    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -829,7 +829,7 @@ snapshots:
 
   object-code@2.0.0: {}
 
-  prettier@3.8.4: {}
+  prettier@3.9.4: {}
 
   prismarine-nbt@2.7.0:
     dependencies:
