@@ -5,8 +5,8 @@ class SkyBlockMemberPlayerStatsSpookyFestival {
   total: number;
   constructor(data: Record<string, any>, year: number) {
     this.year = year;
-    this.green = data?.green_candy || 0;
-    this.purple = data?.purple_candy || 0;
+    this.green = data?.green_candy ?? 0;
+    this.purple = data?.purple_candy ?? 0;
     this.total = this.green + this.purple;
   }
 

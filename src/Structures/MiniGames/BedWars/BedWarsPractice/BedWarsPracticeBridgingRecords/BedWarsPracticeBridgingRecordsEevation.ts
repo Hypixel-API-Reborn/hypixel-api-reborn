@@ -11,8 +11,8 @@ class BedWarsPracticeBridgingRecordsEevation {
     distance: BedWarsPracticeBridgingRecordsDistanceId,
     elevation: BedWarsPracticeBridgingRecordsElevation
   ) {
-    this.diagonal = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_DIAGONAL`] || 0;
-    this.straight = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_STRAIGHT`] || 0;
+    this.diagonal = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_DIAGONAL`] ?? 0;
+    this.straight = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_STRAIGHT`] ?? 0;
   }
 }
 

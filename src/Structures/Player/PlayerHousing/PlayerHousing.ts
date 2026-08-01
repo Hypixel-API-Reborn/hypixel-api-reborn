@@ -12,13 +12,13 @@ class PlayerHousing {
   playerSettings: PlayerHousingPlayerSettings;
   givenCookies: PlayerHousingGivenCookies[];
   constructor(data: Record<string, any>) {
-    this.allowedBlocks = data?.allowedBlocks || [];
-    this.packages = data?.packages || [];
-    this.playerSettings = new PlayerHousingPlayerSettings(data?.playerSettings || {});
-    this.tutorialStage = data?.tutorialStep || 'UNKNOWN';
-    this.firstHouseJoinTimestamp = data.firstHouseJoinMs || null;
+    this.allowedBlocks = data?.allowedBlocks ?? [];
+    this.packages = data?.packages ?? [];
+    this.playerSettings = new PlayerHousingPlayerSettings(data?.playerSettings ?? {});
+    this.tutorialStage = data?.tutorialStep ?? 'UNKNOWN';
+    this.firstHouseJoinTimestamp = data.firstHouseJoinMs ?? null;
     this.firstHouseJoinAt = this.firstHouseJoinTimestamp ? new Date(this.firstHouseJoinTimestamp) : null;
-    this.plotSize = data?.plotSize || 'UNKNOWN';
+    this.plotSize = data?.plotSize ?? 'UNKNOWN';
     this.givenCookies = [];
     Object.keys(data)
       .filter((key) => key.startsWith('given_cookies_'))

@@ -18,9 +18,9 @@ test('BlitzSurvivalGamesData', () => {
   expect(data.losses).toBeDefined();
   expect(data.losses).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.losses).toEqualTypeOf<number>();
-  expect(data.WLRatio).toBeDefined();
-  expect(data.WLRatio).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.WLRatio).toEqualTypeOf<number>();
+  expect(data.winLossRatio).toBeDefined();
+  expect(data.winLossRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winLossRatio).toEqualTypeOf<number>();
   expect(data.arrowsHit).toBeDefined();
   expect(data.arrowsHit).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.arrowsHit).toEqualTypeOf<number>();
@@ -78,9 +78,9 @@ test('BlitzSurvivalGamesData', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
-  expect(data.KDRatio).toBeDefined();
-  expect(data.KDRatio).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.KDRatio).toEqualTypeOf<number>();
+  expect(data.killDeathRatio).toBeDefined();
+  expect(data.killDeathRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killDeathRatio).toEqualTypeOf<number>();
   expect(data.mobsSpawned).toBeDefined();
   expect(data.mobsSpawned).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.mobsSpawned).toEqualTypeOf<number>();

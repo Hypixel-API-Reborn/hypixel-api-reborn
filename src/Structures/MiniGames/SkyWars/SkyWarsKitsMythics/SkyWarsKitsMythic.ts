@@ -1,6 +1,6 @@
-import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.ts';
-import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/ParseMode.ts';
-import type { SkyWarsMythicKitId } from '../../../../Types/Player.ts';
+import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.js';
+import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/ParseMode.js';
+import type { SkyWarsMythicKitId } from '../../../../Types/Player.js';
 
 class SkyWarsKitsMythic extends BaseSkyWarsMode {
   autoEquipArmor: boolean;
@@ -8,8 +8,8 @@ class SkyWarsKitsMythic extends BaseSkyWarsMode {
   constructor(data: Record<string, any>, kit?: SkyWarsMythicKitId) {
     kit = ParseModeAfter(kit) as SkyWarsMythicKitId;
     super(data, kit);
-    this.autoEquipArmor = data?.[`${ParseModeBefore(kit)}inventory_auto_equip_armor`] || true;
-    this.xp = data?.[`xp${kit}`] || 0;
+    this.autoEquipArmor = data?.[`${ParseModeBefore(kit)}inventory_auto_equip_armor`] ?? true;
+    this.xp = data?.[`xp${kit}`] ?? 0;
   }
 }
 

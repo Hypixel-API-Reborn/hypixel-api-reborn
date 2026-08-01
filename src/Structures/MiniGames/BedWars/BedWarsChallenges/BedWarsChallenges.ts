@@ -36,9 +36,9 @@ class BedWarsChallenges {
   weightedItems: BedWarsChallenge;
   woodworker: BedWarsChallenge;
   constructor(data: Record<string, any>) {
-    this.uniqueChallengesCompleted = data?.bw_unique_challenges_completed || 0;
-    this.selectedChallengeType = data?.selected_challenge_type || 'NONE';
-    this.totalChallengesCompleted = data?.total_challenges_completed || 0;
+    this.uniqueChallengesCompleted = data?.bw_unique_challenges_completed ?? 0;
+    this.selectedChallengeType = data?.selected_challenge_type ?? 'NONE';
+    this.totalChallengesCompleted = data?.total_challenges_completed ?? 0;
     this.archerOnly = new BedWarsChallenge(data, 'archer_only');
     this.assassin = new BedWarsChallenge(data, 'assassin');
     this.cantTouchThis = new BedWarsChallenge(data, 'cant_touch_this');

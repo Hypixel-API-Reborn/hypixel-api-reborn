@@ -10,7 +10,7 @@ class SkyBlockMemberObjectives {
         obj[key] = data[key];
         return obj;
       }, {});
-    this.tutorial = data?.tutorial || [];
+    this.tutorial = data?.tutorial ?? [];
   }
 }
 

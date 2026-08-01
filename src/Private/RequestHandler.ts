@@ -1,6 +1,6 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
-import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
+import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 import RequestData from './RequestData.js';
 import { Client as MowojangClient } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';

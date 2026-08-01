@@ -1,6 +1,6 @@
-import BaseKillsDeathsType from '../../Shared/BaseKillDeathsType.ts';
-import Divide from '../../../../Utils/Divide.ts';
-import { ParseModeBefore } from '../../../../Utils/ParseMode.ts';
+import BaseKillsDeathsType from '../../Shared/BaseKillDeathsType.js';
+import Divide from '../../../../Utils/Divide.js';
+import { ParseModeBefore } from '../../../../Utils/ParseMode.js';
 import type { BedWarsFinalType, BedWarsModeId } from '../../../../Types/Player.js';
 
 class BedWarsKillsDeathsType extends BaseKillsDeathsType {
@@ -8,8 +8,8 @@ class BedWarsKillsDeathsType extends BaseKillsDeathsType {
     type = ParseModeBefore(type) as BedWarsFinalType;
     mode = ParseModeBefore(mode) as BedWarsModeId;
     super(data);
-    this.kills = data?.[`${mode}${type}${finals ? 'final_' : ''}kills_bedwars`] || 0;
-    this.deaths = data?.[`${mode}${type}${finals ? 'final_' : ''}deaths_bedwars`] || 0;
+    this.kills = data?.[`${mode}${type}${finals ? 'final_' : ''}kills_bedwars`] ?? 0;
+    this.deaths = data?.[`${mode}${type}${finals ? 'final_' : ''}deaths_bedwars`] ?? 0;
     this.ratio = Divide(this.kills, this.deaths);
   }
 }

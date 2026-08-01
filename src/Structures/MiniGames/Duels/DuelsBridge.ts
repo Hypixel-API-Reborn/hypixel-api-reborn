@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import Duels from './Duels.ts';
+import Duels from './Duels.js';
 import DuelsGamemode from './DuelsGamemode.js';
 
 class DuelsBridge {
@@ -15,10 +15,10 @@ class DuelsBridge {
   ctf: DuelsGamemode;
   kills: number;
   deaths: number;
-  KDR: number;
+  killDeathRatio: number;
   wins: number;
   losses: number;
-  WLR: number;
+  winLossRatio: number;
   playedGames: number;
   swings: number;
   hits: number;
@@ -31,8 +31,8 @@ class DuelsBridge {
   goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = Duels.getTitle(data, 'bridge');
-    this.winStreak = data?.current_bridge_winstreak || 0;
-    this.bestWinStreak = data?.best_bridge_winstreak || 0;
+    this.winStreak = data?.current_bridge_winstreak ?? 0;
+    this.bestWinStreak = data?.best_bridge_winstreak ?? 0;
     this.solo = new DuelsGamemode(data, 'bridge_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'bridge_doubles', this.title);
     this.threes = new DuelsGamemode(data, 'bridge_threes', this.title);
@@ -56,7 +56,7 @@ class DuelsBridge {
       this['2v2v2v2'].deaths +
       this['3v3v3v3'].deaths +
       this.ctf.deaths;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.killDeathRatio = Divide(this.kills, this.deaths);
     this.wins =
       this.solo.wins +
       this.doubles.wins +
@@ -73,7 +73,7 @@ class DuelsBridge {
       this['2v2v2v2'].losses +
       this['3v3v3v3'].losses +
       this.ctf.losses;
-    this.WLR = Divide(this.wins, this.losses);
+    this.winLossRatio = Divide(this.wins, this.losses);
     this.playedGames =
       this.solo.playedGames +
       this.doubles.playedGames +

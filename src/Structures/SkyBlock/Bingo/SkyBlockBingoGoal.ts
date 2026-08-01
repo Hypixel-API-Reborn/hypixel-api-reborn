@@ -17,14 +17,14 @@ class SkyBlockBingoGoal {
   requiredAmount: number | null;
   type: SkyBlockBingoGoalType;
   constructor(data: Record<string, any>, position: number = 0) {
-    this.id = data?.id || 'UNKNOWN';
-    this.name = data?.name || 'UNKNOWN';
+    this.id = data?.id ?? 'UNKNOWN';
+    this.name = data?.name ?? 'UNKNOWN';
     const [row, column] = parsePosition(position);
     this.row = row;
     this.column = column;
-    this.lore = data?.lore || 'UNKNOWN';
-    this.progress = data?.progress || 0;
-    this.tiers = Array.isArray(data.tiers) ? data.tiers.map((x) => parseInt(x, 10) || 0) : [];
+    this.lore = data?.lore ?? 'UNKNOWN';
+    this.progress = data?.progress ?? 0;
+    this.tiers = Array.isArray(data.tiers) ? data.tiers.map((x) => parseInt(x, 10) ?? 0) : [];
     this.requiredAmount = parseInt(data.requiredAmount, 10) ?? null;
     this.type = this.tiers ? 'TIERED' : this.requiredAmount ? 'ONE_TIER' : 'ONE_TIME';
   }

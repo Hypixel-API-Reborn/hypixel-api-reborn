@@ -5,8 +5,8 @@ class SkyBlockMemberQuests {
   harp: SkyBlockMemberQuestsHarp;
   trapper: SkyBlockMemberQuestsTrapper;
   constructor(data: Record<string, any>) {
-    this.harp = new SkyBlockMemberQuestsHarp(data?.harp_quest || {});
-    this.trapper = new SkyBlockMemberQuestsTrapper(data?.trapper_quest || {});
+    this.harp = new SkyBlockMemberQuestsHarp(data?.harp_quest ?? {});
+    this.trapper = new SkyBlockMemberQuestsTrapper(data?.trapper_quest ?? {});
   }
 }
 

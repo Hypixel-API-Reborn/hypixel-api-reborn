@@ -1,5 +1,5 @@
 import SkyBlockMemberSkillTree from './SkyBlockMemberSkillTree.js';
-import type { MiningPickaxeAbility } from '../../../../Types/SkyBlock.ts';
+import type { MiningPickaxeAbility } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberSkillTrees {
   mining: SkyBlockMemberSkillTree<MiningPickaxeAbility>;
@@ -8,7 +8,7 @@ class SkyBlockMemberSkillTrees {
   constructor(data: Record<string, any>) {
     this.mining = new SkyBlockMemberSkillTree<MiningPickaxeAbility>(data, 'mining', 'mountain');
     this.foraging = new SkyBlockMemberSkillTree<MiningPickaxeAbility>(data, 'foraging', 'forest');
-    this.refundAbilityFree = data?.refund_ability_free || false;
+    this.refundAbilityFree = data?.refund_ability_free ?? false;
   }
 }
 

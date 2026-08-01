@@ -1,4 +1,4 @@
-import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsGeneric from '../GameCountsGeneric.js';
 import GameCountsUHCModes from './GameCountsUHCModes.js';
 
 class GameCountsUHC extends GameCountsGeneric {

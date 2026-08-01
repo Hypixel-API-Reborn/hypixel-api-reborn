@@ -1,5 +1,5 @@
-import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.ts';
-import SkyWarsSoloKitsLabAdvanced from './SkyWarsSoloKitsLabAdvanced.ts';
+import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.js';
+import SkyWarsSoloKitsLabAdvanced from './SkyWarsSoloKitsLabAdvanced.js';
 import SkyWarsSoloKitsLabBasic from './SkyWarsSoloKitsLabBasic.js';
 
 class SkyWarsSoloKitsLab {

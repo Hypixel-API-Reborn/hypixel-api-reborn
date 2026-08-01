@@ -1,4 +1,4 @@
-import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
 
 class SkyWarsSoloKitsBasic {
   default: BaseSkyWarsMode;

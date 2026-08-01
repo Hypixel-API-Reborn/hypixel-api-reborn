@@ -7,11 +7,11 @@ class SkyBlockMemberJacobContestsUniqueBrackets {
   platinum: JacobCrop[];
   diamond: JacobCrop[];
   constructor(data: Record<string, any>) {
-    this.bronze = data?.bronze || [];
-    this.silver = data?.silver || [];
-    this.gold = data?.gold || [];
-    this.platinum = data?.platinum || [];
-    this.diamond = data?.diamond || [];
+    this.bronze = data?.bronze ?? [];
+    this.silver = data?.silver ?? [];
+    this.gold = data?.gold ?? [];
+    this.platinum = data?.platinum ?? [];
+    this.diamond = data?.diamond ?? [];
   }
 }
 

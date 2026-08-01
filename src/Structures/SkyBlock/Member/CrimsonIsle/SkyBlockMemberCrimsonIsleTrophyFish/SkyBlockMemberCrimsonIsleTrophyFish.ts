@@ -24,7 +24,7 @@ class SkyBlockMemberCrimsonIsleTrophyFish {
   moldfin: SkyBlockMemberCrimsonIsleTrophyFishFish;
   caught: SkyBlockMemberCrimsonIsleTrophyFishCaught;
   constructor(data: Record<string, any>) {
-    const rewards = data?.rewards || [1];
+    const rewards = data?.rewards ?? [1];
     this.rank = SkyBlockMemberCrimsonIsleTrophyFish.getTrophyFishRank(rewards[rewards.length - 1]);
     this.gusher = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'gusher');
     this.blobfish = new SkyBlockMemberCrimsonIsleTrophyFishFish(data, 'blobfish');

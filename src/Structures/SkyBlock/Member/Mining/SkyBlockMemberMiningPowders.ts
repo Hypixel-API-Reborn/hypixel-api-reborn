@@ -5,9 +5,9 @@ class SkyBlockMemberMiningPowders {
   gemstone: SkyBlockMemberMiningPowder;
   glacite: SkyBlockMemberMiningPowder;
   constructor(data: Record<string, any>) {
-    this.mithril = new SkyBlockMemberMiningPowder(data || {}, 'mithril');
-    this.gemstone = new SkyBlockMemberMiningPowder(data || {}, 'gemstone');
-    this.glacite = new SkyBlockMemberMiningPowder(data || {}, 'glacite');
+    this.mithril = new SkyBlockMemberMiningPowder(data ?? {}, 'mithril');
+    this.gemstone = new SkyBlockMemberMiningPowder(data ?? {}, 'gemstone');
+    this.glacite = new SkyBlockMemberMiningPowder(data ?? {}, 'glacite');
   }
 }
 

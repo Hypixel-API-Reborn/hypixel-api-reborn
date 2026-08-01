@@ -3,9 +3,9 @@ class SkyBlockMemberJacobContestsMedals {
   silver: number;
   gold: number;
   constructor(data: Record<string, any>) {
-    this.bronze = data?.bronze || 0;
-    this.silver = data?.silver || 0;
-    this.gold = data?.gold || 0;
+    this.bronze = data?.bronze ?? 0;
+    this.silver = data?.silver ?? 0;
+    this.gold = data?.gold ?? 0;
   }
 }
 

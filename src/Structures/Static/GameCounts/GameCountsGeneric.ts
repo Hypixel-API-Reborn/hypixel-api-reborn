@@ -1,7 +1,7 @@
 class GameCountsGeneric {
   players: number;
   constructor(data: Record<string, any>) {
-    this.players = data?.players || 0;
+    this.players = data?.players ?? 0;
   }
 }
 

@@ -11,15 +11,15 @@ class SkyBlockBazaarQuickStatus {
   buyMovingWeek: number;
   buyOrders: number;
   constructor(data: Record<string, any>) {
-    this.productId = data?.productId || 'UNKNOWN';
-    this.sellPrice = data?.sellPrice || 0;
-    this.sellVolume = data?.sellVolume || 0;
-    this.sellMovingWeek = data?.sellMovingWeek || 0;
-    this.sellOrders = data?.sellOrders || 0;
-    this.buyPrice = data?.buyPrice || 0;
-    this.buyVolume = data?.buyVolume || 0;
-    this.buyMovingWeek = data?.buyMovingWeek || 0;
-    this.buyOrders = data?.buyOrders || 0;
+    this.productId = data?.productId ?? 'UNKNOWN';
+    this.sellPrice = data?.sellPrice ?? 0;
+    this.sellVolume = data?.sellVolume ?? 0;
+    this.sellMovingWeek = data?.sellMovingWeek ?? 0;
+    this.sellOrders = data?.sellOrders ?? 0;
+    this.buyPrice = data?.buyPrice ?? 0;
+    this.buyVolume = data?.buyVolume ?? 0;
+    this.buyMovingWeek = data?.buyMovingWeek ?? 0;
+    this.buyOrders = data?.buyOrders ?? 0;
   }
 
   toString(): BazaarProduct | 'UNKNOWN' {

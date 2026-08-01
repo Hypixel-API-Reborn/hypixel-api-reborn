@@ -2,7 +2,7 @@ import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.js';
 import Guild from '../Structures/Guild/Guild.js';
 import House from '../Structures/House.js';
-import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
 import Player from '../Structures/Player/Player.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';

@@ -8,8 +8,8 @@ class SkyBlockMemberAccessoryBag {
   highestMagicalPower: number;
   tuning: SkyBlockMemberAccessoryBagTuning;
   constructor(data: Record<string, any>) {
-    this.selectedPower = data?.selected_power || null;
-    this.unlockedPowers = data?.unlocked_powers || [
+    this.selectedPower = data?.selected_power ?? null;
+    this.unlockedPowers = data?.unlocked_powers ?? [
       'Fortuitous ',
       'Pretty',
       'Protected',
@@ -21,9 +21,9 @@ class SkyBlockMemberAccessoryBag {
       'Ominous ',
       'Prepared'
     ];
-    this.bagUpgradesPurchased = data?.bag_upgrades_purchased || 0;
-    this.highestMagicalPower = data?.highest_magical_power || 0;
-    this.tuning = new SkyBlockMemberAccessoryBagTuning(data?.tuning || {});
+    this.bagUpgradesPurchased = data?.bag_upgrades_purchased ?? 0;
+    this.highestMagicalPower = data?.highest_magical_power ?? 0;
+    this.tuning = new SkyBlockMemberAccessoryBagTuning(data?.tuning ?? {});
   }
 
   toString(): SkyBlockMemberPower | null {

@@ -5,8 +5,8 @@ class MurderMysteryKnifeSkinPrestige {
   usePrestige: MurderMysteryKnifeSkinRaw[];
   xp: MurderMysteryKnifeSkinPrestigeXp;
   constructor(data: Record<string, any>) {
-    this.usePrestige = data?.usePrestige || [];
-    this.xp = new MurderMysteryKnifeSkinPrestigeXp(data?.xp || {});
+    this.usePrestige = data?.usePrestige ?? [];
+    this.xp = new MurderMysteryKnifeSkinPrestigeXp(data?.xp ?? {});
   }
 }
 

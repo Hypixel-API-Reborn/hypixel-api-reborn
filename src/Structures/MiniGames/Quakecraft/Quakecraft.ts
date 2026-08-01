@@ -17,7 +17,7 @@ class Quakecraft {
   wins: number;
   kills: number;
   deaths: number;
-  KDR: number;
+  killDeathRatio: number;
   killStreaks: number;
   distanceTraveled: number;
   shotsFired: number;
@@ -32,26 +32,26 @@ class Quakecraft {
   sight: QuakecraftSight | 'None';
   trigger: QuakecraftTrigger | 'None';
   constructor(data: Record<string, any>) {
-    this.coins = data?.coins || data?.tokens || 0;
+    this.coins = data?.coins ?? data?.tokens ?? 0;
     this.solo = new QuakecraftMode(data);
     this.teams = new QuakecraftMode(data, 'teams');
     this.wins = this.solo?.wins + this.teams?.wins;
     this.kills = this.solo?.kills + this.teams?.kills;
     this.deaths = this.solo?.deaths + this.teams?.deaths;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.killDeathRatio = Divide(this.kills, this.deaths);
     this.killStreaks = this.solo?.killStreaks + this.teams?.killStreaks;
     this.distanceTraveled = this.solo?.distanceTraveled + this.teams?.distanceTraveled;
     this.shotsFired = this.solo?.shotsFired + this.teams?.shotsFired;
     this.headShots = this.solo?.headShots + this.teams?.headShots;
-    this.instantRespawn = data?.instantRespawn || false;
-    this.killPrefixColor = data?.selectedKillPrefix || '';
-    this.showPrefix = data?.showKillPrefix || false;
-    this.killSound = data?.killsound || 'None';
-    this.barrel = data?.barrel || 'None';
-    this.case = data?.case || 'None';
-    this.muzzle = data?.muzzle || 'None';
-    this.sight = data?.sight || 'None';
-    this.trigger = data?.trigger || 'None';
+    this.instantRespawn = data?.instantRespawn ?? false;
+    this.killPrefixColor = data?.selectedKillPrefix ?? '';
+    this.showPrefix = data?.showKillPrefix ?? false;
+    this.killSound = data?.killsound ?? 'None';
+    this.barrel = data?.barrel ?? 'None';
+    this.case = data?.case ?? 'None';
+    this.muzzle = data?.muzzle ?? 'None';
+    this.sight = data?.sight ?? 'None';
+    this.trigger = data?.trigger ?? 'None';
   }
 }
 

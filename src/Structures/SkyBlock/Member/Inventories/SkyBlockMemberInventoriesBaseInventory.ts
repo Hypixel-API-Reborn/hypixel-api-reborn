@@ -1,7 +1,7 @@
 class SkyBlockMemberInventoriesBaseInventory {
   base64: string | null;
   constructor(data: Record<string, any>) {
-    this.base64 = data?.data || null;
+    this.base64 = data?.data ?? null;
   }
 
   decodeData(): Promise<any> | any {

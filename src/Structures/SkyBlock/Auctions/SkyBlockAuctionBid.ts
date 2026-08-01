@@ -8,12 +8,12 @@ class SkyBlockAuctionBid {
   at: Date;
   bidder: string;
   constructor(data: Record<string, any>) {
-    this.auctionId = data?.auction_id || 'UNKNOWN';
-    this.profileId = data?.profile_id || 'UNKNOWN';
-    this.amount = data?.amount || 0;
-    this.timestamp = data?.timestamp || 0;
+    this.auctionId = data?.auction_id ?? 'UNKNOWN';
+    this.profileId = data?.profile_id ?? 'UNKNOWN';
+    this.amount = data?.amount ?? 0;
+    this.timestamp = data?.timestamp ?? 0;
     this.at = new Date(this.timestamp);
-    this.bidder = data?.bidder || 'UNKNOWN';
+    this.bidder = data?.bidder ?? 'UNKNOWN';
   }
 
   toString(): number {

@@ -7,10 +7,10 @@ class SkyBlockElectionCandidate {
   perks: SkyBlockElectionCandidatePerk[];
   votesReceived: number;
   constructor(data: Record<string, any>) {
-    this.name = data?.name || 'UNKNOWN';
-    this.keyBenefit = data?.key || 'UNKNOWN';
-    this.perks = (data?.perks || []).map((perk: Record<string, any>) => new SkyBlockElectionCandidatePerk(perk));
-    this.votesReceived = data?.votes || 0;
+    this.name = data?.name ?? 'UNKNOWN';
+    this.keyBenefit = data?.key ?? 'UNKNOWN';
+    this.perks = (data?.perks ?? []).map((perk: Record<string, any>) => new SkyBlockElectionCandidatePerk(perk));
+    this.votesReceived = data?.votes ?? 0;
   }
 
   toString(): SkyBlockMayor | 'UNKNOWN' {

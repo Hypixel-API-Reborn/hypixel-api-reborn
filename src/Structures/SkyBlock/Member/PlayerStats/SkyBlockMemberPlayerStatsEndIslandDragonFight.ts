@@ -11,14 +11,14 @@ class SkyBlockMemberPlayerStatsEndIslandDragonFight {
   wise: SkyBlockMemberPlayerStatsEndIslandDragonFightDragon;
   superior: SkyBlockMemberPlayerStatsEndIslandDragonFightDragon;
   constructor(data: Record<string, any>) {
-    this.enderCrystalsDestroyed = data?.ender_crystals_destroyed || 0;
-    this.protector = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'protector');
-    this.old = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'old');
-    this.unstable = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'unstable');
-    this.young = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'young');
-    this.strong = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'strong');
-    this.wise = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'wise');
-    this.superior = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data || {}, 'superior');
+    this.enderCrystalsDestroyed = data?.ender_crystals_destroyed ?? 0;
+    this.protector = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'protector');
+    this.old = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'old');
+    this.unstable = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'unstable');
+    this.young = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'young');
+    this.strong = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'strong');
+    this.wise = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'wise');
+    this.superior = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon(data ?? {}, 'superior');
   }
 }
 

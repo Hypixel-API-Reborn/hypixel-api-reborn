@@ -4,10 +4,10 @@ class BedWarsFigurines {
   featuredLegendary: string[];
   featuredRare: string[];
   constructor(data: Record<string, any>) {
-    this.active = data?.active || 'UNKNOWN';
-    this.featuredCommon = data?.featured?.COMMON || [];
-    this.featuredLegendary = data?.featured?.LEGENDARY || [];
-    this.featuredRare = data?.featured?.RARE || [];
+    this.active = data?.active ?? 'UNKNOWN';
+    this.featuredCommon = data?.featured?.COMMON ?? [];
+    this.featuredLegendary = data?.featured?.LEGENDARY ?? [];
+    this.featuredRare = data?.featured?.RARE ?? [];
   }
 }
 

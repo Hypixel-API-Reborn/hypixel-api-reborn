@@ -1,7 +1,7 @@
 class GameCountsPitModes {
   PIT: number;
   constructor(data: Record<string, any>) {
-    this.PIT = data?.PIT || 0;
+    this.PIT = data?.PIT ?? 0;
   }
 }
 

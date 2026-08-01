@@ -51,46 +51,46 @@ class Player {
     data: Record<string, any>,
     extra: { guild?: Guild | null; houses?: House[] | null; recentGames?: RecentGame[] | null }
   ) {
-    this.nickname = data?.displayname || 'UNKNOWN';
-    this.uuid = data?.uuid || 'UNKNOWN';
+    this.nickname = data?.displayname ?? 'UNKNOWN';
+    this.uuid = data?.uuid ?? 'UNKNOWN';
     this.rank = this.getRank(data);
     this.formattedNickname = this.rank !== null ? `[${this.rank}] ${this.nickname}` : this.nickname;
     this.firstLoginAt = data?.firstLogin ? new Date(data?.firstLogin) : null;
     this.lastLoginAt = data?.lastLogin ? new Date(data?.lastLogin) : null;
     this.lastLogoutAt = data?.lastLogout ? new Date(data?.lastLogout) : null;
-    this.achievements = new PlayerAchievements(data || {});
-    this.karma = data?.karma || 0;
-    this.stats = new PlayerStats(data?.stats || {});
-    this.level = this.getPlayerLevelProgress(data?.networkExp || 0);
+    this.achievements = new PlayerAchievements(data ?? {});
+    this.karma = data?.karma ?? 0;
+    this.stats = new PlayerStats(data?.stats ?? {});
+    this.level = this.getPlayerLevelProgress(data?.networkExp ?? 0);
     this.claimedCenturyCakeAt = data?.claimed_century_cake ? new Date(data?.claimed_century_cake) : null;
-    this.language = data?.userLanguage || 'ENGLISH';
-    this.cosmetics = new PlayerCosmetics(data || {});
-    this.rankPurchase = new PlayerRankPurchase(data || {});
-    this.challenges = data?.challenges || {};
-    this.quests = new PlayerQuests(data?.quests || {}, data?.questSettings?.autoActivate || false);
-    this.rewards = new PlayerRewards(data || {});
-    this.parkour = Object.keys(data?.parkourCompletions || {}).map(
-      (location) => new PlayerParkour(data?.parkourCompletions || {}, data?.parkourCheckpointBests || {}, location)
+    this.language = data?.userLanguage ?? 'ENGLISH';
+    this.cosmetics = new PlayerCosmetics(data ?? {});
+    this.rankPurchase = new PlayerRankPurchase(data ?? {});
+    this.challenges = data?.challenges ?? {};
+    this.quests = new PlayerQuests(data?.quests ?? {}, data?.questSettings?.autoActivate ?? false);
+    this.rewards = new PlayerRewards(data ?? {});
+    this.parkour = Object.keys(data?.parkourCompletions ?? {}).map(
+      (location) => new PlayerParkour(data?.parkourCompletions ?? {}, data?.parkourCheckpointBests ?? {}, location)
     );
-    this.channel = data?.channel || 'ALL';
+    this.channel = data?.channel ?? 'ALL';
     this.skyBlockFreeCookieAt = data?.skyblock_free_cookie ? new Date(data?.skyblock_free_cookie) : null;
-    this.housing = new PlayerHousing(data?.housingMeta || {});
+    this.housing = new PlayerHousing(data?.housingMeta ?? {});
     this.adventRewards = Object.keys(data)
       .filter((key) => key.startsWith('adventRewards'))
       .map(
         (adventReward) =>
-          new PlayerAdventRewards(data[adventReward], adventReward.split('adventRewards')[1] || 'UNKNOWN')
+          new PlayerAdventRewards(data[adventReward], adventReward.split('adventRewards')[1] ?? 'UNKNOWN')
       );
-    this.gifting = new PlayerGifting(data?.giftingMeta || {});
-    this.socialMedia = new PlayerSocialMedia(data?.socialMedia?.links || {});
+    this.gifting = new PlayerGifting(data?.giftingMeta ?? {});
+    this.socialMedia = new PlayerSocialMedia(data?.socialMedia?.links ?? {});
     this.scorpiusBribes =
       Object.keys(data)
         .filter((key) => key.startsWith('scorpius_bribe_'))
-        .map((bribe) => new PlayerScorpiusBribe(data[bribe], bribe.split('scorpius_bribe_')[1] || 'UNKNOWN')) || [];
+        .map((bribe) => new PlayerScorpiusBribe(data[bribe], bribe.split('scorpius_bribe_')[1] ?? 'UNKNOWN')) ?? [];
 
-    this.guild = extra.guild || null;
-    this.houses = extra.houses || null;
-    this.recentGames = extra.recentGames || null;
+    this.guild = extra.guild ?? null;
+    this.houses = extra.houses ?? null;
+    this.recentGames = extra.recentGames ?? null;
   }
 
   private getRank(player: Record<string, any>): PlayerRank {

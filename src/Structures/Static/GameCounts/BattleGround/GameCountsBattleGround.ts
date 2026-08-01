@@ -1,5 +1,5 @@
 import GameCountsBattleGroundModes from './GameCountsBattleGroundModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsGeneric from '../GameCountsGeneric.js';
 
 class GameCountsBattleGround extends GameCountsGeneric {
   modes: GameCountsBattleGroundModes;

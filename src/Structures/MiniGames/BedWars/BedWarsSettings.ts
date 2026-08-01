@@ -6,10 +6,10 @@ class BedWarsSettings {
   slumberWalletFull: boolean;
   trapRemoval: boolean;
   constructor(data: Record<string, any>) {
-    this.deposit = data?.deposit || 'ENABLED';
-    this.slumberItemNotification = data?.slumberItemNotification || 'CHAT_MESSAGES';
-    this.slumberWalletFull = data?.slumberWalletFull || true;
-    this.trapRemoval = data?.trapRemoval || false;
+    this.deposit = data?.deposit ?? 'ENABLED';
+    this.slumberItemNotification = data?.slumberItemNotification ?? 'CHAT_MESSAGES';
+    this.slumberWalletFull = data?.slumberWalletFull ?? true;
+    this.trapRemoval = data?.trapRemoval ?? false;
   }
 }
 

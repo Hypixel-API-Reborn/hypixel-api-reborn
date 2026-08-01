@@ -1,6 +1,6 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
-import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
+import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 
 class Endpoint {
   readonly client: Client;

@@ -5,7 +5,7 @@ import SkyBlockMemberCrimsonIsle from './CrimsonIsle/SkyBlockMemberCrimsonIsle.j
 import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.js';
 import SkyBlockMemberDungeons from './Dungeons/SkyBlockMemberDungeons.js';
 import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.js';
-import SkyBlockMemberGarden from './Garden/SkyBlockMemberGarden.ts';
+import SkyBlockMemberGarden from './Garden/SkyBlockMemberGarden.js';
 import SkyBlockMemberInventories from './Inventories/SkyBlockMemberInventories.js';
 import SkyBlockMemberJacobContests from './JacobContests/SkyBlockMemberJacobContests.js';
 import SkyBlockMemberLeveling from './SkyBlockMemberLeveling.js';
@@ -17,7 +17,7 @@ import SkyBlockMemberPlayerStats from './PlayerStats/SkyBlockMemberPlayerStats.j
 import SkyBlockMemberProfile from './SkyBlockMemberProfile.js';
 import SkyBlockMemberQuests from './Quests/SkyBlockMemberQuests.js';
 import SkyBlockMemberRift from './Rift/SkyBlockMemberRift.js';
-import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.ts';
+import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.js';
 import SkyBlockMemberSlayers from './Slayers/SkyBlockMemberSlayers.js';
 import type { SkyBlockArrow } from '../../../Types/SkyBlock.js';
 import type { UUID } from '../../../Types/Global.js';
@@ -50,32 +50,32 @@ class SkyBlockMember {
   inventory: SkyBlockMemberInventories;
   constructor(uuid: string, data: Record<string, any>) {
     this.uuid = uuid;
-    this.accessoryBag = new SkyBlockMemberAccessoryBag(data?.accessory_bag_storage || {});
-    this.bestiary = new SkyBlockMemberBestiary(data?.bestiary || {});
-    this.collections = data?.collection || {};
-    this.currencies = new SkyBlockMemberCurrencies(data?.currencies || {});
-    this.dungeons = new SkyBlockMemberDungeons(data?.dungeons || {});
-    this.chocolateFactory = new SkyBlockMemberChocolateFactory(data?.events?.easter || {});
-    this.garden = new SkyBlockMemberGarden(data?.garden_player_data || {});
-    this.skillTrees = new SkyBlockMemberSkillTrees(data?.skill_tree || {});
-    this.fairySouls = new SkyBlockMemberFairySouls(data?.fairy_soul || {});
-    this.soulflow = data?.item_data?.soulflow || 0;
-    this.favoriteArrow = data?.item_data?.favorite_arrow || 'ARROW';
-    this.jacobContests = new SkyBlockMemberJacobContests(data?.jacobs_contest || {});
-    this.leveling = new SkyBlockMemberLeveling(data?.leveling || {});
-    this.mining = new SkyBlockMemberMining({ ...(data?.mining_core || {}), ...(data?.forge || {}) }, this.skillTrees);
-    this.crimsonIsle = new SkyBlockMemberCrimsonIsle(data?.nether_island_player_data || {}, data?.trophy_fish || {});
-    this.objectives = new SkyBlockMemberObjectives(data?.objectives || {});
-    this.pets = new SkyBlockMemberPets({ ...(data?.pets_data || {}), ...(data?.player_stats?.pets || {}) });
-    this.playerData = new SkyBlockMemberPlayerData(data?.player_data || {}, {
-      farmingCap: this.jacobContests.perks.farmingLevelCap || 0,
-      tamingCap: this.pets.petCare.petsSacrificed.length || 0
+    this.accessoryBag = new SkyBlockMemberAccessoryBag(data?.accessory_bag_storage ?? {});
+    this.bestiary = new SkyBlockMemberBestiary(data?.bestiary ?? {});
+    this.collections = data?.collection ?? {};
+    this.currencies = new SkyBlockMemberCurrencies(data?.currencies ?? {});
+    this.dungeons = new SkyBlockMemberDungeons(data?.dungeons ?? {});
+    this.chocolateFactory = new SkyBlockMemberChocolateFactory(data?.events?.easter ?? {});
+    this.garden = new SkyBlockMemberGarden(data?.garden_player_data ?? {});
+    this.skillTrees = new SkyBlockMemberSkillTrees(data?.skill_tree ?? {});
+    this.fairySouls = new SkyBlockMemberFairySouls(data?.fairy_soul ?? {});
+    this.soulflow = data?.item_data?.soulflow ?? 0;
+    this.favoriteArrow = data?.item_data?.favorite_arrow ?? 'ARROW';
+    this.jacobContests = new SkyBlockMemberJacobContests(data?.jacobs_contest ?? {});
+    this.leveling = new SkyBlockMemberLeveling(data?.leveling ?? {});
+    this.mining = new SkyBlockMemberMining({ ...(data?.mining_core ?? {}), ...(data?.forge ?? {}) }, this.skillTrees);
+    this.crimsonIsle = new SkyBlockMemberCrimsonIsle(data?.nether_island_player_data ?? {}, data?.trophy_fish ?? {});
+    this.objectives = new SkyBlockMemberObjectives(data?.objectives ?? {});
+    this.pets = new SkyBlockMemberPets({ ...(data?.pets_data ?? {}), ...(data?.player_stats?.pets ?? {}) });
+    this.playerData = new SkyBlockMemberPlayerData(data?.player_data ?? {}, {
+      farmingCap: this.jacobContests.perks.farmingLevelCap ?? 0,
+      tamingCap: this.pets.petCare.petsSacrificed.length ?? 0
     });
-    this.playerStats = new SkyBlockMemberPlayerStats(data?.player_stats || {});
-    this.profileStats = new SkyBlockMemberProfile(data?.profile || {});
-    this.quests = new SkyBlockMemberQuests(data?.quests || {});
-    this.slayers = new SkyBlockMemberSlayers(data?.slayer || {});
-    this.rift = new SkyBlockMemberRift(data?.rift || {});
+    this.playerStats = new SkyBlockMemberPlayerStats(data?.player_stats ?? {});
+    this.profileStats = new SkyBlockMemberProfile(data?.profile ?? {});
+    this.quests = new SkyBlockMemberQuests(data?.quests ?? {});
+    this.slayers = new SkyBlockMemberSlayers(data?.slayer ?? {});
+    this.rift = new SkyBlockMemberRift(data?.rift ?? {});
     this.inventory = new SkyBlockMemberInventories(data);
   }
 

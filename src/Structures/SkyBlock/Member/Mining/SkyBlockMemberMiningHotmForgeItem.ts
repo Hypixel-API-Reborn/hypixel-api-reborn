@@ -13,10 +13,10 @@ class SkyBlockMemberMiningHotmForgeItem {
   notified: boolean;
   oldItem: string | null;
   constructor(data: Record<string, any>, quickForgeTime: number = 0) {
-    this.type = data?.type || 'UNKNOWN';
-    this.id = data?.id || 'UNKNOWN';
-    this.name = MiningForgeItems?.[this.id]?.name || 'UNKNOWN';
-    this.startTime = data?.startTime || 0;
+    this.type = data?.type ?? 'UNKNOWN';
+    this.id = data?.id ?? 'UNKNOWN';
+    this.name = MiningForgeItems?.[this.id]?.name ?? 'UNKNOWN';
+    this.startTime = data?.startTime ?? 0;
     this.startTimeAt = new Date(this.startTime);
     this.endTime =
       this.startTime +

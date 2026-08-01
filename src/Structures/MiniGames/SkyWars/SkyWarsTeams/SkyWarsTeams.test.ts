@@ -1,4 +1,4 @@
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.js';
 import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.js';
 import SkyWarsTeams from './SkyWarsTeams.js';
 import SkyWarsTeamsKits from './SkyWarsTeamsKits/SkyWarsTeamsKits.js';

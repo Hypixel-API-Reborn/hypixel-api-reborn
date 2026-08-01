@@ -24,19 +24,19 @@ class SkyBlockProfile {
     data: Record<string, any>,
     extra: { uuid: UUID | null; garden?: SkyBlockGarden; museum?: SkyBlockMuseum }
   ) {
-    this.profileId = data?.profile_id || 'UNKNOWN';
-    this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades || {});
+    this.profileId = data?.profile_id ?? 'UNKNOWN';
+    this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades ?? {});
     this.createdTimestamp = data.created_at ? data.created_at : null;
     this.createdAt = this.createdTimestamp ? new Date(this.createdTimestamp) : null;
-    const members = data?.members || {};
-    this.members = Object.keys(members).map((uuid) => new SkyBlockMember(uuid, members?.[uuid] || {}));
-    this.me = extra.uuid !== null ? this.members.find((x) => x.uuid === extra.uuid) || null : null;
-    this.gameMode = data?.game_mode || null;
-    this.banking = new SkyBlockProfileBanking(data?.banking || {});
-    this.profileName = data?.cute_name || 'UNKNOWN';
-    this.selected = data?.selected || false;
-    this.garden = extra.garden || null;
-    this.museum = extra.museum || null;
+    const members = data?.members ?? {};
+    this.members = Object.keys(members).map((uuid) => new SkyBlockMember(uuid, members?.[uuid] ?? {}));
+    this.me = extra.uuid !== null ? (this.members.find((x) => x.uuid === extra.uuid) ?? null) : null;
+    this.gameMode = data?.game_mode ?? null;
+    this.banking = new SkyBlockProfileBanking(data?.banking ?? {});
+    this.profileName = data?.cute_name ?? 'UNKNOWN';
+    this.selected = data?.selected ?? false;
+    this.garden = extra.garden ?? null;
+    this.museum = extra.museum ?? null;
   }
 
   toString(): SkyBlockProfileName | 'UNKNOWN' {

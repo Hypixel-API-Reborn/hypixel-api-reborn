@@ -14,9 +14,9 @@ class SkyBlockMemberBestiary {
   maxFamilyTiers: number;
   categories: Record<string, BestiaryCategory>;
   constructor(data: Record<string, any>) {
-    this.kills = data?.kills || {};
-    this.deaths = data?.deaths || {};
-    this.lastClaimedMilestone = data?.milestone?.last_claimed_milestone || 0;
+    this.kills = data?.kills ?? {};
+    this.deaths = data?.deaths ?? {};
+    this.lastClaimedMilestone = data?.milestone?.last_claimed_milestone ?? 0;
     const parsed = this.getBestiary();
     this.level = parsed.level;
     this.maxLevel = parsed.maxLevel;
@@ -32,9 +32,9 @@ class SkyBlockMemberBestiary {
   private getBestiaryMobs(mobList: RawBestiaryMob[]): BestiaryMob[] {
     const output: BestiaryMob[] = [];
     for (const mob of mobList) {
-      const mobBracket = BestiaryBrackets?.[mob.bracket] || [];
+      const mobBracket = BestiaryBrackets?.[mob.bracket] ?? [];
 
-      const totalKills = mob.mobs.reduce((acc, mob) => acc + (this.kills[mob] || 0), 0);
+      const totalKills = mob.mobs.reduce((acc, mob) => acc + (this.kills[mob] ?? 0), 0);
       const maxKills = mob.cap;
       const nextTierKills = mobBracket.find((tier: number) => totalKills < tier && tier <= maxKills);
       const tier = nextTierKills ? mobBracket.indexOf(nextTierKills) : mobBracket.indexOf(maxKills) + 1;

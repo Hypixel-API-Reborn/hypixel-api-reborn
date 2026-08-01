@@ -1,5 +1,5 @@
-import { ParseModeAfter, ParseModeBefore, ParseModeBeforeAfter } from '../../../../Utils/ParseMode.ts';
-import type { SkyWarsModeId, SkyWarsPerkId } from '../../../../Types/Player.ts';
+import { ParseModeAfter, ParseModeBefore, ParseModeBeforeAfter } from '../../../../Utils/ParseMode.js';
+import type { SkyWarsModeId, SkyWarsPerkId } from '../../../../Types/Player.js';
 
 class SkyWarsModePerk {
   level: number;
@@ -7,9 +7,9 @@ class SkyWarsModePerk {
   constructor(data: Record<string, any>, perk: SkyWarsPerkId, mode: SkyWarsModeId) {
     perk = ParseModeAfter(mode) as SkyWarsPerkId;
     mode = ParseModeBefore(mode) as SkyWarsModeId;
-    this.level = data?.[`${mode}${perk}`] || 0;
+    this.level = data?.[`${mode}${perk}`] ?? 0;
     mode = ParseModeBeforeAfter(mode) as SkyWarsModeId;
-    this.enabled = data?.[`toggle_${mode}${perk}`] || 0;
+    this.enabled = data?.[`toggle_${mode}${perk}`] ?? 0;
   }
 }
 

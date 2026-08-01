@@ -9,12 +9,12 @@ class Quest {
   type: QuestType;
   objectives: QuestObjective[];
   constructor(data: Record<string, any>) {
-    this.id = (data?.id || '').trim();
-    this.name = (data?.name || '').trim();
-    this.description = (data?.description || '').trim();
-    this.rewards = data.rewards || [];
+    this.id = (data?.id ?? '').trim();
+    this.name = (data?.name ?? '').trim();
+    this.description = (data?.description ?? '').trim();
+    this.rewards = data.rewards ?? [];
     this.type = data.requirements?.[0].type === 'DailyResetQuestRequirement' ? 'Daily' : 'Weekly';
-    this.objectives = (data?.objectives || []).map((objective: any) => new QuestObjective(objective));
+    this.objectives = (data?.objectives ?? []).map((objective: any) => new QuestObjective(objective));
   }
 
   toString(): string {

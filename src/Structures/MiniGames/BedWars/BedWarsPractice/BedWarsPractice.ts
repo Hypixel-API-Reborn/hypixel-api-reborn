@@ -9,11 +9,11 @@ class BedWarsPractice {
   pearlClutching: BedWarsPracticeMode;
   selected: BedWarsPracticeModeId | 'UNKNOWN';
   constructor(data: Record<string, any>) {
-    this.bridging = new BedWarsPracticeBridging(data?.bridging || {}, data?.records || {});
-    this.fireballJumping = new BedWarsPracticeMode(data?.fireball_jumping || {});
-    this.mlg = new BedWarsPracticeMode(data?.mlg || {});
-    this.pearlClutching = new BedWarsPracticeMode(data?.pearl_clutching || {});
-    this.selected = data?.selected || 'UNKNOWN';
+    this.bridging = new BedWarsPracticeBridging(data?.bridging ?? {}, data?.records ?? {});
+    this.fireballJumping = new BedWarsPracticeMode(data?.fireball_jumping ?? {});
+    this.mlg = new BedWarsPracticeMode(data?.mlg ?? {});
+    this.pearlClutching = new BedWarsPracticeMode(data?.pearl_clutching ?? {});
+    this.selected = data?.selected ?? 'UNKNOWN';
   }
 }
 

@@ -4,8 +4,8 @@ class SkyBlockMemberInventoriesBackpackDecoded {
   icon: SkyBlockInventoryItem;
   items: SkyBlockInventoryItem[];
   constructor(data: Record<string, any>) {
-    const decoded = data?.backpackItemsDecoded || [];
-    this.icon = new SkyBlockInventoryItem(decoded?.[0] || {});
+    const decoded = data?.backpackItemsDecoded ?? [];
+    this.icon = new SkyBlockInventoryItem(decoded?.[0] ?? {});
     this.items = [];
     for (let i = 0; i < decoded.length; i++) {
       if (!decoded?.[i]?.id) continue;

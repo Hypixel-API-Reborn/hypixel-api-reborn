@@ -1,5 +1,5 @@
 import GameCountsGameContsReplayModes from './GameCountsReplayModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsGeneric from '../GameCountsGeneric.js';
 
 class GameCountsReplay extends GameCountsGeneric {
   modes: GameCountsGameContsReplayModes;

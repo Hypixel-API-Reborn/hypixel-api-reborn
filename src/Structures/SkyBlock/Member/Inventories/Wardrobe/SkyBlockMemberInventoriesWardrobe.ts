@@ -1,4 +1,4 @@
-import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.ts';
+import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.js';
 
 class SkyBlockMemberInventoriesWardrobe {
   slot1: SkyBlockMemberInventoriesWardrobeSlot | null;

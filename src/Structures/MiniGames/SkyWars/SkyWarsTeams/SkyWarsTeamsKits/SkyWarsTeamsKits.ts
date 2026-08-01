@@ -1,8 +1,8 @@
-import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
-import SkyWarsTeamsKitsAttacking from './SkyWarsTeamsKitsAttacking.ts';
-import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.ts';
-import SkyWarsTeamsKitsMining from './SkyWarsTeamsKitsMining.ts';
-import SkyWarsTeamsKitsSupporting from './SkyWarsTeamsKitsSupporting.ts';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
+import SkyWarsTeamsKitsAttacking from './SkyWarsTeamsKitsAttacking.js';
+import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.js';
+import SkyWarsTeamsKitsMining from './SkyWarsTeamsKitsMining.js';
+import SkyWarsTeamsKitsSupporting from './SkyWarsTeamsKitsSupporting.js';
 
 class SkyWarsTeamsKits {
   mining: SkyWarsTeamsKitsMining;

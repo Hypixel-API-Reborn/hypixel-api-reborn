@@ -9,10 +9,10 @@ class SkyBlockMuseumItem {
   items: SkyBlockInventoryItem[];
   constructor(name: string, data: Record<string, any>, decoded: any[]) {
     this.name = name;
-    this.donated = data?.donated_time || 0;
+    this.donated = data?.donated_time ?? 0;
     this.donatedAt = new Date(this.donated);
-    this.featuredSlot = data?.featured_slot || null;
-    this.borrowing = data?.borrowing || false;
+    this.featuredSlot = data?.featured_slot ?? null;
+    this.borrowing = data?.borrowing ?? false;
     this.items = [];
     decoded.forEach((item) => {
       if (!item.tag) return;

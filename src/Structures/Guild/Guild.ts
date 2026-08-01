@@ -30,16 +30,16 @@ class Guild {
   preferredGames: Game[];
   constructor(data: Record<string, any>, uuid?: string) {
     // eslint-disable-next-line no-underscore-dangle
-    this.id = data._id || 'UNKNOWN';
-    this.name = data.name || 'UNKNOWN';
+    this.id = data._id ?? 'UNKNOWN';
+    this.name = data.name ?? 'UNKNOWN';
     this.description = data.description ?? '';
-    this.experience = data.exp || 0;
+    this.experience = data.exp ?? 0;
     this.level = getGuildLevel(this.experience);
-    this.members = members(data?.members || []);
+    this.members = members(data?.members ?? []);
     this.me = uuid ? (this.members.find((member) => member.uuid === uuid) as GuildMember) : null;
     this.ranks = ranks(data);
     this.totalWeeklyGEXP = totalWeeklyGEXP(this.members);
-    this.createdAtTimestamp = data.created || null;
+    this.createdAtTimestamp = data.created ?? null;
     this.createdAt = this.createdAtTimestamp ? new Date(this.createdAtTimestamp) : null;
     this.joinable = data.joinable ?? false;
     this.publiclyListed = Boolean(data.publiclyListed);
@@ -50,9 +50,9 @@ class Guild {
     this.tagColor = data.tagColor ? new Color(data.tagColor) : null;
     this.expHistory = calculateExpHistory(this.members);
     this.achievements = {
-      winners: data?.achievements?.WINNERS || 0,
-      experienceKings: data?.achievements?.EXPERIENCE_KINGS || 0,
-      onlinePlayers: data?.achievements?.ONLINE_PLAYERS || 0
+      winners: data?.achievements?.WINNERS ?? 0,
+      experienceKings: data?.achievements?.EXPERIENCE_KINGS ?? 0,
+      onlinePlayers: data?.achievements?.ONLINE_PLAYERS ?? 0
     };
     this.preferredGames = data.preferredGames ? data.preferredGames.map((g: any) => new Game(g)) : [];
   }
@@ -63,6 +63,10 @@ class Guild {
 
   isRaw(): this is RequestData {
     return false;
+  }
+
+  get guildMaster() {
+    return this.members.find((member) => member.rank === 'Guild Master' || member.rank === 'GUILDMASTER');
   }
 }
 

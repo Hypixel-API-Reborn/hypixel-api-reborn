@@ -19,9 +19,9 @@ test('TNTWizards', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
-  expect(data.KDR).toBeDefined();
-  expect(data.KDR).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.killDeathRatio).toBeDefined();
+  expect(data.killDeathRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killDeathRatio).toEqualTypeOf<number>();
   expect(data.points).toBeDefined();
   expect(data.points).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.points).toEqualTypeOf<number>();

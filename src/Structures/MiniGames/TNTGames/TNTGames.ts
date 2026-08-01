@@ -14,9 +14,9 @@ class TNTGames {
   tnttag: TNTTag;
   wizards: TNTWizards;
   constructor(data: Record<string, any>) {
-    this.coins = data?.coins || data?.tokens || 0;
-    this.winStreak = data?.winstreak || 0;
-    this.wins = data?.wins || 0;
+    this.coins = data?.coins ?? data?.tokens ?? 0;
+    this.winStreak = data?.winstreak ?? 0;
+    this.wins = data?.wins ?? 0;
     this.tntrun = new TNTRun(data);
     this.pvpRun = new PVPRun(data);
     this.bowSpleef = new BowSpleef(data);

@@ -6,9 +6,9 @@ class SkyBlockAuctionInfo extends SkyBlockBaseAuctionInfo {
   totalAuctions: number;
   constructor(data: Record<string, any>) {
     super(data);
-    this.page = data?.page || 0;
-    this.totalPages = data?.totalPages || 0;
-    this.totalAuctions = data?.totalAuctions || 0;
+    this.page = data?.page ?? 0;
+    this.totalPages = data?.totalPages ?? 0;
+    this.totalAuctions = data?.totalAuctions ?? 0;
   }
 }
 

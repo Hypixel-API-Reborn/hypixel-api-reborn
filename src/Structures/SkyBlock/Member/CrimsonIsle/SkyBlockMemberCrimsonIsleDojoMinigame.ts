@@ -5,8 +5,8 @@ class SkyBlockMemberCrimsonIsleDojoMinigame {
   time: number;
   rank: CrimsonIsleDojoRank;
   constructor(data: Record<string, any>, type: string) {
-    this.points = data?.[`dojo_points_${type}`] || 0;
-    this.time = data?.[`dojo_time_${type}`] || 0;
+    this.points = data?.[`dojo_points_${type}`] ?? 0;
+    this.time = data?.[`dojo_time_${type}`] ?? 0;
     this.rank = this.getScore(this.points);
   }
 

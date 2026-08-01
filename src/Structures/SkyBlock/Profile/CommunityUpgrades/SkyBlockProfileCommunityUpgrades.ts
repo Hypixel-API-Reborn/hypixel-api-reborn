@@ -9,7 +9,7 @@ class SkyBlockProfileCommunityUpgrades {
       ? new SkyBlockProfileCommunityUpgradesUpgrading(data.currently_upgrading)
       : null;
     this.upgrades = [];
-    (data.upgrade_states || []).forEach((upgrade: Record<string, any>) => {
+    (data.upgrade_states ?? []).forEach((upgrade: Record<string, any>) => {
       this.upgrades.push(new SkyBlockProfileCommunityUpgradesUpgraded(upgrade));
     });
   }

@@ -18,17 +18,17 @@ class SkyBlockMemberCrimsonIsle {
   lastMiniBossesKilled: CrimsonIsleBoss[];
   trophyFishing: SkyBlockMemberCrimsonIsleTrophyFish;
   constructor(data: Record<string, any>, trophyFish: Record<string, any>) {
-    this.dojo = new SkyBlockMemberCrimsonIsleDojo(data?.dojo || {});
+    this.dojo = new SkyBlockMemberCrimsonIsleDojo(data?.dojo ?? {});
     this.kuudra = new SkyBlockMemberCrimsonIsleKuudra(
-      data?.kuudra_completed_tiers || {},
-      data?.kuudra_party_finder || {}
+      data?.kuudra_completed_tiers ?? {},
+      data?.kuudra_party_finder ?? {}
     );
-    this.matriarch = new SkyBlockMemberCrimsonIsleMatriarch(data?.matriarch || {});
-    this.abiphone = new SkyBlockMemberCrimsonIsleAbiphone(data?.abiphone || {});
-    this.faction = data?.selected_faction || 'UNKNOWN';
-    this.magesReputation = data?.mages_reputation || 0;
-    this.barbariansReputation = data?.barbarians_reputation || 0;
-    this.lastMiniBossesKilled = data?.last_minibosses_killed || [];
+    this.matriarch = new SkyBlockMemberCrimsonIsleMatriarch(data?.matriarch ?? {});
+    this.abiphone = new SkyBlockMemberCrimsonIsleAbiphone(data?.abiphone ?? {});
+    this.faction = data?.selected_faction ?? 'UNKNOWN';
+    this.magesReputation = data?.mages_reputation ?? 0;
+    this.barbariansReputation = data?.barbarians_reputation ?? 0;
+    this.lastMiniBossesKilled = data?.last_minibosses_killed ?? [];
     this.trophyFishing = new SkyBlockMemberCrimsonIsleTrophyFish(trophyFish);
   }
 

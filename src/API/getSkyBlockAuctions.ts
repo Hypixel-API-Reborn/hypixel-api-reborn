@@ -1,6 +1,6 @@
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.js';
-import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type RequestData from '../Private/RequestData.js';

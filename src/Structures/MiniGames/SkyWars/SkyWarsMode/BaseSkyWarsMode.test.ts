@@ -23,9 +23,9 @@ test('BaseSkyWarsMode', () => {
   expect(data.losses).toBeDefined();
   expect(data.losses).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.losses).toEqualTypeOf<number>();
-  expect(data.WLRatio).toBeDefined();
-  expect(data.WLRatio).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.WLRatio).toEqualTypeOf<number>();
+  expect(data.winLossRatio).toBeDefined();
+  expect(data.winLossRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winLossRatio).toEqualTypeOf<number>();
   expect(data.gamesPlayed).toBeDefined();
   expect(data.gamesPlayed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.gamesPlayed).toEqualTypeOf<number>();

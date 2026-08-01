@@ -1,5 +1,5 @@
 import GaemCountsDuels from './Duels/GameCountsDuels.js';
-import GameCountGames from './GameCountsGames.ts';
+import GameCountGames from './GameCountsGames.js';
 import GameCountsArcade from './Arcade/GameCountsArcade.js';
 import GameCountsBattleGround from './BattleGround/GameCountsBattleGround.js';
 import GameCountsBedWars from './BedWars/GameCountsBedWars.js';

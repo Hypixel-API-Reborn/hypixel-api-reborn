@@ -4,8 +4,8 @@ class SheepWarsLayout {
   opened: boolean;
   layout: InventoryLayout;
   constructor(data: Record<string, any>) {
-    this.opened = data?.opened || true;
-    this.layout = new InventoryLayout(data?.slot || {});
+    this.opened = data?.opened ?? true;
+    this.layout = new InventoryLayout(data?.slot ?? {});
   }
 }
 

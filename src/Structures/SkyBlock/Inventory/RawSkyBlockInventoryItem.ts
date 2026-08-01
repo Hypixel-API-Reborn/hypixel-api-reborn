@@ -1,10 +1,10 @@
-import SkyBlockInventoryItem from './SkyBlockInventoryItem.ts';
-import { decode } from '../../../Utils/SkyBlockUtils.ts';
+import SkyBlockInventoryItem from './SkyBlockInventoryItem.js';
+import { decode } from '../../../Utils/SkyBlockUtils.js';
 
 class RawSkyBlockInventoryItem {
   base64: string | null;
   constructor(data: Record<string, any>) {
-    this.base64 = data?.data || null;
+    this.base64 = data?.data ?? null;
   }
 
   async decodeData(): Promise<SkyBlockInventoryItem | null> {

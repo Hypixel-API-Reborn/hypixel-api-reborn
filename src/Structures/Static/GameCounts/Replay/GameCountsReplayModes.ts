@@ -1,7 +1,7 @@
 class GameContsReplayModes {
   base: number;
   constructor(data: Record<string, any>) {
-    this.base = data?.BASE || 0;
+    this.base = data?.BASE ?? 0;
   }
 }
 

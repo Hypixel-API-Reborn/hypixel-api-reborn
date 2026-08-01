@@ -4,9 +4,9 @@ class Dtt {
   filter: boolean;
   music: boolean;
   constructor(data: Record<string, any>) {
-    this.dropdown = data?.dtt_dropdown || false;
-    this.filter = data?.dtt_filter || false;
-    this.music = data?.dtt_music || false;
+    this.dropdown = data?.dtt_dropdown ?? false;
+    this.filter = data?.dtt_filter ?? false;
+    this.music = data?.dtt_music ?? false;
   }
 }
 

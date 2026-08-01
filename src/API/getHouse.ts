@@ -1,7 +1,7 @@
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.js';
 import House from '../Structures/House.js';
-import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
 import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 

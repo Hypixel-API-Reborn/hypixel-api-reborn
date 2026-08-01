@@ -6,8 +6,8 @@ class PitInventoryItem {
   loreArray: string[];
   extraAttributes: object | null;
   constructor(data: Record<string, any>) {
-    this.itemId = data?.id || 0;
-    this.count = data?.Count || 0;
+    this.itemId = data?.id ?? 0;
+    this.count = data?.Count ?? 0;
     this.name = data?.tag?.display?.Name
       ? data?.tag?.display?.Name?.toString().replace(/§([1-9]|[a-f])|§/gm, '')
       : null;

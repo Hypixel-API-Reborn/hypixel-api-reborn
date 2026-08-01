@@ -1,4 +1,4 @@
-import SkyWarsKitsMythic from './SkyWarsKitsMythic.ts';
+import SkyWarsKitsMythic from './SkyWarsKitsMythic.js';
 
 class SkyWarsKitsMythics {
   chronobreaker: SkyWarsKitsMythic;

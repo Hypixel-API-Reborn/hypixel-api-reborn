@@ -12,9 +12,9 @@ test('WarlordsClass', () => {
   expect(data.losses).toBeDefined();
   expect(data.losses).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.losses).toEqualTypeOf<number>();
-  expect(data.WLR).toBeDefined();
-  expect(data.WLR).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.WLR).toEqualTypeOf<number>();
+  expect(data.winLossRatio).toBeDefined();
+  expect(data.winLossRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winLossRatio).toEqualTypeOf<number>();
   expect(data.gamesPlayed).toBeDefined();
   expect(data.gamesPlayed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.gamesPlayed).toEqualTypeOf<number>();

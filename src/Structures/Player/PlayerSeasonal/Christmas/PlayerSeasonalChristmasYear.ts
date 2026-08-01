@@ -8,9 +8,9 @@ class PlayerSeasonalChristmasYear {
   leveling: PlayerSeasonalChristmasYearLeveling;
   constructor(data: Record<string, any>, year: number) {
     this.year = year;
-    this.adventRewards = new PlayerSeasonalChristmasYearAdventRewards(data?.adventRewards || {});
-    this.presents = data?.presents || {};
-    this.leveling = new PlayerSeasonalChristmasYearLeveling(data?.leveling || {});
+    this.adventRewards = new PlayerSeasonalChristmasYearAdventRewards(data?.adventRewards ?? {});
+    this.presents = data?.presents ?? {};
+    this.leveling = new PlayerSeasonalChristmasYearLeveling(data?.leveling ?? {});
   }
 }
 

@@ -46,9 +46,9 @@ test('UHC', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
-  expect(data.KDR).toBeDefined();
-  expect(data.KDR).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.killDeathRatio).toBeDefined();
+  expect(data.killDeathRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killDeathRatio).toEqualTypeOf<number>();
   expect(data.headsEaten).toBeDefined();
   expect(data.headsEaten).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.headsEaten).toEqualTypeOf<number>();

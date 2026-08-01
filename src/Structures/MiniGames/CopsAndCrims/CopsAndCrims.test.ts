@@ -32,9 +32,9 @@ test('CopsAndCrims', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
-  expect(data.KDR).toBeDefined();
-  expect(data.KDR).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.KDR).toEqualTypeOf<number>();
+  expect(data.killDeathRatio).toBeDefined();
+  expect(data.killDeathRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killDeathRatio).toEqualTypeOf<number>();
   expect(data.winsOnTemple).toBeDefined();
   expect(data.winsOnTemple).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.winsOnTemple).toEqualTypeOf<number>();
@@ -98,9 +98,9 @@ test('CopsAndCrims', () => {
   expect(data.losses).toBeDefined();
   expect(data.losses).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.losses).toEqualTypeOf<number>();
-  expect(data.WLR).toBeDefined();
-  expect(data.WLR).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.WLR).toEqualTypeOf<number>();
+  expect(data.winLossRatio).toBeDefined();
+  expect(data.winLossRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.winLossRatio).toEqualTypeOf<number>();
   expect(data.roundWins).toBeDefined();
   expect(data.roundWins).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.roundWins).toEqualTypeOf<number>();

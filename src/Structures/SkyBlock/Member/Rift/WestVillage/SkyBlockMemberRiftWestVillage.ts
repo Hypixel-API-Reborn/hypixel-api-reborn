@@ -9,10 +9,10 @@ class SkyBlockMemberRiftWestVillage {
   katHouse: SkyBlockMemberRiftWestVillageKatHouse;
   glyphs: SkyBlockMemberRiftWestVillageGlyphs;
   constructor(data: Record<string, any>) {
-    this.crazyKloon = new SkyBlockMemberRiftWestVillageCrazyKloon(data?.crazy_kloon || {});
-    this.mirrorverse = new SkyBlockMemberRiftWestVillageMirrorverse(data?.mirrorverse || {});
-    this.katHouse = new SkyBlockMemberRiftWestVillageKatHouse(data?.kat_house || {});
-    this.glyphs = new SkyBlockMemberRiftWestVillageGlyphs(data?.glyphs || {});
+    this.crazyKloon = new SkyBlockMemberRiftWestVillageCrazyKloon(data?.crazy_kloon ?? {});
+    this.mirrorverse = new SkyBlockMemberRiftWestVillageMirrorverse(data?.mirrorverse ?? {});
+    this.katHouse = new SkyBlockMemberRiftWestVillageKatHouse(data?.kat_house ?? {});
+    this.glyphs = new SkyBlockMemberRiftWestVillageGlyphs(data?.glyphs ?? {});
   }
 }
 

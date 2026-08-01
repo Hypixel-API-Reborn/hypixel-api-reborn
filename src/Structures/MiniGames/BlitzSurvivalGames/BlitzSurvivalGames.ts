@@ -1,8 +1,8 @@
-import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.ts';
-import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.ts';
-import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.ts';
+import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
+import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
+import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import { monthAB } from '../../../Utils/Oscillation.ts';
+import { monthAB } from '../../../Utils/Oscillation.js';
 import type {
   BlitzSurvivalGamesAura,
   BlitzSurvivalGamesFinisher,
@@ -11,7 +11,7 @@ import type {
   BlitzSurvivalGamesLeaderboardSettingsMode,
   BlitzSurvivalGamesTaunt,
   BlitzSurvivalGamesVictoryDance
-} from '../../../Types/Player.ts';
+} from '../../../Types/Player.js';
 
 class BlitzSurvivalGames extends BlitzSurvivalGamesData {
   aura: BlitzSurvivalGamesAura | 'UNKNOWN';
@@ -86,33 +86,33 @@ class BlitzSurvivalGames extends BlitzSurvivalGamesData {
   wolftamer: BlitzSurvivalGamesKit;
   constructor(data: Record<string, any>) {
     super(data);
-    this.aura = data?.aura || 'UNKNOWN';
-    this.auraToggle = data?.auratoggle || false;
-    this.blood = data?.blood || true;
-    this.chosenTaunt = data?.chosen_taunt || 'DEFAULT';
-    this.chosenVictoryDance = data?.chosen_victorydance || 'UNKNOWN';
-    this.chosenFinisher = data?.chosen_finisher || 'UNKNOWN';
-    this.coins = data?.coins || 0;
-    this.packages = data?.packages || [];
-    this.monthlyKills = parseInt(data?.[`monthly_kills_${monthAB()}`] || 0, 10);
-    this.monthlyKillsA = data?.monthly_kills_a || 0;
-    this.monthlyKillsB = data?.monthly_kills_b || 0;
-    this.weeklyKills = parseInt(data?.[`weekly_kills_${monthAB()}`] || 0, 10);
-    this.weeklyKillsA = data?.weekly_kills_a || 0;
-    this.weeklyKillsB = data?.weekly_kills_b || 0;
-    this.autoArmor = data?.autoarmor || true;
-    this.defaultKit = data?.defaultkit || 'None';
-    this.combatTracker = data?.combatTracker || true;
-    this.alternativeKillMessageEnabled = data?.alternative_kill_message_enabled || true;
-    this.prefersFullKitsMenu = data?.prefers_full_kits_menu || true;
-    this.disablePrestigeFinisher = data?.disableprestigefinisher || true;
-    this.toggled = data?.toggled || true;
-    this.fancyMode = data?.fancyMode || false;
-    this.afterKillEffect = data?.afterkill || 'rapid_fire';
+    this.aura = data?.aura ?? 'UNKNOWN';
+    this.auraToggle = data?.auratoggle ?? false;
+    this.blood = data?.blood ?? true;
+    this.chosenTaunt = data?.chosen_taunt ?? 'DEFAULT';
+    this.chosenVictoryDance = data?.chosen_victorydance ?? 'UNKNOWN';
+    this.chosenFinisher = data?.chosen_finisher ?? 'UNKNOWN';
+    this.coins = data?.coins ?? 0;
+    this.packages = data?.packages ?? [];
+    this.monthlyKills = parseInt(data?.[`monthly_kills_${monthAB()}`] ?? 0, 10);
+    this.monthlyKillsA = data?.monthly_kills_a ?? 0;
+    this.monthlyKillsB = data?.monthly_kills_b ?? 0;
+    this.weeklyKills = parseInt(data?.[`weekly_kills_${monthAB()}`] ?? 0, 10);
+    this.weeklyKillsA = data?.weekly_kills_a ?? 0;
+    this.weeklyKillsB = data?.weekly_kills_b ?? 0;
+    this.autoArmor = data?.autoarmor ?? true;
+    this.defaultKit = data?.defaultkit ?? 'None';
+    this.combatTracker = data?.combatTracker ?? true;
+    this.alternativeKillMessageEnabled = data?.alternative_kill_message_enabled ?? true;
+    this.prefersFullKitsMenu = data?.prefers_full_kits_menu ?? true;
+    this.disablePrestigeFinisher = data?.disableprestigefinisher ?? true;
+    this.toggled = data?.toggled ?? true;
+    this.fancyMode = data?.fancyMode ?? false;
+    this.afterKillEffect = data?.afterkill ?? 'rapid_fire';
     this.leaderboardSettings = new LeaderboardSettings<BlitzSurvivalGamesLeaderboardSettingsMode>(
-      data?.leaderboardSettings || {}
+      data?.leaderboardSettings ?? {}
     );
-    this.privateGames = new BlitzSurvivalGamesPrivateGames(data?.privategames || {});
+    this.privateGames = new BlitzSurvivalGamesPrivateGames(data?.privategames ?? {});
     this.arachnologist = new BlitzSurvivalGamesKit(data, 'arachnologist');
     this.archer = new BlitzSurvivalGamesKit(data, 'archer');
     this.armorer = new BlitzSurvivalGamesKit(data, 'armorer');

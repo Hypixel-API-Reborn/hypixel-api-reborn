@@ -1,5 +1,5 @@
 import GameCountsGameCountsLegacyModes from './GameCountsLegacyModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsGeneric from '../GameCountsGeneric.js';
 
 class GameCountsLegacy extends GameCountsGeneric {
   modes: GameCountsGameCountsLegacyModes;

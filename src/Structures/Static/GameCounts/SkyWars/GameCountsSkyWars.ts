@@ -1,4 +1,4 @@
-import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsGeneric from '../GameCountsGeneric.js';
 import GameCountsMCGOModes from './GameCountsSkyWarsModes.js';
 
 class GameCountsSkyWars extends GameCountsGeneric {

@@ -11,13 +11,13 @@ class SkyBlockMemberCrimsonIsleDojo {
   control: SkyBlockMemberCrimsonIsleDojoMinigame;
   belt: CrimsonIsleBelt;
   constructor(data: Record<string, any>) {
-    this.force = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'mob_kb');
-    this.stamina = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'wall_jump');
-    this.mastery = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'archer');
-    this.discipline = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'sword_swap');
-    this.swiftness = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'snake');
-    this.tenacity = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'fireball');
-    this.control = new SkyBlockMemberCrimsonIsleDojoMinigame(data || {}, 'lock_head');
+    this.force = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'mob_kb');
+    this.stamina = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'wall_jump');
+    this.mastery = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'archer');
+    this.discipline = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'sword_swap');
+    this.swiftness = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'snake');
+    this.tenacity = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'fireball');
+    this.control = new SkyBlockMemberCrimsonIsleDojoMinigame(data ?? {}, 'lock_head');
     this.belt = this.getBelt(
       this.force.points +
         this.stamina.points +

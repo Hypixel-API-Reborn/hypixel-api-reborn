@@ -5,7 +5,7 @@ class PlayerQuest {
   completions: PlayerQuestCompletions;
   constructor(data: Record<string, any>, name: string) {
     this.name = name;
-    this.completions = new PlayerQuestCompletions(data?.completions || []);
+    this.completions = new PlayerQuestCompletions(data?.completions ?? []);
   }
 }
 

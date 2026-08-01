@@ -1,5 +1,5 @@
-import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.ts';
-import SkyWarsRankedKits from './SkyWarsRankedKits.ts';
+import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.js';
+import SkyWarsRankedKits from './SkyWarsRankedKits.js';
 
 class SkyWarsRanked extends BaseSkyWarsMode {
   normal: BaseSkyWarsMode;

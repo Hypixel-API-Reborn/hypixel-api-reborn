@@ -1,5 +1,5 @@
 import SkyWarsMini from './SkyWarsMini.js';
-import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsMode from './SkyWarsMode/SkyWarsMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsMini', () => {

@@ -24,15 +24,15 @@ class UHC {
   wins: number;
   kills: number;
   deaths: number;
-  KDR: number;
+  killDeathRatio: number;
   headsEaten: number;
   ultimatesCrafted: number;
   extraUltimatesCrafted: number;
   starLevel: number;
   constructor(data: Record<string, any>) {
-    this.coins = data?.coins || data?.tokens || 0;
-    this.score = data?.score || 0;
-    this.kit = data?.equippedKit || 'None';
+    this.coins = data?.coins ?? data?.tokens ?? 0;
+    this.score = data?.score ?? 0;
+    this.kit = data?.equippedKit ?? 'None';
     this.solo = new UHCGamemode(data, 'solo');
     this.team = new UHCGamemode(data);
     this.redVsBlue = new UHCGamemode(data, 'red_vs_blue');
@@ -64,7 +64,7 @@ class UHC {
       this.brawl.deaths +
       this.soloBrawl.deaths +
       this.duoBrawl.deaths;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.killDeathRatio = Divide(this.kills, this.deaths);
     this.headsEaten =
       this.solo.headsEaten +
       this.team.headsEaten +

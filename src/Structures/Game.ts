@@ -15,10 +15,10 @@ class Game {
           Game.code.toLowerCase() === this.game ||
           Game.id.toString() === this.game ||
           Game.name.toLowerCase() === this.game
-      ) || null;
-    this.id = result?.id || null;
-    this.code = result?.code || null;
-    this.name = result?.name || null;
+      ) ?? null;
+    this.id = result?.id ?? null;
+    this.code = result?.code ?? null;
+    this.name = result?.name ?? null;
     this.found = result !== null;
   }
 

@@ -3,7 +3,7 @@ import GameCountsArcade from './Arcade/GameCountsArcade.js';
 import GameCountsBattleGround from './BattleGround/GameCountsBattleGround.js';
 import GameCountsBedWars from './BedWars/GameCountsBedWars.js';
 import GameCountsBuildBattle from './BuildBattle/GameCountsBuildBattle.js';
-import GameCountsGeneric from './GameCountsGeneric.ts';
+import GameCountsGeneric from './GameCountsGeneric.js';
 import GameCountsLegacy from './Legacy/GameCountsLegacy.js';
 import GameCountsMCGO from './MCGO/GameCountsMCGO.js';
 import GameCountsMurderMystery from './MurderMystery/GameCountsMurderMystery.js';

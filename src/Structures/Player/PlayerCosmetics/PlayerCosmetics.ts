@@ -31,10 +31,10 @@ class PlayerCosmetics {
   unlockedParticlePacks: PlayerCosmeticsParticlePack[];
   unlockedClickEffects: PlayerCosmeticsClickEffect[];
   constructor(data: Record<string, any>) {
-    this.menuSort = data?.collectibles_menu_sort || 'UNKNOWN';
+    this.menuSort = data?.collectibles_menu_sort ?? 'UNKNOWN';
     this.rankPlusColor = data?.rankPlusColor ? new Color(data?.rankPlusColor) : null;
     this.monthlyRankColor = data?.monthlyRankColor ? new Color(data?.monthlyRankColor) : null;
-    this.cosmetics = data?.vanityMeta?.packages || [];
+    this.cosmetics = data?.vanityMeta?.packages ?? [];
     this.pets = new PlayerCosmeticsPets(
       data,
       this.cosmetics.filter((x) => x.startsWith('pet_'))
@@ -48,7 +48,7 @@ class PlayerCosmetics {
       .filter((x) => x.startsWith('hat_'))
       .map((x) => x.replace('hat_', '') as PlayerCosmeticsHat);
 
-    this.selectedGadget = data?.currentGadget || null;
+    this.selectedGadget = data?.currentGadget ?? null;
     this.unlockedGadgets = this.cosmetics
       .filter((x) => x.startsWith('gadget_'))
       .map((x) => x.replace('gadget_', '') as PlayerCosmeticsGadget);
@@ -69,7 +69,7 @@ class PlayerCosmetics {
       .filter((x) => x.startsWith('rankcolor_'))
       .map((x) => x.replace('rankcolor_', '') as PlayerCosmeticsRankColor);
 
-    this.selectedParticlePack = data?.particlePack || null;
+    this.selectedParticlePack = data?.particlePack ?? null;
     this.unlockedParticlePacks = this.cosmetics
       .filter((x) => x.startsWith('particlepack_'))
       .map((x) => x.replace('particlepack_', '') as PlayerCosmeticsParticlePack);

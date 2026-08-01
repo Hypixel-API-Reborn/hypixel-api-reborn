@@ -4,8 +4,8 @@ class SkyBlockMemberPetsCare {
   coinsSpent: number;
   petsSacrificed: SacrificedPet[];
   constructor(data: Record<string, any>) {
-    this.coinsSpent = data?.coins_spent || 0;
-    this.petsSacrificed = data?.pet_types_sacrificed || [];
+    this.coinsSpent = data?.coins_spent ?? 0;
+    this.petsSacrificed = data?.pet_types_sacrificed ?? [];
   }
 
   toString(): number {

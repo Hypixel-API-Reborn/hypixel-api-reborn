@@ -11,13 +11,13 @@ class SkyBlockMemberRiftVillagePlaza {
   seraphine: Record<string, any>;
   gotScammed: boolean;
   constructor(data: Record<string, any>) {
-    this.murder = new SkyBlockMemberRiftVillagePlazaMurder(data?.murder || {});
-    this.barry = new SkyBlockMemberRiftVillagePlazaBarry(data?.barry_center || {});
-    this.cowboy = new SkyBlockMemberRiftVillagePlazaCowboy(data?.cowboy || {});
-    this.barterBank = data?.barter_bank || {};
-    this.lonely = data?.lonely || {};
-    this.seraphine = data?.seraphine || {};
-    this.gotScammed = data?.got_scammed || false;
+    this.murder = new SkyBlockMemberRiftVillagePlazaMurder(data?.murder ?? {});
+    this.barry = new SkyBlockMemberRiftVillagePlazaBarry(data?.barry_center ?? {});
+    this.cowboy = new SkyBlockMemberRiftVillagePlazaCowboy(data?.cowboy ?? {});
+    this.barterBank = data?.barter_bank ?? {};
+    this.lonely = data?.lonely ?? {};
+    this.seraphine = data?.seraphine ?? {};
+    this.gotScammed = data?.got_scammed ?? false;
   }
 }
 

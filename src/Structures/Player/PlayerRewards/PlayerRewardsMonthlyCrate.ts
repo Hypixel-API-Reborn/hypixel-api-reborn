@@ -7,11 +7,11 @@ class PlayerRewardsMonthlyCrate {
   MVP_PLUS: boolean;
   constructor(data: Record<string, any>, date: string) {
     this.date = date;
-    this.REGULAR = data?.REGULAR || data?.NORMAL || false;
-    this.VIP = data?.VIP || false;
-    this.VIP_PLUS = data?.VIP_PLUS || false;
-    this.MVP = data?.MVP || false;
-    this.MVP_PLUS = data?.MVP_PLUS || false;
+    this.REGULAR = data?.REGULAR ?? data?.NORMAL ?? false;
+    this.VIP = data?.VIP ?? false;
+    this.VIP_PLUS = data?.VIP_PLUS ?? false;
+    this.MVP = data?.MVP ?? false;
+    this.MVP_PLUS = data?.MVP_PLUS ?? false;
   }
 }
 

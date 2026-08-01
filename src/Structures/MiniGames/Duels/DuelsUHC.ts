@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import Duels from './Duels.ts';
+import Duels from './Duels.js';
 import DuelsGamemode from './DuelsGamemode.js';
 
 class DuelsUHC {
@@ -12,10 +12,10 @@ class DuelsUHC {
   deathmatch: DuelsGamemode;
   kills: number;
   deaths: number;
-  KDR: number;
+  killDeathRatio: number;
   wins: number;
   losses: number;
-  WLR: number;
+  winLossRatio: number;
   playedGames: number;
   swings: number;
   hits: number;
@@ -28,18 +28,18 @@ class DuelsUHC {
   goldenApplesEaten: number;
   constructor(data: Record<string, any>) {
     this.title = Duels.getTitle(data, 'uhc');
-    this.winStreak = data?.current_uhc_winstreak || 0;
-    this.bestWinStreak = data?.best_uhc_winstreak || 0;
+    this.winStreak = data?.current_uhc_winstreak ?? 0;
+    this.bestWinStreak = data?.best_uhc_winstreak ?? 0;
     this.solo = new DuelsGamemode(data, 'uhc_duel', this.title);
     this.doubles = new DuelsGamemode(data, 'uhc_doubles', this.title);
     this.fours = new DuelsGamemode(data, 'uhc_four', this.title);
     this.deathmatch = new DuelsGamemode(data, 'uhc_meetup', this.title);
     this.kills = this.solo.kills + this.doubles.kills + this.fours.kills + this.deathmatch.kills;
     this.deaths = this.solo.deaths + this.doubles.deaths + this.fours.deaths + this.deathmatch.deaths;
-    this.KDR = Divide(this.kills, this.deaths);
+    this.killDeathRatio = Divide(this.kills, this.deaths);
     this.wins = this.solo.wins + this.doubles.wins + this.fours.wins + this.deathmatch.wins;
     this.losses = this.solo.losses + this.doubles.losses + this.fours.losses + this.deathmatch.losses;
-    this.WLR = Divide(this.wins, this.losses);
+    this.winLossRatio = Divide(this.wins, this.losses);
     this.playedGames =
       this.solo.playedGames + this.doubles.playedGames + this.fours.playedGames + this.deathmatch.playedGames;
     this.swings = this.solo.swings + this.doubles.swings + this.fours.swings + this.deathmatch.swings;

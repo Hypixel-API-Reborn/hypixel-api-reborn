@@ -12,16 +12,16 @@ class PlayerRewards {
   totalRewards: number;
   monthlyCrates: PlayerRewardsMonthlyCrate[];
   constructor(data: Record<string, any>) {
-    this.adsenseTokens = data?.adsense_tokens || 0;
+    this.adsenseTokens = data?.adsense_tokens ?? 0;
     this.lastAdsenseGenerateTimeAt = data?.lastAdsenseGenerateTime ? new Date(data?.lastAdsenseGenerateTime) : null;
-    this.lastClaimedReward = data?.lastClaimedReward || 0;
-    this.rewardHighScore = data?.rewardHighScore || 0;
-    this.rewardScore = data?.rewardScore || 0;
-    this.rewardStreak = data?.rewardStreak || 0;
-    this.rewardTokens = data?.adsence_tokens || 0;
-    this.totalDailyRewards = data?.totalDailyRewards || 0;
-    this.totalRewards = data?.totalRewards || 0;
-    this.monthlyCrates = Object.keys(data?.monthlycrates || {}).map(
+    this.lastClaimedReward = data?.lastClaimedReward ?? 0;
+    this.rewardHighScore = data?.rewardHighScore ?? 0;
+    this.rewardScore = data?.rewardScore ?? 0;
+    this.rewardStreak = data?.rewardStreak ?? 0;
+    this.rewardTokens = data?.adsence_tokens ?? 0;
+    this.totalDailyRewards = data?.totalDailyRewards ?? 0;
+    this.totalRewards = data?.totalRewards ?? 0;
+    this.monthlyCrates = Object.keys(data?.monthlycrates ?? {}).map(
       (key) => new PlayerRewardsMonthlyCrate(data?.monthlycrates?.[key], key)
     );
   }
