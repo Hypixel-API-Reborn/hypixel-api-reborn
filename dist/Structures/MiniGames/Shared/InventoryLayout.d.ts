@@ -1,0 +1,41 @@
+declare class InventoryLayout {
+    slot0: string | undefined;
+    slot1: string | undefined;
+    slot2: string | undefined;
+    slot3: string | undefined;
+    slot4: string | undefined;
+    slot5: string | undefined;
+    slot6: string | undefined;
+    slot7: string | undefined;
+    slot8: string | undefined;
+    slot9: string | undefined;
+    slot10: string | undefined;
+    slot11: string | undefined;
+    slot12: string | undefined;
+    slot13: string | undefined;
+    slot14: string | undefined;
+    slot15: string | undefined;
+    slot16: string | undefined;
+    slot17: string | undefined;
+    slot18: string | undefined;
+    slot19: string | undefined;
+    slot20: string | undefined;
+    slot21: string | undefined;
+    slot22: string | undefined;
+    slot23: string | undefined;
+    slot24: string | undefined;
+    slot25: string | undefined;
+    slot26: string | undefined;
+    slot27: string | undefined;
+    slot28: string | undefined;
+    slot29: string | undefined;
+    slot30: string | undefined;
+    slot31: string | undefined;
+    slot32: string | undefined;
+    slot33: string | undefined;
+    slot34: string | undefined;
+    slot35: string | undefined;
+    constructor(data: Record<string, any>);
+}
+export default InventoryLayout;
+//# sourceMappingURL=InventoryLayout.d.ts.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"SheepWarsLayout.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/MiniGames/WoolGames/SheepWars/SheepWarsLayout.ts"],"names":[],"mappings":"AAAA,OAAO,eAAe,MAAM,iCAAiC,CAAC;AAE9D,cAAM,eAAe;IACnB,MAAM,EAAE,OAAO,CAAC;IAChB,MAAM,EAAE,eAAe,CAAC;gBACZ,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,eAAe,CAAC"}
