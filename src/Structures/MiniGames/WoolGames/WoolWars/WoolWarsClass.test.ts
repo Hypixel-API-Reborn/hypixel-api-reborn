@@ -1,8 +1,9 @@
+import InventoryLayout from '../../Shared/InventoryLayout.js';
 import WoolWarsClass from './WoolWarsClass.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WoolWarsClass', () => {
-  const data = new WoolWarsClass({ stats: 'meow' }, 'ARCHER');
+  const data = new WoolWarsClass({ stats: 'meow' }, 'TANK');
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(WoolWarsClass);
   expectTypeOf(data).toEqualTypeOf<WoolWarsClass>();
@@ -18,9 +19,9 @@ test('WoolWarsClass', () => {
   expect(data.deaths).toBeDefined();
   expect(data.deaths).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.deaths).toEqualTypeOf<number>();
-  expect(data.KDRatio).toBeDefined();
-  expect(data.KDRatio).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.KDRatio).toEqualTypeOf<number>();
+  expect(data.killDeathRatio).toBeDefined();
+  expect(data.killDeathRatio).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.killDeathRatio).toEqualTypeOf<number>();
   expect(data.gamesPlayed).toBeDefined();
   expect(data.gamesPlayed).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.gamesPlayed).toEqualTypeOf<number>();
@@ -36,4 +37,7 @@ test('WoolWarsClass', () => {
   expect(data.powerUps).toBeDefined();
   expect(data.powerUps).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.powerUps).toEqualTypeOf<number>();
+  expect(data.layout).toBeDefined();
+  expect(data.layout).toBeInstanceOf(InventoryLayout);
+  expectTypeOf(data.layout).toEqualTypeOf<InventoryLayout>();
 });

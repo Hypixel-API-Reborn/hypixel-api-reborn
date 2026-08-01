@@ -1,10 +1,10 @@
 import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
-  BedWarsPrivateGameSettingsEventTime,
   BedWarsPrivateGameSettingsRespawnTime,
-  PrivateGameSettingsGameSpeed,
-  PrivateGameSettingsHealthBuff
+  PrivateGameSettingsGameEventSpeed,
+  PrivateGameSettingsHealthBuff,
+  PrivateGameSettingsSpeed
 } from '../../../Types/Player.js';
 
 test('BedWarsPrivateGameSettings', () => {
@@ -16,8 +16,8 @@ test('BedWarsPrivateGameSettings', () => {
   expectTypeOf(data.bedInstaBreak).toEqualTypeOf<boolean>();
   expect(data.disableBlockProtection).toBeDefined();
   expectTypeOf(data.disableBlockProtection).toEqualTypeOf<boolean>();
-  expect(data.eventTime).toBeDefined();
-  expectTypeOf(data.eventTime).toEqualTypeOf<BedWarsPrivateGameSettingsEventTime>();
+  expect(data.gameEventSpeed).toBeDefined();
+  expectTypeOf(data.gameEventSpeed).toEqualTypeOf<PrivateGameSettingsGameEventSpeed>();
   expect(data.healthBuff).toBeDefined();
   expectTypeOf(data.healthBuff).toEqualTypeOf<PrivateGameSettingsHealthBuff>();
   expect(data.lowGravity).toBeDefined();
@@ -33,5 +33,5 @@ test('BedWarsPrivateGameSettings', () => {
   expect(data.respawnTime).toBeDefined();
   expectTypeOf(data.respawnTime).toEqualTypeOf<BedWarsPrivateGameSettingsRespawnTime>();
   expect(data.speed).toBeDefined();
-  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsGameSpeed>();
+  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsSpeed>();
 });

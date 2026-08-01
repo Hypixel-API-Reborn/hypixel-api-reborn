@@ -1,9 +1,9 @@
-import type { PrivateGameSettingsGameSpeed, PrivateGameSettingsHealthBuff } from '../../../Types/Player.ts';
+import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/Player.ts';
 
 class SkyWarsPrivateGames {
   maxKitsAndPerks: boolean;
   legacyItems: boolean;
-  speed: PrivateGameSettingsGameSpeed | 'UNKNOWN';
+  speed: PrivateGameSettingsSpeed | 'UNKNOWN';
   dragons: string | 'UNKNOWN';
   noKits: boolean;
   nightTime: boolean;

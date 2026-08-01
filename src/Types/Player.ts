@@ -44,8 +44,6 @@ export const ArenaBrawlRunes = ['slowing', 'energy', 'damage', 'tank', 'speed'] 
 export type ArenaBrawlRune = (typeof ArenaBrawlRunes)[number];
 export const MiniWallsKits = ['soldier', 'archer', 'builder'] as const;
 export type MiniWallsKit = (typeof MiniWallsKits)[number];
-export const WoolWarsClassNames = ['ASSAULT', 'TANK', 'GOLEM', 'SWORDSMAN', 'ENGINEER', 'ARCHER'] as const;
-export type WoolWarsClassName = (typeof WoolWarsClassNames)[number];
 export const SmashHeoresModes = ['normal', '2v2', 'teams'] as const;
 export type SmashHeoresMode = (typeof SmashHeoresModes)[number];
 export const MegaWallsModes = ['face_off', 'gvg'] as const;
@@ -385,16 +383,6 @@ export const DuelsBaseDivisions = [
   'Ascended'
 ] as const;
 export type DuelsBaseDivision = (typeof DuelsBaseDivisions)[number];
-
-export interface WoolGamesPrivateGameConfig {
-  one_hit_one_kill: boolean;
-  rainbow_wool: 'Enabled' | 'Disabled';
-  health_buff: string;
-  game_speed: string;
-  speed: string;
-  no_class: 'Enabled' | 'Disabled';
-  respawn_enable: boolean;
-}
 
 export interface PitArmor {
   helmet: PitInventoryItem | null;
@@ -1596,13 +1584,240 @@ export const BuildBattleTitles = [
 ] as const;
 export type BuildBattleTitle = (typeof BuildBattleTitles)[number];
 
-export const LeaderboardSettingsResetTypes = ['MONTHLY', 'NEVER', 'WEEKLY'] as const;
+export const LeaderboardSettingsResetTypes = ['DAILY', 'WEEKLY', 'MONTHLY', 'NEVER'] as const;
 export type LeaderboardSettingsResetType = (typeof LeaderboardSettingsResetTypes)[number];
 
-export const PrivateGameSettingsGameSpeeds = ['No Speed', 'Speed I', 'Speed II', 'Speed III'] as const;
-export type PrivateGameSettingsGameSpeed = (typeof PrivateGameSettingsGameSpeeds)[number];
+export const PrivateGameSettingsGameEventSpeeds = [
+  '0.5x - Slower',
+  '1x - Normal',
+  '2x - Faster',
+  '4x - Fastest'
+] as const;
+export type PrivateGameSettingsGameEventSpeed = (typeof PrivateGameSettingsGameEventSpeeds)[number];
+export const PrivateGameSettingsSpeeds = ['No Speed', 'Speed I', 'Speed II', 'Speed III'] as const;
+export type PrivateGameSettingsSpeed = (typeof PrivateGameSettingsSpeeds)[number];
 export const PrivateGameSettingsHealthBuffs = ['Normal Health', 'Double Health', 'Triple Health'] as const;
 export type PrivateGameSettingsHealthBuff = (typeof PrivateGameSettingsHealthBuffs)[number];
+export const PrivateGameSettingsJumpBoosts = ['Disabled', 'I', 'II', 'III', 'IV', 'V'] as const;
+export type PrivateGameSettingsJumpBoost = (typeof PrivateGameSettingsJumpBoosts)[number];
+
+export const WoolGamesLeaderboardSettingsModes = [
+  'capture_the_wool_two_twenty',
+  'sheep_wars_two_six',
+  'wool_wars_two_four'
+] as const;
+export type WoolGamesLeaderboardSettingsMode = (typeof WoolGamesLeaderboardSettingsModes)[number];
+export const WoolGamesSheepWarsClassNames = ['BUILDER', 'RAIDER', 'BOWMAN', 'MUNITIONS', 'TANK', 'HEAVY'] as const;
+export type WoolGamesSheepWarsClassName = (typeof WoolGamesSheepWarsClassNames)[number];
+export const WoolGamesWoolWarsClassNames = ['TANK', 'ASSAULT', 'ARCHER', 'SWORDSMAN', 'GOLEM', 'ENGINEER'] as const;
+export type WoolGamesWoolWarsClassName = (typeof WoolGamesWoolWarsClassNames)[number];
+export const WoolGamesPrivateGameSettingsMapDestructibilitys = ['Disabled', 'Default', 'Totally'] as const;
+export type WoolGamesPrivateGameSettingsMapDestructibility =
+  (typeof WoolGamesPrivateGameSettingsMapDestructibilitys)[number];
+export const WoolGamesPrivateGameSettingsSpawnRates = ['0.5x', '1x', '2x', '4x'] as const;
+export type WoolGamesPrivateGameSettingsSpawnRate = (typeof WoolGamesPrivateGameSettingsSpawnRates)[number];
+export const WoolGamesPackageBarriers = [
+  'barrier_animated_rainbow',
+  'barrier_barrierblock',
+  'barrier_bubble_gum',
+  'barrier_painted_egg',
+  'barrier_rage',
+  'barrier_sky',
+  'barrier_summer_view',
+  'barrier_void'
+] as const;
+export type WoolGamesPackageBarrier = (typeof WoolGamesPackageBarriers)[number];
+export const WoolGamesPackageCages = [
+  'cage_animated_rainbow',
+  'cage_banana',
+  'cage_barrierblock',
+  'cage_bee',
+  'cage_blossom',
+  'cage_blossom_animated',
+  'cage_bricks',
+  'cage_bubblegum',
+  'cage_bubblegum_animated',
+  'cage_cloud',
+  'cage_cobblestone',
+  'cage_danger',
+  'cage_netherbricks',
+  'cage_ocean',
+  'cage_orange',
+  'cage_painted_egg',
+  'cage_quartz',
+  'cage_rage',
+  'cage_rainbow',
+  'cage_sand',
+  'cage_shadow',
+  'cage_sky',
+  'cage_static',
+  'cage_summer_view',
+  'cage_void'
+] as const;
+export type WoolGamesPackageCage = (typeof WoolGamesPackageCages)[number];
+export const WoolGamesPackageDeathCrys = [
+  'deathcry_aww',
+  'deathcry_bat',
+  'deathcry_bazinga',
+  'deathcry_deflated_toy',
+  'deathcry_ding',
+  'deathcry_dinosaur',
+  'deathcry_enderman',
+  'deathcry_energy',
+  'deathcry_fireball',
+  'deathcry_grumble',
+  'deathcry_grumpy_villager',
+  'deathcry_monster_burp',
+  'deathcry_pig',
+  'deathcry_plop',
+  'deathcry_robot_mouse',
+  'deathcry_sad_moo',
+  'deathcry_sad_puppy',
+  'deathcry_shriek'
+] as const;
+export type WoolGamesPackageDeathCry = (typeof WoolGamesPackageDeathCrys)[number];
+export const WoolGamesPackageGlyphs = [
+  'glyph_burn',
+  'glyph_celebration_popper',
+  'glyph_chicken',
+  'glyph_creeper_scream',
+  'glyph_cry_face',
+  'glyph_heart',
+  'glyph_hi',
+  'glyph_l',
+  'glyph_lol',
+  'glyph_no',
+  'glyph_no_1',
+  'glyph_storm',
+  'glyph_thumbs_down',
+  'glyph_thumbs_up',
+  'glyph_winky_face',
+  'glyph_yes'
+] as const;
+export type WoolGamesPackageGlyph = (typeof WoolGamesPackageGlyphs)[number];
+export const WoolGamesPackageHats = [
+  'hat_anger',
+  'hat_astronaut',
+  'hat_beeking',
+  'hat_brokentv',
+  'hat_builder',
+  'hat_cactus',
+  'hat_chef',
+  'hat_chromaslime',
+  'hat_clock',
+  'hat_compliment',
+  'hat_demoneyes',
+  'hat_diamond_pig',
+  'hat_enchanteddiamond',
+  'hat_enchantedemeral',
+  'hat_enchantedgold',
+  'hat_ender',
+  'hat_enderdragon',
+  'hat_evileye',
+  'hat_explosive',
+  'hat_fortress',
+  'hat_golden_cow',
+  'hat_goldrush',
+  'hat_golem',
+  'hat_hipster',
+  'hat_hypixel',
+  'hat_insult',
+  'hat_l',
+  'hat_leet',
+  'hat_librarian',
+  'hat_magician',
+  'hat_melon',
+  'hat_mrtoad',
+  'hat_mushroom',
+  'hat_noob',
+  'hat_oceania',
+  'hat_party',
+  'hat_polarbear',
+  'hat_pottymouth',
+  'hat_sandstorm',
+  'hat_scotland',
+  'hat_slime2',
+  'hat_spacehelmet',
+  'hat_spongebob',
+  'hat_storage',
+  'hat_taco',
+  'hat_teamwool',
+  'hat_tree_man',
+  'hat_troll',
+  'hat_watchdog'
+] as const;
+export type WoolGamesPackageHat = (typeof WoolGamesPackageHats)[number];
+export const WoolGamesPackageKillMessages = [
+  'killmessages_banana',
+  'killmessages_cake',
+  'killmessages_computer',
+  'killmessages_fire',
+  'killmessages_galactic',
+  'killmessages_heat_wave',
+  'killmessages_love',
+  'killmessages_medieval',
+  'killmessages_memed',
+  'killmessages_oink',
+  'killmessages_oxed',
+  'killmessages_pirate',
+  'killmessages_western'
+] as const;
+export type WoolGamesPackageKillMessage = (typeof WoolGamesPackageKillMessages)[number];
+export const WoolGamesPackageProjectileTrails = [
+  'projectiletrail_angry_villager',
+  'projectiletrail_black_smoke',
+  'projectiletrail_bloody',
+  'projectiletrail_blue_dust',
+  'projectiletrail_candy_basket',
+  'projectiletrail_crayon',
+  'projectiletrail_cursedflame',
+  'projectiletrail_ender',
+  'projectiletrail_fanged',
+  'projectiletrail_fire',
+  'projectiletrail_fireball',
+  'projectiletrail_firework',
+  'projectiletrail_flame_rings',
+  'projectiletrail_green_star',
+  'projectiletrail_hearts',
+  'projectiletrail_hoops',
+  'projectiletrail_howling_wind',
+  'projectiletrail_icicle',
+  'projectiletrail_lava',
+  'projectiletrail_let_there_be_leather',
+  'projectiletrail_magic',
+  'projectiletrail_notes',
+  'projectiletrail_potion',
+  'projectiletrail_pumpkin_spice_powered',
+  'projectiletrail_pumpkin_volley_trail',
+  'projectiletrail_purple_dust',
+  'projectiletrail_random',
+  'projectiletrail_red_dust',
+  'projectiletrail_rose',
+  'projectiletrail_slime',
+  'projectiletrail_sparkler',
+  'projectiletrail_spiders_silk',
+  'projectiletrail_stormy',
+  'projectiletrail_twirling_snowflake',
+  'projectiletrail_water',
+  'projectiletrail_water_sprinkler',
+  'projectiletrail_white_smoke',
+  'projectiletrail_wisp_whirlwind',
+  'projectiletrail_wool_games_level'
+] as const;
+export type WoolGamesPackageProjectileTrail = (typeof WoolGamesPackageProjectileTrails)[number];
+export const WoolGamesPackageVictoryDances = ['victorydance_heat_wave'] as const;
+export type WoolGamesPackageVictoryDance = (typeof WoolGamesPackageVictoryDances)[number];
+export const WoolGamesPackages = [
+  ...WoolGamesPackageBarriers,
+  ...WoolGamesPackageCages,
+  ...WoolGamesPackageDeathCrys,
+  ...WoolGamesPackageGlyphs,
+  ...WoolGamesPackageHats,
+  ...WoolGamesPackageKillMessages,
+  ...WoolGamesPackageProjectileTrails,
+  ...WoolGamesPackageVictoryDances
+] as const;
+export type WoolGamesPackage = (typeof WoolGamesPackages)[number];
 
 export const MurderMysteryDescentModes = ['ASSASSINS', 'CLASSIC', 'INFECTION'] as const;
 export type MurderMysteryDescentMode = (typeof MurderMysteryDescentModes)[number];
@@ -2945,13 +3160,6 @@ export const BedWarsChallengeNames = [
   'TOXIC_RAIN'
 ] as const;
 export type BedWarsChallengeName = (typeof BedWarsChallengeNames)[number];
-export const BedWarsPrivateGameSettingsEventTimes = [
-  '0.5x - Slower',
-  '1x - Normal',
-  '2x - Faster',
-  '4x - Fastest'
-] as const;
-export type BedWarsPrivateGameSettingsEventTime = (typeof BedWarsPrivateGameSettingsEventTimes)[number];
 export const BedWarsPrivateGameSettingsRespawnTimes = ['1 Second', '5 Seconds', '10 Seconds'] as const;
 export type BedWarsPrivateGameSettingsRespawnTime = (typeof BedWarsPrivateGameSettingsRespawnTimes)[number];
 export const BedWarsSettingsDeposits = ['ENABLED', 'DISABLED', 'HOLOGRAMS_HIDDEN'] as const;

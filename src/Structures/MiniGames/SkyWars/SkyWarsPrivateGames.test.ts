@@ -1,6 +1,6 @@
 import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PrivateGameSettingsGameSpeed, PrivateGameSettingsHealthBuff } from '../../../Types/Player.js';
+import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/Player.js';
 
 test('SkyWarsPrivateGames', () => {
   const data = new SkyWarsPrivateGames({ stats: 'meow' });
@@ -12,7 +12,7 @@ test('SkyWarsPrivateGames', () => {
   expect(data.legacyItems).toBeDefined();
   expectTypeOf(data.legacyItems).toEqualTypeOf<boolean>();
   expect(data.speed).toBeDefined();
-  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsGameSpeed | 'UNKNOWN'>();
+  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsSpeed | 'UNKNOWN'>();
   expect(data.dragons).toBeDefined();
   expectTypeOf(data.dragons).toEqualTypeOf<string | 'UNKNOWN'>();
   expect(data.noKits).toBeDefined();

@@ -84,7 +84,8 @@ import BowSpleef from './Structures/MiniGames/TNTGames/BowSpleef.js';
 import BuildBattle from './Structures/MiniGames/BuildBattle/BuildBattle.js';
 import BuildBattleLastWin from './Structures/MiniGames/BuildBattle/BuildBattleLastWin.js';
 import BuildBattleVotes from './Structures/MiniGames/BuildBattle/BuildBattleVotes.js';
-import CaptureTheWool from './Structures/MiniGames/WoolGames/CaptureTheWool.js';
+import CaptureTheWool from './Structures/MiniGames/WoolGames/CaptureTheWool/CaptureTheWool.js';
+import CaptureTheWoolSettings from './Structures/MiniGames/WoolGames/CaptureTheWool/CaptureTheWoolSettings.js';
 import Challenge from './Structures/Static/Challenge.js';
 import Challenges from './Structures/Static/Challenges.js';
 import Color from './Structures/Color.js';
@@ -164,6 +165,7 @@ import HideAndSeek from './Structures/MiniGames/Arcade/HideAndSeek.js';
 import HoleInTheWall from './Structures/MiniGames/Arcade/HoleInTheWall.js';
 import House from './Structures/House.js';
 import HypixelSports from './Structures/MiniGames/Arcade/HypixelSports.js';
+import InventoryLayout from './Structures/MiniGames/Shared/InventoryLayout.js';
 import ItemBytes from './Structures/ItemBytes.js';
 import LawnMoower from './Structures/MiniGames/Arcade/PartyGames/LawnMoower.js';
 import Leaderboard from './Structures/Leaderboard.js';
@@ -229,7 +231,8 @@ import RecentGame from './Structures/RecentGame.js';
 import SantaSays from './Structures/MiniGames/Arcade/SantaSays.js';
 import SantaSimulator from './Structures/MiniGames/Arcade/SantaSimulator.js';
 import ScubaSimulator from './Structures/MiniGames/Arcade/ScubaSimulator.js';
-import SheepWars from './Structures/MiniGames/WoolGames/SheepWars.js';
+import SheepWars from './Structures/MiniGames/WoolGames/SheepWars/SheepWars.js';
+import SheepWarsLayout from './Structures/MiniGames/WoolGames/SheepWars/SheepWarsLayout.js';
 import SimonSays from './Structures/MiniGames/Arcade/SimonSays.js';
 import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockAuctionBid from './Structures/SkyBlock/Auctions/SkyBlockAuctionBid.js';
@@ -449,9 +452,12 @@ import Warlords from './Structures/MiniGames/Warlords/Warlords.js';
 import WarlordsClass from './Structures/MiniGames/Warlords/WarlordsClass.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
 import WoolGames from './Structures/MiniGames/WoolGames/WoolGames.js';
+import WoolGamesPrivateGames from './Structures/MiniGames/WoolGames/WoolGamesPrivateGames.js';
+import WoolGamesProgression from './Structures/MiniGames/WoolGames/WoolGamesProgression.js';
 import WoolHunt from './Structures/MiniGames/Arcade/WoolHunt.js';
-import WoolWars from './Structures/MiniGames/WoolGames/WoolWars.js';
-import WoolWarsClass from './Structures/MiniGames/WoolGames/WoolWarsClass.js';
+import WoolWars from './Structures/MiniGames/WoolGames/WoolWars/WoolWars.js';
+import WoolWarsClass from './Structures/MiniGames/WoolGames/WoolWars/WoolWarsClass.js';
+import WoolWarsSettings from './Structures/MiniGames/WoolGames/WoolWars/WoolWarsSettings.js';
 import Zombies from './Structures/MiniGames/Arcade/Zombies/Zombies.js';
 import ZombiesMap from './Structures/MiniGames/Arcade/Zombies/ZombiesMap.js';
 import ZombiesMapMode from './Structures/MiniGames/Arcade/Zombies/ZombiesMapMode.js';
@@ -517,6 +523,7 @@ export {
   BuildBattleLastWin,
   BuildBattleVotes,
   CaptureTheWool,
+  CaptureTheWoolSettings,
   Challenge,
   Challenges,
   Color,
@@ -596,6 +603,7 @@ export {
   HoleInTheWall,
   House,
   HypixelSports,
+  InventoryLayout,
   ItemBytes,
   LawnMoower,
   Leaderboard,
@@ -662,6 +670,7 @@ export {
   SantaSimulator,
   ScubaSimulator,
   SheepWars,
+  SheepWarsLayout,
   SimonSays,
   SkyBlockAuction,
   SkyBlockAuctionBid,
@@ -881,9 +890,12 @@ export {
   WarlordsClass,
   WatchdogStats,
   WoolGames,
+  WoolGamesPrivateGames,
+  WoolGamesProgression,
   WoolHunt,
   WoolWars,
   WoolWarsClass,
+  WoolWarsSettings,
   Zombies,
   ZombiesMap,
   ZombiesMapMode
@@ -950,6 +962,7 @@ export default {
   BuildBattleLastWin,
   BuildBattleVotes,
   CaptureTheWool,
+  CaptureTheWoolSettings,
   Challenge,
   Challenges,
   Color,
@@ -1029,6 +1042,7 @@ export default {
   HoleInTheWall,
   House,
   HypixelSports,
+  InventoryLayout,
   ItemBytes,
   LawnMoower,
   Leaderboard,
@@ -1095,6 +1109,7 @@ export default {
   SantaSimulator,
   ScubaSimulator,
   SheepWars,
+  SheepWarsLayout,
   SimonSays,
   SkyBlockAuction,
   SkyBlockAuctionBid,
@@ -1314,9 +1329,12 @@ export default {
   WarlordsClass,
   WatchdogStats,
   WoolGames,
+  WoolGamesPrivateGames,
+  WoolGamesProgression,
   WoolHunt,
   WoolWars,
   WoolWarsClass,
+  WoolWarsSettings,
   Zombies,
   ZombiesMap,
   ZombiesMapMode

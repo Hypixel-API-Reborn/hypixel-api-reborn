@@ -1,13 +1,13 @@
 import type {
   BlitzSurvivalGamesPrivateGamesExtraStar,
-  PrivateGameSettingsGameSpeed,
-  PrivateGameSettingsHealthBuff
+  PrivateGameSettingsHealthBuff,
+  PrivateGameSettingsSpeed
 } from '../../../Types/Player.ts';
 
 class BlitzSurvivalGamesPrivateGames {
   healthBuff: PrivateGameSettingsHealthBuff | 'UNKNOWN';
   lowGravity: boolean;
-  speed: PrivateGameSettingsGameSpeed | 'UNKNOWN';
+  speed: PrivateGameSettingsSpeed | 'UNKNOWN';
   extraBlitzStars: BlitzSurvivalGamesPrivateGamesExtraStar;
   oneHitOneKill: boolean;
   nightTime: boolean;

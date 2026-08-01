@@ -1,43 +1,57 @@
-import CaptureTheWool from './CaptureTheWool.js';
-import SheepWars from './SheepWars.js';
-import WoolWars from './WoolWars.js';
-import type { WoolGamesPrivateGameConfig } from '../../../Types/Player.js';
+import CaptureTheWool from './CaptureTheWool/CaptureTheWool.js';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
+import SheepWars from './SheepWars/SheepWars.js';
+import WoolGamesPrivateGames from './WoolGamesPrivateGames.js';
+import WoolGamesProgression from './WoolGamesProgression.js';
+import WoolWars from './WoolWars/WoolWars.js';
+import type {
+  WoolGamesLeaderboardSettingsMode,
+  WoolGamesPackage,
+  WoolGamesPackageBarrier,
+  WoolGamesPackageCage,
+  WoolGamesPackageDeathCry,
+  WoolGamesPackageGlyph,
+  WoolGamesPackageHat,
+  WoolGamesPackageKillMessage,
+  WoolGamesPackageProjectileTrail
+} from '../../../Types/Player.js';
 
 class WoolGames {
-  layers: number;
-  xp: number;
-  exactLevel: number;
-  level: number;
   coins: number;
-  ownedCosmetics: string[];
-  privateGamesConfig: WoolGamesPrivateGameConfig;
+  packages: WoolGamesPackage[];
+  privateGames: WoolGamesPrivateGames;
+  progression: WoolGamesProgression;
+  selectedCage: WoolGamesPackageCage | 'UNKNOWN';
+  selectedKillMessages: WoolGamesPackageKillMessage | 'UNKNOWN';
+  selectedHat: WoolGamesPackageHat | 'UNKNOWN';
+  selectedGlyph: WoolGamesPackageGlyph | 'UNKNOWN';
+  selectedDeathCry: WoolGamesPackageDeathCry | 'UNKNOWN';
+  selectedBarrier: WoolGamesPackageBarrier | 'UNKNOWN';
+  selectedProjectileTrail: WoolGamesPackageProjectileTrail | 'UNKNOWN';
   playtime: number;
+  leaderboardSettings: LeaderboardSettings<WoolGamesLeaderboardSettingsMode>;
   woolWars: WoolWars;
   captureTheWool: CaptureTheWool;
   sheepWars: SheepWars;
   constructor(data: Record<string, any>) {
-    this.layers = data?.progression?.available_layers || 0;
-    this.xp = data?.progression?.experience || 0;
-    this.exactLevel = this.convertXPToLevel(this.xp);
-    this.level = Math?.floor(this.exactLevel);
-    this.coins = data?.coins || data?.tokens || 0;
-    this.ownedCosmetics = data?.packages || [];
-    this.privateGamesConfig = data?.privategames || {};
+    this.coins = data?.tokens || data?.coins || 0;
+    this.packages = data?.packages || [];
+    this.privateGames = new WoolGamesPrivateGames(data?.privategames || {});
+    this.progression = new WoolGamesProgression(data?.progression || {});
+    this.selectedCage = data?.cage || 'UNKNOWN';
+    this.selectedKillMessages = data?.killmessages || 'UNKNOWN';
+    this.selectedHat = data?.hat || 'UNKNOWN';
+    this.selectedGlyph = data?.glyph || 'UNKNOWN';
+    this.selectedDeathCry = data?.deathcry || 'UNKNOWN';
+    this.selectedBarrier = data?.barrier || 'UNKNOWN';
+    this.selectedProjectileTrail = data?.projectiletrail || 'UNKNOWN';
     this.playtime = data?.playtime || 0;
+    this.leaderboardSettings = new LeaderboardSettings<WoolGamesLeaderboardSettingsMode>(
+      data?.leaderboardSettings || {}
+    );
     this.woolWars = new WoolWars(data?.wool_wars);
     this.captureTheWool = new CaptureTheWool(data?.capture_the_wool);
     this.sheepWars = new SheepWars(data?.sheep_wars);
-  }
-
-  convertXPToLevel(exp: number): number {
-    const minimalExp = [0, 1e3, 3e3, 6e3, 1e4, 15e3];
-    const baseLevel = minimalExp?.length;
-    const baseExp: number = minimalExp[minimalExp?.length - 1] || 0;
-    const expToLevel100 = 49e4;
-    if (exp < baseExp) return minimalExp?.findIndex((x) => exp < x);
-    const theoreticalLevel = (exp - baseExp) / 5e3 + baseLevel;
-    if (theoreticalLevel > 100) return 100 + this.convertXPToLevel(exp - expToLevel100);
-    return theoreticalLevel;
   }
 }
 
