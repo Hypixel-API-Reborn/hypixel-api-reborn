@@ -1,5 +1,3 @@
-import type RequestData from '../Private/RequestData.js';
-
 class WatchdogStats {
   byWatchdogTotal: number;
   byWatchdogLastMinute: number;
@@ -12,10 +10,6 @@ class WatchdogStats {
     this.byWatchdogRollingDay = data?.watchdog_rollingDaily ?? 0;
     this.byStaffTotal = data?.staff_total ?? 0;
     this.byStaffRollingDay = data?.staff_rollingDaily ?? 0;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

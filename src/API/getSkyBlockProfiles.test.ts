@@ -12,19 +12,6 @@ import type { SkyBlockProfileName, SkyBlockProfileType } from '../Types/SkyBlock
 import type { WithSelectedProfile } from '../Types/API.js';
 /* eslint-enable @stylistic/max-len */
 
-test('getSkyBlockProfiles (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e', { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<
-    WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData
-  >();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getSkyBlockProfiles (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
@@ -49,11 +36,9 @@ test('getSkyBlockProfiles', async () => {
   const data = await client.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');
   expect(data).toBeDefined();
   expectTypeOf(data).toEqualTypeOf<
-    WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>> | RequestData
+    RequestData<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>>>
   >();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  data.forEach((profile) => {
+  data.parsed.forEach((profile) => {
     expect(profile).toBeDefined();
     expectTypeOf(profile).toEqualTypeOf<SkyBlockProfile>();
     expect(profile.profileId).toBeDefined();
@@ -77,7 +62,7 @@ test('getSkyBlockProfiles', async () => {
     expect(profile.selected).toBeDefined();
     expectTypeOf(profile.selected).toEqualTypeOf<boolean>();
     expect(profile.garden).toBeDefined();
-    expectTypeOf(profile.garden).toEqualTypeOf<SkyBlockGarden | null>();
+    expectTypeOf(profile.garden).toEqualTypeOf<RequestData<SkyBlockGarden> | null>();
   });
   client.destroy();
 });

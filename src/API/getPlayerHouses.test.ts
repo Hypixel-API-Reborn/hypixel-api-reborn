@@ -3,7 +3,6 @@ import Errors from '../Errors.js';
 import House from '../Structures/House.js';
 import RequestData from '../Private/RequestData.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WithRaw } from '../Types/API.js';
 
 test('getPlayerHouses (No input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
@@ -14,26 +13,13 @@ test('getPlayerHouses (No input)', async () => {
   client.destroy();
 });
 
-test('getPlayerHouses (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getPlayerHouses('69e04609da2a4e7dabb83546a971969e', { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<WithRaw<House[]> | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getPlayerHouses', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getPlayerHouses('69e04609da2a4e7dabb83546a971969e');
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<WithRaw<House[]> | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  data.forEach((house: House) => {
+  expectTypeOf(data).toEqualTypeOf<RequestData<House[]>>();
+  data.parsed.forEach((house: House) => {
     expect(house).toBeDefined();
     expect(house).toBeInstanceOf(House);
     expectTypeOf(house).toEqualTypeOf<House>();

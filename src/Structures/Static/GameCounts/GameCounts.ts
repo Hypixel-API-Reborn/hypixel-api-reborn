@@ -1,5 +1,4 @@
 import GameCountGames from './GameCountsGames.js';
-import type RequestData from '../../../Private/RequestData.js';
 
 class GameCounts {
   playerCount: number;
@@ -11,10 +10,6 @@ class GameCounts {
 
   toString(): number {
     return this.playerCount;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

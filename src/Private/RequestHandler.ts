@@ -1,7 +1,7 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.js';
-import RequestData from './RequestData.js';
+import RawRequestData from './RawRequestData.ts';
 import { Client as MowojangClient } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
@@ -22,23 +22,22 @@ class RequestHandler {
     return this;
   }
 
-  async request(endpoint: string, options?: RequestOptions): Promise<RequestData> {
-    options = {
-      raw: options?.raw ?? false,
-      noCache: options?.noCache ?? false,
-      noCacheCheck: options?.noCacheCheck ?? false
-    };
+  getUserAgent() {
+    return `Hypixel-API-Reborn/v${
+      this.client.updater.currentVersion
+    } (https://npmjs.com/package/hypixel-api-reborn github:Hypixel-API-Reborn/hypixel-api-reborn)`;
+  }
+
+  async request(endpoint: string, options?: RequestOptions): Promise<RawRequestData> {
+    options = { noCache: options?.noCache ?? false, noCacheCheck: options?.noCacheCheck ?? false };
     if (!options.noCacheCheck && this.client.cacheHandler.has(endpoint)) {
       const data = this.client.cacheHandler.get(endpoint);
-      return new RequestData(data.data, data.headers, {
-        status: 200,
-        options,
-        url: endpoint,
-        cached: true,
-        timestamp: data.timestamp
-      });
+      data.cached = true;
+      return data;
     }
-    const res = await fetch(this.BASE_URL + endpoint, { headers: { 'API-Key': this.client.key } });
+    const res = await fetch(this.BASE_URL + endpoint, {
+      headers: { 'API-Key': this.client.key, 'User-Agent': this.getUserAgent() }
+    });
     if (res.status >= 500 && res.status < 528) {
       throw new HypixelAPIRebornError(
         Errors.ERROR_STATUSTEXT.replace(/{statustext}/, `Server Error : ${res.status} ${res.statusText}`)
@@ -65,9 +64,7 @@ class RequestHandler {
     if (!parsedRes.success && !endpoint.startsWith('/housing')) {
       throw new HypixelAPIRebornError(Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, res.statusText));
     }
-    const headers: Record<string, any> = {};
-    res.headers.forEach((value, key) => (headers[key] = value));
-    const requestData = new RequestData(parsedRes, headers, {
+    const requestData = new RawRequestData(parsedRes, res.headers, {
       status: res.status,
       options,
       url: endpoint,
@@ -89,30 +86,21 @@ class RequestHandler {
     return UUID;
   }
 
-  async fetchExternalData(url: string): Promise<RequestData> {
+  async fetchExternalData(url: string): Promise<RawRequestData> {
     if (this.client.cacheHandler.has(url)) {
       const data = this.client.cacheHandler.get(url);
-      return new RequestData(data.data, data.headers, {
-        status: 200,
-        options: { raw: false, noCache: false },
-        url,
-        cached: true,
-        timestamp: data.timestamp
-      });
+      data.cached = true;
+      return data;
     }
-    const res = await fetch(url);
-    const parsedRes = (await res.json()) as Record<string, any>;
-    const headers: Record<string, any> = {};
-    res.headers.forEach((value, key) => (headers[key] = value));
-    const requestData = new RequestData(parsedRes, headers, {
+    const res = await fetch(url, { headers: { 'User-Agent': this.getUserAgent() } });
+    const parsedRes = await res.json();
+    const requestData = new RawRequestData(parsedRes, res.headers, {
       status: res.status,
-      options: { raw: false, noCache: false },
+      options: { noCache: false },
       url,
       cached: false
     });
-    if (this.client.options.cache) {
-      this.client.cacheHandler.set(url, requestData);
-    }
+    if (this.client.options.cache) this.client.cacheHandler.set(url, requestData);
     return requestData;
   }
 }

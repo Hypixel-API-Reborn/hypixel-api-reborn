@@ -4,10 +4,9 @@ import RequestData from '../Private/RequestData.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getGuildAchievements extends Endpoint {
-  override async execute(options?: RequestOptions): Promise<GuildAchievements | RequestData> {
+  override async execute(options?: RequestOptions): Promise<RequestData<GuildAchievements>> {
     const res = await this.client.requestHandler.request('/resources/guilds/achievements', options);
-    if (res.options.raw) return res;
-    return new GuildAchievements(res.data);
+    return new RequestData<GuildAchievements>(new GuildAchievements(res.rawData), res);
   }
 }
 

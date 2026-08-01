@@ -1,5 +1,4 @@
 import SkyBlockElection from './SkyBlockElection.js';
-import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockElectionData {
   lastUpdatedTimestamp: number;
@@ -11,10 +10,6 @@ class SkyBlockElectionData {
     this.lastUpdatedAt = new Date(this.lastUpdatedTimestamp);
     this.lastElectionResults = new SkyBlockElection(data?.mayor?.election ?? {});
     this.currentElection = data?.current ? new SkyBlockElection(data?.current ?? {}) : null;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

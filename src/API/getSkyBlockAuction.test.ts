@@ -6,21 +6,6 @@ import SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBas
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockAuctionResult } from '../Types/API.js';
 
-test('getSkyBlockAuction (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const auctions = await client.getSkyBlockAuctions(1);
-  if (auctions.isRaw()) return;
-  if (undefined === auctions.auctions[0]) return;
-  if (!auctions.auctions[0].auctioneerUuid) throw new Error("Something wen't wrong while fetching auctions");
-  const data = await client.getSkyBlockAuction('AUCTION_ID', auctions.auctions[0].auctionId, { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getSkyBlockAuction (No Type Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
@@ -52,18 +37,15 @@ test('getSkyBlockAuction (PROFILE)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const auctions = await client.getSkyBlockAuctions(1);
-  if (auctions.isRaw()) return;
-  if (undefined === auctions.auctions[0]) return;
-  if (!auctions.auctions[0].auctioneerUuid) throw new Error("Something wen't wrong while fetching auctions");
-  const data = await client.getSkyBlockAuction('PROFILE', auctions.auctions[0].auctioneerProfile);
+  if (undefined === auctions.parsed.auctions[0]) return;
+  if (!auctions.parsed.auctions[0].auctioneerUuid) throw new Error("Something wen't wrong while fetching auctions");
+  const data = await client.getSkyBlockAuction('PROFILE', auctions.parsed.auctions[0].auctioneerProfile);
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.info).toBeDefined();
-  expectTypeOf(data.info).toEqualTypeOf<SkyBlockBaseAuctionInfo>();
-  expect(data.auctions).toBeDefined();
-  expectTypeOf(data.auctions).toEqualTypeOf<SkyBlockAuction[]>();
+  expectTypeOf(data).toEqualTypeOf<RequestData<SkyBlockAuctionResult>>();
+  expect(data.parsed.info).toBeDefined();
+  expectTypeOf(data.parsed.info).toEqualTypeOf<SkyBlockBaseAuctionInfo>();
+  expect(data.parsed.auctions).toBeDefined();
+  expectTypeOf(data.parsed.auctions).toEqualTypeOf<SkyBlockAuction[]>();
   client.destroy();
 });
 
@@ -71,17 +53,14 @@ test('getSkyBlockAuction (PLAYER)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const auctions = await client.getSkyBlockAuctions(1);
-  if (auctions.isRaw()) return;
-  if (undefined === auctions.auctions[0]) return;
-  if (!auctions.auctions[0].auctioneerUuid) throw new Error("Something wen't wrong while fetching auctions");
-  const data = await client.getSkyBlockAuction('PLAYER', auctions.auctions[0].auctioneerUuid);
+  if (undefined === auctions.parsed.auctions[0]) return;
+  if (!auctions.parsed.auctions[0].auctioneerUuid) throw new Error("Something wen't wrong while fetching auctions");
+  const data = await client.getSkyBlockAuction('PLAYER', auctions.parsed.auctions[0].auctioneerUuid);
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionResult | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.info).toBeDefined();
-  expectTypeOf(data.info).toEqualTypeOf<SkyBlockBaseAuctionInfo>();
-  expect(data.auctions).toBeDefined();
-  expectTypeOf(data.auctions).toEqualTypeOf<SkyBlockAuction[]>();
+  expectTypeOf(data).toEqualTypeOf<RequestData<SkyBlockAuctionResult>>();
+  expect(data.parsed.info).toBeDefined();
+  expectTypeOf(data.parsed.info).toEqualTypeOf<SkyBlockBaseAuctionInfo>();
+  expect(data.parsed.auctions).toBeDefined();
+  expectTypeOf(data.parsed.auctions).toEqualTypeOf<SkyBlockAuction[]>();
   client.destroy();
 });

@@ -4,7 +4,6 @@ import Game from '../Structures/Game.js';
 import RecentGame from '../Structures/RecentGame.js';
 import RequestData from '../Private/RequestData.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WithRaw } from '../Types/API.js';
 
 test('getRecentGames (no input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
@@ -15,27 +14,13 @@ test('getRecentGames (no input)', async () => {
   client.destroy();
 });
 
-test('getRecentGames (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getRecentGames('3b76b69ae5134296a730ed49171ad6f8', { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<WithRaw<RecentGame[]> | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getRecentGames', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getRecentGames('ea805d40e8284d8d8e64e9fc8ac301ca');
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<WithRaw<RecentGame[]> | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-
-  data.forEach((game: RecentGame) => {
+  expectTypeOf(data).toEqualTypeOf<RequestData<RecentGame[]>>();
+  data.parsed.forEach((game: RecentGame) => {
     expect(game).toBeDefined();
     expectTypeOf(game).toEqualTypeOf<RecentGame>();
     expect(game).toBeInstanceOf(RecentGame);

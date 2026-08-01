@@ -1,7 +1,7 @@
 import Endpoint from '../Private/Endpoint.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
-import RequestData from '../Private/RequestData.js';
+import RequestData from '../Private/RequestData.ts';
 import SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
 import type { AuctionFetchOption, AuctionRequestOptions, SkyBlockAuctionResult } from '../Types/API.js';
@@ -11,7 +11,7 @@ class getSkyBlockAction extends Endpoint {
     type: AuctionFetchOption,
     query: string,
     options?: AuctionRequestOptions
-  ): Promise<SkyBlockAuctionResult | RequestData> {
+  ): Promise<RequestData<SkyBlockAuctionResult>> {
     let filter: string | null;
     if (type === undefined) throw new HypixelAPIRebornError(Errors.BAD_AUCTION_FILTER);
     if (query === undefined) throw new HypixelAPIRebornError(Errors.NO_UUID);
@@ -38,16 +38,15 @@ class getSkyBlockAction extends Endpoint {
     if (filter === null) throw new HypixelAPIRebornError(Errors.BAD_AUCTION_FILTER);
 
     const res = await this.client.requestHandler.request(`/skyblock/auction?${filter}=${query}`, options);
-    if (res.options.raw) return res;
-    return {
-      info: new SkyBlockBaseAuctionInfo(res.data),
-      auctions: res.data.auctions.map(
-        (Auction: Record<string, any>) => new SkyBlockAuction(Auction, options?.includeItemBytes ?? false)
-      ),
-      isRaw(): this is RequestData {
-        return false;
-      }
-    };
+    return new RequestData<SkyBlockAuctionResult>(
+      {
+        info: new SkyBlockBaseAuctionInfo(res.rawData),
+        auctions: res.rawData.auctions.map(
+          (Auction: Record<string, any>) => new SkyBlockAuction(Auction, options?.includeItemBytes ?? false)
+        )
+      },
+      res
+    );
   }
 }
 

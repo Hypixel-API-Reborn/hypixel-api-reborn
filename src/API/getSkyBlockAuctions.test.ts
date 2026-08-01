@@ -38,29 +38,16 @@ test('getSkyBlockAuctions (String Input)', async () => {
   client.destroy();
 });
 
-test('getSkyBlockAuctions (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getSkyBlockAuctions(1, { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getSkyBlockAuctions (One Page)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockAuctions(1);
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.info).toBeDefined();
-  expectTypeOf(data.info).toEqualTypeOf<SkyBlockAuctionInfo>();
-  expect(data.auctions).toBeDefined();
-  expectTypeOf(data.auctions).toEqualTypeOf<SkyBlockAuction[]>();
+  expectTypeOf(data).toEqualTypeOf<RequestData<SkyBlockAuctionsResult>>();
+  expect(data.parsed.info).toBeDefined();
+  expectTypeOf(data.parsed.info).toEqualTypeOf<SkyBlockAuctionInfo>();
+  expect(data.parsed.auctions).toBeDefined();
+  expectTypeOf(data.parsed.auctions).toEqualTypeOf<SkyBlockAuction[]>();
   client.destroy();
 });
 
@@ -69,12 +56,10 @@ test('getSkyBlockAuctions (All Pages)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockAuctions('*');
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<SkyBlockAuctionsResult | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.info).toBeDefined();
-  expectTypeOf(data.info).toEqualTypeOf<SkyBlockAuctionInfo>();
-  expect(data.auctions).toBeDefined();
-  expectTypeOf(data.auctions).toEqualTypeOf<SkyBlockAuction[]>();
+  expectTypeOf(data).toEqualTypeOf<RequestData<SkyBlockAuctionsResult>>();
+  expect(data.parsed.info).toBeDefined();
+  expectTypeOf(data.parsed.info).toEqualTypeOf<SkyBlockAuctionInfo>();
+  expect(data.parsed.auctions).toBeDefined();
+  expectTypeOf(data.parsed.auctions).toEqualTypeOf<SkyBlockAuction[]>();
   client.destroy();
 });

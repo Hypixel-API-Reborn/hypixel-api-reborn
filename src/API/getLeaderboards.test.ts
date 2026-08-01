@@ -4,33 +4,18 @@ import Leaderboard from '../Structures/Leaderboard.js';
 import RequestData from '../Private/RequestData.js';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
-import type { WithRaw } from '../Types/API.js';
-
-test('getLeaderboards (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getLeaderboards({ raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<WithRaw<Record<string, Leaderboard[]>> | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
 
 test('getLeaderboards', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getLeaderboards();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<WithRaw<Record<string, Leaderboard[]>> | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
+  expectTypeOf(data).toEqualTypeOf<RequestData<Record<string, Leaderboard[]>>>();
   Object.keys(data).forEach((key) => {
-    if (key === 'isRaw') return;
-    if (undefined === data[key]) return;
-    expect(data[key]).toBeDefined();
-    expectTypeOf(data[key]).toEqualTypeOf<Leaderboard[]>();
-    data[key].forEach((leaderboard: Leaderboard) => {
+    if (undefined === data.parsed[key]) return;
+    expect(data.parsed[key]).toBeDefined();
+    expectTypeOf(data.parsed[key]).toEqualTypeOf<Leaderboard[]>();
+    data.parsed[key].forEach((leaderboard: Leaderboard) => {
       expect(leaderboard).toBeDefined();
       expect(leaderboard).instanceOf(Leaderboard);
       expectTypeOf(leaderboard).toEqualTypeOf<Leaderboard>();

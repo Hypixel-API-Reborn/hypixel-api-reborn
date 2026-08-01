@@ -1,5 +1,4 @@
 import GameQuests from './GameQuests.js';
-import type RequestData from '../../Private/RequestData.js';
 
 class Quests {
   lastUpdatedTimestamp: number;
@@ -12,10 +11,6 @@ class Quests {
     Object.keys(data.quests ?? {}).forEach((game) => {
       this.questsPerGame[game] = new GameQuests(game, data.quests[game]);
     });
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

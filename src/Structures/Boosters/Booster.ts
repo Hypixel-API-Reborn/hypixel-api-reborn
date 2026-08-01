@@ -1,5 +1,4 @@
 import Game from '../Game.js';
-import type RequestData from '../../Private/RequestData.js';
 import type { BoosterType } from '../../Types/Booster.js';
 
 class Booster {
@@ -30,10 +29,6 @@ class Booster {
 
   toString(): string {
     return `${this.purchaser}'s booster in ${this.game}`;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 
   static parseType(data: Record<string, any>): BoosterType {

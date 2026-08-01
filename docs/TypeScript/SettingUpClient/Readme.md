@@ -66,14 +66,8 @@ import HypixelAPIReborn from './HypixelAPIReborn';
 
 const player = await hypixelAPI.getPlayer("kathund");
 
-// Check that the player data is not Raw API Data.
-if (player.isRaw()) throw new Error("Player data is Raw Data");
-
 console.log(player);
 ```
-
-When fetching endpoints we use isRaw to check if the data is a raw request data or not. Consider checking out the
-[guide on Understanding isRaw](../UnderstandingIsRaw/Guide.md) for more info
 
 ## Code
 

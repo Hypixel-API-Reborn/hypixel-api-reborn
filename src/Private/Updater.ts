@@ -28,7 +28,7 @@ class Updater {
   async getLatestVersion(): Promise<string> {
     const request = await this.client.requestHandler.fetchExternalData('https://registry.npmjs.org/hypixel-api-reborn');
     if (request.statusCode !== 200) throw new HypixelAPIRebornError(Errors.UPDATER_REQUEST_NOT_OK);
-    return request.data['dist-tags'].latest;
+    return request.rawData['dist-tags'].latest;
   }
 
   compareVersions(a: string, b: string): boolean {

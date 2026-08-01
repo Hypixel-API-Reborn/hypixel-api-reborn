@@ -27,10 +27,6 @@ selected profile.
 import HypixelAPIReborn from './HypixelAPIReborn.js';
 
 const profiles = await HypixelAPIReborn.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');
-
-// Check that the profiles data is not Raw API Data.
-if (profiles.isRaw()) throw new Error('Player data is Raw Data.');
-
 const selectedProfile = profiles.selectedProfile;
 // Check that the player has a selectedProfile.
 if (selectedProfile === undefined) throw new Error("Player doesn't have a skyblock profile selected.");
@@ -46,13 +42,10 @@ Once you have found the user's selected profile you will be required to get that
 // File MuseumExample.js
 import HypixelAPIReborn from './HypixelAPIReborn.js';
 
-const museum = await HypixelAPIReborn.getSkyBlockMuseum(selectedProfile.profileId, { raw: true });
-
-// Check that the requested data is raw.
-if (!museum.isRaw()) throw new Error('Museum data is not Raw Data.');
+const museum = await HypixelAPIReborn.getSkyBlockMuseum(selectedProfile.profileId);
 
 // Check that the player has API on.
-const museumProfile = museum.data.members[selectedProfile.me.uuid];
+const museumProfile = museum.raw.data.members[selectedProfile.me.uuid];
 if (museumProfile === undefined) throw new Error('Player has museum API off.');
 
 console.log(museumProfile);

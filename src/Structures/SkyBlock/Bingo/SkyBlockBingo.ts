@@ -1,5 +1,4 @@
 import SkyBlockBingoGoal from './SkyBlockBingoGoal.js';
-import type RequestData from '../../../Private/RequestData.js';
 
 class SkyBlockBingo {
   lastUpdatedTimestamp: number;
@@ -25,10 +24,6 @@ class SkyBlockBingo {
 
   toString(): number | null {
     return this.id;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

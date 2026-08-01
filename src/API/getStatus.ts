@@ -1,14 +1,13 @@
 import Endpoint from '../Private/Endpoint.js';
-import RequestData from '../Private/RequestData.js';
+import RequestData from '../Private/RequestData.ts';
 import Status from '../Structures/Status.js';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getStatus extends Endpoint {
-  override async execute(query: string, options?: RequestOptions): Promise<Status | RequestData> {
+  override async execute(query: string, options?: RequestOptions): Promise<RequestData<Status>> {
     query = await this.client.requestHandler.toUUID(query);
     const res = await this.client.requestHandler.request(`/status?uuid=${query}`, options);
-    if (res.options.raw) return res;
-    return new Status(res.data.session);
+    return new RequestData<Status>(new Status(res.rawData.session), res);
   }
 }
 

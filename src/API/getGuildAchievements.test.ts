@@ -6,33 +6,19 @@ import TieredAchievement from '../Structures/Static/Achievements/TieredAchieveme
 import { expect, expectTypeOf, test } from 'vitest';
 import type { AchievementTier } from '../Types/Static.js';
 
-test('getGuildAchievements (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getGuildAchievements({ raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<GuildAchievements | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  if (data.isRaw()) return;
-  client.destroy();
-});
-
 test('getGuildAchievements', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getGuildAchievements();
   expect(data).toBeDefined();
-  expectTypeOf(data).toEqualTypeOf<GuildAchievements | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.lastUpdatedTimestamp).toBeDefined();
-  expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
-  expect(data.lastUpdatedAt).toBeDefined();
-  expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date>();
-  expect(data.oneTimeAchievements).toBeDefined();
-  expectTypeOf(data.oneTimeAchievements).toEqualTypeOf<OneTimeAchievement[]>();
-  data.oneTimeAchievements.forEach((achievement: OneTimeAchievement) => {
+  expectTypeOf(data).toEqualTypeOf<RequestData<GuildAchievements>>();
+  expect(data.parsed.lastUpdatedTimestamp).toBeDefined();
+  expectTypeOf(data.parsed.lastUpdatedTimestamp).toEqualTypeOf<number>();
+  expect(data.parsed.lastUpdatedAt).toBeDefined();
+  expectTypeOf(data.parsed.lastUpdatedAt).toEqualTypeOf<Date>();
+  expect(data.parsed.oneTimeAchievements).toBeDefined();
+  expectTypeOf(data.parsed.oneTimeAchievements).toEqualTypeOf<OneTimeAchievement[]>();
+  data.parsed.oneTimeAchievements.forEach((achievement: OneTimeAchievement) => {
     expect(achievement.codeName).toBeDefined();
     expectTypeOf(achievement.codeName).toEqualTypeOf<string>();
     expect(achievement.name).toBeDefined();
@@ -53,9 +39,9 @@ test('getGuildAchievements', async () => {
     expect(achievement.toString()).toBe(achievement.codeName);
     expectTypeOf(achievement.toString()).toEqualTypeOf<string>();
   });
-  expect(data.tieredAchievements).toBeDefined();
-  expectTypeOf(data.tieredAchievements).toEqualTypeOf<TieredAchievement[]>();
-  data.tieredAchievements.forEach((achievement: TieredAchievement) => {
+  expect(data.parsed.tieredAchievements).toBeDefined();
+  expectTypeOf(data.parsed.tieredAchievements).toEqualTypeOf<TieredAchievement[]>();
+  data.parsed.tieredAchievements.forEach((achievement: TieredAchievement) => {
     expect(achievement.codeName).toBeDefined();
     expectTypeOf(achievement.codeName).toEqualTypeOf<string>();
     expect(achievement.name).toBeDefined();

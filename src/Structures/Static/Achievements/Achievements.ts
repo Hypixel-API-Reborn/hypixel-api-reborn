@@ -1,5 +1,4 @@
 import GameAchievements from './GameAchievements.js';
-import type RequestData from '../../../Private/RequestData.js';
 
 class Achievements {
   lastUpdatedTimestamp: number;
@@ -12,10 +11,6 @@ class Achievements {
     Object.keys(data.achievements ?? {}).forEach((game) => {
       this.achievementsPerGame.game = new GameAchievements(game, data.achievements[game]);
     });
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

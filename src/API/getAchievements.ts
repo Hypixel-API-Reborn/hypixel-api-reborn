@@ -1,13 +1,12 @@
 import Achievements from '../Structures/Static/Achievements/Achievements.js';
 import Endpoint from '../Private/Endpoint.js';
-import RequestData from '../Private/RequestData.js';
+import RequestData from '../Private/RequestData.ts';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getAchievements extends Endpoint {
-  override async execute(options?: RequestOptions): Promise<Achievements | RequestData> {
+  override async execute(options?: RequestOptions): Promise<RequestData<Achievements>> {
     const res = await this.client.requestHandler.request('/resources/achievements', options);
-    if (res.options.raw) return res;
-    return new Achievements(res.data);
+    return new RequestData<Achievements>(new Achievements(res.rawData), res);
   }
 }
 

@@ -6,43 +6,30 @@ import RequestData from '../Private/RequestData.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { ChallengeReward } from '../Types/Static.js';
 
-test('getChallenges (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getChallenges({ raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<Challenges | RequestData>();
-  expect(data.isRaw()).toBe(true);
-  client.destroy();
-});
-
 test('getChallenges', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getChallenges();
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(Challenges);
-  expectTypeOf(data).toEqualTypeOf<Challenges | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.lastUpdatedTimestamp).toBeDefined();
-  expect(data.lastUpdatedTimestamp).toBeGreaterThan(0);
-  expectTypeOf(data.lastUpdatedTimestamp).toEqualTypeOf<number>();
-  expect(data.lastUpdatedAt).toBeDefined();
-  expectTypeOf(data.lastUpdatedAt).toEqualTypeOf<Date>();
-  expect(data.challengesPerGame).toBeDefined();
-  expectTypeOf(data.challengesPerGame).toEqualTypeOf<Record<string, GameChallenges>>();
-  Object.keys(data.challengesPerGame).forEach((gameName) => {
-    if (undefined === data.challengesPerGame[gameName]) return;
-    expect(data.challengesPerGame[gameName]).toBeDefined();
-    expect(data.challengesPerGame[gameName]).toBeInstanceOf(GameChallenges);
-    expectTypeOf(data.challengesPerGame[gameName]).toEqualTypeOf<GameChallenges>();
-    expect(data.challengesPerGame[gameName].category).toBeDefined();
-    expect(data.challengesPerGame[gameName].category).toEqual(gameName);
-    expect(data.challengesPerGame[gameName].challenges).toBeDefined();
-    expectTypeOf(data.challengesPerGame[gameName].challenges).toEqualTypeOf<Challenge[]>();
-    data.challengesPerGame[gameName].challenges.forEach((challenge: Challenge) => {
+  expect(data).toBeInstanceOf(RequestData);
+  expectTypeOf(data).toEqualTypeOf<RequestData<Challenges>>();
+  expect(data.parsed.lastUpdatedTimestamp).toBeDefined();
+  expect(data.parsed.lastUpdatedTimestamp).toBeGreaterThan(0);
+  expectTypeOf(data.parsed.lastUpdatedTimestamp).toEqualTypeOf<number>();
+  expect(data.parsed.lastUpdatedAt).toBeDefined();
+  expectTypeOf(data.parsed.lastUpdatedAt).toEqualTypeOf<Date>();
+  expect(data.parsed.challengesPerGame).toBeDefined();
+  expectTypeOf(data.parsed.challengesPerGame).toEqualTypeOf<Record<string, GameChallenges>>();
+  Object.keys(data.parsed.challengesPerGame).forEach((gameName) => {
+    if (undefined === data.parsed.challengesPerGame[gameName]) return;
+    expect(data.parsed.challengesPerGame[gameName]).toBeDefined();
+    expect(data.parsed.challengesPerGame[gameName]).toBeInstanceOf(GameChallenges);
+    expectTypeOf(data.parsed.challengesPerGame[gameName]).toEqualTypeOf<GameChallenges>();
+    expect(data.parsed.challengesPerGame[gameName].category).toBeDefined();
+    expect(data.parsed.challengesPerGame[gameName].category).toEqual(gameName);
+    expect(data.parsed.challengesPerGame[gameName].challenges).toBeDefined();
+    expectTypeOf(data.parsed.challengesPerGame[gameName].challenges).toEqualTypeOf<Challenge[]>();
+    data.parsed.challengesPerGame[gameName].challenges.forEach((challenge: Challenge) => {
       expect(challenge.id).toBeDefined();
       expectTypeOf(challenge.id).toEqualTypeOf<string>();
       expect(challenge.name).toBeDefined();

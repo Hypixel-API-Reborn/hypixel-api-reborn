@@ -5,6 +5,7 @@ import SkyBlockProfile from './SkyBlockProfile.js';
 import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
+import type RequestData from '../../../Private/RequestData.ts';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
 
 test('SkyBlockProfile', () => {
@@ -35,9 +36,9 @@ test('SkyBlockProfile', () => {
   expect(data.selected).toBeDefined();
   expectTypeOf(data.selected).toEqualTypeOf<boolean>();
   expect(data.garden).toBeDefined();
-  expectTypeOf(data.garden).toEqualTypeOf<SkyBlockGarden | null>();
+  expectTypeOf(data.garden).toEqualTypeOf<RequestData<SkyBlockGarden> | null>();
   expect(data.museum).toBeDefined();
-  expectTypeOf(data.museum).toEqualTypeOf<SkyBlockMuseum | null>();
+  expectTypeOf(data.museum).toEqualTypeOf<RequestData<SkyBlockMuseum> | null>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockProfileName | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();

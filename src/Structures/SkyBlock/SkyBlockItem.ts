@@ -1,5 +1,3 @@
-import type RequestData from '../../Private/RequestData.js';
-
 class SkyBlockItem {
   name: string;
   material: string;
@@ -124,10 +122,6 @@ class SkyBlockItem {
 
   toString(): string {
     return this.name;
-  }
-
-  isRaw(): this is RequestData {
-    return false;
   }
 }
 

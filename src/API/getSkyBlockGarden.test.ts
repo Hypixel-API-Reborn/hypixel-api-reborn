@@ -1,5 +1,4 @@
 import Client from '../Client.js';
-import Errors from '../Errors.js';
 import RequestData from '../Private/RequestData.js';
 import SkyBlockGarden from '../Structures/SkyBlock/Garden/SkyBlockGarden.js';
 import SkyBlockGardenActiveVisitor from '../Structures/SkyBlock/Garden/SkyBlockGardenActiveVisitor.js';
@@ -10,51 +9,30 @@ import SkyBlockGardenVisitors from '../Structures/SkyBlock/Garden/SkyBlockGarden
 import { expect, expectTypeOf, test } from 'vitest';
 import type { BarnPlot, BarnSkin, SkillLevelData } from '../Types/SkyBlock.js';
 
-test('getSkyBlockGarden (no input)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  await expect(() => client.getSkyBlockGarden()).rejects.toThrowError(Errors.NO_UUID);
-  client.destroy();
-});
-
-test('getSkyBlockGarden (raw)', async () => {
-  const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
-  client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  const data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494', { raw: true });
-  expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(RequestData);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockGarden | RequestData>();
-  client.destroy();
-});
-
 test('getSkyBlockGarden', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   const data = await client.getSkyBlockGarden('ed9b9d6d-d9b7-43b1-9841-5d0c20b55494');
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockGarden);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockGarden | RequestData>();
-  expect(data.isRaw()).toBe(false);
-  if (data.isRaw()) return;
-  expect(data.level).toBeDefined();
-  expectTypeOf(data.level).toEqualTypeOf<SkillLevelData>();
-  expect(data.barnSkin).toBeDefined();
-  expectTypeOf(data.barnSkin).toEqualTypeOf<BarnSkin>();
-  expect(data.unlockedBarnSkins).toBeDefined();
-  expectTypeOf(data.unlockedBarnSkins).toEqualTypeOf<BarnSkin[]>();
-  expect(data.unlockedPlots).toBeDefined();
-  expectTypeOf(data.unlockedPlots).toEqualTypeOf<BarnPlot[]>();
-  expect(data.visitors).toBeDefined();
-  expectTypeOf(data.visitors).toEqualTypeOf<SkyBlockGardenVisitors>();
-  expect(data.currentVisitors).toBeDefined();
-  expectTypeOf(data.currentVisitors).toEqualTypeOf<SkyBlockGardenActiveVisitor[]>();
-  expect(data.cropMilestones).toBeDefined();
-  expectTypeOf(data.cropMilestones).toEqualTypeOf<SkyBlockGardenCropMilestones>();
-  expect(data.composter).toBeDefined();
-  expectTypeOf(data.composter).toEqualTypeOf<SkyBlockGardenComposter>();
-  expect(data.cropUpgrades).toBeDefined();
-  expectTypeOf(data.cropUpgrades).toEqualTypeOf<SkyBlockGardenCropsUpgrades>();
+  expect(data).toBeInstanceOf(RequestData);
+  expectTypeOf(data).toEqualTypeOf<RequestData<SkyBlockGarden>>();
+  expect(data.parsed.level).toBeDefined();
+  expectTypeOf(data.parsed.level).toEqualTypeOf<SkillLevelData>();
+  expect(data.parsed.barnSkin).toBeDefined();
+  expectTypeOf(data.parsed.barnSkin).toEqualTypeOf<BarnSkin>();
+  expect(data.parsed.unlockedBarnSkins).toBeDefined();
+  expectTypeOf(data.parsed.unlockedBarnSkins).toEqualTypeOf<BarnSkin[]>();
+  expect(data.parsed.unlockedPlots).toBeDefined();
+  expectTypeOf(data.parsed.unlockedPlots).toEqualTypeOf<BarnPlot[]>();
+  expect(data.parsed.visitors).toBeDefined();
+  expectTypeOf(data.parsed.visitors).toEqualTypeOf<SkyBlockGardenVisitors>();
+  expect(data.parsed.currentVisitors).toBeDefined();
+  expectTypeOf(data.parsed.currentVisitors).toEqualTypeOf<SkyBlockGardenActiveVisitor[]>();
+  expect(data.parsed.cropMilestones).toBeDefined();
+  expectTypeOf(data.parsed.cropMilestones).toEqualTypeOf<SkyBlockGardenCropMilestones>();
+  expect(data.parsed.composter).toBeDefined();
+  expectTypeOf(data.parsed.composter).toEqualTypeOf<SkyBlockGardenComposter>();
+  expect(data.parsed.cropUpgrades).toBeDefined();
+  expectTypeOf(data.parsed.cropUpgrades).toEqualTypeOf<SkyBlockGardenCropsUpgrades>();
   client.destroy();
 });

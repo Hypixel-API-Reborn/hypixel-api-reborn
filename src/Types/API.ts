@@ -1,4 +1,3 @@
-import type RequestData from '../Private/RequestData.js';
 import type SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
 import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
 import type SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
@@ -23,16 +22,13 @@ export interface SkyBlockRequestOptions extends RequestOptions {
 export interface SkyBlockAuctionResult {
   info: SkyBlockBaseAuctionInfo;
   auctions: SkyBlockAuction[];
-  isRaw(): this is RequestData;
 }
 
 export interface SkyBlockAuctionsResult {
   info: SkyBlockAuctionInfo;
   auctions: SkyBlockAuction[];
-  isRaw(): this is RequestData;
 }
-export type WithRaw<T> = T & { isRaw(): this is RequestData };
-export type WithSelectedProfile<T> = WithRaw<T> & { selectedProfile?: SkyblockProfileWithMe };
+export type WithSelectedProfile<T> = T & { selectedProfile?: SkyblockProfileWithMe };
 
 export const GuildFetchOptions = ['id', 'name', 'player'] as const;
 export type GuildFetchOption = (typeof GuildFetchOptions)[number];
