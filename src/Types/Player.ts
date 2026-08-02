@@ -4381,8 +4381,8 @@ export const BedWarsPackages = [
   ...BedWarsStartingWeapons
 ] as const;
 export type BedWarsPackage = (typeof BedWarsPackages)[number];
-export const PlayerGeneralSelectedCosmetics = ['random_cosmetic', 'random_favorite_cosmetic'] as const;
-export type PlayerGeneralSelectedCosmetic = (typeof PlayerGeneralSelectedCosmetics)[number];
+export const PlayerGenericSelectedCosmetics = ['random_cosmetic', 'random_favorite_cosmetic'] as const;
+export type PlayerGenericSelectedCosmetic = (typeof PlayerGenericSelectedCosmetics)[number];
 export const BedWarsPracticeModeIds = ['BOW', 'BRIDGING', 'FIREBALL_JUMPING', 'MLG', 'PEARL_CLUTCHING'] as const;
 export type BedWarsPracticeModeId = (typeof BedWarsPracticeModeIds)[number];
 export const BedWarsPracticeBridgingRecordsDistanceIds = ['100', '50', '30'] as const;

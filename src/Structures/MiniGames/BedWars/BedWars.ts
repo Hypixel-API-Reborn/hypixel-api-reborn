@@ -27,7 +27,7 @@ import type {
   BedWarsUltimate,
   BedWarsVictoryDance,
   BedWarsWoodSkin,
-  PlayerGeneralSelectedCosmetic,
+  PlayerGenericSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.js';
 
@@ -35,18 +35,18 @@ class BedWars extends BedWarsMode {
   experience: number;
   level: number;
   prestige: BedWarsPrestige;
-  activeBedDestroy: BedWarsBedDestroy | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeDeathCry: BedWarsDeathCry | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeGlyph: BedWarsGlyph | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeIslandTopper: BedWarsIslandTopper | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeKillEffect: BedWarsKillEffect | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeKillMessages: BedWarsKillMessage | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeNPCSkin: BedWarsNPCSkin | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeProjectileTrail: BedWarsProjectileTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeSprays: BedWarsSpray | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeVictoryDance: BedWarsVictoryDance | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeWoodType: BedWarsWoodSkin | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  activeStartingWeapon: BedWarsStartingWeapon | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
+  activeBedDestroy: BedWarsBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeDeathCry: BedWarsDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeGlyph: BedWarsGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeIslandTopper: BedWarsIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeKillEffect: BedWarsKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeKillMessages: BedWarsKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeNPCSkin: BedWarsNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeProjectileTrail: BedWarsProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeSprays: BedWarsSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeVictoryDance: BedWarsVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeWoodType: BedWarsWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeStartingWeapon: BedWarsStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN';
   tokens: number;
   firstJoin7: boolean;
   glyphStorage: string[];

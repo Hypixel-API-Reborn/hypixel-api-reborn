@@ -5,7 +5,7 @@ import WoolGamesPrivateGames from './WoolGamesPrivateGames.js';
 import WoolGamesProgression from './WoolGamesProgression.js';
 import WoolWars from './WoolWars/WoolWars.js';
 import type {
-  PlayerGeneralSelectedCosmetic,
+  PlayerGenericSelectedCosmetic,
   WoolGamesLeaderboardSettingsMode,
   WoolGamesPackage,
   WoolGamesPackageBarrier,
@@ -22,13 +22,13 @@ class WoolGames {
   packages: WoolGamesPackage[];
   privateGames: WoolGamesPrivateGames;
   progression: WoolGamesProgression;
-  selectedCage: WoolGamesPackageCage | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedKillMessages: WoolGamesPackageKillMessage | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedHat: WoolGamesPackageHat | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedGlyph: WoolGamesPackageGlyph | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedDeathCry: WoolGamesPackageDeathCry | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedBarrier: WoolGamesPackageBarrier | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
-  selectedProjectileTrail: WoolGamesPackageProjectileTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN';
+  selectedCage: WoolGamesPackageCage | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedKillMessages: WoolGamesPackageKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedHat: WoolGamesPackageHat | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedGlyph: WoolGamesPackageGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedDeathCry: WoolGamesPackageDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedBarrier: WoolGamesPackageBarrier | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  selectedProjectileTrail: WoolGamesPackageProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN';
   playtime: number;
   leaderboardSettings: LeaderboardSettings<WoolGamesLeaderboardSettingsMode>;
   woolWars: WoolWars;
