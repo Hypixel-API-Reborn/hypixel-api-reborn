@@ -1,6 +1,7 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
 import RequestHandler from './RequestHandler.js';
+import { MowojangProfile } from 'mowojang';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
 
@@ -10,17 +11,17 @@ test('RequestHandler', async () => {
   expect(client.requestHandler).toBeDefined();
   expectTypeOf(client.requestHandler).toEqualTypeOf<RequestHandler>();
 
-  expect(client.requestHandler.toUUID).toBeDefined();
-  expectTypeOf(client.requestHandler.toUUID).toBeFunction();
-  const data = await client.requestHandler.toUUID('pixelic');
-  expect(data).toBe('14727faefbdc4aff848cd2713eb9939e');
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  await expect(() => client.requestHandler.toUUID()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  await expect(() => client.requestHandler.toUUID(-1)).rejects.toThrowError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
-
+  expect(client.requestHandler.getProfile).toBeDefined();
+  expectTypeOf(client.requestHandler.getProfile).toBeFunction();
+  const data = await client.requestHandler.getProfile('pixelic');
+  expect(data).toBeDefined();
+  expectTypeOf(data).toEqualTypeOf<MowojangProfile>();
+  expect(data.UUID).toBe('14727faefbdc4aff848cd2713eb9939e');
+  expect(data.UUID).toBeDefined();
+  expectTypeOf(data.UUID).toEqualTypeOf<string>();
+  expect(data.username).toBe('Pixelic');
+  expect(data.username).toBeDefined();
+  expectTypeOf(data.username).toEqualTypeOf<string>();
   client.destroy();
 });
 

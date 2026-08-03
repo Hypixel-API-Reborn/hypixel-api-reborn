@@ -4,6 +4,7 @@ import Guild from '../Structures/Guild/Guild.js';
 import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
 import RequestData from '../Private/RequestData.ts';
 import type { GuildFetchOption } from '../Types/API.js';
+import type { MowojangProfile } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class getGuild extends Endpoint {
@@ -17,7 +18,11 @@ class getGuild extends Endpoint {
       throw new HypixelAPIRebornError(Errors.INVALID_GUILD_ID);
     }
     const isPlayerQuery = searchParameter === 'player';
-    if (isPlayerQuery) query = await this.client.requestHandler.toUUID(query);
+    let profile: MowojangProfile | undefined;
+    if (isPlayerQuery) {
+      profile = await this.client.requestHandler.getProfile(query);
+      query = profile.UUID;
+    }
     if (!['id', 'name', 'player'].includes(searchParameter)) {
       throw new HypixelAPIRebornError(Errors.INVALID_GUILD_SEARCH_PARAMETER);
     }
@@ -27,7 +32,8 @@ class getGuild extends Endpoint {
     }
     return new RequestData<Guild | null>(
       res.rawData.guild ? new Guild(res.rawData.guild, isPlayerQuery ? query : undefined) : null,
-      res
+      res,
+      profile
     );
   }
 }

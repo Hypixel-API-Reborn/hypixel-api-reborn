@@ -8,7 +8,8 @@ import type { PlayerRequestOptions } from '../Types/API.js';
 class getPlayer extends Endpoint {
   override async execute(query: string, options?: PlayerRequestOptions): Promise<RequestData<Player>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    query = await this.client.requestHandler.toUUID(query);
+    const profile = await this.client.requestHandler.getProfile(query);
+    query = profile.UUID;
     const res = await this.client.requestHandler.request(`/player?uuid=${query}`, options);
     if (query && !res.rawData.player) throw new HypixelAPIRebornError(Errors.PLAYER_HAS_NEVER_LOGGED);
     return new RequestData<Player>(
@@ -17,7 +18,8 @@ class getPlayer extends Endpoint {
         houses: options?.houses ? (await this.client.getPlayerHouses(query)).parsed : null,
         recentGames: options?.recentGames ? (await this.client.getRecentGames(query)).parsed : null
       }),
-      res
+      res,
+      profile
     );
   }
 }

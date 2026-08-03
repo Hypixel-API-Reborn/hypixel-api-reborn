@@ -8,11 +8,13 @@ import type { RequestOptions } from '../Types/Requests.js';
 class getRecentGames extends Endpoint {
   override async execute(query: string, options?: RequestOptions): Promise<RequestData<RecentGame[]>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    query = await this.client.requestHandler.toUUID(query);
+    const profile = await this.client.requestHandler.getProfile(query);
+    query = profile.UUID;
     const res = await this.client.requestHandler.request(`/recentgames?uuid=${query}`, options);
     return new RequestData<RecentGame[]>(
       res.rawData.games.map((game: Record<string, any>) => new RecentGame(game)),
-      res
+      res,
+      profile
     );
   }
 }

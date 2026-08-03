@@ -125,6 +125,7 @@ test('getPlayer (guild)', async () => {
   }
   expect(data.parsed.recentGames).toBeDefined();
   expectTypeOf(data.parsed.recentGames).toEqualTypeOf<RecentGame[] | null>();
+  client.destroy();
 });
 
 test('getPlayer (houses)', async () => {

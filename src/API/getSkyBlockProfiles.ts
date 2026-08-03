@@ -14,7 +14,8 @@ class getSkyBlockProfiles extends Endpoint {
     options?: SkyBlockRequestOptions
   ): Promise<RequestData<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>>>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    query = await this.client.requestHandler.toUUID(query);
+    const profile = await this.client.requestHandler.getProfile(query);
+    query = profile.UUID;
     const res = await this.client.requestHandler.request(`/skyblock/profiles?uuid=${query}`, options);
     if (!res.rawData.profiles || !res.rawData.profiles.length) {
       throw new HypixelAPIRebornError(Errors.NO_SKYBLOCK_PROFILES);
@@ -33,7 +34,8 @@ class getSkyBlockProfiles extends Endpoint {
 
     return new RequestData<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>>>(
       Object.assign(profiles, { selectedProfile }),
-      res
+      res,
+      profile
     );
   }
 

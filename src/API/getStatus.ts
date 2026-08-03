@@ -5,9 +5,10 @@ import type { RequestOptions } from '../Types/Requests.js';
 
 class getStatus extends Endpoint {
   override async execute(query: string, options?: RequestOptions): Promise<RequestData<Status>> {
-    query = await this.client.requestHandler.toUUID(query);
+    const profile = await this.client.requestHandler.getProfile(query);
+    query = profile.UUID;
     const res = await this.client.requestHandler.request(`/status?uuid=${query}`, options);
-    return new RequestData<Status>(new Status(res.rawData.session), res);
+    return new RequestData<Status>(new Status(res.rawData.session), res, profile);
   }
 }
 
