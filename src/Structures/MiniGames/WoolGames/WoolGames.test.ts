@@ -7,6 +7,7 @@ import WoolGamesProgression from './WoolGamesProgression.js';
 import WoolWars from './WoolWars/WoolWars.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
+  PlayerGenericSelectedCosmetic,
   WoolGamesLeaderboardSettingsMode,
   WoolGamesPackage,
   WoolGamesPackageBarrier,
@@ -35,19 +36,27 @@ test('WoolGames', () => {
   expect(data.progression).toBeInstanceOf(WoolGamesProgression);
   expectTypeOf(data.progression).toEqualTypeOf<WoolGamesProgression>();
   expect(data.selectedCage).toBeDefined();
-  expectTypeOf(data.selectedCage).toEqualTypeOf<WoolGamesPackageCage | 'UNKNOWN'>();
+  expectTypeOf(data.selectedCage).toEqualTypeOf<WoolGamesPackageCage | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.selectedKillMessages).toBeDefined();
-  expectTypeOf(data.selectedKillMessages).toEqualTypeOf<WoolGamesPackageKillMessage | 'UNKNOWN'>();
+  expectTypeOf(data.selectedKillMessages).toEqualTypeOf<
+    WoolGamesPackageKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.selectedHat).toBeDefined();
-  expectTypeOf(data.selectedHat).toEqualTypeOf<WoolGamesPackageHat | 'UNKNOWN'>();
+  expectTypeOf(data.selectedHat).toEqualTypeOf<WoolGamesPackageHat | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.selectedGlyph).toBeDefined();
-  expectTypeOf(data.selectedGlyph).toEqualTypeOf<WoolGamesPackageGlyph | 'UNKNOWN'>();
+  expectTypeOf(data.selectedGlyph).toEqualTypeOf<WoolGamesPackageGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.selectedDeathCry).toBeDefined();
-  expectTypeOf(data.selectedDeathCry).toEqualTypeOf<WoolGamesPackageDeathCry | 'UNKNOWN'>();
+  expectTypeOf(data.selectedDeathCry).toEqualTypeOf<
+    WoolGamesPackageDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.selectedBarrier).toBeDefined();
-  expectTypeOf(data.selectedBarrier).toEqualTypeOf<WoolGamesPackageBarrier | 'UNKNOWN'>();
+  expectTypeOf(data.selectedBarrier).toEqualTypeOf<
+    WoolGamesPackageBarrier | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.selectedProjectileTrail).toBeDefined();
-  expectTypeOf(data.selectedProjectileTrail).toEqualTypeOf<WoolGamesPackageProjectileTrail | 'UNKNOWN'>();
+  expectTypeOf(data.selectedProjectileTrail).toEqualTypeOf<
+    WoolGamesPackageProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.playtime).toBeDefined();
   expect(data.playtime).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.playtime).toEqualTypeOf<number>();

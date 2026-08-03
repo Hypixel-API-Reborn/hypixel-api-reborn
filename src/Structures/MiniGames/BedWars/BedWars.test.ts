@@ -21,7 +21,7 @@ import type {
   BedWarsUltimate,
   BedWarsVictoryDance,
   BedWarsWoodSkin,
-  PlayerGeneralSelectedCosmetic,
+  PlayerGenericSelectedCosmetic,
   ShopSort
 } from '../../../Types/Player.js';
 
@@ -39,36 +39,36 @@ test('BedWars', () => {
   expect(data.prestige).toBeDefined();
   expectTypeOf(data.prestige).toEqualTypeOf<BedWarsPrestige>();
   expect(data.activeBedDestroy).toBeDefined();
-  expectTypeOf(data.activeBedDestroy).toEqualTypeOf<BedWarsBedDestroy | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeBedDestroy).toEqualTypeOf<BedWarsBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeDeathCry).toBeDefined();
-  expectTypeOf(data.activeDeathCry).toEqualTypeOf<BedWarsDeathCry | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeDeathCry).toEqualTypeOf<BedWarsDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeGlyph).toBeDefined();
-  expectTypeOf(data.activeGlyph).toEqualTypeOf<BedWarsGlyph | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeGlyph).toEqualTypeOf<BedWarsGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeIslandTopper).toBeDefined();
   expectTypeOf(data.activeIslandTopper).toEqualTypeOf<
-    BedWarsIslandTopper | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+    BedWarsIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeKillEffect).toBeDefined();
-  expectTypeOf(data.activeKillEffect).toEqualTypeOf<BedWarsKillEffect | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeKillEffect).toEqualTypeOf<BedWarsKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeKillMessages).toBeDefined();
-  expectTypeOf(data.activeKillMessages).toEqualTypeOf<BedWarsKillMessage | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeKillMessages).toEqualTypeOf<BedWarsKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeNPCSkin).toBeDefined();
-  expectTypeOf(data.activeNPCSkin).toEqualTypeOf<BedWarsNPCSkin | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeNPCSkin).toEqualTypeOf<BedWarsNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeProjectileTrail).toBeDefined();
   expectTypeOf(data.activeProjectileTrail).toEqualTypeOf<
-    BedWarsProjectileTrail | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+    BedWarsProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeSprays).toBeDefined();
-  expectTypeOf(data.activeSprays).toEqualTypeOf<BedWarsSpray | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeSprays).toEqualTypeOf<BedWarsSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeVictoryDance).toBeDefined();
   expectTypeOf(data.activeVictoryDance).toEqualTypeOf<
-    BedWarsVictoryDance | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+    BedWarsVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeWoodType).toBeDefined();
-  expectTypeOf(data.activeWoodType).toEqualTypeOf<BedWarsWoodSkin | PlayerGeneralSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeWoodType).toEqualTypeOf<BedWarsWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeStartingWeapon).toBeDefined();
   expectTypeOf(data.activeStartingWeapon).toEqualTypeOf<
-    BedWarsStartingWeapon | PlayerGeneralSelectedCosmetic | 'UNKNOWN'
+    BedWarsStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.tokens).toBeDefined();
   expect(data.tokens).toBeGreaterThanOrEqual(0);

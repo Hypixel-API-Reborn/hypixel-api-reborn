@@ -7,7 +7,7 @@ class SkyBlockMemberInventoriesWardrobeSlot {
   leggings: RawSkyBlockInventoryItem | null;
   boots: RawSkyBlockInventoryItem | null;
   constructor(data: Record<string, any>) {
-    this.id = data.id;
+    this.id = data?.id ?? 0;
     this.helmet = data?.HELMET ? new RawSkyBlockInventoryItem(data.HELMET) : null;
     this.chestplate = data?.CHESTPLATE ? new RawSkyBlockInventoryItem(data.CHESTPLATE) : null;
     this.leggings = data?.LEGGINGS ? new RawSkyBlockInventoryItem(data.LEGGINGS) : null;
