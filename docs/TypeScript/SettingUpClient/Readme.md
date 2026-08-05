@@ -7,8 +7,8 @@ This assumes that you will be using TypeScript. Please checkout
 
 ## Requirements
 
-- Hypixel-API-Reborn v12.0.0-27 or **higher**
-- TypeScript v5.9.2 or **higher**
+- Hypixel-API-Reborn v12.0.0-28 or **higher**
+- TypeScript v5.9.3 or **higher**
 
 ## Assumptions
 

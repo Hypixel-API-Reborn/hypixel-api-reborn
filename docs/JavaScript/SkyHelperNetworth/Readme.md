@@ -6,15 +6,15 @@ Networth. This assumes that you will be using JavaScript. Please checkout
 
 ## Requirements
 
-- Hypixel-API-Reborn v12.0.0-27 or **higher**
-- SkyHelper Networth v2.7.5 or **higher**
+- Hypixel-API-Reborn v12.0.0-28 or **higher**
+- SkyHelper Networth v2.8.0 or **higher**
 
 ## Assumptions
 
 This guide assumes the following
 
-- You are using Hypixel-API-Reborn v12.0.0-27
-- You are using SkyHelper Networth v2.7.5
+- You are using Hypixel-API-Reborn v12.0.0-28
+- You are using SkyHelper Networth v2.8.0
 - You have setup a Client instance. If not please see [the Setting Up Client guide](../SettingUpClient/Guide.md)
 
 ## Fetching A Player's Profiles
@@ -27,8 +27,9 @@ selected profile.
 import HypixelAPIReborn from './HypixelAPIReborn.js';
 
 const profiles = await HypixelAPIReborn.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');
-const selectedProfile = profiles.selectedProfile;
+
 // Check that the player has a selectedProfile.
+const selectedProfile = profiles.raw.rawData.profiles.find((profile) => profile.selected === true);
 if (selectedProfile === undefined) throw new Error("Player doesn't have a skyblock profile selected.");
 
 console.log(selectedProfile);
@@ -42,10 +43,11 @@ Once you have found the user's selected profile you will be required to get that
 // File MuseumExample.js
 import HypixelAPIReborn from './HypixelAPIReborn.js';
 
+// Fetch the player's museum data
 const museum = await HypixelAPIReborn.getSkyBlockMuseum(selectedProfile.profileId);
 
 // Check that the player has API on.
-const museumProfile = museum.raw.data.members[selectedProfile.me.uuid];
+const museumProfile = museum.raw.rawData.members[selectedProfile.me.uuid];
 if (museumProfile === undefined) throw new Error('Player has museum API off.');
 
 console.log(museumProfile);
@@ -58,14 +60,15 @@ data for the Networth Calculator
 
 ```JavaScript
 // File CalculatorExample.js
-import { PrepareSkyBlockProfileForSkyHelperNetworth } from 'hypixel-api-reborn';
 import { ProfileNetworthCalculator } from 'skyhelper-networth';
 
-// Reparse the profile data so that SkyHelper can read it and use it
-const profileData = PrepareSkyBlockProfileForSkyHelperNetworth(selectedProfile);
-
 // Create the Networth calculator
-const networthCalculator = new ProfileNetworthCalculator(profileData, museumProfile, selectedProfile.banking.balance);
+const networthCalculator = new ProfileNetworthCalculator(
+  selectedProfile,
+  museumProfile,
+  selectedProfile.banking.balance
+);
+console.log(networthCalculator);
 ```
 
 ## Calculating a Player's Networth
@@ -74,8 +77,6 @@ Once we have the Networth Calculator we can calculate the player's networth
 
 ```JavaScript
 // File NetworthExample.js
-import { PrepareSkyBlockProfileForSkyHelperNetworth } from 'hypixel-api-reborn';
-import { ProfileNetworthCalculator } from 'skyhelper-networth';
 
 // Fetch the Networth
 const networthData = await networthCalculator.getNetworth({ onlyNetworth: true });

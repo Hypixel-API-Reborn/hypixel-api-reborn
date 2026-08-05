@@ -27,7 +27,6 @@
   "devDependencies": {
     "tsx": "catalog:",
     "typescript": "catalog:",
-    "prettier": "catalog:",
-    "yaml": "catalog:"
+    "prettier": "catalog:"
   }
 }
