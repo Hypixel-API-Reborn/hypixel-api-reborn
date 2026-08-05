@@ -109,7 +109,7 @@ jobs:
 
   build:
     name: build
-    needs: [pnpm, eslint, index, api-index]
+    needs: [pnpm, eslint, index]
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
@@ -132,7 +132,7 @@ jobs:
 
   tests:
     name: tests
-    needs: [pnpm, eslint, index, api-index, build]
+    needs: [pnpm, eslint, index, build]
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
