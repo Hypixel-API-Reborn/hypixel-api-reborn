@@ -1,4 +1,7 @@
-import type { BedWarsPrestige, BuildBattleTitle, DuelsBaseDivision } from '../Types/Player.js';
+import Errors from '../Errors.ts';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
+import Romanize from './Romanize.ts';
+import type { BedWarsPrestige, BuildBattleTitle, DuelsTitleName, DuelsTitleParsed } from '../Types/Player.js';
 import type {
   BestiaryMobsData,
   CustomPetLevelingData,
@@ -41,20 +44,6 @@ export const games: { id: GameID; code: GameCode; name: GameString }[] = [
   { id: 65, code: 'REPLAY', name: 'Replay' },
   { id: 67, code: 'SMP', name: 'SMP' },
   { id: 68, code: 'WOOL_GAMES', name: 'Wool Wars' }
-];
-
-export const duelsDivisions: { name: DuelsBaseDivision; key: string }[] = [
-  { name: 'Rookie', key: 'rookie' },
-  { name: 'Iron', key: 'iron' },
-  { name: 'Gold', key: 'gold' },
-  { name: 'Diamond', key: 'diamond' },
-  { name: 'Master', key: 'master' },
-  { name: 'Legend', key: 'legend' },
-  { name: 'Grandmaster', key: 'grandmaster' },
-  { name: 'Godlike', key: 'godlike' },
-  { name: 'Celestial', key: 'celestial' },
-  { name: 'Divine', key: 'divine' },
-  { name: 'Ascended', key: 'ascended' }
 ];
 
 export const MiniGamesString: { [key: string]: string } = {
@@ -2695,3 +2684,36 @@ export const SKYWARS_TOTAL_XP = SKYWARS_XP_TO_NEXT_LEVEL.map((_, index) =>
 export const SKYWARS_CONSTANT_LEVELING_XP = SKYWARS_XP_TO_NEXT_LEVEL.reduce((acc, xp) => acc + xp, 0);
 export const SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL = 5000;
 export const SKYWARS_LEVEL_MAX = 10_000;
+
+export const DuelsDivisionsRequirements: Record<DuelsTitleName, { req: number; step: number; max: number }> = {
+  None: { req: 0, step: 0, max: 5 },
+  Rookie: { req: 50, step: 10, max: 5 },
+  Iron: { req: 100, step: 30, max: 5 },
+  Gold: { req: 250, step: 50, max: 5 },
+  Diamond: { req: 500, step: 100, max: 5 },
+  Master: { req: 1000, step: 200, max: 5 },
+  Legend: { req: 2000, step: 600, max: 5 },
+  Grandmaster: { req: 5000, step: 1000, max: 5 },
+  Godlike: { req: 10_000, step: 3000, max: 5 },
+  CELESTIAL: { req: 25_000, step: 5000, max: 5 },
+  DIVINE: { req: 50_000, step: 10_000, max: 5 },
+  ASCENDED: { req: 100_000, step: 10_000, max: 20 }
+};
+
+export function getDuelsTitle(score: number, isAllModes: boolean = false): DuelsTitleParsed {
+  const divisions = Object.entries(DuelsDivisionsRequirements).map(([title, data]) => ({
+    title: title,
+    req: isAllModes ? data.req * 2 : data.req,
+    step: isAllModes ? data.step * 2 : data.step,
+    max: data.max
+  }));
+
+  const titleData =
+    divisions.find(({ req }, index) => score >= req && score < (divisions[index + 1]?.req ?? Infinity)) ?? divisions[0];
+
+  if (!titleData) throw new HypixelAPIRebornError(Errors.INVALID_DUELS_TITLE_REQUIREMENT);
+
+  const { req, step, title, max } = titleData;
+  const division = Math.min(max, step ? Math.floor((score - req) / step) + 1 : 1);
+  return `${title}${division > 1 ? ` ${Romanize(division)}` : ''}` as DuelsTitleParsed;
+}

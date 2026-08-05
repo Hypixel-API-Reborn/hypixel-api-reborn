@@ -125,52 +125,6 @@ export const WarlordsClassIds = [
 ] as const;
 export type WarlordsClassId = (typeof WarlordsClassIds)[number];
 
-export const DuelsModes = [
-  'blitz',
-  'classic',
-  'bow',
-  'no_debuff',
-  'combo',
-  'tnt_games',
-  'sumo',
-  'parkour',
-  'bridge',
-  'bridge_duel',
-  'bridge_doubles',
-  'bridge_threes',
-  'bridge_fours',
-  '2v2v2v2',
-  '3v3v3v3',
-  'capture_threes',
-  'op',
-  'mega_walls',
-  'mw_duel',
-  'mw_doubles',
-  'sw',
-  'sw_duel',
-  'sw_doubles',
-  'uhc',
-  'uhc_duel',
-  'uhc_doubles',
-  'uhc_four',
-  'uhc_meetup',
-  'blitz_duel',
-  'classic_duel',
-  'bow_duel',
-  'potion_duel',
-  'combo_duel',
-  'bowspleef_duel',
-  'sumo_duel',
-  'parkour_eight',
-  'duel_arena',
-  'op_duel',
-  'op_doubles',
-  'boxing_duel',
-  'bedwars_two_one_duels_rush',
-  'bedwars_two_one_duels'
-] as const;
-export type DuelsMode = (typeof DuelsModes)[number];
-
 export const PaintballHats = [
   'speed_hat',
   'vip_kevinkool_hat',
@@ -368,21 +322,6 @@ export const TurboKartRacersHorns = [
   'JERRY'
 ] as const;
 export type TurboKartRacersHorn = (typeof TurboKartRacersHorns)[number];
-
-export const DuelsBaseDivisions = [
-  'Rookie',
-  'Iron',
-  'Gold',
-  'Diamond',
-  'Master',
-  'Legend',
-  'Grandmaster',
-  'Godlike',
-  'Celestial',
-  'Divine',
-  'Ascended'
-] as const;
-export type DuelsBaseDivision = (typeof DuelsBaseDivisions)[number];
 
 export interface PitArmor {
   helmet: PitInventoryItem | null;
@@ -4602,7 +4541,7 @@ export const SkyWarsMegaKitIds = [
 ] as const;
 export type SkyWarsMegaKitId = (typeof SkyWarsMegaKitIds)[number];
 
-export const SkyWarsRankedPerkIds = [
+export const SkyWarsRankedKitIds = [
   'kit_ranked_ranked_default',
   'kit_ranked_ranked_scout',
   'kit_ranked_ranked_armorer',
@@ -4616,7 +4555,7 @@ export const SkyWarsRankedPerkIds = [
   'kit_ranked_ranked_paladin',
   'kit_ranked_ranked_blacksmith'
 ] as const;
-export type SkyWarsRankedPerkId = (typeof SkyWarsRankedPerkIds)[number];
+export type SkyWarsRankedPerkId = (typeof SkyWarsRankedKitIds)[number];
 
 export const SkyWarsMiningTeamsKitIds = [
   'kit_mining_team_default',
@@ -4686,7 +4625,7 @@ export const SkyWarsKitIds = [
   ...SkyWarsSoloKitIds,
   ...SkyWarsMegaKitIds,
   ...SkyWarsMythicKitIds,
-  ...SkyWarsRankedPerkIds,
+  ...SkyWarsRankedKitIds,
   ...SkyWarsTeamsKitIds
 ] as const;
 export type SkyWarsKitId = (typeof SkyWarsKitIds)[number];
@@ -4941,3 +4880,1645 @@ export const BlitzSurvivalGamesPrivateGamesExtraStars = [
   '5 Stars'
 ] as const;
 export type BlitzSurvivalGamesPrivateGamesExtraStar = (typeof BlitzSurvivalGamesPrivateGamesExtraStars)[number];
+
+export const DuelsPackageArrowTrails = [
+  'arrow_trail_angry_villager',
+  'arrow_trail_black_smoke',
+  'arrow_trail_dna',
+  'arrow_trail_emerald',
+  'arrow_trail_ender',
+  'arrow_trail_fire',
+  'arrow_trail_golden',
+  'arrow_trail_hearts',
+  'arrow_trail_lava',
+  'arrow_trail_let_there_be_leather',
+  'arrow_trail_magic',
+  'arrow_trail_note',
+  'arrow_trail_rainbow',
+  'arrow_trail_slime',
+  'arrow_trail_twin_dragon',
+  'arrow_trail_twirling_snowflake',
+  'arrow_trail_water',
+  'arrow_trail_white_smoke'
+] as const;
+export type DuelsPackageArrowTrail = (typeof DuelsPackageArrowTrails)[number];
+export const DuelsPackageAuras = [
+  'auras_angry_villager_particle',
+  'auras_beach_trail',
+  'auras_bedrock_trail',
+  'auras_candy_cane',
+  'auras_dark_potion_particle',
+  'auras_daylight_particle',
+  'auras_diamond_ore_trail',
+  'auras_dust_particle',
+  'auras_enchanting_particle',
+  'auras_glassbreaker_trail',
+  'auras_heart_particle',
+  'auras_lava_particle',
+  'auras_netherrack_trail',
+  'auras_on_fire',
+  'auras_portal_particle',
+  'auras_rainbow_potion_particle',
+  'auras_rainbow_wool_particle',
+  'auras_slime_particle',
+  'auras_smokey_particle',
+  'auras_snow_particle',
+  'auras_sponge_trail',
+  'auras_tron_blue_trail',
+  'auras_tron_green_trail',
+  'auras_tron_rainbow_trail',
+  'auras_tron_red_trail',
+  'auras_water_particle'
+] as const;
+export type DuelsPackageAura = (typeof DuelsPackageAuras)[number];
+export const DuelsPackageBoxingFishs = [
+  'boxing_fish_clownfish',
+  'boxing_fish_cooked_fish',
+  'boxing_fish_cooked_salmon',
+  'boxing_fish_pufferfish',
+  'boxing_fish_raw_salmon'
+] as const;
+export type DuelsPackageBoxingFish = (typeof DuelsPackageBoxingFishs)[number];
+export const DuelsPackageCages = [
+  'cage_angel-cage',
+  'cage_balancing_act',
+  'cage_banana-cage',
+  'cage_basket-cage',
+  'cage_bed',
+  'cage_bee',
+  'cage_blazing-cage',
+  'cage_blue-cage',
+  'cage_bubblegum-cage',
+  'cage_bubbling_cauldron',
+  'cage_cage_spider',
+  'cage_candy_cane',
+  'cage_candycane',
+  'cage_carpet_factory',
+  'cage_carrot',
+  'cage_carrot_patch',
+  'cage_cheeseburger',
+  'cage_cloud-cage',
+  'cage_creepy_eye',
+  'cage_dark-cage',
+  'cage_demon',
+  'cage_diamond-cage',
+  'cage_disco-cage',
+  'cage_domino-cage',
+  'cage_easter_basket',
+  'cage_easter_bell',
+  'cage_easter_egg',
+  'cage_eye_of_ender',
+  'cage_faded-cage',
+  'cage_farm-hunt-cage',
+  'cage_flower',
+  'cage_ghost',
+  'cage_gold_white_present',
+  'cage_golden_egg',
+  'cage_green-cage',
+  'cage_haunted_house',
+  'cage_hippo',
+  'cage_horse',
+  'cage_house',
+  'cage_ice-cage',
+  'cage_lime-cage',
+  'cage_lobby',
+  'cage_magic-box-cage',
+  'cage_melon',
+  'cage_mist-cage',
+  'cage_mushroom',
+  'cage_nether-cage',
+  'cage_nicolas-cage',
+  'cage_notch-apple-cage',
+  'cage_orange-cage',
+  'cage_piston',
+  'cage_plasma-cage',
+  'cage_premium-cage',
+  'cage_prison-cage',
+  'cage_privacy-cage',
+  'cage_rabbit',
+  'cage_rage-cage',
+  'cage_rainbow-cage',
+  'cage_red_green_present',
+  'cage_redstone-master-cage',
+  'cage_royal-cage',
+  'cage_sailboat',
+  'cage_santa_hat',
+  'cage_serpent',
+  'cage_shine_bright',
+  'cage_sky-cage',
+  'cage_slime-cage',
+  'cage_snow_globe',
+  'cage_snow-golem-cage',
+  'cage_splendent',
+  'cage_spooky_lantern',
+  'cage_temple',
+  'cage_tiger',
+  'cage_tinsel',
+  'cage_toffee-cage',
+  'cage_tombstone',
+  'cage_tree-cage',
+  'cage_ufo',
+  'cage_void-cage',
+  'cage_winter-cage',
+  'cage_witch_hut'
+] as const;
+export type DuelsPackageCage = (typeof DuelsPackageCages)[number];
+export const DuelsPackageDoubleJumps = [
+  'double_jump_bloodthirsty',
+  'double_jump_damage',
+  'double_jump_diamond_rain',
+  'double_jump_emerald',
+  'double_jump_flame',
+  'double_jump_golden_rain',
+  'double_jump_leg_day',
+  'double_jump_light_as_a_feather',
+  'double_jump_magic',
+  'double_jump_music',
+  'double_jump_partygoer',
+  'double_jump_portal',
+  'double_jump_potion',
+  'double_jump_rainbow',
+  'double_jump_shovel',
+  'double_jump_smoke',
+  'double_jump_snow'
+] as const;
+export type DuelsPackageDoubleJump = (typeof DuelsPackageDoubleJumps)[number];
+export const DuelsPackageEmblems = [
+  'emblem_acorn',
+  'emblem_ban_hammer',
+  'emblem_blue_flag',
+  'emblem_blue_shield',
+  'emblem_bomb',
+  'emblem_boo',
+  'emblem_carrot',
+  'emblem_cherry_blossom',
+  'emblem_crossed_candy_canes',
+  'emblem_crossed_shovels',
+  'emblem_cute_dog',
+  'emblem_dynamite',
+  'emblem_easter_egg',
+  'emblem_eight_ball',
+  'emblem_ez',
+  'emblem_fire',
+  'emblem_flamingo',
+  'emblem_frog',
+  'emblem_gg',
+  'emblem_golden_apple',
+  'emblem_happy_sloth',
+  'emblem_heart',
+  'emblem_hype',
+  'emblem_hypixel_h',
+  'emblem_hypixel_knight_blue',
+  'emblem_hypixel_knight_red',
+  'emblem_jack_o_lantern',
+  'emblem_laugh',
+  'emblem_milk_bucket',
+  'emblem_money',
+  'emblem_money_bag',
+  'emblem_mushroom_soup',
+  'emblem_music_notes',
+  'emblem_my_ping',
+  'emblem_number_1',
+  'emblem_okay',
+  'emblem_palm_tree',
+  'emblem_party_sloth',
+  'emblem_party_ten',
+  'emblem_pepe',
+  'emblem_pizza',
+  'emblem_popsicle',
+  'emblem_potion',
+  'emblem_rabbit',
+  'emblem_red_flag',
+  'emblem_red_shield',
+  'emblem_rip',
+  'emblem_rock_hand',
+  'emblem_salt',
+  'emblem_skull',
+  'emblem_star',
+  'emblem_sword',
+  'emblem_target_board',
+  'emblem_the_l',
+  'emblem_thinking',
+  'emblem_trophy',
+  'emblem_tulip',
+  'emblem_unicorn',
+  'emblem_venom',
+  'emblem_whale',
+  'emblem_win_counter',
+  'emblem_wings',
+  'emblem_yin_yang',
+  'emblem_zombie_horse'
+] as const;
+export type DuelsPackageEmblem = (typeof DuelsPackageEmblems)[number];
+export const DuelsPackageGlyphs = [
+  'glyph_bronze_shield',
+  'glyph_burn',
+  'glyph_celebration_popper',
+  'glyph_chicken',
+  'glyph_rainbow',
+  'glyph_rip',
+  'glyph_storm'
+] as const;
+export type DuelsPackageGlyph = (typeof DuelsPackageGlyphs)[number];
+export const DuelsPackageGoals = [
+  'goal_confetti',
+  'goal_crayon',
+  'goal_hearts',
+  'goal_nicolas',
+  'goal_silverfish',
+  'goal_slime',
+  'goal_snow',
+  'goal_sponge',
+  'goal_team_pride',
+  'goal_water'
+] as const;
+export type DuelsPackageGoal = (typeof DuelsPackageGoals)[number];
+export const DuelsPackageHats = [
+  'hat_beach_ball',
+  'hat_bee',
+  'hat_diamond_pig',
+  'hat_l',
+  'hat_pirate',
+  'hat_poseidon',
+  'hat_slime',
+  'hat_space_helmet',
+  'hat_steve_diamond',
+  'hat_steve_emerald',
+  'hat_steve_gold',
+  'hat_steve_iron'
+] as const;
+export type DuelsPackageHat = (typeof DuelsPackageHats)[number];
+export const DuelsPackageKillEffects = [
+  'kill_effect_after_life',
+  'kill_effect_back_to_dust',
+  'kill_effect_bee_abduction',
+  'kill_effect_blood_bats',
+  'kill_effect_blood_explosion',
+  'kill_effect_burning_shoes',
+  'kill_effect_campfire',
+  'kill_effect_charged_creeper',
+  'kill_effect_cookie_fountain',
+  'kill_effect_crackling_ice',
+  'kill_effect_draculas_flight',
+  'kill_effect_final_smash',
+  'kill_effect_firework',
+  'kill_effect_frozen_in_time',
+  'kill_effect_hatching_eggs',
+  'kill_effect_head_rocket',
+  'kill_effect_heart_aura',
+  'kill_effect_jack_o_twister',
+  'kill_effect_kill_counter_holo',
+  'kill_effect_lantern_spiral',
+  'kill_effect_lighting_strike',
+  'kill_effect_piñata',
+  'kill_effect_present_rain',
+  'kill_effect_raining_eggs',
+  'kill_effect_rekt',
+  'kill_effect_riches',
+  'kill_effect_ring_of_fire',
+  'kill_effect_rising_dragon',
+  'kill_effect_shockwave',
+  'kill_effect_skeletalremains',
+  'kill_effect_smiley',
+  'kill_effect_squid_missile',
+  'kill_effect_tnt',
+  'kill_effect_todays_catch',
+  'kill_effect_tornado',
+  'kill_effect_twerk',
+  'kill_effect_wing_gusts',
+  'kill_effect_witch_ritual',
+  'kill_effect_xp_orb'
+] as const;
+export type DuelsPackageKillEffect = (typeof DuelsPackageKillEffects)[number];
+export const DuelsPackageKillMessages = [
+  'killmessages_banana',
+  'killmessages_bbq',
+  'killmessages_computer',
+  'killmessages_fire',
+  'killmessages_flex',
+  'killmessages_galactic',
+  'killmessages_hellish',
+  'killmessages_honourable',
+  'killmessages_insectoid',
+  'killmessages_love',
+  'killmessages_medieval',
+  'killmessages_memed',
+  'killmessages_my_ping',
+  'killmessages_pirate',
+  'killmessages_pro_gamer',
+  'killmessages_rainbow_km',
+  'killmessages_western',
+  'killmessages_woof'
+] as const;
+export type DuelsPackageKillMessage = (typeof DuelsPackageKillMessages)[number];
+export const DuelsPackagePrefixColors = [
+  'prefix_color_aqua',
+  'prefix_color_black',
+  'prefix_color_blue',
+  'prefix_color_dark_blue',
+  'prefix_color_dark_purple',
+  'prefix_color_dark_red',
+  'prefix_color_green',
+  'prefix_color_purple',
+  'prefix_color_red',
+  'prefix_color_white',
+  'prefix_color_yellow'
+] as const;
+export type DuelsPackagePrefixColor = (typeof DuelsPackagePrefixColors)[number];
+export const DuelsPackagePrefixIcons = [
+  'prefix_icon_arena',
+  'prefix_icon_arrow',
+  'prefix_icon_beam',
+  'prefix_icon_bill',
+  'prefix_icon_biohazard',
+  'prefix_icon_boxer',
+  'prefix_icon_confused',
+  'prefix_icon_delta',
+  'prefix_icon_deny',
+  'prefix_icon_div_ranking',
+  'prefix_icon_excited',
+  'prefix_icon_fallen_crest',
+  'prefix_icon_fancy_star',
+  'prefix_icon_final',
+  'prefix_icon_fish',
+  'prefix_icon_fists',
+  'prefix_icon_flower',
+  'prefix_icon_gg',
+  'prefix_icon_heart',
+  'prefix_icon_layered',
+  'prefix_icon_lucky',
+  'prefix_icon_platforms',
+  'prefix_icon_podium',
+  'prefix_icon_pointy_star',
+  'prefix_icon_reference',
+  'prefix_icon_regretting_this',
+  'prefix_icon_reminiscence',
+  'prefix_icon_repeated',
+  'prefix_icon_rhythm',
+  'prefix_icon_root',
+  'prefix_icon_sigma',
+  'prefix_icon_smiley',
+  'prefix_icon_snowman',
+  'prefix_icon_speed',
+  'prefix_icon_strike',
+  'prefix_icon_sun',
+  'prefix_icon_uninterested',
+  'prefix_icon_walls',
+  'prefix_icon_weight',
+  'prefix_icon_wither',
+  'prefix_icon_yin_and_yang'
+] as const;
+export type DuelsPackagePrefixIcon = (typeof DuelsPackagePrefixIcons)[number];
+export const DuelsPackagePrefixSchemas = [
+  'prefix_scheme_a_splash_of_star',
+  'prefix_scheme_absorption_yellow',
+  'prefix_scheme_armored_aqua',
+  'prefix_scheme_bedding_hues',
+  'prefix_scheme_blitz_blue',
+  'prefix_scheme_blossoms',
+  'prefix_scheme_carpeted_light_purple',
+  'prefix_scheme_color_of_a_flash',
+  'prefix_scheme_drawstring_dark_gray',
+  'prefix_scheme_ender_green',
+  'prefix_scheme_explosive_dark_red',
+  'prefix_scheme_flint_gradient',
+  'prefix_scheme_four_team_tie_dye',
+  'prefix_scheme_good_ol_gray',
+  'prefix_scheme_heavy_dark_green',
+  'prefix_scheme_mythic_pigment',
+  'prefix_scheme_og_fade',
+  'prefix_scheme_overpowered_gloss',
+  'prefix_scheme_pearl_dark_aqua',
+  'prefix_scheme_persistent_dark_blue',
+  'prefix_scheme_picturesque_firework',
+  'prefix_scheme_platformer_dark_purple',
+  'prefix_scheme_potion_stains',
+  'prefix_scheme_punchable_red',
+  'prefix_scheme_punching_paint',
+  'prefix_scheme_vanilla_white',
+  'prefix_scheme_variety_values',
+  'prefix_scheme_with_a_side_of_skies',
+  'prefix_scheme_withering_black'
+] as const;
+export type DuelsPackagePrefixSchema = (typeof DuelsPackagePrefixSchemas)[number];
+export const DuelsPackagePrefixs = [
+  ...DuelsPackagePrefixColors,
+  ...DuelsPackagePrefixIcons,
+  ...DuelsPackagePrefixSchemas
+] as const;
+export type DuelsPackagePrefix = (typeof DuelsPackagePrefixs)[number];
+export const DuelsPackageProjectileTrails = [
+  'projectile_trail_aaa',
+  'projectile_trail_angry_villager',
+  'projectile_trail_bee',
+  'projectile_trail_black_potion_spiral',
+  'projectile_trail_black_smoke',
+  'projectile_trail_blitz_star',
+  'projectile_trail_blood',
+  'projectile_trail_blue_dust',
+  'projectile_trail_bone',
+  'projectile_trail_bowception',
+  'projectile_trail_bridge',
+  'projectile_trail_candy_basket',
+  'projectile_trail_crayon',
+  'projectile_trail_cursedflame',
+  'projectile_trail_disc_jockey',
+  'projectile_trail_ender',
+  'projectile_trail_fanged',
+  'projectile_trail_fiery_wind',
+  'projectile_trail_fire',
+  'projectile_trail_fireball',
+  'projectile_trail_firework',
+  'projectile_trail_firework_spiral',
+  'projectile_trail_flame_rings',
+  'projectile_trail_flower',
+  'projectile_trail_golden',
+  'projectile_trail_green_spiral',
+  'projectile_trail_green_star',
+  'projectile_trail_hearts',
+  'projectile_trail_howling_wind',
+  'projectile_trail_icicle',
+  'projectile_trail_Jack_O_Lantern_Trail',
+  'projectile_trail_jack_o_lantern_trail',
+  'projectile_trail_lava',
+  'projectile_trail_let_there_be_leather',
+  'projectile_trail_magic',
+  'projectile_trail_note_spiral',
+  'projectile_trail_notes',
+  'projectile_trail_potion',
+  'projectile_trail_potion_spiral',
+  'projectile_trail_pumpkin_pie',
+  'projectile_trail_pumpkin_spice_powered',
+  'projectile_trail_pumpkin_volley_trail',
+  'projectile_trail_purple_dust',
+  'projectile_trail_rainbow',
+  'projectile_trail_random',
+  'projectile_trail_red_dust',
+  'projectile_trail_rose',
+  'projectile_trail_sharp',
+  'projectile_trail_slime',
+  'projectile_trail_sparkler',
+  'projectile_trail_spiders_silk',
+  'projectile_trail_stormy',
+  'projectile_trail_team_pride',
+  'projectile_trail_twirling_snowflake',
+  'projectile_trail_twisted_trail',
+  'projectile_trail_water',
+  'projectile_trail_water_sprinkler',
+  'projectile_trail_white_smoke',
+  'projectile_trail_wisp_whirlwind'
+] as const;
+export type DuelsPackageProjectileTrail = (typeof DuelsPackageProjectileTrails)[number];
+export const DuelsPackageSpleefShovels = ['spleef_shovel_diamond_shovel', 'spleef_shovel_golden_shovel'] as const;
+export type DuelsPackageSpleefShovel = (typeof DuelsPackageSpleefShovels)[number];
+export const DuelsPackageStartingHelmets = ['starting_helmet_gold_helmet', 'starting_helmet_iron_helmet'] as const;
+export type DuelsPackageStartingHelmet = (typeof DuelsPackageStartingHelmets)[number];
+export const DuelsPackageStartingWeapons = ['starting_weapon_golden_sword', 'starting_weapon_wooden_sword'] as const;
+export type DuelsPackageStartingWeapon = (typeof DuelsPackageStartingWeapons)[number];
+export const DuelsPackageVictoryDances = [
+  'victory_dance_anvil_rain',
+  'victory_dance_blazing_speed',
+  'victory_dance_cownado',
+  'victory_dance_daredevil',
+  'victory_dance_double_dragons_descent',
+  'victory_dance_dragon_fire',
+  'victory_dance_dragon_rider',
+  'victory_dance_earth',
+  'victory_dance_egg_meteors',
+  'victory_dance_fireworks',
+  'victory_dance_graveyardrave',
+  'victory_dance_guardians',
+  'victory_dance_heat_wave',
+  'victory_dance_loot_rain',
+  'victory_dance_meteor_shower',
+  'victory_dance_ping_flex',
+  'victory_dance_pumpkin_bomber',
+  'victory_dance_rainbow_dolly',
+  'victory_dance_rainbowbridge',
+  'victory_dance_rooted',
+  'victory_dance_snow_bomber',
+  'victory_dance_special_fireworks',
+  'victory_dance_twerk_apocalypse',
+  'victory_dance_winter_twister',
+  'victory_dance_wither_rider',
+  'victory_dance_yeehaw'
+] as const;
+export type DuelsPackageVictoryDance = (typeof DuelsPackageVictoryDances)[number];
+export const DuelsPackageWeaponPacks = [
+  'weaponpacks_barbarian',
+  'weaponpacks_blank',
+  'weaponpacks_bows_all_the_way_down',
+  'weaponpacks_caveman',
+  'weaponpacks_chef',
+  'weaponpacks_clown',
+  'weaponpacks_frosted',
+  'weaponpacks_hiker',
+  'weaponpacks_knight',
+  'weaponpacks_medieval',
+  'weaponpacks_ninja',
+  'weaponpacks_over_the_top',
+  'weaponpacks_pathetic',
+  'weaponpacks_pirate',
+  'weaponpacks_police',
+  'weaponpacks_slumber',
+  'weaponpacks_soldier',
+  'weaponpacks_specialist',
+  'weaponpacks_star_wars',
+  'weaponpacks_stats',
+  'weaponpacks_viking',
+  'weaponpacks_warrior'
+] as const;
+export type DuelsPackageWeaponPack = (typeof DuelsPackageWeaponPacks)[number];
+export const DuelsPackageWoodSkins = [
+  'wood_skin_acacia_logs',
+  'wood_skin_birch_logs',
+  'wood_skin_dark_oak_logs',
+  'wood_skin_jungle_logs',
+  'wood_skin_oak_logs',
+  'wood_skin_spruce_logs'
+] as const;
+export type DuelsPackageWoodSkin = (typeof DuelsPackageWoodSkins)[number];
+export const DuelsPackageTitleAscendeds = [
+  'ascended_all_modes',
+  'ascended_blitz',
+  'ascended_bow',
+  'ascended_boxing',
+  'ascended_bridge',
+  'ascended_classic',
+  'ascended_combo',
+  'ascended_mega_walls',
+  'ascended_no_debuff',
+  'ascended_op',
+  'ascended_parkour',
+  'ascended_skywars',
+  'ascended_sumo',
+  'ascended_tnt_games',
+  'ascended_uhc'
+] as const;
+export type DuelsPackageTitleAscended = (typeof DuelsPackageTitleAscendeds)[number];
+export const DuelsPackageTitleCelestials = [
+  'celestial_all_modes',
+  'celestial_blitz',
+  'celestial_bow',
+  'celestial_boxing',
+  'celestial_bridge',
+  'celestial_classic',
+  'celestial_combo',
+  'celestial_mega_walls',
+  'celestial_no_debuff',
+  'celestial_op',
+  'celestial_parkour',
+  'celestial_skywars',
+  'celestial_sumo',
+  'celestial_tnt_games',
+  'celestial_uhc'
+] as const;
+export type DuelsPackageTitleCelestial = (typeof DuelsPackageTitleCelestials)[number];
+export const DuelsPackageTitleCosmetics = [
+  'cosmetictitle_admiral',
+  'cosmetictitle_assassin',
+  'cosmetictitle_astronaut',
+  'cosmetictitle_athlete',
+  'cosmetictitle_captain',
+  'cosmetictitle_final_boss',
+  'cosmetictitle_general',
+  'cosmetictitle_lazy',
+  'cosmetictitle_op',
+  'cosmetictitle_overlord',
+  'cosmetictitle_salty',
+  'cosmetictitle_sneaky',
+  'cosmetictitle_supervillain',
+  'cosmetictitle_the_annihilator',
+  'cosmetictitle_the_awesome',
+  'cosmetictitle_the_haunted',
+  'cosmetictitle_the_mysterious',
+  'cosmetictitle_the_relaxed',
+  'cosmetictitle_the_skilful',
+  'cosmetictitle_the_stylish',
+  'cosmetictitle_the_trickster',
+  'cosmetictitle_the_undefeated',
+  'cosmetictitle_the_untouchable',
+  'cosmetictitle_the_warrior',
+  'cosmetictitle_veteran'
+] as const;
+export type DuelsPackageTitleCosmetic = (typeof DuelsPackageTitleCosmetics)[number];
+export const DuelsPackageTitleDiamonds = [
+  'diamond_all_modes',
+  'diamond_blitz',
+  'diamond_bow',
+  'diamond_boxing',
+  'diamond_bridge',
+  'diamond_classic',
+  'diamond_combo',
+  'diamond_mega_walls',
+  'diamond_no_debuff',
+  'diamond_op',
+  'diamond_parkour',
+  'diamond_skywars',
+  'diamond_sumo',
+  'diamond_tnt_games',
+  'diamond_uhc'
+] as const;
+export type DuelsPackageTitleDiamond = (typeof DuelsPackageTitleDiamonds)[number];
+export const DuelsPackageTitleDivines = [
+  'divine_all_modes',
+  'divine_blitz',
+  'divine_bow',
+  'divine_boxing',
+  'divine_bridge',
+  'divine_classic',
+  'divine_combo',
+  'divine_mega_walls',
+  'divine_no_debuff',
+  'divine_op',
+  'divine_parkour',
+  'divine_skywars',
+  'divine_sumo',
+  'divine_tnt_games',
+  'divine_uhc'
+] as const;
+export type DuelsPackageTitleDivine = (typeof DuelsPackageTitleDivines)[number];
+export const DuelsPackageTitleGodlikes = [
+  'godlike_all_modes',
+  'godlike_blitz',
+  'godlike_bow',
+  'godlike_boxing',
+  'godlike_bridge',
+  'godlike_classic',
+  'godlike_combo',
+  'godlike_mega_walls',
+  'godlike_no_debuff',
+  'godlike_op',
+  'godlike_parkour',
+  'godlike_skywars',
+  'godlike_sumo',
+  'godlike_tnt_games',
+  'godlike_uhc'
+] as const;
+export type DuelsPackageTitleGodlike = (typeof DuelsPackageTitleGodlikes)[number];
+export const DuelsPackageTitleGolds = [
+  'gold_all_modes',
+  'gold_blitz',
+  'gold_bow',
+  'gold_boxing',
+  'gold_bridge',
+  'gold_classic',
+  'gold_combo',
+  'gold_mega_walls',
+  'gold_no_debuff',
+  'gold_op',
+  'gold_parkour',
+  'gold_skywars',
+  'gold_sumo',
+  'gold_tnt_games',
+  'gold_uhc'
+] as const;
+export type DuelsPackageTitleGold = (typeof DuelsPackageTitleGolds)[number];
+export const DuelsPackageTitleGrandmasters = [
+  'grandmaster_all_modes',
+  'grandmaster_blitz',
+  'grandmaster_bow',
+  'grandmaster_boxing',
+  'grandmaster_bridge',
+  'grandmaster_classic',
+  'grandmaster_combo',
+  'grandmaster_mega_walls',
+  'grandmaster_no_debuff',
+  'grandmaster_op',
+  'grandmaster_parkour',
+  'grandmaster_skywars',
+  'grandmaster_sumo',
+  'grandmaster_tnt_games',
+  'grandmaster_uhc'
+] as const;
+export type DuelsPackageTitleGrandmaster = (typeof DuelsPackageTitleGrandmasters)[number];
+export const DuelsPackageTitleIrons = [
+  'iron_all_modes',
+  'iron_blitz',
+  'iron_bow',
+  'iron_boxing',
+  'iron_bridge',
+  'iron_classic',
+  'iron_combo',
+  'iron_mega_walls',
+  'iron_no_debuff',
+  'iron_op',
+  'iron_parkour',
+  'iron_skywars',
+  'iron_sumo',
+  'iron_tnt_games',
+  'iron_uhc'
+] as const;
+export type DuelsPackageTitleIron = (typeof DuelsPackageTitleIrons)[number];
+export const DuelsPackageTitleLegends = [
+  'legend_all_modes',
+  'legend_blitz',
+  'legend_bow',
+  'legend_boxing',
+  'legend_bridge',
+  'legend_classic',
+  'legend_combo',
+  'legend_mega_walls',
+  'legend_no_debuff',
+  'legend_op',
+  'legend_parkour',
+  'legend_skywars',
+  'legend_sumo',
+  'legend_tnt_games',
+  'legend_uhc'
+] as const;
+export type DuelsPackageTitleLegend = (typeof DuelsPackageTitleLegends)[number];
+export const DuelsPackageTitleMasters = [
+  'master_all_modes',
+  'master_blitz',
+  'master_bow',
+  'master_boxing',
+  'master_bridge',
+  'master_classic',
+  'master_combo',
+  'master_mega_walls',
+  'master_no_debuff',
+  'master_op',
+  'master_parkour',
+  'master_skywars',
+  'master_sumo',
+  'master_tnt_games',
+  'master_uhc'
+] as const;
+export type DuelsPackageTitleMaster = (typeof DuelsPackageTitleMasters)[number];
+export const DuelsPackageTitlePositions = [
+  'position_all_modes',
+  'position_blitz',
+  'position_bow',
+  'position_boxing',
+  'position_bridge',
+  'position_classic',
+  'position_combo',
+  'position_mega_walls',
+  'position_no_debuff',
+  'position_op',
+  'position_parkour',
+  'position_skywars',
+  'position_sumo',
+  'position_tnt_games',
+  'position_uhc'
+] as const;
+export type DuelsPackageTitlePosition = (typeof DuelsPackageTitlePositions)[number];
+export const DuelsPackageTitleRookies = [
+  'rookie_all_modes',
+  'rookie_blitz',
+  'rookie_bow',
+  'rookie_boxing',
+  'rookie_bridge',
+  'rookie_classic',
+  'rookie_combo',
+  'rookie_mega_walls',
+  'rookie_no_debuff',
+  'rookie_op',
+  'rookie_parkour',
+  'rookie_skywars',
+  'rookie_sumo',
+  'rookie_tnt_games',
+  'rookie_uhc'
+] as const;
+export type DuelsPackageTitleRookie = (typeof DuelsPackageTitleRookies)[number];
+export const DuelsPackageTitleTitles = [
+  'title_admiral',
+  'title_astronaut',
+  'title_athlete',
+  'title_captain',
+  'title_custom',
+  'title_duelmaster',
+  'title_executioner',
+  'title_final_boss',
+  'title_general',
+  'title_heavyweight_champion',
+  'title_jolly',
+  'title_lazy',
+  'title_my_blocks_broken',
+  'title_my_bow_hits',
+  'title_my_checkpoints',
+  'title_my_longest_combo',
+  'title_my_melee_hits',
+  'title_my_personal_best',
+  'title_my_ping',
+  'title_op',
+  'title_overlord',
+  'title_prefix_color2',
+  'title_salty',
+  'title_sneaky',
+  'title_superhuman',
+  'title_supervillain',
+  'title_the_afker',
+  'title_the_annihilator',
+  'title_the_awesome',
+  'title_the_haunted',
+  'title_the_mysterious',
+  'title_the_relaxed',
+  'title_the_skilful',
+  'title_the_skillless',
+  'title_the_stylish',
+  'title_the_trickster',
+  'title_the_undefeated',
+  'title_the_untouchable',
+  'title_the_warrior',
+  'title_the_winstreaker',
+  'title_veteran'
+] as const;
+export type DuelsPackageTitleTitle = (typeof DuelsPackageTitleTitles)[number];
+export const DuelsPackageTitleTitleDivisions = [
+  'title_division_all_modes',
+  'title_division_blitz',
+  'title_division_bow',
+  'title_division_boxing',
+  'title_division_bridge',
+  'title_division_classic',
+  'title_division_combo',
+  'title_division_mega_walls',
+  'title_division_no_debuff',
+  'title_division_op',
+  'title_division_parkour',
+  'title_division_skywars',
+  'title_division_sumo',
+  'title_division_tnt_games',
+  'title_division_uhc'
+] as const;
+export type DuelsPackageTitleTitleDivision = (typeof DuelsPackageTitleTitleDivisions)[number];
+export const DuelsPackageTitleWorldElites = [
+  'world_elite_all_modes',
+  'world_elite_blitz',
+  'world_elite_bow',
+  'world_elite_boxing',
+  'world_elite_bridge',
+  'world_elite_classic',
+  'world_elite_combo',
+  'world_elite_mega_walls',
+  'world_elite_no_debuff',
+  'world_elite_op',
+  'world_elite_parkour',
+  'world_elite_skywars',
+  'world_elite_sumo',
+  'world_elite_tnt_games',
+  'world_elite_uhc'
+] as const;
+export type DuelsPackageTitleWorldElite = (typeof DuelsPackageTitleWorldElites)[number];
+export const DuelsPackageTitleWorldMasters = [
+  'world_master_all_modes',
+  'world_master_blitz',
+  'world_master_bow',
+  'world_master_boxing',
+  'world_master_bridge',
+  'world_master_classic',
+  'world_master_combo',
+  'world_master_mega_walls',
+  'world_master_no_debuff',
+  'world_master_op',
+  'world_master_parkour',
+  'world_master_skywars',
+  'world_master_sumo',
+  'world_master_tnt_games',
+  'world_master_uhc'
+] as const;
+export type DuelsPackageTitleWorldMaster = (typeof DuelsPackageTitleWorldMasters)[number];
+export const DuelsPackageTitles = [
+  ...DuelsPackageTitleAscendeds,
+  ...DuelsPackageTitleCelestials,
+  ...DuelsPackageTitleDiamonds,
+  ...DuelsPackageTitleDivines,
+  ...DuelsPackageTitleGodlikes,
+  ...DuelsPackageTitleGolds,
+  ...DuelsPackageTitleGrandmasters,
+  ...DuelsPackageTitleIrons,
+  ...DuelsPackageTitleLegends,
+  ...DuelsPackageTitleMasters,
+  ...DuelsPackageTitlePositions,
+  ...DuelsPackageTitleRookies,
+  ...DuelsPackageTitleTitles,
+  ...DuelsPackageTitleTitleDivisions,
+  ...DuelsPackageTitleWorldElites,
+  ...DuelsPackageTitleWorldMasters
+] as const;
+export type DuelsPackageTitle = (typeof DuelsPackageTitles)[number];
+export const DuelsPackages = [
+  ...DuelsPackageArrowTrails,
+  ...DuelsPackageAuras,
+  ...DuelsPackageBoxingFishs,
+  ...DuelsPackageCages,
+  ...DuelsPackageDoubleJumps,
+  ...DuelsPackageEmblems,
+  ...DuelsPackageGlyphs,
+  ...DuelsPackageGoals,
+  ...DuelsPackageHats,
+  ...DuelsPackageKillEffects,
+  ...DuelsPackageKillMessages,
+  ...DuelsPackagePrefixs,
+  ...DuelsPackageProjectileTrails,
+  ...DuelsPackageSpleefShovels,
+  ...DuelsPackageStartingHelmets,
+  ...DuelsPackageStartingWeapons,
+  ...DuelsPackageVictoryDances,
+  ...DuelsPackageWeaponPacks,
+  ...DuelsPackageWoodSkins,
+  ...DuelsPackageTitles
+] as const;
+export type DuelsPackage = (typeof DuelsPackages)[number];
+export const DuelsRematchOptions = ['default', 'auto_no', 'auto_yes'] as const;
+export type DuelsRematchOption = (typeof DuelsRematchOptions)[number];
+export const DuelsModeSkyWarsIds = ['sw_duel', 'sw_doubles', 'sw_tournament'] as const;
+export type DuelsModeSkyWarsId = (typeof DuelsModeSkyWarsIds)[number];
+export const DuelsModeUHCIds = ['uhc_duel', 'uhc_doubles', 'uhc_four', 'uhc_meetup', 'uhc_tournament'] as const;
+export type DuelsModeUHCId = (typeof DuelsModeUHCIds)[number];
+export const DuelsModeOPIds = ['op_duel', 'op_doubles'] as const;
+export type DuelsModeOPId = (typeof DuelsModeOPIds)[number];
+export const DuelsModeMegeWallsIds = ['mw_duel', 'mw_doubles', 'mw_four'] as const;
+export type DuelsModeMegaWallsId = (typeof DuelsModeMegeWallsIds)[number];
+export const DuelsModeClassicIds = ['classic_duel', 'classic_doubles'] as const;
+export type DuelsModeClassicId = (typeof DuelsModeClassicIds)[number];
+export const DuelsModeSumoIds = ['sumo_duel', 'sumo_tournament'] as const;
+export type DuelsModeSumoId = (typeof DuelsModeSumoIds)[number];
+export const DuelsModeBedWarsIds = ['bedwars', 'bedwars_two_one_duels', 'bedwars_two_one_duels_rush'] as const;
+export type DuelsModeBedWarsId = (typeof DuelsModeBedWarsIds)[number];
+export const DuelsModeBridgeIds = [
+  'bridge',
+  'bridge_duel',
+  'bridge_doubles',
+  'bridge_threes',
+  'bridge_four',
+  'bridge_2v2v2v2',
+  'bridge_3v3v3v3',
+  'bridge_tournament',
+  'capture_duel',
+  'capture_threes'
+] as const;
+export type DuelsModeBridgeId = (typeof DuelsModeBridgeIds)[number];
+export const DuelsModeIds = [
+  'combo_duel',
+  'boxing_duel',
+  'parkour_eight',
+  'blitz_duel',
+  'bow_duel',
+  'quake_duel',
+  'spleef_duel',
+  'bowspleef_duel',
+  'potion_duel',
+  'duel_arena',
+  ...DuelsModeSkyWarsIds,
+  ...DuelsModeUHCIds,
+  ...DuelsModeOPIds,
+  ...DuelsModeMegeWallsIds,
+  ...DuelsModeClassicIds,
+  ...DuelsModeSumoIds,
+  ...DuelsModeBedWarsIds,
+  ...DuelsModeBridgeIds
+] as const;
+export type DuelsModeId = (typeof DuelsModeIds)[number];
+export const DuelsLeaderboardSettingsModes = [
+  'ALL_MODES',
+  'ARENA',
+  'BEDWARS',
+  'BLITZ',
+  'BOW',
+  'BOXING',
+  'BRIDGE',
+  'CLASSIC',
+  'COMBO',
+  'MEGA_WALLS',
+  'NO_DEBUFF',
+  'OP',
+  'PARKOUR',
+  'QUAKE',
+  'SKYWARS',
+  'SPLEEF',
+  'SUMO',
+  'TNT_GAMES',
+  'UHC'
+] as const;
+export type DuelsLeaderboardSettingsMode = (typeof DuelsLeaderboardSettingsModes)[number];
+export const DuelsBridgeMaps = [
+  'Aquatica',
+  'Ashgate',
+  'Atlantis',
+  'Bashe',
+  'Berserk',
+  'Boo',
+  'Boo v2',
+  'Chronon',
+  'Chronon v2',
+  'Condo',
+  'Condo v2',
+  'Convergence',
+  'Cutlass',
+  'Dojo',
+  'Flora',
+  'Fortress',
+  'Fortress v2',
+  'Galaxy',
+  'Galaxy v2',
+  'Hyperfrost',
+  'Industry',
+  'Licorice',
+  'Lighthouse',
+  'Lighthouse v2',
+  'Mister Cheesy',
+  'Outpost',
+  'Palaestra',
+  'Palastra',
+  'Redkeep',
+  'Sorcery',
+  'Stumped',
+  'Sunstone',
+  'Toft',
+  'Treehouse',
+  'Tundra',
+  'Tundra v2',
+  'Twilight',
+  'Urban'
+] as const;
+export type DuelsBridgeMap = (typeof DuelsBridgeMaps)[number];
+export const DuelsMaps = [
+  ...DuelsBridgeMaps,
+  'Abstract',
+  'Agni Temple',
+  'Arena',
+  'Atoll',
+  'Backwood',
+  'Barracuda Bay',
+  'Battledome',
+  'Butterfly',
+  'Cage Fight',
+  'Cake',
+  'Castle',
+  'Chicken Jockey',
+  'Christmas Town',
+  'Citadel',
+  'Coastline',
+  'Complex',
+  'Connected',
+  'Courtyard',
+  'Crater',
+  'Deathmatch 1',
+  'Deathmatch 2',
+  'Deathmatch 3',
+  'Delfino Square',
+  'Depository',
+  'Digit',
+  'Duel Arena',
+  'Dunes',
+  'Ecostation',
+  'Expedition',
+  'Fight Night',
+  'Fireside',
+  'Fort Royale',
+  'Foundation',
+  'Fractal',
+  'Garland Grove',
+  'Ghost Town',
+  'Gingerbread Market',
+  'Gorge',
+  'Grassford',
+  'Grave',
+  'Highset',
+  'Huaxi',
+  'Icing',
+  'Ironworks',
+  "Jerry's Lunch",
+  'Log Cabin',
+  'Lunar',
+  'Meteor',
+  'Mineshaft',
+  'Monolith',
+  'Mountain Glade',
+  'Museum',
+  'Neon',
+  'Pitfall',
+  'Ponsen',
+  'Reef',
+  'Rocky',
+  'Sacred',
+  'Saloon',
+  'Santa House',
+  "Santa's Workshop",
+  'Shan',
+  'Shard',
+  'Skyport',
+  'Slalom Hills',
+  'Snowman',
+  'Space Mine',
+  'Spikerock Bay',
+  'Sumo',
+  'Swamp',
+  'Tennis Court',
+  'Thalassa',
+  'Tooth Ridge',
+  'Toy Room',
+  'Tribute',
+  'Turbine',
+  'Undergrowth',
+  'Vampiric',
+  'Vanilla',
+  'Vivere',
+  'Wharf',
+  'Whirlpool',
+  'White Crystal',
+  'Zhulong'
+] as const;
+export type DuelsMap = (typeof DuelsMaps)[number];
+export const DuelsStatusesBestWinstreaks = [
+  'Best Winstreak:ALL_MODES',
+  'Best Winstreak:BEDWARS',
+  'Best Winstreak:BLITZ',
+  'Best Winstreak:BOW',
+  'Best Winstreak:BOXING',
+  'Best Winstreak:BRIDGE',
+  'Best Winstreak:CLASSIC',
+  'Best Winstreak:COMBO',
+  'Best Winstreak:NO_DEBUFF',
+  'Best Winstreak:OP',
+  'Best Winstreak:PARKOUR',
+  'Best Winstreak:QUAKE',
+  'Best Winstreak:SKYWARS',
+  'Best Winstreak:SPLEEF',
+  'Best Winstreak:SUMO',
+  'Best Winstreak:UHC',
+  'BEST_WINSTREAK:ALL_MODES',
+  'BEST_WINSTREAK:ARENA',
+  'BEST_WINSTREAK:BLITZ',
+  'BEST_WINSTREAK:BOW',
+  'BEST_WINSTREAK:BOXING',
+  'BEST_WINSTREAK:BRIDGE',
+  'BEST_WINSTREAK:CLASSIC',
+  'BEST_WINSTREAK:COMBO',
+  'BEST_WINSTREAK:MEGA_WALLS',
+  'BEST_WINSTREAK:NO_DEBUFF',
+  'BEST_WINSTREAK:OP',
+  'BEST_WINSTREAK:PARKOUR',
+  'BEST_WINSTREAK:SKYWARS',
+  'BEST_WINSTREAK:SUMO',
+  'BEST_WINSTREAK:TNT_GAMES',
+  'BEST_WINSTREAK:UHC'
+];
+export type DuelsStatusesBestWinstreak = (typeof DuelsStatusesBestWinstreaks)[number];
+export const DuelsStatusesKillss = [
+  'KILLS:ALL_MODES',
+  'KILLS:BLITZ',
+  'KILLS:BRIDGE',
+  'KILLS:CLASSIC',
+  'KILLS:COMBO',
+  'KILLS:NO_DEBUFF',
+  'KILLS:PARKOUR',
+  'KILLS:SKYWARS',
+  'KILLS:SUMO',
+  'Kills:ALL_MODES',
+  'Kills:BLITZ',
+  'Kills:BRIDGE',
+  'Kills:CLASSIC',
+  'Kills:COMBO',
+  'Kills:NO_DEBUFF',
+  'Kills:PARKOUR',
+  'Kills:SKYWARS',
+  'Kills:SUMO'
+];
+export type DuelsStatusesKills = (typeof DuelsStatusesKillss)[number];
+export const DuelsStatusesWinss = [
+  'WINS:ALL_MODES',
+  'WINS:ARENA',
+  'WINS:BEDWARS',
+  'WINS:BLITZ',
+  'WINS:BOW',
+  'WINS:BOXING',
+  'WINS:BRIDGE',
+  'WINS:CLASSIC',
+  'WINS:COMBO',
+  'WINS:MEGA_WALLS',
+  'WINS:NO_DEBUFF',
+  'WINS:OP',
+  'WINS:PARKOUR',
+  'WINS:SKYWARS',
+  'WINS:SPLEEF',
+  'WINS:SUMO',
+  'WINS:TNT_GAMES',
+  'WINS:UHC',
+  'Wins:ALL_MODES',
+  'Wins:ARENA',
+  'Wins:BEDWARS',
+  'Wins:BLITZ',
+  'Wins:BOW',
+  'Wins:BOXING',
+  'Wins:BRIDGE',
+  'Wins:CLASSIC',
+  'Wins:COMBO',
+  'Wins:MEGA_WALLS',
+  'Wins:NO_DEBUFF',
+  'Wins:OP',
+  'Wins:PARKOUR',
+  'Wins:SKYWARS',
+  'Wins:SPLEEF',
+  'Wins:SUMO',
+  'Wins:TNT_GAMES',
+  'Wins:UHC'
+];
+export type DuelsStatusesWins = (typeof DuelsStatusesWinss)[number];
+export const DuelsStatuses = [
+  'AFK',
+  'Do not disturb',
+  'Griding Wins',
+  'Grinding Kills',
+  'Grinding Wins',
+  "Just chillin'",
+  'Looking for a Guild',
+  'Looking to 1v1',
+  'Looking to chat',
+  'Looking to team up',
+  'TROPHIES:ALL_MODES',
+  ...DuelsStatusesBestWinstreaks,
+  ...DuelsStatusesKillss,
+  ...DuelsStatusesWinss
+] as const;
+export type DuelsStatus = (typeof DuelsStatuses)[number];
+export const DuelsModeSkyWarsMiscIds = [
+  'champion',
+  'pyromancer',
+  'magician',
+  'healer',
+  'scout',
+  'ecologist',
+  'fisherman',
+  'farmer',
+  'bowman',
+  'grenade',
+  'athlete',
+  'frog',
+  'armorer',
+  'enderman',
+  'paladin',
+  'hound',
+  'blacksmith',
+  'salmon',
+  'kit_enderchest_solo_enderchest',
+  'kit_blacksmith_ranked_blacksmith'
+] as const;
+export type DuelsModeSkyWarsMiscId = (typeof DuelsModeSkyWarsMiscIds)[number];
+export const DuelsModeSkyWarsSoloKitIds = [
+  'kit_basic_solo_armorsmith',
+  'kit_basic_solo_baseball-player',
+  'kit_basic_solo_ecologist',
+  'kit_basic_solo_fisherman',
+  'kit_basic_solo_pharaoh',
+  'kit_basic_solo_rookie',
+  'kit_basic_solo_snowman',
+  'kit_basic_solo_speleologist',
+  'kit_basic_solo_batguy',
+  'kit_basic_solo_disco',
+  'kit_basic_solo_frog',
+  'kit_basic_solo_grenade',
+  'kit_basic_solo_healer',
+  'kit_basic_solo_scout',
+  'kit_basic_solo_princess',
+  'kit_basic_solo_cactus',
+  'kit_basic_solo_archeologist',
+  'kit_basic_solo_warlock',
+  'kit_basic_solo_fallen-angel',
+  'kit_basic_solo_troll',
+  'kit_basic_solo_energix'
+] as const;
+export type DuelsModeSkyWarsSoloKitId = (typeof DuelsModeSkyWarsSoloKitIds)[number];
+export const DuelsModeSkyWarsMythicKitIds = ['kit_mythical_end-lord', 'kit_mythical_fishmonger'] as const;
+export type DuelsModeSkyWarsMythicKitId = (typeof DuelsModeSkyWarsMythicKitIds)[number];
+export const DuelsModeSkyWarsRankedKitIds = [
+  'kit_ranked_ranked_default',
+  'kit_ranked_ranked_scout',
+  'kit_ranked_ranked_armorer',
+  'kit_ranked_ranked_bowman',
+  'kit_ranked_ranked_champion',
+  'kit_ranked_ranked_pyromancer',
+  'kit_ranked_ranked_hound',
+  'kit_ranked_ranked_athlete',
+  'kit_ranked_ranked_magician',
+  'kit_ranked_ranked_healer',
+  'kit_ranked_ranked_paladin'
+] as const;
+export type DuelsModeSkyWarsRankedKitId = (typeof DuelsModeSkyWarsRankedKitIds)[number];
+export const DuelsModeSkyWarsAttackingTeamsKitIds = [
+  'kit_attacking_team_scout',
+  'kit_attacking_team_knight',
+  'kit_attacking_team_snowman',
+  'kit_attacking_team_hunter',
+  'kit_attacking_team_enderman',
+  'kit_attacking_team_energix',
+  'kit_attacking_team_slime',
+  'kit_attacking_team_salmon',
+  'kit_attacking_team_sloth',
+  'kit_attacking_team_pig-rider',
+  'kit_attacking_team_grenade',
+  'kit_attacking_team_engineer',
+  'kit_attacking_team_magician',
+  'kit_attacking_team_jester',
+  'kit_attacking_team_fisherman',
+  'kit_attacking_team_archeologist',
+  'kit_attacking_team_fallen-angel'
+] as const;
+export type DuelsModeSkyWarsAttackingTeamsKitId = (typeof DuelsModeSkyWarsAttackingTeamsKitIds)[number];
+export const DuelsModeSkyWarsMiningTeamsKitIds = [
+  'kit_mining_team_default',
+  'kit_mining_team_cannoneer',
+  'kit_mining_team_speleologist'
+] as const;
+export type DuelsModeSkyWarsMiningTeamsKitId = (typeof DuelsModeSkyWarsMiningTeamsKitIds)[number];
+export const DuelsModeSkyWarsTeamsKitIds = [
+  ...DuelsModeSkyWarsMiningTeamsKitIds,
+  ...SkyWarsDefendingTeamsKitIds,
+  ...SkyWarsSupportingTeamsKitIds,
+  ...DuelsModeSkyWarsAttackingTeamsKitIds,
+  'kit_enderchest_team_enderchest'
+] as const;
+export type DuelsModeSkyWarsTeamsKitId = (typeof DuelsModeSkyWarsTeamsKitIds)[number];
+export const DuelsModeSkyWarsKitIds = [
+  ...DuelsModeSkyWarsMiscIds,
+  ...DuelsModeSkyWarsSoloKitIds,
+  ...DuelsModeSkyWarsMythicKitIds,
+  ...DuelsModeSkyWarsRankedKitIds,
+  ...SkyWarsAdvancedSoloKitIds,
+  ...SkyWarsMiniSoloKitIds,
+  ...DuelsModeSkyWarsTeamsKitIds
+] as const;
+export type DuelsModeSkyWarsKitId = (typeof DuelsModeSkyWarsKitIds)[number];
+export const DuelsModeBlitzKitIds = [
+  'arachnologist',
+  'archer',
+  'armorer',
+  'astronaut',
+  'baker',
+  'blaze',
+  'creepertamer',
+  'diver',
+  'donkeytamer',
+  'farmer',
+  'fisherman',
+  'florist',
+  'golem',
+  'guardian',
+  'horsetamer',
+  'hunter',
+  'hype_train',
+  'jockey',
+  'knight',
+  'meatmaster',
+  'milkman',
+  'necromancer',
+  'paladin',
+  'phoenix',
+  'pigman',
+  'rambo',
+  'ranger',
+  'reaper',
+  'reddragon',
+  'rogue',
+  'scout',
+  'shadow_knight',
+  'shark',
+  'slimeyslime',
+  'snowman',
+  'speleologist',
+  'tim',
+  'toxicologist',
+  'troll',
+  'viking',
+  'warlock',
+  'warrior',
+  'wolftamer'
+] as const;
+export type DuelsModeBlitzKitId = (typeof DuelsModeBlitzKitIds)[number];
+
+export const DuelsTitleParsedNones = ['None', 'None I', 'None II', 'None III', 'None IV', 'None V'] as const;
+export type DuelsTitleParsedNone = (typeof DuelsTitleParsedNones)[number];
+export const DuelsTitleParsedRookies = [
+  'Rookie',
+  'Rookie I',
+  'Rookie II',
+  'Rookie III',
+  'Rookie IV',
+  'Rookie V'
+] as const;
+export type DuelsTitleParsedRookie = (typeof DuelsTitleParsedRookies)[number];
+export const DuelsTitleParsedIrons = ['Iron', 'Iron I', 'Iron II', 'Iron III', 'Iron IV', 'Iron V'] as const;
+export type DuelsTitleParsedIron = (typeof DuelsTitleParsedIrons)[number];
+export const DuelsTitleParsedGolds = ['Gold', 'Gold I', 'Gold II', 'Gold III', 'Gold IV', 'Gold V'] as const;
+export type DuelsTitleParsedGold = (typeof DuelsTitleParsedGolds)[number];
+export const DuelsTitleParsedDiamonds = [
+  'Diamond',
+  'Diamond I',
+  'Diamond II',
+  'Diamond III',
+  'Diamond IV',
+  'Diamond V'
+] as const;
+export type DuelsTitleParsedDiamond = (typeof DuelsTitleParsedDiamonds)[number];
+export const DuelsTitleParsedMasters = [
+  'Master',
+  'Master I',
+  'Master II',
+  'Master III',
+  'Master IV',
+  'Master V'
+] as const;
+export type DuelsTitleParsedMaster = (typeof DuelsTitleParsedMasters)[number];
+export const DuelsTitleParsedLegends = [
+  'Legend',
+  'Legend I',
+  'Legend II',
+  'Legend III',
+  'Legend IV',
+  'Legend V'
+] as const;
+export type DuelsTitleParsedLegend = (typeof DuelsTitleParsedLegends)[number];
+export const DuelsTitleParsedGrandmasters = [
+  'Grandmaster',
+  'Grandmaster I',
+  'Grandmaster II',
+  'Grandmaster III',
+  'Grandmaster IV',
+  'Grandmaster V'
+] as const;
+export type DuelsTitleParsedGrandmaster = (typeof DuelsTitleParsedGrandmasters)[number];
+export const DuelsTitleParsedGodlikes = [
+  'Godlike',
+  'Godlike I',
+  'Godlike II',
+  'Godlike III',
+  'Godlike IV',
+  'Godlike V'
+] as const;
+export type DuelsTitleParsedGodlike = (typeof DuelsTitleParsedGodlikes)[number];
+export const DuelsTitleParsedCELESTIALs = [
+  'CELESTIAL',
+  'CELESTIAL I',
+  'CELESTIAL II',
+  'CELESTIAL III',
+  'CELESTIAL IV',
+  'CELESTIAL V'
+] as const;
+export type DuelsTitleParsedCELESTIAL = (typeof DuelsTitleParsedCELESTIALs)[number];
+export const DuelsTitleParsedDIVINEs = [
+  'DIVINE',
+  'DIVINE I',
+  'DIVINE II',
+  'DIVINE III',
+  'DIVINE IV',
+  'DIVINE V'
+] as const;
+export type DuelsTitleParsedDIVINE = (typeof DuelsTitleParsedDIVINEs)[number];
+export const DuelsTitleParsedASCENDEDs = [
+  'ASCENDED',
+  'ASCENDED I',
+  'ASCENDED II',
+  'ASCENDED III',
+  'ASCENDED IV',
+  'ASCENDED V',
+  'ASCENDED VI',
+  'ASCENDED VII',
+  'ASCENDED VIII',
+  'ASCENDED IX',
+  'ASCENDED X',
+  'ASCENDED XI',
+  'ASCENDED XII',
+  'ASCENDED XIII',
+  'ASCENDED XIV',
+  'ASCENDED XV',
+  'ASCENDED XVI',
+  'ASCENDED XVII',
+  'ASCENDED XVIII',
+  'ASCENDED XIX',
+  'ASCENDED XX'
+] as const;
+export type DuelsTitleParsedASCENDED = (typeof DuelsTitleParsedASCENDEDs)[number];
+export const DuelsTitleParseds = [
+  ...DuelsTitleParsedNones,
+  ...DuelsTitleParsedRookies,
+  ...DuelsTitleParsedIrons,
+  ...DuelsTitleParsedGolds,
+  ...DuelsTitleParsedDiamonds,
+  ...DuelsTitleParsedMasters,
+  ...DuelsTitleParsedLegends,
+  ...DuelsTitleParsedGrandmasters,
+  ...DuelsTitleParsedGodlikes,
+  ...DuelsTitleParsedCELESTIALs,
+  ...DuelsTitleParsedDIVINEs,
+  ...DuelsTitleParsedASCENDEDs
+] as const;
+export type DuelsTitleParsed = (typeof DuelsTitleParseds)[number];
+export const DuelsTitleNames = [
+  'None',
+  'Rookie',
+  'Iron',
+  'Gold',
+  'Diamond',
+  'Master',
+  'Legend',
+  'Grandmaster',
+  'Godlike',
+  'CELESTIAL',
+  'DIVINE',
+  'ASCENDED'
+] as const;
+export type DuelsTitleName = (typeof DuelsTitleNames)[number];
+export const DuelsPrivateGameSettingsArrowCooldowns = [
+  '0.5 Seconds',
+  '1 Seconds',
+  '10 Seconds',
+  '15 Seconds',
+  '2 Seconds',
+  '30 Seconds',
+  '5 Seconds',
+  'Default'
+] as const;
+export type DuelsPrivateGameSettingsArrowCooldown = (typeof DuelsPrivateGameSettingsArrowCooldowns)[number];
+export const DuelsPrivateGameSettingsArrowCounts = ['16 More', '32 More', '64 More', '8 More', 'Default'] as const;
+export type DuelsPrivateGameSettingsArrowCount = (typeof DuelsPrivateGameSettingsArrowCounts)[number];
+export const DuelsPrivateGameSettingsBoxingMaxHitss = [
+  '150 Hits',
+  '200 Hits',
+  '250 Hits',
+  '300 Hits',
+  '50 Hits',
+  '500 Hits',
+  'Default'
+] as const;
+export type DuelsPrivateGameSettingsBoxingMaxHits = (typeof DuelsPrivateGameSettingsBoxingMaxHitss)[number];
+export const DuelsPrivateGameSettingsChangeWeapons = [
+  'Default Weapon',
+  'Diamond Axe',
+  'Diamond Hoe',
+  'Diamond Sword',
+  'Fishing Rod',
+  'Iron Axe',
+  'Iron Sword',
+  'Knockback II Stick',
+  'No Weapon',
+  'Stone Sword',
+  'Wood Axe',
+  'Wood Sword'
+] as const;
+export type DuelsPrivateGameSettingsChangeWeapon = (typeof DuelsPrivateGameSettingsChangeWeapons)[number];
+export const DuelsPrivateGameSettingsGiveHastes = ['Haste I', 'Haste II', 'Haste III', 'No Haste'] as const;
+export type DuelsPrivateGameSettingsGiveHaste = (typeof DuelsPrivateGameSettingsGiveHastes)[number];
+export const DuelsPrivateGameSettingsGiveRegens = [
+  'No Regeneration',
+  'Regeneration I',
+  'Regeneration II',
+  'Regeneration III'
+] as const;
+export type DuelsPrivateGameSettingsGiveRegen = (typeof DuelsPrivateGameSettingsGiveRegens)[number];
+export const DuelsPrivateGameSettingsGiveSlownesss = [
+  'No Slowness',
+  'Slowness I',
+  'Slowness II',
+  'Slowness III'
+] as const;
+export type DuelsPrivateGameSettingsGiveSlowness = (typeof DuelsPrivateGameSettingsGiveSlownesss)[number];
+export const DuelsPrivateGameSettingsGodApples = [
+  '1 God Apple',
+  '2 God Apples',
+  '3 God Apples',
+  '4 God Apples',
+  '5 God Apples',
+  'None'
+] as const;
+export type DuelsPrivateGameSettingsGodApple = (typeof DuelsPrivateGameSettingsGodApples)[number];
+export const DuelsPrivateGameSettingsMoreCapturess = [
+  '1 Capture',
+  '10 Captures',
+  '15 Captures',
+  '2 Captures',
+  '20 Captures',
+  '3 Captures',
+  '4 Captures',
+  '5 Captures',
+  'Default'
+] as const;
+export type DuelsPrivateGameSettingsMoreCaptures = (typeof DuelsPrivateGameSettingsMoreCapturess)[number];
+export const DuelsPrivateGameSettingsMoreGoalss = [
+  '1 Goal',
+  '10 Goals',
+  '15 Goals',
+  '2 Goals',
+  '20 Goals',
+  '3 Goals',
+  '4 Goals',
+  'Default'
+] as const;
+export type DuelsPrivateGameSettingsMoreGoals = (typeof DuelsPrivateGameSettingsMoreGoalss)[number];
+export const DuelsPrivateGameSettingsNightTimes = ['Default', 'Midday', 'Midnight', 'Sunrise', 'Sunset'] as const;
+export type DuelsPrivateGameSettingsNightTime = (typeof DuelsPrivateGameSettingsNightTimes)[number];
+export const DuelsPrivateGameSettingsRoundTimes = [
+  '1 Minute',
+  '10 Minutes',
+  '15 Minutes',
+  '20 Minutes',
+  '25 Minutes',
+  '3 Minutes',
+  '30 Minutes',
+  '5 Minutes',
+  '8 Minutes',
+  'Default'
+] as const;
+export type DuelsPrivateGameSettingsRoundTime = (typeof DuelsPrivateGameSettingsRoundTimes)[number];

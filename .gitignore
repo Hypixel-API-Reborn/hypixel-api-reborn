@@ -4,3 +4,4 @@ coverage/
 documentation/
 dist/
 .env
+data/

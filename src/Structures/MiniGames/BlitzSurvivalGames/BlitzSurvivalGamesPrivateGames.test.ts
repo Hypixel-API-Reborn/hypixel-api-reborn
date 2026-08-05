@@ -12,11 +12,11 @@ test('BlitzSurvivalGamesPrivateGames', () => {
   expect(data).toBeInstanceOf(BlitzSurvivalGamesPrivateGames);
   expectTypeOf(data).toEqualTypeOf<BlitzSurvivalGamesPrivateGames>();
   expect(data.healthBuff).toBeDefined();
-  expectTypeOf(data.healthBuff).toEqualTypeOf<PrivateGameSettingsHealthBuff | 'UNKNOWN'>();
+  expectTypeOf(data.healthBuff).toEqualTypeOf<PrivateGameSettingsHealthBuff>();
   expect(data.lowGravity).toBeDefined();
   expectTypeOf(data.lowGravity).toEqualTypeOf<boolean>();
   expect(data.speed).toBeDefined();
-  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsSpeed | 'UNKNOWN'>();
+  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsSpeed>();
   expect(data.extraBlitzStars).toBeDefined();
   expectTypeOf(data.extraBlitzStars).toEqualTypeOf<BlitzSurvivalGamesPrivateGamesExtraStar>();
   expect(data.oneHitOneKill).toBeDefined();

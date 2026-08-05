@@ -98,12 +98,24 @@ import Dropper from './Structures/MiniGames/Arcade/Dropper/Dropper.js';
 import DropperMap from './Structures/MiniGames/Arcade/Dropper/DropperMap.js';
 import Dtt from './Structures/MiniGames/Arcade/Dtt.js';
 import Duels from './Structures/MiniGames/Duels/Duels.js';
-import DuelsBridge from './Structures/MiniGames/Duels/DuelsBridge.js';
-import DuelsGamemode from './Structures/MiniGames/Duels/DuelsGamemode.js';
-import DuelsMegaWalls from './Structures/MiniGames/Duels/DuelsMegaWalls.js';
-import DuelsOP from './Structures/MiniGames/Duels/DuelsOP.js';
-import DuelsSkyWars from './Structures/MiniGames/Duels/DuelsSkyWars.js';
-import DuelsUHC from './Structures/MiniGames/Duels/DuelsUHC.js';
+import DuelsBedWars from './Structures/MiniGames/Duels/Mode/DuelsBedWars.js';
+import DuelsBlitz from './Structures/MiniGames/Duels/Mode/DuelsBlitz.js';
+import DuelsBow from './Structures/MiniGames/Duels/Mode/DuelsBow.js';
+import DuelsBridge from './Structures/MiniGames/Duels/Mode/Bridge/DuelsBridge.js';
+import DuelsBridgeMode from './Structures/MiniGames/Duels/Mode/Bridge/DuelsBridgeMode.js';
+import DuelsClassic from './Structures/MiniGames/Duels/Mode/DuelsClassic.js';
+import DuelsCombo from './Structures/MiniGames/Duels/Mode/DuelsCombo.js';
+import DuelsMegaWalls from './Structures/MiniGames/Duels/Mode/DuelsMegaWalls.js';
+import DuelsMode from './Structures/MiniGames/Duels/Mode/DuelsMode.js';
+import DuelsModeFull from './Structures/MiniGames/Duels/Mode/DuelsModeFull.js';
+import DuelsOP from './Structures/MiniGames/Duels/Mode/DuelsOP.js';
+import DuelsOdyssey from './Structures/MiniGames/Duels/DuelsOdyssey.js';
+import DuelsOptions from './Structures/MiniGames/Duels/DuelsOptions.js';
+import DuelsPotion from './Structures/MiniGames/Duels/Mode/DuelsPotion.js';
+import DuelsPrivateGames from './Structures/MiniGames/Duels/DuelsPrivateGames.js';
+import DuelsSkyWars from './Structures/MiniGames/Duels/Mode/DuelsSkyWars.js';
+import DuelsSumo from './Structures/MiniGames/Duels/Mode/DuelsSumo.js';
+import DuelsUHC from './Structures/MiniGames/Duels/Mode/DuelsUHC.js';
 import EasterSimulator from './Structures/MiniGames/Arcade/EasterSimulator.js';
 import Emblem from './Structures/MiniGames/Shared/Emblem/Emblem.js';
 import EmblemColors from './Structures/MiniGames/Shared/Emblem/EmblemColors.js';
@@ -155,6 +167,7 @@ import GameCountsWalls3Modes from './Structures/Static/GameCounts/Walls3/GameCou
 import GameCountsWoolGames from './Structures/Static/GameCounts/WoolGames/GameCountsWoolGames.js';
 import GameCountsWoolGamesModes from './Structures/Static/GameCounts/WoolGames/GameCountsWoolGamesModes.js';
 import GameQuests from './Structures/Static/GameQuests.js';
+import GenericDuelsMode from './Structures/MiniGames/Duels/Mode/GenericDuelsMode.js';
 import GrinchSimulator from './Structures/MiniGames/Arcade/GrinchSimulator.js';
 import Guild from './Structures/Guild/Guild.js';
 import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
@@ -536,11 +549,23 @@ export {
   DropperMap,
   Dtt,
   Duels,
+  DuelsBedWars,
+  DuelsBlitz,
+  DuelsBow,
   DuelsBridge,
-  DuelsGamemode,
+  DuelsBridgeMode,
+  DuelsClassic,
+  DuelsCombo,
   DuelsMegaWalls,
+  DuelsMode,
+  DuelsModeFull,
   DuelsOP,
+  DuelsOdyssey,
+  DuelsOptions,
+  DuelsPotion,
+  DuelsPrivateGames,
   DuelsSkyWars,
+  DuelsSumo,
   DuelsUHC,
   EasterSimulator,
   Emblem,
@@ -593,6 +618,7 @@ export {
   GameCountsWoolGames,
   GameCountsWoolGamesModes,
   GameQuests,
+  GenericDuelsMode,
   GrinchSimulator,
   Guild,
   GuildAchievements,
@@ -975,11 +1001,23 @@ export default {
   DropperMap,
   Dtt,
   Duels,
+  DuelsBedWars,
+  DuelsBlitz,
+  DuelsBow,
   DuelsBridge,
-  DuelsGamemode,
+  DuelsBridgeMode,
+  DuelsClassic,
+  DuelsCombo,
   DuelsMegaWalls,
+  DuelsMode,
+  DuelsModeFull,
   DuelsOP,
+  DuelsOdyssey,
+  DuelsOptions,
+  DuelsPotion,
+  DuelsPrivateGames,
   DuelsSkyWars,
+  DuelsSumo,
   DuelsUHC,
   EasterSimulator,
   Emblem,
@@ -1032,6 +1070,7 @@ export default {
   GameCountsWoolGames,
   GameCountsWoolGamesModes,
   GameQuests,
+  GenericDuelsMode,
   GrinchSimulator,
   Guild,
   GuildAchievements,

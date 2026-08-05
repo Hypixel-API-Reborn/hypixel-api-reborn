@@ -1,0 +1,88 @@
+import DuelsPrivateGames from './DuelsPrivateGames.js';
+import { expect, expectTypeOf, test } from 'vitest';
+import type {
+  BlitzSurvivalGamesPrivateGamesExtraStar,
+  DuelsPrivateGameSettingsArrowCooldown,
+  DuelsPrivateGameSettingsArrowCount,
+  DuelsPrivateGameSettingsBoxingMaxHits,
+  DuelsPrivateGameSettingsChangeWeapon,
+  DuelsPrivateGameSettingsGiveHaste,
+  DuelsPrivateGameSettingsGiveRegen,
+  DuelsPrivateGameSettingsGiveSlowness,
+  DuelsPrivateGameSettingsGodApple,
+  DuelsPrivateGameSettingsMoreCaptures,
+  DuelsPrivateGameSettingsMoreGoals,
+  DuelsPrivateGameSettingsNightTime,
+  DuelsPrivateGameSettingsRoundTime,
+  PrivateGameSettingsHealthBuff,
+  PrivateGameSettingsSpeed
+} from '../../../Types/Player.js';
+
+test('DuelsPrivateGames', () => {
+  const data = new DuelsPrivateGames({ stats: 'meow' });
+  expect(data).toBeDefined();
+  expect(data).toBeInstanceOf(DuelsPrivateGames);
+  expectTypeOf(data).toEqualTypeOf<DuelsPrivateGames>();
+  expect(data.arrowCooldown).toBeDefined();
+  expectTypeOf(data.arrowCooldown).toEqualTypeOf<DuelsPrivateGameSettingsArrowCooldown>();
+  expect(data.arrowCount).toBeDefined();
+  expectTypeOf(data.arrowCount).toEqualTypeOf<DuelsPrivateGameSettingsArrowCount>();
+  expect(data.blockProtection).toBeDefined();
+  expectTypeOf(data.blockProtection).toEqualTypeOf<boolean>();
+  expect(data.boxingMaxHits).toBeDefined();
+  expectTypeOf(data.boxingMaxHits).toEqualTypeOf<DuelsPrivateGameSettingsBoxingMaxHits>();
+  expect(data.boxingMercy).toBeDefined();
+  expectTypeOf(data.boxingMercy).toEqualTypeOf<boolean>();
+  expect(data.changeWeapon).toBeDefined();
+  expectTypeOf(data.changeWeapon).toEqualTypeOf<DuelsPrivateGameSettingsChangeWeapon>();
+  expect(data.enableMaxKitsAndKillEffects).toBeDefined();
+  expectTypeOf(data.enableMaxKitsAndKillEffects).toEqualTypeOf<boolean>();
+  expect(data.enableNightTime).toBeDefined();
+  expectTypeOf(data.enableNightTime).toEqualTypeOf<boolean>();
+  expect(data.enableOp).toBeDefined();
+  expectTypeOf(data.enableOp).toEqualTypeOf<boolean>();
+  expect(data.extraBlitzStars).toBeDefined();
+  expectTypeOf(data.extraBlitzStars).toEqualTypeOf<BlitzSurvivalGamesPrivateGamesExtraStar>();
+  expect(data.giveHaste).toBeDefined();
+  expectTypeOf(data.giveHaste).toEqualTypeOf<DuelsPrivateGameSettingsGiveHaste>();
+  expect(data.giveRegen).toBeDefined();
+  expectTypeOf(data.giveRegen).toEqualTypeOf<DuelsPrivateGameSettingsGiveRegen>();
+  expect(data.giveSlowness).toBeDefined();
+  expectTypeOf(data.giveSlowness).toEqualTypeOf<DuelsPrivateGameSettingsGiveSlowness>();
+  expect(data.godApple).toBeDefined();
+  expectTypeOf(data.godApple).toEqualTypeOf<DuelsPrivateGameSettingsGodApple>();
+  expect(data.healthBuff).toBeDefined();
+  expectTypeOf(data.healthBuff).toEqualTypeOf<PrivateGameSettingsHealthBuff>();
+  expect(data.knockbackTen).toBeDefined();
+  expectTypeOf(data.knockbackTen).toEqualTypeOf<boolean>();
+  expect(data.lowGravity).toBeDefined();
+  expectTypeOf(data.lowGravity).toEqualTypeOf<boolean>();
+  expect(data.moreCaptures).toBeDefined();
+  expectTypeOf(data.moreCaptures).toEqualTypeOf<DuelsPrivateGameSettingsMoreCaptures>();
+  expect(data.moreGoals).toBeDefined();
+  expectTypeOf(data.moreGoals).toEqualTypeOf<DuelsPrivateGameSettingsMoreGoals>();
+  expect(data.nightTime).toBeDefined();
+  expectTypeOf(data.nightTime).toEqualTypeOf<DuelsPrivateGameSettingsNightTime>();
+  expect(data.noKit).toBeDefined();
+  expectTypeOf(data.noKit).toEqualTypeOf<boolean>();
+  expect(data.noKits).toBeDefined();
+  expectTypeOf(data.noKits).toEqualTypeOf<boolean>();
+  expect(data.oneHitOneKill).toBeDefined();
+  expectTypeOf(data.oneHitOneKill).toEqualTypeOf<boolean>();
+  expect(data.oneHitOneKillBlitz).toBeDefined();
+  expectTypeOf(data.oneHitOneKillBlitz).toEqualTypeOf<boolean>();
+  expect(data.onlyTnt).toBeDefined();
+  expectTypeOf(data.onlyTnt).toEqualTypeOf<boolean>();
+  expect(data.rawDamage).toBeDefined();
+  expectTypeOf(data.rawDamage).toEqualTypeOf<boolean>();
+  expect(data.removeBows).toBeDefined();
+  expectTypeOf(data.removeBows).toEqualTypeOf<boolean>();
+  expect(data.removeRods).toBeDefined();
+  expectTypeOf(data.removeRods).toEqualTypeOf<boolean>();
+  expect(data.roundTime).toBeDefined();
+  expectTypeOf(data.roundTime).toEqualTypeOf<DuelsPrivateGameSettingsRoundTime>();
+  expect(data.speed).toBeDefined();
+  expectTypeOf(data.speed).toEqualTypeOf<PrivateGameSettingsSpeed>();
+  expect(data.worldBorder).toBeDefined();
+  expectTypeOf(data.worldBorder).toEqualTypeOf<boolean>();
+});

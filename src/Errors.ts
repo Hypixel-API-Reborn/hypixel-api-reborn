@@ -44,6 +44,8 @@ class Errors {
     '[hypixel-api-reborn] This endpoint has not been loaded yet. Please restart your code';
   static INVALID_BASE_URL: string = '[Hypixel-API-Reborn] Invalid Request URL.';
   static INVALID_BASE_URL_SLASH: string = "[Hypixel-API-Reborn] Invalid Request URL. Please don't end with a /";
+  static INVALID_DUELS_TITLE_REQUIREMENT: string =
+    '[Hypixel-API-Reborn] Something went wrong while geting the requirement and it returns empty ';
 }
 
 export default Errors;

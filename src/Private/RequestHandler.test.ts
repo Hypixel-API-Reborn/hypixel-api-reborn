@@ -1,9 +1,9 @@
 import Client from '../Client.js';
 import Errors from '../Errors.js';
 import RequestHandler from './RequestHandler.js';
-import { MowojangProfile } from 'mowojang';
 import { defaultRequestData } from '../../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
+import type { MowojangProfile } from 'mowojang';
 
 test('RequestHandler', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
