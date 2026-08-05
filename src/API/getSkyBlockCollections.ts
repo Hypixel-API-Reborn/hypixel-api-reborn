@@ -5,7 +5,7 @@ import type { RequestOptions } from '../Types/Requests.js';
 
 class getSkyBlockCollections extends Endpoint {
   override async execute(options?: RequestOptions): Promise<RequestData<SkyBlockCollections>> {
-    const res = await this.client.requestHandler.request('/resources/skyblock/items', options);
+    const res = await this.client.requestHandler.request('/resources/skyblock/collections', options);
     return new RequestData<SkyBlockCollections>(new SkyBlockCollections(res.rawData), res);
   }
 }
