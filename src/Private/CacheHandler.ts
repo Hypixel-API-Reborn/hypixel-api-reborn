@@ -2,9 +2,8 @@ import Client from '../Client.js';
 import NodeCache from 'node-cache';
 
 class CacheHandler {
-  readonly client: Client;
-  declare cache: NodeCache;
-  constructor(client: Client) {
+  readonly cache: NodeCache;
+  constructor(private readonly client: Client) {
     this.client = client;
     this.cache = new NodeCache({
       stdTTL: this.client.options.cacheTime,

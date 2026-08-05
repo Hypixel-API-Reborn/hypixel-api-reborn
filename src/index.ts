@@ -5,7 +5,6 @@ import Client from './Client.js';
 import Errors from './Errors.js';
 import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';
 
-export * from './Types/API.js';
 export * from './Types/Booster.js';
 export * from './Types/Client.js';
 export * from './Types/Color.js';
@@ -27,6 +26,8 @@ export * from './Utils/RemoveSnakeCase.js';
 export * from './Utils/Romanize.js';
 export * from './Utils/SkyBlockUtils.js';
 export * from './Utils/TicksToMilliseconds.js';
+export * from './Utils/isGuildId.js';
+export * from './Utils/isUUID.js';
 
 import Achievements from './Structures/Static/Achievements/Achievements.js';
 import Arcade from './Structures/MiniGames/Arcade/Arcade.js';

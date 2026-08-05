@@ -6,10 +6,9 @@ import { Client as MowojangClient, type MowojangProfile } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class RequestHandler {
-  readonly client: Client;
   readonly mowojangAPI: MowojangClient;
   private BASE_URL: string;
-  constructor(client: Client) {
+  constructor(private readonly client: Client) {
     this.client = client;
     this.mowojangAPI = new MowojangClient(this.client.options.mowojangAPI);
     this.BASE_URL = 'https://api.hypixel.net/v2';
