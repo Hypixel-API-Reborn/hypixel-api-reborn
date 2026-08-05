@@ -1,0 +1,1 @@
+{"version":3,"file":"DuelsSumo.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/MiniGames/Duels/Mode/DuelsSumo.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AACvC,OAAO,aAAa,MAAM,oBAAoB,CAAC;AAE/C,cAAM,SAAU,SAAQ,aAAa;IACnC,UAAU,EAAE,SAAS,CAAC;gBACV,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAItC;AAED,eAAe,SAAS,CAAC"}

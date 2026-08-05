@@ -1,0 +1,1 @@
+{"version":3,"file":"DuelsMegaWalls.d.ts","sourceRoot":"","sources":["../../../../../src/Structures/MiniGames/Duels/Mode/DuelsMegaWalls.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AACvC,OAAO,aAAa,MAAM,oBAAoB,CAAC;AAE/C,cAAM,cAAe,SAAQ,aAAa;IACxC,OAAO,EAAE,SAAS,CAAC;IACnB,IAAI,EAAE,SAAS,CAAC;gBACJ,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC;CAKtC;AAED,eAAe,cAAc,CAAC"}
