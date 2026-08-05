@@ -44,8 +44,8 @@ export const ArenaBrawlRunes = ['slowing', 'energy', 'damage', 'tank', 'speed'] 
 export type ArenaBrawlRune = (typeof ArenaBrawlRunes)[number];
 export const MiniWallsKits = ['soldier', 'archer', 'builder'] as const;
 export type MiniWallsKit = (typeof MiniWallsKits)[number];
-export const SmashHeoresModes = ['normal', '2v2', 'teams'] as const;
-export type SmashHeoresMode = (typeof SmashHeoresModes)[number];
+export const SmashHerosModes = ['normal', '2v2', 'teams'] as const;
+export type SmashHerosMode = (typeof SmashHerosModes)[number];
 export const MegaWallsModes = ['face_off', 'gvg'] as const;
 export type MegaWallsMode = (typeof MegaWallsModes)[number];
 export const SpeedUHCModeIds = ['solo', 'solo_normal', 'solo_insane', 'team', 'team_normal', 'team_insane'] as const;
@@ -85,7 +85,7 @@ export const MegaWallsKits = [
 ] as const;
 export type MegaWallsKit = (typeof MegaWallsKits)[number];
 
-export const SmashHeoresHeroIds = [
+export const SmashHerosHeroIds = [
   'THE_BULK',
   'CAKE_MONSTER',
   'GENERAL_CLUCK',
@@ -103,7 +103,7 @@ export const SmashHeoresHeroIds = [
   'SHOOP_DA_WHOOP',
   'GREEN_HOOD'
 ] as const;
-export type SmashHeoresHeroId = (typeof SmashHeoresHeroIds)[number];
+export type SmashHerosHeroId = (typeof SmashHerosHeroIds)[number];
 
 export const WarlordsClassIds = [
   'pyromancer',

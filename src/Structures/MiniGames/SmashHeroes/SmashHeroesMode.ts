@@ -1,5 +1,5 @@
 import Divide from '../../../Utils/Divide.js';
-import type { SmashHeoresMode } from '../../../Types/Player.js';
+import type { SmashHerosMode } from '../../../Types/Player.js';
 
 class SmashHeroesMode {
   kills: number;
@@ -8,7 +8,7 @@ class SmashHeroesMode {
   wins: number;
   losses: number;
   winLossRatio: number;
-  constructor(data: Record<string, any>, mode: SmashHeoresMode) {
+  constructor(data: Record<string, any>, mode: SmashHerosMode) {
     this.kills = data?.[`kills_${mode}`] ?? 0;
     this.deaths = data?.[`deaths_${mode}`] ?? 0;
     this.killDeathRatio = Divide(this.kills, this.deaths);

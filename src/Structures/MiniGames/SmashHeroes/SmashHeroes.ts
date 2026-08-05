@@ -1,7 +1,7 @@
 import Divide from '../../../Utils/Divide.js';
-import SmashHeoresHero from './SmashHeoresHero.js';
 import SmashHeroesMode from './SmashHeroesMode.js';
-import type { SmashHeoresHeroId } from '../../../Types/Player.js';
+import SmashHerosHero from './SmashHerosHero.ts';
+import type { SmashHerosHeroId } from '../../../Types/Player.js';
 
 class SmashHeroes {
   coins: number;
@@ -18,23 +18,23 @@ class SmashHeroes {
   '1v1v1v1': SmashHeroesMode;
   '2v2': SmashHeroesMode;
   '2v2v2': SmashHeroesMode;
-  activeHero: SmashHeoresHeroId | 'None';
-  theBulk: SmashHeoresHero;
-  cakeMonster: SmashHeoresHero;
-  generalCluck: SmashHeoresHero;
-  botmun: SmashHeoresHero;
-  marauder: SmashHeoresHero;
-  pug: SmashHeoresHero;
-  tinman: SmashHeoresHero;
-  spoderman: SmashHeoresHero;
-  frosty: SmashHeoresHero;
-  sergeantShield: SmashHeoresHero;
-  skullfire: SmashHeoresHero;
-  goku: SmashHeoresHero;
-  sanic: SmashHeoresHero;
-  duskCrawler: SmashHeoresHero;
-  shoopDaWhoop: SmashHeoresHero;
-  greenHood: SmashHeoresHero;
+  activeHero: SmashHerosHeroId | 'None';
+  theBulk: SmashHerosHero;
+  cakeMonster: SmashHerosHero;
+  generalCluck: SmashHerosHero;
+  botmun: SmashHerosHero;
+  marauder: SmashHerosHero;
+  pug: SmashHerosHero;
+  tinman: SmashHerosHero;
+  spoderman: SmashHerosHero;
+  frosty: SmashHerosHero;
+  sergeantShield: SmashHerosHero;
+  skullfire: SmashHerosHero;
+  goku: SmashHerosHero;
+  sanic: SmashHerosHero;
+  duskCrawler: SmashHerosHero;
+  shoopDaWhoop: SmashHerosHero;
+  greenHood: SmashHerosHero;
   constructor(data: Record<string, any>) {
     this.coins = data?.coins ?? data?.tokens ?? 0;
     this.level = data?.smash_level_total ?? 0;
@@ -51,22 +51,22 @@ class SmashHeroes {
     this['2v2'] = new SmashHeroesMode(data, '2v2');
     this['2v2v2'] = new SmashHeroesMode(data, 'teams');
     this.activeHero = data?.active_class ?? 'None';
-    this.theBulk = new SmashHeoresHero(data, 'THE_BULK');
-    this.cakeMonster = new SmashHeoresHero(data, 'CAKE_MONSTER');
-    this.generalCluck = new SmashHeoresHero(data, 'GENERAL_CLUCK');
-    this.botmun = new SmashHeoresHero(data, 'BOTMUN');
-    this.marauder = new SmashHeoresHero(data, 'MARAUDER');
-    this.pug = new SmashHeoresHero(data, 'PUG');
-    this.tinman = new SmashHeoresHero(data, 'TINMAN');
-    this.spoderman = new SmashHeoresHero(data, 'SPODERMAN');
-    this.frosty = new SmashHeoresHero(data, 'FROSTY');
-    this.sergeantShield = new SmashHeoresHero(data, 'SERGEANT_SHIELD');
-    this.skullfire = new SmashHeoresHero(data, 'SKULLFIRE');
-    this.goku = new SmashHeoresHero(data, 'GOKU');
-    this.sanic = new SmashHeoresHero(data, 'SANIC');
-    this.duskCrawler = new SmashHeoresHero(data, 'DUSK_CRAWLER');
-    this.shoopDaWhoop = new SmashHeoresHero(data, 'SHOOP_DA_WHOOP');
-    this.greenHood = new SmashHeoresHero(data, 'GREEN_HOOD');
+    this.theBulk = new SmashHerosHero(data, 'THE_BULK');
+    this.cakeMonster = new SmashHerosHero(data, 'CAKE_MONSTER');
+    this.generalCluck = new SmashHerosHero(data, 'GENERAL_CLUCK');
+    this.botmun = new SmashHerosHero(data, 'BOTMUN');
+    this.marauder = new SmashHerosHero(data, 'MARAUDER');
+    this.pug = new SmashHerosHero(data, 'PUG');
+    this.tinman = new SmashHerosHero(data, 'TINMAN');
+    this.spoderman = new SmashHerosHero(data, 'SPODERMAN');
+    this.frosty = new SmashHerosHero(data, 'FROSTY');
+    this.sergeantShield = new SmashHerosHero(data, 'SERGEANT_SHIELD');
+    this.skullfire = new SmashHerosHero(data, 'SKULLFIRE');
+    this.goku = new SmashHerosHero(data, 'GOKU');
+    this.sanic = new SmashHerosHero(data, 'SANIC');
+    this.duskCrawler = new SmashHerosHero(data, 'DUSK_CRAWLER');
+    this.shoopDaWhoop = new SmashHerosHero(data, 'SHOOP_DA_WHOOP');
+    this.greenHood = new SmashHerosHero(data, 'GREEN_HOOD');
   }
 }
 

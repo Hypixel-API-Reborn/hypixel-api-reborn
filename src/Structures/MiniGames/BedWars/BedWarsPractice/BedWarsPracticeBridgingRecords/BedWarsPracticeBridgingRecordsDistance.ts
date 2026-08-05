@@ -1,14 +1,14 @@
-import BedWarsPracticeBridgingRecordsEevation from './BedWarsPracticeBridgingRecordsEevation.js';
+import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.ts';
 import type { BedWarsPracticeBridgingRecordsDistanceId } from '../../../../../Types/Player.js';
 
 class BedWarsPracticeBridgingRecordsDistance {
-  none: BedWarsPracticeBridgingRecordsEevation;
-  slight: BedWarsPracticeBridgingRecordsEevation;
-  staircase: BedWarsPracticeBridgingRecordsEevation;
+  none: BedWarsPracticeBridgingRecordsElevation;
+  slight: BedWarsPracticeBridgingRecordsElevation;
+  staircase: BedWarsPracticeBridgingRecordsElevation;
   constructor(data: Record<string, any>, distance: BedWarsPracticeBridgingRecordsDistanceId) {
-    this.none = new BedWarsPracticeBridgingRecordsEevation(data, distance, 'NONE');
-    this.slight = new BedWarsPracticeBridgingRecordsEevation(data, distance, 'SLIGHT');
-    this.staircase = new BedWarsPracticeBridgingRecordsEevation(data, distance, 'STAIRCASE');
+    this.none = new BedWarsPracticeBridgingRecordsElevation(data, distance, 'NONE');
+    this.slight = new BedWarsPracticeBridgingRecordsElevation(data, distance, 'SLIGHT');
+    this.staircase = new BedWarsPracticeBridgingRecordsElevation(data, distance, 'STAIRCASE');
   }
 }
 

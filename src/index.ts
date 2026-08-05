@@ -56,7 +56,7 @@ import BedWarsPractice from './Structures/MiniGames/BedWars/BedWarsPractice/BedW
 import BedWarsPracticeBridging from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridging.js';
 import BedWarsPracticeBridgingRecords from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecords.js';
 import BedWarsPracticeBridgingRecordsDistance from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecordsDistance.js';
-import BedWarsPracticeBridgingRecordsEevation from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecordsEevation.js';
+import BedWarsPracticeBridgingRecordsElevation from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecordsElevation.js';
 import BedWarsPracticeMode from './Structures/MiniGames/BedWars/BedWarsPractice/BedWarsPracticeMode.js';
 import BedWarsPrivateGameSettings from './Structures/MiniGames/BedWars/BedWarsPrivateGameSettings.js';
 import BedWarsResourcesCollected from './Structures/MiniGames/BedWars/BedWarsResourcesCollected.js';
@@ -442,9 +442,9 @@ import SkyWarsTeamsKitsAttacking from './Structures/MiniGames/SkyWars/SkyWarsTea
 import SkyWarsTeamsKitsDefending from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsDefending.js';
 import SkyWarsTeamsKitsMining from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsMining.js';
 import SkyWarsTeamsKitsSupporting from './Structures/MiniGames/SkyWars/SkyWarsTeams/SkyWarsTeamsKits/SkyWarsTeamsKitsSupporting.js';
-import SmashHeoresHero from './Structures/MiniGames/SmashHeroes/SmashHeoresHero.js';
 import SmashHeroes from './Structures/MiniGames/SmashHeroes/SmashHeroes.js';
 import SmashHeroesMode from './Structures/MiniGames/SmashHeroes/SmashHeroesMode.js';
+import SmashHerosHero from './Structures/MiniGames/SmashHeroes/SmashHerosHero.js';
 import Soccer from './Structures/MiniGames/Arcade/Soccer.js';
 import SpeedUHC from './Structures/MiniGames/SpeedUHC/SpeedUHC.js';
 import SpeedUHCMode from './Structures/MiniGames/SpeedUHC/SpeedUHCMode.js';
@@ -507,7 +507,7 @@ export {
   BedWarsPracticeBridging,
   BedWarsPracticeBridgingRecords,
   BedWarsPracticeBridgingRecordsDistance,
-  BedWarsPracticeBridgingRecordsEevation,
+  BedWarsPracticeBridgingRecordsElevation,
   BedWarsPracticeMode,
   BedWarsPrivateGameSettings,
   BedWarsResourcesCollected,
@@ -893,9 +893,9 @@ export {
   SkyWarsTeamsKitsDefending,
   SkyWarsTeamsKitsMining,
   SkyWarsTeamsKitsSupporting,
-  SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
+  SmashHerosHero,
   Soccer,
   SpeedUHC,
   SpeedUHCMode,
@@ -959,7 +959,7 @@ export default {
   BedWarsPracticeBridging,
   BedWarsPracticeBridgingRecords,
   BedWarsPracticeBridgingRecordsDistance,
-  BedWarsPracticeBridgingRecordsEevation,
+  BedWarsPracticeBridgingRecordsElevation,
   BedWarsPracticeMode,
   BedWarsPrivateGameSettings,
   BedWarsResourcesCollected,
@@ -1345,9 +1345,9 @@ export default {
   SkyWarsTeamsKitsDefending,
   SkyWarsTeamsKitsMining,
   SkyWarsTeamsKitsSupporting,
-  SmashHeoresHero,
   SmashHeroes,
   SmashHeroesMode,
+  SmashHerosHero,
   Soccer,
   SpeedUHC,
   SpeedUHCMode,

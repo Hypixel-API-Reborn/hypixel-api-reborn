@@ -14,9 +14,9 @@ import Quests from './Structures/Static/Quests.js';
 import RecentGame from './Structures/RecentGame.js';
 import RequestData from './Private/RequestData.js';
 import RequestHandler from './Private/RequestHandler.js';
-import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.ts';
-import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.ts';
-import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.ts';
+import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
+import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
+import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
 import SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
 import SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.js';
 import SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.js';
@@ -31,8 +31,8 @@ import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
-import isGuildId from './Utils/isGuildId.ts';
-import { SkyBlockProfileHasMe } from './Utils/SkyBlockUtils.ts';
+import isGuildId from './Utils/isGuildId.js';
+import { SkyBlockProfileHasMe } from './Utils/SkyBlockUtils.js';
 import type {
   AuctionFetchOption,
   AuctionRequestOptions,
@@ -43,7 +43,7 @@ import type {
   SkyBlockAuctionsResult,
   SkyBlockRequestOptions,
   WithSelectedProfile
-} from './Types/Requests.ts';
+} from './Types/Requests.js';
 import type { ClientOptions } from './Types/Client.js';
 import type { ClientOptions as MowojangClientOptions, MowojangProfile } from 'mowojang';
 import type { SkyBlockProfileName, SkyblockProfileWithMe } from './Types/SkyBlock.js';
@@ -64,13 +64,11 @@ class Client {
     this.requestHandler = new RequestHandler(this);
     this.cacheHandler = new CacheHandler(this);
     this.updater = new Updater(this);
-    if (clients.find((x) => x.key === key)) {
+    const found = clients.find((x) => x.key === key);
+    if (found) {
       console.warn(Errors.MULTIPLE_INSTANCES);
-      const found = clients.find((x) => x.key === key);
-      if (found) {
-        this.destroy();
-        Object.assign(this, found);
-      }
+      this.destroy();
+      Object.assign(this, found);
       return;
     }
     if (this.options.checkForUpdates) {
@@ -99,11 +97,11 @@ class Client {
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
       checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,
-      mowojangAPI: this.praseMowojangOptions(options?.mowojangAPI ?? {})
+      mowojangAPI: this.parseMowojangOptions(options?.mowojangAPI ?? {})
     };
   }
 
-  private praseMowojangOptions(options?: MowojangClientOptions): MowojangClientOptions {
+  private parseMowojangOptions(options?: MowojangClientOptions): MowojangClientOptions {
     return { baseURL: options?.baseURL ?? 'https://mowojang.seraph.si' };
   }
 

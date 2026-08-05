@@ -1,8 +1,8 @@
 import Divide from '../../../Utils/Divide.js';
-import type { SmashHeoresHeroId } from '../../../Types/Player.js';
+import type { SmashHerosHeroId } from '../../../Types/Player.js';
 
-class SmashHeoresHero {
-  name: SmashHeoresHeroId;
+class SmashHerosHero {
+  name: SmashHerosHeroId;
   level: number;
   xp: number;
   prestige: number;
@@ -13,7 +13,7 @@ class SmashHeoresHero {
   wins: number;
   losses: number;
   winLossRatio: number;
-  constructor(data: Record<string, any>, hero: SmashHeoresHeroId) {
+  constructor(data: Record<string, any>, hero: SmashHerosHeroId) {
     this.name = hero;
     this.level = data?.[`lastLevel_${hero}`] ?? 0;
     this.xp = data?.[`xp_${hero}`] ?? 0;
@@ -28,4 +28,4 @@ class SmashHeoresHero {
   }
 }
 
-export default SmashHeoresHero;
+export default SmashHerosHero;

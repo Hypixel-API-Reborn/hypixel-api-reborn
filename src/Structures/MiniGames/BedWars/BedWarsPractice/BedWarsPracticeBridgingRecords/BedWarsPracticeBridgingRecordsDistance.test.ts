@@ -1,5 +1,5 @@
 import BedWarsPracticeBridgingRecordsDistance from './BedWarsPracticeBridgingRecordsDistance.js';
-import BedWarsPracticeBridgingRecordsEevation from './BedWarsPracticeBridgingRecordsEevation.js';
+import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsPracticeBridgingRecordsDistance', () => {
@@ -8,12 +8,12 @@ test('BedWarsPracticeBridgingRecordsDistance', () => {
   expect(data).toBeInstanceOf(BedWarsPracticeBridgingRecordsDistance);
   expectTypeOf(data).toEqualTypeOf<BedWarsPracticeBridgingRecordsDistance>();
   expect(data.none).toBeDefined();
-  expect(data.none).toBeInstanceOf(BedWarsPracticeBridgingRecordsEevation);
-  expectTypeOf(data.none).toEqualTypeOf<BedWarsPracticeBridgingRecordsEevation>();
+  expect(data.none).toBeInstanceOf(BedWarsPracticeBridgingRecordsElevation);
+  expectTypeOf(data.none).toEqualTypeOf<BedWarsPracticeBridgingRecordsElevation>();
   expect(data.slight).toBeDefined();
-  expect(data.slight).toBeInstanceOf(BedWarsPracticeBridgingRecordsEevation);
-  expectTypeOf(data.slight).toEqualTypeOf<BedWarsPracticeBridgingRecordsEevation>();
+  expect(data.slight).toBeInstanceOf(BedWarsPracticeBridgingRecordsElevation);
+  expectTypeOf(data.slight).toEqualTypeOf<BedWarsPracticeBridgingRecordsElevation>();
   expect(data.staircase).toBeDefined();
-  expect(data.staircase).toBeInstanceOf(BedWarsPracticeBridgingRecordsEevation);
-  expectTypeOf(data.staircase).toEqualTypeOf<BedWarsPracticeBridgingRecordsEevation>();
+  expect(data.staircase).toBeInstanceOf(BedWarsPracticeBridgingRecordsElevation);
+  expectTypeOf(data.staircase).toEqualTypeOf<BedWarsPracticeBridgingRecordsElevation>();
 });
