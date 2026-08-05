@@ -10,14 +10,14 @@ catalogs:
       specifier: 12.0.0-27
       version: 12.0.0-27
     prettier:
-      specifier: 3.8.4
-      version: 3.8.4
+      specifier: 3.9.6
+      version: 3.9.6
     skyhelper-networth:
       specifier: 2.7.5
       version: 2.7.5
     tsx:
-      specifier: 4.22.4
-      version: 4.22.4
+      specifier: 4.23.7
+      version: 4.23.7
     typescript:
       specifier: 5.9.3
       version: 5.9.3
@@ -38,10 +38,10 @@ importers:
     devDependencies:
       prettier:
         specifier: 'catalog:'
-        version: 3.8.4
+        version: 3.9.6
       tsx:
         specifier: 'catalog:'
-        version: 4.22.4
+        version: 4.23.7
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -72,7 +72,7 @@ importers:
     devDependencies:
       tsx:
         specifier: 'catalog:'
-        version: 4.22.4
+        version: 4.23.7
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -88,7 +88,7 @@ importers:
     devDependencies:
       tsx:
         specifier: 'catalog:'
-        version: 4.22.4
+        version: 4.23.7
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -447,8 +447,8 @@ packages:
   object-code@2.0.0:
     resolution: {integrity: sha512-qOwMF43O/VAD51nJAB7MKsf1yWksql6O1i0DHRo1yaOQM6xJQH0NAE9UKJzYB7lyKw1jnpeb2BmB8qakjxiYZA==}
 
-  prettier@3.8.4:
-    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -500,8 +500,8 @@ packages:
   try@1.0.3:
     resolution: {integrity: sha512-AHA8khVCII6zKyRkyPo6pRwoR9v5jb7QFw6e5avtaVSkxVfaEucYIo06xnwB+pJaEarfYNbs7W3Vq+LZLZiWyA==}
 
-  tsx@4.22.4:
-    resolution: {integrity: sha512-X8EX+XV4QR5xCsrgxaED954zTDfY8KqlDtskKEL0cHhyS/P8b4IFOvGDQpsC9Q1XnLq915wEfwwY/zzskCtmhg==}
+  tsx@4.23.7:
+    resolution: {integrity: sha512-3f/u/+UDCNQ7iwUZW9FCMnNGIHzElGJYh0S/yy8IvWSsn5O7fEO/897FaG7FA2W8yryiRyuwXZ1PYLAKYaqSuQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -829,7 +829,7 @@ snapshots:
 
   object-code@2.0.0: {}
 
-  prettier@3.8.4: {}
+  prettier@3.9.6: {}
 
   prismarine-nbt@2.7.0:
     dependencies:
@@ -886,7 +886,7 @@ snapshots:
 
   try@1.0.3: {}
 
-  tsx@4.22.4:
+  tsx@4.23.7:
     dependencies:
       esbuild: 0.28.0
     optionalDependencies:
