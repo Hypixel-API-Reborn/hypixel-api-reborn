@@ -32,10 +32,10 @@
     "prepare": "pnpm build"
   },
   "engines": {
-    "node": ">=20.19.5"
+    "node": ">=22.22.3"
   },
   "type": "module",
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@11.1.2",
   "author": "Kathund",
   "dependencies": {
     "mowojang": "^0.5.1",
@@ -58,7 +58,7 @@
     "@j4cobi/eslint-plugin-sort-imports": "^1.0.2",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^20.19.43",
+    "@types/node": "^26.1.2",
     "@types/xml2js": "^0.4.14",
     "@vitest/coverage-v8": "^3.2.7",
     "@vitest/ui": "^3.2.7",

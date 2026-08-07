@@ -9,13 +9,15 @@ This assumes that you will be using TypeScript. Please checkout
 
 - Hypixel-API-Reborn v12.0.0-28 or **higher**
 - TypeScript v5.9.3 or **higher**
+- Node v22.22.3 or **higher**
 
 ## Assumptions
 
 This guide assumes the following
 
-- You are using Hypixel-API-Reborn v12.0.0-27
-- You are using TypeScript v5.9.2
+- You are using Hypixel-API-Reborn v12.0.0-28
+- You are using TypeScript v5.9.3
+- You are using Node v22.22.3
 
 ## Initializing a Client Instance
 

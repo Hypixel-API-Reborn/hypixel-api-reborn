@@ -8,12 +8,14 @@ This assumes that you will be using JavaScript. Please checkout
 ## Requirements
 
 - Hypixel-API-Reborn v12.0.0-28 or **higher**
+- Node v22.22.3 or **higher**
 
 ## Assumptions
 
 This guide assumes the following
 
 - You are using Hypixel-API-Reborn v12.0.0-28
+- You are using Node v22.22.3
 - You are using ES6 Modules
 
 ## Initializing a Client Instance

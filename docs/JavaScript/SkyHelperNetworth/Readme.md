@@ -7,6 +7,7 @@ Networth. This assumes that you will be using JavaScript. Please checkout
 ## Requirements
 
 - Hypixel-API-Reborn v12.0.0-28 or **higher**
+- Node v22.22.3 or **higher**
 - SkyHelper Networth v2.8.0 or **higher**
 
 ## Assumptions
@@ -14,7 +15,9 @@ Networth. This assumes that you will be using JavaScript. Please checkout
 This guide assumes the following
 
 - You are using Hypixel-API-Reborn v12.0.0-28
+- You are using Node v22.22.3
 - You are using SkyHelper Networth v2.8.0
+- You are using ES6 Modules
 - You have setup a Client instance. If not please see [the Setting Up Client guide](../SettingUpClient/Guide.md)
 
 ## Fetching A Player's Profiles

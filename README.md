@@ -16,7 +16,7 @@
 
 ### Requirements
 
-**For Node.js users >= v20.16.0** <br> **For TypeScript users >= v5.5.4**
+**For Node.js users >= v22.22.3** <br> **For TypeScript users >= v5.9.3**
 
 ### Installation & Usage
 
