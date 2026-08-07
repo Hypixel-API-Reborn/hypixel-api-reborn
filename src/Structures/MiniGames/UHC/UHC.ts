@@ -1,5 +1,5 @@
-import Divide from '../../../Utils/Divide.js';
 import UHCGamemode from './UHCGamemode.js';
+import { Divide } from '../../../Utils/index.js';
 import type { UHCKit } from '../../../Types/Player.js';
 
 function getStarLevel(kills: number, wins: number): number {

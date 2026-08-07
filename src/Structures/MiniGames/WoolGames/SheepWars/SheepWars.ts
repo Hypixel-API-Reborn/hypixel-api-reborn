@@ -1,5 +1,5 @@
-import Divide from '../../../../Utils/Divide.js';
 import SheepWarsLayout from './SheepWarsLayout.js';
+import { Divide } from '../../../../Utils/index.js';
 import type { WoolGamesSheepWarsClassName } from '../../../../Types/Player.js';
 
 class SheepWars {

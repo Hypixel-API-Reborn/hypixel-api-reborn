@@ -1,6 +1,6 @@
-import Divide from '../../../../Utils/Divide.js';
 import WoolWarsClass from './WoolWarsClass.js';
 import WoolWarsSettings from './WoolWarsSettings.js';
+import { Divide } from '../../../../Utils/index.js';
 import type { WoolGamesWoolWarsClassName } from '../../../../Types/Player.js';
 
 class WoolWars {

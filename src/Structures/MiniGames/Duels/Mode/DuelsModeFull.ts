@@ -1,6 +1,6 @@
-import DuelsMode from './DuelsMode.ts';
-import { getDuelsTitle } from '../../../../Utils/Constants.ts';
-import type { DuelsModeId, DuelsTitleParsed } from '../../../../Types/Player.ts';
+import DuelsMode from './DuelsMode.js';
+import { getDuelsTitle } from '../../../../Utils/index.js';
+import type { DuelsModeId, DuelsTitleParsed } from '../../../../Types/Player.js';
 
 class DuelsModeFull extends DuelsMode {
   title: DuelsTitleParsed;

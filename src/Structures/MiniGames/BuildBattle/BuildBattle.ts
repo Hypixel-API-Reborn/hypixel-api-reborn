@@ -2,8 +2,7 @@ import BuildBattleLastWin from './BuildBattleLastWin.js';
 import BuildBattleVotes from './BuildBattleVotes.js';
 import Emblem from '../Shared/Emblem/Emblem.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import { BuildBattleTitleRequirements } from '../../../Utils/Constants.js';
-import { monthAB } from '../../../Utils/Oscillation.js';
+import { BuildBattleTitleRequirements, monthAB } from '../../../Utils/index.js';
 import type {
   BuildBattleBackdrop,
   BuildBattleEmblemIcon,

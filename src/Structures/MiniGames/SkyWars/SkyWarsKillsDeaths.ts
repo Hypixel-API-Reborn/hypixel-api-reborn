@@ -1,5 +1,5 @@
 import SkyWarsKillsDeathsType from './SkyWarsKillsDeathsType.js';
-import { ParseModeAfter } from '../../../Utils/ParseMode.js';
+import { ParseModeAfter } from '../../../Utils/index.js';
 import type { SkyWarsKitId, SkyWarsModeId } from '../../../Types/Player.js';
 
 class SkyWarsKillsDeaths {

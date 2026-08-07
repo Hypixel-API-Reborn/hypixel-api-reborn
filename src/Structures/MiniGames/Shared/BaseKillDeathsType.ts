@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 
 class BaseKillsDeathsType {
   kills: number;

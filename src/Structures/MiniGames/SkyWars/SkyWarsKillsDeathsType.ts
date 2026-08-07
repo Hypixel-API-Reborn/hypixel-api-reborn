@@ -1,6 +1,5 @@
 import BaseKillsDeathsType from '../Shared/BaseKillDeathsType.js';
-import Divide from '../../../Utils/Divide.js';
-import { ParseModeAfter, ParseModeBefore } from '../../../Utils/ParseMode.js';
+import { Divide, ParseModeAfter, ParseModeBefore } from '../../../Utils/index.js';
 import type { SkyWarsKillType, SkyWarsKitId, SkyWarsModeId } from '../../../Types/Player.js';
 
 class SkyWarsKillsDeathsType extends BaseKillsDeathsType {

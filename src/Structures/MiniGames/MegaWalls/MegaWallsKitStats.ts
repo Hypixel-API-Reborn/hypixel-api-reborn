@@ -1,5 +1,5 @@
-import Divide from '../../../Utils/Divide.js';
 import MegaWallsModeStats from './MegaWallsModeStats.js';
+import { Divide } from '../../../Utils/index.js';
 import type { MegaWallsKit } from '../../../Types/Player.js';
 
 class MegaWallsKitStats {

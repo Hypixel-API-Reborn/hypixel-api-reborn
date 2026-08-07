@@ -1,4 +1,4 @@
-import { getPetLevel } from '../../../../Utils/SkyBlockUtils.js';
+import { getPetLevel } from '../../../../Utils/index.js';
 import type { LevelData, Rarity, SkyBlockPetId } from '../../../../Types/SkyBlock.js';
 import type { UUID } from '../../../../Types/Global.js';
 

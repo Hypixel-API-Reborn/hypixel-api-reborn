@@ -1,11 +1,10 @@
-import { parseHistory } from '../../Utils/Guild.js';
+import { parseGuildHistory } from '../../Utils/index.js';
 import type { ExpHistory } from '../../Types/Guild.js';
 import type { UUID } from '../../Types/Global.js';
 
 class GuildMember {
   uuid: UUID;
-  joinedAtTimestamp: number | null;
-  joinedAt: Date | null;
+  joinedAt: number;
   questParticipation: number;
   rank: string;
   mutedUntilTimestamp: number | null;
@@ -13,15 +12,14 @@ class GuildMember {
   expHistory: ExpHistory[];
   weeklyExperience: number;
   constructor(data: Record<string, any>) {
-    this.uuid = data.uuid ?? '';
-    this.joinedAtTimestamp = data?.joined ?? null;
-    this.joinedAt = this.joinedAtTimestamp ? new Date(this.joinedAtTimestamp) : null;
+    this.uuid = data?.uuid ?? 'UNKNOWN';
+    this.joinedAt = data?.joined ?? 0;
     this.questParticipation = data?.questParticipation ?? 0;
     this.rank = data?.rank ?? 'Member';
     this.mutedUntilTimestamp = data?.mutedTill ?? null;
     this.mutedUntil = this.mutedUntilTimestamp ? new Date(this.mutedUntilTimestamp) : null;
     const xpCheck = data.expHistory && typeof Object.values(data.expHistory)[0] === 'number';
-    this.expHistory = parseHistory(data?.expHistory ?? {});
+    this.expHistory = parseGuildHistory(data?.expHistory ?? {});
     this.weeklyExperience = xpCheck
       ? Number(Object.values(data.expHistory).reduce((pV: any, cV: any) => pV + cV, 0))
       : 0;

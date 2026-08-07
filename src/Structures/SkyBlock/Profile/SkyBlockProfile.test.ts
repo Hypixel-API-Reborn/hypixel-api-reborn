@@ -5,7 +5,7 @@ import SkyBlockProfile from './SkyBlockProfile.js';
 import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type RequestData from '../../../Private/RequestData.ts';
+import type RequestData from '../../../Private/RequestData.js';
 import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
 
 test('SkyBlockProfile', () => {

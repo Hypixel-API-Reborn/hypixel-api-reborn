@@ -4326,8 +4326,8 @@ export const BedWarsPracticeModeIds = ['BOW', 'BRIDGING', 'FIREBALL_JUMPING', 'M
 export type BedWarsPracticeModeId = (typeof BedWarsPracticeModeIds)[number];
 export const BedWarsPracticeBridgingRecordsDistanceIds = ['100', '50', '30'] as const;
 export type BedWarsPracticeBridgingRecordsDistanceId = (typeof BedWarsPracticeBridgingRecordsDistanceIds)[number];
-export const BedWarsPracticeBridgingRecordsElevations = ['NONE', 'SLIGHT', 'STAIRCASE'] as const;
-export type BedWarsPracticeBridgingRecordsElevation = (typeof BedWarsPracticeBridgingRecordsElevations)[number];
+export const BedWarsPracticeBridgingRecordsElevationIds = ['NONE', 'SLIGHT', 'STAIRCASE'] as const;
+export type BedWarsPracticeBridgingRecordsElevationId = (typeof BedWarsPracticeBridgingRecordsElevationIds)[number];
 
 export const SkyWarsModeSolos = ['solo_normal', 'solo_insane', 'lab_solo', 'solo'] as const;
 export type SkyWarsModeSolo = (typeof SkyWarsModeSolos)[number];

@@ -1,4 +1,4 @@
-import { games } from '../Utils/Constants.js';
+import { games } from '../Utils/index.js';
 import type { GameCode, GameID, GameString } from '../Types/Game.js';
 
 class Game {

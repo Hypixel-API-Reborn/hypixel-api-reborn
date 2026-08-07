@@ -1,5 +1,5 @@
 import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
-import { ParseModeAfter } from '../../../Utils/ParseMode.js';
+import { ParseModeAfter } from '../../../Utils/index.js';
 import type { BlitzSurvivalGamesKitId } from '../../../Types/Player.js';
 
 class BlitzSurvivalGamesKit extends BlitzSurvivalGamesData {

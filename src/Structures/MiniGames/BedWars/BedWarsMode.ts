@@ -1,8 +1,7 @@
 import BedWarsBeds from './BedWarsBeds.js';
 import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.js';
 import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
-import Divide from '../../../Utils/Divide.js';
-import { ParseModeBefore } from '../../../Utils/ParseMode.js';
+import { Divide, ParseModeBefore } from '../../../Utils/index.js';
 import type { BedWarsModeId } from '../../../Types/Player.js';
 
 class BedWarsMode {

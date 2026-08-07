@@ -25,7 +25,7 @@ import {
   WHEAT,
   WILD_ROSE,
   petRarityOffset
-} from './Constants.js';
+} from './constants.ts';
 import { parse, simplify } from 'prismarine-nbt';
 import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import type {
@@ -112,7 +112,7 @@ export function getSlayerLevel(slayer: SkyBlockSlayer, xp: number): LevelData {
   return { xp, xpForNext: 0, level: 0, maxLevel, maxed: false, progress: 0 };
 }
 
-function getXpTable(type: SkyBlockXPTable): Record<number, number> {
+export function getXpTable(type: SkyBlockXPTable): Record<number, number> {
   const SKILL_TABLES = {
     default: DEFAULT_LEVELING_XP,
     runecrafting: RUNECRAFTING_XP,

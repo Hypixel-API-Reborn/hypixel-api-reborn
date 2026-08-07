@@ -1,5 +1,5 @@
-import Divide from '../../../Utils/Divide.js';
 import WarlordsClass from './WarlordsClass.js';
+import { Divide } from '../../../Utils/index.js';
 import type { WarlordsClassId } from '../../../Types/Player.js';
 
 class Warlords {

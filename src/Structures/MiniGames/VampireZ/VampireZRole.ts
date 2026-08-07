@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { VampireZRoleId } from '../../../Types/Player.js';
 
 class VampireZRole {

@@ -25,7 +25,7 @@ import Soccer from './Soccer.js';
 import ThrowOut from './ThrowOut.js';
 import WoolHunt from './WoolHunt.js';
 import Zombies from './Zombies/Zombies.js';
-import { monthAB, weekAB } from '../../../Utils/Oscillation.js';
+import { monthAB, weekAB } from '../../../Utils/index.js';
 import type {
   ArcadeBountyHead,
   ArcadeMeleeWeapon,

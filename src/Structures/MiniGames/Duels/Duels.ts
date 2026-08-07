@@ -1,22 +1,22 @@
-import DuelsBedWars from './Mode/DuelsBedWars.ts';
-import DuelsBlitz from './Mode/DuelsBlitz.ts';
-import DuelsBow from './Mode/DuelsBow.ts';
-import DuelsBridge from './Mode/Bridge/DuelsBridge.ts';
-import DuelsClassic from './Mode/DuelsClassic.ts';
+import DuelsBedWars from './Mode/DuelsBedWars.js';
+import DuelsBlitz from './Mode/DuelsBlitz.js';
+import DuelsBow from './Mode/DuelsBow.js';
+import DuelsBridge from './Mode/Bridge/DuelsBridge.js';
+import DuelsClassic from './Mode/DuelsClassic.js';
 import DuelsCombo from './Mode/DuelsCombo.js';
-import DuelsMegaWalls from './Mode/DuelsMegaWalls.ts';
-import DuelsModeFull from './Mode/DuelsModeFull.ts';
-import DuelsOP from './Mode/DuelsOP.ts';
+import DuelsMegaWalls from './Mode/DuelsMegaWalls.js';
+import DuelsModeFull from './Mode/DuelsModeFull.js';
+import DuelsOP from './Mode/DuelsOP.js';
 import DuelsOdyssey from './DuelsOdyssey.js';
-import DuelsOptions from './DuelsOptions.ts';
+import DuelsOptions from './DuelsOptions.js';
 import DuelsPotion from './Mode/DuelsPotion.js';
 import DuelsPrivateGames from './DuelsPrivateGames.js';
-import DuelsSkyWars from './Mode/DuelsSkyWars.ts';
-import DuelsSumo from './Mode/DuelsSumo.ts';
-import DuelsUHC from './Mode/DuelsUHC.ts';
-import GenericDuelsMode from './Mode/GenericDuelsMode.ts';
+import DuelsSkyWars from './Mode/DuelsSkyWars.js';
+import DuelsSumo from './Mode/DuelsSumo.js';
+import DuelsUHC from './Mode/DuelsUHC.js';
+import GenericDuelsMode from './Mode/GenericDuelsMode.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import { getDuelsTitle } from '../../../Utils/Constants.ts';
+import { getDuelsTitle } from '../../../Utils/index.js';
 import type {
   DuelsLeaderboardSettingsMode,
   DuelsMap,

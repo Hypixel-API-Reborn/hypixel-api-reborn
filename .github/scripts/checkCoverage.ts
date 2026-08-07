@@ -1,5 +1,5 @@
 import { parseStringPromise } from 'xml2js';
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 
 const coverageDataFile = readFileSync('./coverage/clover.xml', 'utf-8');
 const parsed = await parseStringPromise(coverageDataFile);

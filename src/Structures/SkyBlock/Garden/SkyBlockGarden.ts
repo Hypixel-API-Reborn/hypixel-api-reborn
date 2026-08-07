@@ -3,7 +3,7 @@ import SkyBlockGardenComposter from './SkyBlockGardenComposter.js';
 import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
 import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
-import { getLevelByXp } from '../../../Utils/SkyBlockUtils.js';
+import { getLevelByXp } from '../../../Utils/index.js';
 import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/SkyBlock.js';
 
 class SkyBlockGarden {

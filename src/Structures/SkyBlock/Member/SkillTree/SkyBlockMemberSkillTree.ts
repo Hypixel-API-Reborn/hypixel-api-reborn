@@ -1,4 +1,4 @@
-import { getLevelByXp } from '../../../../Utils/SkyBlockUtils.js';
+import { getLevelByXp } from '../../../../Utils/index.js';
 import type {
   SkillLevelData,
   SkyBlockMemberSkillTreeName,

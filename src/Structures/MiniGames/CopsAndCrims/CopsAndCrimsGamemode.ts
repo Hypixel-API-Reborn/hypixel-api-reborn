@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { CopsAndCrimsGamemodeId } from '../../../Types/Player.js';
 
 class CopsAndCrimsGamemode {

@@ -1,5 +1,5 @@
 import BedWarsItemsPurchased from './BedWarsItemsPurchased.js';
-import { ParseModeBefore } from '../../../Utils/ParseMode.js';
+import { ParseModeBefore } from '../../../Utils/index.js';
 import type { BedWarsModeId } from '../../../Types/Player.js';
 
 class BedWarsResourcesCollected {

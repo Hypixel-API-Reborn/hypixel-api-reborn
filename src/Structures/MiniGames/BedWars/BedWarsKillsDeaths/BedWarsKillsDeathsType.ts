@@ -1,6 +1,5 @@
 import BaseKillsDeathsType from '../../Shared/BaseKillDeathsType.js';
-import Divide from '../../../../Utils/Divide.js';
-import { ParseModeBefore } from '../../../../Utils/ParseMode.js';
+import { Divide, ParseModeBefore } from '../../../../Utils/index.js';
 import type { BedWarsFinalType, BedWarsModeId } from '../../../../Types/Player.js';
 
 class BedWarsKillsDeathsType extends BaseKillsDeathsType {

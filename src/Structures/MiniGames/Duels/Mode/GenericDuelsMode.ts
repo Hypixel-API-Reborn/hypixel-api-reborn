@@ -1,6 +1,5 @@
-import Divide from '../../../../Utils/Divide.ts';
-import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/ParseMode.js';
-import type { DuelsModeId } from '../../../../Types/Player.ts';
+import { Divide, ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.js';
+import type { DuelsModeId } from '../../../../Types/Player.js';
 
 class GenericDuelsMode {
   kills: number;

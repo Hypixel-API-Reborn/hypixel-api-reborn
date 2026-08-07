@@ -1,5 +1,5 @@
-import Divide from '../../../Utils/Divide.js';
 import QuakecraftMode from './QuakecraftMode.js';
+import { Divide } from '../../../Utils/index.js';
 import type { ColorCode } from '../../../Types/Color.js';
 import type {
   QuakecraftBarrel,

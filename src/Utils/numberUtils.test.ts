@@ -1,4 +1,4 @@
-import Divide from './Divide.js';
+import { Divide } from './index.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Divide', () => {

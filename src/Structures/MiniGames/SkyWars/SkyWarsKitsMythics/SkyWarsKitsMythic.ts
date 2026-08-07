@@ -1,5 +1,5 @@
 import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.js';
-import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/ParseMode.js';
+import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.js';
 import type { SkyWarsMythicKitId } from '../../../../Types/Player.js';
 
 class SkyWarsKitsMythic extends BaseSkyWarsMode {

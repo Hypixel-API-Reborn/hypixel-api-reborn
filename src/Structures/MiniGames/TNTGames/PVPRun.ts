@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { ColorString } from '../../../Types/Color.js';
 
 class PVPRun {

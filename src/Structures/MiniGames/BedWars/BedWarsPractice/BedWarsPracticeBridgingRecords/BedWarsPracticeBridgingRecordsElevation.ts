@@ -1,6 +1,6 @@
 import type {
   BedWarsPracticeBridgingRecordsDistanceId,
-  BedWarsPracticeBridgingRecordsElevation as BedWarsPracticeBridgingRecordsElevations
+  BedWarsPracticeBridgingRecordsElevationId
 } from '../../../../../Types/Player.js';
 
 class BedWarsPracticeBridgingRecordsElevation {
@@ -9,7 +9,7 @@ class BedWarsPracticeBridgingRecordsElevation {
   constructor(
     data: Record<string, any>,
     distance: BedWarsPracticeBridgingRecordsDistanceId,
-    elevation: BedWarsPracticeBridgingRecordsElevations
+    elevation: BedWarsPracticeBridgingRecordsElevationId
   ) {
     this.diagonal = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_DIAGONAL`] ?? 0;
     this.straight = data?.[`bridging_distance_${distance}:elevation_${elevation}:angle_STRAIGHT`] ?? 0;

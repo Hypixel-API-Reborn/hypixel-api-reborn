@@ -1,7 +1,7 @@
 import SkyBlockMemberDungeonsClasses from './SkyBlockMemberDungeonsClasses.js';
 import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.js';
 import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.js';
-import { getLevelByXp } from '../../../../Utils/SkyBlockUtils.js';
+import { getLevelByXp } from '../../../../Utils/index.js';
 import type { DungeonFloor, SkillLevelData } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberDungeons {

@@ -1,4 +1,4 @@
-import Romanize from './Romanize.js';
+import { Romanize } from './index.js';
 import { expect, test } from 'vitest';
 
 test('Romanize', () => {

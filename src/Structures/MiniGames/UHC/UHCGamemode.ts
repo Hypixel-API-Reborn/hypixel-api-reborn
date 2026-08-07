@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { UHCMode } from '../../../Types/Player.js';
 
 class UHCGamemode {

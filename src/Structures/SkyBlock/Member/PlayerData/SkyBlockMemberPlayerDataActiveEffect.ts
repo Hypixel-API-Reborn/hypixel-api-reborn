@@ -1,5 +1,5 @@
 import SkyBlockPotionEffect from '../../Potion/SkyBlockPotionEffect.js';
-import TicksToMilliseconds from '../../../../Utils/TicksToMilliseconds.js';
+import { TicksToMilliseconds } from '../../../../Utils/index.js';
 
 class SkyBlockMemberPlayerDataActiveEffect extends SkyBlockPotionEffect {
   expireAt: Date;

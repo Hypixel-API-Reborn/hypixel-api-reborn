@@ -1,5 +1,5 @@
-import DuelsModeFull from './DuelsModeFull.ts';
-import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import DuelsModeFull from './DuelsModeFull.js';
+import InventoryLayout from '../../Shared/InventoryLayout.js';
 
 class DuelsPotion extends DuelsModeFull {
   constructor(data: Record<string, any>) {

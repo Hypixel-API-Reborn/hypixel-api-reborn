@@ -10,7 +10,7 @@ import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
 import BedWarsSettings from './BedWarsSettings.js';
 import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.js';
 import BedWarsTwoFour from './BedWarsTwoFour.js';
-import { BedWarsPrestigeRequirements } from '../../../Utils/Constants.js';
+import { BedWarsPrestigeRequirements } from '../../../Utils/index.js';
 import type {
   BedWarsBedDestroy,
   BedWarsDeathCry,

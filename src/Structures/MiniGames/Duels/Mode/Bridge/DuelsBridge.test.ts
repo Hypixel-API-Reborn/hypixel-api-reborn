@@ -1,5 +1,5 @@
 import DuelsBridge from './DuelsBridge.js';
-import DuelsBridgeMode from './DuelsBridgeMode.ts';
+import DuelsBridgeMode from './DuelsBridgeMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { DuelsBridgeMap } from '../../../../../Types/Player.js';
 

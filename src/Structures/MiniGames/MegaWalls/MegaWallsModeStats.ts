@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { MegaWallsKit, MegaWallsMode } from '../../../Types/Player.js';
 
 class MegaWallsModeStats {

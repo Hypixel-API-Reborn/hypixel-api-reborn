@@ -1,5 +1,5 @@
 import SkyBlockInventoryItem from './SkyBlockInventoryItem.js';
-import { decode } from '../../../Utils/SkyBlockUtils.js';
+import { decode } from '../../../Utils/index.js';
 
 class RawSkyBlockInventoryItem {
   base64: string | null;

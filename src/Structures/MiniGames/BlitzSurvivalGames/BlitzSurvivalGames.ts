@@ -2,7 +2,7 @@ import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
 import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
 import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
 import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import { monthAB } from '../../../Utils/Oscillation.js';
+import { monthAB } from '../../../Utils/index.js';
 import type {
   BlitzSurvivalGamesAura,
   BlitzSurvivalGamesFinisher,

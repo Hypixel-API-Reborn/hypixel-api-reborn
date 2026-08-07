@@ -31,9 +31,8 @@ import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
 import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
-import isGuildId from './Utils/isGuildId.js';
 import { Client as MowojangClient, type MowojangProfile } from 'mowojang';
-import { SkyBlockProfileHasMe } from './Utils/SkyBlockUtils.js';
+import { SkyBlockProfileHasMe, isGuildId } from './Utils/index.js';
 import type {
   AuctionFetchOption,
   AuctionRequestOptions,

@@ -1,4 +1,4 @@
-import { ParseModeBefore } from '../../../Utils/ParseMode.js';
+import { ParseModeBefore } from '../../../Utils/index.js';
 
 class BedWarsItemsPurchased {
   itemsPurchased: number;

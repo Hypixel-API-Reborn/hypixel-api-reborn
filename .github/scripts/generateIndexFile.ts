@@ -1,5 +1,5 @@
 import { format } from 'prettier';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { scanDirectory } from './Utils';
 
 const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'));
@@ -8,6 +8,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   const lines: string[] = [
     '/* v8 ignore next 10000 */',
     '/* eslint-disable @stylistic/max-len  */',
+    '/* eslint-disable import/no-anonymous-default-export */',
     '',
     '',
     "import Client from './Client.js';",
@@ -15,22 +16,6 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
     "import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';",
     ''
   ];
-
-  const typesPaths = await scanDirectory('./src/Types/', { replaceSrc: true });
-  typesPaths.forEach((path) => {
-    const fixedPath = path.replaceAll('.ts', '.js');
-    lines.push(`export * from '${fixedPath}';`);
-  });
-
-  lines.push('');
-
-  const utilsPaths = await scanDirectory('./src/Utils/', { replaceSrc: true });
-  utilsPaths.forEach((path) => {
-    const fixedPath = path.replaceAll('.ts', '.js');
-    lines.push(`export * from '${fixedPath}';`);
-  });
-
-  lines.push('');
 
   const structuresPaths = await scanDirectory('./src/Structures/', { replaceSrc: true });
   const fixedStructuresPaths: string[] = [];
@@ -46,6 +31,18 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   fixedStructuresPaths.sort().forEach((path) => lines.push(path));
 
   lines.push('');
+
+  const typesPaths = await scanDirectory('./src/Types/', { replaceSrc: true });
+  typesPaths.forEach((path) => {
+    const fixedPath = path.replaceAll('.ts', '.js');
+    lines.push(`export * from '${fixedPath}';`);
+  });
+
+  lines.push('');
+  lines.push("export * from './Utils/index.js';");
+  lines.push('');
+
+  lines.push('');
   lines.push('export {');
   lines.push('Client,');
   lines.push('Errors,');
@@ -54,7 +51,6 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   lines.push('};');
 
   lines.push('');
-
   lines.push('export default {');
   lines.push('Client,');
   lines.push('Errors,');

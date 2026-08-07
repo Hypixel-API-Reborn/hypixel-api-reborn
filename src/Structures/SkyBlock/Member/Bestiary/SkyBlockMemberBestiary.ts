@@ -1,4 +1,4 @@
-import { BestiaryBrackets, BestiaryMobs } from '../../../../Utils/Constants.js';
+import { BestiaryBrackets, BestiaryMobs } from '../../../../Utils/index.js';
 import type { BestiaryCategory, BestiaryMob, BestiaryStats, RawBestiaryMob } from '../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberBestiary {

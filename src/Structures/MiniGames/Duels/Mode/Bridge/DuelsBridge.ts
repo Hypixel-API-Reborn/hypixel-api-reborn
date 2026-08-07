@@ -1,5 +1,5 @@
-import DuelsBridgeMode from './DuelsBridgeMode.ts';
-import type { DuelsBridgeMap } from '../../../../../Types/Player.ts';
+import DuelsBridgeMode from './DuelsBridgeMode.js';
+import type { DuelsBridgeMap } from '../../../../../Types/Player.js';
 
 class DuelsBridge extends DuelsBridgeMode {
   duel: DuelsBridgeMode;

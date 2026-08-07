@@ -1,14 +1,12 @@
-import Client from '../Client.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 import packageJson from '../../package.json' with { type: 'json' };
+import type Client from '../Client.js';
 
 class Updater {
-  readonly client: Client;
   currentVersion: string;
   latestVersion: string;
-  constructor(client: Client) {
-    this.client = client;
+  constructor(private readonly client: Client) {
     this.currentVersion = packageJson.version;
     this.latestVersion = '0.0.0';
   }

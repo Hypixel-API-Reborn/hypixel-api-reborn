@@ -1,4 +1,4 @@
-import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.ts';
+import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.js';
 import type { BedWarsPracticeBridgingRecordsDistanceId } from '../../../../../Types/Player.js';
 
 class BedWarsPracticeBridgingRecordsDistance {

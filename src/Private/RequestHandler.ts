@@ -1,14 +1,13 @@
-import Client from '../Client.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.js';
-import RawRequestData from './RawRequestData.ts';
+import RawRequestData from './RawRequestData.js';
+import type Client from '../Client.js';
 import type { MowojangProfile } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class RequestHandler {
   private BASE_URL: string;
   constructor(private readonly client: Client) {
-    this.client = client;
     this.BASE_URL = 'https://api.hypixel.net/v2';
   }
 

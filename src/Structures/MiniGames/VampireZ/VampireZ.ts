@@ -1,5 +1,5 @@
-import Divide from '../../../Utils/Divide.js';
 import VampireZRole from './VampireZRole.js';
+import { Divide } from '../../../Utils/index.js';
 
 class VampireZ {
   coins: number;

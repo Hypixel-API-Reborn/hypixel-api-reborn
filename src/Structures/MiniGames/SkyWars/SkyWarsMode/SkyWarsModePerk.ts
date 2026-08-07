@@ -1,4 +1,4 @@
-import { ParseModeAfter, ParseModeBefore, ParseModeBeforeAfter } from '../../../../Utils/ParseMode.js';
+import { ParseModeAfter, ParseModeBefore, ParseModeBeforeAfter } from '../../../../Utils/index.js';
 import type { SkyWarsModeId, SkyWarsPerkId } from '../../../../Types/Player.js';
 
 class SkyWarsModePerk {

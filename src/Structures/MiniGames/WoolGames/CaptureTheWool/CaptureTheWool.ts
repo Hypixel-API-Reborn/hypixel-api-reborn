@@ -1,5 +1,5 @@
-import Divide from '../../../../Utils/Divide.js';
 import InventoryLayout from '../../Shared/InventoryLayout.js';
+import { Divide } from '../../../../Utils/index.js';
 
 class CaptureTheWool {
   kills: number;

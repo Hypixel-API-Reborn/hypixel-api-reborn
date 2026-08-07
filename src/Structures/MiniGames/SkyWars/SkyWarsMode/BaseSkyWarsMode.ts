@@ -1,7 +1,6 @@
-import Divide from '../../../../Utils/Divide.js';
 import SkyWarsHeads from '../SkyWarsHeads.js';
 import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.js';
-import { ParseModeAfter } from '../../../../Utils/ParseMode.js';
+import { Divide, ParseModeAfter } from '../../../../Utils/index.js';
 import type { SkyWarsKitId, SkyWarsModeId } from '../../../../Types/Player.js';
 
 class BaseSkyWarsMode {

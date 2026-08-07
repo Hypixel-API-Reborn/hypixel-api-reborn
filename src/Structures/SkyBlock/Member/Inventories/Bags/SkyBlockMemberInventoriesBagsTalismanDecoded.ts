@@ -1,5 +1,5 @@
 import SkyBlockMemberInventoriesInventoryDecoded from '../Inventory/SkyBlockMemberInventoriesInventoryDecoded.js';
-import { magicalPowerValues } from '../../../../../Utils/Constants.js';
+import { magicalPowerValues } from '../../../../../Utils/index.js';
 import type { Rarity } from '../../../../../Types/SkyBlock.js';
 
 class SkyBlockMemberInventoriesBagsTalismanDecoded extends SkyBlockMemberInventoriesInventoryDecoded {

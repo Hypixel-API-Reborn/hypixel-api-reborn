@@ -1,4 +1,4 @@
-import Divide from '../../../Utils/Divide.js';
+import { Divide } from '../../../Utils/index.js';
 import type { SmashHerosMode } from '../../../Types/Player.js';
 
 class SmashHeroesMode {

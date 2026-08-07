@@ -1,4 +1,4 @@
-import TicksToMilliseconds from '../../../Utils/TicksToMilliseconds.js';
+import { TicksToMilliseconds } from '../../../Utils/index.js';
 import type { SkyBlockPotionEffectName } from '../../../Types/SkyBlock.js';
 
 class SkyBlockPotionEffect {

@@ -3,8 +3,7 @@ import Errors from '../Errors.js';
 import Updater from './Updater.js';
 import packageJSON from '../../package.json' with { type: 'json' };
 import { defaultRequestData } from '../../vitest.setup.js';
-import { expect, expectTypeOf, test } from 'vitest';
-import { vi } from 'vitest';
+import { expect, expectTypeOf, test, vi } from 'vitest';
 
 test('Updater', () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });

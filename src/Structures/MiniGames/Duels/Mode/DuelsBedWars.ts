@@ -1,5 +1,5 @@
-import DuelsMode from './DuelsMode.ts';
-import DuelsModeFull from './DuelsModeFull.ts';
+import DuelsMode from './DuelsMode.js';
+import DuelsModeFull from './DuelsModeFull.js';
 
 class DuelsBedWars extends DuelsModeFull {
   normal: DuelsMode;
