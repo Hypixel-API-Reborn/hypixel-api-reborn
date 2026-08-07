@@ -32,6 +32,7 @@ import Status from './Structures/Status.js';
 import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
 import isGuildId from './Utils/isGuildId.js';
+import { Client as MowojangClient, type MowojangProfile } from 'mowojang';
 import { SkyBlockProfileHasMe } from './Utils/SkyBlockUtils.js';
 import type {
   AuctionFetchOption,
@@ -45,25 +46,27 @@ import type {
   WithSelectedProfile
 } from './Types/Requests.js';
 import type { ClientOptions } from './Types/Client.js';
-import type { ClientOptions as MowojangClientOptions, MowojangProfile } from 'mowojang';
 import type { SkyBlockProfileName, SkyblockProfileWithMe } from './Types/SkyBlock.js';
 
 const clients: Client[] = [];
 
 class Client {
-  options: ClientOptions;
-  requestHandler: RequestHandler;
-  cacheHandler: CacheHandler;
-  updater: Updater;
   readonly key: string;
+  readonly options: ClientOptions;
+  readonly requestHandler: RequestHandler;
+  readonly mowojang: MowojangClient;
+  readonly updater: Updater;
+  readonly cacheHandler: CacheHandler;
   interval?: NodeJS.Timeout;
   constructor(key: string, options?: ClientOptions) {
     this.key = key;
     if (!this.key.length) throw new HypixelAPIRebornError(Errors.NO_API_KEY);
     this.options = this.parseOptions(options);
     this.requestHandler = new RequestHandler(this);
-    this.cacheHandler = new CacheHandler(this);
+    this.mowojang = this.options.mowojang ?? new MowojangClient();
     this.updater = new Updater(this);
+    this.cacheHandler = new CacheHandler(this);
+
     const found = clients.find((x) => x.key === key);
     if (found) {
       console.warn(Errors.MULTIPLE_INSTANCES);
@@ -96,13 +99,8 @@ class Client {
       cacheCheckPeriod: options?.cacheCheckPeriod ?? 180,
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
-      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,
-      mowojangAPI: this.parseMowojangOptions(options?.mowojangAPI ?? {})
+      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60
     };
-  }
-
-  private parseMowojangOptions(options?: MowojangClientOptions): MowojangClientOptions {
-    return { baseURL: options?.baseURL ?? 'https://mowojang.seraph.si' };
   }
 
   public async getAchievements(options?: RequestOptions): Promise<RequestData<Achievements>> {

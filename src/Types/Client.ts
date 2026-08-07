@@ -1,4 +1,4 @@
-import type { ClientOptions as MowojangClientOptions } from 'mowojang';
+import type { Client as MowojangClient } from 'mowojang';
 
 export interface ClientOptions {
   cache?: boolean;
@@ -8,5 +8,5 @@ export interface ClientOptions {
   silent?: boolean;
   checkForUpdates?: boolean;
   checkForUpdatesInterval?: number;
-  mowojangAPI?: MowojangClientOptions;
+  mowojang?: MowojangClient;
 }

@@ -2,15 +2,13 @@ import Client from '../Client.js';
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 import RawRequestData from './RawRequestData.ts';
-import { Client as MowojangClient, type MowojangProfile } from 'mowojang';
+import type { MowojangProfile } from 'mowojang';
 import type { RequestOptions } from '../Types/Requests.js';
 
 class RequestHandler {
-  readonly mowojangAPI: MowojangClient;
   private BASE_URL: string;
   constructor(private readonly client: Client) {
     this.client = client;
-    this.mowojangAPI = new MowojangClient(this.client.options.mowojangAPI);
     this.BASE_URL = 'https://api.hypixel.net/v2';
   }
 
@@ -79,7 +77,7 @@ class RequestHandler {
   async getProfile(input: string): Promise<MowojangProfile> {
     if (!input) throw new HypixelAPIRebornError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
     if (typeof input !== 'string') throw new HypixelAPIRebornError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
-    const profile = await this.mowojangAPI.getProfile(input);
+    const profile = await this.client.mowojang.getProfile(input);
     if (profile.data === null) throw new HypixelAPIRebornError(Errors.PLAYER_DOES_NOT_EXIST);
     return profile.data;
   }
