@@ -62,6 +62,15 @@ class Client {
     if (!this.key.length) throw new HypixelAPIRebornError(Errors.NO_API_KEY);
     this.options = this.parseOptions(options);
     this.requestHandler = new RequestHandler(this);
+    if (this.options.mowojang && this.options.mowojang.version !== MowojangClient.version) {
+      console.warn(
+        Errors.INVALID_MOWOJANG_VERSION.replace(/{mowojangVersion}/, MowojangClient.version).replace(
+          /{currentMowojangVersion}/,
+          this.options.mowojang.version
+        )
+      );
+      this.options.mowojang = undefined;
+    }
     this.mowojang = this.options.mowojang ?? new MowojangClient();
     this.updater = new Updater(this);
     this.cacheHandler = new CacheHandler(this);
