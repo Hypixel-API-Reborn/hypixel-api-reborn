@@ -98,7 +98,8 @@ class Client {
       cacheCheckPeriod: options?.cacheCheckPeriod ?? 180,
       silent: options?.silent ?? false,
       checkForUpdates: options?.checkForUpdates ?? true,
-      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60
+      checkForUpdatesInterval: options?.checkForUpdatesInterval ?? 60,
+      mowojang: options?.mowojang
     };
   }
 
