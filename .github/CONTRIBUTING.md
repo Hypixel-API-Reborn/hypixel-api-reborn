@@ -12,8 +12,8 @@ If you want to contribute to hypixel-api-reborn, feel free to fork the repositor
 
 ### Requirements
 
-- [Node v20.16.0 or higher](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
-- [pnpm v9.7.1 or higher](https://pnpm.io/installation)
+- [Node v22.22.3 or higher](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+- [pnpm v11.1.2 or higher](https://pnpm.io/installation)
 
 ### Project Setup
 
