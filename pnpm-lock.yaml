@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       mowojang:
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.7.0
+        version: 0.7.0
       node-cache:
         specifier: ^5.1.2
         version: 5.1.2
@@ -1755,8 +1755,8 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
-  mowojang@0.5.1:
-    resolution: {integrity: sha512-GhFmFSeqTDiijBFhuHIKmgh3ECRMkmny/8Cv0hJNdSQvXcfC8MkdF1LimGHlbq8rOwnmqYNoWsxSI0dtKOqrYA==}
+  mowojang@0.7.0:
+    resolution: {integrity: sha512-gzUuavMJ4cPfO8WG4pfhCJAJZQUIgv3pfNam/6+lbiwojkZMrS4G+GBi26EcF+LSdytFXRBKh5y476CPC3xGNA==}
     engines: {node: '>=22.0.0'}
 
   mrmime@2.0.1:
@@ -3938,7 +3938,7 @@ snapshots:
 
   minimist@1.2.8: {}
 
-  mowojang@0.5.1:
+  mowojang@0.7.0:
     dependencies:
       axios: 1.18.0
       axios-cache-interceptor: 1.12.0(axios@1.18.0)

@@ -37,6 +37,8 @@ class Errors {
   static INVALID_BASE_URL_SLASH: string = "[Hypixel-API-Reborn] Invalid Request URL. Please don't end with a /";
   static INVALID_DUELS_TITLE_REQUIREMENT: string =
     '[Hypixel-API-Reborn] Something went wrong while geting the requirement and it returns empty ';
+  static INVALID_MOWOJANG_VERSION: string =
+    '[Hypixel-API-Reborn] Invalid mowojang client version. Please use v{mowojangVersion} of mowojang instead of the current v{currentMowojangVersion} version so that the Client has the correct data. Spawning a new instance of mowojang';
 }
 
 export default Errors;
