@@ -38,7 +38,7 @@
   "packageManager": "pnpm@11.1.2",
   "author": "Kathund",
   "dependencies": {
-    "mowojang": "^0.5.1",
+    "mowojang": "^0.7.0",
     "node-cache": "^5.1.2",
     "prismarine-nbt": "^2.8.0",
     "rss-parser": "^3.13.0"
@@ -69,7 +69,7 @@
     "eslint-plugin-import": "^2.32.0",
     "globals": "^17.9.0",
     "prettier": "^3.9.6",
-    "tsx": "^4.23.7",
+    "tsx": "^4.23.11",
     "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.4.1",
     "typedoc-plugin-rename-defaults": "^0.7.3",
