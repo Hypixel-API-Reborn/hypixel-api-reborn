@@ -6,7 +6,7 @@
   "semanticCommits": "enabled",
   "labels": ["dependencies"],
   "schedule": ["* 0 * * *"],
-  "enabledManagers": ["npm"],
+  "enabledManagers": ["pnpm", "npm"],
   "rangeStrategy": "bump",
   "prConcurrentLimit": 5,
   "forkProcessing": "enabled",
