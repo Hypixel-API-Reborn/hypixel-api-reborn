@@ -1,9 +1,9 @@
 /* eslint-disable @stylistic/max-len  */
 class Errors {
   static INVALID_API_KEY: string =
-    '[Hypixel-API-Reborn] Invalid API Key! For help join our Discord Server https://discord.gg/NSEBNMM';
+    '[Hypixel-API-Reborn] Invalid API Key! Please get a key from the Hypixel Developer Dashboard https://developer.hypixel.net If you need help join our Discord Server https://discord.gg/NSEBNMM';
   static NO_API_KEY: string =
-    '[Hypixel-API-Reborn] No API Key specified! For help join our Discord Server https://discord.gg/NSEBNMM';
+    '[Hypixel-API-Reborn] No API Key specified! Please get a key from the Hypixel Developer Dashboard https://developer.hypixel.net If you need help join our Discord Server https://discord.gg/NSEBNMM';
   static ERROR_CODE_CAUSE: string =
     '[Hypixel-API-Reborn] Code: {code} - {cause}! For help join our Discord Server https://discord.gg/NSEBNMM';
   static ERROR_STATUSTEXT: string =
@@ -11,17 +11,14 @@ class Errors {
   static NO_NICKNAME_UUID: string = '[Hypixel-API-Reborn] No nickname or uuid specified.';
   static NO_UUID: string = '[Hypixel-API-Reborn] No uuid specified.';
   static UUID_NICKNAME_MUST_BE_A_STRING: string = '[Hypixel-API-Reborn] Nickname or uuid must be a string.';
-  static MALFORMED_UUID: string = '[Hypixel-API-Reborn] Malformed UUID!';
-  static PLAYER_DOES_NOT_EXIST: string = '[hypixel-api-reborn] Player does not exist.';
+  static PLAYER_DOES_NOT_EXIST: string = '[Hypixel-API-Reborn] Player does not exist.';
   static PLAYER_HAS_NEVER_LOGGED: string = '[Hypixel-API-Reborn] Player has never logged into Hypixel.';
   static NO_GUILD_QUERY: string = '[Hypixel-API-Reborn] No guild search query specified.';
   static INVALID_GUILD_ID: string = '[Hypixel-API-Reborn] Specified Guild ID is invalid.';
   static INVALID_GUILD_SEARCH_PARAMETER: string =
-    "[Hypixel-API-Reborn] getGuild() searchParameter must be 'id'; 'guild' or 'player'.";
+    "[Hypixel-API-Reborn] getGuild() searchParameter must be 'id', 'guild' or 'player'.";
   static SOMETHING_WENT_WRONG: string = '[Hypixel-API-Reborn] Something went wrong. {cause}';
   static GUILD_DOES_NOT_EXIST: string = '[Hypixel-API-Reborn] Guild does not exist.';
-  static PAGE_INDEX_ERROR: string =
-    '[Hypixel-API-Reborn] Invalid page index. Must be an integer, an array of 2 integers, or a keyword. For help join our Discord Server https://discord.gg/NSEBNMM';
   static INVALID_OPTION_VALUE: string =
     '[Hypixel-API-Reborn] Invalid option value! For help join our Discord Server https://discord.gg/NSEBNMM';
   static UPDATER_REQUEST_NOT_OK: string = '[Hypixel-API-Reborn] Something went wrong while checking for updates.';
@@ -36,12 +33,6 @@ class Errors {
   static NO_SKYBLOCK_PROFILES: string = '[Hypixel-API-Reborn] The player has no SkyBlock profiles.';
   static BAD_AUCTION_FILTER: string =
     '[Hypixel-API-Reborn] Unexpected filter for Client#getSkyBlockAuction. Expected one of "PROFILE", "PLAYER", "AUCTION_ID", but got something else.';
-  static NOT_IMPLEMENTED: string =
-    '[Hypixel-API-Reborn] Endpoint execute method is not implemented yet! Please report this https://discord.gg/NSEBNMM';
-  static RATE_LIMIT_INIT_ERROR: string =
-    '[hypixel-api-reborn] An error happened whilst initializing rate limit. We strongly recommend restarting the code as this can lead to de-synchronization.';
-  static ENDPOINT_NOT_LOADED: string =
-    '[hypixel-api-reborn] This endpoint has not been loaded yet. Please restart your code';
   static INVALID_BASE_URL: string = '[Hypixel-API-Reborn] Invalid Request URL.';
   static INVALID_BASE_URL_SLASH: string = "[Hypixel-API-Reborn] Invalid Request URL. Please don't end with a /";
   static INVALID_DUELS_TITLE_REQUIREMENT: string =
