@@ -28,7 +28,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install node dependencies
-        run: pnpm install --frozen-lockfile && pnpm install --dir docs/ --frozen-lockfilenstall
+        run: pnpm install --frozen-lockfile && pnpm install --dir docs/ --frozen-lockfile
 
   UpdateDocs:
     name: Update Documentation
