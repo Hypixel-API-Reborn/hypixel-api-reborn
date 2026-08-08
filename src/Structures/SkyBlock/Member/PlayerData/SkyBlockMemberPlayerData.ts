@@ -1,7 +1,7 @@
 import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
 import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
 import SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
-import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/index.js';
 
 class SkyBlockMemberPlayerData {
   activeEffects: SkyBlockMemberPlayerDataActiveEffect[];

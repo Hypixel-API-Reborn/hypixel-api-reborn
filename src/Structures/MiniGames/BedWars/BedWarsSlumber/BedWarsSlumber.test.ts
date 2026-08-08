@@ -6,7 +6,7 @@ import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.js';
 import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.js';
 import BedWarsSlumberRoom from './BedWarsSlumberRoom.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/Player.js';
+import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.js';
 
 test('BedWarsSlumber', () => {
   const data = new BedWarsSlumber({ stats: 'meow' });

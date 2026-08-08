@@ -10,7 +10,7 @@ import type {
   MurderMysteryLastWordsRaw,
   MurderMysteryProjectileTrailRaw,
   MurderMysteryVictoryDanceRaw
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('MurderMysteryFavorites', () => {
   const data = new MurderMysteryFavorites({ stats: 'meow' });

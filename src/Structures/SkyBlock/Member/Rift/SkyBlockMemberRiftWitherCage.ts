@@ -1,4 +1,4 @@
-import type { WitherCageKilledEye } from '../../../../Types/SkyBlock.js';
+import type { WitherCageKilledEye } from '../../../../Types/index.js';
 
 class SkyBlockMemberRiftWitherCage {
   killedEyes: WitherCageKilledEye[];

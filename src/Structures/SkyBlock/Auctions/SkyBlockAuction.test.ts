@@ -1,8 +1,7 @@
 import SkyBlockAuction from './SkyBlockAuction.js';
 import SkyBlockAuctionBid from './SkyBlockAuctionBid.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { Rarity } from '../../../Types/SkyBlock.js';
-import type { UUID } from '../../../Types/Global.js';
+import type { Rarity, UUID } from '../../../Types/index.js';
 
 test('SkyBlockAuction', () => {
   const data = new SkyBlockAuction({ stats: 'meow' });

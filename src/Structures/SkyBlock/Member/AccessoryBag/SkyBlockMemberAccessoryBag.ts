@@ -1,5 +1,5 @@
 import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.js';
-import type { SkyBlockMemberPower } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockMemberPower } from '../../../../Types/index.js';
 
 class SkyBlockMemberAccessoryBag {
   selectedPower: SkyBlockMemberPower | null;

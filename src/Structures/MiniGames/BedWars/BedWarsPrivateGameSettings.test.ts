@@ -5,7 +5,7 @@ import type {
   PrivateGameSettingsGameEventSpeed,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('BedWarsPrivateGameSettings', () => {
   const data = new BedWarsPrivateGameSettings({ stats: 'meow' });

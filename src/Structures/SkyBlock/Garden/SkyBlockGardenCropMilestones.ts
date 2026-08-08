@@ -1,5 +1,5 @@
 import { getLevelByXp } from '../../../Utils/index.js';
-import type { SkillLevelData } from '../../../Types/SkyBlock.js';
+import type { SkillLevelData } from '../../../Types/index.js';
 
 class SkyBlockGardenCropMilestones {
   wheat: SkillLevelData;

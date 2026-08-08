@@ -1,6 +1,6 @@
 import InventoryLayout from '../../Shared/InventoryLayout.js';
 import { Divide } from '../../../../Utils/index.js';
-import type { WoolGamesWoolWarsClassName } from '../../../../Types/Player.js';
+import type { WoolGamesWoolWarsClassName } from '../../../../Types/index.js';
 
 class WoolWarsClass {
   wins: number;

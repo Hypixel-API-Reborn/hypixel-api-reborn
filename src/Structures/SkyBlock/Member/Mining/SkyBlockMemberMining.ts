@@ -2,7 +2,7 @@ import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
 import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
 import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
 import type SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
-import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/SkyBlock.js';
+import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/index.js';
 
 class SkyBlockMemberMining {
   powder: SkyBlockMemberMiningPowders;

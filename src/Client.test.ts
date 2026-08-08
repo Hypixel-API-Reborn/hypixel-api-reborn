@@ -72,7 +72,31 @@ import Updater from './Private/Updater.js';
 import WatchdogStats from './Structures/WatchdogStats.js';
 import { defaultRequestData } from '../vitest.setup.js';
 import { expect, expectTypeOf, test, vi } from 'vitest';
-import type { AchievementTier, ChallengeReward, QuestReward, QuestType } from './Types/Static.js';
+import type {
+  AchievementTier,
+  BarnPlot,
+  BarnSkin,
+  ChallengeReward,
+  ChatChannel,
+  ClientOptions,
+  ColorCode,
+  ColorHex,
+  ColorString,
+  ExpHistory,
+  GameCode,
+  GameID,
+  GameString,
+  InGameCode,
+  Language,
+  LevelProgress,
+  PlayerRank,
+  QuestReward,
+  QuestType,
+  SkillLevelData,
+  SkyBlockProfileName,
+  SkyBlockProfileType,
+  UUID
+} from './Types/index.js';
 import type {
   AuctionFetchOption,
   AuctionRequestOptions,
@@ -84,17 +108,10 @@ import type {
   SkyBlockRequestOptions,
   WithSelectedProfile
 } from './Types/Requests.ts';
-import type { BarnPlot, BarnSkin, SkillLevelData, SkyBlockProfileName, SkyBlockProfileType } from './Types/SkyBlock.js';
-import type { ChatChannel, Language, LevelProgress, PlayerRank } from './Types/Player.js';
-import type { ClientOptions } from './Types/Client.js';
-import type { ColorCode, ColorHex, ColorString, InGameCode } from './Types/Color.js';
-import type { ExpHistory } from './Types/Guild.js';
-import type { GameCode, GameID, GameString } from './Types/Game.js';
-import type { UUID } from './Types/Global.js';
 /* eslint-enable @stylistic/max-len */
 
 test('Client (No Key)', () => {
-  expect(() => new Client('')).toThrowError(Errors.NO_API_KEY);
+  expect(() => new Client('')).toThrow(Errors.NO_API_KEY);
 });
 
 test('Client (No Options)', () => {
@@ -572,23 +589,21 @@ test('Client#getGuild Invalid Guild Type', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL); // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getGuild('invalid', 'invalid')).rejects.toThrowError(Errors.INVALID_GUILD_SEARCH_PARAMETER);
+  await expect(() => client.getGuild('invalid', 'invalid')).rejects.toThrow(Errors.INVALID_GUILD_SEARCH_PARAMETER);
   client.destroy();
 });
 
 test('Client#getGuild Invalid Guild', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getGuild('name', 'this guild dose not exist')).rejects.toThrowError(
-    Errors.GUILD_DOES_NOT_EXIST
-  );
+  await expect(() => client.getGuild('name', 'this guild dose not exist')).rejects.toThrow(Errors.GUILD_DOES_NOT_EXIST);
   client.destroy();
 });
 
 test('Client#getGuild Invalid Guild ID', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getGuild('id', 'invalid guild id')).rejects.toThrowError(Errors.INVALID_GUILD_ID);
+  await expect(() => client.getGuild('id', 'invalid guild id')).rejects.toThrow(Errors.INVALID_GUILD_ID);
   client.destroy();
 });
 
@@ -596,7 +611,7 @@ test('Client#getGuild No Guild Query', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL); // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getGuild('id')).rejects.toThrowError(Errors.NO_GUILD_QUERY);
+  await expect(() => client.getGuild('id')).rejects.toThrow(Errors.NO_GUILD_QUERY);
   client.destroy();
 });
 
@@ -1218,7 +1233,7 @@ test('Client#getHouse (no input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getHouse()).rejects.toThrowError(Errors.NO_UUID);
+  await expect(() => client.getHouse()).rejects.toThrow(Errors.NO_UUID);
   client.destroy();
 });
 
@@ -1296,7 +1311,7 @@ test('Client#getLeaderboards (Missing Data)', async () => {
     json: () => Promise.resolve({ success: true })
   } as any);
 
-  await expect(() => client.getLeaderboards()).rejects.toThrowError(
+  await expect(() => client.getLeaderboards()).rejects.toThrow(
     Errors.SOMETHING_WENT_WRONG.replace(/{cause}/, 'Try again.')
   );
   vi.restoreAllMocks();
@@ -1311,7 +1326,7 @@ test('Client#getPlayer (never joined hypixel)', async () => {
     json: () => Promise.resolve({ success: true })
   } as any);
 
-  await expect(() => client.getPlayer('14727faefbdc4aff848cd2713eb9939e')).rejects.toThrowError(
+  await expect(() => client.getPlayer('14727faefbdc4aff848cd2713eb9939e')).rejects.toThrow(
     Errors.PLAYER_HAS_NEVER_LOGGED
   );
   vi.restoreAllMocks();
@@ -1323,7 +1338,7 @@ test('Client#getPlayer (no input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getPlayer()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
+  await expect(() => client.getPlayer()).rejects.toThrow(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
@@ -1657,7 +1672,7 @@ test('Client#getPlayerHouses (No input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getPlayerHouses()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
+  await expect(() => client.getPlayerHouses()).rejects.toThrow(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
@@ -1742,7 +1757,7 @@ test('Client#getRecentGames (no input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getRecentGames()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
+  await expect(() => client.getRecentGames()).rejects.toThrow(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
@@ -1784,7 +1799,7 @@ test('Client#getSkyBlockAuction (No Type Input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuction()).rejects.toThrowError(Errors.BAD_AUCTION_FILTER);
+  await expect(() => client.getSkyBlockAuction()).rejects.toThrow(Errors.BAD_AUCTION_FILTER);
   client.destroy();
 });
 
@@ -1793,7 +1808,7 @@ test('Client#getSkyBlockAuction (Bad Type Input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuction('meow', 'meow')).rejects.toThrowError(Errors.BAD_AUCTION_FILTER);
+  await expect(() => client.getSkyBlockAuction('meow', 'meow')).rejects.toThrow(Errors.BAD_AUCTION_FILTER);
   client.destroy();
 });
 
@@ -1802,7 +1817,7 @@ test('Client#getSkyBlockAuction (No Query Input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuction('AUCTION_ID')).rejects.toThrowError(Errors.NO_UUID);
+  await expect(() => client.getSkyBlockAuction('AUCTION_ID')).rejects.toThrow(Errors.NO_UUID);
   client.destroy();
 });
 
@@ -1843,21 +1858,21 @@ test('Client#getSkyBlockAuctions (No Input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuctions()).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions()).rejects.toThrow(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
 test('Client#getSkyBlockAuctions (Negative Input)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getSkyBlockAuctions(-1)).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions(-1)).rejects.toThrow(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
 test('Client#getSkyBlockAuctions (Page 0)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getSkyBlockAuctions(0)).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions(0)).rejects.toThrow(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
@@ -1866,7 +1881,7 @@ test('Client#getSkyBlockAuctions (String Input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockAuctions('hi')).rejects.toThrowError(Errors.INVALID_OPTION_VALUE);
+  await expect(() => client.getSkyBlockAuctions('hi')).rejects.toThrow(Errors.INVALID_OPTION_VALUE);
   client.destroy();
 });
 
@@ -2087,7 +2102,7 @@ test('getSkyBlockMuseum (No input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockMuseum()).rejects.toThrowError(Errors.NO_UUID);
+  await expect(() => client.getSkyBlockMuseum()).rejects.toThrow(Errors.NO_UUID);
   client.destroy();
 });
 
@@ -2137,14 +2152,14 @@ test('Client#getSkyBlockProfile (no input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockProfile()).rejects.toThrowError(Errors.NO_UUID);
+  await expect(() => client.getSkyBlockProfile()).rejects.toThrow(Errors.NO_UUID);
   client.destroy();
 });
 
 test('Client#getSkyBlockProfile (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getSkyBlockProfile('ce6685dd-78dd-4418-9f6f-b01cf9778daa')).rejects.toThrowError(
+  await expect(() => client.getSkyBlockProfile('ce6685dd-78dd-4418-9f6f-b01cf9778daa')).rejects.toThrow(
     Errors.NO_SKYBLOCK_PROFILES
   );
   client.destroy();
@@ -2186,14 +2201,14 @@ test('Client#getSkyBlockProfiles (no input)', async () => {
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  await expect(() => client.getSkyBlockProfiles()).rejects.toThrowError(Errors.NO_NICKNAME_UUID);
+  await expect(() => client.getSkyBlockProfiles()).rejects.toThrow(Errors.NO_NICKNAME_UUID);
   client.destroy();
 });
 
 test('Client#getSkyBlockProfiles (no profiles)', async () => {
   const client = new Client(process.env.HYPIXEL_KEY ?? '', { cache: false, checkForUpdates: false });
   client.requestHandler.setBaseURL(process.env.HYPIXEL_URL);
-  await expect(() => client.getSkyBlockProfiles('b491990d53fd4c5fa61e19d58cc7eddf')).rejects.toThrowError(
+  await expect(() => client.getSkyBlockProfiles('b491990d53fd4c5fa61e19d58cc7eddf')).rejects.toThrow(
     Errors.NO_SKYBLOCK_PROFILES
   );
   client.destroy();

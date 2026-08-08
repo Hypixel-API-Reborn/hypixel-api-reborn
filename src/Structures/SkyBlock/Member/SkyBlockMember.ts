@@ -19,8 +19,7 @@ import SkyBlockMemberQuests from './Quests/SkyBlockMemberQuests.js';
 import SkyBlockMemberRift from './Rift/SkyBlockMemberRift.js';
 import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.js';
 import SkyBlockMemberSlayers from './Slayers/SkyBlockMemberSlayers.js';
-import type { SkyBlockArrow } from '../../../Types/SkyBlock.js';
-import type { UUID } from '../../../Types/Global.js';
+import type { SkyBlockArrow, UUID } from '../../../Types/index.js';
 
 class SkyBlockMember {
   uuid: UUID;

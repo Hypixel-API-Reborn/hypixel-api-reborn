@@ -1,6 +1,6 @@
 import SkyBlockMemberLeveling from './SkyBlockMemberLeveling.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { TaskLevelingSort } from '../../../Types/SkyBlock.js';
+import type { TaskLevelingSort } from '../../../Types/index.js';
 
 test('SkyBlockMemberLeveling', () => {
   const data = new SkyBlockMemberLeveling({ stats: 'meow' });

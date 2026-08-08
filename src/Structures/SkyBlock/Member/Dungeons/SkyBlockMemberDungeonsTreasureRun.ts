@@ -1,6 +1,5 @@
 import SkyBlockMemberDungeonsTreasuresChest from './SkyBlockMemberDungeonsTreasuresChest.js';
-import type { DungeonGamemode } from '../../../../Types/SkyBlock.js';
-import type { UUID, UserInput } from '../../../../Types/Global.js';
+import type { DungeonGamemode, UUID, UserInput } from '../../../../Types/index.js';
 
 class SkyBlockMemberDungeonsTreasureRun {
   runId: string;

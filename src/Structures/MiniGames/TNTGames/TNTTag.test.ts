@@ -1,6 +1,6 @@
 import TNTTag from './TNTTag.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 test('TNTTag', () => {
   const data = new TNTTag({ stats: 'meow' });

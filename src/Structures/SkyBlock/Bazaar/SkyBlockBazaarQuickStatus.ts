@@ -1,4 +1,4 @@
-import type { BazaarProduct } from '../../../Types/SkyBlock.js';
+import type { BazaarProduct } from '../../../Types/index.js';
 
 class SkyBlockBazaarQuickStatus {
   productId: BazaarProduct | 'UNKNOWN';

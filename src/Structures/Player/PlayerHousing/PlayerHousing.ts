@@ -1,6 +1,6 @@
 import PlayerHousingGivenCookies from './PlayerHousingGivenCookies.js';
 import PlayerHousingPlayerSettings from './PlayerHousingPlayerSettings.js';
-import type { PlayerHousingPlotSize, PlayerHousingTutorialStage } from '../../../Types/Player.js';
+import type { PlayerHousingPlotSize, PlayerHousingTutorialStage } from '../../../Types/index.js';
 
 class PlayerHousing {
   allowedBlocks: string[];

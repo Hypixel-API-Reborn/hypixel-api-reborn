@@ -1,6 +1,6 @@
 import SkyBlockMemberObjectives from './SkyBlockMemberObjectives.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { RawSkyBlockObjective } from '../../../Types/SkyBlock.js';
+import type { RawSkyBlockObjective } from '../../../Types/index.js';
 
 test('SkyBlockMemberObjectives', () => {
   const data = new SkyBlockMemberObjectives({ stats: 'meow' });

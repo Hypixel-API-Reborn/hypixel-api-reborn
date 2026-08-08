@@ -1,4 +1,4 @@
-import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/Player.js';
+import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/index.js';
 
 class SkyWarsPrivateGames {
   maxKitsAndPerks: boolean;

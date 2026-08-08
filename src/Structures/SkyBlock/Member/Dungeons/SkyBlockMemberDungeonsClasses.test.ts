@@ -1,6 +1,6 @@
 import SkyBlockMemberDungeonsClasses from './SkyBlockMemberDungeonsClasses.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DungeonClass, SkillLevelData } from '../../../../Types/SkyBlock.js';
+import type { DungeonClass, SkillLevelData } from '../../../../Types/index.js';
 
 test('SkyBlockMemberDungeonsClasses', () => {
   const data = new SkyBlockMemberDungeonsClasses({ stats: 'meow' });

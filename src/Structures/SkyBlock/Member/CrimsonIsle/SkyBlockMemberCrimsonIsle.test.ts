@@ -6,7 +6,7 @@ import SkyBlockMemberCrimsonIsleKuudra from './SkyBlockMemberCrimsonIsleKuudra.j
 import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.js';
 import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFish.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleBoss, CrimsonIsleFaction } from '../../../../Types/SkyBlock.js';
+import type { CrimsonIsleBoss, CrimsonIsleFaction } from '../../../../Types/index.js';
 /* eslint-enable @stylistic/max-len */
 
 test('SkyBlockMemberCrimsonIsle', () => {

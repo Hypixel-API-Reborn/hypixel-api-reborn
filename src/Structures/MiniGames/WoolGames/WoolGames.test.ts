@@ -17,7 +17,7 @@ import type {
   WoolGamesPackageHat,
   WoolGamesPackageKillMessage,
   WoolGamesPackageProjectileTrail
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('WoolGames', () => {
   const data = new WoolGames({ stats: 'meow' });

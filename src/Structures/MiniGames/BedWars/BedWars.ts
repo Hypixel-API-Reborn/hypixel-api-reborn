@@ -29,7 +29,7 @@ import type {
   BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class BedWars extends BedWarsMode {
   experience: number;

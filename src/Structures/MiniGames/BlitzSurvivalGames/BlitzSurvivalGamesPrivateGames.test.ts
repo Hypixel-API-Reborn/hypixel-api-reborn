@@ -4,7 +4,7 @@ import type {
   BlitzSurvivalGamesPrivateGamesExtraStar,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('BlitzSurvivalGamesPrivateGames', () => {
   const data = new BlitzSurvivalGamesPrivateGames({ stats: 'meow' });

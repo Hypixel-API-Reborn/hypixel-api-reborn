@@ -3,7 +3,7 @@ import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 import RawRequestData from './RawRequestData.js';
 import type Client from '../Client.js';
 import type { MowojangProfile } from 'mowojang';
-import type { RequestOptions } from '../Types/Requests.js';
+import type { RequestOptions } from '../Types/index.js';
 
 class RequestHandler {
   private BASE_URL: string;

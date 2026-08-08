@@ -1,7 +1,6 @@
 import SkyBlockMemberPet from './SkyBlockMemberPet.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { LevelData, Rarity, SkyBlockPetId } from '../../../../Types/SkyBlock.js';
-import type { UUID } from '../../../../Types/Global.js';
+import type { LevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPet', () => {
   const data = new SkyBlockMemberPet({ stats: 'meow' });

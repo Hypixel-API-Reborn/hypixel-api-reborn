@@ -1,5 +1,5 @@
 import SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.js';
-import type { RiftGalleryTrophy } from '../../../../Types/SkyBlock.js';
+import type { RiftGalleryTrophy } from '../../../../Types/index.js';
 
 class SkyBlockMemberRiftGallery {
   eliseStep: number;

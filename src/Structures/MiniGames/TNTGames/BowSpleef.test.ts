@@ -1,6 +1,6 @@
 import BowSpleef from './BowSpleef.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 test('BowSpleef', () => {
   const data = new BowSpleef({ stats: 'meow' });

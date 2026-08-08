@@ -1,6 +1,6 @@
 import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.js';
 import { getSlayerLevel } from '../../../../Utils/index.js';
-import type { LevelData, SkyBlockSlayer } from '../../../../Types/SkyBlock.js';
+import type { LevelData, SkyBlockSlayer } from '../../../../Types/index.js';
 
 class SkyBlockMemberSlayer {
   claimedLevels: SkyBlockMemberSlayerClaimedLevels;

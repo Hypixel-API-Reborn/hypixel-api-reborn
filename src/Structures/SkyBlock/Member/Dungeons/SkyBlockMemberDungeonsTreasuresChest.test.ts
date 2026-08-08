@@ -1,6 +1,6 @@
 import SkyBlockMemberDungeonsTreasuresChest from './SkyBlockMemberDungeonsTreasuresChest.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DungeonsTreasureType } from '../../../../Types/SkyBlock.js';
+import type { DungeonsTreasureType } from '../../../../Types/index.js';
 
 test('SkyBlockMemberDungeonsTreasuresChest', () => {
   const data = new SkyBlockMemberDungeonsTreasuresChest({ stats: 'meow' });

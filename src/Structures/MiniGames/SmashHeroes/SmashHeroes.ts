@@ -1,7 +1,7 @@
 import SmashHeroesMode from './SmashHeroesMode.js';
 import SmashHerosHero from './SmashHerosHero.js';
 import { Divide } from '../../../Utils/index.js';
-import type { SmashHerosHeroId } from '../../../Types/Player.js';
+import type { SmashHerosHeroId } from '../../../Types/index.js';
 
 class SmashHeroes {
   coins: number;

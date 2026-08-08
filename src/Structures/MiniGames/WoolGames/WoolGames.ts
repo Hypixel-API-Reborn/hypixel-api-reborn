@@ -15,7 +15,7 @@ import type {
   WoolGamesPackageHat,
   WoolGamesPackageKillMessage,
   WoolGamesPackageProjectileTrail
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class WoolGames {
   coins: number;

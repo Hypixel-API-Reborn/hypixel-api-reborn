@@ -14,7 +14,7 @@ import type {
   DuelsPrivateGameSettingsRoundTime,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class DuelsPrivateGames {
   arrowCooldown: DuelsPrivateGameSettingsArrowCooldown;

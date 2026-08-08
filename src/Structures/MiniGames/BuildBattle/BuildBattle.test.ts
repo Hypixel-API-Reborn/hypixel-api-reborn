@@ -17,7 +17,7 @@ import type {
   BuildBattleTitle,
   BuildBattleVictoryDance,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('BuildBattle', () => {
   const data = new BuildBattle({ stats: 'meow' });

@@ -1,7 +1,7 @@
 import DuelsBridge from './DuelsBridge.js';
 import DuelsBridgeMode from './DuelsBridgeMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DuelsBridgeMap } from '../../../../../Types/Player.js';
+import type { DuelsBridgeMap } from '../../../../../Types/index.js';
 
 test('DuelsBridge', () => {
   const data = new DuelsBridge({ stats: 'meow' });

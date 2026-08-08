@@ -1,4 +1,4 @@
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 class TNTRun {
   wins: number;

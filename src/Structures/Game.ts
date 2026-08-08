@@ -1,5 +1,5 @@
 import { games } from '../Utils/index.js';
-import type { GameCode, GameID, GameString } from '../Types/Game.js';
+import type { GameCode, GameID, GameString } from '../Types/index.js';
 
 class Game {
   game: GameID | GameCode;

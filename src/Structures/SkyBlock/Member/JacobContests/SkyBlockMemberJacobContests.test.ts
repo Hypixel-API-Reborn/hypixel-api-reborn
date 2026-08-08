@@ -4,7 +4,7 @@ import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMeda
 import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
 import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { JacobCrop } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/index.js';
 
 test('SkyBlockMemberJacobContests', () => {
   const data = new SkyBlockMemberJacobContests({ stats: 'meow' });

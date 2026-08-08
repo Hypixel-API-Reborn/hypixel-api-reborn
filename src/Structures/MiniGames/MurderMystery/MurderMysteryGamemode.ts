@@ -1,4 +1,4 @@
-import type { MurderMysteryMapName, MurderMysteryMode } from '../../../Types/Player.js';
+import type { MurderMysteryMapName, MurderMysteryMode } from '../../../Types/index.js';
 
 class MurderMysteryGamemode {
   alphaWins: number;

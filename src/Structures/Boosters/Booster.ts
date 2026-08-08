@@ -1,5 +1,5 @@
 import Game from '../Game.js';
-import type { BoosterType } from '../../Types/Booster.js';
+import type { BoosterType } from '../../Types/index.js';
 
 class Booster {
   purchaser: string;

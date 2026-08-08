@@ -1,6 +1,6 @@
 import SkyBlockBazaarProductOrder from './SkyBlockBazaarProductOrder.js';
 import SkyBlockBazaarQuickStatus from './SkyBlockBazaarQuickStatus.js';
-import type { BazaarProduct } from '../../../Types/SkyBlock.js';
+import type { BazaarProduct } from '../../../Types/index.js';
 
 class SkyBlockBazaarProduct {
   productId: BazaarProduct | 'UNKNOWN';

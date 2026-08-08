@@ -7,7 +7,7 @@ import type {
   PrivateGameSettingsSpeed,
   WoolGamesPrivateGameSettingsMapDestructibility,
   WoolGamesPrivateGameSettingsSpawnRate
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('WoolGamesPrivateGames', () => {
   const data = new WoolGamesPrivateGames({ stats: 'meow' });

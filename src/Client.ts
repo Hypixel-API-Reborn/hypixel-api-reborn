@@ -36,16 +36,17 @@ import { SkyBlockProfileHasMe, isGuildId } from './Utils/index.js';
 import type {
   AuctionFetchOption,
   AuctionRequestOptions,
+  ClientOptions,
   GuildFetchOption,
   PlayerRequestOptions,
   RequestOptions,
   SkyBlockAuctionResult,
   SkyBlockAuctionsResult,
+  SkyBlockProfileName,
   SkyBlockRequestOptions,
+  SkyblockProfileWithMe,
   WithSelectedProfile
-} from './Types/Requests.js';
-import type { ClientOptions } from './Types/Client.js';
-import type { SkyBlockProfileName, SkyblockProfileWithMe } from './Types/SkyBlock.js';
+} from './Types/index.js';
 
 const clients: Client[] = [];
 

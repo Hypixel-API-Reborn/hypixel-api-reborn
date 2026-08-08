@@ -1,6 +1,6 @@
 import TNTWizards from './TNTWizards.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 test('TNTWizards', () => {
   const data = new TNTWizards({ stats: 'meow' });

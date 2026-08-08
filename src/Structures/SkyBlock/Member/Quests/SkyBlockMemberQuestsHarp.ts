@@ -1,5 +1,5 @@
 import SkyBlockMemberQuestsHarpSong from './SkyBlockMemberQuestsHarpSong.js';
-import type { HarpSong } from '../../../../Types/SkyBlock.js';
+import type { HarpSong } from '../../../../Types/index.js';
 
 class SkyBlockMemberQuestsHarp {
   selectedSong: HarpSong | 'UNKNOWN';

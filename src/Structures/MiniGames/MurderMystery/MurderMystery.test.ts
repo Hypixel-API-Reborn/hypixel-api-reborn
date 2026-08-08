@@ -23,7 +23,7 @@ import type {
   MurderMysteryRole,
   MurderMysteryVictoryDance,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('MurderMystery', () => {
   const data = new MurderMystery({ stats: 'meow' });

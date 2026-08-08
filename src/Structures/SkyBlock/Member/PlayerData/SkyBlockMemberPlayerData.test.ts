@@ -3,7 +3,7 @@ import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActi
 import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
 import SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPlayerData', () => {
   const data = new SkyBlockMemberPlayerData({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });

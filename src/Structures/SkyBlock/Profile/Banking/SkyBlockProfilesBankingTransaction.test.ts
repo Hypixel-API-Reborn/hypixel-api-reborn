@@ -1,6 +1,6 @@
 import SkyBlockProfilesBankingTransaction from './SkyBlockProfilesBankingTransaction.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BankingTransactionAction } from '../../../../Types/SkyBlock.js';
+import type { BankingTransactionAction } from '../../../../Types/index.js';
 
 test('SkyBlockProfilesBankingTransaction', () => {
   const data = new SkyBlockProfilesBankingTransaction({ stats: 'meow' });

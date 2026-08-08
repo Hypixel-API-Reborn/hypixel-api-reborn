@@ -1,5 +1,4 @@
-import type { DungeonClass } from '../../../../Types/SkyBlock.js';
-import type { UUID } from '../../../../Types/Global.js';
+import type { DungeonClass, UUID } from '../../../../Types/index.js';
 
 class SkyBlockMemberDungeonsFloorRun {
   timestamp: number;

@@ -1,4 +1,4 @@
-import type { QuestObjectiveType } from '../../Types/Static.js';
+import type { QuestObjectiveType } from '../../Types/index.js';
 
 class QuestObjective {
   id: string;

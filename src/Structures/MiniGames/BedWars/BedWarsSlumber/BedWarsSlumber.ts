@@ -4,7 +4,7 @@ import BedWarsSlumberPhase from './BedWarsSlumberPhase.js';
 import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.js';
 import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.js';
 import BedWarsSlumberRoom from './BedWarsSlumberRoom.js';
-import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/Player.js';
+import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.js';
 
 class BedWarsSlumber {
   bagType: BedWarsSlumberBag | 'UNKNOWN';

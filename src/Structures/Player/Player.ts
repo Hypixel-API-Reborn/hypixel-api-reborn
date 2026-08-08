@@ -13,7 +13,7 @@ import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
 import PlayerSocialMedia from './PlayerSocialMedia.js';
 import PlayerStats from './PlayerStats.js';
 import RecentGame from '../RecentGame.js';
-import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/Player.js';
+import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/index.js';
 
 class Player {
   nickname: string;

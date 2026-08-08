@@ -2,7 +2,7 @@ import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.js';
 import SkyBlockBazaarProductOrder from './SkyBlockBazaarProductOrder.js';
 import SkyBlockBazaarQuickStatus from './SkyBlockBazaarQuickStatus.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BazaarProduct } from '../../../Types/SkyBlock.js';
+import type { BazaarProduct } from '../../../Types/index.js';
 
 test('SkyBlockBazaarProduct', () => {
   const data = new SkyBlockBazaarProduct({ stats: 'meow' });

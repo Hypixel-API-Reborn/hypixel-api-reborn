@@ -36,7 +36,7 @@ import type {
   Language,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class Arcade {
   activeMovementTrail: ArcadeMovementTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN';

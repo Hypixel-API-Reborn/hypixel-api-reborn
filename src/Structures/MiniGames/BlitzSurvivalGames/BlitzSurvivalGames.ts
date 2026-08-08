@@ -11,7 +11,7 @@ import type {
   BlitzSurvivalGamesLeaderboardSettingsMode,
   BlitzSurvivalGamesTaunt,
   BlitzSurvivalGamesVictoryDance
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class BlitzSurvivalGames extends BlitzSurvivalGamesData {
   aura: BlitzSurvivalGamesAura | 'UNKNOWN';

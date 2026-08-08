@@ -1,7 +1,7 @@
 import MurderMysteryKnifeSkinPrestige from './MurderMysteryKnifeSkinPrestige.js';
 import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MurderMysteryKnifeSkinRaw } from '../../../Types/Player.js';
+import type { MurderMysteryKnifeSkinRaw } from '../../../Types/index.js';
 
 test('MurderMysteryKnifeSkinPrestige', () => {
   const data = new MurderMysteryKnifeSkinPrestige({ stats: 'meow' });

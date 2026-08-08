@@ -1,6 +1,6 @@
 import SheepWarsLayout from './SheepWarsLayout.js';
 import { Divide } from '../../../../Utils/index.js';
-import type { WoolGamesSheepWarsClassName } from '../../../../Types/Player.js';
+import type { WoolGamesSheepWarsClassName } from '../../../../Types/index.js';
 
 class SheepWars {
   wins: number;

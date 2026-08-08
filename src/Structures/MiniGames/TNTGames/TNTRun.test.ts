@@ -1,6 +1,6 @@
 import TNTRun from './TNTRun.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 test('TNTRun', () => {
   const data = new TNTRun({ stats: 'meow' });

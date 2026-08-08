@@ -1,6 +1,6 @@
 import HoleInTheWall from './HoleInTheWall.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ArcadeHoleInTheWallColor } from '../../../Types/Player.js';
+import type { ArcadeHoleInTheWallColor } from '../../../Types/index.js';
 
 test('HoleInTheWall', () => {
   const data = new HoleInTheWall({ stats: 'meow' });

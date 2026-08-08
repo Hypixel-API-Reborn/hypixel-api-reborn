@@ -31,14 +31,7 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   fixedStructuresPaths.sort().forEach((path) => lines.push(path));
 
   lines.push('');
-
-  const typesPaths = await scanDirectory('./src/Types/', { replaceSrc: true });
-  typesPaths.forEach((path) => {
-    const fixedPath = path.replaceAll('.ts', '.js');
-    lines.push(`export * from '${fixedPath}';`);
-  });
-
-  lines.push('');
+  lines.push("export * from './Types/index.js';");
   lines.push("export * from './Utils/index.js';");
   lines.push('');
 

@@ -1,6 +1,6 @@
 import SkyBlockMemberPlayerDataMinion from './SkyBlockMemberPlayerDataMinion.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockMinionName } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockMinionName } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPlayerDataMinion', () => {
   const data = new SkyBlockMemberPlayerDataMinion([], 'ACACIA');

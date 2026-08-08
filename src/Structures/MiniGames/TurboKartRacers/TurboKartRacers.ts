@@ -1,5 +1,5 @@
 import TurboKartRacersMap from './TurboKartRacersMap.js';
-import type { TurboKartRacersHorn } from '../../../Types/Player.js';
+import type { TurboKartRacersHorn } from '../../../Types/index.js';
 
 class TurboKartRacers {
   coins: number;

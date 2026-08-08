@@ -35,7 +35,7 @@ test('RequestHandler (Invalid API Key)', async () => {
     status: 403,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.INVALID_API_KEY);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrow(Errors.INVALID_API_KEY);
   vi.restoreAllMocks();
   client.destroy();
 });
@@ -50,7 +50,7 @@ test('RequestHandler (400 Bad Request)', async () => {
     status: 400,
     json: () => Promise.resolve({ success: false, cause: 'meow' })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrow(
     Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'meow')
   );
   vi.restoreAllMocks();
@@ -67,7 +67,7 @@ test('RequestHandler (400 Bad Request No Cause)', async () => {
     status: 400,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrow(
     Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, 'UNKNOWN')
   );
   vi.restoreAllMocks();
@@ -84,7 +84,7 @@ test('RequestHandler (Unprocessable Entity)', async () => {
     status: 422,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.UNEXPECTED_ERROR);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrow(Errors.UNEXPECTED_ERROR);
   vi.restoreAllMocks();
   client.destroy();
 });
@@ -99,7 +99,7 @@ test('RequestHandler (Rate Limited)', async () => {
     status: 429,
     json: () => Promise.resolve({ success: false })
   } as any);
-  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrowError(Errors.RATE_LIMIT_EXCEEDED);
+  await expect(() => client.requestHandler.request('/boosters')).rejects.toThrow(Errors.RATE_LIMIT_EXCEEDED);
   vi.restoreAllMocks();
   client.destroy();
 });

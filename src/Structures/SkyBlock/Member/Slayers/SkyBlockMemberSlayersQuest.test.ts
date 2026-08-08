@@ -1,6 +1,6 @@
 import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/index.js';
 
 test('SkyBlockMemberSlayerQuest', () => {
   const data = new SkyBlockMemberSlayersQuest({ stats: 'meow' });

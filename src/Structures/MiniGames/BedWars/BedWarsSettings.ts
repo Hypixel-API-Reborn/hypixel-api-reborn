@@ -1,4 +1,4 @@
-import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/Player.js';
+import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/index.js';
 
 class BedWarsSettings {
   deposit: BedWarsSettingsDeposit;

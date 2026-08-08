@@ -15,7 +15,7 @@ import PlayerSocialMedia from './PlayerSocialMedia.js';
 import PlayerStats from './PlayerStats.js';
 import RecentGame from '../RecentGame.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/Player.js';
+import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/index.js';
 
 test('Player', () => {
   const data = new Player({ stats: 'meow' }, {});

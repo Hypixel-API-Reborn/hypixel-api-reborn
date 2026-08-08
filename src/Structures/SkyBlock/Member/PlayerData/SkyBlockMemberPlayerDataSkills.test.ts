@@ -1,6 +1,6 @@
 import SkyBlockMemberPlayerDataSkills from './SkyBlockMemberPlayerDataSkills.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkillLevelData } from '../../../../Types/SkyBlock.js';
+import type { SkillLevelData } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPlayerDataSkills', () => {
   const data = new SkyBlockMemberPlayerDataSkills({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });

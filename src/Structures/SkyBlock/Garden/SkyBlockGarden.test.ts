@@ -5,7 +5,7 @@ import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
 import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
 import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/SkyBlock.js';
+import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/index.js';
 
 test('SkyBlockGarden', () => {
   const data = new SkyBlockGarden({ stats: 'meow' });

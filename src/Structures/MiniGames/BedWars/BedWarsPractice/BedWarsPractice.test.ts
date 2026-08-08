@@ -2,7 +2,7 @@ import BedWarsPractice from './BedWarsPractice.js';
 import BedWarsPracticeBridging from './BedWarsPracticeBridging.js';
 import BedWarsPracticeMode from './BedWarsPracticeMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsPracticeModeId } from '../../../../Types/Player.js';
+import type { BedWarsPracticeModeId } from '../../../../Types/index.js';
 
 test('BedWarsPractice', () => {
   const data = new BedWarsPractice({ stats: 'meow' });

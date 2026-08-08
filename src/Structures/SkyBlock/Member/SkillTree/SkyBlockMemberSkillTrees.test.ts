@@ -1,7 +1,7 @@
 import SkyBlockMemberSkillTree from './SkyBlockMemberSkillTree.js';
 import SkyBlockMemberSkillTrees from './SkyBlockMemberSkillTrees.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MiningPickaxeAbility } from '../../../../Types/SkyBlock.js';
+import type { MiningPickaxeAbility } from '../../../../Types/index.js';
 
 test('SkyBlockMemberSkillTrees', () => {
   const data = new SkyBlockMemberSkillTrees({ stats: 'meow' });

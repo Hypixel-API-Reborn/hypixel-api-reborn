@@ -1,4 +1,4 @@
-import type { DungeonsTreasureType } from '../../../../Types/SkyBlock.js';
+import type { DungeonsTreasureType } from '../../../../Types/index.js';
 
 class SkyBlockMemberDungeonsTreasuresChest {
   runId: string;

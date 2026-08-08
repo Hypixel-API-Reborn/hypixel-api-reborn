@@ -1,6 +1,6 @@
 import SkyBlockProfileCommunityUpgradesUpgrade from './SkyBlockProfileCommunityUpgradesUpgrade.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CommunityUpgradesUpgrade } from '../../../../Types/SkyBlock.js';
+import type { CommunityUpgradesUpgrade } from '../../../../Types/index.js';
 
 test('SkyBlockProfileCommunityUpgradesUpgrade', () => {
   const data = new SkyBlockProfileCommunityUpgradesUpgrade({ stats: 'meow' });

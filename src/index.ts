@@ -453,17 +453,7 @@ import Zombies from './Structures/MiniGames/Arcade/Zombies/Zombies.js';
 import ZombiesMap from './Structures/MiniGames/Arcade/Zombies/ZombiesMap.js';
 import ZombiesMapMode from './Structures/MiniGames/Arcade/Zombies/ZombiesMapMode.js';
 
-export * from './Types/Booster.js';
-export * from './Types/Client.js';
-export * from './Types/Color.js';
-export * from './Types/Game.js';
-export * from './Types/Global.js';
-export * from './Types/Guild.js';
-export * from './Types/Player.js';
-export * from './Types/Requests.js';
-export * from './Types/SkyBlock.js';
-export * from './Types/Static.js';
-
+export * from './Types/index.js';
 export * from './Utils/index.js';
 
 export {

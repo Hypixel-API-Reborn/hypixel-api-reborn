@@ -1,14 +1,14 @@
 import QuakecraftMode from './QuakecraftMode.js';
 import { Divide } from '../../../Utils/index.js';
-import type { ColorCode } from '../../../Types/Color.js';
 import type {
+  ColorCode,
   QuakecraftBarrel,
   QuakecraftCase,
   QuakecraftKillSound,
   QuakecraftMuzzle,
   QuakecraftSight,
   QuakecraftTrigger
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class Quakecraft {
   coins: number;

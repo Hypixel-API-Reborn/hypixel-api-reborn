@@ -1,5 +1,5 @@
 import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.js';
-import type { MurderMysteryKnifeSkinRaw } from '../../../Types/Player.js';
+import type { MurderMysteryKnifeSkinRaw } from '../../../Types/index.js';
 
 class MurderMysteryKnifeSkinPrestige {
   usePrestige: MurderMysteryKnifeSkinRaw[];

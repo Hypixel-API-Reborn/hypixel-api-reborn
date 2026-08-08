@@ -1,5 +1,5 @@
 import { MiningForgeItems, MiningForgeQuickForgeMultiplier } from '../../../../Utils/index.js';
-import type { ForgeItemType, MiningForgeItemId, MiningForgeItemName } from '../../../../Types/SkyBlock.js';
+import type { ForgeItemType, MiningForgeItemId, MiningForgeItemName } from '../../../../Types/index.js';
 
 class SkyBlockMemberMiningHotmForgeItem {
   type: ForgeItemType | 'UNKNOWN';

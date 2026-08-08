@@ -1,6 +1,6 @@
 import LeaderboardSettings from './LeaderboardSettings.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BuildBattleLeaderboardSettingsMode, LeaderboardSettingsResetType } from '../../../Types/Player.js';
+import type { BuildBattleLeaderboardSettingsMode, LeaderboardSettingsResetType } from '../../../Types/index.js';
 
 test('LeaderboardSettings', () => {
   const data = new LeaderboardSettings<BuildBattleLeaderboardSettingsMode>({ stats: 'meow' });

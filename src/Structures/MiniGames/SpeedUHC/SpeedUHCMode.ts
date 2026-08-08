@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { SpeedUHCModeId } from '../../../Types/Player.js';
+import type { SpeedUHCModeId } from '../../../Types/index.js';
 
 class SpeedUHCMode {
   kills: number;

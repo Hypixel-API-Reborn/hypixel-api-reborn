@@ -1,4 +1,4 @@
-import type { CrimsonIsleDojoRank } from '../../../../Types/SkyBlock.js';
+import type { CrimsonIsleDojoRank } from '../../../../Types/index.js';
 
 class SkyBlockMemberCrimsonIsleDojoMinigame {
   points: number;

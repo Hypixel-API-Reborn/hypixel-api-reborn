@@ -1,5 +1,5 @@
 import BaseAchievement from './BaseAchievement.js';
-import type { AchievementTier } from '../../../Types/Static.js';
+import type { AchievementTier } from '../../../Types/index.js';
 
 class TieredAchievement extends BaseAchievement {
   tiers: AchievementTier[];

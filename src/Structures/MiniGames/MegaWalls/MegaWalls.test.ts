@@ -2,7 +2,7 @@ import MegaWalls from './MegaWalls.js';
 import MegaWallsKitStats from './MegaWallsKitStats.js';
 import MegaWallsModeStats from './MegaWallsModeStats.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MegaWallsKit } from '../../../Types/Player.js';
+import type { MegaWallsKit } from '../../../Types/index.js';
 
 test('MegaWalls', () => {
   const data = new MegaWalls({ stats: 'meow' });

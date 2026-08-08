@@ -4,7 +4,7 @@ import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
 import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
 import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/SkyBlock.js';
+import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/index.js';
 
 test('SkyBlockMemberMining', () => {
   const data = new SkyBlockMemberMining({ stats: 'meow' }, new SkyBlockMemberSkillTrees({ stats: 'meow' }));

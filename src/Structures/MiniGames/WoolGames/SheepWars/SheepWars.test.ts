@@ -1,7 +1,7 @@
 import SheepWars from './SheepWars.js';
 import SheepWarsLayout from './SheepWarsLayout.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WoolGamesSheepWarsClassName } from '../../../../Types/Player.js';
+import type { WoolGamesSheepWarsClassName } from '../../../../Types/index.js';
 
 test('SheepWars', () => {
   const data = new SheepWars({ stats: 'meow' });

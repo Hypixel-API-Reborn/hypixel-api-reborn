@@ -1,4 +1,4 @@
-import type { UUID } from '../Types/Global.js';
+import type { UUID } from '../Types/index.js';
 
 class House {
   name: string;
