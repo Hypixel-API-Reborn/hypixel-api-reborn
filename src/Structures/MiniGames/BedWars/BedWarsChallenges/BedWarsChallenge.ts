@@ -1,4 +1,4 @@
-import type { BedWarsChallengeId } from '../../../../Types/Player.js';
+import type { BedWarsChallengeId } from '../../../../Types/index.js';
 
 class BedWarsChallenge {
   bestTime: number;

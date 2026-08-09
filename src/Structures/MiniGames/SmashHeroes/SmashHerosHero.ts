@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { SmashHerosHeroId } from '../../../Types/Player.js';
+import type { SmashHerosHeroId } from '../../../Types/index.js';
 
 class SmashHerosHero {
   name: SmashHerosHeroId;

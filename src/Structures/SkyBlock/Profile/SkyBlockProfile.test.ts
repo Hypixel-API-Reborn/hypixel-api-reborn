@@ -6,7 +6,7 @@ import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
 import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type RequestData from '../../../Private/RequestData.js';
-import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
+import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/index.js';
 
 test('SkyBlockProfile', () => {
   const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow' });

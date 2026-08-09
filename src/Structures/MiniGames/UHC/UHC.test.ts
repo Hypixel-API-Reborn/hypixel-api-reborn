@@ -1,7 +1,7 @@
 import UHC from './UHC.js';
 import UHCGamemode from './UHCGamemode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UHCKit } from '../../../Types/Player.js';
+import type { UHCKit } from '../../../Types/index.js';
 
 test('UHC', () => {
   const data = new UHC({ stats: 'meow' });

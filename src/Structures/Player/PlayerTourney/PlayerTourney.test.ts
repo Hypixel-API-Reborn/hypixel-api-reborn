@@ -1,7 +1,7 @@
 import PlayerTourney from './PlayerTourney.js';
 import PlayerTourneyData from './PlayerTourneyData.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerTourneyShopSort } from '../../../Types/Player.js';
+import type { PlayerTourneyShopSort } from '../../../Types/index.js';
 
 test('PlayerTourney', () => {
   const data = new PlayerTourney({ stats: 'meow' });

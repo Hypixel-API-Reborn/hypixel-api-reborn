@@ -1,6 +1,6 @@
 import DuelsModeFull from './DuelsModeFull.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DuelsTitleParsed } from '../../../../Types/Player.js';
+import type { DuelsTitleParsed } from '../../../../Types/index.js';
 
 test('DuelsModeFull', () => {
   const data = new DuelsModeFull({ stats: 'meow' }, 'bridge');

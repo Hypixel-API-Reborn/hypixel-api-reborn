@@ -1,6 +1,6 @@
 import BaseKillsDeathsType from '../Shared/BaseKillDeathsType.js';
 import { Divide, ParseModeAfter, ParseModeBefore } from '../../../Utils/index.js';
-import type { SkyWarsKillType, SkyWarsKitId, SkyWarsModeId } from '../../../Types/Player.js';
+import type { SkyWarsKillType, SkyWarsKitId, SkyWarsModeId } from '../../../Types/index.js';
 
 class SkyWarsKillsDeathsType extends BaseKillsDeathsType {
   constructor(data: Record<string, any>, type?: SkyWarsKillType, mode?: SkyWarsModeId | SkyWarsKitId) {

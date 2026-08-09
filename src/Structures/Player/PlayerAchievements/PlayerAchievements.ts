@@ -1,6 +1,6 @@
 import PlayerAchievementsRewards from './PlayerAchievementsRewards.js';
 import PlayerAchievementsTotem from './PlayerAchievementsTotem.js';
-import type { PlayerAchievementsOneTimeSort } from '../../../Types/Player.js';
+import type { PlayerAchievementsOneTimeSort } from '../../../Types/index.js';
 
 class PlayerAchievements {
   points: number;

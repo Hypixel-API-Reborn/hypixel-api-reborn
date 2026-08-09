@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { ColorString } from '../../../Types/Color.js';
+import type { ColorString } from '../../../Types/index.js';
 
 class PVPRun {
   wins: number;

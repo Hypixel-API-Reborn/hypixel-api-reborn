@@ -6,7 +6,7 @@ import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
 import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.js';
 import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ShopSort } from '../../../Types/Player.js';
+import type { ShopSort } from '../../../Types/index.js';
 
 test('SkyWars', () => {
   const data = new SkyWars({ stats: 'meow' });

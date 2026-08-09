@@ -1,6 +1,6 @@
 import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
 import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
-import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.js';
+import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/index.js';
 
 class SkyBlockMemberCrimsonIsleTrophyFish {
   rank: CrimsonIsleTrophyFishRank;

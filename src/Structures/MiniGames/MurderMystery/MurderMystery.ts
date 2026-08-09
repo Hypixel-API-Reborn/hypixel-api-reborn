@@ -21,7 +21,7 @@ import type {
   MurderMysteryRole,
   MurderMysteryVictoryDance,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class MurderMystery {
   activeAnimatedHat: MurderMysteryAnimatedHat | 'UNKNOWN';

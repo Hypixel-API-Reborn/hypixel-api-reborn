@@ -1,5 +1,5 @@
 import SkyBlockMemberPlayerDataMinion from './SkyBlockMemberPlayerDataMinion.js';
-import type { SkyBlockMinion } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockMinion } from '../../../../Types/index.js';
 
 class SkyBlockMemberPlayerDataMinions {
   acacia: SkyBlockMemberPlayerDataMinion;

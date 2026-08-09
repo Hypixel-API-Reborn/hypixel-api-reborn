@@ -1,6 +1,6 @@
 import PitInventoryItem from './PitInventoryItem.js';
 import { Divide, decode, pit } from '../../../Utils/index.js';
-import type { PitArmor } from '../../../Types/Player.js';
+import type { PitArmor } from '../../../Types/index.js';
 
 class Pit {
   prestige: number;

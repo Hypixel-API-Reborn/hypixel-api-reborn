@@ -1,6 +1,6 @@
 import VampireZRole from './VampireZRole.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { VampireZRoleId } from '../../../Types/Player.js';
+import type { VampireZRoleId } from '../../../Types/index.js';
 
 test('VampireZRole', () => {
   const data = new VampireZRole({ stats: 'meow' }, 'human');

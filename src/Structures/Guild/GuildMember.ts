@@ -1,6 +1,5 @@
 import { parseGuildHistory } from '../../Utils/index.js';
-import type { ExpHistory } from '../../Types/Guild.js';
-import type { UUID } from '../../Types/Global.js';
+import type { ExpHistory, UUID } from '../../Types/index.js';
 
 class GuildMember {
   uuid: UUID;

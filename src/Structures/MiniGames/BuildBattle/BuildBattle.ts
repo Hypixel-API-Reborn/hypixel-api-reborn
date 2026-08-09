@@ -16,7 +16,7 @@ import type {
   BuildBattleTitle,
   BuildBattleVictoryDance,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class BuildBattle {
   activeIsland: BuildBattleIsland | 'island_none';

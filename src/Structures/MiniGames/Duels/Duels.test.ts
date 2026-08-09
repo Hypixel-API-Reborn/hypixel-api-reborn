@@ -46,7 +46,7 @@ import type {
   DuelsStatus,
   DuelsTitleParsed,
   PlayerGenericSelectedCosmetic
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('Duels', () => {
   const data = new Duels({ stats: 'meow' });

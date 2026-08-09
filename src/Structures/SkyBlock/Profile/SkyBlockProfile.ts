@@ -4,8 +4,7 @@ import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfil
 import type RequestData from '../../../Private/RequestData.js';
 import type SkyBlockGarden from '../Garden/SkyBlockGarden.js';
 import type SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
-import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/SkyBlock.js';
-import type { UUID } from '../../../Types/Global.js';
+import type { SkyBlockProfileName, SkyBlockProfileType, UUID } from '../../../Types/index.js';
 
 class SkyBlockProfile {
   profileId: string;

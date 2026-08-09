@@ -1,5 +1,5 @@
 import { Divide, ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.js';
-import type { DuelsModeId } from '../../../../Types/Player.js';
+import type { DuelsModeId } from '../../../../Types/index.js';
 
 class GenericDuelsMode {
   kills: number;

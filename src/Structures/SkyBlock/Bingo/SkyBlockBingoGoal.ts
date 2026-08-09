@@ -1,4 +1,4 @@
-import type { SkyBlockBingoGoalType } from '../../../Types/SkyBlock.js';
+import type { SkyBlockBingoGoalType } from '../../../Types/index.js';
 
 function parsePosition(position: number): [number, number] {
   const x = (position % 5) + 1;

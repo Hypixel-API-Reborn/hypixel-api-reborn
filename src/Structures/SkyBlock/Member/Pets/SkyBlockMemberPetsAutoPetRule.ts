@@ -1,4 +1,4 @@
-import type { UUID, UserInput } from '../../../../Types/Global.js';
+import type { UUID, UserInput } from '../../../../Types/index.js';
 
 class SkyBlockMemberPetsAutoPetRule {
   uuid: UUID;

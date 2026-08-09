@@ -57,7 +57,7 @@ test('Updater (getLatestVersion error)', async () => {
     status: 404,
     json: () => Promise.resolve({ 'dist-tags': { latest: '1.0.0' } })
   } as any);
-  await expect(() => client.updater.getLatestVersion()).rejects.toThrowError(Errors.UPDATER_REQUEST_NOT_OK);
+  await expect(() => client.updater.getLatestVersion()).rejects.toThrow(Errors.UPDATER_REQUEST_NOT_OK);
   vi.restoreAllMocks();
   client.destroy();
 });

@@ -23,7 +23,7 @@ import type {
   BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('BedWars', () => {
   const data = new BedWars({ stats: 'meow' });

@@ -1,6 +1,6 @@
 import SkyBlockMemberRiftWitherCage from './SkyBlockMemberRiftWitherCage.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WitherCageKilledEye } from '../../../../Types/SkyBlock.js';
+import type { WitherCageKilledEye } from '../../../../Types/index.js';
 
 test('SkyBlockMemberRiftWitherCage', () => {
   const data = new SkyBlockMemberRiftWitherCage({ stats: 'meow' });

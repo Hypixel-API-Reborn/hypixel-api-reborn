@@ -2,7 +2,7 @@ import SmashHeroes from './SmashHeroes.js';
 import SmashHeroesMode from './SmashHeroesMode.js';
 import SmashHerosHero from './SmashHerosHero.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SmashHerosHeroId } from '../../../Types/Player.js';
+import type { SmashHerosHeroId } from '../../../Types/index.js';
 
 test('SmashHeroes', () => {
   const data = new SmashHeroes({ stats: 'meow' });

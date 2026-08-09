@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { WarlordsClassId } from '../../../Types/Player.js';
+import type { WarlordsClassId } from '../../../Types/index.js';
 
 class WarlordsClass {
   wins: number;

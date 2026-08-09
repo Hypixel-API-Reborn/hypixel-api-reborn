@@ -2,7 +2,7 @@ import PlayerHousing from './PlayerHousing.js';
 import PlayerHousingGivenCookies from './PlayerHousingGivenCookies.js';
 import PlayerHousingPlayerSettings from './PlayerHousingPlayerSettings.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerHousingPlotSize, PlayerHousingTutorialStage } from '../../../Types/Player.js';
+import type { PlayerHousingPlotSize, PlayerHousingTutorialStage } from '../../../Types/index.js';
 
 test('PlayerHousing', () => {
   const data = new PlayerHousing({ stats: 'meow' });

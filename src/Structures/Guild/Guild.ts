@@ -3,7 +3,7 @@ import Game from '../Game.js';
 import GuildMember from './GuildMember.js';
 import GuildRank from './GuildRank.js';
 import { parseGuildHistory } from '../../Utils/index.js';
-import type { ExpHistory } from '../../Types/Guild.js';
+import type { ExpHistory } from '../../Types/index.js';
 
 class Guild {
   id: string;

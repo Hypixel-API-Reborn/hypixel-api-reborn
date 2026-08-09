@@ -11,9 +11,9 @@ import type {
   PlayerCosmeticsParticlePack,
   PlayerCosmeticsRankColor,
   PlayerCosmeticsSuit,
-  PlayerCosmeticsTaunt
-} from '../../../Types/Player.js';
-import type { SortName } from '../../../Types/Global.js';
+  PlayerCosmeticsTaunt,
+  SortName
+} from '../../../Types/index.js';
 
 test('PlayerCosmetics', () => {
   const data = new PlayerCosmetics({ stats: 'meow' });

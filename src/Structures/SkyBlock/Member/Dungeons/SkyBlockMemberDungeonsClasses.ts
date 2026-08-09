@@ -1,5 +1,5 @@
 import { getLevelByXp } from '../../../../Utils/index.js';
-import type { DungeonClass, SkillLevelData } from '../../../../Types/SkyBlock.js';
+import type { DungeonClass, SkillLevelData } from '../../../../Types/index.js';
 
 class SkyBlockMemberDungeonsClasses {
   selected: DungeonClass | 'UNKNOWN';

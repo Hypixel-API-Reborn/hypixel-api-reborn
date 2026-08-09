@@ -2,7 +2,7 @@ import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrop
 import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
 import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/SkyBlock.js';
+import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/index.js';
 
 test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
   const data = new SkyBlockMemberCrimsonIsleTrophyFish({ stats: 'meow' });

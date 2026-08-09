@@ -1,5 +1,5 @@
 import { ParseModeAfter, ParseModeBefore, ParseModeBeforeAfter } from '../../../../Utils/index.js';
-import type { SkyWarsModeId, SkyWarsPerkId } from '../../../../Types/Player.js';
+import type { SkyWarsModeId, SkyWarsPerkId } from '../../../../Types/index.js';
 
 class SkyWarsModePerk {
   level: number;

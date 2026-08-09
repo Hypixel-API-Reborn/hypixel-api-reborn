@@ -1,6 +1,6 @@
 import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { JacobCrop } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/index.js';
 
 test('SkyBlockMemberJacobContestsUniqueBrackets', () => {
   const data = new SkyBlockMemberJacobContestsUniqueBrackets({ stats: 'meow' });

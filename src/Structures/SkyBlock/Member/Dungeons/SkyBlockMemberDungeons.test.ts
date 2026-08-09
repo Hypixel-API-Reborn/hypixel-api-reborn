@@ -3,7 +3,7 @@ import SkyBlockMemberDungeonsClasses from './SkyBlockMemberDungeonsClasses.js';
 import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.js';
 import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DungeonFloor, SkillLevelData } from '../../../../Types/SkyBlock.js';
+import type { DungeonFloor, SkillLevelData } from '../../../../Types/index.js';
 
 test('SkyBlockMemberDungeons', () => {
   const data = new SkyBlockMemberDungeons({ stats: 'meow' });

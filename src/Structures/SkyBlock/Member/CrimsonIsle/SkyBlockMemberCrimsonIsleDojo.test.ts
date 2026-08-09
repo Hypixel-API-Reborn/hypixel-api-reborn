@@ -1,7 +1,7 @@
 import SkyBlockMemberCrimsonIsleDojo from './SkyBlockMemberCrimsonIsleDojo.js';
 import SkyBlockMemberCrimsonIsleDojoMinigame from './SkyBlockMemberCrimsonIsleDojoMinigame.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleBelt } from '../../../../Types/SkyBlock.js';
+import type { CrimsonIsleBelt } from '../../../../Types/index.js';
 
 test('SkyBlockMemberCrimsonIsleDojo', () => {
   const data = new SkyBlockMemberCrimsonIsleDojo({ stats: 'meow' });

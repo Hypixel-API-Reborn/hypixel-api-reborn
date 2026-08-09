@@ -1,4 +1,4 @@
-import type { SacrificedPet } from '../../../../Types/SkyBlock.js';
+import type { SacrificedPet } from '../../../../Types/index.js';
 
 class SkyBlockMemberPetsCare {
   coinsSpent: number;

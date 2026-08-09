@@ -1,5 +1,5 @@
 import SkyBlockMemberCrimsonIsleDojoMinigame from './SkyBlockMemberCrimsonIsleDojoMinigame.js';
-import type { CrimsonIsleBelt } from '../../../../Types/SkyBlock.js';
+import type { CrimsonIsleBelt } from '../../../../Types/index.js';
 
 class SkyBlockMemberCrimsonIsleDojo {
   force: SkyBlockMemberCrimsonIsleDojoMinigame;

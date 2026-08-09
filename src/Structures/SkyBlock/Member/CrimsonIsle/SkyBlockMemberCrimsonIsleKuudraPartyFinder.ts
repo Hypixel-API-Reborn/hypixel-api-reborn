@@ -1,5 +1,4 @@
-import type { CrimsonIsleKuudraTier } from '../../../../Types/SkyBlock.js';
-import type { UserInput } from '../../../../Types/Global.js';
+import type { CrimsonIsleKuudraTier, UserInput } from '../../../../Types/index.js';
 
 class SkyBlockMemberCrimsonIsleKuudraPartyFinder {
   searchTier: CrimsonIsleKuudraTier | 'UNKNOWN';

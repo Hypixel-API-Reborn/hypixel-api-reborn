@@ -1,6 +1,6 @@
 import MegaWallsModeStats from './MegaWallsModeStats.js';
 import { Divide } from '../../../Utils/index.js';
-import type { MegaWallsKit } from '../../../Types/Player.js';
+import type { MegaWallsKit } from '../../../Types/index.js';
 
 class MegaWallsKitStats {
   kills: number;

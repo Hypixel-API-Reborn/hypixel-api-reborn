@@ -1,4 +1,4 @@
-import type { CopsAndCrimsGunId } from '../../../Types/Player.js';
+import type { CopsAndCrimsGunId } from '../../../Types/index.js';
 
 class CopsAndCrimsGun {
   gunId: CopsAndCrimsGunId;

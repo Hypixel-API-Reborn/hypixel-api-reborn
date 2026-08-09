@@ -1,15 +1,15 @@
 import Quakecraft from './Quakecraft.js';
 import QuakecraftMode from './QuakecraftMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorCode } from '../../../Types/Color.js';
 import type {
+  ColorCode,
   QuakecraftBarrel,
   QuakecraftCase,
   QuakecraftKillSound,
   QuakecraftMuzzle,
   QuakecraftSight,
   QuakecraftTrigger
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('Quakecraft', () => {
   const data = new Quakecraft({ stats: 'meow' });

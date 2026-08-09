@@ -1,7 +1,7 @@
 import ArenaBrawl from './ArenaBrawl.js';
 import ArenaBrawlMode from './ArenaBrawlMode.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ArenaBrawlRune } from '../../../Types/Player.js';
+import type { ArenaBrawlRune } from '../../../Types/index.js';
 
 test('ArenaBrawl', () => {
   const data = new ArenaBrawl({ stats: 'meow' });

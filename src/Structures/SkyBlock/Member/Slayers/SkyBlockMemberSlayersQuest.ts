@@ -1,4 +1,4 @@
-import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/index.js';
 
 class SkyBlockMemberSlayersQuest {
   type: SkyBlockSlayer | 'UNKNOWN';

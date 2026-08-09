@@ -1,5 +1,5 @@
 import { Divide, ParseModeAfter } from '../../../Utils/index.js';
-import type { BlitzSurvivalGamesKitId } from '../../../Types/Player.js';
+import type { BlitzSurvivalGamesKitId } from '../../../Types/index.js';
 
 class BlitzSurvivalGamesData {
   wins: number;

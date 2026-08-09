@@ -5,7 +5,7 @@ import type {
   PrivateGameSettingsSpeed,
   WoolGamesPrivateGameSettingsMapDestructibility,
   WoolGamesPrivateGameSettingsSpawnRate
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 class WoolGamesPrivateGames {
   blockPlace: boolean;

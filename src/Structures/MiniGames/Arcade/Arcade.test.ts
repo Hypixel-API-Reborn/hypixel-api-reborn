@@ -37,7 +37,7 @@ import type {
   Language,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('Arcade', () => {
   const data = new Arcade({ stats: 'meow' });

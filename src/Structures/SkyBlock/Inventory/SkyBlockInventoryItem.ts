@@ -2,8 +2,7 @@ import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.js'
 import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.js';
 import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.js';
 import SkyBlockPotionEffect from '../Potion/SkyBlockPotionEffect.js';
-import type { Rarity } from '../../../Types/SkyBlock.js';
-import type { UUID } from '../../../Types/Global.js';
+import type { Rarity, UUID } from '../../../Types/index.js';
 
 class SkyBlockInventoryItem {
   minecraftItemId: number;

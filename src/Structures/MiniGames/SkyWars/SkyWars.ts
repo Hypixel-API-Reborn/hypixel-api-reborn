@@ -13,7 +13,7 @@ import {
   SKYWARS_XP_TO_NEXT_LEVEL,
   weekAB
 } from '../../../Utils/index.js';
-import type { ShopSort } from '../../../Types/Player.js';
+import type { ShopSort } from '../../../Types/index.js';
 
 class SkyWars extends SkyWarsMode {
   activeKillEffect: string | 'UNKNOWN';

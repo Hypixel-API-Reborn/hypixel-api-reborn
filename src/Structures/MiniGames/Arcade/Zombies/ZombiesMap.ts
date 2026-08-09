@@ -1,5 +1,5 @@
 import ZombiesMapMode from './ZombiesMapMode.js';
-import type { ArcadeZombiesMap } from '../../../../Types/Player.js';
+import type { ArcadeZombiesMap } from '../../../../Types/index.js';
 
 function minPositive(...values: number[]): number {
   const positives = values.filter((v) => v > 0);

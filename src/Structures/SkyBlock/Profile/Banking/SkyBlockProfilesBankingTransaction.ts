@@ -1,4 +1,4 @@
-import type { BankingTransactionAction } from '../../../../Types/SkyBlock.js';
+import type { BankingTransactionAction } from '../../../../Types/index.js';
 
 class SkyBlockProfilesBankingTransaction {
   amount: number;

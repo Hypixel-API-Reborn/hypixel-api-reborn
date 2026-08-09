@@ -1,6 +1,6 @@
 import SkyBlockMemberPetsAutoPetRule from './SkyBlockMemberPetsAutoPetRule.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UUID, UserInput } from '../../../../Types/Global.js';
+import type { UUID, UserInput } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPetsAutoPetRule', () => {
   const data = new SkyBlockMemberPetsAutoPetRule({ stats: 'meow' });

@@ -1,4 +1,4 @@
-import type { PlayerHousingSettingsTextInputType } from '../../../Types/Player.js';
+import type { PlayerHousingSettingsTextInputType } from '../../../Types/index.js';
 
 class PlayerHousingPlayerSettings {
   playerVisibility: number;

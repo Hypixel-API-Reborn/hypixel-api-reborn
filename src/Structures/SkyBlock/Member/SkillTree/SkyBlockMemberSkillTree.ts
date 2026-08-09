@@ -3,7 +3,7 @@ import type {
   SkillLevelData,
   SkyBlockMemberSkillTreeName,
   SkyBlockMemberSkillTreeTokenName
-} from '../../../../Types/SkyBlock.js';
+} from '../../../../Types/index.js';
 
 class SkyBlockMemberSkillTree<Ability> {
   tree: SkyBlockMemberSkillTreeName;

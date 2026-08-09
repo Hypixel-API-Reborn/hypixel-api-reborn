@@ -1,6 +1,6 @@
 import BedWarsSettings from './BedWarsSettings.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/Player.js';
+import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/index.js';
 
 test('BedWarsSettings', () => {
   const data = new BedWarsSettings({ stats: 'meow' });

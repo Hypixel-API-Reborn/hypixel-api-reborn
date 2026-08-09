@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { ArenaBrawlModeId } from '../../../Types/Player.js';
+import type { ArenaBrawlModeId } from '../../../Types/index.js';
 
 class ArenaBrawlMode {
   damage: number;

@@ -21,8 +21,7 @@ import SkyBlockMemberRift from './Rift/SkyBlockMemberRift.js';
 import SkyBlockMemberSkillTrees from './SkillTree/SkyBlockMemberSkillTrees.js';
 import SkyBlockMemberSlayers from './Slayers/SkyBlockMemberSlayers.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockArrow } from '../../../Types/SkyBlock.js';
-import type { UUID } from '../../../Types/Global.js';
+import type { SkyBlockArrow, UUID } from '../../../Types/index.js';
 
 test('SkyBlockMember', () => {
   const data = new SkyBlockMember('mrrp', { stats: 'meow' });

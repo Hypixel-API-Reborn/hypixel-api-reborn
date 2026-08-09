@@ -2,7 +2,7 @@ import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMeda
 import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
 import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
 import type SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.js';
-import type { JacobCrop } from '../../../../Types/SkyBlock.js';
+import type { JacobCrop } from '../../../../Types/index.js';
 
 class SkyBlockMemberJacobContests {
   perks: SkyBlockMemberJacobContestsPerks;

@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { CopsAndCrimsGamemodeId } from '../../../Types/Player.js';
+import type { CopsAndCrimsGamemodeId } from '../../../Types/index.js';
 
 class CopsAndCrimsGamemode {
   kills: number;

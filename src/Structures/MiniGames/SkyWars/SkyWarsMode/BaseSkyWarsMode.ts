@@ -1,7 +1,7 @@
 import SkyWarsHeads from '../SkyWarsHeads.js';
 import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.js';
 import { Divide, ParseModeAfter } from '../../../../Utils/index.js';
-import type { SkyWarsKitId, SkyWarsModeId } from '../../../../Types/Player.js';
+import type { SkyWarsKitId, SkyWarsModeId } from '../../../../Types/index.js';
 
 class BaseSkyWarsMode {
   kills: SkyWarsKillsDeaths;

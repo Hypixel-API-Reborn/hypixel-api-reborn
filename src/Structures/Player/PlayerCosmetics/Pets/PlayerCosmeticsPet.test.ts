@@ -1,6 +1,6 @@
 import PlayerCosmeticsPet from './PlayerCosmeticsPet.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerCosmeticsPetName } from '../../../../Types/Player.js';
+import type { PlayerCosmeticsPetName } from '../../../../Types/index.js';
 
 test('PlayerCosmeticsPet', () => {
   const data = new PlayerCosmeticsPet('mrrp', { stats: 'meow' });

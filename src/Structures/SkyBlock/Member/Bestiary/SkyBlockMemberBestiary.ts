@@ -1,5 +1,5 @@
 import { BestiaryBrackets, BestiaryMobs } from '../../../../Utils/index.js';
-import type { BestiaryCategory, BestiaryMob, BestiaryStats, RawBestiaryMob } from '../../../../Types/SkyBlock.js';
+import type { BestiaryCategory, BestiaryMob, BestiaryStats, RawBestiaryMob } from '../../../../Types/index.js';
 
 class SkyBlockMemberBestiary {
   kills: Record<string, number>;

@@ -1,6 +1,6 @@
 import BaseSkyWarsMode from './BaseSkyWarsMode.js';
 import { ParseModeAfter } from '../../../../Utils/index.js';
-import type { SkyWarsModeId } from '../../../../Types/Player.js';
+import type { SkyWarsModeId } from '../../../../Types/index.js';
 
 class SkyWarsMode extends BaseSkyWarsMode {
   activeKit: string | 'UNKNOWN';

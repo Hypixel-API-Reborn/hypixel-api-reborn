@@ -1,6 +1,6 @@
 import SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { RiftGalleryTrophy } from '../../../../Types/SkyBlock.js';
+import type { RiftGalleryTrophy } from '../../../../Types/index.js';
 
 test('SkyBlockMemberRiftGallerySecuredTrophy', () => {
   const data = new SkyBlockMemberRiftGallerySecuredTrophy({ stats: 'meow' });

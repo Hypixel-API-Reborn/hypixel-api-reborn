@@ -1,6 +1,6 @@
 import Game from './Game.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { GameCode, GameID, GameString } from '../Types/Game.js';
+import type { GameCode, GameID, GameString } from '../Types/index.js';
 
 test('Game', () => {
   const data = new Game('ARCADE');

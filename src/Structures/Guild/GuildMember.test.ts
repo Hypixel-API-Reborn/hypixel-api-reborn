@@ -1,7 +1,6 @@
 import GuildMember from './GuildMember.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ExpHistory } from '../../Types/Guild.js';
-import type { UUID } from '../../Types/Global.js';
+import type { ExpHistory, UUID } from '../../Types/index.js';
 
 test('GuildMember', () => {
   const data = new GuildMember({ stats: 'meow' });

@@ -1,6 +1,6 @@
 import BedWarsItemsPurchased from './BedWarsItemsPurchased.js';
 import { ParseModeBefore } from '../../../Utils/index.js';
-import type { BedWarsModeId } from '../../../Types/Player.js';
+import type { BedWarsModeId } from '../../../Types/index.js';
 
 class BedWarsResourcesCollected {
   total: number;

@@ -1,6 +1,6 @@
 import SkyBlockMemberBestiary from './SkyBlockMemberBestiary.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BestiaryCategory } from '../../../../Types/SkyBlock.js';
+import type { BestiaryCategory } from '../../../../Types/index.js';
 
 test('SkyBlockMemberBestiary', () => {
   const data = new SkyBlockMemberBestiary({ stats: 'meow' });

@@ -1,6 +1,6 @@
 import ThrowOut from './ThrowOut.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ArcadeThrowOutDisguise } from '../../../Types/Player.js';
+import type { ArcadeThrowOutDisguise } from '../../../Types/index.js';
 
 test('ThrowOut', () => {
   const data = new ThrowOut({ stats: 'meow' });

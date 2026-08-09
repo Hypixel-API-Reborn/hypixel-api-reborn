@@ -1,14 +1,17 @@
-import type { BedWarsPrestige, BuildBattleTitle } from '../Types/Player.js';
 import type {
+  BedWarsPrestige,
   BestiaryMobsData,
+  BuildBattleTitle,
   CustomPetLevelingData,
+  GameCode,
+  GameID,
+  GameString,
   MiningForgeItemData,
   MiningForgeItemId,
   Rarity,
   SkyBlockSlayer,
   SkyBlockXPTable
-} from '../Types/SkyBlock.js';
-import type { GameCode, GameID, GameString } from '../Types/Game.js';
+} from '../Types/index.js';
 
 export const games: { id: GameID; code: GameCode; name: GameString }[] = [
   { id: 2, code: 'QUAKECRAFT', name: 'Quake' },

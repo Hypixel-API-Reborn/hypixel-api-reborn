@@ -1,5 +1,5 @@
 import { Divide } from '../../Utils/index.js';
-import type { PaintballHat } from '../../Types/Player.js';
+import type { PaintballHat } from '../../Types/index.js';
 
 class Paintball {
   coins: number;

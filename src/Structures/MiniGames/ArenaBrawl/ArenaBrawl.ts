@@ -1,5 +1,5 @@
 import ArenaBrawlMode from './ArenaBrawlMode.js';
-import type { ArenaBrawlRune } from '../../../Types/Player.js';
+import type { ArenaBrawlRune } from '../../../Types/index.js';
 
 class ArenaBrawl {
   coins: number;

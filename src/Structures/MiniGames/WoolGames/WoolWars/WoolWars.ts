@@ -1,7 +1,7 @@
 import WoolWarsClass from './WoolWarsClass.js';
 import WoolWarsSettings from './WoolWarsSettings.js';
 import { Divide } from '../../../../Utils/index.js';
-import type { WoolGamesWoolWarsClassName } from '../../../../Types/Player.js';
+import type { WoolGamesWoolWarsClassName } from '../../../../Types/index.js';
 
 class WoolWars {
   selectedClass: WoolGamesWoolWarsClassName | 'None';

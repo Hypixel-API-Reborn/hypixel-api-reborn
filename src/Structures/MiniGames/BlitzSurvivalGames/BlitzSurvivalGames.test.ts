@@ -11,7 +11,7 @@ import type {
   BlitzSurvivalGamesLeaderboardSettingsMode,
   BlitzSurvivalGamesTaunt,
   BlitzSurvivalGamesVictoryDance
-} from '../../../Types/Player.js';
+} from '../../../Types/index.js';
 
 test('BlitzSurvivalGames', () => {
   const data = new BlitzSurvivalGames({ stats: 'meow' });

@@ -1,6 +1,6 @@
 import PlayerSocialMedia from './PlayerSocialMedia.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UserInput } from '../../Types/Global.js';
+import type { UserInput } from '../../Types/index.js';
 
 test('PlayerSocialMedia', () => {
   const data = new PlayerSocialMedia({ stats: 'meow' });

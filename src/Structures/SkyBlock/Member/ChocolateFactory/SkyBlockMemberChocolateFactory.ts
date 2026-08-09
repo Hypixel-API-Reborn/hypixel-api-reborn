@@ -3,7 +3,7 @@ import SkyBlockMemberChocolateFactoryEmployees from './SkyBlockMemberChocolateFa
 import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.js';
 import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.js';
 import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.js';
-import type { SkyBlockArea } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea } from '../../../../Types/index.js';
 
 class SkyBlockMemberChocolateFactory {
   employees: SkyBlockMemberChocolateFactoryEmployees;

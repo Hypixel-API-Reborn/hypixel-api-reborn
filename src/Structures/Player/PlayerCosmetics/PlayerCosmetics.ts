@@ -9,9 +9,9 @@ import type {
   PlayerCosmeticsParticlePack,
   PlayerCosmeticsRankColor,
   PlayerCosmeticsSuit,
-  PlayerCosmeticsTaunt
-} from '../../../Types/Player.js';
-import type { SortName } from '../../../Types/Global.js';
+  PlayerCosmeticsTaunt,
+  SortName
+} from '../../../Types/index.js';
 
 class PlayerCosmetics {
   menuSort: SortName | 'UNKNOWN';

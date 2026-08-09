@@ -5,7 +5,7 @@ import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFacto
 import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.js';
 import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockArea } from '../../../../Types/SkyBlock.js';
+import type { SkyBlockArea } from '../../../../Types/index.js';
 
 test('SkyBlockMemberChocolateFactory', () => {
   const data = new SkyBlockMemberChocolateFactory({ stats: 'meow' });

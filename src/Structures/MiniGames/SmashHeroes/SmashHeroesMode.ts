@@ -1,5 +1,5 @@
 import { Divide } from '../../../Utils/index.js';
-import type { SmashHerosMode } from '../../../Types/Player.js';
+import type { SmashHerosMode } from '../../../Types/index.js';
 
 class SmashHeroesMode {
   kills: number;

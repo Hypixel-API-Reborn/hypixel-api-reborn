@@ -1,5 +1,5 @@
 import { ParseModeAfter } from '../../../Utils/index.js';
-import type { SkyWarsKitId, SkyWarsModeId } from '../../../Types/Player.js';
+import type { SkyWarsKitId, SkyWarsModeId } from '../../../Types/index.js';
 
 class SkyWarsHeads {
   total: number;

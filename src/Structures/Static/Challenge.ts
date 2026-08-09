@@ -1,4 +1,4 @@
-import type { ChallengeReward } from '../../Types/Static.js';
+import type { ChallengeReward } from '../../Types/index.js';
 
 class Challenge {
   id: string;

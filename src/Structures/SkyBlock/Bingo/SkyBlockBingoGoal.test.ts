@@ -1,6 +1,6 @@
 import SkyBlockBingoGoal from './SkyBlockBingoGoal.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockBingoGoalType } from '../../../Types/SkyBlock.js';
+import type { SkyBlockBingoGoalType } from '../../../Types/index.js';
 
 test('SkyBlockBingoGoal', () => {
   const data = new SkyBlockBingoGoal({ stats: 'meow' });

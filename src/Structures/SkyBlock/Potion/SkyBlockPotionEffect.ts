@@ -1,5 +1,5 @@
 import { TicksToMilliseconds } from '../../../Utils/index.js';
-import type { SkyBlockPotionEffectName } from '../../../Types/SkyBlock.js';
+import type { SkyBlockPotionEffectName } from '../../../Types/index.js';
 
 class SkyBlockPotionEffect {
   effect: SkyBlockPotionEffectName | 'UNKNOWN';

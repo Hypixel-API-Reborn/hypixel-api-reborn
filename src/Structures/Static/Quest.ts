@@ -1,5 +1,5 @@
 import QuestObjective from './QuestObjective.js';
-import type { QuestReward, QuestType } from '../../Types/Static.js';
+import type { QuestReward, QuestType } from '../../Types/index.js';
 
 class Quest {
   id: string;
