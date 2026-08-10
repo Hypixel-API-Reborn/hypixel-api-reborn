@@ -1,8 +1,8 @@
 import Errors from '../Errors.js';
 import HypixelAPIRebornError from './HypixelAPIRebornError.js';
 import RawRequestData from './RawRequestData.js';
+import { isUUID } from '../Utils/validationUtils.ts';
 import type Client from '../Client.js';
-import type { MowojangProfile } from 'mowojang';
 import type { RequestOptions } from '../Types/index.js';
 
 class RequestHandler {
@@ -73,12 +73,13 @@ class RequestHandler {
     return requestData;
   }
 
-  async getProfile(input: string): Promise<MowojangProfile> {
-    if (!input) throw new HypixelAPIRebornError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
+  async toUUID(input: string): Promise<string> {
+    if (!input) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
     if (typeof input !== 'string') throw new HypixelAPIRebornError(Errors.UUID_NICKNAME_MUST_BE_A_STRING);
+    if (isUUID(input)) return input.replace(/-/g, '');
     const profile = await this.client.mowojang.getProfile(input);
     if (profile.data === null) throw new HypixelAPIRebornError(Errors.PLAYER_DOES_NOT_EXIST);
-    return profile.data;
+    return profile.data.UUID;
   }
 
   async fetchExternalData(url: string): Promise<RawRequestData> {

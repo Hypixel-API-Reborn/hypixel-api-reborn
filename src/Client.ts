@@ -63,6 +63,15 @@ class Client {
     if (!this.key.length) throw new HypixelAPIRebornError(Errors.NO_API_KEY);
     this.options = this.parseOptions(options);
     this.requestHandler = new RequestHandler(this);
+    if (this.options.mowojang && this.options.mowojang.version !== MowojangClient.version) {
+      console.warn(
+        Errors.INVALID_MOWOJANG_VERSION.replace(/{mowojangVersion}/, MowojangClient.version).replace(
+          /{currentMowojangVersion}/,
+          this.options.mowojang.version
+        )
+      );
+      this.options.mowojang = undefined;
+    }
     this.mowojang = this.options.mowojang ?? new MowojangClient();
     this.updater = new Updater(this);
     this.cacheHandler = new CacheHandler(this);
@@ -147,8 +156,8 @@ class Client {
     const isPlayerQuery = searchParameter === 'player';
     let profile: MowojangProfile | undefined;
     if (isPlayerQuery) {
-      profile = await this.requestHandler.getProfile(query);
-      query = profile.UUID;
+      query = await this.requestHandler.toUUID(query);
+      profile = await this.getCachedProfile(query);
     }
     if (!['id', 'name', 'player'].includes(searchParameter)) {
       throw new HypixelAPIRebornError(Errors.INVALID_GUILD_SEARCH_PARAMETER);
@@ -191,8 +200,7 @@ class Client {
 
   public async getPlayer(query: string, options?: PlayerRequestOptions): Promise<RequestData<Player>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    const profile = await this.requestHandler.getProfile(query);
-    query = profile.UUID;
+    query = await this.requestHandler.toUUID(query);
     const res = await this.requestHandler.request(`/player?uuid=${query}`, options);
     if (query && !res.rawData.player) throw new HypixelAPIRebornError(Errors.PLAYER_HAS_NEVER_LOGGED);
     return new RequestData<Player>(
@@ -202,19 +210,18 @@ class Client {
         recentGames: options?.recentGames ? (await this.getRecentGames(query)).parsed : null
       }),
       res,
-      profile
+      await this.getCachedProfile(query)
     );
   }
 
   public async getPlayerHouses(query: string, options?: RequestOptions): Promise<RequestData<House[]>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    const profile = await this.requestHandler.getProfile(query);
-    query = profile.UUID;
+    query = await this.requestHandler.toUUID(query);
     const res = await this.requestHandler.request(`/housing/houses?player=${query}`, options);
     return new RequestData<House[]>(
       res.rawData.map((house: Record<string, any>) => new House(house)),
       res,
-      profile
+      await this.getCachedProfile(query)
     );
   }
 
@@ -225,13 +232,12 @@ class Client {
 
   public async getRecentGames(query: string, options?: RequestOptions): Promise<RequestData<RecentGame[]>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    const profile = await this.requestHandler.getProfile(query);
-    query = profile.UUID;
+    query = await this.requestHandler.toUUID(query);
     const res = await this.requestHandler.request(`/recentgames?uuid=${query}`, options);
     return new RequestData<RecentGame[]>(
       res.rawData.games.map((game: Record<string, any>) => new RecentGame(game)),
       res,
-      profile
+      await this.getCachedProfile(query)
     );
   }
 
@@ -407,8 +413,7 @@ class Client {
     options?: SkyBlockRequestOptions
   ): Promise<RequestData<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>>>> {
     if (!query) throw new HypixelAPIRebornError(Errors.NO_NICKNAME_UUID);
-    const profile = await this.requestHandler.getProfile(query);
-    query = profile.UUID;
+    query = await this.requestHandler.toUUID(query);
     const res = await this.requestHandler.request(`/skyblock/profiles?uuid=${query}`, options);
     if (!res.rawData.profiles || !res.rawData.profiles.length) {
       throw new HypixelAPIRebornError(Errors.NO_SKYBLOCK_PROFILES);
@@ -432,7 +437,7 @@ class Client {
     return new RequestData<WithSelectedProfile<Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile>>>(
       Object.assign(profiles, { selectedProfile }),
       res,
-      profile
+      await this.getCachedProfile(query)
     );
   }
 
@@ -442,15 +447,19 @@ class Client {
   }
 
   public async getStatus(query: string, options?: RequestOptions): Promise<RequestData<Status>> {
-    const profile = await this.requestHandler.getProfile(query);
-    query = profile.UUID;
+    query = await this.requestHandler.toUUID(query);
     const res = await this.requestHandler.request(`/status?uuid=${query}`, options);
-    return new RequestData<Status>(new Status(res.rawData.session), res, profile);
+    return new RequestData<Status>(new Status(res.rawData.session), res, await this.getCachedProfile(query));
   }
 
   public async getWatchdogStats(options?: RequestOptions): Promise<RequestData<WatchdogStats>> {
     const res = await this.requestHandler.request('/punishmentstats', options);
     return new RequestData<WatchdogStats>(new WatchdogStats(res.rawData), res);
+  }
+
+  private async getCachedProfile(uuid: string): Promise<MowojangProfile | undefined> {
+    if (!(await this.mowojang.cache.has(`profile:uuid:${uuid}`))) return undefined;
+    return (await this.mowojang.getProfile(uuid)).data ?? undefined;
   }
 }
 
