@@ -2528,7 +2528,7 @@ export const BestiaryMobs: BestiaryMobsData = {
     name: 'Spooky Festival Fishing',
     mobs: [
       { name: '§aGrim Reaper', cap: 50, mobs: ['grim_reaper_190'], bracket: 8 },
-      { name: '§aJumpin\' Jack', cap: 1000, mobs: ['sea_guardian_10'], bracket: 4 },
+      { name: "§aJumpin' Jack", cap: 1000, mobs: ['sea_guardian_10'], bracket: 4 },
       { name: '§aNightmare', cap: 750, mobs: ['nightmare_24'], bracket: 6 },
       { name: '§aPhantom Fisher', cap: 250, mobs: ['phantom_fisherman_160'], bracket: 6 },
       { name: '§aScarecrow', cap: 1000, mobs: ['scarecrow_9'], bracket: 4 },
@@ -2575,10 +2575,20 @@ export const BestiaryMobs: BestiaryMobsData = {
       { name: '§aKing Minos', cap: 50, mobs: ['king_minos_1750'], bracket: 8 },
       { name: '§aManticore', cap: 50, mobs: ['manticore_1750'], bracket: 8 },
       { name: '§aMinos Champion', cap: 500, mobs: ['minos_champion_175', 'minos_champion_310'], bracket: 7 },
-      { name: '§aMinos Hunter', cap: 1000, mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60'], bracket: 5 },
+      {
+        name: '§aMinos Hunter',
+        cap: 1000,
+        mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60'],
+        bracket: 5
+      },
       { name: '§aMinos Inquisitor', cap: 500, mobs: ['minos_inquisitor_750'], bracket: 7 },
       { name: '§aMinotaur', cap: 500, mobs: ['minotaur_45', 'minotaur_120', 'minotaur_210'], bracket: 7 },
-      { name: '§aSiamese Lynx', cap: 1000, mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155'], bracket: 5 },
+      {
+        name: '§aSiamese Lynx',
+        cap: 1000,
+        mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155'],
+        bracket: 5
+      },
       { name: '§aSphinx', cap: 500, mobs: ['sphinx_750', 'sphinx_1250'], bracket: 7 },
       { name: '§aStranded Nymph', cap: 1000, mobs: ['stranded_nymph_150', 'stranded_nymph_250'], bracket: 5 }
     ]
@@ -2595,14 +2605,24 @@ export const BestiaryMobs: BestiaryMobsData = {
   kuudra: {
     name: 'Kuudra',
     mobs: [
-      { name: '§aBlazing Golem', cap: 25, mobs: ['blazing_golem_100', 'blazing_golem_200', 'blazing_golem_300', 'blazing_golem_400', 'blazing_golem_500'], bracket: 6 },
+      {
+        name: '§aBlazing Golem',
+        cap: 25,
+        mobs: ['blazing_golem_100', 'blazing_golem_200', 'blazing_golem_300', 'blazing_golem_400', 'blazing_golem_500'],
+        bracket: 6
+      },
       {
         name: '§aBlight',
         cap: 10000,
         mobs: ['blight_100', 'blight_200', 'blight_300', 'blight_400', 'blight_500'],
         bracket: 3
       },
-      { name: '§aDropship', cap: 25, mobs: ['dropship_100', 'dropship_200', 'dropship_300', 'dropship_400', 'dropship_500'], bracket: 6 },
+      {
+        name: '§aDropship',
+        cap: 25,
+        mobs: ['dropship_100', 'dropship_200', 'dropship_300', 'dropship_400', 'dropship_500'],
+        bracket: 6
+      },
       {
         name: '§aExplosive Imp',
         cap: 3000,
