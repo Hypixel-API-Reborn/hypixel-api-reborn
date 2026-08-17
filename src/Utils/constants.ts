@@ -1287,7 +1287,7 @@ export const WILD_ROSE = {
 
 /* eslint-disable camelcase */
 
-export const BestiaryBrackets: { [key: number]: number[] } = {
+export const BestiaryBrackets: { [key: number | string]: number[] } = {
   1: [
     20, 40, 60, 100, 200, 400, 800, 1400, 2000, 3000, 6000, 12000, 20000, 30000, 40000, 50000, 60000, 72000, 86000,
     100000, 200000, 400000, 600000, 800000, 1000000
@@ -1307,19 +1307,24 @@ export const BestiaryBrackets: { [key: number]: number[] } = {
   5: [
     1, 2, 3, 5, 7, 10, 15, 20, 25, 30, 60, 120, 200, 300, 400, 500, 600, 720, 860, 1000, 2000, 4000, 6000, 8000, 10000
   ],
-  6: [1, 2, 3, 5, 7, 9, 14, 17, 21, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500, 3000, 4500, 6000, 7500],
-  7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000, 1500, 2000, 2500, 3000]
+  6: [1, 2, 3, 5, 7, 9, 14, 17, 20, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500, 3000, 4500, 6000, 7500],
+  7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000, 1500, 2000, 2500, 3000],
+  8: [1, 2, 3, 4, 5, 8, 11, 14, 17, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200],
+  hunting_1: [1, 5, 10, 20, 35, 50, 65, 85, 105, 125],
+  hunting_2: [1, 5, 10, 15, 25, 40, 55, 70, 85, 100],
+  hunting_3: [1, 5, 10, 15, 20, 25, 35, 45, 60, 75],
+  hunting_4: [1, 3, 6, 10, 15, 20, 25, 30, 40, 50],
+  hunting_5: [1, 2, 3, 4, 6, 8, 10, 15, 20, 25]
 };
-
 export const BestiaryMobs: BestiaryMobsData = {
-  dynamic: {
+  private_island: {
     name: 'Private Island',
     mobs: [
-      { name: '§aBat', cap: 200, mobs: ['forest_island_bat_3'], bracket: 1 },
-      { name: '§aCreeper', cap: 200, mobs: ['creeper_1'], bracket: 1 },
+      { name: '§aBat', cap: 50, mobs: ['forest_island_bat_3'], bracket: 2 },
+      { name: '§aCreeper', cap: 50, mobs: ['creeper_1'], bracket: 2 },
       {
         name: '§aEnderman',
-        cap: 200,
+        cap: 50,
         mobs: [
           'enderman_1',
           'enderman_2',
@@ -1337,11 +1342,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'enderman_14',
           'enderman_15'
         ],
-        bracket: 1
+        bracket: 2
       },
       {
         name: '§aSkeleton',
-        cap: 200,
+        cap: 50,
         mobs: [
           'skeleton_1',
           'skeleton_2',
@@ -1359,11 +1364,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'skeleton_14',
           'skeleton_15'
         ],
-        bracket: 1
+        bracket: 2
       },
       {
         name: '§aSlime',
-        cap: 200,
+        cap: 50,
         mobs: [
           'slime_1',
           'slime_2',
@@ -1381,11 +1386,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'slime_14',
           'slime_15'
         ],
-        bracket: 1
+        bracket: 2
       },
       {
         name: '§aSpider',
-        cap: 200,
+        cap: 50,
         mobs: [
           'spider_1',
           'spider_2',
@@ -1403,11 +1408,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'spider_14',
           'spider_15'
         ],
-        bracket: 1
+        bracket: 2
       },
       {
         name: '§aWitch',
-        cap: 200,
+        cap: 50,
         mobs: [
           'witch_1',
           'witch_2',
@@ -1425,11 +1430,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'witch_14',
           'witch_15'
         ],
-        bracket: 1
+        bracket: 2
       },
       {
         name: '§aZombie',
-        cap: 200,
+        cap: 50,
         mobs: [
           'zombie_1',
           'zombie_2',
@@ -1447,22 +1452,23 @@ export const BestiaryMobs: BestiaryMobsData = {
           'zombie_14',
           'zombie_15'
         ],
-        bracket: 1
+        bracket: 2
       }
     ]
   },
   hub: {
     name: 'Hub',
     mobs: [
-      { name: '§aCrypt Ghoul', cap: 40000, mobs: ['unburried_zombie_30'], bracket: 1 },
-      { name: '§6Golden Ghoul', cap: 4000, mobs: ['unburried_zombie_60'], bracket: 3 },
+      { name: '§aCrypt Ghoul', cap: 25000, mobs: ['unburried_zombie_30'], bracket: 2 },
+      { name: '§6Golden Ghoul', cap: 1000, mobs: ['unburried_zombie_60'], bracket: 4 },
       { name: '§aGraveyard Zombie', cap: 200, mobs: ['graveyard_zombie_1'], bracket: 1 },
-      { name: '§aOld Wolf', cap: 4000, mobs: ['old_wolf_50'], bracket: 3 },
-      { name: '§aWolf', cap: 40000, mobs: ['ruin_wolf_15'], bracket: 1 },
-      { name: '§aZombie Villager', cap: 1000, mobs: ['zombie_villager_1'], bracket: 4 }
+      { name: '§aOld Wolf', cap: 400, mobs: ['old_wolf_50'], bracket: 5 },
+      { name: '§aShiny Pig', cap: 400, mobs: ['shiny_pig_1'], bracket: 5 },
+      { name: '§aWolf', cap: 4000, mobs: ['ruin_wolf_15'], bracket: 3 },
+      { name: '§aZombie Villager', cap: 200, mobs: ['zombie_villager_1'], bracket: 1 }
     ]
   },
-  farming_1: {
+  the_farming_islands: {
     name: 'The Farming Islands',
     mobs: [
       { name: '§aChicken', cap: 200, mobs: ['farming_chicken_1'], bracket: 1 },
@@ -1473,20 +1479,42 @@ export const BestiaryMobs: BestiaryMobsData = {
       { name: '§aSheep', cap: 200, mobs: ['farming_sheep_1'], bracket: 1 }
     ]
   },
-  combat_1: {
+  garden: {
+    name: 'Garden',
+    mobs: [
+      { name: '§aBeetle', cap: 250, mobs: ['pest_beetle_1'], bracket: 6 },
+      { name: '§aCricket', cap: 250, mobs: ['pest_cricket_1'], bracket: 6 },
+      { name: '§aDragonfly', cap: 250, mobs: ['pest_dragonfly_1'], bracket: 6 },
+      { name: '§aEarthworm', cap: 250, mobs: ['pest_worm_1'], bracket: 6 },
+      { name: '§aField Mouse', cap: 100, mobs: ['pest_mouse_1'], bracket: 7 },
+      { name: '§aFirefly', cap: 250, mobs: ['pest_firefly_1'], bracket: 6 },
+      { name: '§aFly', cap: 250, mobs: ['pest_fly_1'], bracket: 6 },
+      { name: '§aLocust', cap: 250, mobs: ['pest_locust_1'], bracket: 6 },
+      { name: '§aLunar Moth', cap: 100, mobs: ['pest_lunar_moth_1'], bracket: 7 },
+      { name: '§aMite', cap: 250, mobs: ['pest_mite_1'], bracket: 6 },
+      { name: '§aMosquito', cap: 250, mobs: ['pest_mosquito_1'], bracket: 6 },
+      { name: '§aMoth', cap: 250, mobs: ['pest_moth_1'], bracket: 6 },
+      { name: '§aPraying Mantis', cap: 250, mobs: ['pest_praying_mantis_1'], bracket: 6 },
+      { name: '§aRat', cap: 250, mobs: ['pest_rat_1'], bracket: 6 },
+      { name: '§aSlug', cap: 250, mobs: ['pest_slug_1'], bracket: 6 },
+      { name: '§aTimestalk Clone', cap: 20, mobs: ['timestalk_clone_100'], bracket: 7 },
+      { name: '§aZombuddy', cap: 100, mobs: ['zombuddy_1'], bracket: 7 }
+    ]
+  },
+  spiders_den: {
     name: "Spider's Den",
     mobs: [
-      { name: '§aArachne', cap: 500, mobs: ['arachne_500', 'arachne_300'], bracket: 7 },
+      { name: '§aArachne', cap: 100, mobs: ['arachne_500', 'arachne_300'], bracket: 7 },
       { name: "§aArachne's Brood", cap: 1000, mobs: ['arachne_brood_200', 'arachne_brood_100'], bracket: 4 },
-      { name: "§aArachne's Keeper", cap: 400, mobs: ['arachne_keeper_100'], bracket: 5 },
-      { name: '§aBroodmother', cap: 400, mobs: ['brood_mother_spider_12'], bracket: 5 },
+      { name: "§aArachne's Keeper", cap: 250, mobs: ['arachne_keeper_100'], bracket: 6 },
+      { name: '§aBroodmother', cap: 100, mobs: ['brood_mother_spider_12'], bracket: 7 },
       {
         name: '§aDasher Spider',
         cap: 10000,
         mobs: ['dasher_spider_50', 'dasher_spider_45', 'dasher_spider_42', 'dasher_spider_4', 'dasher_spider_6'],
         bracket: 2
       },
-      { name: '§aGravel Skeleton', cap: 4000, mobs: ['respawning_skeleton_2'], bracket: 3 },
+      { name: '§aFlint Skeleton', cap: 1000, mobs: ['respawning_skeleton_2'], bracket: 4 },
       { name: '§aRain Slime', cap: 1000, mobs: ['random_slime_8', 'random_slime_20'], bracket: 4 },
       {
         name: '§aSilverfish',
@@ -1503,13 +1531,13 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aSpider Jockey',
-        cap: 4000,
+        cap: 1000,
         mobs: ['spider_jockey_3', 'spider_jockey_42', 'spider_jockey_5'],
-        bracket: 3
+        bracket: 4
       },
       {
         name: '§aSplitter Spider',
-        cap: 10000,
+        cap: 3000,
         mobs: [
           'splitter_spider_2',
           'splitter_spider_45',
@@ -1518,17 +1546,17 @@ export const BestiaryMobs: BestiaryMobsData = {
           'splitter_spider_4',
           'splitter_spider_6'
         ],
-        bracket: 2
+        bracket: 4
       },
       {
         name: '§aVoracious Spider',
-        cap: 10000,
+        cap: 3000,
         mobs: ['voracious_spider_50', 'voracious_spider_42', 'voracious_spider_45', 'voracious_spider_10'],
-        bracket: 2
+        bracket: 4
       },
       {
         name: '§aWeaver Spider',
-        cap: 10000,
+        cap: 3000,
         mobs: [
           'weaver_spider_3',
           'weaver_spider_4',
@@ -1538,16 +1566,16 @@ export const BestiaryMobs: BestiaryMobsData = {
           'weaver_spider_45',
           'weaver_spider_50'
         ],
-        bracket: 2
+        bracket: 4
       }
     ]
   },
-  combat_3: {
+  the_end: {
     name: 'The End',
     mobs: [
       {
         name: '§aDragon',
-        cap: 1000,
+        cap: 250,
         mobs: [
           'protector_dragon_100',
           'old_dragon_100',
@@ -1557,72 +1585,72 @@ export const BestiaryMobs: BestiaryMobsData = {
           'strong_dragon_100',
           'unstable_dragon_100'
         ],
-        bracket: 5
+        bracket: 6
       },
-      { name: '§aEnderman', cap: 25000, mobs: ['enderman_50', 'enderman_45', 'enderman_42'], bracket: 4 },
-      { name: '§aEndermite', cap: 10000, mobs: ['nest_endermite_50', 'endermite_37', 'endermite_40'], bracket: 5 },
-      { name: '§aEnd Stone Protector', cap: 500, mobs: ['corrupted_protector_100'], bracket: 7 },
-      { name: '§aObsidian Defender', cap: 10000, mobs: ['obsidian_wither_55'], bracket: 5 },
-      { name: '§a§dVoidling Extremist', cap: 4000, mobs: ['voidling_extremist_100'], bracket: 3 },
-      { name: '§aVoidling Fanatic', cap: 25000, mobs: ['voidling_fanatic_85'], bracket: 4 },
-      { name: '§aWatcher', cap: 10000, mobs: ['watcher_55'], bracket: 5 },
-      { name: '§aZealot', cap: 25000, mobs: ['zealot_bruiser_100', 'zealot_enderman_55'], bracket: 4 }
+      { name: '§aEnd Stone Protector', cap: 100, mobs: ['corrupted_protector_100'], bracket: 8 },
+      { name: '§aEnderman', cap: 3000, mobs: ['enderman_50', 'enderman_45', 'enderman_42'], bracket: 7 },
+      { name: '§aEndermite', cap: 3000, mobs: ['nest_endermite_50', 'endermite_37', 'endermite_40'], bracket: 7 },
+      { name: '§aObsidian Defender', cap: 3000, mobs: ['obsidian_wither_55'], bracket: 7 },
+      { name: '§aSeer', cap: 3000, mobs: ['watcher_55'], bracket: 7 },
+      { name: '§aVoidling Extremist', cap: 1000, mobs: ['voidling_extremist_100'], bracket: 4 },
+      { name: '§aVoidling Fanatic', cap: 10000, mobs: ['voidling_fanatic_85'], bracket: 5 },
+      { name: '§aZealot', cap: 10000, mobs: ['zealot_bruiser_100', 'zealot_enderman_55'], bracket: 5 }
     ]
   },
   crimson_isle: {
     name: 'Crimson Isle',
     mobs: [
-      { name: '§aAshfang', cap: 500, mobs: ['ashfang_200'], bracket: 7 },
-      { name: '§aBarbarian Duke X', cap: 500, mobs: ['barbarian_duke_x_200'], bracket: 7 },
-      { name: '§aBladesoul', cap: 500, mobs: ['bladesoul_200'], bracket: 7 },
-      { name: '§aBlaze', cap: 3000, mobs: ['blaze_25', 'blaze_70', 'bezal_80', 'mutated_blaze_70'], bracket: 4 },
+      { name: '§aAshfang', cap: 100, mobs: ['ashfang_200'], bracket: 7 },
+      { name: '§aBarbarian Duke X', cap: 100, mobs: ['barbarian_duke_x_200'], bracket: 7 },
+      { name: '§aBladesoul', cap: 100, mobs: ['bladesoul_200'], bracket: 7 },
+      { name: '§aBlaze', cap: 1000, mobs: ['blaze_25', 'blaze_70', 'bezal_80', 'mutated_blaze_70'], bracket: 4 },
       { name: '§aFlaming Spider', cap: 10000, mobs: ['flaming_spider_80'], bracket: 3 },
       { name: '§aFlare', cap: 10000, mobs: ['flare_90'], bracket: 3 },
-      { name: '§aGhast', cap: 3000, mobs: ['ghast_85', 'dive_ghast_90'], bracket: 4 },
+      { name: '§aGhast', cap: 1000, mobs: ['ghast_85', 'dive_ghast_90'], bracket: 5 },
       { name: '§aKada Knight', cap: 3000, mobs: ['kada_knight_90'], bracket: 4 },
-      { name: '§5§lMage Outlaw', cap: 500, mobs: ['mage_outlaw_200'], bracket: 7 },
-      { name: '§a§4§lMagma Boss', cap: 500, mobs: ['magma_boss_500'], bracket: 7 },
+      { name: '§5§lMage Outlaw', cap: 100, mobs: ['mage_outlaw_200'], bracket: 7 },
+      { name: '§a§4§lMagma Boss', cap: 100, mobs: ['magma_boss_500'], bracket: 7 },
       {
         name: '§aMagma Cube',
-        cap: 10000,
+        cap: 3000,
         mobs: ['pack_magma_cube_90', 'magma_cube_75', 'fireball_magma_cube_75'],
-        bracket: 3
+        bracket: 4
       },
       { name: '§aMagma Cube Rider', cap: 3000, mobs: ['magma_cube_rider_90'], bracket: 4 },
-      { name: '§aMatcho', cap: 400, mobs: ['matcho_100'], bracket: 5 },
-      { name: '§4Millennia-Aged Blaze', cap: 4000, mobs: ['old_blaze_110'], bracket: 3 },
-      { name: '§aMushroom Bull', cap: 10000, mobs: ['charging_mushroom_cow_80'], bracket: 3 },
-      { name: '§aSmoldering Blaze', cap: 25000, mobs: ['smoldering_blaze_95'], bracket: 2 },
-      { name: '§aTentacle', cap: 1000, mobs: ['hellwisp_100'], bracket: 5 },
-      { name: '§5Vanquisher', cap: 1000, mobs: ['vanquisher_100'], bracket: 5 },
-      { name: '§aWither Skeleton', cap: 3000, mobs: ['wither_skeleton_70'], bracket: 4 },
-      { name: '§aWither Spectre', cap: 10000, mobs: ['wither_spectre_70'], bracket: 3 }
+      { name: '§aMatcho', cap: 250, mobs: ['matcho_100'], bracket: 6 },
+      { name: '§4Millennia-Aged Blaze', cap: 1000, mobs: ['old_blaze_110'], bracket: 4 },
+      { name: '§aMushroom Bull', cap: 3000, mobs: ['charging_mushroom_cow_80'], bracket: 4 },
+      { name: '§aSmoldering Blaze', cap: 10000, mobs: ['smoldering_blaze_95'], bracket: 3 },
+      { name: '§aTentacle', cap: 250, mobs: ['hellwisp_100'], bracket: 6 },
+      { name: '§5Vanquisher', cap: 250, mobs: ['vanquisher_100'], bracket: 6 },
+      { name: '§aWither Skeleton', cap: 1000, mobs: ['wither_skeleton_70'], bracket: 5 },
+      { name: '§aWither Spectre', cap: 3000, mobs: ['wither_spectre_70'], bracket: 4 }
     ]
   },
-  mining_2: {
+  deep_caverns: {
     name: 'Deep Caverns',
     mobs: [
-      { name: '§aEmerald Slime', cap: 3000, mobs: ['emerald_slime_5', 'emerald_slime_10'], bracket: 1 },
-      { name: '§aLapis Zombie', cap: 3000, mobs: ['lapis_zombie_7'], bracket: 1 },
-      { name: '§aMiner Skeleton', cap: 3000, mobs: ['diamond_skeleton_15', 'diamond_skeleton_20'], bracket: 1 },
-      { name: '§aMiner Zombie', cap: 3000, mobs: ['diamond_zombie_15', 'diamond_zombie_20'], bracket: 1 },
-      { name: '§aRedstone Pigman', cap: 3000, mobs: ['redstone_pigman_10'], bracket: 1 },
-      { name: '§aSneaky Creeper', cap: 300, mobs: ['invisible_creeper_3'], bracket: 3 }
+      { name: '§aEmerald Slime', cap: 200, mobs: ['emerald_slime_5', 'emerald_slime_10'], bracket: 1 },
+      { name: '§aLapis Zombie', cap: 200, mobs: ['lapis_zombie_7'], bracket: 1 },
+      { name: '§aMiner Skeleton', cap: 200, mobs: ['diamond_skeleton_15', 'diamond_skeleton_20'], bracket: 1 },
+      { name: '§aMiner Zombie', cap: 200, mobs: ['diamond_zombie_15', 'diamond_zombie_20'], bracket: 1 },
+      { name: '§aRedstone Pigman', cap: 200, mobs: ['redstone_pigman_10'], bracket: 1 },
+      { name: '§aSneaky Creeper', cap: 50, mobs: ['invisible_creeper_3'], bracket: 2 }
     ]
   },
-  mining_3: {
+  dwarven_mines: {
     name: 'Dwarven Mines',
     mobs: [
-      { name: '§aDiamond Goblin', cap: 100, mobs: ['goblin_500'], bracket: 7 },
-      { name: '§aGhost', cap: 100000, mobs: ['caverns_ghost_250'], bracket: 3 },
+      { name: '§aDiamond Goblin', cap: 50, mobs: ['goblin_500'], bracket: 8 },
+      { name: '§aGhost', cap: 25000, mobs: ['caverns_ghost_250'], bracket: 2 },
       { name: '§aGlacite Bowman', cap: 1000, mobs: ['glacite_bowman_165'], bracket: 4 },
       { name: '§aGlacite Caver', cap: 1000, mobs: ['glacite_caver_200'], bracket: 4 },
       { name: '§aGlacite Mage', cap: 1000, mobs: ['glacite_mage_155'], bracket: 4 },
       { name: '§aGlacite Mutt', cap: 1000, mobs: ['glacite_mutt_180'], bracket: 4 },
-      { name: '§aGlacite Walker', cap: 10000, mobs: ['ice_walker_45'], bracket: 2 },
+      { name: '§aGlacite Walker', cap: 3000, mobs: ['ice_walker_45'], bracket: 1 },
       {
         name: '§aGoblin',
-        cap: 25000,
+        cap: 3000,
         mobs: [
           'goblin_weakling_melee_25',
           'goblin_weakling_melee_40',
@@ -1635,7 +1663,7 @@ export const BestiaryMobs: BestiaryMobsData = {
           'goblin_flamethrower_100',
           'goblin_murderlover_200'
         ],
-        bracket: 2
+        bracket: 4
       },
       {
         name: '§aGoblin Raiders',
@@ -1651,331 +1679,186 @@ export const BestiaryMobs: BestiaryMobsData = {
         ],
         bracket: 4
       },
-      { name: '§aGolden Goblin', cap: 400, mobs: ['goblin_50'], bracket: 5 },
-      { name: '§aPowder Ghast', cap: 200, mobs: ['powder_ghast_1'], bracket: 1 },
-      { name: '§5Star Sentry', cap: 1000, mobs: ['crystal_sentry_50'], bracket: 4 },
+      { name: '§aGolden Goblin', cap: 250, mobs: ['goblin_50'], bracket: 6 },
+      { name: '§aLittlefoot', cap: 50, mobs: ['littlefoot_533'], bracket: 2 },
+      { name: '§aPowder Ghast', cap: 50, mobs: ['powder_ghast_1'], bracket: 8 },
+      { name: '§5Star Sentry', cap: 250, mobs: ['crystal_sentry_50'], bracket: 6 },
       { name: '§aTreasure Hoarder', cap: 1000, mobs: ['treasure_hoarder_70'], bracket: 4 }
     ]
   },
   crystal_hollows: {
     name: 'Crystal Hollows',
     mobs: [
-      { name: '§aAutomaton', cap: 10000, mobs: ['automaton_100', 'automaton_150'], bracket: 2 },
+      { name: '§aAutomaton', cap: 3000, mobs: ['automaton_100', 'automaton_150'], bracket: 1 },
       { name: '§c§lBal', cap: 250, mobs: ['bal_boss_100'], bracket: 6 },
       { name: '§aBoss Corleone', cap: 100, mobs: ['team_treasurite_corleone_200'], bracket: 7 },
-      { name: '§eButterfly', cap: 1000, mobs: ['butterfly_100'], bracket: 4 },
+      { name: '§eButterfly', cap: 100, mobs: ['butterfly_100'], bracket: 7 },
       {
         name: '§aGrunt',
-        cap: 4000,
+        cap: 3000,
         mobs: [
           'team_treasurite_grunt_50',
           'team_treasurite_viper_100',
           'team_treasurite_wendy_100',
           'team_treasurite_sebastian_100'
         ],
-        bracket: 3
+        bracket: 1
       },
-      { name: '§aKey Guardian', cap: 250, mobs: ['key_guardian_100'], bracket: 6 },
-      { name: '§aSludge', cap: 10000, mobs: ['sludge_5', 'sludge_10', 'sludge_100'], bracket: 2 },
-      { name: '§aThyst', cap: 4000, mobs: ['thyst_20'], bracket: 3 },
-      { name: '§aWorm', cap: 400, mobs: ['worm_5', 'scatha_10'], bracket: 5 },
-      { name: '§aYog', cap: 4000, mobs: ['yog_100'], bracket: 3 }
+      { name: '§aKey Guardian', cap: 100, mobs: ['key_guardian_100'], bracket: 7 },
+      { name: '§aSludge', cap: 3000, mobs: ['sludge_5', 'sludge_10', 'sludge_100'], bracket: 1 },
+      { name: '§aStoneworm', cap: 250, mobs: ['worm_5', 'scatha_10'], bracket: 6 },
+      { name: '§aThyst', cap: 400, mobs: ['thyst_20'], bracket: 5 },
+      { name: '§aYog', cap: 3000, mobs: ['yog_100'], bracket: 1 }
     ]
   },
-  foraging_1: {
+  the_park: {
     name: 'The Park',
     mobs: [
-      { name: '§bHowling Spirit', cap: 10000, mobs: ['howling_spirit_35'], bracket: 2 },
-      { name: '§bPack Spirit', cap: 10000, mobs: ['pack_spirit_30'], bracket: 2 },
+      { name: '§bHowling Spirit', cap: 4000, mobs: ['howling_spirit_35'], bracket: 3 },
+      { name: '§bPack Spirit', cap: 4000, mobs: ['pack_spirit_30'], bracket: 3 },
       { name: '§bSoul of the Alpha', cap: 1000, mobs: ['soul_of_the_alpha_55'], bracket: 4 }
     ]
   },
-  foraging_2: {
-    name: 'Galatea',
+  galatea: {
+    name: 'Moonglade Marsh',
     mobs: [
-      { name: '§aBogged', cap: 3000, mobs: ['bogged_10'], bracket: 4 },
-      { name: '§aChill', cap: 1000, mobs: ['chillblade_31', 'chillshot_31'], bracket: 4 },
-      { name: '§aEnt', cap: 1000, mobs: ['ent_14'], bracket: 4 },
-      { name: '§aStridersurfer', cap: 1000, mobs: ['strider_20', 'strider_21'], bracket: 4 },
-      { name: '§aTadgang', cap: 1000, mobs: ['tadgang_frog_8', 'tadgang_frog_10'], bracket: 4 },
-      { name: '§aThe Loch Emperor', cap: 400, mobs: ['skeleton_emperor_150', 'guardian_emperor_150'], bracket: 5 },
-      { name: '§aTidetot', cap: 1000, mobs: ['tidetot_10', 'seacurse_15', 'hydrospear_25'], bracket: 4 }
+      { name: '§aAzure', cap: 125, mobs: ['azure_2'], bracket: 'hunting_1' },
+      { name: '§aBambuleaf', cap: 100, mobs: ['bambuleaf_5'], bracket: 'hunting_2' },
+      { name: '§aBirries', cap: 125, mobs: ['birries_10'], bracket: 'hunting_1' },
+      { name: '§aBogged', cap: 1000, mobs: ['bogged_10'], bracket: 4 },
+      { name: '§aChill', cap: 100, mobs: ['chillblade_31', 'chillshot_31'], bracket: 'hunting_2' },
+      { name: '§aCod', cap: 125, mobs: ['cod_2'], bracket: 'hunting_1' },
+      { name: '§aCoralot', cap: 125, mobs: ['coralot_1'], bracket: 'hunting_1' },
+      { name: '§aDreadwing', cap: 75, mobs: ['dreadwing_10'], bracket: 'hunting_3' },
+      { name: '§aEnt', cap: 500, mobs: ['ent_14'], bracket: 7 },
+      { name: '§aHewver', cap: 50, mobs: ['hewver_69'], bracket: 'hunting_4' },
+      { name: '§aHideonleaf', cap: 125, mobs: ['hideonleaf_12'], bracket: 'hunting_1' },
+      { name: '§aHoneyhog', cap: 100, mobs: ['honeyhog_32'], bracket: 'hunting_2' },
+      { name: '§aHoneymite', cap: 75, mobs: ['honeymite_52'], bracket: 'hunting_3' },
+      { name: '§aInvisibug', cap: 75, mobs: ['invisibug_4'], bracket: 'hunting_3' },
+      { name: '§aJoydive', cap: 75, mobs: ['joydive_5'], bracket: 'hunting_3' },
+      { name: '§aLumisquid', cap: 75, mobs: ['lumisquid_10'], bracket: 'hunting_3' },
+      { name: '§aMochibear', cap: 100, mobs: ['mochibear_5'], bracket: 'hunting_2' },
+      { name: '§aMossybit', cap: 100, mobs: ['mossybit_9'], bracket: 'hunting_2' },
+      { name: '§aMurkbat', cap: 50, mobs: ['murkbat_58'], bracket: 'hunting_4' },
+      { name: '§aNessie', cap: 50, mobs: ['nessie_302'], bracket: 8 },
+      { name: '§aPhanflare', cap: 125, mobs: ['phanflare_10'], bracket: 'hunting_1' },
+      { name: '§aPhanpyre', cap: 125, mobs: ['phanpyre_10'], bracket: 'hunting_1' },
+      { name: '§aSalmon', cap: 100, mobs: ['salmon_2'], bracket: 'hunting_2' },
+      { name: '§aShellwise', cap: 50, mobs: ['shellwise_10'], bracket: 'hunting_4' },
+      { name: '§aSpike', cap: 25, mobs: ['spike_pufferfish_5'], bracket: 'hunting_5' },
+      { name: '§aStag Beetle', cap: 100, mobs: ['stag_beetle_29'], bracket: 'hunting_2' },
+      { name: '§aStridersurfer', cap: 750, mobs: ['strider_20', 'strider_21'], bracket: 6 },
+      { name: '§aTadgang', cap: 750, mobs: ['tadgang_frog_8', 'tadgang_frog_10'], bracket: 6 },
+      { name: '§aThe Loch Emperor', cap: 250, mobs: ['skeleton_emperor_150', 'guardian_emperor_150'], bracket: 6 },
+      { name: '§aTidetot', cap: 50, mobs: ['tidetot_10', 'seacurse_15', 'hydrospear_25'], bracket: 'hunting_4' },
+      { name: '§aVerdant', cap: 125, mobs: ['verdant_2'], bracket: 'hunting_1' },
+      { name: '§aWetwing', cap: 1000, mobs: ['wetwing_chicken', 'wetwing_chicken_18'], bracket: 4 },
+      { name: '§aWoodlouse', cap: 75, mobs: ['woodlouse_1'], bracket: 'hunting_3' }
+    ]
+  },
+  torrhus_canyon: {
+    name: 'Torrhus Canyon',
+    mobs: [
+      { name: '§aAnt', cap: 125, mobs: ['ant_32'], bracket: 'hunting_1' },
+      { name: '§aBeeheemoth', cap: 25, mobs: ['beeheemoth_158'], bracket: 'hunting_5' },
+      { name: '§aBlue Jay', cap: 125, mobs: ['blue_jay_9'], bracket: 'hunting_1' },
+      { name: '§aBrineling', cap: 1000, mobs: ['brineling_58'], bracket: 4 },
+      { name: '§aBunbun', cap: 125, mobs: ['bunbun_4'], bracket: 'hunting_1' },
+      { name: '§aDrybark', cap: 75, mobs: ['drybark_80'], bracket: 'hunting_3' },
+      { name: '§aDustybit', cap: 100, mobs: ['dustybit_9'], bracket: 'hunting_2' },
+      { name: '§aEmber', cap: 100, mobs: ['ember_4'], bracket: 'hunting_2' },
+      { name: '§aFirefox', cap: 125, mobs: ['firefox_32'], bracket: 'hunting_1' },
+      { name: '§aGiant Isopod', cap: 50, mobs: ['giant_isopod_186'], bracket: 8 },
+      { name: '§aGrizzly Bear', cap: 25, mobs: ['grizzly_bear_101'], bracket: 'hunting_5' },
+      { name: '§aGroundhog', cap: 125, mobs: ['groundhog_42'], bracket: 'hunting_1' },
+      { name: '§aHaggard', cap: 1000, mobs: ['haggard_44'], bracket: 4 },
+      { name: '§aHideonsun', cap: 125, mobs: ['hideonsun_24'], bracket: 'hunting_1' },
+      { name: '§aHivethief', cap: 50, mobs: ['hivethief_80'], bracket: 'hunting_4' },
+      { name: '§aHoneybuzz', cap: 100, mobs: ['honeybuzz_9'], bracket: 'hunting_2' },
+      { name: '§aMountain Goat', cap: 50, mobs: ['mountain_goat_55'], bracket: 'hunting_4' },
+      { name: '§aPangolin', cap: 75, mobs: ['pangolin_14'], bracket: 'hunting_3' },
+      { name: '§aParched', cap: 75, mobs: ['parched_58'], bracket: 'hunting_3' },
+      { name: '§aPollendart', cap: 100, mobs: ['pollendart_24'], bracket: 'hunting_2' },
+      { name: '§aPuck', cap: 75, mobs: ['puck_58'], bracket: 'hunting_3' },
+      { name: '§aQueen Ant', cap: 50, mobs: ['queen_ant_69'], bracket: 2 },
+      { name: '§aSepialot', cap: 100, mobs: ['sepialot_9', 'goldolot_13'], bracket: 'hunting_2' },
+      { name: '§aSilkbreeze', cap: 250, mobs: ['silkbreeze_105'], bracket: 6 },
+      { name: '§aSolar', cap: 100, mobs: ['solar_2'], bracket: 'hunting_2' },
+      { name: '§aSprawl', cap: 750, mobs: ['sprawl_71'], bracket: 6 },
+      { name: '§aTiki', cap: 100, mobs: ['cheeky_tiki_71', 'shrieky_tiki_71', 'sneaky_tiki_71'], bracket: 'hunting_2' },
+      { name: '§aTimil', cap: 125, mobs: ['timil_1'], bracket: 'hunting_1' },
+      { name: '§aTorrid', cap: 500, mobs: ['torrid_85'], bracket: 7 },
+      { name: '§aWater Snake', cap: 100, mobs: ['water_snake_35'], bracket: 'hunting_2' }
+    ]
+  },
+  safari_cavern: {
+    name: 'Safari Cavern',
+    mobs: [
+      { name: '§aCavernfish', cap: 125, mobs: ['cavernfish_1'], bracket: 'hunting_1' },
+      { name: '§aChuckwalla', cap: 75, mobs: ['chuckwalla_1'], bracket: 'hunting_3' },
+      { name: '§aDriftling', cap: 100, mobs: ['driftling_1'], bracket: 'hunting_2' },
+      { name: '§aFlitter', cap: 125, mobs: ['flitter_1'], bracket: 'hunting_1' },
+      { name: '§aGemzie', cap: 50, mobs: ['gemzie_1'], bracket: 'hunting_4' },
+      { name: '§aRockmite', cap: 75, mobs: ['rockmite_1'], bracket: 'hunting_3' },
+      { name: '§aScrappy', cap: 75, mobs: ['scrappy_1'], bracket: 'hunting_3' },
+      { name: '§aShyworm', cap: 125, mobs: ['shyworm_1'], bracket: 'hunting_1' },
+      { name: '§aSnoozle', cap: 75, mobs: ['snoozle_1'], bracket: 'hunting_3' }
+    ]
+  },
+  safari_forest: {
+    name: 'Safari Forest',
+    mobs: [
+      { name: '§aBluebird', cap: 100, mobs: ['bluebird_1'], bracket: 'hunting_2' },
+      { name: '§aFluffling', cap: 75, mobs: ['fluffling_1'], bracket: 'hunting_3' },
+      { name: '§aFoxtrot', cap: 125, mobs: ['foxtrot_1'], bracket: 'hunting_1' },
+      { name: '§aHideonfloor', cap: 75, mobs: ['hideonfloor_1'], bracket: 'hunting_3' },
+      { name: '§aHoneybug', cap: 100, mobs: ['honeybug_1'], bracket: 'hunting_2' },
+      { name: '§aMacaw', cap: 25, mobs: ['macaw_1'], bracket: 'hunting_5' },
+      { name: '§aParakeet', cap: 75, mobs: ['parakeet_1'], bracket: 'hunting_3' },
+      { name: '§aTreefrog', cap: 100, mobs: ['treefrog_1'], bracket: 'hunting_2' },
+      { name: '§aWoodchucker', cap: 100, mobs: ['woodchucker_1'], bracket: 'hunting_2' }
+    ]
+  },
+  safari_haunted: {
+    name: 'Safari Haunted',
+    mobs: [
+      { name: '§aAreita', cap: 100, mobs: ['areita_1'], bracket: 'hunting_2' },
+      { name: '§aBloodbat', cap: 100, mobs: ['bloodbat_1'], bracket: 'hunting_2' },
+      { name: '§aDoomspiral', cap: 25, mobs: ['doomspiral_1'], bracket: 'hunting_5' },
+      { name: '§aDuplico', cap: 100, mobs: ['duplico_1'], bracket: 'hunting_2' },
+      { name: '§aGazer', cap: 100, mobs: ['gazer_1'], bracket: 'hunting_2' },
+      { name: '§aGimmiegold', cap: 75, mobs: ['gimmiegold_1'], bracket: 'hunting_3' },
+      { name: '§aHideonwall', cap: 75, mobs: ['hideonwall_1'], bracket: 'hunting_3' },
+      { name: '§aHideyho', cap: 75, mobs: ['hideyho_1'], bracket: 'hunting_3' },
+      { name: '§aLitterbug', cap: 100, mobs: ['litterbug_1'], bracket: 'hunting_2' },
+      { name: '§aSolsnatcher', cap: 100, mobs: ['solsnatcher_1'], bracket: 'hunting_2' }
+    ]
+  },
+  safari_icy: {
+    name: 'Safari Icy',
+    mobs: [
+      { name: '§aBillygoat', cap: 75, mobs: ['billygoat_1'], bracket: 'hunting_3' },
+      { name: '§aMantis Shrimp', cap: 75, mobs: ['mantis_shrimp_1'], bracket: 'hunting_3' },
+      { name: '§aNozzlenose', cap: 75, mobs: ['nozzlenose_1'], bracket: 'hunting_3' },
+      { name: '§aPolaris', cap: 100, mobs: ['polaris_1'], bracket: 'hunting_2' },
+      { name: '§aShuddersquid', cap: 100, mobs: ['shuddersquid_1'], bracket: 'hunting_2' },
+      { name: '§aStrongarm', cap: 125, mobs: ['strongarm_1'], bracket: 'hunting_1' },
+      { name: '§aTepid', cap: 125, mobs: ['tepid_1'], bracket: 'hunting_1' },
+      { name: '§aTroodon', cap: 75, mobs: ['troodon_1'], bracket: 'hunting_3' },
+      { name: '§aWumpa', cap: 25, mobs: ['wumpa_1'], bracket: 'hunting_5' }
     ]
   },
   spooky_festival: {
     name: 'Spooky Festival',
     mobs: [
-      { name: '§8Crazy Witch', cap: 750, mobs: ['batty_witch_60'], bracket: 2 },
-      { name: '§6Headless Horseman', cap: 500, mobs: ['horseman_horse_100'], bracket: 7 },
-      { name: '§cPhantom Spirit', cap: 750, mobs: ['phantom_spirit_35'], bracket: 2 },
-      { name: '§6Scary Jerry', cap: 750, mobs: ['scary_jerry_30'], bracket: 2 },
-      { name: '§eTrick or Treater', cap: 750, mobs: ['trick_or_treater_30'], bracket: 2 },
-      { name: '§6Wither Gourd', cap: 750, mobs: ['wither_gourd_40'], bracket: 2 },
-      { name: '§8Wraith', cap: 750, mobs: ['wraith_50'], bracket: 2 }
-    ]
-  },
-  mythological_creatures: {
-    name: 'Mythological Creatures',
-    mobs: [
-      { name: '§aGaia Construct', cap: 3000, mobs: ['gaia_construct_140', 'gaia_construct_260'], bracket: 4 },
-      { name: '§aMinos Champion', cap: 1000, mobs: ['minos_champion_175', 'minos_champion_310'], bracket: 5 },
-      {
-        name: '§aMinos Hunter',
-        cap: 1000,
-        mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60'],
-        bracket: 5
-      },
-      { name: '§aMinos Inquisitor', cap: 500, mobs: ['minos_inquisitor_750'], bracket: 7 },
-      { name: '§aMinotaur', cap: 3000, mobs: ['minotaur_45', 'minotaur_120', 'minotaur_210'], bracket: 4 },
-      {
-        name: '§aSiamese Lynx',
-        cap: 3000,
-        mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155'],
-        bracket: 4
-      }
-    ]
-  },
-  jerry: {
-    name: 'Jerry',
-    mobs: [
-      { name: '§9Blue Jerry', cap: 30, mobs: ['mayor_jerry_blue_2'], bracket: 5 },
-      { name: '§6Golden Jerry', cap: 20, mobs: ['mayor_jerry_golden_5'], bracket: 7 },
-      { name: '§aGreen Jerry', cap: 75, mobs: ['mayor_jerry_green_1'], bracket: 4 },
-      { name: '§5Purple Jerry', cap: 25, mobs: ['mayor_jerry_purple_3'], bracket: 6 }
-    ]
-  },
-  kuudra: {
-    name: 'Kuudra',
-    mobs: [
-      {
-        name: '§aBlazing Golem',
-        cap: 300,
-        mobs: ['blazing_golem_100', 'blazing_golem_200', 'blazing_golem_300', 'blazing_golem_400', 'blazing_golem_500'],
-        bracket: 3
-      },
-      {
-        name: '§aBlight',
-        cap: 10000,
-        mobs: ['blight_100', 'blight_200', 'blight_300', 'blight_400', 'blight_500'],
-        bracket: 3
-      },
-      {
-        name: '§aDropship',
-        cap: 300,
-        mobs: ['dropship_100', 'dropship_200', 'dropship_300', 'dropship_400', 'dropship_500'],
-        bracket: 3
-      },
-      {
-        name: '§aExplosive Imp',
-        cap: 3000,
-        mobs: ['explosive_imp_100', 'explosive_imp_200', 'explosive_imp_300', 'explosive_imp_400', 'explosive_imp_500'],
-        bracket: 4
-      },
-      {
-        name: '§aInferno Magma Cube',
-        cap: 10000,
-        mobs: [
-          'inferno_magma_cube_100',
-          'inferno_magma_cube_200',
-          'inferno_magma_cube_300',
-          'inferno_magma_cube_400',
-          'inferno_magma_cube_500'
-        ],
-        bracket: 3
-      },
-      {
-        name: '§aKuudra Berserker',
-        cap: 10000,
-        mobs: [
-          'kuudra_berserker_100',
-          'kuudra_berserker_200',
-          'kuudra_berserker_300',
-          'kuudra_berserker_400',
-          'kuudra_berserker_500'
-        ],
-        bracket: 3
-      },
-      {
-        name: '§aKuudra Follower',
-        cap: 25000,
-        mobs: [
-          'kuudra_follower_100',
-          'kuudra_follower_200',
-          'kuudra_follower_300',
-          'kuudra_follower_400',
-          'kuudra_follower_500'
-        ],
-        bracket: 2
-      },
-      {
-        name: '§aKuudra Knocker',
-        cap: 10000,
-        mobs: [
-          'kuudra_knocker_100',
-          'kuudra_knocker_200',
-          'kuudra_knocker_300',
-          'kuudra_knocker_400',
-          'kuudra_knocker_500'
-        ],
-        bracket: 3
-      },
-      {
-        name: '§aKuudra Landmine',
-        cap: 10000,
-        mobs: [
-          'kuudra_landmine_100',
-          'kuudra_landmine_200',
-          'kuudra_landmine_300',
-          'kuudra_landmine_400',
-          'kuudra_landmine_500'
-        ],
-        bracket: 3
-      },
-      {
-        name: '§aKuudra Slasher',
-        cap: 30,
-        mobs: [
-          'kuudra_slasher_100',
-          'kuudra_slasher_200',
-          'kuudra_slasher_300',
-          'kuudra_slasher_400',
-          'kuudra_slasher_500'
-        ],
-        bracket: 5
-      },
-      {
-        name: '§aMagma Follower',
-        cap: 30,
-        mobs: [
-          'magma_follower_100',
-          'magma_follower_200',
-          'magma_follower_300',
-          'magma_follower_400',
-          'magma_follower_500'
-        ],
-        bracket: 5
-      },
-      {
-        name: '§aWandering Blaze',
-        cap: 3000,
-        mobs: [
-          'wandering_blaze_100',
-          'wandering_blaze_200',
-          'wandering_blaze_300',
-          'wandering_blaze_400',
-          'wandering_blaze_500'
-        ],
-        bracket: 4
-      },
-      {
-        name: '§aWither Sentry',
-        cap: 75,
-        mobs: ['wither_sentry_100', 'wither_sentry_200', 'wither_sentry_300', 'wither_sentry_400', 'wither_sentry_500'],
-        bracket: 4
-      }
-    ]
-  },
-  fishing: {
-    name: 'Fishing',
-    mobs: [
-      { name: '§aAbyssal Miner', cap: 250, mobs: ['zombie_miner_150'], bracket: 6 },
-      { name: '§aAgarimoo', cap: 4000, mobs: ['agarimoo_35'], bracket: 3 },
-      { name: '§aBlue Ringed Octopus', cap: 400, mobs: ['blue_ringed_octopus_275'], bracket: 5 },
-      { name: '§aCarrot King', cap: 400, mobs: ['carrot_king_25'], bracket: 5 },
-      { name: '§aCatfish', cap: 1000, mobs: ['catfish_23'], bracket: 4 },
-      { name: '§aDeep Sea Protector', cap: 1000, mobs: ['deep_sea_protector_60'], bracket: 4 },
-      { name: '§aFrog Man', cap: 3000, mobs: ['frog_man_10'], bracket: 4 },
-      { name: '§aGuardian Defender', cap: 1000, mobs: ['guardian_defender_45'], bracket: 4 },
-      {
-        name: '§aMithril Grubber',
-        cap: 300,
-        mobs: [
-          'small_mithril_grubber_15',
-          'medium_mithril_grubber_15',
-          'large_mithril_grubber_15',
-          'bloated_mithril_grubber_15'
-        ],
-        bracket: 3
-      },
-      { name: '§aNight Squid', cap: 1000, mobs: ['night_squid_6'], bracket: 4 },
-      { name: '§aOasis Rabbit', cap: 300, mobs: ['oasis_rabbit_10'], bracket: 3 },
-      { name: '§aOasis Sheep', cap: 300, mobs: ['oasis_sheep_10'], bracket: 3 },
-      { name: '§aPoisoned Water Worm', cap: 1000, mobs: ['poisoned_water_worm_25'], bracket: 4 },
-      { name: '§aRider of the Deep', cap: 4000, mobs: ['zombie_deep_20', 'chicken_deep_20'], bracket: 3 },
-      { name: '§aSea Archer', cap: 4000, mobs: ['sea_archer_15'], bracket: 3 },
-      { name: '§aSea Guardian', cap: 4000, mobs: ['sea_guardian_10'], bracket: 3 },
-      { name: '§aSea Leech', cap: 1000, mobs: ['sea_leech_30'], bracket: 4 },
-      { name: '§aSea Walker', cap: 4000, mobs: ['sea_walker_4'], bracket: 3 },
-      { name: '§aSea Witch', cap: 4000, mobs: ['sea_witch_15'], bracket: 3 },
-      { name: '§aSnapping Turtle', cap: 1000, mobs: ['snapping_turtle_30'], bracket: 4 },
-      { name: '§aSquid', cap: 10000, mobs: ['pond_squid_1'], bracket: 2 },
-      { name: '§aWater Hydra', cap: 400, mobs: ['water_hydra_100'], bracket: 5 },
-      { name: '§aWater Worm', cap: 1000, mobs: ['water_worm_20'], bracket: 4 },
-      { name: '§aWetwing', cap: 1000, mobs: ['wetwing_chicken_18'], bracket: 4 },
-      { name: '§aWiki Tiki', cap: 100, mobs: ['wiki_tiki_400'], bracket: 7 }
-    ]
-  },
-  lava: {
-    name: 'Lava',
-    mobs: [
-      { name: '§aFiery Scuttler', cap: 400, mobs: ['fiery_scuttler_475'], bracket: 5 },
-      { name: '§aFire Eel', cap: 1000, mobs: ['fire_eel_240'], bracket: 4 },
-      { name: '§aFireproof Witch', cap: 1000, mobs: ['fireproof_witch_75'], bracket: 4 },
-      { name: '§aFlaming Worm', cap: 4000, mobs: ['flaming_worm_50'], bracket: 3 },
-      { name: '§aFried Chicken', cap: 3000, mobs: ['fried_chicken_30'], bracket: 4 },
-      { name: '§aLava Blaze', cap: 1000, mobs: ['lava_blaze_100'], bracket: 4 },
-      { name: '§aLava Flame', cap: 1000, mobs: ['lava_flame_230'], bracket: 4 },
-      { name: '§aLava Leech', cap: 4000, mobs: ['lava_leech_220'], bracket: 3 },
-      { name: '§aLava Pigman', cap: 1000, mobs: ['lava_pigman_100'], bracket: 4 },
-      { name: '§aLord Jawbus', cap: 100, mobs: ['lord_jawbus_600'], bracket: 7 },
-      { name: '§aMagma Slug', cap: 10000, mobs: ['magma_slug_200'], bracket: 2 },
-      { name: '§aMoogma', cap: 4000, mobs: ['moogma_210'], bracket: 3 },
-      { name: '§aPlhlegblast', cap: 7, mobs: ['pond_squid_300'], bracket: 7 },
-      { name: '§aPyroclastic Worm', cap: 1000, mobs: ['pyroclastic_worm_240'], bracket: 4 },
-      { name: '§aRagnarok', cap: 100, mobs: ['ragnarok_666'], bracket: 7 },
-      { name: '§aTaurus', cap: 1000, mobs: ['pig_rider_250'], bracket: 4 },
-      { name: '§aThunder', cap: 400, mobs: ['thunder_400'], bracket: 5 }
-    ]
-  },
-  spooky_festival_fishing: {
-    name: 'Spooky Festival Fishing',
-    mobs: [
-      { name: '§aGrim Reaper', cap: 100, mobs: ['grim_reaper_190'], bracket: 7 },
-      { name: '§aNightmare', cap: 1000, mobs: ['nightmare_24'], bracket: 4 },
-      { name: '§aPhantom Fisher', cap: 250, mobs: ['phantom_fisherman_160'], bracket: 6 },
-      { name: '§aScarecrow', cap: 4000, mobs: ['scarecrow_9'], bracket: 3 },
-      { name: '§aWerewolf', cap: 1000, mobs: ['werewolf_50'], bracket: 4 }
-    ]
-  },
-  fishing_festival: {
-    name: 'Fishing Festival',
-    mobs: [
-      { name: '§aBlue Shark', cap: 1000, mobs: ['blue_shark_20'], bracket: 4 },
-      { name: '§aGreat White Shark', cap: 400, mobs: ['great_white_shark_180'], bracket: 5 },
-      { name: '§aNurse Shark', cap: 4000, mobs: ['nurse_shark_6'], bracket: 3 },
-      { name: '§aTiger Shark', cap: 1000, mobs: ['tiger_shark_50'], bracket: 4 }
-    ]
-  },
-  winter: {
-    name: 'Winter',
-    mobs: [
-      { name: '§aFrosty', cap: 4000, mobs: ['frosty_the_snowman_13'], bracket: 3 },
-      { name: '§aFrozen Steve', cap: 4000, mobs: ['frozen_steve_7'], bracket: 3 },
-      { name: '§aGrinch', cap: 250, mobs: ['grinch_21'], bracket: 6 },
-      { name: '§aNutcracker', cap: 400, mobs: ['nutcracker_50'], bracket: 5 },
-      { name: '§aReindrake', cap: 100, mobs: ['reindrake_100'], bracket: 7 },
-      { name: '§aYeti', cap: 250, mobs: ['yeti_175'], bracket: 6 }
-    ]
-  },
-  backwater_bayou: {
-    name: 'Backwater Bayou',
-    mobs: [
-      { name: '§aAlligator', cap: 400, mobs: ['alligator_120'], bracket: 5 },
-      { name: '§aBanshee', cap: 1000, mobs: ['banshee_10'], bracket: 4 },
-      { name: '§aBayou Sludge', cap: 1000, mobs: ['bayou_sludge_25'], bracket: 4 },
-      { name: '§aDumpster Diver', cap: 1000, mobs: ['dumpster_diver_15'], bracket: 4 },
-      { name: '§aTitanoboa', cap: 100, mobs: ['titanoboa_240'], bracket: 7 },
-      { name: '§aTrash Gobbler', cap: 1000, mobs: ['trash_gobbler_8'], bracket: 4 }
+      { name: '§8Crazy Witch', cap: 250, mobs: ['batty_witch_60'], bracket: 6 },
+      { name: '§6Headless Horseman', cap: 100, mobs: ['horseman_horse_100'], bracket: 7 },
+      { name: '§cPhantom Spirit', cap: 250, mobs: ['phantom_spirit_35'], bracket: 6 },
+      { name: '§6Scary Jerry', cap: 250, mobs: ['scary_jerry_30'], bracket: 6 },
+      { name: '§eTrick or Treater', cap: 250, mobs: ['trick_or_treater_30'], bracket: 6 },
+      { name: '§6Wither Gourd', cap: 250, mobs: ['wither_gourd_40'], bracket: 6 },
+      { name: '§8Wraith', cap: 250, mobs: ['wraith_50'], bracket: 6 }
     ]
   },
   catacombs: {
@@ -1983,7 +1866,7 @@ export const BestiaryMobs: BestiaryMobsData = {
     mobs: [
       {
         name: '§a§d§lAngry Archaeologist',
-        cap: 3000,
+        cap: 1000,
         mobs: [
           'diamond_guy_80',
           'diamond_guy_90',
@@ -2006,12 +1889,12 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_diamond_guy_160',
           'master_diamond_guy_170'
         ],
-        bracket: 7
+        bracket: 5
       },
       { name: '§aBat', cap: 1000, mobs: ['dungeon_secret_bat_1'], bracket: 4 },
       {
         name: '§aCellar Spider',
-        cap: 1000,
+        cap: 400,
         mobs: [
           'cellar_spider_45',
           'cellar_spider_65',
@@ -2030,11 +1913,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_cellar_spider_115',
           'master_cellar_spider_125'
         ],
-        bracket: 4
+        bracket: 5
       },
       {
         name: '§aLonely Spider',
-        cap: 25000,
+        cap: 4000,
         mobs: [
           'lonely_spider_35',
           'lonely_spider_55',
@@ -2053,11 +1936,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_lonely_spider_105',
           'master_lonely_spider_115'
         ],
-        bracket: 4
+        bracket: 3
       },
       {
         name: '§aCrypt Dreadlord',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'crypt_dreadlord_47',
           'crypt_dreadlord_67',
@@ -2076,11 +1959,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_crypt_dreadlord_117',
           'master_crypt_dreadlord_127'
         ],
-        bracket: 4
+        bracket: 5
       },
       {
         name: '§aCrypt Lurker',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'crypt_lurker_41',
           'crypt_lurker_61',
@@ -2099,11 +1982,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_crypt_lurker_111',
           'master_crypt_lurker_121'
         ],
-        bracket: 4
+        bracket: 2
       },
       {
         name: '§aCrypt Souleater',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'crypt_souleater_45',
           'crypt_souleater_65',
@@ -2122,11 +2005,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_crypt_souleater_115',
           'master_crypt_souleater_125'
         ],
-        bracket: 4
+        bracket: 5
       },
       {
         name: '§aFels',
-        cap: 10000,
+        cap: 4000,
         mobs: [
           'tentaclees_90',
           'tentaclees_100',
@@ -2135,12 +2018,12 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_tentaclees_100',
           'master_tentaclees_110'
         ],
-        bracket: 5
+        bracket: 3
       },
       { name: '§aGolem', cap: 1000, mobs: ['sadan_golem_1', 'master_sadan_golem_1'], bracket: 4 },
       {
         name: '§a§d§lKing Midas',
-        cap: 750,
+        cap: 500,
         mobs: [
           'king_midas_130',
           'king_midas_140',
@@ -2153,7 +2036,7 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_king_midas_160',
           'master_king_midas_170'
         ],
-        bracket: 6
+        bracket: 7
       },
       {
         name: '§a§d§lLost Adventurer',
@@ -2260,7 +2143,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aScared Skeleton',
-        cap: 4000,
+        cap: 1000,
         mobs: [
           'scared_skeleton_42',
           'scared_skeleton_62',
@@ -2269,7 +2152,7 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_scared_skeleton_62',
           'master_scared_skeleton_72'
         ],
-        bracket: 3
+        bracket: 5
       },
       {
         name: '§a§d§lShadow Assassin',
@@ -2310,7 +2193,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       { name: '§aSkeleton Lord', cap: 1000, mobs: ['skeleton_lord_150', 'master_skeleton_lord_150'], bracket: 5 },
       {
         name: '§aSkeleton Master',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'skeleton_master_48',
           'skeleton_master_68',
@@ -2329,11 +2212,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_skeleton_master_118',
           'master_skeleton_master_128'
         ],
-        bracket: 4
+        bracket: 5
       },
       {
         name: '§aSkeleton Soldier',
-        cap: 40000,
+        cap: 10000,
         mobs: [
           'skeleton_soldier_46',
           'skeleton_soldier_66',
@@ -2352,11 +2235,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_skeleton_soldier_116',
           'master_skeleton_soldier_126'
         ],
-        bracket: 1
+        bracket: 3
       },
       {
         name: '§aSkeletor',
-        cap: 10000,
+        cap: 4000,
         mobs: [
           'skeletor_80',
           'skeletor_90',
@@ -2377,11 +2260,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_skeletor_prime_110',
           'master_skeletor_prime_120'
         ],
-        bracket: 5
+        bracket: 3
       },
       {
         name: '§aSniper',
-        cap: 4000,
+        cap: 1000,
         mobs: [
           'sniper_skeleton_43',
           'sniper_skeleton_63',
@@ -2400,11 +2283,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_sniper_skeleton_113',
           'master_sniper_skeleton_123'
         ],
-        bracket: 3
+        bracket: 4
       },
       {
         name: '§aSuper Archer',
-        cap: 10000,
+        cap: 4000,
         mobs: [
           'super_archer_90',
           'super_archer_100',
@@ -2415,11 +2298,11 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_super_archer_110',
           'master_super_archer_120'
         ],
-        bracket: 5
+        bracket: 3
       },
       {
         name: '§aSuper Tank Zombie',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'super_tank_zombie_90',
           'super_tank_zombie_100',
@@ -2430,7 +2313,7 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_super_tank_zombie_110',
           'master_super_tank_zombie_120'
         ],
-        bracket: 4
+        bracket: 2
       },
       {
         name: '§aTank Zombie',
@@ -2449,7 +2332,7 @@ export const BestiaryMobs: BestiaryMobsData = {
         ],
         bracket: 3
       },
-      { name: '§aTerracotta', cap: 40000, mobs: ['sadan_statue_1', 'master_sadan_statue_1'], bracket: 1 },
+      { name: '§aTerracotta', cap: 10000, mobs: ['sadan_statue_1', 'master_sadan_statue_1'], bracket: 2 },
       {
         name: '§a§4§lUndead',
         cap: 10000,
@@ -2475,7 +2358,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aUndead Skeleton',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'dungeon_respawning_skeleton_40',
           'dungeon_respawning_skeleton_skull_40',
@@ -2495,14 +2378,14 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_dungeon_respawning_skeleton_110',
           'master_dungeon_respawning_skeleton_120'
         ],
-        bracket: 4
+        bracket: 5
       },
       { name: '§aWither Guard', cap: 10000, mobs: ['wither_guard_100', 'master_wither_guard_100'], bracket: 5 },
       { name: '§aWither Husk', cap: 10000, mobs: ['master_wither_husk_100'], bracket: 5 },
       { name: '§aWither Miner', cap: 25000, mobs: ['wither_miner_100', 'master_wither_miner_100'], bracket: 4 },
       {
         name: '§aWithermancer',
-        cap: 25000,
+        cap: 10000,
         mobs: [
           'crypt_witherskeleton_90',
           'crypt_witherskeleton_100',
@@ -2513,7 +2396,7 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_crypt_witherskeleton_110',
           'master_crypt_witherskeleton_120'
         ],
-        bracket: 4
+        bracket: 5
       },
       {
         name: '§aZombie Commander',
@@ -2543,7 +2426,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       },
       {
         name: '§aZombie Knight',
-        cap: 10000,
+        cap: 4000,
         mobs: [
           'zombie_knight_86',
           'zombie_knight_96',
@@ -2556,12 +2439,12 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_zombie_knight_116',
           'master_zombie_knight_126'
         ],
-        bracket: 5
+        bracket: 3
       },
       { name: '§aZombie Lord', cap: 1000, mobs: ['zombie_lord_150', 'master_zombie_lord_150'], bracket: 5 },
       {
         name: '§aZombie Soldier',
-        cap: 40000,
+        cap: 10000,
         mobs: [
           'zombie_soldier_83',
           'zombie_soldier_93',
@@ -2574,24 +2457,276 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_zombie_soldier_113',
           'master_zombie_soldier_123'
         ],
-        bracket: 1
+        bracket: 3
       }
     ]
   },
-  garden: {
-    name: 'Garden',
+  fishing: {
+    name: 'Fishing',
     mobs: [
-      { name: '§aBeetle', cap: 250, mobs: ['pest_beetle_1'], bracket: 6 },
-      { name: '§aCricket', cap: 250, mobs: ['pest_cricket_1'], bracket: 6 },
-      { name: '§aEarthworm', cap: 250, mobs: ['pest_worm_1'], bracket: 6 },
-      { name: '§aField Mouse', cap: 100, mobs: ['pest_mouse_1'], bracket: 7 },
-      { name: '§aFly', cap: 250, mobs: ['pest_fly_1'], bracket: 6 },
-      { name: '§aLocust', cap: 250, mobs: ['pest_locust_1'], bracket: 6 },
-      { name: '§aMite', cap: 250, mobs: ['pest_mite_1'], bracket: 6 },
-      { name: '§aMosquito', cap: 250, mobs: ['pest_mosquito_1'], bracket: 6 },
-      { name: '§aMoth', cap: 250, mobs: ['pest_moth_1'], bracket: 6 },
-      { name: '§aRat', cap: 250, mobs: ['pest_rat_1'], bracket: 6 },
-      { name: '§aSlug', cap: 250, mobs: ['pest_slug_1'], bracket: 6 }
+      { name: '§aAbyssal Miner', cap: 250, mobs: ['zombie_miner_150'], bracket: 6 },
+      { name: '§aAgarimoo', cap: 750, mobs: ['agarimoo_35'], bracket: 6 },
+      { name: '§aBlue Ringed Octopus', cap: 250, mobs: ['blue_ringed_octopus_275'], bracket: 6 },
+      { name: '§aCarrot King', cap: 250, mobs: ['carrot_king_25'], bracket: 6 },
+      { name: '§aCatfish', cap: 750, mobs: ['catfish_23'], bracket: 6 },
+      { name: '§aDeep Sea Protector', cap: 500, mobs: ['deep_sea_protector_60'], bracket: 7 },
+      { name: '§aFrog Man', cap: 1000, mobs: ['frog_man_10'], bracket: 4 },
+      { name: '§aGuardian Defender', cap: 500, mobs: ['guardian_defender_45'], bracket: 7 },
+      { name: '§aInkling', cap: 1000, mobs: ['night_squid_6'], bracket: 4 },
+      { name: '§aManta Ray', cap: 500, mobs: ['manta_ray_124'], bracket: 7 },
+      {
+        name: '§aMithril Grubber',
+        cap: 300,
+        mobs: [
+          'small_mithril_grubber_15',
+          'medium_mithril_grubber_15',
+          'large_mithril_grubber_15',
+          'bloated_mithril_grubber_15'
+        ],
+        bracket: 3
+      },
+      { name: '§aOasis Rabbit', cap: 300, mobs: ['oasis_rabbit_10'], bracket: 3 },
+      { name: '§aOasis Sheep', cap: 300, mobs: ['oasis_sheep_10'], bracket: 3 },
+      { name: '§aPoisoned Water Worm', cap: 750, mobs: ['poisoned_water_worm_25'], bracket: 6 },
+      { name: '§aRider of the Deep', cap: 1000, mobs: ['zombie_deep_20', 'chicken_deep_20'], bracket: 4 },
+      { name: '§aSea Archer', cap: 1000, mobs: ['sea_archer_15'], bracket: 4 },
+      { name: '§aSea Leech', cap: 750, mobs: ['sea_leech_30'], bracket: 6 },
+      { name: '§aSea Walker', cap: 1000, mobs: ['sea_walker_4'], bracket: 4 },
+      { name: '§aSea Witch', cap: 1000, mobs: ['sea_witch_15'], bracket: 4 },
+      { name: '§aSnapping Turtle', cap: 750, mobs: ['snapping_turtle_30'], bracket: 6 },
+      { name: '§aSquid', cap: 1000, mobs: ['pond_squid_1'], bracket: 4 },
+      { name: '§aWater Hydra', cap: 250, mobs: ['water_hydra_100'], bracket: 6 },
+      { name: '§aWater Worm', cap: 750, mobs: ['water_worm_20'], bracket: 6 },
+      { name: '§aWiki Tiki', cap: 50, mobs: ['wiki_tiki_400'], bracket: 8 }
+    ]
+  },
+  lava: {
+    name: 'Lava',
+    mobs: [
+      { name: '§aFiery Scuttler', cap: 250, mobs: ['fiery_scuttler_475'], bracket: 6 },
+      { name: '§aFire Eel', cap: 750, mobs: ['fire_eel_240'], bracket: 6 },
+      { name: '§aFireproof Witch', cap: 750, mobs: ['fireproof_witch_75'], bracket: 6 },
+      { name: '§aFlaming Worm', cap: 750, mobs: ['flaming_worm_50'], bracket: 6 },
+      { name: '§aFried Chicken', cap: 1000, mobs: ['fried_chicken_30'], bracket: 4 },
+      { name: '§aLava Blaze', cap: 500, mobs: ['lava_blaze_100'], bracket: 7 },
+      { name: '§aLava Flame', cap: 750, mobs: ['lava_flame_230'], bracket: 6 },
+      { name: '§aLava Leech', cap: 750, mobs: ['lava_leech_220'], bracket: 6 },
+      { name: '§aLava Pigman', cap: 500, mobs: ['lava_pigman_100'], bracket: 7 },
+      { name: '§aLord Jawbus', cap: 50, mobs: ['lord_jawbus_600'], bracket: 8 },
+      { name: '§aMagma Pillar', cap: 500, mobs: ['magma_pillar_220'], bracket: 7 },
+      { name: '§aMagma Slug', cap: 1000, mobs: ['magma_slug_200'], bracket: 4 },
+      { name: '§aMoogma', cap: 1000, mobs: ['moogma_210'], bracket: 4 },
+      { name: '§aPlhlegblast', cap: 7, mobs: ['pond_squid_300'], bracket: 7 },
+      { name: '§aPyroclastic Worm', cap: 750, mobs: ['pyroclastic_worm_240'], bracket: 6 },
+      { name: '§aRagnarok', cap: 50, mobs: ['ragnarok_666'], bracket: 8 },
+      { name: '§aTaurus', cap: 500, mobs: ['pig_rider_250'], bracket: 7 },
+      { name: '§aThunder', cap: 250, mobs: ['thunder_400'], bracket: 6 },
+      { name: '§aVolcanic Snail', cap: 1000, mobs: ['volcanic_snail_90'], bracket: 4 }
+    ]
+  },
+  spooky_festival_fishing: {
+    name: 'Spooky Festival Fishing',
+    mobs: [
+      { name: '§aGrim Reaper', cap: 50, mobs: ['grim_reaper_190'], bracket: 8 },
+      { name: '§aJumpin\' Jack', cap: 1000, mobs: ['sea_guardian_10'], bracket: 4 },
+      { name: '§aNightmare', cap: 750, mobs: ['nightmare_24'], bracket: 6 },
+      { name: '§aPhantom Fisher', cap: 250, mobs: ['phantom_fisherman_160'], bracket: 6 },
+      { name: '§aScarecrow', cap: 1000, mobs: ['scarecrow_9'], bracket: 4 },
+      { name: '§aWerewolf', cap: 500, mobs: ['werewolf_50'], bracket: 7 }
+    ]
+  },
+  fishing_festival: {
+    name: 'Fishing Festival',
+    mobs: [
+      { name: '§aBlue Shark', cap: 750, mobs: ['blue_shark_20'], bracket: 6 },
+      { name: '§aGreat White Shark', cap: 250, mobs: ['great_white_shark_180'], bracket: 6 },
+      { name: '§aNurse Shark', cap: 1000, mobs: ['nurse_shark_6'], bracket: 4 },
+      { name: '§aTiger Shark', cap: 500, mobs: ['tiger_shark_50'], bracket: 7 }
+    ]
+  },
+  winter: {
+    name: 'Winter',
+    mobs: [
+      { name: '§aFrosty', cap: 1000, mobs: ['frosty_the_snowman_13'], bracket: 4 },
+      { name: '§aFrozen Steve', cap: 1000, mobs: ['frozen_steve_7'], bracket: 4 },
+      { name: '§aGrinch', cap: 750, mobs: ['grinch_21'], bracket: 6 },
+      { name: '§aNutcracker', cap: 500, mobs: ['nutcracker_50'], bracket: 7 },
+      { name: '§aReindrake', cap: 50, mobs: ['reindrake_100'], bracket: 8 },
+      { name: '§aYeti', cap: 250, mobs: ['yeti_175'], bracket: 6 }
+    ]
+  },
+  backwater_bayou: {
+    name: 'Backwater Bayou',
+    mobs: [
+      { name: '§aAlligator', cap: 250, mobs: ['alligator_120'], bracket: 6 },
+      { name: '§aBanshee', cap: 750, mobs: ['banshee_10'], bracket: 6 },
+      { name: '§aBayou Sludge', cap: 500, mobs: ['bayou_sludge_25'], bracket: 7 },
+      { name: '§aDumpster Diver', cap: 1000, mobs: ['dumpster_diver_15'], bracket: 4 },
+      { name: '§aTitanoboa', cap: 50, mobs: ['titanoboa_240'], bracket: 8 },
+      { name: '§aTrash Gobbler', cap: 1000, mobs: ['trash_gobbler_8'], bracket: 4 }
+    ]
+  },
+  mythological_creatures: {
+    name: 'Mythological Creatures',
+    mobs: [
+      { name: '§aCretan Bull', cap: 1000, mobs: ['cretan_bull_150', 'cretan_bull_250'], bracket: 5 },
+      { name: '§aGaia Construct', cap: 750, mobs: ['gaia_construct_140', 'gaia_construct_260'], bracket: 6 },
+      { name: '§aHarpy', cap: 750, mobs: ['harpy_175', 'harpy_325'], bracket: 6 },
+      { name: '§aKing Minos', cap: 50, mobs: ['king_minos_1750'], bracket: 8 },
+      { name: '§aManticore', cap: 50, mobs: ['manticore_1750'], bracket: 8 },
+      { name: '§aMinos Champion', cap: 500, mobs: ['minos_champion_175', 'minos_champion_310'], bracket: 7 },
+      { name: '§aMinos Hunter', cap: 1000, mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60'], bracket: 5 },
+      { name: '§aMinos Inquisitor', cap: 500, mobs: ['minos_inquisitor_750'], bracket: 7 },
+      { name: '§aMinotaur', cap: 500, mobs: ['minotaur_45', 'minotaur_120', 'minotaur_210'], bracket: 7 },
+      { name: '§aSiamese Lynx', cap: 1000, mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155'], bracket: 5 },
+      { name: '§aSphinx', cap: 500, mobs: ['sphinx_750', 'sphinx_1250'], bracket: 7 },
+      { name: '§aStranded Nymph', cap: 1000, mobs: ['stranded_nymph_150', 'stranded_nymph_250'], bracket: 5 }
+    ]
+  },
+  jerry: {
+    name: 'Jerry',
+    mobs: [
+      { name: '§9Blue Jerry', cap: 30, mobs: ['mayor_jerry_blue_2'], bracket: 5 },
+      { name: '§6Golden Jerry', cap: 20, mobs: ['mayor_jerry_golden_5'], bracket: 7 },
+      { name: '§aGreen Jerry', cap: 75, mobs: ['mayor_jerry_green_1'], bracket: 4 },
+      { name: '§5Purple Jerry', cap: 25, mobs: ['mayor_jerry_purple_3'], bracket: 6 }
+    ]
+  },
+  kuudra: {
+    name: 'Kuudra',
+    mobs: [
+      { name: '§aBlazing Golem', cap: 25, mobs: ['blazing_golem_100', 'blazing_golem_200', 'blazing_golem_300', 'blazing_golem_400', 'blazing_golem_500'], bracket: 6 },
+      {
+        name: '§aBlight',
+        cap: 10000,
+        mobs: ['blight_100', 'blight_200', 'blight_300', 'blight_400', 'blight_500'],
+        bracket: 3
+      },
+      { name: '§aDropship', cap: 25, mobs: ['dropship_100', 'dropship_200', 'dropship_300', 'dropship_400', 'dropship_500'], bracket: 6 },
+      {
+        name: '§aExplosive Imp',
+        cap: 3000,
+        mobs: ['explosive_imp_100', 'explosive_imp_200', 'explosive_imp_300', 'explosive_imp_400', 'explosive_imp_500'],
+        bracket: 4
+      },
+      {
+        name: '§aInferno Magma Cube',
+        cap: 10000,
+        mobs: [
+          'inferno_magma_cube_100',
+          'inferno_magma_cube_200',
+          'inferno_magma_cube_300',
+          'inferno_magma_cube_400',
+          'inferno_magma_cube_500'
+        ],
+        bracket: 3
+      },
+      {
+        name: '§aKuudra Berserker',
+        cap: 10000,
+        mobs: [
+          'kuudra_berserker_100',
+          'kuudra_berserker_200',
+          'kuudra_berserker_300',
+          'kuudra_berserker_400',
+          'kuudra_berserker_500'
+        ],
+        bracket: 3
+      },
+      {
+        name: '§aKuudra Follower',
+        cap: 25000,
+        mobs: [
+          'kuudra_follower_100',
+          'kuudra_follower_200',
+          'kuudra_follower_300',
+          'kuudra_follower_400',
+          'kuudra_follower_500'
+        ],
+        bracket: 2
+      },
+      {
+        name: '§aKuudra Knocker',
+        cap: 10000,
+        mobs: [
+          'kuudra_knocker_100',
+          'kuudra_knocker_200',
+          'kuudra_knocker_300',
+          'kuudra_knocker_400',
+          'kuudra_knocker_500'
+        ],
+        bracket: 3
+      },
+      {
+        name: '§aKuudra Landmine',
+        cap: 10000,
+        mobs: [
+          'kuudra_landmine_100',
+          'kuudra_landmine_200',
+          'kuudra_landmine_300',
+          'kuudra_landmine_400',
+          'kuudra_landmine_500'
+        ],
+        bracket: 3
+      },
+      {
+        name: '§aKuudra Slasher',
+        cap: 25,
+        mobs: [
+          'kuudra_slasher_100',
+          'kuudra_slasher_200',
+          'kuudra_slasher_300',
+          'kuudra_slasher_400',
+          'kuudra_slasher_500'
+        ],
+        bracket: 6
+      },
+      {
+        name: '§aMagma Follower',
+        cap: 25,
+        mobs: [
+          'magma_follower_100',
+          'magma_follower_200',
+          'magma_follower_300',
+          'magma_follower_400',
+          'magma_follower_500'
+        ],
+        bracket: 6
+      },
+      {
+        name: '§aWandering Blaze',
+        cap: 3000,
+        mobs: [
+          'wandering_blaze_100',
+          'wandering_blaze_200',
+          'wandering_blaze_300',
+          'wandering_blaze_400',
+          'wandering_blaze_500'
+        ],
+        bracket: 4
+      },
+      {
+        name: '§aWither Sentry',
+        cap: 25,
+        mobs: ['wither_sentry_100', 'wither_sentry_200', 'wither_sentry_300', 'wither_sentry_400', 'wither_sentry_500'],
+        bracket: 6
+      }
+    ]
+  },
+  lotus_atoll: {
+    name: 'Lotus Atoll',
+    mobs: [
+      { name: '§aAtoll Croaker', cap: 1000, mobs: ['atoll_croaker_45'], bracket: 4 },
+      { name: '§aDrowned Captain', cap: 500, mobs: ['drowned_captain_74'], bracket: 7 },
+      { name: '§aFlipflopper', cap: 100, mobs: ['flip_flopper_10'], bracket: 7 },
+      { name: '§aFrog Prince', cap: 50, mobs: ['frog_prince_132'], bracket: 8 },
+      { name: '§aLotum', cap: 100, mobs: ['lotus_jumping_frog_5'], bracket: 7 },
+      { name: '§aLotus Guardian', cap: 1000, mobs: ['lotus_guardian_55'], bracket: 4 },
+      { name: '§aLotusfish', cap: 25, mobs: ['lotus_fish_1'], bracket: 'hunting_5' },
+      { name: '§aPuddle Jumper', cap: 250, mobs: ['puddle_jumper_85'], bracket: 6 },
+      { name: '§aSeashine', cap: 50, mobs: ['sea_shine_12'], bracket: 2 },
+      { name: '§aTewtil', cap: 50, mobs: ['tewtil_10'], bracket: 2 },
+      { name: '§agorF', cap: 750, mobs: ['gorf_65'], bracket: 6 }
     ]
   }
 };
