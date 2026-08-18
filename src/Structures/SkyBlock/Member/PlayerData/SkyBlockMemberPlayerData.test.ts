@@ -6,7 +6,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockArea, SkyBlockPotionEffectName } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPlayerData', () => {
-  const data = new SkyBlockMemberPlayerData({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });
+  const data = new SkyBlockMemberPlayerData({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0, foragingCap: 0 });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberPlayerData);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberPlayerData>();

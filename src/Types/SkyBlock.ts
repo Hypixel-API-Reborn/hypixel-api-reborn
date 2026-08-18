@@ -55,7 +55,8 @@ export const Skills = [
   'taming',
   'carpentry',
   'runecrafting',
-  'social'
+  'social',
+  'hunting'
 ] as const;
 export type Skill = (typeof Skills)[number];
 

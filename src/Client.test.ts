@@ -2279,6 +2279,8 @@ test('Client#getSkyBlockSkills', async () => {
   expectTypeOf(data.parsed.alchemy).toEqualTypeOf<SkyBlockSkill>();
   expect(data.parsed.carpentry).toBeDefined();
   expectTypeOf(data.parsed.carpentry).toEqualTypeOf<SkyBlockSkill>();
+  expect(data.parsed.hunting).toBeDefined();
+  expectTypeOf(data.parsed.hunting).toEqualTypeOf<SkyBlockSkill>();
   expect(data.parsed.runecrafting).toBeDefined();
   expectTypeOf(data.parsed.runecrafting).toEqualTypeOf<SkyBlockSkill>();
   expect(data.parsed.social).toBeDefined();
