@@ -611,7 +611,16 @@ export const DEFAULT_LEVELING_XP: Record<number, number> = {
   60: 7000000
 };
 
-export const HOTF_XP: Record<number, number> = { 1: 0, 2: 3000, 3: 9000, 4: 25000, 5: 60000, 6: 100000, 7: 150000 , 8: 200000};
+export const HOTF_XP: Record<number, number> = {
+  1: 0,
+  2: 3000,
+  3: 9000,
+  4: 25000,
+  5: 60000,
+  6: 100000,
+  7: 150000,
+  8: 200000
+};
 
 export const HOTM_XP: Record<number, number> = {
   1: 0,
