@@ -2571,11 +2571,21 @@ export const BestiaryMobs: BestiaryMobsData = {
     name: 'Mythological Creatures',
     mobs: [
       { name: '§aCretan Bull', cap: 1000, mobs: ['cretan_bull_150', 'cretan_bull_250'], bracket: 5 },
-      { name: '§aGaia Construct', cap: 750, mobs: ['gaia_construct_140', 'gaia_construct_260', 'gaia_construct_325'], bracket: 6 },
+      {
+        name: '§aGaia Construct',
+        cap: 750,
+        mobs: ['gaia_construct_140', 'gaia_construct_260', 'gaia_construct_325'],
+        bracket: 6
+      },
       { name: '§aHarpy', cap: 750, mobs: ['harpy_175', 'harpy_325'], bracket: 6 },
       { name: '§aKing Minos', cap: 50, mobs: ['king_minos_1750'], bracket: 8 },
       { name: '§aManticore', cap: 50, mobs: ['manticore_1750'], bracket: 8 },
-      { name: '§aMinos Champion', cap: 500, mobs: ['minos_champion_175', 'minos_champion_310', 'minos_champion_550'], bracket: 7 },
+      {
+        name: '§aMinos Champion',
+        cap: 500,
+        mobs: ['minos_champion_175', 'minos_champion_310', 'minos_champion_550'],
+        bracket: 7
+      },
       {
         name: '§aMinos Hunter',
         cap: 1000,
