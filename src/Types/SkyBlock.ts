@@ -3601,7 +3601,7 @@ export interface RawBestiaryMob {
   name: string;
   cap: number;
   mobs: string[];
-  bracket: number;
+  bracket: number | string;
 }
 
 export interface RawBestiaryIsland {
@@ -3610,29 +3610,35 @@ export interface RawBestiaryIsland {
 }
 
 export interface BestiaryMobsData {
-  dynamic: RawBestiaryIsland;
+  private_island: RawBestiaryIsland;
   hub: RawBestiaryIsland;
-  farming_1: RawBestiaryIsland;
-  combat_1: RawBestiaryIsland;
-  combat_3: RawBestiaryIsland;
+  the_farming_islands: RawBestiaryIsland;
+  garden: RawBestiaryIsland;
+  spiders_den: RawBestiaryIsland;
+  the_end: RawBestiaryIsland;
   crimson_isle: RawBestiaryIsland;
-  mining_2: RawBestiaryIsland;
-  mining_3: RawBestiaryIsland;
+  deep_caverns: RawBestiaryIsland;
+  dwarven_mines: RawBestiaryIsland;
   crystal_hollows: RawBestiaryIsland;
-  foraging_1: RawBestiaryIsland;
-  foraging_2: RawBestiaryIsland;
+  the_park: RawBestiaryIsland;
+  galatea: RawBestiaryIsland;
+  torrhus_canyon: RawBestiaryIsland;
+  safari_cavern: RawBestiaryIsland;
+  safari_forest: RawBestiaryIsland;
+  safari_haunted: RawBestiaryIsland;
+  safari_icy: RawBestiaryIsland;
   spooky_festival: RawBestiaryIsland;
-  mythological_creatures: RawBestiaryIsland;
-  jerry: RawBestiaryIsland;
-  kuudra: RawBestiaryIsland;
+  catacombs: RawBestiaryIsland;
   fishing: RawBestiaryIsland;
   lava: RawBestiaryIsland;
   spooky_festival_fishing: RawBestiaryIsland;
   fishing_festival: RawBestiaryIsland;
   winter: RawBestiaryIsland;
   backwater_bayou: RawBestiaryIsland;
-  catacombs: RawBestiaryIsland;
-  garden: RawBestiaryIsland;
+  mythological_creatures: RawBestiaryIsland;
+  jerry: RawBestiaryIsland;
+  kuudra: RawBestiaryIsland;
+  lotus_atoll: RawBestiaryIsland;
 }
 
 export type SkyblockProfileWithMe = SkyBlockProfile & { me: NonNullable<SkyBlockProfile['me']> };
