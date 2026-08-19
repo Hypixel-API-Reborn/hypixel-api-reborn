@@ -1831,7 +1831,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       { name: '§aGazer', cap: 100, mobs: ['gazer_1'], bracket: 'hunting_2' },
       { name: '§aGimmiegold', cap: 75, mobs: ['gimmiegold_1'], bracket: 'hunting_3' },
       { name: '§aHideonwall', cap: 75, mobs: ['hideonwall_1'], bracket: 'hunting_3' },
-      { name: '§aHideyho', cap: 75, mobs: ['hideyho_1'], bracket: 'hunting_3' },
+      { name: '§aHideyho', cap: 50, mobs: ['hideyho_1'], bracket: 'hunting_4' },
       { name: '§aLitterbug', cap: 100, mobs: ['litterbug_1'], bracket: 'hunting_2' },
       { name: '§aSolsnatcher', cap: 100, mobs: ['solsnatcher_1'], bracket: 'hunting_2' }
     ]
