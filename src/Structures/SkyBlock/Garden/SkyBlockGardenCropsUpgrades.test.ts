@@ -36,6 +36,15 @@ test('SkyBlockGardenCropsUpgrades', () => {
   expect(data.netherWart).toBeDefined();
   expect(data.netherWart).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.netherWart).toEqualTypeOf<number>();
+  expect(data.moonFlower).toBeDefined();
+  expect(data.moonFlower).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.moonFlower).toEqualTypeOf<number>();
+  expect(data.sunFlower).toBeDefined();
+  expect(data.sunFlower).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.sunFlower).toEqualTypeOf<number>();
+  expect(data.wildRose).toBeDefined();
+  expect(data.wildRose).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.wildRose).toEqualTypeOf<number>();
   expect(data.average).toBeDefined();
   expect(data.average).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.average).toEqualTypeOf<number>();
