@@ -71,8 +71,8 @@ test('SkyBlockInventoryItem', () => {
   expectTypeOf(data.baseStatBoostPercentage).toEqualTypeOf<number | null>();
   expect(data.itemTier).toBeDefined();
   expectTypeOf(data.itemTier).toEqualTypeOf<number | null>();
-  expect(data.manaDisintergratorCount).toBeDefined();
-  expectTypeOf(data.manaDisintergratorCount).toEqualTypeOf<number | null>();
+  expect(data.manaDisintegratorCount).toBeDefined();
+  expectTypeOf(data.manaDisintegratorCount).toEqualTypeOf<number | null>();
   expect(data.skin).toBeDefined();
   expectTypeOf(data.skin).toEqualTypeOf<string | null>();
   expect(data.blazetekkChannel).toBeDefined();
@@ -131,8 +131,8 @@ test('SkyBlockInventoryItem', () => {
   expectTypeOf(data.coinsGained).toEqualTypeOf<number | null>();
   expect(data.ranchersSpeed).toBeDefined();
   expectTypeOf(data.ranchersSpeed).toEqualTypeOf<number | null>();
-  expect(data.favoriteSentinalWarden).toBeDefined();
-  expectTypeOf(data.favoriteSentinalWarden).toEqualTypeOf<number | null>();
+  expect(data.favoriteSentinelWarden).toBeDefined();
+  expectTypeOf(data.favoriteSentinelWarden).toEqualTypeOf<number | null>();
   expect(data.potionLevel).toBeDefined();
   expectTypeOf(data.potionLevel).toEqualTypeOf<number | null>();
   expect(data.potion).toBeDefined();

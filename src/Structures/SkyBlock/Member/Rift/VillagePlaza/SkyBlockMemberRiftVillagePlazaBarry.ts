@@ -1,6 +1,6 @@
 class SkyBlockMemberRiftVillagePlazaBarry {
   firstTalkToBarry: boolean;
-  convinced: boolean;
+  convinced: string[];
   receivedReward: boolean;
   constructor(data: Record<string, any>) {
     this.firstTalkToBarry = data?.first_talk_to_barry ?? false;

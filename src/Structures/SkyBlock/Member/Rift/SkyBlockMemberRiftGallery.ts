@@ -8,7 +8,7 @@ class SkyBlockMemberRiftGallery {
   constructor(data: Record<string, any>) {
     this.eliseStep = data?.elise_step ?? 0;
     this.securedTrophies = (data?.sent_trophy_dialogues ?? []).map((trophy: Record<string, any>) => {
-      new SkyBlockMemberRiftGallerySecuredTrophy(trophy);
+      return new SkyBlockMemberRiftGallerySecuredTrophy(trophy);
     });
     this.sentTrophyDialogues = data?.sent_trophy_dialogues ?? [];
   }

@@ -31,7 +31,7 @@ export const HarpSongs = [
 ] as const;
 export type HarpSong = (typeof HarpSongs)[number];
 
-export const Raritys = [
+export const Rarities = [
   'COMMON',
   'UNCOMMON',
   'RARE',
@@ -42,7 +42,7 @@ export const Raritys = [
   'SPECIAL',
   'VERY_SPECIAL'
 ] as const;
-export type Rarity = (typeof Raritys)[number];
+export type Rarity = (typeof Rarities)[number];
 
 export const Skills = [
   'farming',
@@ -132,14 +132,14 @@ export const SkyBlockArrows = [
 ] as const;
 export type SkyBlockArrow = (typeof SkyBlockArrows)[number];
 
-export const MiningPickaxeAbilitys = [
+export const MiningPickaxeAbilities = [
   'mining_speed_boost',
   'pickaxe_toss',
   'anomalous_desire',
   'maniac_miner',
   'sheer_force'
 ] as const;
-export type MiningPickaxeAbility = (typeof MiningPickaxeAbilitys)[number];
+export type MiningPickaxeAbility = (typeof MiningPickaxeAbilities)[number];
 
 export const MiningSkyMallEffects = [
   'dig_speed',
@@ -566,7 +566,7 @@ export const SkyBlockAreas = [
 export type SkyBlockArea = (typeof SkyBlockAreas)[number];
 
 export const SkyBlockMemberPowers = [
-  'Fortuitous ',
+  'Fortuitous',
   'Pretty',
   'Protected',
   'Simple',
@@ -574,7 +574,7 @@ export const SkyBlockMemberPowers = [
   'Commando',
   'Disciplined',
   'Inspired',
-  'Ominous ',
+  'Ominous',
   'Prepared',
   'Silky',
   'Sweet',
@@ -1189,7 +1189,7 @@ export const DungeonFloors = [
 ] as const;
 export type DungeonFloor = (typeof DungeonFloors)[number];
 
-export const RiftGalleryTrophys = [
+export const RiftGalleryTrophies = [
   'wyldly_supreme',
   'chicken_n_egg',
   'mirrored',
@@ -1199,7 +1199,7 @@ export const RiftGalleryTrophys = [
   'vampiric',
   'mountain'
 ] as const;
-export type RiftGalleryTrophy = (typeof RiftGalleryTrophys)[number];
+export type RiftGalleryTrophy = (typeof RiftGalleryTrophies)[number];
 
 export const MirrorverseRooms = [
   'four levers',
@@ -1270,10 +1270,6 @@ export const SkyBlockPotionEffectNames = [
   'foraging_xp_boost',
   'alchemy_xp_boost',
   'jerry_candy',
-  'burning',
-  'spirit',
-  'jump_boost',
-  'speed',
   'invisibility'
 ] as const;
 export type SkyBlockPotionEffectName = (typeof SkyBlockPotionEffectNames)[number];

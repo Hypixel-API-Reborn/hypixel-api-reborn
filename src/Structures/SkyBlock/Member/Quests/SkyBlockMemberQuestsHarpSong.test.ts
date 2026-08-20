@@ -12,9 +12,9 @@ test('SkyBlockMemberQuestsHarpSong', () => {
   expect(data.completions).toBeDefined();
   expect(data.completions).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.completions).toEqualTypeOf<number>();
-  expect(data.bestCompletions).toBeDefined();
-  expect(data.bestCompletions).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.bestCompletions).toEqualTypeOf<number>();
+  expect(data.bestCompletion).toBeDefined();
+  expect(data.bestCompletion).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.bestCompletion).toEqualTypeOf<number>();
   expect(data.perfectCompletions).toBeDefined();
   expect(data.perfectCompletions).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.perfectCompletions).toEqualTypeOf<number>();

@@ -10,7 +10,7 @@ class SkyBlockMemberAccessoryBag {
   constructor(data: Record<string, any>) {
     this.selectedPower = data?.selected_power ?? null;
     this.unlockedPowers = data?.unlocked_powers ?? [
-      'Fortuitous ',
+      'Fortuitous',
       'Pretty',
       'Protected',
       'Simple',
@@ -18,7 +18,7 @@ class SkyBlockMemberAccessoryBag {
       'Commando',
       'Disciplined',
       'Inspired',
-      'Ominous ',
+      'Ominous',
       'Prepared'
     ];
     this.bagUpgradesPurchased = data?.bag_upgrades_purchased ?? 0;

@@ -73,7 +73,7 @@ class SkyBlockMember {
     });
     this.playerStats = new SkyBlockMemberPlayerStats(data?.player_stats ?? {});
     this.profileStats = new SkyBlockMemberProfile(data?.profile ?? {});
-    this.quests = new SkyBlockMemberQuests(data?.quests ?? {});
+    this.quests = new SkyBlockMemberQuests(data?.quests ?? {}, data?.foraging?.songs?.harp);
     this.slayers = new SkyBlockMemberSlayers(data?.slayer ?? {});
     this.rift = new SkyBlockMemberRift(data?.rift ?? {});
     this.inventory = new SkyBlockMemberInventories(data);

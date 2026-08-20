@@ -20,8 +20,8 @@ class SkyBlockMemberSlayersQuest {
     this.startTimestamp = data?.start_timestamp ?? 0;
     this.startAt = new Date(this.startTimestamp);
     this.completionState = data?.completion_state ?? 0;
-    this.usedArmor = data?.used_armor ?? 0;
-    this.solo = data?.solo ?? 0;
+    this.usedArmor = data?.used_armor ?? false;
+    this.solo = data?.solo ?? false;
     this.combatXp = data?.combat_xp ?? 0;
     this.recentMobKills = (data?.recent_mob_kills ?? []).map((mob: { xp: number; timestamp: number }) => {
       return { ...mob, timestampAt: new Date(mob.timestamp) };
