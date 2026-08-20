@@ -39,6 +39,9 @@ test('SkyBlockSkills', () => {
   expect(data.carpentry).toBeDefined();
   expect(data.carpentry).toBeInstanceOf(SkyBlockSkill);
   expectTypeOf(data.carpentry).toEqualTypeOf<SkyBlockSkill>();
+  expect(data.hunting).toBeDefined();
+  expect(data.hunting).toBeInstanceOf(SkyBlockSkill);
+  expectTypeOf(data.hunting).toEqualTypeOf<SkyBlockSkill>();
   expect(data.runecrafting).toBeDefined();
   expect(data.runecrafting).toBeInstanceOf(SkyBlockSkill);
   expectTypeOf(data.runecrafting).toEqualTypeOf<SkyBlockSkill>();

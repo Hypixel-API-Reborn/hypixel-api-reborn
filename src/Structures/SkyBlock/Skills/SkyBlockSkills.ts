@@ -15,6 +15,7 @@ class SkyBlockSkills {
   runecrafting: SkyBlockSkill;
   social: SkyBlockSkill;
   taming: SkyBlockSkill;
+  hunting: SkyBlockSkill;
   constructor(data: Record<string, any>) {
     this.lastUpdated = data?.lastUpdated ?? 0;
     this.lastUpdatedAt = new Date(this.lastUpdated);
@@ -30,6 +31,7 @@ class SkyBlockSkills {
     this.runecrafting = new SkyBlockSkill(data?.skills?.RUNECRAFTING ?? {});
     this.social = new SkyBlockSkill(data?.skills?.SOCIAL ?? {});
     this.taming = new SkyBlockSkill(data?.skills?.TAMING ?? {});
+    this.hunting = new SkyBlockSkill(data?.skills?.HUNTING ?? {});
   }
 }
 

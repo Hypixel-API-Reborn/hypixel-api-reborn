@@ -1,4 +1,4 @@
-import { getLevelByXp } from '../../../Utils/index.js';
+import { CalculateAverage, getLevelByXp } from '../../../Utils/index.js';
 import type { SkillLevelData } from '../../../Types/index.js';
 
 class SkyBlockGardenCropMilestones {
@@ -15,7 +15,6 @@ class SkyBlockGardenCropMilestones {
   moonFlower: SkillLevelData;
   sunFlower: SkillLevelData;
   wildRose: SkillLevelData;
-  average: number;
   constructor(data: Record<string, any>) {
     this.wheat = getLevelByXp(data?.WHEAT ?? 0, { type: 'wheat' });
     this.carrot = getLevelByXp(data?.CARROT_ITEM ?? 0, { type: 'carrot' });
@@ -30,21 +29,10 @@ class SkyBlockGardenCropMilestones {
     this.moonFlower = getLevelByXp(data?.MOONFLOWER ?? 0, { type: 'moonFlower' });
     this.sunFlower = getLevelByXp(data?.DOUBLE_PLANT ?? 0, { type: 'sunFlower' });
     this.wildRose = getLevelByXp(data?.WILD_ROSE ?? 0, { type: 'wildRose' });
-    this.average =
-      (this.wheat.level +
-        this.carrot.level +
-        this.sugarCane.level +
-        this.potato.level +
-        this.pumpkin.level +
-        this.melon.level +
-        this.cactus.level +
-        this.cocoaBeans.level +
-        this.mushroom.level +
-        this.netherWart.level +
-        this.moonFlower.level +
-        this.sunFlower.level +
-        this.wildRose.level) /
-      13;
+  }
+
+  get average(): number {
+    return CalculateAverage(Object.values(this).map((value) => value.level));
   }
 
   toString(): number {

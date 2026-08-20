@@ -1,3 +1,5 @@
+import { CalculateAverage } from '../../../Utils/numberUtils.ts';
+
 class SkyBlockGardenCropsUpgrades {
   wheat: number;
   carrot: number;
@@ -12,7 +14,6 @@ class SkyBlockGardenCropsUpgrades {
   moonFlower: number;
   sunFlower: number;
   wildRose: number;
-  average: number;
   constructor(data: Record<string, any>) {
     this.wheat = data?.WHEAT ?? 0;
     this.carrot = data?.CARROT_ITEM ?? 0;
@@ -27,21 +28,10 @@ class SkyBlockGardenCropsUpgrades {
     this.moonFlower = data?.MOONFLOWER ?? 0;
     this.sunFlower = data?.DOUBLE_PLANT ?? 0;
     this.wildRose = data?.WILD_ROSE ?? 0;
-    this.average =
-      (this.wheat +
-        this.carrot +
-        this.sugarCane +
-        this.potato +
-        this.pumpkin +
-        this.melon +
-        this.cactus +
-        this.cocoaBeans +
-        this.mushroom +
-        this.netherWart +
-        this.moonFlower +
-        this.sunFlower +
-        this.wildRose) /
-      13;
+  }
+
+  get average(): number {
+    return CalculateAverage(Object.values(this));
   }
 
   toString(): number {
