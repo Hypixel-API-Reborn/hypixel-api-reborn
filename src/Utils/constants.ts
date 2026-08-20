@@ -416,6 +416,7 @@ export const DEFAULT_SKILL_CAPS: { [key in SkyBlockXPTable]: number } = {
   carpentry: 50,
   runecrafting: 25,
   social: 25,
+  hunting: 50,
   dungeoneering: 50,
   default: 0,
   mining_tree: 10,

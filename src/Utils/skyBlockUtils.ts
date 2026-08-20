@@ -129,6 +129,7 @@ export function getXpTable(type: SkyBlockXPTable): Record<number, number> {
     alchemy: DEFAULT_LEVELING_XP,
     taming: DEFAULT_LEVELING_XP,
     carpentry: DEFAULT_LEVELING_XP,
+    hunting: DEFAULT_LEVELING_XP,
     garden: GARDEN_XP,
     wheat: WHEAT,
     carrot: CARROT,

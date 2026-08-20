@@ -3,7 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 import type { SkillLevelData } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPlayerDataSkills', () => {
-  const data = new SkyBlockMemberPlayerDataSkills({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0 });
+  const data = new SkyBlockMemberPlayerDataSkills({ stats: 'meow' }, { farmingCap: 0, tamingCap: 0, foragingCap: 0 });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberPlayerDataSkills);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberPlayerDataSkills>();
@@ -27,6 +27,8 @@ test('SkyBlockMemberPlayerDataSkills', () => {
   expectTypeOf(data.social).toEqualTypeOf<SkillLevelData>();
   expect(data.carpentry).toBeDefined();
   expectTypeOf(data.carpentry).toEqualTypeOf<SkillLevelData>();
+  expect(data.hunting).toBeDefined();
+  expectTypeOf(data.hunting).toEqualTypeOf<SkillLevelData>();
   expect(data.combat).toBeDefined();
   expectTypeOf(data.combat).toEqualTypeOf<SkillLevelData>();
   expect(data.average).toBeDefined();

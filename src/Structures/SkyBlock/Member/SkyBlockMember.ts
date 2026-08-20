@@ -68,7 +68,8 @@ class SkyBlockMember {
     this.pets = new SkyBlockMemberPets({ ...(data?.pets_data ?? {}), ...(data?.player_stats?.pets ?? {}) });
     this.playerData = new SkyBlockMemberPlayerData(data?.player_data ?? {}, {
       farmingCap: this.jacobContests.perks.farmingLevelCap ?? 0,
-      tamingCap: this.pets.petCare.petsSacrificed.length ?? 0
+      tamingCap: this.pets.petCare.petsSacrificed.length ?? 0,
+      foragingCap: data?.player_data?.experience?.SKILL_FORAGING_extra_level_cap ?? 0
     });
     this.playerStats = new SkyBlockMemberPlayerStats(data?.player_stats ?? {});
     this.profileStats = new SkyBlockMemberProfile(data?.profile ?? {});

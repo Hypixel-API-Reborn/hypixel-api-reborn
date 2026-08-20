@@ -19,7 +19,7 @@ class SkyBlockMemberPlayerData {
   fastestTargetPractice: number;
   fishingTreasureCaught: number;
   skills: SkyBlockMemberPlayerDataSkills;
-  constructor(data: Record<string, any>, skillCaps: { farmingCap: number; tamingCap: number }) {
+  constructor(data: Record<string, any>, skillCaps: { farmingCap: number; tamingCap: number; foragingCap: number }) {
     this.activeEffects = (data?.active_effects ?? []).map(
       (effect: Record<string, any>) => new SkyBlockMemberPlayerDataActiveEffect(effect)
     );
