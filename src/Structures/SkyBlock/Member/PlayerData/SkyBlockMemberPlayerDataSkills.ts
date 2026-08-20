@@ -1,7 +1,9 @@
-import { getLevelByXp } from '../../../../Utils/index.js';
-import type { SkillLevelData } from '../../../../Types/index.js';
+import { CalculateAverage, getLevelByXp } from '../../../../Utils/index.js';
+import type { Skill, SkillLevelData } from '../../../../Types/index.js';
 
 class SkyBlockMemberPlayerDataSkills {
+  private nonSkillKeys: string[] = ['nonSkillKeys', 'cosmeticSkills', 'foragingCaps'];
+  private cosmeticSkills: Skill[] = ['runecrafting', 'social'];
   fishing: SkillLevelData;
   alchemy: SkillLevelData;
   runecrafting: SkillLevelData;
@@ -15,8 +17,6 @@ class SkyBlockMemberPlayerDataSkills {
   combat: SkillLevelData;
   hunting: SkillLevelData;
   foragingCaps: number;
-  average: number;
-  nonCosmeticAverage: number;
   constructor(data: Record<string, any>, skillCaps: { farmingCap: number; tamingCap: number; foragingCap: number }) {
     this.fishing = getLevelByXp(data?.SKILL_FISHING ?? 0, { type: 'fishing' });
     this.alchemy = getLevelByXp(data?.SKILL_ALCHEMY ?? 0, { type: 'alchemy' });
@@ -31,32 +31,23 @@ class SkyBlockMemberPlayerDataSkills {
     this.combat = getLevelByXp(data?.SKILL_COMBAT ?? 0, { type: 'combat' });
     this.hunting = getLevelByXp(data?.SKILL_HUNTING ?? 0, { type: 'hunting' });
     this.foragingCaps = data?.SKILL_FORAGING_extra_level_cap ?? 0;
-    this.average =
-      (this.fishing.level +
-        this.alchemy.level +
-        this.runecrafting.level +
-        this.mining.level +
-        this.farming.level +
-        this.enchanting.level +
-        this.taming.level +
-        this.foraging.level +
-        this.social.level +
-        this.carpentry.level +
-        this.combat.level +
-        this.hunting.level) /
-      12;
-    this.nonCosmeticAverage =
-      (this.fishing.level +
-        this.alchemy.level +
-        this.mining.level +
-        this.farming.level +
-        this.enchanting.level +
-        this.taming.level +
-        this.foraging.level +
-        this.carpentry.level +
-        this.combat.level +
-        this.hunting.level) /
-      10;
+  }
+
+  get average(): number {
+    return CalculateAverage(
+      Object.entries(this)
+        .filter(([key]) => !this.nonSkillKeys.includes(key))
+        .map(([key, value]) => value.level)
+    );
+  }
+
+  get nonCosmeticAverage(): number {
+    return CalculateAverage(
+      Object.entries(this)
+        .filter(([key]) => !this.nonSkillKeys.includes(key))
+        .filter(([key]) => !this.cosmeticSkills.includes(key as Skill))
+        .map(([key, value]) => value.level)
+    );
   }
 
   toString(): number {
