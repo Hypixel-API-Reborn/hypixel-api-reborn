@@ -1308,7 +1308,7 @@ export const BestiaryBrackets: { [key: number | string]: number[] } = {
   5: [
     1, 2, 3, 5, 7, 10, 15, 20, 25, 30, 60, 120, 200, 300, 400, 500, 600, 720, 860, 1000, 2000, 4000, 6000, 8000, 10000
   ],
-  6: [1, 2, 3, 5, 7, 9, 14, 17, 20, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500, 3000, 4500, 6000, 7500],
+  6: [1, 2, 3, 5, 7, 9, 12, 16, 20, 25, 50, 80, 125, 175, 250, 325, 425, 525, 625, 750, 1500, 3000, 4500, 6000, 7500],
   7: [1, 2, 3, 5, 7, 9, 11, 14, 17, 20, 30, 40, 55, 75, 100, 150, 200, 275, 375, 500, 1000, 1500, 2000, 2500, 3000],
   8: [1, 2, 3, 4, 5, 8, 11, 14, 17, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200],
   hunting_1: [1, 5, 10, 20, 35, 50, 65, 85, 105, 125],
@@ -1831,7 +1831,7 @@ export const BestiaryMobs: BestiaryMobsData = {
       { name: '§aGazer', cap: 100, mobs: ['gazer_1'], bracket: 'hunting_2' },
       { name: '§aGimmiegold', cap: 75, mobs: ['gimmiegold_1'], bracket: 'hunting_3' },
       { name: '§aHideonwall', cap: 75, mobs: ['hideonwall_1'], bracket: 'hunting_3' },
-      { name: '§aHideyho', cap: 75, mobs: ['hideyho_1'], bracket: 'hunting_3' },
+      { name: '§aHideyho', cap: 50, mobs: ['hideyho_1'], bracket: 'hunting_4' },
       { name: '§aLitterbug', cap: 100, mobs: ['litterbug_1'], bracket: 'hunting_2' },
       { name: '§aSolsnatcher', cap: 100, mobs: ['solsnatcher_1'], bracket: 'hunting_2' }
     ]
@@ -1915,29 +1915,6 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_cellar_spider_125'
         ],
         bracket: 5
-      },
-      {
-        name: '§aLonely Spider',
-        cap: 4000,
-        mobs: [
-          'lonely_spider_35',
-          'lonely_spider_55',
-          'lonely_spider_65',
-          'lonely_spider_75',
-          'lonely_spider_85',
-          'lonely_spider_95',
-          'lonely_spider_105',
-          'lonely_spider_115',
-          'master_lonely_spider_35',
-          'master_lonely_spider_55',
-          'master_lonely_spider_65',
-          'master_lonely_spider_75',
-          'master_lonely_spider_85',
-          'master_lonely_spider_95',
-          'master_lonely_spider_105',
-          'master_lonely_spider_115'
-        ],
-        bracket: 3
       },
       {
         name: '§aCrypt Dreadlord',
@@ -2038,6 +2015,29 @@ export const BestiaryMobs: BestiaryMobsData = {
           'master_king_midas_170'
         ],
         bracket: 7
+      },
+      {
+        name: '§aLonely Spider',
+        cap: 4000,
+        mobs: [
+          'lonely_spider_35',
+          'lonely_spider_55',
+          'lonely_spider_65',
+          'lonely_spider_75',
+          'lonely_spider_85',
+          'lonely_spider_95',
+          'lonely_spider_105',
+          'lonely_spider_115',
+          'master_lonely_spider_35',
+          'master_lonely_spider_55',
+          'master_lonely_spider_65',
+          'master_lonely_spider_75',
+          'master_lonely_spider_85',
+          'master_lonely_spider_95',
+          'master_lonely_spider_105',
+          'master_lonely_spider_115'
+        ],
+        bracket: 3
       },
       {
         name: '§a§d§lLost Adventurer',
@@ -2571,23 +2571,33 @@ export const BestiaryMobs: BestiaryMobsData = {
     name: 'Mythological Creatures',
     mobs: [
       { name: '§aCretan Bull', cap: 1000, mobs: ['cretan_bull_150', 'cretan_bull_250'], bracket: 5 },
-      { name: '§aGaia Construct', cap: 750, mobs: ['gaia_construct_140', 'gaia_construct_260'], bracket: 6 },
+      {
+        name: '§aGaia Construct',
+        cap: 750,
+        mobs: ['gaia_construct_140', 'gaia_construct_260', 'gaia_construct_325'],
+        bracket: 6
+      },
       { name: '§aHarpy', cap: 750, mobs: ['harpy_175', 'harpy_325'], bracket: 6 },
       { name: '§aKing Minos', cap: 50, mobs: ['king_minos_1750'], bracket: 8 },
       { name: '§aManticore', cap: 50, mobs: ['manticore_1750'], bracket: 8 },
-      { name: '§aMinos Champion', cap: 500, mobs: ['minos_champion_175', 'minos_champion_310'], bracket: 7 },
+      {
+        name: '§aMinos Champion',
+        cap: 500,
+        mobs: ['minos_champion_175', 'minos_champion_310', 'minos_champion_550'],
+        bracket: 7
+      },
       {
         name: '§aMinos Hunter',
         cap: 1000,
-        mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60'],
+        mobs: ['minos_hunter_125', 'minos_hunter_15', 'minos_hunter_60', 'minos_hunter_200'],
         bracket: 5
       },
-      { name: '§aMinos Inquisitor', cap: 500, mobs: ['minos_inquisitor_750'], bracket: 7 },
+      { name: '§aMinos Inquisitor', cap: 500, mobs: ['minos_inquisitor_750', 'minos_inquisitor_1250'], bracket: 7 },
       { name: '§aMinotaur', cap: 500, mobs: ['minotaur_45', 'minotaur_120', 'minotaur_210'], bracket: 7 },
       {
         name: '§aSiamese Lynx',
         cap: 1000,
-        mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155'],
+        mobs: ['siamese_lynx_25', 'siamese_lynx_85', 'siamese_lynx_155', 'siamese_lynx_200'],
         bracket: 5
       },
       { name: '§aSphinx', cap: 500, mobs: ['sphinx_750', 'sphinx_1250'], bracket: 7 },
