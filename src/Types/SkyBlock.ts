@@ -269,7 +269,6 @@ export type ForgeItemType = (typeof ForgeItemTypes)[number];
 export const SkyBlockXPTables = [
   ...Skills,
   'default',
-  'runecrafting',
   'dungeoneering',
   'mining_tree',
   'foraging_tree',

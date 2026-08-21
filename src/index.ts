@@ -384,7 +384,7 @@ import SkyBlockProfileCommunityUpgrades from './Structures/SkyBlock/Profile/Comm
 import SkyBlockProfileCommunityUpgradesUpgrade from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrade.js';
 import SkyBlockProfileCommunityUpgradesUpgraded from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgraded.js';
 import SkyBlockProfileCommunityUpgradesUpgrading from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrading.js';
-import SkyBlockProfilesBankingTransaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfilesBankingTransaction.js';
+import SkyBlockProfileBankingTransaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfileBankingTransaction.js';
 import SkyBlockSkill from './Structures/SkyBlock/Skills/SkyBlockSkill.js';
 import SkyBlockSkillLevel from './Structures/SkyBlock/Skills/SkyBlockSkillLevel.js';
 import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
@@ -838,7 +838,7 @@ export {
   SkyBlockProfileCommunityUpgradesUpgrade,
   SkyBlockProfileCommunityUpgradesUpgraded,
   SkyBlockProfileCommunityUpgradesUpgrading,
-  SkyBlockProfilesBankingTransaction,
+  SkyBlockProfileBankingTransaction,
   SkyBlockSkill,
   SkyBlockSkillLevel,
   SkyBlockSkills,
@@ -1290,7 +1290,7 @@ export default {
   SkyBlockProfileCommunityUpgradesUpgrade,
   SkyBlockProfileCommunityUpgradesUpgraded,
   SkyBlockProfileCommunityUpgradesUpgrading,
-  SkyBlockProfilesBankingTransaction,
+  SkyBlockProfileBankingTransaction,
   SkyBlockSkill,
   SkyBlockSkillLevel,
   SkyBlockSkills,

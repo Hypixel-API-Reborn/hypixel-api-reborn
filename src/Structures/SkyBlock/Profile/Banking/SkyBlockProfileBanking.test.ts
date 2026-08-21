@@ -1,5 +1,5 @@
 import SkyBlockProfileBanking from './SkyBlockProfileBanking.js';
-import SkyBlockProfilesBankingTransaction from './SkyBlockProfilesBankingTransaction.js';
+import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.js';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockProfileBanking', () => {
@@ -11,7 +11,7 @@ test('SkyBlockProfileBanking', () => {
   expect(data.balance).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.balance).toEqualTypeOf<number>();
   expect(data.transactions).toBeDefined();
-  expectTypeOf(data.transactions).toEqualTypeOf<SkyBlockProfilesBankingTransaction[]>();
+  expectTypeOf(data.transactions).toEqualTypeOf<SkyBlockProfileBankingTransaction[]>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => number>();
   expect(data.toString()).toBeDefined();

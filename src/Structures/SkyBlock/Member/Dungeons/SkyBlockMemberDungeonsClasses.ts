@@ -18,7 +18,7 @@ class SkyBlockMemberDungeonsClasses {
   }
 
   get average(): number {
-    return CalculateAverage(Object.values(this).map((value) => value.level));
+    return CalculateAverage([this.healer, this.berserk, this.mage, this.archer, this.tank].map((c) => c.level));
   }
 
   toString(): DungeonClass | 'UNKNOWN' {
