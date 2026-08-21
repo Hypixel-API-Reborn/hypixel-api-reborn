@@ -9,7 +9,7 @@ test('SkyBlockMemberRiftVillagePlazaBarry', () => {
   expect(data.firstTalkToBarry).toBeDefined();
   expectTypeOf(data.firstTalkToBarry).toEqualTypeOf<boolean>();
   expect(data.convinced).toBeDefined();
-  expectTypeOf(data.convinced).toEqualTypeOf<boolean>();
+  expectTypeOf(data.convinced).toEqualTypeOf<string[]>();
   expect(data.receivedReward).toBeDefined();
   expectTypeOf(data.receivedReward).toEqualTypeOf<boolean>();
 });

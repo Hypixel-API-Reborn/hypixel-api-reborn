@@ -10,7 +10,7 @@ test('SkyBlockMemberRiftInventory', () => {
   expect(data).toBeInstanceOf(SkyBlockMemberRiftInventory);
   expectTypeOf(data).toEqualTypeOf<SkyBlockMemberRiftInventory>();
   expect(data.enderChestPageIcons).toBeDefined();
-  expectTypeOf(data.enderChestPageIcons).toEqualTypeOf<[]>();
+  expectTypeOf(data.enderChestPageIcons).toEqualTypeOf<string[]>();
   expect(data.inventory).toBeDefined();
   expect(data.inventory).toBeInstanceOf(SkyBlockMemberInventoriesInventory);
   expectTypeOf(data.inventory).toEqualTypeOf<SkyBlockMemberInventoriesInventory>();
