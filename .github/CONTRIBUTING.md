@@ -31,8 +31,8 @@ in the tests. Your `.env` file should look like this:
 HYPIXEL_KEY=HYPIXEL_API_KEY
 ```
 
-**If your using vscode** With vscode we have a few recommended extensions that you can install to help with development.
-You will be promoted to install these when you open the project in vscode. If you don't see the prompt, you can install
+**If you're using VSCode** With vscode we have a few recommended extensions that you can install to help with development.
+You will be prompted to install these when you open the project in vscode. If you don't see the prompt, you can install
 the extensions manually. Here are the recommended extensions:
 
 - [Editor Config](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig)

@@ -103,7 +103,7 @@ jobs:
       - name: Check index
         run: |
           if ! git diff --exit-code --quiet -- src/index.ts; then
-            echo "Index file isn't up to date. Please run 'pnpm scripts:gneerate:index'"
+            echo "Index file isn't up to date. Please run 'pnpm scripts:generate:index'"
             exit 1
           fi
 
