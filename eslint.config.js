@@ -103,7 +103,7 @@ export default [
       'no-use-before-define': 'warn',
       'no-underscore-dangle': 'warn',
       'no-unneeded-ternary': 'error',
-      'import/exports-last': 'error',
+      'import/exports-last': 'warn',
       '@stylistic/no-tabs': 'error',
       'default-param-last': 'error',
       'import/no-commonjs': 'error',

@@ -716,11 +716,15 @@ export const SkyBlockPetIds = [
 ] as const;
 export type SkyBlockPetId = (typeof SkyBlockPetIds)[number];
 
-export interface LevelData {
-  xp: number;
+export interface BaseLevelData {
   level: number;
   xpForNext: number | null;
   progress: number;
+  levelWithProgress: number;
+}
+
+export interface LevelData extends BaseLevelData {
+  xp: number;
   maxed: boolean;
   maxLevel: number;
 }
@@ -730,8 +734,13 @@ export interface PetLevelData extends LevelData {
   currentXp: number;
 }
 
+export interface OverflowLevelData extends BaseLevelData {
+  currentXp: number;
+}
+
 export interface SkillLevelData extends LevelData {
   currentXp: number;
+  overflowLevel: OverflowLevelData | null;
 }
 
 export const BarnSkins = [

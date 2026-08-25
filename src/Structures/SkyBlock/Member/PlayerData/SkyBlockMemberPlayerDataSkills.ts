@@ -1,9 +1,8 @@
-import { CalculateAverage, getLevelByXp } from '../../../../Utils/index.js';
+import { COSMETIC_SKILLS, CalculateAverage, getLevelByXp } from '../../../../Utils/index.js';
 import type { Skill, SkillLevelData } from '../../../../Types/index.js';
 
 class SkyBlockMemberPlayerDataSkills {
-  private nonSkillKeys: string[] = ['nonSkillKeys', 'cosmeticSkills', 'foragingCaps'];
-  private cosmeticSkills: Skill[] = ['runecrafting', 'social'];
+  private nonSkillKeys: string[] = ['nonSkillKeys', 'foragingCaps'];
   fishing: SkillLevelData;
   alchemy: SkillLevelData;
   runecrafting: SkillLevelData;
@@ -45,7 +44,7 @@ class SkyBlockMemberPlayerDataSkills {
     return CalculateAverage(
       Object.entries(this)
         .filter(([key]) => !this.nonSkillKeys.includes(key))
-        .filter(([key]) => !this.cosmeticSkills.includes(key as Skill))
+        .filter(([key]) => !COSMETIC_SKILLS.includes(key as Skill))
         .map(([key, value]) => value.level)
     );
   }
