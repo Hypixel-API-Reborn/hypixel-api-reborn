@@ -420,7 +420,7 @@ export const DEFAULT_SKILL_CAPS: { [key in SkyBlockXPTable]: number } = {
   dungeoneering: 50,
   default: 0,
   mining_tree: 10,
-  foraging_tree: 7,
+  foraging_tree: 8,
   wheat: 46,
   carrot: 46,
   sugarCane: 46,
@@ -612,7 +612,16 @@ export const DEFAULT_LEVELING_XP: Record<number, number> = {
   60: 7000000
 };
 
-export const HOTF_XP: Record<number, number> = { 1: 0, 2: 3000, 3: 9000, 4: 25000, 5: 60000, 6: 100000, 7: 150000 };
+export const HOTF_XP: Record<number, number> = {
+  1: 0,
+  2: 3000,
+  3: 9000,
+  4: 25000,
+  5: 60000,
+  6: 100000,
+  7: 150000,
+  8: 200000
+};
 
 export const HOTM_XP: Record<number, number> = {
   1: 0,
