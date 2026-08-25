@@ -15,10 +15,10 @@
 <summary>Checkboxes</summary>
 
 - [ ] I've added new features. (methods or parameters)
-- [ ] I've fixed bug. (_optional_ you can mention a issue if there is one)
+- [ ] I've fixed a bug. (_optional_ you can mention an issue if there is one)
 - [ ] I've corrected the spelling in README, documentation, etc.
 - [ ] I've tested my code. (`pnpm test`)
-- [ ] I've check for issues. (`pnpm eslint`)
+- [ ] I've checked for issues. (`pnpm eslint`)
 - [ ] I've fixed my formatting. (`pnpm prettier`)
 
 </details>
