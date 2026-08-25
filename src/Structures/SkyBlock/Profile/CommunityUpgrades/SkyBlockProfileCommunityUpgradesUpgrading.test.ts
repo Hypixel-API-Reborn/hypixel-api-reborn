@@ -10,6 +10,6 @@ test('SkyBlockProfileCommunityUpgradesUpgrading', () => {
   expect(data.tier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier).toEqualTypeOf<number>();
   expect(data.startedBy).toBeDefined();
-  expect(data.startedBy).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.startedBy).toEqualTypeOf<number>();
+  expect(data.startedBy).toBeTypeOf('string');
+  expectTypeOf(data.startedBy).toEqualTypeOf<string>();
 });

@@ -1,6 +1,6 @@
 import type { BankingTransactionAction } from '../../../../Types/index.js';
 
-class SkyBlockProfilesBankingTransaction {
+class SkyBlockProfileBankingTransaction {
   amount: number;
   timestamp: number;
   action: BankingTransactionAction | 'UNKNOWN';
@@ -17,4 +17,4 @@ class SkyBlockProfilesBankingTransaction {
   }
 }
 
-export default SkyBlockProfilesBankingTransaction;
+export default SkyBlockProfileBankingTransaction;

@@ -33,7 +33,7 @@ class SkyBlockMemberPlayerData {
     this.achievementSpawnedIslandTypes = data?.achievement_spawned_island_types ?? [];
     this.unlockedCollTiers = data?.unlocked_coll_tiers ?? [];
     this.perks = data?.perks ?? {};
-    this.minions = new SkyBlockMemberPlayerDataMinions(data?.crafted_generators ?? {});
+    this.minions = new SkyBlockMemberPlayerDataMinions(data?.crafted_generators ?? []);
     this.fastestTargetPractice = data?.fastest_target_practice ?? 0;
     this.fishingTreasureCaught = data?.fishing_treasure_caught ?? 0;
     this.skills = new SkyBlockMemberPlayerDataSkills(data?.experience ?? {}, skillCaps);

@@ -3,7 +3,7 @@ import SkyBlockMemberInventoriesEquipment from '../Inventories/Equipment/SkyBloc
 import SkyBlockMemberInventoriesInventory from '../Inventories/Inventory/SkyBlockMemberInventoriesInventory.js';
 
 class SkyBlockMemberRiftInventory {
-  enderChestPageIcons: [];
+  enderChestPageIcons: string[];
   inventory: SkyBlockMemberInventoriesInventory;
   armor: SkyBlockMemberInventoriesArmor;
   equipment: SkyBlockMemberInventoriesEquipment;

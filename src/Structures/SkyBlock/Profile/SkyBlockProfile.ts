@@ -24,7 +24,7 @@ class SkyBlockProfile {
     extra: { uuid: UUID | null; garden?: RequestData<SkyBlockGarden>; museum?: RequestData<SkyBlockMuseum> }
   ) {
     this.profileId = data?.profile_id ?? 'UNKNOWN';
-    this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.communityUpgrades ?? {});
+    this.communityUpgrades = new SkyBlockProfileCommunityUpgrades(data.community_upgrades ?? {});
     this.createdTimestamp = data.created_at ? data.created_at : null;
     this.createdAt = this.createdTimestamp ? new Date(this.createdTimestamp) : null;
     const members = data?.members ?? {};

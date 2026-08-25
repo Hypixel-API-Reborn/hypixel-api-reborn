@@ -400,7 +400,7 @@ class Client {
       ? await this.getSkyBlockGarden(res.rawData.profile.profile_id).catch(() => undefined)
       : undefined;
     const museum = options?.museum
-      ? await this.getSkyBlockMuseum(res.rawData.profile.profile_id.profile_id).catch(() => undefined)
+      ? await this.getSkyBlockMuseum(res.rawData.profile.profile_id).catch(() => undefined)
       : undefined;
     return new RequestData<SkyBlockProfile>(
       new SkyBlockProfile(res.rawData.profile, { uuid: null, garden, museum }),
@@ -419,15 +419,18 @@ class Client {
       throw new HypixelAPIRebornError(Errors.NO_SKYBLOCK_PROFILES);
     }
     const profiles: Map<SkyBlockProfileName | 'UNKNOWN', SkyBlockProfile> = new Map();
-    for (const profile of res.rawData.profiles) {
-      const garden = options?.garden
-        ? await this.getSkyBlockGarden(profile.profile_id).catch(() => undefined)
-        : undefined;
-      const museum = options?.museum
-        ? await this.getSkyBlockMuseum(profile.profile_id).catch(() => undefined)
-        : undefined;
-      const parsedProfile = new SkyBlockProfile(profile, { uuid: query, garden, museum });
-      profiles.set(parsedProfile.profileName, parsedProfile);
+    const profileEntries = await Promise.all(
+      res.rawData.profiles.map(async (profile: Record<string, any>) => {
+        const [garden, museum] = await Promise.all([
+          options?.garden ? this.getSkyBlockGarden(profile.profile_id).catch(() => undefined) : undefined,
+          options?.museum ? this.getSkyBlockMuseum(profile.profile_id).catch(() => undefined) : undefined
+        ]);
+        const parsedProfile = new SkyBlockProfile(profile, { uuid: query, garden, museum });
+        return [parsedProfile.profileName, parsedProfile] as const;
+      })
+    );
+    for (const [name, profile] of profileEntries) {
+      profiles.set(name, profile);
     }
 
     const selectedProfile = Array.from(profiles.values()).find(

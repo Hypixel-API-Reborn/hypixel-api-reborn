@@ -33,7 +33,7 @@ class SkyBlockInventoryItem {
   dungeonSkillRequirement: number | null;
   baseStatBoostPercentage: number | null;
   itemTier: number | null;
-  manaDisintergratorCount: number | null;
+  manaDisintegratorCount: number | null;
   skin: string | null;
   blazetekkChannel: number | null;
   capturedPlayer: string | null;
@@ -63,7 +63,7 @@ class SkyBlockInventoryItem {
   isRiftTransferable: boolean;
   coinsGained: number | null;
   ranchersSpeed: number | null;
-  favoriteSentinalWarden: number | null;
+  favoriteSentinelWarden: number | null;
   potionLevel: number | null;
   potion: number | null;
   potionEffects: SkyBlockPotionEffect[] | null;
@@ -115,7 +115,7 @@ class SkyBlockInventoryItem {
     this.dungeonSkillRequirement = data?.tag?.ExtraAttributes?.dungeon_skill_req ?? null;
     this.baseStatBoostPercentage = data?.tag?.ExtraAttributes?.baseStatBoostPercentage ?? null;
     this.itemTier = data?.tag?.ExtraAttributes?.item_tier ?? null;
-    this.manaDisintergratorCount = data?.tag?.ExtraAttributes?.mana_disintergrator_count ?? null;
+    this.manaDisintegratorCount = data?.tag?.ExtraAttributes?.mana_disintegrator_count ?? null;
     this.skin = data?.tag?.ExtraAttributes?.skin ?? null;
     this.blazetekkChannel = data?.tag?.ExtraAttributes?.blazetekk_channel ?? null;
     this.capturedPlayer = data?.tag?.ExtraAttributes?.captured_player ?? null;
@@ -153,7 +153,7 @@ class SkyBlockInventoryItem {
     this.isRiftTransferable = Boolean(data?.tag?.ExtraAttributes?.rift_transferred ?? 0);
     this.coinsGained = data?.tag?.ExtraAttributes?.coins_gained ?? null;
     this.ranchersSpeed = data?.tag?.ExtraAttributes?.ranchers_speed ?? null;
-    this.favoriteSentinalWarden = data?.tag?.ExtraAttributes?.favorite_sentinel_warden ?? null;
+    this.favoriteSentinelWarden = data?.tag?.ExtraAttributes?.favorite_sentinel_warden ?? null;
     this.potionLevel = data?.tag?.ExtraAttributes?.potion_level ?? null;
     this.potion = data?.tag?.ExtraAttributes?.potion ?? null;
     this.potionEffects = data?.tag?.ExtraAttributes?.effects

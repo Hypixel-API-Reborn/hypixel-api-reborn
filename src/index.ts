@@ -380,11 +380,11 @@ import SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
 import SkyBlockPotionEffect from './Structures/SkyBlock/Potion/SkyBlockPotionEffect.js';
 import SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
 import SkyBlockProfileBanking from './Structures/SkyBlock/Profile/Banking/SkyBlockProfileBanking.js';
+import SkyBlockProfileBankingTransaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfileBankingTransaction.js';
 import SkyBlockProfileCommunityUpgrades from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
 import SkyBlockProfileCommunityUpgradesUpgrade from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrade.js';
 import SkyBlockProfileCommunityUpgradesUpgraded from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgraded.js';
 import SkyBlockProfileCommunityUpgradesUpgrading from './Structures/SkyBlock/Profile/CommunityUpgrades/SkyBlockProfileCommunityUpgradesUpgrading.js';
-import SkyBlockProfilesBankingTransaction from './Structures/SkyBlock/Profile/Banking/SkyBlockProfilesBankingTransaction.js';
 import SkyBlockSkill from './Structures/SkyBlock/Skills/SkyBlockSkill.js';
 import SkyBlockSkillLevel from './Structures/SkyBlock/Skills/SkyBlockSkillLevel.js';
 import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
@@ -834,11 +834,11 @@ export {
   SkyBlockPotionEffect,
   SkyBlockProfile,
   SkyBlockProfileBanking,
+  SkyBlockProfileBankingTransaction,
   SkyBlockProfileCommunityUpgrades,
   SkyBlockProfileCommunityUpgradesUpgrade,
   SkyBlockProfileCommunityUpgradesUpgraded,
   SkyBlockProfileCommunityUpgradesUpgrading,
-  SkyBlockProfilesBankingTransaction,
   SkyBlockSkill,
   SkyBlockSkillLevel,
   SkyBlockSkills,
@@ -1286,11 +1286,11 @@ export default {
   SkyBlockPotionEffect,
   SkyBlockProfile,
   SkyBlockProfileBanking,
+  SkyBlockProfileBankingTransaction,
   SkyBlockProfileCommunityUpgrades,
   SkyBlockProfileCommunityUpgradesUpgrade,
   SkyBlockProfileCommunityUpgradesUpgraded,
   SkyBlockProfileCommunityUpgradesUpgrading,
-  SkyBlockProfilesBankingTransaction,
   SkyBlockSkill,
   SkyBlockSkillLevel,
   SkyBlockSkills,

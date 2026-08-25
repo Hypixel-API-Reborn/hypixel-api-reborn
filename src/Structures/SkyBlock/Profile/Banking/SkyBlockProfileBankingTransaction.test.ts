@@ -1,12 +1,12 @@
-import SkyBlockProfilesBankingTransaction from './SkyBlockProfilesBankingTransaction.js';
+import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.js';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { BankingTransactionAction } from '../../../../Types/index.js';
 
-test('SkyBlockProfilesBankingTransaction', () => {
-  const data = new SkyBlockProfilesBankingTransaction({ stats: 'meow' });
+test('SkyBlockProfileBankingTransaction', () => {
+  const data = new SkyBlockProfileBankingTransaction({ stats: 'meow' });
   expect(data).toBeDefined();
-  expect(data).toBeInstanceOf(SkyBlockProfilesBankingTransaction);
-  expectTypeOf(data).toEqualTypeOf<SkyBlockProfilesBankingTransaction>();
+  expect(data).toBeInstanceOf(SkyBlockProfileBankingTransaction);
+  expectTypeOf(data).toEqualTypeOf<SkyBlockProfileBankingTransaction>();
   expect(data.amount).toBeDefined();
   expect(data.amount).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.amount).toEqualTypeOf<number>();
