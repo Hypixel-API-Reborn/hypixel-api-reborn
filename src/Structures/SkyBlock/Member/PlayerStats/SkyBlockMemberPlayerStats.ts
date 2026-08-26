@@ -4,6 +4,8 @@ import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIs
 import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.js';
 import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.js';
 import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.js';
+import SkyBlockMemberPlayerStatsPets from './SkyBlockMemberPlayerStatsPets.js';
+import SkyBlockMemberPlayerStatsRift from './SkyBlockMemberPlayerStatsRift.js';
 import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.js';
 
 class SkyBlockMemberPlayerStats {
@@ -19,6 +21,13 @@ class SkyBlockMemberPlayerStats {
   mythos: SkyBlockMemberPlayerStatsMythos;
   winter: SkyBlockMemberPlayerStatsWinter;
   endIsland: SkyBlockMemberPlayerStatsEndIsland;
+  rift: SkyBlockMemberPlayerStatsRift;
+  pets: SkyBlockMemberPlayerStatsPets;
+  shardCombatHunts: number;
+  uniqueShards: number;
+  shardFishingHunts: number;
+  shardForestHunts: number;
+  shardTrapHunts: number;
   races: Record<string, number | Record<string, number>>;
   constructor(data: Record<string, any>) {
     this.fishing = new SkyBlockMemberPlayerStatsFishing({
@@ -53,6 +62,13 @@ class SkyBlockMemberPlayerStats {
     this.mythos = new SkyBlockMemberPlayerStatsMythos(data?.mythos ?? {});
     this.winter = new SkyBlockMemberPlayerStatsWinter(data?.winter ?? {});
     this.endIsland = new SkyBlockMemberPlayerStatsEndIsland(data?.end_island ?? {});
+    this.rift = new SkyBlockMemberPlayerStatsRift(data?.rift ?? {});
+    this.pets = new SkyBlockMemberPlayerStatsPets(data?.pets ?? {});
+    this.shardCombatHunts = data?.shard_combat_hunts ?? 0;
+    this.uniqueShards = data?.unique_shards ?? 0;
+    this.shardFishingHunts = data?.shard_fishing_hunts ?? 0;
+    this.shardForestHunts = data?.shard_forest_hunts ?? 0;
+    this.shardTrapHunts = data?.shard_trap_hunts ?? 0;
     this.races = data?.races ?? {};
   }
 }

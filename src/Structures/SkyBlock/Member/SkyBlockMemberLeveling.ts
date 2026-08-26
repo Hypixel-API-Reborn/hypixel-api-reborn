@@ -11,6 +11,7 @@ class SkyBlockMemberLeveling {
   miningFiestaOresMined: number;
   fishingFestivalSharksKilled: number;
   taskSort: TaskLevelingSort | 'UNKNOWN';
+  selectedSymbol: string | 'UNKNOWN';
   claimedTalisman: boolean;
   emblemUnlocks: string[];
   constructor(data: Record<string, any>) {
@@ -24,6 +25,7 @@ class SkyBlockMemberLeveling {
     this.miningFiestaOresMined = data?.mining_fiesta_ores_mined ?? 0;
     this.fishingFestivalSharksKilled = data?.fishing_festival_sharks_killed ?? 0;
     this.taskSort = data?.task_sort ?? 'UNKNOWN';
+    this.selectedSymbol = data?.selected_symbol ?? 'UNKNOWN';
     this.claimedTalisman = data?.claimed_talisman ?? false;
     this.emblemUnlocks = data?.emblem_unlocks ?? [];
   }
