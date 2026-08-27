@@ -3,7 +3,8 @@ import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransacti
 class SkyBlockProfileBanking {
   balance: number;
   transactions: SkyBlockProfileBankingTransaction[];
-  constructor(data: Record<string, any>) {
+  constructor(data?: Record<string, any> | null) {
+    data = data ?? {};
     this.balance = data.balance ?? 0;
     this.transactions = (data.transactions ?? []).map(
       (transaction: Record<string, any>) => new SkyBlockProfileBankingTransaction(transaction)

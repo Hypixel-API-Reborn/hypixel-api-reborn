@@ -9,12 +9,12 @@ class SkyBlockProfileCommunityUpgradesUpgraded extends SkyBlockProfileCommunityU
   fasttracked: boolean;
   constructor(data: Record<string, any>) {
     super(data);
-    this.tier = data.tier ?? 0;
-    this.startedBy = data.started_by ?? '';
-    this.claimedTimestamp = data.claimed_ms ?? 0;
+    this.tier = data?.tier ?? 0;
+    this.startedBy = data?.started_by ?? '';
+    this.claimedTimestamp = data?.claimed_ms ?? 0;
     this.claimedAt = new Date(this.claimedTimestamp);
-    this.claimedBy = data.claimed_by ?? '';
-    this.fasttracked = data.fasttracked ?? false;
+    this.claimedBy = data?.claimed_by ?? '';
+    this.fasttracked = data?.fasttracked ?? false;
   }
 }
 

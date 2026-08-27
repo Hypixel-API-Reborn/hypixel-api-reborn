@@ -1,6 +1,6 @@
 import SkyBlockMemberPet from './SkyBlockMemberPet.js';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { LevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
+import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
 
 test('SkyBlockMemberPet', () => {
   const data = new SkyBlockMemberPet({ stats: 'meow' });
@@ -25,7 +25,7 @@ test('SkyBlockMemberPet', () => {
   expect(data.skin).toBeDefined();
   expectTypeOf(data.skin).toEqualTypeOf<string | null>();
   expect(data.level).toBeDefined();
-  expectTypeOf(data.level).toEqualTypeOf<LevelData>();
+  expectTypeOf(data.level).toEqualTypeOf<PetLevelData>();
   expect(data.toString).toBeDefined();
   expectTypeOf(data.toString).toEqualTypeOf<() => SkyBlockPetId | 'UNKNOWN'>();
   expect(data.toString()).toBeDefined();

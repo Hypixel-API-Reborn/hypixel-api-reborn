@@ -17,7 +17,7 @@ class SkyBlockMemberSlayer {
     this.tier3Kills = data?.boss_kills_tier_2 ?? 0;
     this.tier4Kills = data?.boss_kills_tier_3 ?? 0;
     this.tier5Kills = data?.boss_kills_tier_4 ?? 0;
-    this.level = getSlayerLevel(slayer, data?.xp);
+    this.level = getSlayerLevel(slayer, data?.xp ?? 0);
   }
 
   toString(): number {
