@@ -1,0 +1,42 @@
+declare class SkyBlockMemberPlayerStatsRift {
+    lifetimeMotesEarned: number;
+    motesOrbPickup: number;
+    passConsumed: number;
+    visits: number;
+    lagoonMushroomPoppedOut: number;
+    lagoonRocksGameComplete: number;
+    lagoonLilPadsSold: number;
+    lagoonLeechSupremeKilled: number;
+    woodsLarvaKilled: number;
+    woodsOdonataBottled: number;
+    woodsOdonataRepeatableCompleted: number;
+    dreadfarmWiltedHarvested: number;
+    dreadfarmCaducousHarvested: number;
+    dreadfarmAgaricusHarvested: number;
+    dreadfarmRiftwartsHarvested: number;
+    dreadfarmChickenKilled: number;
+    dreadfarmBeanBulbCollected: number;
+    plazaPillarDeaths: number;
+    plazaRedLightDeaths: number;
+    plazaHayDeaths: number;
+    plazaHorsezookaShot: number;
+    westCakePartEaten: number;
+    westHotDogsGiven: number;
+    westVerminVacuumedTotal: number;
+    westVerminVacuumedSilverfish: number;
+    westVerminVacuumedSpider: number;
+    westVerminVacuumedMosquito: number;
+    poppedBalloons: number;
+    livingMetalSpawneggUsed: number;
+    livingMetalPieceMaxed: number;
+    livingCaveSnakeCollected: number;
+    colosseumGlobowlsAtTentacle: number;
+    colosseumBlasterShots: number;
+    colosseumBacteDefeated: number;
+    castleSentToPrison: number;
+    castleEffigyBroken: number;
+    shenItemBought: number;
+    constructor(data: Record<string, any>);
+}
+export default SkyBlockMemberPlayerStatsRift;
+//# sourceMappingURL=SkyBlockMemberPlayerStatsRift.d.ts.map
