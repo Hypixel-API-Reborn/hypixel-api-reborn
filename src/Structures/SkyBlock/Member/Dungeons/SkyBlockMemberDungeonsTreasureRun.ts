@@ -13,10 +13,14 @@ class SkyBlockMemberDungeonsTreasureRun {
     this.runId = data?.run_id ?? 'UNKNOWN';
     this.completionTimestamp = data?.completion_ts ?? 0;
     this.completionDate = new Date(this.completionTimestamp);
-    this.type = data?.type ?? 'catacombs';
+    this.type = data?.dungeon_type ?? 'catacombs';
     this.dungeonTier = data?.dungeon_tier ?? 0;
-    this.participants = data?.participants ?? [];
-    this.chests = chestData
+    this.participants = (data?.participants ?? []).map((p: Record<string, any>) => ({
+      playerUUID: p?.player_uuid ?? 'UNKNOWN',
+      displayName: p?.display_name ?? 'UNKNOWN',
+      classMilestone: p?.class_milestone ?? 0
+    }));
+    this.chests = (chestData ?? [])
       .filter((chest) => chest.run_id === this.runId)
       .map((chest) => new SkyBlockMemberDungeonsTreasuresChest(chest));
   }

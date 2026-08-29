@@ -78,7 +78,7 @@ class SkyBlockInventoryItem {
     this.minecraftItemId = data?.id ?? 0;
     this.itemCount = data?.count ?? 1;
     this.itemDamage = data?.Damage ?? 0;
-    this.unbreakable = Boolean(data?.tag?.Unbreakable ?? 1);
+    this.unbreakable = Boolean(data?.tag?.Unbreakable ?? 0);
     this.hideFlags = data?.tag?.HideFlags ?? null;
     this.lore = data?.tag?.display?.Lore ?? null;
     this.name = data?.tag?.display?.name ?? 'UNKNOWN';
@@ -188,7 +188,8 @@ class SkyBlockInventoryItem {
 
   private parseGearScore(lore: any): number {
     for (const line of lore) {
-      if (line.match(/Gear Score: §[0-9a-f](\d+)/)) return Number(line.match(/Gear Score: §d(\d+)/)[1]);
+      const match = line.match(/Gear Score: §[0-9a-f](\d+)/);
+      if (match) return Number(match[1]);
     }
     return 0;
   }
