@@ -3,7 +3,7 @@ class SkyBlockInventoryItemEnchantment {
   level: number;
   constructor(data: Record<string, any>) {
     this.name = data?.id ?? 'UNKNOWN';
-    this.level = data?.lvl ?? 0;
+    this.level = data?.level ?? 0;
   }
 
   toString(): string | 'UNKNOWN' {

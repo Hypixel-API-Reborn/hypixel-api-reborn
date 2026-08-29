@@ -24,9 +24,9 @@ class SkyBlockBingoGoal {
     this.column = column;
     this.lore = data?.lore ?? 'UNKNOWN';
     this.progress = data?.progress ?? 0;
-    this.tiers = Array.isArray(data.tiers) ? data.tiers.map((x) => parseInt(x, 10) ?? 0) : [];
-    this.requiredAmount = parseInt(data.requiredAmount, 10) ?? null;
-    this.type = this.tiers ? 'TIERED' : this.requiredAmount ? 'ONE_TIER' : 'ONE_TIME';
+    this.tiers = Array.isArray(data?.tiers) ? data.tiers.map((x) => parseInt(x, 10) || 0) : [];
+    this.requiredAmount = parseInt(data?.requiredAmount, 10) || null;
+    this.type = this.tiers.length > 0 ? 'TIERED' : this.requiredAmount ? 'ONE_TIER' : 'ONE_TIME';
   }
 
   toString(): string {

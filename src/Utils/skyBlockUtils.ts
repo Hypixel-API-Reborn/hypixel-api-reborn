@@ -95,15 +95,7 @@ export function getPetLevel(petExp: number, type: SkyBlockPetId | 'UNKNOWN', rar
 // CREDITS: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/2d4d0317b1f7a9f27e59d25afd4df24c0e49b0da/src/lib/server/stats/slayer.ts#L24-L59 (modified)
 export function getSlayerLevel(slayer: SkyBlockSlayer, xp: number): LevelData {
   if (SLAYER_XP[slayer] === undefined) {
-    return {
-      xp: 0,
-      level: 0,
-      xpForNext: SLAYER_XP[slayer] ? SLAYER_XP[slayer][1] : null,
-      progress: 0,
-      levelWithProgress: 0,
-      maxed: false,
-      maxLevel: 0
-    };
+    return { xp: 0, level: 0, xpForNext: null, progress: 0, levelWithProgress: 0, maxed: false, maxLevel: 0 };
   }
 
   const reversed = Object.entries(SLAYER_XP[slayer]).reverse();
@@ -111,9 +103,9 @@ export function getSlayerLevel(slayer: SkyBlockSlayer, xp: number): LevelData {
 
   for (const [rawLevel, requiredXP] of reversed) {
     if (xp >= requiredXP) {
-      const xpForNext = SLAYER_XP[slayer][parseInt(rawLevel) + 1] || 0;
-      const level = parseInt(rawLevel);
-      const progress = isNaN(xp / xpForNext) ? 0 : xp / xpForNext;
+      const level = parseInt(rawLevel, 10);
+      const xpForNext = SLAYER_XP[slayer][level + 1] ?? null;
+      const progress = xpForNext !== null && xpForNext > 0 ? xp / xpForNext : 0;
       return {
         xp,
         xpForNext,

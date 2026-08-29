@@ -1,5 +1,5 @@
 import { getPetLevel } from '../../../../Utils/index.js';
-import type { LevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
+import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
 
 class SkyBlockMemberPet {
   uuid: UUID;
@@ -10,7 +10,7 @@ class SkyBlockMemberPet {
   heldItem: string | null;
   candyUsed: number;
   skin: string | null;
-  level: LevelData;
+  level: PetLevelData;
   constructor(data: Record<string, any>) {
     this.uuid = data?.uuid ?? 'UNKNOWN';
     this.uniqueId = data?.uniqueId ?? 'UNKNOWN';

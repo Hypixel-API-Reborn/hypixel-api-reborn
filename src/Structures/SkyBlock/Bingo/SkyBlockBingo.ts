@@ -19,7 +19,9 @@ class SkyBlockBingo {
     this.startAt = new Date(this.start);
     this.end = data?.end ?? 0;
     this.endAt = new Date(this.end);
-    this.goals = Array.isArray(data.goals) ? data.goals.map((goal, index) => new SkyBlockBingoGoal(goal, index)) : null;
+    this.goals = Array.isArray(data?.goals)
+      ? data.goals.map((goal, index) => new SkyBlockBingoGoal(goal, index))
+      : null;
   }
 
   toString(): number | null {
