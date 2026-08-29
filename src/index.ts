@@ -338,6 +338,8 @@ import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './Structures/Sk
 import SkyBlockMemberPlayerStatsFishing from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsFishing.js';
 import SkyBlockMemberPlayerStatsGifts from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsGifts.js';
 import SkyBlockMemberPlayerStatsMythos from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsMythos.js';
+import SkyBlockMemberPlayerStatsPets from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsPets.js';
+import SkyBlockMemberPlayerStatsRift from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsRift.js';
 import SkyBlockMemberPlayerStatsSpookyFestival from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsSpookyFestival.js';
 import SkyBlockMemberPlayerStatsWinter from './Structures/SkyBlock/Member/PlayerStats/SkyBlockMemberPlayerStatsWinter.js';
 import SkyBlockMemberProfile from './Structures/SkyBlock/Member/SkyBlockMemberProfile.js';
@@ -792,6 +794,8 @@ export {
   SkyBlockMemberPlayerStatsFishing,
   SkyBlockMemberPlayerStatsGifts,
   SkyBlockMemberPlayerStatsMythos,
+  SkyBlockMemberPlayerStatsPets,
+  SkyBlockMemberPlayerStatsRift,
   SkyBlockMemberPlayerStatsSpookyFestival,
   SkyBlockMemberPlayerStatsWinter,
   SkyBlockMemberProfile,
@@ -1244,6 +1248,8 @@ export default {
   SkyBlockMemberPlayerStatsFishing,
   SkyBlockMemberPlayerStatsGifts,
   SkyBlockMemberPlayerStatsMythos,
+  SkyBlockMemberPlayerStatsPets,
+  SkyBlockMemberPlayerStatsRift,
   SkyBlockMemberPlayerStatsSpookyFestival,
   SkyBlockMemberPlayerStatsWinter,
   SkyBlockMemberProfile,
