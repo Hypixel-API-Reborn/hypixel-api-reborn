@@ -7,7 +7,7 @@ class SkyBlockElection {
     this.year = data?.year ?? 0;
     this.candidates = (data?.candidates ?? [])
       .map((candidate: Record<string, any>) => new SkyBlockElectionCandidate(candidate))
-      .sort((a: SkyBlockElectionCandidate, b: SkyBlockElectionCandidate) => a.votesReceived - b.votesReceived);
+      .sort((a: SkyBlockElectionCandidate, b: SkyBlockElectionCandidate) => b.votesReceived - a.votesReceived);
   }
 
   toString(): number {
