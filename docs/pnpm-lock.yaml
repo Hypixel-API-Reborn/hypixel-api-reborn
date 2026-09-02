@@ -16,8 +16,8 @@ catalogs:
       specifier: 2.8.0
       version: 2.8.0
     tsx:
-      specifier: 4.23.7
-      version: 4.23.7
+      specifier: 4.23.13
+      version: 4.23.13
     typescript:
       specifier: 5.9.3
       version: 5.9.3
@@ -38,7 +38,7 @@ importers:
         version: 3.9.6
       tsx:
         specifier: 'catalog:'
-        version: 4.23.7
+        version: 4.23.13
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -66,7 +66,7 @@ importers:
     devDependencies:
       tsx:
         specifier: 'catalog:'
-        version: 4.23.7
+        version: 4.23.13
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -82,7 +82,7 @@ importers:
     devDependencies:
       tsx:
         specifier: 'catalog:'
-        version: 4.23.7
+        version: 4.23.13
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -488,8 +488,8 @@ packages:
   try@1.0.3:
     resolution: {integrity: sha512-AHA8khVCII6zKyRkyPo6pRwoR9v5jb7QFw6e5avtaVSkxVfaEucYIo06xnwB+pJaEarfYNbs7W3Vq+LZLZiWyA==}
 
-  tsx@4.23.7:
-    resolution: {integrity: sha512-3f/u/+UDCNQ7iwUZW9FCMnNGIHzElGJYh0S/yy8IvWSsn5O7fEO/897FaG7FA2W8yryiRyuwXZ1PYLAKYaqSuQ==}
+  tsx@4.23.13:
+    resolution: {integrity: sha512-BL5MGkRln6aDYhb0xbQlEAGw743BaZYWdbWtdJOBriYJboKgUUYCadFp2/FpBBZquBC/ezNBn7wMMPx7FDZUDw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -862,7 +862,7 @@ snapshots:
 
   try@1.0.3: {}
 
-  tsx@4.23.7:
+  tsx@4.23.13:
     dependencies:
       esbuild: 0.28.0
     optionalDependencies:
