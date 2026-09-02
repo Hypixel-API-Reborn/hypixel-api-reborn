@@ -38,7 +38,7 @@
   "packageManager": "pnpm@11.1.2",
   "author": "Kathund",
   "dependencies": {
-    "mowojang": "^0.7.2",
+    "mowojang": "^0.8.1",
     "node-cache": "^5.1.2",
     "prismarine-nbt": "^2.8.0",
     "rss-parser": "^3.13.0"
@@ -60,22 +60,22 @@
     "@types/eslint": "^9.6.1",
     "@types/node": "^26.1.2",
     "@types/xml2js": "^0.4.14",
-    "@vitest/coverage-v8": "^4.1.10",
-    "@vitest/ui": "^4.1.10",
+    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/ui": "^4.1.11",
     "dotenv": "^17.4.2",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import": "^2.32.0",
-    "globals": "^17.9.0",
+    "globals": "^17.12.0",
     "prettier": "^3.9.6",
-    "tsx": "^4.23.7",
+    "tsx": "^4.23.13",
     "typedoc": "^0.27.9",
     "typedoc-material-theme": "^1.4.1",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.66.0",
-    "vitest": "^4.1.10",
+    "typescript-eslint": "^8.69.0",
+    "vitest": "^4.1.11",
     "xml2js": "^0.6.2"
   }
 }
