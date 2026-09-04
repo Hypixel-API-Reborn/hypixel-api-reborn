@@ -1771,7 +1771,7 @@ export const BestiaryMobs: BestiaryMobsData = {
     name: 'Torrhus Canyon',
     mobs: [
       { name: '§aAnt', cap: 125, mobs: ['ant_32'], bracket: 'hunting_1' },
-      { name: '§aBeeheemoth', cap: 50, mobs: ['beeheemoth_158'], bracket: 'hunting_5' },
+      { name: '§aBeeheemoth', cap: 50, mobs: ['beeheemoth_158'], bracket: 'hunting_4' },
       { name: '§aBlue Jay', cap: 125, mobs: ['blue_jay_9'], bracket: 'hunting_1' },
       { name: '§aBrineling', cap: 1000, mobs: ['brineling_58'], bracket: 4 },
       { name: '§aBunbun', cap: 125, mobs: ['bunbun_4'], bracket: 'hunting_1' },
