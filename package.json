@@ -62,7 +62,7 @@
     "@types/xml2js": "^0.4.14",
     "@vitest/coverage-v8": "^4.1.10",
     "@vitest/ui": "^4.1.10",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.5",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.5",
