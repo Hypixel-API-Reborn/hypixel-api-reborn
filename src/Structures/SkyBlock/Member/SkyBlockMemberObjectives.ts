@@ -4,7 +4,7 @@ class SkyBlockMemberObjectives {
   objectives: Record<string, RawSkyBlockObjective>;
   tutorial: string[];
   constructor(data?: Record<string, any> | null) {
-    data = data ?? {};
+    data ??= {};
     this.objectives = Object.keys(data)
       .filter((key) => key !== 'tutorial')
       .reduce((obj: Record<string, RawSkyBlockObjective>, key: string) => {

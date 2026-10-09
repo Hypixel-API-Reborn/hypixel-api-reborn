@@ -4,7 +4,7 @@ class SkyBlockProfileBanking {
   balance: number;
   transactions: SkyBlockProfileBankingTransaction[];
   constructor(data?: Record<string, any> | null) {
-    data = data ?? {};
+    data ??= {};
     this.balance = data.balance ?? 0;
     this.transactions = (data.transactions ?? []).map(
       (transaction: Record<string, any>) => new SkyBlockProfileBankingTransaction(transaction)
