@@ -1,4 +1,4 @@
-import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.js';
+import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockElectionCandidatePerk', () => {

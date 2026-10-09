@@ -1,4 +1,4 @@
-import SkyBlockMemberInventoriesBagsTalismanDecoded from './SkyBlockMemberInventoriesBagsTalismanDecoded.js';
+import SkyBlockMemberInventoriesBagsTalismanDecoded from './SkyBlockMemberInventoriesBagsTalismanDecoded.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesBagsTalismanDecoded', () => {

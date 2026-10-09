@@ -1,6 +1,6 @@
-import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './SkyBlockMemberCrimsonIsleKuudraPartyFinder.js';
+import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './SkyBlockMemberCrimsonIsleKuudraPartyFinder.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleKuudraTier, UserInput } from '../../../../Types/index.js';
+import type { CrimsonIsleKuudraTier, UserInput } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberCrimsonIsleKuudraPartyFinder', () => {
   const data = new SkyBlockMemberCrimsonIsleKuudraPartyFinder({ stats: 'meow' });

@@ -1,8 +1,8 @@
-import MegaWalls from './MegaWalls.js';
-import MegaWallsKitStats from './MegaWallsKitStats.js';
-import MegaWallsModeStats from './MegaWallsModeStats.js';
+import MegaWalls from './MegaWalls.ts';
+import MegaWallsKitStats from './MegaWallsKitStats.ts';
+import MegaWallsModeStats from './MegaWallsModeStats.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MegaWallsKit } from '../../../Types/index.js';
+import type { MegaWallsKit } from '../../../Types/index.ts';
 
 test('MegaWalls', () => {
   const data = new MegaWalls({ stats: 'meow' });

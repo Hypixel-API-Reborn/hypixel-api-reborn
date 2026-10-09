@@ -1,6 +1,6 @@
-import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
-import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.js';
-import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
+import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.ts';
+import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.ts';
+import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberMiningHotm', () => {

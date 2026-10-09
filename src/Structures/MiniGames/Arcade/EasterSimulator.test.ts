@@ -1,4 +1,4 @@
-import EasterSimulator from './EasterSimulator.js';
+import EasterSimulator from './EasterSimulator.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('EasterSimulator', () => {

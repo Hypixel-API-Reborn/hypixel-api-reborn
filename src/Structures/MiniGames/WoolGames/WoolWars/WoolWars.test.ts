@@ -1,8 +1,8 @@
-import WoolWars from './WoolWars.js';
-import WoolWarsClass from './WoolWarsClass.js';
-import WoolWarsSettings from './WoolWarsSettings.js';
+import WoolWars from './WoolWars.ts';
+import WoolWarsClass from './WoolWarsClass.ts';
+import WoolWarsSettings from './WoolWarsSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WoolGamesWoolWarsClassName } from '../../../../Types/index.js';
+import type { WoolGamesWoolWarsClassName } from '../../../../Types/index.ts';
 
 test('WoolWars', () => {
   const data = new WoolWars({ stats: 'meow' });

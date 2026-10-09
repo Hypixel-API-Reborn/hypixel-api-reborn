@@ -1,10 +1,10 @@
 /* eslint-disable @stylistic/max-len */
-import SkyBlockMemberCrimsonIsleAbiphone from './SkyBlockMemberCrimsonIsleAbiphone.js';
-import SkyBlockMemberCrimsonIsleDojo from './SkyBlockMemberCrimsonIsleDojo.js';
-import SkyBlockMemberCrimsonIsleKuudra from './SkyBlockMemberCrimsonIsleKuudra.js';
-import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.js';
-import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFish.js';
-import type { CrimsonIsleBoss, CrimsonIsleFaction } from '../../../../Types/index.js';
+import SkyBlockMemberCrimsonIsleAbiphone from './SkyBlockMemberCrimsonIsleAbiphone.ts';
+import SkyBlockMemberCrimsonIsleDojo from './SkyBlockMemberCrimsonIsleDojo.ts';
+import SkyBlockMemberCrimsonIsleKuudra from './SkyBlockMemberCrimsonIsleKuudra.ts';
+import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.ts';
+import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish/SkyBlockMemberCrimsonIsleTrophyFish.ts';
+import type { CrimsonIsleBoss, CrimsonIsleFaction } from '../../../../Types/index.ts';
 /* eslint-enable @stylistic/max-len */
 
 class SkyBlockMemberCrimsonIsle {

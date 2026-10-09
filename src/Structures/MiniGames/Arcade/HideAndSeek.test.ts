@@ -1,4 +1,4 @@
-import HideAndSeek from './HideAndSeek.js';
+import HideAndSeek from './HideAndSeek.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('HideAndSeek', () => {

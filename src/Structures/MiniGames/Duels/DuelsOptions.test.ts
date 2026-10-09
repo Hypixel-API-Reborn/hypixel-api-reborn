@@ -1,6 +1,6 @@
-import DuelsOptions from './DuelsOptions.js';
+import DuelsOptions from './DuelsOptions.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DuelsRematchOption } from '../../../Types/index.js';
+import type { DuelsRematchOption } from '../../../Types/index.ts';
 
 test('DuelsOptions', () => {
   const data = new DuelsOptions({ stats: 'meow' });

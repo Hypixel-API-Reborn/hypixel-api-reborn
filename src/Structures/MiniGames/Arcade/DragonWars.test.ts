@@ -1,4 +1,4 @@
-import DragonWars from './DragonWars.js';
+import DragonWars from './DragonWars.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DragonWars', () => {

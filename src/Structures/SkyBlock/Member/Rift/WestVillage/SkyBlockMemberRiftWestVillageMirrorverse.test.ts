@@ -1,6 +1,6 @@
-import SkyBlockMemberRiftWestVillageMirrorverse from './SkyBlockMemberRiftWestVillageMirrorverse.js';
+import SkyBlockMemberRiftWestVillageMirrorverse from './SkyBlockMemberRiftWestVillageMirrorverse.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MirrorverseChestItem, MirrorverseRoom } from '../../../../../Types/index.js';
+import type { MirrorverseChestItem, MirrorverseRoom } from '../../../../../Types/index.ts';
 
 test('SkyBlockMemberRiftWestVillageMirrorverse', () => {
   const data = new SkyBlockMemberRiftWestVillageMirrorverse({ stats: 'meow' });

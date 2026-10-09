@@ -1,4 +1,4 @@
-import GrinchSimulator from './GrinchSimulator.js';
+import GrinchSimulator from './GrinchSimulator.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GrinchSimulator', () => {

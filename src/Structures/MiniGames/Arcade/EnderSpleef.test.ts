@@ -1,6 +1,6 @@
-import EnderSpleef from './EnderSpleef.js';
+import EnderSpleef from './EnderSpleef.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ArcadeEnderSpleefTrail } from '../../../Types/index.js';
+import type { ArcadeEnderSpleefTrail } from '../../../Types/index.ts';
 
 test('EnderSpleef', () => {
   const data = new EnderSpleef({ stats: 'meow' });

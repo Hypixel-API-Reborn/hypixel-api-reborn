@@ -1,4 +1,4 @@
-import SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.js';
+import SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberJacobContest', () => {

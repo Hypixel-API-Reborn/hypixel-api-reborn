@@ -1,5 +1,5 @@
-import BedWarsChallenge from './BedWarsChallenge.js';
-import type { BedWarsChallengeName } from '../../../../Types/index.js';
+import BedWarsChallenge from './BedWarsChallenge.ts';
+import type { BedWarsChallengeName } from '../../../../Types/index.ts';
 
 class BedWarsChallenges {
   uniqueChallengesCompleted: number;

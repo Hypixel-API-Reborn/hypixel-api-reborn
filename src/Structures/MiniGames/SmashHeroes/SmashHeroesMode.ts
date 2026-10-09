@@ -1,5 +1,5 @@
-import { Divide } from '../../../Utils/index.js';
-import type { SmashHerosMode } from '../../../Types/index.js';
+import { Divide } from '../../../Utils/index.ts';
+import type { SmashHerosMode } from '../../../Types/index.ts';
 
 class SmashHeroesMode {
   kills: number;

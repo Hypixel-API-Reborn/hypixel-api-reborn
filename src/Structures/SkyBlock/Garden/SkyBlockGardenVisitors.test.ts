@@ -1,4 +1,4 @@
-import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
+import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockGardenVisitors', () => {

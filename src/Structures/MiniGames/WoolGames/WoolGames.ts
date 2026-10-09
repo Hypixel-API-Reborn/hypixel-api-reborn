@@ -1,9 +1,9 @@
-import CaptureTheWool from './CaptureTheWool/CaptureTheWool.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import SheepWars from './SheepWars/SheepWars.js';
-import WoolGamesPrivateGames from './WoolGamesPrivateGames.js';
-import WoolGamesProgression from './WoolGamesProgression.js';
-import WoolWars from './WoolWars/WoolWars.js';
+import CaptureTheWool from './CaptureTheWool/CaptureTheWool.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
+import SheepWars from './SheepWars/SheepWars.ts';
+import WoolGamesPrivateGames from './WoolGamesPrivateGames.ts';
+import WoolGamesProgression from './WoolGamesProgression.ts';
+import WoolWars from './WoolWars/WoolWars.ts';
 import type {
   PlayerGenericSelectedCosmetic,
   WoolGamesLeaderboardSettingsMode,
@@ -15,7 +15,7 @@ import type {
   WoolGamesPackageHat,
   WoolGamesPackageKillMessage,
   WoolGamesPackageProjectileTrail
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class WoolGames {
   coins: number;

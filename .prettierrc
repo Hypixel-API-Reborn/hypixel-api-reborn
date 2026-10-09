@@ -1,4 +1,5 @@
 {
+  "quoteProps": "consistent",
   "objectWrap": "collapse",
   "bracketSameLine": true,
   "trailingComma": "none",

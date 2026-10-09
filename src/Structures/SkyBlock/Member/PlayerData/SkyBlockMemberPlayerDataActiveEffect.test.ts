@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.js';
+import SkyBlockMemberPlayerDataActiveEffect from './SkyBlockMemberPlayerDataActiveEffect.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerDataActiveEffect', () => {

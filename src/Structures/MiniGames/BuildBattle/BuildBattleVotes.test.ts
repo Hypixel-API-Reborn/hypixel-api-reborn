@@ -1,4 +1,4 @@
-import BuildBattleVotes from './BuildBattleVotes.js';
+import BuildBattleVotes from './BuildBattleVotes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BuildBattleVotes', () => {

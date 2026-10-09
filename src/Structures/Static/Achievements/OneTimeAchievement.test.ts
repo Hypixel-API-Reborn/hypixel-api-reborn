@@ -1,4 +1,4 @@
-import OneTimeAchievement from './OneTimeAchievement.js';
+import OneTimeAchievement from './OneTimeAchievement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('OneTimeAchievement', () => {

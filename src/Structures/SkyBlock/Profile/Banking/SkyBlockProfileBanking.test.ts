@@ -1,5 +1,5 @@
-import SkyBlockProfileBanking from './SkyBlockProfileBanking.js';
-import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.js';
+import SkyBlockProfileBanking from './SkyBlockProfileBanking.ts';
+import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockProfileBanking', () => {

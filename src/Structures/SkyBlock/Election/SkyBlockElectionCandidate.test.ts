@@ -1,7 +1,7 @@
-import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.js';
-import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.js';
+import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.ts';
+import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockCandidateKeyBenefit, SkyBlockMayor } from '../../../Types/index.js';
+import type { SkyBlockCandidateKeyBenefit, SkyBlockMayor } from '../../../Types/index.ts';
 
 test('SkyBlockElectionCandidate', () => {
   const data = new SkyBlockElectionCandidate({ stats: 'meow' });

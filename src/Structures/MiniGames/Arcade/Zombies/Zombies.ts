@@ -1,4 +1,4 @@
-import ZombiesMap from './ZombiesMap.js';
+import ZombiesMap from './ZombiesMap.ts';
 
 class Zombies {
   basicZombieKills: number;

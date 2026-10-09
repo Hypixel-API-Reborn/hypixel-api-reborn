@@ -1,5 +1,5 @@
-import RawSkyBlockInventoryItem from '../../../Inventory/RawSkyBlockInventoryItem.js';
-import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.js';
+import RawSkyBlockInventoryItem from '../../../Inventory/RawSkyBlockInventoryItem.ts';
+import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesWardrobeSlot', () => {

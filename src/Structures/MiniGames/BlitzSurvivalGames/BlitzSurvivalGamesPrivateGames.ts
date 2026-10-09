@@ -2,7 +2,7 @@ import type {
   BlitzSurvivalGamesPrivateGamesExtraStar,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class BlitzSurvivalGamesPrivateGames {
   healthBuff: PrivateGameSettingsHealthBuff;

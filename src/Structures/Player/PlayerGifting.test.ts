@@ -1,4 +1,4 @@
-import PlayerGifting from './PlayerGifting.js';
+import PlayerGifting from './PlayerGifting.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerGifting', () => {

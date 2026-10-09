@@ -1,7 +1,7 @@
-import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.js';
-import SkyBlockMemberQuestsHarpSong from './SkyBlockMemberQuestsHarpSong.js';
+import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.ts';
+import SkyBlockMemberQuestsHarpSong from './SkyBlockMemberQuestsHarpSong.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { HarpSong } from '../../../../Types/index.js';
+import type { HarpSong } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberQuestsHarp', () => {
   const data = new SkyBlockMemberQuestsHarp({ stats: 'meow' });

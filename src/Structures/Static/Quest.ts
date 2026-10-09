@@ -1,5 +1,5 @@
-import QuestObjective from './QuestObjective.js';
-import type { QuestReward, QuestType } from '../../Types/index.js';
+import QuestObjective from './QuestObjective.ts';
+import type { QuestReward, QuestType } from '../../Types/index.ts';
 
 class Quest {
   id: string;

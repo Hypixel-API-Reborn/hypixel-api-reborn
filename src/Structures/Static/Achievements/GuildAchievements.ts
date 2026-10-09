@@ -1,5 +1,5 @@
-import OneTimeAchievement from './OneTimeAchievement.js';
-import TieredAchievement from './TieredAchievement.js';
+import OneTimeAchievement from './OneTimeAchievement.ts';
+import TieredAchievement from './TieredAchievement.ts';
 
 class GuildAchievements {
   lastUpdatedTimestamp: number;

@@ -1,4 +1,4 @@
-import GameCountsGeneric from './GameCountsGeneric.js';
+import GameCountsGeneric from './GameCountsGeneric.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsGeneric', () => {

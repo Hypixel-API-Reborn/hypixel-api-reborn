@@ -1,6 +1,6 @@
-import SmashHerosHero from './SmashHerosHero.js';
+import SmashHerosHero from './SmashHerosHero.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SmashHerosHeroId } from '../../../Types/index.js';
+import type { SmashHerosHeroId } from '../../../Types/index.ts';
 
 test('SmashHerosHero', () => {
   const data = new SmashHerosHero({ stats: 'meow' }, 'BOTMUN');

@@ -1,10 +1,10 @@
-import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
+import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BlitzSurvivalGamesPrivateGamesExtraStar,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('BlitzSurvivalGamesPrivateGames', () => {
   const data = new BlitzSurvivalGamesPrivateGames({ stats: 'meow' });

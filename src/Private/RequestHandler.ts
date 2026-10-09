@@ -1,9 +1,9 @@
-import Errors from '../Errors.js';
-import HypixelAPIRebornError from './HypixelAPIRebornError.js';
-import RawRequestData from './RawRequestData.js';
+import Errors from '../Errors.ts';
+import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
+import RawRequestData from './RawRequestData.ts';
 import { isUUID } from '../Utils/validationUtils.ts';
-import type Client from '../Client.js';
-import type { RequestOptions } from '../Types/index.js';
+import type Client from '../Client.ts';
+import type { RequestOptions } from '../Types/index.ts';
 
 class RequestHandler {
   private BASE_URL: string;

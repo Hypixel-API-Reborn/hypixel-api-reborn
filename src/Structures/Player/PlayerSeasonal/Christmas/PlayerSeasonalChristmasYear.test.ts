@@ -1,6 +1,6 @@
-import PlayerSeasonalChristmasYear from './PlayerSeasonalChristmasYear.js';
-import PlayerSeasonalChristmasYearAdventRewards from './PlayerSeasonalChristmasYearAdventRewards.js';
-import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.js';
+import PlayerSeasonalChristmasYear from './PlayerSeasonalChristmasYear.ts';
+import PlayerSeasonalChristmasYearAdventRewards from './PlayerSeasonalChristmasYearAdventRewards.ts';
+import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerSeasonalChristmasYear', () => {

@@ -1,5 +1,5 @@
-import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIsland.js';
-import SkyBlockMemberPlayerStatsEndIslandDragonFight from './SkyBlockMemberPlayerStatsEndIslandDragonFight.js';
+import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIsland.ts';
+import SkyBlockMemberPlayerStatsEndIslandDragonFight from './SkyBlockMemberPlayerStatsEndIslandDragonFight.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsEndIsland', () => {

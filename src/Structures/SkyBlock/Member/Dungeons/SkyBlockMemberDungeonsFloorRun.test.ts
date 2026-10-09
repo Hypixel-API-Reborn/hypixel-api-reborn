@@ -1,6 +1,6 @@
-import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.js';
+import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DungeonClass, UUID } from '../../../../Types/index.js';
+import type { DungeonClass, UUID } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberDungeonsFloorRun', () => {
   const data = new SkyBlockMemberDungeonsFloorRun({ stats: 'meow' });

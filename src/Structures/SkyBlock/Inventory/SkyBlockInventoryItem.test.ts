@@ -1,10 +1,10 @@
-import SkyBlockInventoryItem from './SkyBlockInventoryItem.js';
-import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.js';
-import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.js';
-import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.js';
-import SkyBlockPotionEffect from '../Potion/SkyBlockPotionEffect.js';
+import SkyBlockInventoryItem from './SkyBlockInventoryItem.ts';
+import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.ts';
+import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.ts';
+import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.ts';
+import SkyBlockPotionEffect from '../Potion/SkyBlockPotionEffect.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { Rarity, UUID } from '../../../Types/index.js';
+import type { Rarity, UUID } from '../../../Types/index.ts';
 
 test('SkyBlockInventoryItem', () => {
   const data = new SkyBlockInventoryItem({ stats: 'meow' });

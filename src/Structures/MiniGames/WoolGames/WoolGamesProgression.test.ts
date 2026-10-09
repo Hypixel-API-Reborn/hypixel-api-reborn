@@ -1,4 +1,4 @@
-import WoolGamesProgression from './WoolGamesProgression.js';
+import WoolGamesProgression from './WoolGamesProgression.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WoolGamesProgression', () => {

@@ -1,6 +1,6 @@
-import Challenge from './Challenge.js';
+import Challenge from './Challenge.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ChallengeReward } from '../../Types/index.js';
+import type { ChallengeReward } from '../../Types/index.ts';
 
 test('Challenge', () => {
   const data = new Challenge({ stats: 'meow' });

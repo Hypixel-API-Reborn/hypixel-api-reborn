@@ -1,5 +1,5 @@
-import GameCountsGeneric from '../GameCountsGeneric.js';
-import GameCountsWalls3Modes from './GameCountsWalls3Modes.js';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsWalls3Modes from './GameCountsWalls3Modes.ts';
 
 class GameCountsWalls3 extends GameCountsGeneric {
   modes: GameCountsWalls3Modes;

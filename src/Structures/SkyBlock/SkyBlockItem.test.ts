@@ -1,4 +1,4 @@
-import SkyBlockItem from './SkyBlockItem.js';
+import SkyBlockItem from './SkyBlockItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockItem', () => {

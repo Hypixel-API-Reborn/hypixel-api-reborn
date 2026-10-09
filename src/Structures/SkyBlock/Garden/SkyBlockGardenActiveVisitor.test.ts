@@ -1,7 +1,7 @@
-import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.js';
-import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.js';
+import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.ts';
+import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { VisitorStatus } from '../../../Types/index.js';
+import type { VisitorStatus } from '../../../Types/index.ts';
 
 test('SkyBlockGardenActiveVisitor', () => {
   const data = new SkyBlockGardenActiveVisitor({ stats: 'meow' }, 'mrrp');

@@ -1,5 +1,5 @@
-import { Divide, ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.js';
-import type { DuelsModeId } from '../../../../Types/index.js';
+import { Divide, ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.ts';
+import type { DuelsModeId } from '../../../../Types/index.ts';
 
 class GenericDuelsMode {
   kills: number;

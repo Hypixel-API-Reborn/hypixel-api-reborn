@@ -1,5 +1,5 @@
-import GameCountsGameCountsBedWarsModes from './GameCountsBedWarsModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsBedWarsModes from './GameCountsBedWarsModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsBedWars extends GameCountsGeneric {
   modes: GameCountsGameCountsBedWarsModes;

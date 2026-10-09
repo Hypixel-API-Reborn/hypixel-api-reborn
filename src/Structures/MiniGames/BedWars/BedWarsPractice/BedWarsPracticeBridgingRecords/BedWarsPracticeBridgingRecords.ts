@@ -1,4 +1,4 @@
-import BedWarsPracticeBridgingRecordsDistance from './BedWarsPracticeBridgingRecordsDistance.js';
+import BedWarsPracticeBridgingRecordsDistance from './BedWarsPracticeBridgingRecordsDistance.ts';
 
 class BedWarsPracticeBridgingRecords {
   blocks100: BedWarsPracticeBridgingRecordsDistance;

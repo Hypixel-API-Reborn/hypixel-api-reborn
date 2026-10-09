@@ -1,4 +1,4 @@
-import type { ColorString } from '../../../Types/index.js';
+import type { ColorString } from '../../../Types/index.ts';
 
 class BowSpleef {
   wins: number;

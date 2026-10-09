@@ -1,6 +1,6 @@
-import SkyBlockAuctionBid from './SkyBlockAuctionBid.js';
-import SkyBlockBaseAuction from './SkyBlockBaseAuction.js';
-import type { Rarity, UUID } from '../../../Types/index.js';
+import SkyBlockAuctionBid from './SkyBlockAuctionBid.ts';
+import SkyBlockBaseAuction from './SkyBlockBaseAuction.ts';
+import type { Rarity, UUID } from '../../../Types/index.ts';
 
 class SkyBlockAuction extends SkyBlockBaseAuction {
   coop: UUID[];

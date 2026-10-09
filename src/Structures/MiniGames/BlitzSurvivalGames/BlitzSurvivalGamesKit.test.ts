@@ -1,4 +1,4 @@
-import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
+import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BlitzSurvivalGamesKit', () => {

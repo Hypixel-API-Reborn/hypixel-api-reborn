@@ -1,6 +1,6 @@
-import SkyBlockProfileCommunityUpgrades from './SkyBlockProfileCommunityUpgrades.js';
-import SkyBlockProfileCommunityUpgradesUpgraded from './SkyBlockProfileCommunityUpgradesUpgraded.js';
-import SkyBlockProfileCommunityUpgradesUpgrading from './SkyBlockProfileCommunityUpgradesUpgrading.js';
+import SkyBlockProfileCommunityUpgrades from './SkyBlockProfileCommunityUpgrades.ts';
+import SkyBlockProfileCommunityUpgradesUpgraded from './SkyBlockProfileCommunityUpgradesUpgraded.ts';
+import SkyBlockProfileCommunityUpgradesUpgrading from './SkyBlockProfileCommunityUpgradesUpgrading.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockProfileCommunityUpgrades', () => {

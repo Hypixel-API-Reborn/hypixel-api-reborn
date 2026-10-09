@@ -1,5 +1,5 @@
-import GameCountsGameCountsSuperSmashModes from './GameCountsSuperSmashModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsSuperSmashModes from './GameCountsSuperSmashModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsSuperSmash extends GameCountsGeneric {
   modes: GameCountsGameCountsSuperSmashModes;

@@ -1,7 +1,7 @@
-import BlitzSurvivalGames from './BlitzSurvivalGames.js';
-import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
-import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
+import BlitzSurvivalGames from './BlitzSurvivalGames.ts';
+import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.ts';
+import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BlitzSurvivalGamesAura,
@@ -11,7 +11,7 @@ import type {
   BlitzSurvivalGamesLeaderboardSettingsMode,
   BlitzSurvivalGamesTaunt,
   BlitzSurvivalGamesVictoryDance
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('BlitzSurvivalGames', () => {
   const data = new BlitzSurvivalGames({ stats: 'meow' });

@@ -1,6 +1,6 @@
-import SkyWarsKillsDeathsType from './SkyWarsKillsDeathsType.js';
-import { ParseModeAfter } from '../../../Utils/index.js';
-import type { SkyWarsKitId, SkyWarsModeId } from '../../../Types/index.js';
+import SkyWarsKillsDeathsType from './SkyWarsKillsDeathsType.ts';
+import { ParseModeAfter } from '../../../Utils/index.ts';
+import type { SkyWarsKitId, SkyWarsModeId } from '../../../Types/index.ts';
 
 class SkyWarsKillsDeaths {
   total: SkyWarsKillsDeathsType;

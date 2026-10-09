@@ -1,5 +1,5 @@
-import GameCountsGameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsMurderMystery extends GameCountsGeneric {
   modes: GameCountsGameCountsMurderMysteryModes;

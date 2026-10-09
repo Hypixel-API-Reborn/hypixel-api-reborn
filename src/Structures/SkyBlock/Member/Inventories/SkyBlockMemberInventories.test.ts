@@ -1,10 +1,10 @@
-import SkyBlockMemberInventories from './SkyBlockMemberInventories.js';
-import SkyBlockMemberInventoriesArmor from './Armor/SkyBlockMemberInventoriesArmor.js';
-import SkyBlockMemberInventoriesBackpacks from './Backpacks/SkyBlockMemberInventoriesBackpacks.js';
-import SkyBlockMemberInventoriesBags from './Bags/SkyBlockMemberInventoriesBags.js';
-import SkyBlockMemberInventoriesEquipment from './Equipment/SkyBlockMemberInventoriesEquipment.js';
-import SkyBlockMemberInventoriesInventory from './Inventory/SkyBlockMemberInventoriesInventory.js';
-import SkyBlockMemberInventoriesWardrobe from './Wardrobe/SkyBlockMemberInventoriesWardrobe.js';
+import SkyBlockMemberInventories from './SkyBlockMemberInventories.ts';
+import SkyBlockMemberInventoriesArmor from './Armor/SkyBlockMemberInventoriesArmor.ts';
+import SkyBlockMemberInventoriesBackpacks from './Backpacks/SkyBlockMemberInventoriesBackpacks.ts';
+import SkyBlockMemberInventoriesBags from './Bags/SkyBlockMemberInventoriesBags.ts';
+import SkyBlockMemberInventoriesEquipment from './Equipment/SkyBlockMemberInventoriesEquipment.ts';
+import SkyBlockMemberInventoriesInventory from './Inventory/SkyBlockMemberInventoriesInventory.ts';
+import SkyBlockMemberInventoriesWardrobe from './Wardrobe/SkyBlockMemberInventoriesWardrobe.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventories', () => {

@@ -1,9 +1,9 @@
-import Color from '../Color.js';
-import Game from '../Game.js';
-import GuildMember from './GuildMember.js';
-import GuildRank from './GuildRank.js';
-import { parseGuildHistory } from '../../Utils/index.js';
-import type { ExpHistory } from '../../Types/index.js';
+import Color from '../Color.ts';
+import Game from '../Game.ts';
+import GuildMember from './GuildMember.ts';
+import GuildRank from './GuildRank.ts';
+import { GUILD_LEVEL_EXP_NEEDED, parseGuildHistory } from '../../Utils/index.ts';
+import type { ExpHistory } from '../../Types/index.ts';
 
 class Guild {
   id: string;
@@ -65,17 +65,13 @@ class Guild {
   }
 
   private getGuildLevel(exp: number) {
-    const EXP_NEEDED: number[] = [
-      100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000,
-      2500000, 3000000
-    ];
     let level = 0;
     for (let i = 0; i <= 1000; i += 1) {
       let need: number;
-      if (i >= EXP_NEEDED.length) {
-        need = EXP_NEEDED[EXP_NEEDED.length - 1] || 0;
+      if (i >= GUILD_LEVEL_EXP_NEEDED.length) {
+        need = GUILD_LEVEL_EXP_NEEDED[GUILD_LEVEL_EXP_NEEDED.length - 1] || 0;
       } else {
-        need = EXP_NEEDED[i] || 0;
+        need = GUILD_LEVEL_EXP_NEEDED[i] || 0;
       }
       if (exp - need < 0) {
         return Math.round((level + exp / need) * 100) / 100;

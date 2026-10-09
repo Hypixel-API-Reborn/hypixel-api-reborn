@@ -1,4 +1,4 @@
-import SkyBlockFireSale from './SkyBlockFireSale.js';
+import SkyBlockFireSale from './SkyBlockFireSale.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockFireSale', () => {

@@ -1,5 +1,5 @@
-import SkyBlockSkill from './SkyBlockSkill.js';
-import SkyBlockSkills from './SkyBlockSkills.js';
+import SkyBlockSkill from './SkyBlockSkill.ts';
+import SkyBlockSkills from './SkyBlockSkills.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockSkills', () => {

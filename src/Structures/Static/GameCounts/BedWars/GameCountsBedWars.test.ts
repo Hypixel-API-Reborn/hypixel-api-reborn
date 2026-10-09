@@ -1,5 +1,5 @@
-import GameCountsBedWars from './GameCountsBedWars.js';
-import GameCountsGameCountsBedWarsModes from './GameCountsBedWarsModes.js';
+import GameCountsBedWars from './GameCountsBedWars.ts';
+import GameCountsGameCountsBedWarsModes from './GameCountsBedWarsModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsBedWars', () => {

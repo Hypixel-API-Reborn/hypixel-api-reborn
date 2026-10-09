@@ -1,6 +1,6 @@
-import DuelsModeFull from './DuelsModeFull.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
-import type { DuelsModeBlitzKitId } from '../../../../Types/index.js';
+import DuelsModeFull from './DuelsModeFull.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import type { DuelsModeBlitzKitId } from '../../../../Types/index.ts';
 
 class DuelsBlitz extends DuelsModeFull {
   selectedKit: DuelsModeBlitzKitId | 'UNKNOWN';

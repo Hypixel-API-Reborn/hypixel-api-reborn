@@ -1,7 +1,7 @@
-import BedWarsChallenge from './BedWarsChallenge.js';
-import BedWarsChallenges from './BedWarsChallenges.js';
+import BedWarsChallenge from './BedWarsChallenge.ts';
+import BedWarsChallenges from './BedWarsChallenges.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsChallengeName } from '../../../../Types/index.js';
+import type { BedWarsChallengeName } from '../../../../Types/index.ts';
 
 test('BedWarsChallenges', () => {
   const data = new BedWarsChallenges({ stats: 'meow' });

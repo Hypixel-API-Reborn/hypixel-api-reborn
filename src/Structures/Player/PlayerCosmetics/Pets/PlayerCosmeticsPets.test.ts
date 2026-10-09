@@ -1,6 +1,6 @@
-import PlayerCosmeticsPet from './PlayerCosmeticsPet.js';
-import PlayerCosmeticsPets from './PlayerCosmeticsPets.js';
-import PlayerCosmeticsPetsConsumables from './PlayerCosmeticsPetsConsumables.js';
+import PlayerCosmeticsPet from './PlayerCosmeticsPet.ts';
+import PlayerCosmeticsPets from './PlayerCosmeticsPets.ts';
+import PlayerCosmeticsPetsConsumables from './PlayerCosmeticsPetsConsumables.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerCosmeticsPets', () => {

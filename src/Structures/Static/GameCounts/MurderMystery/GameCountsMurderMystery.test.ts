@@ -1,5 +1,5 @@
-import GameCountsGameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.js';
-import GameCountsMurderMystery from './GameCountsMurderMystery.js';
+import GameCountsGameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.ts';
+import GameCountsMurderMystery from './GameCountsMurderMystery.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsMurderMystery', () => {

@@ -1,4 +1,4 @@
-import SkyBlockBaseAuctionInfo from './SkyBlockBaseAuctionInfo.js';
+import SkyBlockBaseAuctionInfo from './SkyBlockBaseAuctionInfo.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockBaseAuctionInfo', () => {

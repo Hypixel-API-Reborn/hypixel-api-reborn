@@ -1,4 +1,4 @@
-import type { ArcadeHoleInTheWallColor } from '../../../Types/index.js';
+import type { ArcadeHoleInTheWallColor } from '../../../Types/index.ts';
 
 class HoleInTheWall {
   rounds: number;

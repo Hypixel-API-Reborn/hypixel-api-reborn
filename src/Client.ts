@@ -1,38 +1,38 @@
-import Achievements from './Structures/Static/Achievements/Achievements.js';
-import Booster from './Structures/Boosters/Booster.js';
-import CacheHandler from './Private/CacheHandler.js';
-import Challenges from './Structures/Static/Challenges.js';
-import Errors from './Errors.js';
-import GameCounts from './Structures/Static/GameCounts/GameCounts.js';
-import Guild from './Structures/Guild/Guild.js';
-import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.js';
-import House from './Structures/House.js';
-import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';
-import Leaderboard from './Structures/Leaderboard.js';
-import Player from './Structures/Player/Player.js';
-import Quests from './Structures/Static/Quests.js';
-import RecentGame from './Structures/RecentGame.js';
-import RequestData from './Private/RequestData.js';
-import RequestHandler from './Private/RequestHandler.js';
-import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.js';
-import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
-import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
-import SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.js';
-import SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.js';
-import SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.js';
-import SkyBlockElectionData from './Structures/SkyBlock/Election/SkyBlockElectionData.js';
-import SkyBlockFireSale from './Structures/SkyBlock/FireSale/SkyBlockFireSale.js';
-import SkyBlockGarden from './Structures/SkyBlock/Garden/SkyBlockGarden.js';
-import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.js';
-import SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.js';
-import SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.js';
-import SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.js';
-import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.js';
-import Status from './Structures/Status.js';
-import Updater from './Private/Updater.js';
-import WatchdogStats from './Structures/WatchdogStats.js';
+import Achievements from './Structures/Static/Achievements/Achievements.ts';
+import Booster from './Structures/Boosters/Booster.ts';
+import CacheHandler from './Private/CacheHandler.ts';
+import Challenges from './Structures/Static/Challenges.ts';
+import Errors from './Errors.ts';
+import GameCounts from './Structures/Static/GameCounts/GameCounts.ts';
+import Guild from './Structures/Guild/Guild.ts';
+import GuildAchievements from './Structures/Static/Achievements/GuildAchievements.ts';
+import House from './Structures/House.ts';
+import HypixelAPIRebornError from './Private/HypixelAPIRebornError.ts';
+import Leaderboard from './Structures/Leaderboard.ts';
+import Player from './Structures/Player/Player.ts';
+import Quests from './Structures/Static/Quests.ts';
+import RecentGame from './Structures/RecentGame.ts';
+import RequestData from './Private/RequestData.ts';
+import RequestHandler from './Private/RequestHandler.ts';
+import SkyBlockAuction from './Structures/SkyBlock/Auctions/SkyBlockAuction.ts';
+import SkyBlockAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.ts';
+import SkyBlockBaseAuctionInfo from './Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.ts';
+import SkyBlockBazaar from './Structures/SkyBlock/Bazaar/SkyBlockBazaar.ts';
+import SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.ts';
+import SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.ts';
+import SkyBlockElectionData from './Structures/SkyBlock/Election/SkyBlockElectionData.ts';
+import SkyBlockFireSale from './Structures/SkyBlock/FireSale/SkyBlockFireSale.ts';
+import SkyBlockGarden from './Structures/SkyBlock/Garden/SkyBlockGarden.ts';
+import SkyBlockItem from './Structures/SkyBlock/SkyBlockItem.ts';
+import SkyBlockMuseum from './Structures/SkyBlock/Museum/SkyBlockMuseum.ts';
+import SkyBlockNews from './Structures/SkyBlock/News/SkyBlockNews.ts';
+import SkyBlockProfile from './Structures/SkyBlock/Profile/SkyBlockProfile.ts';
+import SkyBlockSkills from './Structures/SkyBlock/Skills/SkyBlockSkills.ts';
+import Status from './Structures/Status.ts';
+import Updater from './Private/Updater.ts';
+import WatchdogStats from './Structures/WatchdogStats.ts';
 import { Client as MowojangClient, type MowojangProfile } from 'mowojang';
-import { SkyBlockProfileHasMe, isGuildId } from './Utils/index.js';
+import { SkyBlockProfileHasMe, isGuildId } from './Utils/index.ts';
 import type {
   AuctionFetchOption,
   AuctionRequestOptions,
@@ -46,7 +46,7 @@ import type {
   SkyBlockRequestOptions,
   SkyblockProfileWithMe,
   WithSelectedProfile
-} from './Types/index.js';
+} from './Types/index.ts';
 
 const clients: Client[] = [];
 

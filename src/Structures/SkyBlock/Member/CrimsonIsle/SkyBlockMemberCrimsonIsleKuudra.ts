@@ -1,4 +1,4 @@
-import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './SkyBlockMemberCrimsonIsleKuudraPartyFinder.js';
+import SkyBlockMemberCrimsonIsleKuudraPartyFinder from './SkyBlockMemberCrimsonIsleKuudraPartyFinder.ts';
 
 class SkyBlockMemberCrimsonIsleKuudra {
   basicCompletions: number;

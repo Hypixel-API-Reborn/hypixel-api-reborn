@@ -1,7 +1,7 @@
-import SkyBlockMemberRiftGallery from './SkyBlockMemberRiftGallery.js';
-import SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.js';
+import SkyBlockMemberRiftGallery from './SkyBlockMemberRiftGallery.ts';
+import SkyBlockMemberRiftGallerySecuredTrophy from './SkyBlockMemberRiftGallerySecuredTrophy.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { RiftGalleryTrophy } from '../../../../Types/index.js';
+import type { RiftGalleryTrophy } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberRiftGallery', () => {
   const data = new SkyBlockMemberRiftGallery({ stats: 'meow' });

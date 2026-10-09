@@ -1,10 +1,10 @@
-import GameCountsBasicModes from '../GameCountsBasicModes.js';
+import GameCountsBasicModes from '../GameCountsBasicModes.ts';
 
 class GameCountsSuperSmashModes extends GameCountsBasicModes {
   '1v1Normal': number;
-  friendsNormal: number;
+  'friendsNormal': number;
   '2v2Normal': number;
-  constructor(data: Record<string, any>) {
+  'constructor'(data: Record<string, any>) {
     super(data);
     this['1v1Normal'] = data?.['1v1_normal'] ?? 0;
     this.friendsNormal = data?.friends_normal ?? 0;

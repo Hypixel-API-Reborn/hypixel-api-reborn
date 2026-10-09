@@ -1,9 +1,9 @@
-import SkyBlockMemberChocolateFactoryEggs from './SkyBlockMemberChocolateFactoryEggs.js';
-import SkyBlockMemberChocolateFactoryEmployees from './SkyBlockMemberChocolateFactoryEmployees.js';
-import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.js';
-import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.js';
-import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.js';
-import type { SkyBlockArea } from '../../../../Types/index.js';
+import SkyBlockMemberChocolateFactoryEggs from './SkyBlockMemberChocolateFactoryEggs.ts';
+import SkyBlockMemberChocolateFactoryEmployees from './SkyBlockMemberChocolateFactoryEmployees.ts';
+import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.ts';
+import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.ts';
+import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.ts';
+import type { SkyBlockArea } from '../../../../Types/index.ts';
 
 class SkyBlockMemberChocolateFactory {
   employees: SkyBlockMemberChocolateFactoryEmployees;

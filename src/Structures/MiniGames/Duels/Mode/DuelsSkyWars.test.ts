@@ -1,7 +1,7 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsSkyWars from './DuelsSkyWars.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsSkyWars from './DuelsSkyWars.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DuelsModeSkyWarsKitId } from '../../../../Types/index.js';
+import type { DuelsModeSkyWarsKitId } from '../../../../Types/index.ts';
 
 test('DuelsSkyWars', () => {
   const data = new DuelsSkyWars({ stats: 'meow' });

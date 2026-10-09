@@ -1,5 +1,5 @@
-import GameCountsGameCountsMCGOModes from './GameCountsMCGOModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsMCGOModes from './GameCountsMCGOModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsMCGO extends GameCountsGeneric {
   modes: GameCountsGameCountsMCGOModes;

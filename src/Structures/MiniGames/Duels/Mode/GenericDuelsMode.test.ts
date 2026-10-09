@@ -1,4 +1,4 @@
-import GenericDuelsMode from './GenericDuelsMode.js';
+import GenericDuelsMode from './GenericDuelsMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GenericDuelsMode', () => {

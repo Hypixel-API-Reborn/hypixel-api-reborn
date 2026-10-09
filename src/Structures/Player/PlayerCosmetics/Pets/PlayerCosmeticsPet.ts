@@ -1,4 +1,4 @@
-import type { PlayerCosmeticsPetName } from '../../../../Types/index.js';
+import type { PlayerCosmeticsPetName } from '../../../../Types/index.ts';
 
 class PlayerCosmeticsPet {
   isFavorite: boolean;

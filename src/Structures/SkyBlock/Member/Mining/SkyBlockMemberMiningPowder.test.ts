@@ -1,4 +1,4 @@
-import SkyBlockMemberMiningPowder from './SkyBlockMemberMiningPowder.js';
+import SkyBlockMemberMiningPowder from './SkyBlockMemberMiningPowder.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberMiningPowder', () => {

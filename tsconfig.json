@@ -25,7 +25,8 @@
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "allowArbitraryExtensions": false,
-    "rewriteRelativeImportExtensions": true
+    "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["./src"],
   "exclude": ["**/*/*.test.*"]

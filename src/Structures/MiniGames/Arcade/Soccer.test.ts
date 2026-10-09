@@ -1,4 +1,4 @@
-import Soccer from './Soccer.js';
+import Soccer from './Soccer.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Soccer', () => {

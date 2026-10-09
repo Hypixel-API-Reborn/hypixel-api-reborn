@@ -1,4 +1,4 @@
-import ItemBytes from '../../ItemBytes.js';
+import ItemBytes from '../../ItemBytes.ts';
 
 class SkyBlockBaseAuction {
   auctionId: string;

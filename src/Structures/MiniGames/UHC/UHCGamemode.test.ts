@@ -1,4 +1,4 @@
-import UHCGamemode from './UHCGamemode.js';
+import UHCGamemode from './UHCGamemode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('UHCGamemode', () => {

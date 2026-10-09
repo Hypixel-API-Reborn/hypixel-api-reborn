@@ -1,5 +1,5 @@
-import SkyBlockBingo from './SkyBlockBingo.js';
-import SkyBlockBingoGoal from './SkyBlockBingoGoal.js';
+import SkyBlockBingo from './SkyBlockBingo.ts';
+import SkyBlockBingoGoal from './SkyBlockBingoGoal.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockBingo', () => {

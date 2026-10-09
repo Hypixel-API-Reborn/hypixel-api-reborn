@@ -1,4 +1,4 @@
-import HypixelAPIReborn from './HypixelAPIReborn';
+import HypixelAPIReborn from './HypixelAPIReborn.ts';
 
 async function Run() {
   const player = await HypixelAPIReborn.getPlayer('kathund');

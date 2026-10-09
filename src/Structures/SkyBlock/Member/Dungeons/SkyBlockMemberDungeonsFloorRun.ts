@@ -1,4 +1,4 @@
-import type { DungeonClass, UUID } from '../../../../Types/index.js';
+import type { DungeonClass, UUID } from '../../../../Types/index.ts';
 
 class SkyBlockMemberDungeonsFloorRun {
   timestamp: number;

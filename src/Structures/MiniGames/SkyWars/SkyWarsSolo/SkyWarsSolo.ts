@@ -1,6 +1,6 @@
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.js';
-import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.js';
-import SkyWarsSoloKits from './SkyWarsSoloKits/SkyWarsSoloKits.js';
+import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.ts';
+import SkyWarsSoloKits from './SkyWarsSoloKits/SkyWarsSoloKits.ts';
 
 class SkyWarsSolo extends SkyWarsMode {
   normal: SkyWarsMode;

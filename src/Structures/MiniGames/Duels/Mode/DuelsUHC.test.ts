@@ -1,5 +1,5 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsUHC from './DuelsUHC.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsUHC from './DuelsUHC.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsUHC', () => {

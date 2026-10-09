@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftWestVillageGlyphs from './SkyBlockMemberRiftWestVillageGlyphs.js';
+import SkyBlockMemberRiftWestVillageGlyphs from './SkyBlockMemberRiftWestVillageGlyphs.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftWestVillageGlyphs', () => {

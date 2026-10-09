@@ -1,5 +1,5 @@
-import GameCountsBasicModes from '../GameCountsBasicModes.js';
-import GameCountsSpeedUHC from './GameCountsSpeedUHC.js';
+import GameCountsBasicModes from '../GameCountsBasicModes.ts';
+import GameCountsSpeedUHC from './GameCountsSpeedUHC.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsSpeedUHC', () => {

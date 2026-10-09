@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftWestVillageKatHouse from './SkyBlockMemberRiftWestVillageKatHouse.js';
+import SkyBlockMemberRiftWestVillageKatHouse from './SkyBlockMemberRiftWestVillageKatHouse.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftWestVillageKatHouse', () => {

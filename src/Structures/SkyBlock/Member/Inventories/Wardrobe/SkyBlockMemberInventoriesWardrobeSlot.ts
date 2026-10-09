@@ -1,4 +1,4 @@
-import RawSkyBlockInventoryItem from '../../../Inventory/RawSkyBlockInventoryItem.js';
+import RawSkyBlockInventoryItem from '../../../Inventory/RawSkyBlockInventoryItem.ts';
 
 class SkyBlockMemberInventoriesWardrobeSlot {
   id: number;

@@ -31,7 +31,7 @@ import {
 } from 'typescript';
 import { format } from 'prettier';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { scanDirectory } from './Utils';
+import { scanDirectory } from './Utils.ts';
 
 const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'));
 const primitiveTypes = new Set(['string', 'number', 'boolean', 'any', 'unknown', 'void']);

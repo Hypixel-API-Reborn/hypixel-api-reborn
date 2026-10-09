@@ -1,4 +1,4 @@
-import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.js';
+import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.ts';
 
 class SkyBlockMemberDungeonsFloor {
   timesPlayed: number;

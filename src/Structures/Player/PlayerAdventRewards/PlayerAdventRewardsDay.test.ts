@@ -1,4 +1,4 @@
-import PlayerAdventRewardsDay from './PlayerAdventRewardsDay.js';
+import PlayerAdventRewardsDay from './PlayerAdventRewardsDay.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerAdventRewardsDay', () => {

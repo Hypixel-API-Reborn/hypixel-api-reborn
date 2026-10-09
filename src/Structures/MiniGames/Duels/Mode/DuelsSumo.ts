@@ -1,5 +1,5 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsModeFull from './DuelsModeFull.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsModeFull from './DuelsModeFull.ts';
 
 class DuelsSumo extends DuelsModeFull {
   tournament: DuelsMode;

@@ -1,6 +1,6 @@
-import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
-import SkyBlockMemberSlayers from './SkyBlockMemberSlayers.js';
-import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.js';
+import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.ts';
+import SkyBlockMemberSlayers from './SkyBlockMemberSlayers.ts';
+import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberSlayers', () => {

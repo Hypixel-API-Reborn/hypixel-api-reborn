@@ -1,4 +1,4 @@
-import SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.js';
+import SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.ts';
 
 class SkyBlockMemberRiftDeadCats {
   talkedToJacquelle: boolean;

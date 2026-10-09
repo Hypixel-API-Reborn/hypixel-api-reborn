@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftDreamFarm from './SkyBlockMemberRiftDreamFarm.js';
+import SkyBlockMemberRiftDreamFarm from './SkyBlockMemberRiftDreamFarm.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftDreamFarm', () => {

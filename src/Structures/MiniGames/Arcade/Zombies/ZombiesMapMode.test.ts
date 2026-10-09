@@ -1,4 +1,4 @@
-import ZombiesMapMode from './ZombiesMapMode.js';
+import ZombiesMapMode from './ZombiesMapMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('ZombiesMapMode', () => {

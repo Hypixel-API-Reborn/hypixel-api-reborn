@@ -29,7 +29,8 @@
     "test:ui": "pnpm exec vitest --ui --coverage",
     "scripts:generate:index": "pnpm exec tsx .github/scripts/generateIndexFile.ts",
     "docgen": "pnpm exec typedoc",
-    "prepare": "pnpm build"
+    "prepare": "pnpm build",
+    "check": "pnpm install --frozen-lockfile && pnpm prettier && pnpm eslint && pnpm scripts:generate:index && pnpm build && pnpm docgen && pnpm test:coverage && pnpm test:coverage:check"
   },
   "engines": {
     "node": ">=22.22.3"
@@ -40,8 +41,7 @@
   "dependencies": {
     "mowojang": "^0.8.2",
     "node-cache": "^5.1.2",
-    "prismarine-nbt": "^2.8.0",
-    "rss-parser": "^3.13.0"
+    "prismarine-nbt": "^2.8.0"
   },
   "license": "MIT",
   "readme": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn?tab=readme-ov-file#hypixel-api-reborn",

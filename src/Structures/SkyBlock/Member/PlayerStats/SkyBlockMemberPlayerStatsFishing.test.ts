@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.js';
+import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsFishing', () => {

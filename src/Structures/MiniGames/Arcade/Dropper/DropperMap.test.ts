@@ -1,4 +1,4 @@
-import DropperMap from './DropperMap.js';
+import DropperMap from './DropperMap.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DropperMap', () => {

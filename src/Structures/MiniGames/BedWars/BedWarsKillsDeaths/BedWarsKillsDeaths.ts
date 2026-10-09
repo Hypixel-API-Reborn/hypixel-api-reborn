@@ -1,5 +1,5 @@
-import BedWarsKillsDeathsType from './BedWarsKillsDeathsType.js';
-import type { BedWarsModeId } from '../../../../Types/index.js';
+import BedWarsKillsDeathsType from './BedWarsKillsDeathsType.ts';
+import type { BedWarsModeId } from '../../../../Types/index.ts';
 
 class BedWarsKillsDeaths {
   total: BedWarsKillsDeathsType;

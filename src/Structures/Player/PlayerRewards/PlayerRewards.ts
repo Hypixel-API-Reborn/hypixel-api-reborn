@@ -1,4 +1,4 @@
-import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.js';
+import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.ts';
 
 class PlayerRewards {
   adsenseTokens: number;

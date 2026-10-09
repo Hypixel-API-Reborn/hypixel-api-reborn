@@ -1,4 +1,4 @@
-import GameCountsSkyBlockModes from './GameCountsSkyBlockModes.js';
+import GameCountsSkyBlockModes from './GameCountsSkyBlockModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsSkyBlockModes', () => {

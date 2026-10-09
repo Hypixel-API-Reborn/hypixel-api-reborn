@@ -1,7 +1,7 @@
-import LawnMoower from './LawnMoower.js';
-import PartyGames from './PartyGames.js';
-import PartyGamesGame from './PartyGamesGame.js';
-import RPG16 from './RPG16.js';
+import LawnMoower from './LawnMoower.ts';
+import PartyGames from './PartyGames.ts';
+import PartyGamesGame from './PartyGamesGame.ts';
+import RPG16 from './RPG16.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PartyGames', () => {

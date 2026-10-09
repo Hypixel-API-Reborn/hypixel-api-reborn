@@ -1,5 +1,5 @@
-import { Divide } from '../../../Utils/index.js';
-import type { UHCMode } from '../../../Types/index.js';
+import { Divide } from '../../../Utils/index.ts';
+import type { UHCMode } from '../../../Types/index.ts';
 
 class UHCGamemode {
   kills: number;

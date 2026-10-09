@@ -1,4 +1,4 @@
-import ItemBytes from './ItemBytes.js';
+import ItemBytes from './ItemBytes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('ItemBytes', () => {

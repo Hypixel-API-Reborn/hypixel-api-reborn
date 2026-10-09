@@ -1,10 +1,10 @@
-import SkyBlockMemberMining from './SkyBlockMemberMining.js';
-import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
-import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.js';
-import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.js';
-import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
+import SkyBlockMemberMining from './SkyBlockMemberMining.ts';
+import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.ts';
+import SkyBlockMemberMiningHotm from './SkyBlockMemberMiningHotm.ts';
+import SkyBlockMemberMiningPowders from './SkyBlockMemberMiningPowders.ts';
+import SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/index.js';
+import type { MiningCrystal, MiningPickaxeAbility, MiningSkyMallEffect } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberMining', () => {
   const data = new SkyBlockMemberMining({ stats: 'meow' }, new SkyBlockMemberSkillTrees({ stats: 'meow' }));

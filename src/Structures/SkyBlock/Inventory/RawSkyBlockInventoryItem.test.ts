@@ -1,4 +1,4 @@
-import RawSkyBlockInventoryItem from './RawSkyBlockInventoryItem.js';
+import RawSkyBlockInventoryItem from './RawSkyBlockInventoryItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('RawSkyBlockInventoryItem', () => {

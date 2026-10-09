@@ -1,5 +1,5 @@
-import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.js';
-import type { SkyBlockCandidateKeyBenefit, SkyBlockMayor } from '../../../Types/index.js';
+import SkyBlockElectionCandidatePerk from './SkyBlockElectionCandidatePerk.ts';
+import type { SkyBlockCandidateKeyBenefit, SkyBlockMayor } from '../../../Types/index.ts';
 
 class SkyBlockElectionCandidate {
   name: SkyBlockMayor | 'UNKNOWN';

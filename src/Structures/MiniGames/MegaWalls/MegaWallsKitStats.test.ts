@@ -1,5 +1,5 @@
-import MegaWallsKitStats from './MegaWallsKitStats.js';
-import MegaWallsModeStats from './MegaWallsModeStats.js';
+import MegaWallsKitStats from './MegaWallsKitStats.ts';
+import MegaWallsModeStats from './MegaWallsModeStats.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MegaWallsKitStats', () => {

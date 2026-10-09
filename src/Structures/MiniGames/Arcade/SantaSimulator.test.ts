@@ -1,4 +1,4 @@
-import SantaSimulator from './SantaSimulator.js';
+import SantaSimulator from './SantaSimulator.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SantaSimulator', () => {

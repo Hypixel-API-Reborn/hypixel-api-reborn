@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsEndIslandDragonFight from './SkyBlockMemberPlayerStatsEndIslandDragonFight.js';
+import SkyBlockMemberPlayerStatsEndIslandDragonFight from './SkyBlockMemberPlayerStatsEndIslandDragonFight.ts';
 
 class SkyBlockMemberPlayerStatsEndIsland {
   dragonFight: SkyBlockMemberPlayerStatsEndIslandDragonFight;

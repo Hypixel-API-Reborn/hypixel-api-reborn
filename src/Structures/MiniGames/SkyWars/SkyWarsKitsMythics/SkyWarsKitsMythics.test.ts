@@ -1,5 +1,5 @@
-import SkyWarsKitsMythic from './SkyWarsKitsMythic.js';
-import SkyWarsKitsMythics from './SkyWarsKitsMythics.js';
+import SkyWarsKitsMythic from './SkyWarsKitsMythic.ts';
+import SkyWarsKitsMythics from './SkyWarsKitsMythics.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsKitsMythics', () => {

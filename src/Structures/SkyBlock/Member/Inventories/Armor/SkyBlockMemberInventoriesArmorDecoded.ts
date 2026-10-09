@@ -1,4 +1,4 @@
-import SkyBlockInventoryItem from '../../../Inventory/SkyBlockInventoryItem.js';
+import SkyBlockInventoryItem from '../../../Inventory/SkyBlockInventoryItem.ts';
 
 class SkyBlockMemberInventoriesArmorDecoded {
   helmet: SkyBlockInventoryItem | null;

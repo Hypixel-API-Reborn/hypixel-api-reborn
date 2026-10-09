@@ -1,5 +1,5 @@
-import GameCountsBasicModes from '../GameCountsBasicModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsBasicModes from '../GameCountsBasicModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsSurvivalGames extends GameCountsGeneric {
   modes: GameCountsBasicModes;

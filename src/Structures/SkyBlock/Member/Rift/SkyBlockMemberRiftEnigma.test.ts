@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftEnigma from './SkyBlockMemberRiftEnigma.js';
+import SkyBlockMemberRiftEnigma from './SkyBlockMemberRiftEnigma.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftEnigma', () => {

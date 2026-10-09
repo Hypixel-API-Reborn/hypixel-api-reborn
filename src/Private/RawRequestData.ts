@@ -1,4 +1,4 @@
-import type { RequestOptions } from '../Types/index.js';
+import type { RequestOptions } from '../Types/index.ts';
 
 class RawRequestData<T = any> {
   readonly statusCode: number;

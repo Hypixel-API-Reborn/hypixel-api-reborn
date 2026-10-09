@@ -1,4 +1,4 @@
-import SimonSays from './SimonSays.js';
+import SimonSays from './SimonSays.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SimonSays', () => {

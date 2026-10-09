@@ -1,5 +1,5 @@
-import GameCountsUHC from './GameCountsUHC.js';
-import GameCountsUHCModes from './GameCountsUHCModes.js';
+import GameCountsUHC from './GameCountsUHC.ts';
+import GameCountsUHCModes from './GameCountsUHCModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsUHC', () => {

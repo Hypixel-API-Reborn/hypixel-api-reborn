@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftWyldWoods from './SkyBlockMemberRiftWyldWoods.js';
+import SkyBlockMemberRiftWyldWoods from './SkyBlockMemberRiftWyldWoods.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftWyldWoods', () => {

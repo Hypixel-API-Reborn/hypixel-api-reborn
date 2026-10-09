@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftCastle from './SkyBlockMemberRiftCastle.js';
+import SkyBlockMemberRiftCastle from './SkyBlockMemberRiftCastle.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftCastle', () => {

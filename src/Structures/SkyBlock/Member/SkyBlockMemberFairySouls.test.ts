@@ -1,4 +1,4 @@
-import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.js';
+import SkyBlockMemberFairySouls from './SkyBlockMemberFairySouls.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberFairySouls', () => {

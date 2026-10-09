@@ -1,6 +1,6 @@
-import SkyBlockPotionEffect from './SkyBlockPotionEffect.js';
+import SkyBlockPotionEffect from './SkyBlockPotionEffect.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockPotionEffectName } from '../../../Types/index.js';
+import type { SkyBlockPotionEffectName } from '../../../Types/index.ts';
 
 test('SkyBlockPotionEffect', () => {
   const data = new SkyBlockPotionEffect({ stats: 'meow' });

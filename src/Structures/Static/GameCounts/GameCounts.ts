@@ -1,4 +1,4 @@
-import GameCountGames from './GameCountsGames.js';
+import GameCountGames from './GameCountsGames.ts';
 
 class GameCounts {
   playerCount: number;

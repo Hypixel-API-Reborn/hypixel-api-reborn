@@ -1,4 +1,4 @@
-import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
+import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockGardenCropsUpgrades', () => {

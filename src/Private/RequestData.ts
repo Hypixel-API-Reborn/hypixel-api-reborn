@@ -1,4 +1,4 @@
-import RawRequestData from './RawRequestData.js';
+import RawRequestData from './RawRequestData.ts';
 import type { MowojangProfile } from 'mowojang';
 
 class RequestData<Parsed, Raw = any> {

@@ -1,10 +1,10 @@
-import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.js';
-import SkyBlockGardenComposter from './SkyBlockGardenComposter.js';
-import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
-import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
-import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
-import { getLevelByXp } from '../../../Utils/index.js';
-import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/index.js';
+import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.ts';
+import SkyBlockGardenComposter from './SkyBlockGardenComposter.ts';
+import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.ts';
+import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.ts';
+import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.ts';
+import { getLevelByXp } from '../../../Utils/index.ts';
+import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/index.ts';
 
 class SkyBlockGarden {
   level: SkillLevelData;

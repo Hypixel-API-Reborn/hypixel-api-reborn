@@ -1,4 +1,4 @@
-import SkyWarsKillsDeathsType from './SkyWarsKillsDeathsType.js';
+import SkyWarsKillsDeathsType from './SkyWarsKillsDeathsType.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsKillsDeathsType', () => {

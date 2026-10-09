@@ -1,5 +1,5 @@
-import SkyBlockGardenComposter from './SkyBlockGardenComposter.js';
-import SkyBlockGardenComposterUpgrades from './SkyBlockGardenComposterUpgrades.js';
+import SkyBlockGardenComposter from './SkyBlockGardenComposter.ts';
+import SkyBlockGardenComposterUpgrades from './SkyBlockGardenComposterUpgrades.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockGardenComposter', () => {

@@ -1,12 +1,12 @@
-import BedWarsSLumberSandman from './BedWarsSlumberSandman.js';
-import BedWarsSlumber from './BedWarsSlumber.js';
-import BedWarsSlumberMinion from './BedWarsSlumberMinion.js';
-import BedWarsSlumberPhase from './BedWarsSlumberPhase.js';
-import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.js';
-import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.js';
-import BedWarsSlumberRoom from './BedWarsSlumberRoom.js';
+import BedWarsSLumberSandman from './BedWarsSlumberSandman.ts';
+import BedWarsSlumber from './BedWarsSlumber.ts';
+import BedWarsSlumberMinion from './BedWarsSlumberMinion.ts';
+import BedWarsSlumberPhase from './BedWarsSlumberPhase.ts';
+import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.ts';
+import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.ts';
+import BedWarsSlumberRoom from './BedWarsSlumberRoom.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.js';
+import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.ts';
 
 test('BedWarsSlumber', () => {
   const data = new BedWarsSlumber({ stats: 'meow' });

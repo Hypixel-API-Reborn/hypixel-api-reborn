@@ -1,6 +1,6 @@
-import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.js';
-import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.js';
-import type { SkyWarsMythicKitId } from '../../../../Types/index.js';
+import BaseSkyWarsMode from '../SkyWarsMode/BaseSkyWarsMode.ts';
+import { ParseModeAfter, ParseModeBefore } from '../../../../Utils/index.ts';
+import type { SkyWarsMythicKitId } from '../../../../Types/index.ts';
 
 class SkyWarsKitsMythic extends BaseSkyWarsMode {
   autoEquipArmor: boolean;

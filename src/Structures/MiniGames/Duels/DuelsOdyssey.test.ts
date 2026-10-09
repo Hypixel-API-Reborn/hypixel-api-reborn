@@ -1,4 +1,4 @@
-import DuelsOdyssey from './DuelsOdyssey.js';
+import DuelsOdyssey from './DuelsOdyssey.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsOdyssey', () => {

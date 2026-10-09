@@ -1,4 +1,4 @@
-import type { HarpSong } from '../../../../Types/index.js';
+import type { HarpSong } from '../../../../Types/index.ts';
 
 class SkyBlockMemberQuestsHarpSong {
   song: HarpSong | 'UNKNOWN';

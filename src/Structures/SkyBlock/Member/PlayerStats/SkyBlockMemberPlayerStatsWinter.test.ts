@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.js';
+import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsWinter', () => {

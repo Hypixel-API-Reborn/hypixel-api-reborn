@@ -1,4 +1,4 @@
-import BedWarsPracticeMode from './BedWarsPracticeMode.js';
+import BedWarsPracticeMode from './BedWarsPracticeMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsPracticeMode', () => {

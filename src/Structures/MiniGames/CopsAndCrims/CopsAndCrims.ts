@@ -1,6 +1,6 @@
-import CopsAndCrimsGamemode from './CopsAndCrimsGamemode.js';
-import CopsAndCrimsGun from './CopsAndCrimsGun.js';
-import { Divide } from '../../../Utils/index.js';
+import CopsAndCrimsGamemode from './CopsAndCrimsGamemode.ts';
+import CopsAndCrimsGun from './CopsAndCrimsGun.ts';
+import { Divide } from '../../../Utils/index.ts';
 
 class CopsAndCrims {
   coins: number;

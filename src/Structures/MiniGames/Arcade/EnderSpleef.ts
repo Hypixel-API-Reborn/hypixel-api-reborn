@@ -1,4 +1,4 @@
-import type { ArcadeEnderSpleefTrail } from '../../../Types/index.js';
+import type { ArcadeEnderSpleefTrail } from '../../../Types/index.ts';
 
 class EnderSpleef {
   bigshotPowerupActivations: number;

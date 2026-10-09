@@ -1,5 +1,5 @@
 import { expect, expectTypeOf, test } from 'vitest';
-import { isGuildId, isUUID } from './index.js';
+import { isGuildId, isUUID } from './index.ts';
 
 const validUUIDs = [
   'add71246c46e455c8345c129ea6f146c',

@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.js';
+import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsMythos', () => {

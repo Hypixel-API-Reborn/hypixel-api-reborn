@@ -1,4 +1,4 @@
-import GalaxyWars from './GalaxyWars.js';
+import GalaxyWars from './GalaxyWars.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GalaxyWars', () => {

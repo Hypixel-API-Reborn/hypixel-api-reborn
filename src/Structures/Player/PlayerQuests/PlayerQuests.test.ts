@@ -1,5 +1,5 @@
-import PlayerQuest from './PlayerQuest.js';
-import PlayerQuests from './PlayerQuests.js';
+import PlayerQuest from './PlayerQuest.ts';
+import PlayerQuests from './PlayerQuests.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerQuests', () => {

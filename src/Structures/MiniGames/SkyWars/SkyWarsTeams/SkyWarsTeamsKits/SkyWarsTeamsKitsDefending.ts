@@ -1,4 +1,4 @@
-import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
 
 class SkyWarsTeamsKitsDefending {
   armorer: BaseSkyWarsMode;

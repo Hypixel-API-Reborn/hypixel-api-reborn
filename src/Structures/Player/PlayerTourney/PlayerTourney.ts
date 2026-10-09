@@ -1,5 +1,5 @@
-import PlayerTourneyData from './PlayerTourneyData.js';
-import type { PlayerTourneyShopSort } from '../../../Types/index.js';
+import PlayerTourneyData from './PlayerTourneyData.ts';
+import type { PlayerTourneyShopSort } from '../../../Types/index.ts';
 
 class PlayerTourney {
   firstJoinLobbyTimestamp: number | null;

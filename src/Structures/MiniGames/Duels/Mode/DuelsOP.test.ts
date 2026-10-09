@@ -1,5 +1,5 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsOP from './DuelsOP.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsOP from './DuelsOP.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsOP', () => {

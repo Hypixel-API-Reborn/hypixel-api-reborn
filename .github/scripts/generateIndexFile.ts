@@ -1,6 +1,6 @@
 import { format } from 'prettier';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { scanDirectory } from './Utils';
+import { scanDirectory } from './Utils.ts';
 
 const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'));
 
@@ -11,9 +11,9 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
     '/* eslint-disable import/no-anonymous-default-export */',
     '',
     '',
-    "import Client from './Client.js';",
-    "import Errors from './Errors.js';",
-    "import HypixelAPIRebornError from './Private/HypixelAPIRebornError.js';",
+    "import Client from './Client.ts';",
+    "import Errors from './Errors.ts';",
+    "import HypixelAPIRebornError from './Private/HypixelAPIRebornError.ts';",
     ''
   ];
 
@@ -24,15 +24,14 @@ const prettierConfig = JSON.parse(readFileSync('.prettierrc').toString('utf-8'))
   structuresPaths.forEach((path) => {
     const importName = path.split('.ts')[0].split('/')[path.split('.ts')[0].split('/').length - 1];
     importNames.push(importName);
-    const fixedPath = path.replaceAll('.ts', '.js');
-    fixedStructuresPaths.push(`import ${importName} from '${fixedPath}';`);
+    fixedStructuresPaths.push(`import ${importName} from '${path}';`);
   });
 
   fixedStructuresPaths.sort().forEach((path) => lines.push(path));
 
   lines.push('');
-  lines.push("export * from './Types/index.js';");
-  lines.push("export * from './Utils/index.js';");
+  lines.push("export * from './Types/index.ts';");
+  lines.push("export * from './Utils/index.ts';");
   lines.push('');
 
   lines.push('');

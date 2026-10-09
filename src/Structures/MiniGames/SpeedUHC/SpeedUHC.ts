@@ -1,5 +1,5 @@
-import SpeedUHCMode from './SpeedUHCMode.js';
-import { Divide } from '../../../Utils/index.js';
+import SpeedUHCMode from './SpeedUHCMode.ts';
+import { Divide } from '../../../Utils/index.ts';
 
 class SpeedUHC {
   coins: number;

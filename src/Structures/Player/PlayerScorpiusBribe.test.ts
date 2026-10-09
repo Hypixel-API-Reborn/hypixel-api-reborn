@@ -1,4 +1,4 @@
-import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
+import PlayerScorpiusBribe from './PlayerScorpiusBribe.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerScorpiusBribe', () => {

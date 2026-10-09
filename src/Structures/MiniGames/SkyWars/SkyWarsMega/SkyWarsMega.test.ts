@@ -1,7 +1,7 @@
-import SkyWarsMega from './SkyWarsMega.js';
-import SkyWarsMegaKits from './SkyWarsMegaKits.js';
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.js';
-import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.js';
+import SkyWarsMega from './SkyWarsMega.ts';
+import SkyWarsMegaKits from './SkyWarsMegaKits.ts';
+import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsMega', () => {

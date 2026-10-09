@@ -1,5 +1,5 @@
-import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.js';
-import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.js';
+import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.ts';
+import SkyBlockMemberDungeonsFloorRun from './SkyBlockMemberDungeonsFloorRun.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberDungeonsFloor', () => {

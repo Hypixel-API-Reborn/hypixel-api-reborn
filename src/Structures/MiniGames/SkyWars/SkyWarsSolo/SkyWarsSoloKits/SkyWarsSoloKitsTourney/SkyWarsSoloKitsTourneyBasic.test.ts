@@ -1,5 +1,5 @@
-import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.js';
-import SkyWarsSoloKitsTourneyBasic from './SkyWarsSoloKitsTourneyBasic.js';
+import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.ts';
+import SkyWarsSoloKitsTourneyBasic from './SkyWarsSoloKitsTourneyBasic.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsSoloKitsTourneyBasic', () => {

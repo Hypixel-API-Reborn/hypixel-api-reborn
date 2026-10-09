@@ -1,4 +1,4 @@
-import Challenge from './Challenge.js';
+import Challenge from './Challenge.ts';
 
 class GameChallenges {
   category: string;

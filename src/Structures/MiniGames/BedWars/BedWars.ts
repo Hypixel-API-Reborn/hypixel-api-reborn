@@ -1,16 +1,16 @@
-import BedWarsBoxes from './BedWarsBoxes.js';
-import BedWarsEightOne from './BedWarsEightOne.js';
-import BedWarsEightTwo from './BedWarsEightTwo.js';
-import BedWarsFavorites from './BedWarsFavorites.js';
-import BedWarsFigurines from './BedWarsFigurines.js';
-import BedWarsFourFour from './BedWarsFourFour.js';
-import BedWarsFourThree from './BedWarsFourThree.js';
-import BedWarsMode from './BedWarsMode.js';
-import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
-import BedWarsSettings from './BedWarsSettings.js';
-import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.js';
-import BedWarsTwoFour from './BedWarsTwoFour.js';
-import { BedWarsPrestigeRequirements } from '../../../Utils/index.js';
+import BedWarsBoxes from './BedWarsBoxes.ts';
+import BedWarsEightOne from './BedWarsEightOne.ts';
+import BedWarsEightTwo from './BedWarsEightTwo.ts';
+import BedWarsFavorites from './BedWarsFavorites.ts';
+import BedWarsFigurines from './BedWarsFigurines.ts';
+import BedWarsFourFour from './BedWarsFourFour.ts';
+import BedWarsFourThree from './BedWarsFourThree.ts';
+import BedWarsMode from './BedWarsMode.ts';
+import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.ts';
+import BedWarsSettings from './BedWarsSettings.ts';
+import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.ts';
+import BedWarsTwoFour from './BedWarsTwoFour.ts';
+import { BedWarsPrestigeRequirements } from '../../../Utils/index.ts';
 import type {
   BedWarsBedDestroy,
   BedWarsDeathCry,
@@ -29,7 +29,7 @@ import type {
   BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class BedWars extends BedWarsMode {
   experience: number;

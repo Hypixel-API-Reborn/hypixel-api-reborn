@@ -1,4 +1,4 @@
-import PlayerQuest from './PlayerQuest.js';
+import PlayerQuest from './PlayerQuest.ts';
 
 class PlayerQuests {
   quests: PlayerQuest[];

@@ -1,6 +1,6 @@
-import CopsAndCrims from './CopsAndCrims.js';
-import CopsAndCrimsGamemode from './CopsAndCrimsGamemode.js';
-import CopsAndCrimsGun from './CopsAndCrimsGun.js';
+import CopsAndCrims from './CopsAndCrims.ts';
+import CopsAndCrimsGamemode from './CopsAndCrimsGamemode.ts';
+import CopsAndCrimsGun from './CopsAndCrimsGun.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('CopsAndCrims', () => {

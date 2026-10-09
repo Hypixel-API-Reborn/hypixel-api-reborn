@@ -1,4 +1,4 @@
-import WoolWarsSettings from './WoolWarsSettings.js';
+import WoolWarsSettings from './WoolWarsSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WoolWarsSettings', () => {

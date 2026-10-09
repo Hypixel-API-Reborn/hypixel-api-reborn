@@ -1,5 +1,5 @@
-import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.js';
-import type { DungeonGamemode } from '../../../../Types/index.js';
+import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.ts';
+import type { DungeonGamemode } from '../../../../Types/index.ts';
 
 class SkyBlockMemberDungeonsMode {
   highestFloorCompleted: number;

@@ -1,4 +1,4 @@
-import { Divide } from '../../Utils/index.js';
+import { Divide } from '../../Utils/index.ts';
 
 class Walls {
   coins: number;

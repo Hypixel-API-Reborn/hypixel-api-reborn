@@ -1,5 +1,5 @@
-import MurderMysteryDescent from './MurderMysteryDescent.js';
-import MurderMysteryDescentItem from './MurderMysteryDescentItem.js';
+import MurderMysteryDescent from './MurderMysteryDescent.ts';
+import MurderMysteryDescentItem from './MurderMysteryDescentItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MurderMysteryDescent', () => {

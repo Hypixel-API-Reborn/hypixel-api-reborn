@@ -1,4 +1,4 @@
-import SpeedUHCMode from './SpeedUHCMode.js';
+import SpeedUHCMode from './SpeedUHCMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SpeedUHCMode', () => {

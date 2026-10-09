@@ -1,4 +1,4 @@
-import SkyBlockBaseAuctionInfo from './SkyBlockBaseAuctionInfo.js';
+import SkyBlockBaseAuctionInfo from './SkyBlockBaseAuctionInfo.ts';
 
 class SkyBlockAuctionInfo extends SkyBlockBaseAuctionInfo {
   page: number;

@@ -1,5 +1,5 @@
-import VampireZ from './VampireZ.js';
-import VampireZRole from './VampireZRole.js';
+import VampireZ from './VampireZ.ts';
+import VampireZRole from './VampireZRole.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('VampireZ', () => {

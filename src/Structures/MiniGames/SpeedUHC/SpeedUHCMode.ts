@@ -1,5 +1,5 @@
-import { Divide } from '../../../Utils/index.js';
-import type { SpeedUHCModeId } from '../../../Types/index.js';
+import { Divide } from '../../../Utils/index.ts';
+import type { SpeedUHCModeId } from '../../../Types/index.ts';
 
 class SpeedUHCMode {
   kills: number;

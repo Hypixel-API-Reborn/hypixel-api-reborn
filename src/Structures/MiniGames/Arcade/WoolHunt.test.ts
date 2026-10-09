@@ -1,4 +1,4 @@
-import WoolHunt from './WoolHunt.js';
+import WoolHunt from './WoolHunt.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WoolHunt', () => {

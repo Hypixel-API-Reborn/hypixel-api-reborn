@@ -1,4 +1,4 @@
-import SkyWarsHeads from './SkyWarsHeads.js';
+import SkyWarsHeads from './SkyWarsHeads.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsHeads', () => {

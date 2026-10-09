@@ -1,4 +1,4 @@
-import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.js';
+import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberChocolateFactoryTimeTower', () => {

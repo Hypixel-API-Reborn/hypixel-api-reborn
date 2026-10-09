@@ -1,5 +1,5 @@
-import { CalculateAverage, getLevelByXp } from '../../../Utils/index.js';
-import type { SkillLevelData } from '../../../Types/index.js';
+import { CalculateAverage, getLevelByXp } from '../../../Utils/index.ts';
+import type { SkillLevelData } from '../../../Types/index.ts';
 
 class SkyBlockGardenCropMilestones {
   wheat: SkillLevelData;

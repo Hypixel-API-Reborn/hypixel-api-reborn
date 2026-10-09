@@ -1,5 +1,5 @@
-import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.js';
-import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
+import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.ts';
+import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberMiningHotmForge', () => {

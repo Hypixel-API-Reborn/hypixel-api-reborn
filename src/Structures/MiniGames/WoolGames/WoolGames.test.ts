@@ -1,10 +1,10 @@
-import CaptureTheWool from './CaptureTheWool/CaptureTheWool.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import SheepWars from './SheepWars/SheepWars.js';
-import WoolGames from './WoolGames.js';
-import WoolGamesPrivateGames from './WoolGamesPrivateGames.js';
-import WoolGamesProgression from './WoolGamesProgression.js';
-import WoolWars from './WoolWars/WoolWars.js';
+import CaptureTheWool from './CaptureTheWool/CaptureTheWool.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
+import SheepWars from './SheepWars/SheepWars.ts';
+import WoolGames from './WoolGames.ts';
+import WoolGamesPrivateGames from './WoolGamesPrivateGames.ts';
+import WoolGamesProgression from './WoolGamesProgression.ts';
+import WoolWars from './WoolWars/WoolWars.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   PlayerGenericSelectedCosmetic,
@@ -17,7 +17,7 @@ import type {
   WoolGamesPackageHat,
   WoolGamesPackageKillMessage,
   WoolGamesPackageProjectileTrail
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('WoolGames', () => {
   const data = new WoolGames({ stats: 'meow' });

@@ -1,4 +1,4 @@
-import DuelsPotion from './DuelsPotion.js';
+import DuelsPotion from './DuelsPotion.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsPotion', () => {

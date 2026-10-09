@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftWizardTower from './SkyBlockMemberRiftWizardTower.js';
+import SkyBlockMemberRiftWizardTower from './SkyBlockMemberRiftWizardTower.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftWizardTower', () => {

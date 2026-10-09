@@ -1,4 +1,4 @@
-import SkyBlockGardenComposterUpgrades from './SkyBlockGardenComposterUpgrades.js';
+import SkyBlockGardenComposterUpgrades from './SkyBlockGardenComposterUpgrades.ts';
 
 class SkyBlockGardenComposter {
   organicMatter: number;

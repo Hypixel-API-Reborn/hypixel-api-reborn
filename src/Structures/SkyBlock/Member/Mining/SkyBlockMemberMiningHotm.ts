@@ -1,5 +1,5 @@
-import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.js';
-import type SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.js';
+import SkyBlockMemberMiningHotmForge from './SkyBlockMemberMiningHotmForge.ts';
+import type SkyBlockMemberSkillTrees from '../SkillTree/SkyBlockMemberSkillTrees.ts';
 
 class SkyBlockMemberMiningHotm {
   forge: SkyBlockMemberMiningHotmForge;

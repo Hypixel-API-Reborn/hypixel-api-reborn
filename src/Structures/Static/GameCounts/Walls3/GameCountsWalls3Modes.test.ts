@@ -1,4 +1,4 @@
-import GameCountsWalls3Modes from './GameCountsWalls3Modes.js';
+import GameCountsWalls3Modes from './GameCountsWalls3Modes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsWalls3Modes', () => {

@@ -1,4 +1,4 @@
-import type { RawSkyBlockObjective } from '../../../Types/index.js';
+import type { RawSkyBlockObjective } from '../../../Types/index.ts';
 
 class SkyBlockMemberObjectives {
   objectives: Record<string, RawSkyBlockObjective>;

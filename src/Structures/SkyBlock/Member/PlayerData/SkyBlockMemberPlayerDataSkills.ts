@@ -1,5 +1,5 @@
-import { COSMETIC_SKILLS, CalculateAverage, getLevelByXp } from '../../../../Utils/index.js';
-import type { Skill, SkillLevelData } from '../../../../Types/index.js';
+import { COSMETIC_SKILLS, CalculateAverage, getLevelByXp } from '../../../../Utils/index.ts';
+import type { Skill, SkillLevelData } from '../../../../Types/index.ts';
 
 class SkyBlockMemberPlayerDataSkills {
   private nonSkillKeys: string[] = ['nonSkillKeys', 'foragingCaps'];

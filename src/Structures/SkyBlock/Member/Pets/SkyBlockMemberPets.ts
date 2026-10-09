@@ -1,6 +1,6 @@
-import SkyBlockMemberPet from './SkyBlockMemberPet.js';
-import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.js';
-import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.js';
+import SkyBlockMemberPet from './SkyBlockMemberPet.ts';
+import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.ts';
+import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.ts';
 
 class SkyBlockMemberPets {
   petCare: SkyBlockMemberPetsCare;

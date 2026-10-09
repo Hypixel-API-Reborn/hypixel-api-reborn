@@ -1,5 +1,5 @@
-import SkyBlockMemberSkillTree from './SkyBlockMemberSkillTree.js';
-import type { MiningPickaxeAbility } from '../../../../Types/index.js';
+import SkyBlockMemberSkillTree from './SkyBlockMemberSkillTree.ts';
+import type { MiningPickaxeAbility } from '../../../../Types/index.ts';
 
 class SkyBlockMemberSkillTrees {
   mining: SkyBlockMemberSkillTree<MiningPickaxeAbility>;

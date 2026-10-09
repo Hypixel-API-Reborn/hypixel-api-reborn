@@ -1,5 +1,5 @@
-import GameCountsBasicModes from '../GameCountsBasicModes.js';
-import GameCountsSurvivalGames from './GameCountsSurvivalGames.js';
+import GameCountsBasicModes from '../GameCountsBasicModes.ts';
+import GameCountsSurvivalGames from './GameCountsSurvivalGames.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsSurvivalGames', () => {

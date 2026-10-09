@@ -1,4 +1,4 @@
-import CaptureTheWoolSettings from './CaptureTheWoolSettings.js';
+import CaptureTheWoolSettings from './CaptureTheWoolSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('CaptureTheWoolSettings', () => {

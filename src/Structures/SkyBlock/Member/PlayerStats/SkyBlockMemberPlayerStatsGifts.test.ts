@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.js';
+import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsGifts', () => {

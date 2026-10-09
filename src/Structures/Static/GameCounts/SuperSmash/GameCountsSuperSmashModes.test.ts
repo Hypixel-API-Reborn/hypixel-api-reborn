@@ -1,4 +1,4 @@
-import GameCountsSuperSmashModes from './GameCountsSuperSmashModes.js';
+import GameCountsSuperSmashModes from './GameCountsSuperSmashModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsSuperSmashModes', () => {

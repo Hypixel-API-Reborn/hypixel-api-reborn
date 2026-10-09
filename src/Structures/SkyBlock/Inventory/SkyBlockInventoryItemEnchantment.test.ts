@@ -1,4 +1,4 @@
-import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.js';
+import SkyBlockInventoryItemEnchantment from './SkyBlockInventoryItemEnchantment.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockInventoryItemEnchantment', () => {

@@ -1,9 +1,9 @@
-import BedWarsSlumberQuestGamblerGeorge from './BedWarsSlumberQuestGamblerGeorge.js';
-import BedWarsSlumberQuestItem from './BedWarsSlumberQuestItem.js';
-import BedWarsSlumberQuestNPC from './BedWarsSlumberQuestNPC.js';
-import BedWarsSlumberQuestNPCSBoolean from './BedWarsSlumberQuestNPCSBoolean.js';
-import BedWarsSlumberQuestNPCSNumber from './BedWarsSlumberQuestNPCSNumber.js';
-import BedWarsSlumberQuestObjective from './BedWarsSlumberQuestObjective.js';
+import BedWarsSlumberQuestGamblerGeorge from './BedWarsSlumberQuestGamblerGeorge.ts';
+import BedWarsSlumberQuestItem from './BedWarsSlumberQuestItem.ts';
+import BedWarsSlumberQuestNPC from './BedWarsSlumberQuestNPC.ts';
+import BedWarsSlumberQuestNPCSBoolean from './BedWarsSlumberQuestNPCSBoolean.ts';
+import BedWarsSlumberQuestNPCSNumber from './BedWarsSlumberQuestNPCSNumber.ts';
+import BedWarsSlumberQuestObjective from './BedWarsSlumberQuestObjective.ts';
 
 class BedWarsSlumberQuest {
   completed: BedWarsSlumberQuestNPCSBoolean;

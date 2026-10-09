@@ -1,6 +1,6 @@
-import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.js';
-import SkyWarsSoloKitsTourneyAdvanced from './SkyWarsSoloKitsTourneyAdvanced.js';
-import SkyWarsSoloKitsTourneyBasic from './SkyWarsSoloKitsTourneyBasic.js';
+import BaseSkyWarsMode from '../../../SkyWarsMode/BaseSkyWarsMode.ts';
+import SkyWarsSoloKitsTourneyAdvanced from './SkyWarsSoloKitsTourneyAdvanced.ts';
+import SkyWarsSoloKitsTourneyBasic from './SkyWarsSoloKitsTourneyBasic.ts';
 
 class SkyWarsSoloKitsTourney {
   basic: SkyWarsSoloKitsTourneyBasic;

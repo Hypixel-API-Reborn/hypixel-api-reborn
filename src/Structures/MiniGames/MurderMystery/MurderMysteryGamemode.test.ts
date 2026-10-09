@@ -1,4 +1,4 @@
-import MurderMysteryGamemode from './MurderMysteryGamemode.js';
+import MurderMysteryGamemode from './MurderMysteryGamemode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MurderMysteryGamemode', () => {

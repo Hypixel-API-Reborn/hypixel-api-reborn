@@ -1,5 +1,5 @@
-import GameCountsGameCountsLegacyModes from './GameCountsLegacyModes.js';
-import GameCountsLegacy from './GameCountsLegacy.js';
+import GameCountsGameCountsLegacyModes from './GameCountsLegacyModes.ts';
+import GameCountsLegacy from './GameCountsLegacy.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsLegacy', () => {

@@ -1,4 +1,4 @@
-import BuildBattleLastWin from './BuildBattleLastWin.js';
+import BuildBattleLastWin from './BuildBattleLastWin.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BuildBattleLastWin', () => {

@@ -1,4 +1,4 @@
-import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.js';
+import SkyBlockMemberCurrencies from './SkyBlockMemberCurrencies.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberCurrencies', () => {

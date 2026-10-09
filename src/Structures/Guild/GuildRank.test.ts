@@ -1,4 +1,4 @@
-import GuildRank from './GuildRank.js';
+import GuildRank from './GuildRank.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GuildRank', () => {

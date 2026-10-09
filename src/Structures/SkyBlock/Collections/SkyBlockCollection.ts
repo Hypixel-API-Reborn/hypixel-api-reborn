@@ -1,4 +1,4 @@
-import SkyBlockCollectionTier from './SkyBlockCollectionTier.js';
+import SkyBlockCollectionTier from './SkyBlockCollectionTier.ts';
 
 class SkyBlockCollection {
   id: string;

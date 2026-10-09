@@ -1,4 +1,4 @@
-import PlayerRankPurchase from './PlayerRankPurchase.js';
+import PlayerRankPurchase from './PlayerRankPurchase.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerRankPurchase', () => {

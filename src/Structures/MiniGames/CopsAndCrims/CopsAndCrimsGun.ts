@@ -1,4 +1,4 @@
-import type { CopsAndCrimsGunId } from '../../../Types/index.js';
+import type { CopsAndCrimsGunId } from '../../../Types/index.ts';
 
 class CopsAndCrimsGun {
   gunId: CopsAndCrimsGunId;

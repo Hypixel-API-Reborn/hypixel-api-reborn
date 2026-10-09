@@ -1,4 +1,4 @@
-import HypixelAPIReborn from './HypixelAPIReborn';
+import HypixelAPIReborn from './HypixelAPIReborn.ts';
 import { ProfileNetworthCalculator } from 'skyhelper-networth';
 
 async function Run() {

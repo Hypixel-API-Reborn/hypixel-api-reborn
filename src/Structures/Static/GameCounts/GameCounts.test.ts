@@ -1,5 +1,5 @@
-import GameCountGames from './GameCountsGames.js';
-import GameCounts from './GameCounts.js';
+import GameCountGames from './GameCountsGames.ts';
+import GameCounts from './GameCounts.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCounts', () => {

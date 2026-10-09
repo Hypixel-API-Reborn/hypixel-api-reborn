@@ -1,4 +1,4 @@
-import GameCountsBasicModes from '../GameCountsBasicModes.js';
+import GameCountsBasicModes from '../GameCountsBasicModes.ts';
 
 class GameCountsSkyWarsModes extends GameCountsBasicModes {
   soloInsaneLucky: number;

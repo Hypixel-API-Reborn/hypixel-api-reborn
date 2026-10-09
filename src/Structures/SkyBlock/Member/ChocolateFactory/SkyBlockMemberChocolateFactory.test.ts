@@ -1,11 +1,11 @@
-import SkyBlockMemberChocolateFactory from './SkyBlockMemberChocolateFactory.js';
-import SkyBlockMemberChocolateFactoryEggs from './SkyBlockMemberChocolateFactoryEggs.js';
-import SkyBlockMemberChocolateFactoryEmployees from './SkyBlockMemberChocolateFactoryEmployees.js';
-import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.js';
-import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.js';
-import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.js';
+import SkyBlockMemberChocolateFactory from './SkyBlockMemberChocolateFactory.ts';
+import SkyBlockMemberChocolateFactoryEggs from './SkyBlockMemberChocolateFactoryEggs.ts';
+import SkyBlockMemberChocolateFactoryEmployees from './SkyBlockMemberChocolateFactoryEmployees.ts';
+import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.ts';
+import SkyBlockMemberChocolateFactoryTimeTower from './SkyBlockMemberChocolateFactoryTimeTower.ts';
+import SkyBlockMemberChocolateFactoryUpgrades from './SkyBlockMemberChocolateFactoryUpgrades.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockArea } from '../../../../Types/index.js';
+import type { SkyBlockArea } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberChocolateFactory', () => {
   const data = new SkyBlockMemberChocolateFactory({ stats: 'meow' });

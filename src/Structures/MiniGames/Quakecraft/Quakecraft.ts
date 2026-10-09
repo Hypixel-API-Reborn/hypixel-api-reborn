@@ -1,5 +1,5 @@
-import QuakecraftMode from './QuakecraftMode.js';
-import { Divide } from '../../../Utils/index.js';
+import QuakecraftMode from './QuakecraftMode.ts';
+import { Divide } from '../../../Utils/index.ts';
 import type {
   ColorCode,
   QuakecraftBarrel,
@@ -8,7 +8,7 @@ import type {
   QuakecraftMuzzle,
   QuakecraftSight,
   QuakecraftTrigger
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class Quakecraft {
   coins: number;

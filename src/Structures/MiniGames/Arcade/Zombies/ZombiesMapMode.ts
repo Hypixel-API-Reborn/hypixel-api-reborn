@@ -1,4 +1,4 @@
-import type { ArcadeZombiesDifficulty, ArcadeZombiesMap } from '../../../../Types/index.js';
+import type { ArcadeZombiesDifficulty, ArcadeZombiesMap } from '../../../../Types/index.ts';
 
 class ZombiesMapMode {
   bestRound: number;

@@ -1,4 +1,4 @@
-import BedWarsSlumberQuestNPCSNumber from './BedWarsSlumberQuestNPCSNumber.js';
+import BedWarsSlumberQuestNPCSNumber from './BedWarsSlumberQuestNPCSNumber.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsSlumberQuestNPCSNumber', () => {

@@ -1,4 +1,4 @@
-import OneInTheQuiver from './OneInTheQuiver.js';
+import OneInTheQuiver from './OneInTheQuiver.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('OneInTheQuiver', () => {

@@ -1,4 +1,4 @@
-import Game from './Game.js';
+import Game from './Game.ts';
 
 class RecentGame {
   game: Game | null;

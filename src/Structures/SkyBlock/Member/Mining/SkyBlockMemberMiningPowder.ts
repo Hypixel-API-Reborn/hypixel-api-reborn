@@ -1,4 +1,4 @@
-import type { MiningPower } from '../../../../Types/index.js';
+import type { MiningPower } from '../../../../Types/index.ts';
 
 class SkyBlockMemberMiningPowder {
   spent: number;

@@ -1,5 +1,5 @@
-import BedWarsItemsPurchased from './BedWarsItemsPurchased.js';
-import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
+import BedWarsItemsPurchased from './BedWarsItemsPurchased.ts';
+import BedWarsResourcesCollected from './BedWarsResourcesCollected.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsResourcesCollected', () => {

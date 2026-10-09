@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { monthAB } from './index.js';
+import { monthAB } from './index.ts';
 
 test('Oscillation', () => {
   expect(monthAB(0)).toBe('b');

@@ -1,4 +1,4 @@
-import SkyBlockMemberProfile from './SkyBlockMemberProfile.js';
+import SkyBlockMemberProfile from './SkyBlockMemberProfile.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberProfile', () => {

@@ -1,6 +1,6 @@
-import Color from '../../Color.js';
-import PlayerCosmetics from './PlayerCosmetics.js';
-import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.js';
+import Color from '../../Color.ts';
+import PlayerCosmetics from './PlayerCosmetics.ts';
+import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   PlayerCosmeticsClickEffect,
@@ -13,7 +13,7 @@ import type {
   PlayerCosmeticsSuit,
   PlayerCosmeticsTaunt,
   SortName
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('PlayerCosmetics', () => {
   const data = new PlayerCosmetics({ stats: 'meow' });

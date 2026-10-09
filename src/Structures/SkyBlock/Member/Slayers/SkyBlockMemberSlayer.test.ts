@@ -1,7 +1,7 @@
-import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
-import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.js';
+import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.ts';
+import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { LevelData } from '../../../../Types/index.js';
+import type { LevelData } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberSlayer', () => {
   const data = new SkyBlockMemberSlayer({ stats: 'meow' }, 'blaze');

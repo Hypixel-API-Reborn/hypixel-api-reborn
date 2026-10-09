@@ -1,5 +1,5 @@
-import Challenge from './Challenge.js';
-import GameChallenges from './GameChallenges.js';
+import Challenge from './Challenge.ts';
+import GameChallenges from './GameChallenges.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameChallenges', () => {

@@ -1,6 +1,6 @@
-import SkyBlockMemberRiftVillagePlazaCowboy from './SkyBlockMemberRiftVillagePlazaCowboy.js';
+import SkyBlockMemberRiftVillagePlazaCowboy from './SkyBlockMemberRiftVillagePlazaCowboy.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { RiftVillagePlazaCowboyRabbit } from '../../../../../Types/index.js';
+import type { RiftVillagePlazaCowboyRabbit } from '../../../../../Types/index.ts';
 
 test('SkyBlockMemberRiftVillagePlazaCowboy', () => {
   const data = new SkyBlockMemberRiftVillagePlazaCowboy({ stats: 'meow' });

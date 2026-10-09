@@ -1,5 +1,5 @@
-import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.js';
-import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.js';
+import SkyBlockMemberDungeonsFloor from './SkyBlockMemberDungeonsFloor.ts';
+import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberDungeonsMode', () => {

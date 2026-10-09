@@ -1,4 +1,4 @@
-import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.js';
+import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MurderMysteryKnifeSkinPrestigeXp', () => {

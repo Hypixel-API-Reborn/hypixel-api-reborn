@@ -1,4 +1,4 @@
-import type { RiftGalleryTrophy } from '../../../../Types/index.js';
+import type { RiftGalleryTrophy } from '../../../../Types/index.ts';
 
 class SkyBlockMemberRiftGallerySecuredTrophy {
   type: RiftGalleryTrophy | 'UNKNOWN';

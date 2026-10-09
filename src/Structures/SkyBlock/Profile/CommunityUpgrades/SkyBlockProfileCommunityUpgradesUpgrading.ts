@@ -1,4 +1,4 @@
-import SkyBlockProfileCommunityUpgradesUpgrade from './SkyBlockProfileCommunityUpgradesUpgrade.js';
+import SkyBlockProfileCommunityUpgradesUpgrade from './SkyBlockProfileCommunityUpgradesUpgrade.ts';
 
 class SkyBlockProfileCommunityUpgradesUpgrading extends SkyBlockProfileCommunityUpgradesUpgrade {
   tier: number;

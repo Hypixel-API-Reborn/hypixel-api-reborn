@@ -1,5 +1,5 @@
-import BedWarsKillsDeaths from './BedWarsKillsDeaths.js';
-import BedWarsKillsDeathsType from './BedWarsKillsDeathsType.js';
+import BedWarsKillsDeaths from './BedWarsKillsDeaths.ts';
+import BedWarsKillsDeathsType from './BedWarsKillsDeathsType.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsKillsDeaths', () => {

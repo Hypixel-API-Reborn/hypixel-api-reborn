@@ -1,4 +1,4 @@
-import GameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.js';
+import GameCountsMurderMysteryModes from './GameCountsMurderMysteryModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsMurderMysteryModes', () => {

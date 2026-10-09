@@ -1,5 +1,5 @@
-import SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.js';
-import SkyBlockMemberRiftDeadCats from './SkyBlockMemberRiftDeadCats.js';
+import SkyBlockMemberPet from '../Pets/SkyBlockMemberPet.ts';
+import SkyBlockMemberRiftDeadCats from './SkyBlockMemberRiftDeadCats.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftDeadCats', () => {

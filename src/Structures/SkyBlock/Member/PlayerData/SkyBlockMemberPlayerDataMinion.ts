@@ -1,4 +1,4 @@
-import type { SkyBlockMinion, SkyBlockMinionName } from '../../../../Types/index.js';
+import type { SkyBlockMinion, SkyBlockMinionName } from '../../../../Types/index.ts';
 
 class SkyBlockMemberPlayerDataMinion {
   minion: SkyBlockMinionName;

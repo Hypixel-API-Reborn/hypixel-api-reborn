@@ -1,5 +1,5 @@
-import SkyBlockMemberInventoriesBackpackDecoded from './SkyBlockMemberInventoriesBackpackDecoded.js';
-import { decode } from '../../../../../Utils/index.js';
+import SkyBlockMemberInventoriesBackpackDecoded from './SkyBlockMemberInventoriesBackpackDecoded.ts';
+import { decode } from '../../../../../Utils/index.ts';
 
 class SkyBlockMemberInventoriesBackpack {
   backpackItemBase64: string;

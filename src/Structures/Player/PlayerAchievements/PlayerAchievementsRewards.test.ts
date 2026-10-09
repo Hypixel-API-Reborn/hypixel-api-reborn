@@ -1,4 +1,4 @@
-import PlayerAchievementsRewards from './PlayerAchievementsRewards.js';
+import PlayerAchievementsRewards from './PlayerAchievementsRewards.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerAchievementsRewards', () => {

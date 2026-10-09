@@ -1,4 +1,4 @@
-import BedWarsMode from './BedWarsMode.js';
+import BedWarsMode from './BedWarsMode.ts';
 
 class BedWarsTwoFour extends BedWarsMode {
   tourney: BedWarsMode;

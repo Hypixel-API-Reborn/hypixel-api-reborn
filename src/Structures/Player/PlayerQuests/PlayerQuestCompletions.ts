@@ -1,4 +1,4 @@
-import PlayerQuestCompletion from './PlayerQuestCompletion.js';
+import PlayerQuestCompletion from './PlayerQuestCompletion.ts';
 
 class PlayerQuestCompletions {
   amount: number;

@@ -1,11 +1,11 @@
-import SkyBlockMemberPlayerStats from './SkyBlockMemberPlayerStats.js';
-import SkyBlockMemberPlayerStatsAuctions from './SkyBlockMemberPlayerStatsAuctions.js';
-import SkyBlockMemberPlayerStatsCandy from './SkyBlockMemberPlayerStatsCandy.js';
-import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIsland.js';
-import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.js';
-import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.js';
-import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.js';
-import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.js';
+import SkyBlockMemberPlayerStats from './SkyBlockMemberPlayerStats.ts';
+import SkyBlockMemberPlayerStatsAuctions from './SkyBlockMemberPlayerStatsAuctions.ts';
+import SkyBlockMemberPlayerStatsCandy from './SkyBlockMemberPlayerStatsCandy.ts';
+import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIsland.ts';
+import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.ts';
+import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.ts';
+import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.ts';
+import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStats', () => {

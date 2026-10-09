@@ -1,6 +1,6 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsModeFull from './DuelsModeFull.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsModeFull from './DuelsModeFull.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
 
 class DuelsOP extends DuelsModeFull {
   doubles: DuelsMode;

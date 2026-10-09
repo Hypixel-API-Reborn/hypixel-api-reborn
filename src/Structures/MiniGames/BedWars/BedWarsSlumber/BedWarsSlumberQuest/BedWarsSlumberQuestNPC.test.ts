@@ -1,4 +1,4 @@
-import BedWarsSlumberQuestNPC from './BedWarsSlumberQuestNPC.js';
+import BedWarsSlumberQuestNPC from './BedWarsSlumberQuestNPC.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsSlumberQuestNPC', () => {

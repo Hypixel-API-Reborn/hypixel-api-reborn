@@ -1,4 +1,4 @@
-import MiniWalls from './MiniWalls.js';
+import MiniWalls from './MiniWalls.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MiniWalls', () => {

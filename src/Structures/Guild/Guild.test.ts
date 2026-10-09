@@ -1,10 +1,10 @@
-import Color from '../Color.js';
-import Game from '../Game.js';
-import Guild from './Guild.js';
-import GuildMember from './GuildMember.js';
-import GuildRank from './GuildRank.js';
+import Color from '../Color.ts';
+import Game from '../Game.ts';
+import Guild from './Guild.ts';
+import GuildMember from './GuildMember.ts';
+import GuildRank from './GuildRank.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ExpHistory } from '../../Types/index.js';
+import type { ExpHistory } from '../../Types/index.ts';
 
 test('Guild', () => {
   const data = new Guild({ stats: 'meow' });

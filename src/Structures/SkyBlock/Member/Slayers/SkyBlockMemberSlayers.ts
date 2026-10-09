@@ -1,5 +1,5 @@
-import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.js';
-import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.js';
+import SkyBlockMemberSlayer from './SkyBlockMemberSlayer.ts';
+import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.ts';
 
 class SkyBlockMemberSlayers {
   activeSlayer: SkyBlockMemberSlayersQuest | null;

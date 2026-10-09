@@ -1,4 +1,4 @@
-import SkyWarsMode from './SkyWarsMode/SkyWarsMode.js';
+import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
 
 class SkyWarsMini extends SkyWarsMode {
   normal: SkyWarsMode;

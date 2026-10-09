@@ -1,6 +1,6 @@
-import PlayerAchievementsTotem from './PlayerAchievementsTotem.js';
+import PlayerAchievementsTotem from './PlayerAchievementsTotem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerAchievementsTotemColor, PlayerAchievementsTotemPart } from '../../../Types/index.js';
+import type { PlayerAchievementsTotemColor, PlayerAchievementsTotemPart } from '../../../Types/index.ts';
 
 test('PlayerAchievementsTotem', () => {
   const data = new PlayerAchievementsTotem({ stats: 'meow' });

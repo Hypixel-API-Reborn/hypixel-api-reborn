@@ -1,4 +1,4 @@
-import type { RiftVillagePlazaCowboyRabbit } from '../../../../../Types/index.js';
+import type { RiftVillagePlazaCowboyRabbit } from '../../../../../Types/index.ts';
 
 class SkyBlockMemberRiftVillagePlazaCowboy {
   stage: number;

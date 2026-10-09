@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftAccess from './SkyBlockMemberRiftAccess.js';
+import SkyBlockMemberRiftAccess from './SkyBlockMemberRiftAccess.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftAccess', () => {

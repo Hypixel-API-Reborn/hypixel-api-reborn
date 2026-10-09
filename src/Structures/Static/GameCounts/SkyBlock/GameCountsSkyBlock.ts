@@ -1,5 +1,5 @@
-import GameCountsGameCountsSkyBlockModes from './GameCountsSkyBlockModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsSkyBlockModes from './GameCountsSkyBlockModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsSkyBlock extends GameCountsGeneric {
   modes: GameCountsGameCountsSkyBlockModes;

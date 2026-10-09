@@ -1,5 +1,5 @@
 // eslint-disable-next-line @stylistic/max-len
-import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.js';
+import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.ts';
 
 class SkyBlockMemberPlayerStatsEndIslandDragonFight {
   enderCrystalsDestroyed: number;

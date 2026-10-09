@@ -3,7 +3,7 @@ import type {
   PrivateGameSettingsGameEventSpeed,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class BedWarsPrivateGameSettings {
   bedInstaBreak: boolean;

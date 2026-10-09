@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsRift from './SkyBlockMemberPlayerStatsRift.js';
+import SkyBlockMemberPlayerStatsRift from './SkyBlockMemberPlayerStatsRift.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsRift', () => {

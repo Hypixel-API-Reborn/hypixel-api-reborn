@@ -1,10 +1,10 @@
-import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.js';
-import SkyWarsMega from './SkyWarsMega/SkyWarsMega.js';
-import SkyWarsMini from './SkyWarsMini.js';
-import SkyWarsMode from './SkyWarsMode/SkyWarsMode.js';
-import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
-import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.js';
-import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.js';
+import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.ts';
+import SkyWarsMega from './SkyWarsMega/SkyWarsMega.ts';
+import SkyWarsMini from './SkyWarsMini.ts';
+import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
+import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.ts';
+import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.ts';
 import {
   SKYWARS_CONSTANT_LEVELING_XP,
   SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL,
@@ -12,8 +12,8 @@ import {
   SKYWARS_TOTAL_XP,
   SKYWARS_XP_TO_NEXT_LEVEL,
   weekAB
-} from '../../../Utils/index.js';
-import type { ShopSort } from '../../../Types/index.js';
+} from '../../../Utils/index.ts';
+import type { ShopSort } from '../../../Types/index.ts';
 
 class SkyWars extends SkyWarsMode {
   activeKillEffect: string | 'UNKNOWN';

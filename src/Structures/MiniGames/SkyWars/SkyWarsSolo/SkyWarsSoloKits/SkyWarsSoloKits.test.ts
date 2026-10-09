@@ -1,10 +1,10 @@
-import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
-import SkyWarsSoloKits from './SkyWarsSoloKits.js';
-import SkyWarsSoloKitsAdvanced from './SkyWarsSoloKitsAdvanced.js';
-import SkyWarsSoloKitsBasic from './SkyWarsSoloKitsBasic.js';
-import SkyWarsSoloKitsLab from './SkyWarsSoloKitsLab/SkyWarsSoloKitsLab.js';
-import SkyWarsSoloKitsMini from './SkyWarsSoloKitsMini.js';
-import SkyWarsSoloKitsTourney from './SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourney.js';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
+import SkyWarsSoloKits from './SkyWarsSoloKits.ts';
+import SkyWarsSoloKitsAdvanced from './SkyWarsSoloKitsAdvanced.ts';
+import SkyWarsSoloKitsBasic from './SkyWarsSoloKitsBasic.ts';
+import SkyWarsSoloKitsLab from './SkyWarsSoloKitsLab/SkyWarsSoloKitsLab.ts';
+import SkyWarsSoloKitsMini from './SkyWarsSoloKitsMini.ts';
+import SkyWarsSoloKitsTourney from './SkyWarsSoloKitsTourney/SkyWarsSoloKitsTourney.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsSoloKits', () => {

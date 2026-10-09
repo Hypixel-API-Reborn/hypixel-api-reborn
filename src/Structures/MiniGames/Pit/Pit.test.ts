@@ -1,7 +1,7 @@
-import Pit from './Pit.js';
-import PitInventoryItem from './PitInventoryItem.js';
+import Pit from './Pit.ts';
+import PitInventoryItem from './PitInventoryItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PitArmor } from '../../../Types/index.js';
+import type { PitArmor } from '../../../Types/index.ts';
 
 test('Pit', () => {
   const data = new Pit({ stats: 'meow' });

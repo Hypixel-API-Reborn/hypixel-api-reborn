@@ -1,4 +1,4 @@
-import type { TurboKartRacersMapId } from '../../../Types/index.js';
+import type { TurboKartRacersMapId } from '../../../Types/index.ts';
 
 class TurboKartRacersMap {
   map: TurboKartRacersMapId;

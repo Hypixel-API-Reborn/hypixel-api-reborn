@@ -1,5 +1,5 @@
-import GaemCountsDuels from './GameCountsDuels.js';
-import GameCountsGameCountsDuelsModes from './GameCountsDuelsModes.js';
+import GaemCountsDuels from './GameCountsDuels.ts';
+import GameCountsGameCountsDuelsModes from './GameCountsDuelsModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GaemCountsDuels', () => {

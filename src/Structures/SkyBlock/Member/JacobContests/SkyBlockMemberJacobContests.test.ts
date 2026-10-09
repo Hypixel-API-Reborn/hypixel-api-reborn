@@ -1,10 +1,10 @@
-import SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.js';
-import SkyBlockMemberJacobContests from './SkyBlockMemberJacobContests.js';
-import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMedals.js';
-import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
-import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
+import SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.ts';
+import SkyBlockMemberJacobContests from './SkyBlockMemberJacobContests.ts';
+import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMedals.ts';
+import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.ts';
+import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { JacobCrop } from '../../../../Types/index.js';
+import type { JacobCrop } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberJacobContests', () => {
   const data = new SkyBlockMemberJacobContests({ stats: 'meow' });

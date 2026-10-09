@@ -1,5 +1,5 @@
-import PlayerCosmeticsPet from './PlayerCosmeticsPet.js';
-import PlayerCosmeticsPetsConsumables from './PlayerCosmeticsPetsConsumables.js';
+import PlayerCosmeticsPet from './PlayerCosmeticsPet.ts';
+import PlayerCosmeticsPetsConsumables from './PlayerCosmeticsPetsConsumables.ts';
 
 class PlayerCosmeticsPets {
   lastJourney: number | null;

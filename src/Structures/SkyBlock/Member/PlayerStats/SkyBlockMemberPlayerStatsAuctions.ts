@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.js';
+import SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.ts';
 
 class SkyBlockMemberPlayerStatsAuctions {
   bids: number;

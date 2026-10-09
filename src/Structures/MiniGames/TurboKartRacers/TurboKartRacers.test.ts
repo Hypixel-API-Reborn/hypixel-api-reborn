@@ -1,7 +1,7 @@
-import TurboKartRacers from './TurboKartRacers.js';
-import TurboKartRacersMap from './TurboKartRacersMap.js';
+import TurboKartRacers from './TurboKartRacers.ts';
+import TurboKartRacersMap from './TurboKartRacersMap.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { TurboKartRacersHorn } from '../../../Types/index.js';
+import type { TurboKartRacersHorn } from '../../../Types/index.ts';
 
 test('TurboKartRacers', () => {
   const data = new TurboKartRacers({ stats: 'meow' });

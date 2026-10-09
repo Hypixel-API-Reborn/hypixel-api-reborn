@@ -1,4 +1,4 @@
-import BedWarsSlumberQuestNPCSBoolean from './BedWarsSlumberQuestNPCSBoolean.js';
+import BedWarsSlumberQuestNPCSBoolean from './BedWarsSlumberQuestNPCSBoolean.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsSlumberQuestNPCSBoolean', () => {

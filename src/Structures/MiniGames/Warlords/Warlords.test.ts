@@ -1,7 +1,7 @@
-import Warlords from './Warlords.js';
-import WarlordsClass from './WarlordsClass.js';
+import Warlords from './Warlords.ts';
+import WarlordsClass from './WarlordsClass.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WarlordsClassId } from '../../../Types/index.js';
+import type { WarlordsClassId } from '../../../Types/index.ts';
 
 test('Warlords', () => {
   const data = new Warlords({ stats: 'meow' });

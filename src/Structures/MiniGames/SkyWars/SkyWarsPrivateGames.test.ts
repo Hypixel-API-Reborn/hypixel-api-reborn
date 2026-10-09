@@ -1,6 +1,6 @@
-import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
+import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/index.js';
+import type { PrivateGameSettingsHealthBuff, PrivateGameSettingsSpeed } from '../../../Types/index.ts';
 
 test('SkyWarsPrivateGames', () => {
   const data = new SkyWarsPrivateGames({ stats: 'meow' });

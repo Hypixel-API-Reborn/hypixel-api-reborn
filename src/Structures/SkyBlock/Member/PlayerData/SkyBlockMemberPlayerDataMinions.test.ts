@@ -1,5 +1,5 @@
-import SkyBlockMemberPlayerDataMinion from './SkyBlockMemberPlayerDataMinion.js';
-import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.js';
+import SkyBlockMemberPlayerDataMinion from './SkyBlockMemberPlayerDataMinion.ts';
+import SkyBlockMemberPlayerDataMinions from './SkyBlockMemberPlayerDataMinions.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerDataMinions', () => {

@@ -1,4 +1,4 @@
-import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.js';
+import SkyBlockInventoryItemAttribute from './SkyBlockInventoryItemAttribute.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockInventoryItemAttribute', () => {

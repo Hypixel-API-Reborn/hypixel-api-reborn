@@ -1,7 +1,7 @@
-import Emblem from './Emblem.js';
-import EmblemColors from './EmblemColors.js';
+import Emblem from './Emblem.ts';
+import EmblemColors from './EmblemColors.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BuildBattleEmblemIcon, ColorCode } from '../../../../Types/index.js';
+import type { BuildBattleEmblemIcon, ColorCode } from '../../../../Types/index.ts';
 
 test('Emblem', () => {
   const data = new Emblem<BuildBattleEmblemIcon>({ stats: 'meow' });

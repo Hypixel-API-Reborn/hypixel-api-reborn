@@ -1,4 +1,4 @@
-import type { ChallengeReward } from '../../Types/index.js';
+import type { ChallengeReward } from '../../Types/index.ts';
 
 class Challenge {
   id: string;

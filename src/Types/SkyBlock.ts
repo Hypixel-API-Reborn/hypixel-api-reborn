@@ -1,5 +1,5 @@
-import { SortNames } from './Global.js';
-import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
+import { SortNames } from './Global.ts';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
 
 export interface RawAbiphoneData {
   talked_to?: boolean;

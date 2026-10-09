@@ -1,12 +1,12 @@
-import SkyBlockGarden from '../Garden/SkyBlockGarden.js';
-import SkyBlockMember from '../Member/SkyBlockMember.js';
-import SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
-import SkyBlockProfile from './SkyBlockProfile.js';
-import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
-import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
+import SkyBlockGarden from '../Garden/SkyBlockGarden.ts';
+import SkyBlockMember from '../Member/SkyBlockMember.ts';
+import SkyBlockMuseum from '../Museum/SkyBlockMuseum.ts';
+import SkyBlockProfile from './SkyBlockProfile.ts';
+import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.ts';
+import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type RequestData from '../../../Private/RequestData.js';
-import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/index.js';
+import type RequestData from '../../../Private/RequestData.ts';
+import type { SkyBlockProfileName, SkyBlockProfileType } from '../../../Types/index.ts';
 
 test('SkyBlockProfile', () => {
   const data = new SkyBlockProfile({ stats: 'meow' }, { uuid: 'meow' });

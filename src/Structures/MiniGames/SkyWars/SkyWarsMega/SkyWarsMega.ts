@@ -1,6 +1,6 @@
-import SkyWarsMegaKits from './SkyWarsMegaKits.js';
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.js';
-import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.js';
+import SkyWarsMegaKits from './SkyWarsMegaKits.ts';
+import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.ts';
 
 class SkyWarsMega extends SkyWarsMode {
   doubles: SkyWarsMode;

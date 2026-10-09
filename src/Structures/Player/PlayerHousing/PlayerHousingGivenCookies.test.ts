@@ -1,4 +1,4 @@
-import PlayerHousingGivenCookies from './PlayerHousingGivenCookies.js';
+import PlayerHousingGivenCookies from './PlayerHousingGivenCookies.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerHousingGivenCookies', () => {

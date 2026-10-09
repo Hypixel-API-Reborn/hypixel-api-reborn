@@ -1,6 +1,6 @@
-import BedWarsSettings from './BedWarsSettings.js';
+import BedWarsSettings from './BedWarsSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/index.js';
+import type { BedWarsSettingsDeposit, BedWarsSettingsSlumberItemNotification } from '../../../Types/index.ts';
 
 test('BedWarsSettings', () => {
   const data = new BedWarsSettings({ stats: 'meow' });

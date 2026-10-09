@@ -1,4 +1,4 @@
-import HypixelAPIReborn from './HypixelAPIReborn';
+import HypixelAPIReborn from './HypixelAPIReborn.ts';
 
 async function Run() {
   const profiles = await HypixelAPIReborn.getSkyBlockProfiles('14727faefbdc4aff848cd2713eb9939e');

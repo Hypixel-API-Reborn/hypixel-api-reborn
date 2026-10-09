@@ -1,5 +1,5 @@
-import SkyBlockMuseumItem from './SkyBlockMuseumItem.js';
-import SkyBlockMuseumMember from './SkyBlockMuseumMember.js';
+import SkyBlockMuseumItem from './SkyBlockMuseumItem.ts';
+import SkyBlockMuseumMember from './SkyBlockMuseumMember.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMuseumMember', () => {

@@ -1,7 +1,7 @@
-import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.js';
-import SkyBlockMemberDungeonsTreasuresChest from './SkyBlockMemberDungeonsTreasuresChest.js';
+import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.ts';
+import SkyBlockMemberDungeonsTreasuresChest from './SkyBlockMemberDungeonsTreasuresChest.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DungeonGamemode, UUID, UserInput } from '../../../../Types/index.js';
+import type { DungeonGamemode, UUID, UserInput } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberDungeonsTreasureRun', () => {
   const data = new SkyBlockMemberDungeonsTreasureRun({ stats: 'meow' }, [{ stats: 'meow' }]);

@@ -1,5 +1,5 @@
-import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.js';
-import SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.js';
+import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.ts';
+import SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.ts';
 
 class SkyBlockMemberQuests {
   harp: SkyBlockMemberQuestsHarp;

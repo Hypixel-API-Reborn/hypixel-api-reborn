@@ -1,5 +1,5 @@
 import NodeCache from 'node-cache';
-import type Client from '../Client.js';
+import type Client from '../Client.ts';
 
 class CacheHandler {
   readonly cache: NodeCache;

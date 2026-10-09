@@ -1,5 +1,5 @@
-import GameCountsGameCountsWoolGamesModes from './GameCountsWoolGamesModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsWoolGamesModes from './GameCountsWoolGamesModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsWoolGames extends GameCountsGeneric {
   modes: GameCountsGameCountsWoolGamesModes;

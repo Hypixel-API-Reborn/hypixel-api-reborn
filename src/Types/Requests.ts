@@ -1,7 +1,7 @@
-import type SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.js';
-import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.js';
-import type SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.js';
-import type { SkyblockProfileWithMe } from './SkyBlock.js';
+import type SkyBlockAuction from '../Structures/SkyBlock/Auctions/SkyBlockAuction.ts';
+import type SkyBlockAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockAuctionInfo.ts';
+import type SkyBlockBaseAuctionInfo from '../Structures/SkyBlock/Auctions/SkyBlockBaseAuctionInfo.ts';
+import type { SkyblockProfileWithMe } from './SkyBlock.ts';
 
 export interface RequestOptions {
   noCache?: boolean;

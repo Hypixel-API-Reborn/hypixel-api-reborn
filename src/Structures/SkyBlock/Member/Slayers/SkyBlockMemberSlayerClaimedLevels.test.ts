@@ -1,4 +1,4 @@
-import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.js';
+import SkyBlockMemberSlayerClaimedLevels from './SkyBlockMemberSlayerClaimedLevels.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberSlayerClaimedLevels', () => {

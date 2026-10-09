@@ -1,4 +1,4 @@
-import Dtt from './Dtt.js';
+import Dtt from './Dtt.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Dtt', () => {

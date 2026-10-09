@@ -1,5 +1,5 @@
-import GameCountsGameCountsPitModes from './GameCountsPitModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsGameCountsPitModes from './GameCountsPitModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsPit extends GameCountsGeneric {
   modes: GameCountsGameCountsPitModes;

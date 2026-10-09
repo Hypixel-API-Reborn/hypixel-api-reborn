@@ -1,5 +1,5 @@
-import CaptureTheWool from './CaptureTheWool.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
+import CaptureTheWool from './CaptureTheWool.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('CaptureTheWool', () => {

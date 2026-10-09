@@ -1,5 +1,5 @@
-import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.js';
-import type { VisitorStatus } from '../../../Types/index.js';
+import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.ts';
+import type { VisitorStatus } from '../../../Types/index.ts';
 
 class SkyBlockGardenActiveVisitor {
   visitor: string;

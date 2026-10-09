@@ -1,5 +1,5 @@
-import SkyBlockMemberInventoriesWardrobe from './SkyBlockMemberInventoriesWardrobe.js';
-import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.js';
+import SkyBlockMemberInventoriesWardrobe from './SkyBlockMemberInventoriesWardrobe.ts';
+import SkyBlockMemberInventoriesWardrobeSlot from './SkyBlockMemberInventoriesWardrobeSlot.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesWardrobe', () => {

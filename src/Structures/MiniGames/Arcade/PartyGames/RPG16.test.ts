@@ -1,4 +1,4 @@
-import RPG16 from './RPG16.js';
+import RPG16 from './RPG16.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('RPG16', () => {

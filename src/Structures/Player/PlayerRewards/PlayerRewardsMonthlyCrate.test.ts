@@ -1,4 +1,4 @@
-import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.js';
+import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerRewardsMonthlyCrate', () => {

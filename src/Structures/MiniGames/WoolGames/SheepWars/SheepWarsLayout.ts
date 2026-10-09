@@ -1,4 +1,4 @@
-import InventoryLayout from '../../Shared/InventoryLayout.js';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
 
 class SheepWarsLayout {
   opened: boolean;

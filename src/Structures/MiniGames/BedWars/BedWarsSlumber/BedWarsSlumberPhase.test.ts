@@ -1,4 +1,4 @@
-import BedWarsSlumberPhase from './BedWarsSlumberPhase.js';
+import BedWarsSlumberPhase from './BedWarsSlumberPhase.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsSlumberPhase', () => {

@@ -1,10 +1,10 @@
-import SkyBlockMember from '../Member/SkyBlockMember.js';
-import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.js';
-import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.js';
-import type RequestData from '../../../Private/RequestData.js';
-import type SkyBlockGarden from '../Garden/SkyBlockGarden.js';
-import type SkyBlockMuseum from '../Museum/SkyBlockMuseum.js';
-import type { SkyBlockProfileName, SkyBlockProfileType, UUID } from '../../../Types/index.js';
+import SkyBlockMember from '../Member/SkyBlockMember.ts';
+import SkyBlockProfileBanking from './Banking/SkyBlockProfileBanking.ts';
+import SkyBlockProfileCommunityUpgrades from './CommunityUpgrades/SkyBlockProfileCommunityUpgrades.ts';
+import type RequestData from '../../../Private/RequestData.ts';
+import type SkyBlockGarden from '../Garden/SkyBlockGarden.ts';
+import type SkyBlockMuseum from '../Museum/SkyBlockMuseum.ts';
+import type { SkyBlockProfileName, SkyBlockProfileType, UUID } from '../../../Types/index.ts';
 
 class SkyBlockProfile {
   profileId: string;

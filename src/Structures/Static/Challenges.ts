@@ -1,4 +1,4 @@
-import GameChallenges from './GameChallenges.js';
+import GameChallenges from './GameChallenges.ts';
 
 class Challenges {
   lastUpdatedTimestamp: number;

@@ -1,7 +1,7 @@
 import type {
   BedWarsPracticeBridgingRecordsDistanceId,
   BedWarsPracticeBridgingRecordsElevationId
-} from '../../../../../Types/index.js';
+} from '../../../../../Types/index.ts';
 
 class BedWarsPracticeBridgingRecordsElevation {
   diagonal: number;

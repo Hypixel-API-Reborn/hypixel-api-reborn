@@ -1,5 +1,5 @@
-import TurboKartRacersMap from './TurboKartRacersMap.js';
-import type { TurboKartRacersHorn } from '../../../Types/index.js';
+import TurboKartRacersMap from './TurboKartRacersMap.ts';
+import type { TurboKartRacersHorn } from '../../../Types/index.ts';
 
 class TurboKartRacers {
   coins: number;

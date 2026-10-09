@@ -1,8 +1,8 @@
-import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
-import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.js';
-import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import { monthAB } from '../../../Utils/index.js';
+import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.ts';
+import BlitzSurvivalGamesKit from './BlitzSurvivalGamesKit.ts';
+import BlitzSurvivalGamesPrivateGames from './BlitzSurvivalGamesPrivateGames.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
+import { monthAB } from '../../../Utils/index.ts';
 import type {
   BlitzSurvivalGamesAura,
   BlitzSurvivalGamesFinisher,
@@ -11,7 +11,7 @@ import type {
   BlitzSurvivalGamesLeaderboardSettingsMode,
   BlitzSurvivalGamesTaunt,
   BlitzSurvivalGamesVictoryDance
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class BlitzSurvivalGames extends BlitzSurvivalGamesData {
   aura: BlitzSurvivalGamesAura | 'UNKNOWN';

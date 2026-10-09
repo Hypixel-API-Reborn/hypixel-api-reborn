@@ -1,4 +1,4 @@
-import type { SkyBlockDragon } from '../../../../Types/index.js';
+import type { SkyBlockDragon } from '../../../../Types/index.ts';
 
 class SkyBlockMemberPlayerStatsEndIslandDragonFightDragon {
   mostDamage: number;

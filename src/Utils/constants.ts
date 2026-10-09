@@ -1,3 +1,5 @@
+/* eslint-disable @stylistic/array-element-newline */
+
 import type {
   BedWarsPrestige,
   BestiaryMobsData,
@@ -11,7 +13,7 @@ import type {
   Rarity,
   SkyBlockSlayer,
   SkyBlockXPTable
-} from '../Types/index.js';
+} from '../Types/index.ts';
 
 export const games: { id: GameID; code: GameCode; name: GameString }[] = [
   { id: 2, code: 'QUAKECRAFT', name: 'Quake' },
@@ -2859,3 +2861,8 @@ export const SKYWARS_TOTAL_XP = SKYWARS_XP_TO_NEXT_LEVEL.map((_, index) =>
 export const SKYWARS_CONSTANT_LEVELING_XP = SKYWARS_XP_TO_NEXT_LEVEL.reduce((acc, xp) => acc + xp, 0);
 export const SKYWARS_CONSTANT_XP_TO_NEXT_LEVEL = 5000;
 export const SKYWARS_LEVEL_MAX = 10_000;
+
+export const GUILD_LEVEL_EXP_NEEDED: number[] = [
+  100000, 150000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 2500000, 2500000, 2500000,
+  2500000, 3000000
+];

@@ -1,5 +1,5 @@
-import SkyBlockMemberInventoriesBagsTalisman from './SkyBlockMemberInventoriesBagsTalisman.js';
-import SkyBlockMemberInventoriesInventory from '../Inventory/SkyBlockMemberInventoriesInventory.js';
+import SkyBlockMemberInventoriesBagsTalisman from './SkyBlockMemberInventoriesBagsTalisman.ts';
+import SkyBlockMemberInventoriesInventory from '../Inventory/SkyBlockMemberInventoriesInventory.ts';
 
 class SkyBlockMemberInventoriesBags {
   potion: SkyBlockMemberInventoriesInventory;

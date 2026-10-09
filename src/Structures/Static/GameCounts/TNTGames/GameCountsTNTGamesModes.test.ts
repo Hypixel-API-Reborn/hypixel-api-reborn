@@ -1,4 +1,4 @@
-import GameCountsTNTGamesModes from './GameCountsTNTGamesModes.js';
+import GameCountsTNTGamesModes from './GameCountsTNTGamesModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsTNTGamesModes', () => {

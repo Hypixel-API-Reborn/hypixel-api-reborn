@@ -1,4 +1,4 @@
-import SkyBlockMemberAccessoryBagTuningSlot from './SkyBlockMemberAccessoryBagTuningSlot.js';
+import SkyBlockMemberAccessoryBagTuningSlot from './SkyBlockMemberAccessoryBagTuningSlot.ts';
 
 class SkyBlockMemberAccessoryBagTuning {
   highestUnlockedSlot: number;

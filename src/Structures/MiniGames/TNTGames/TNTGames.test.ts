@@ -1,9 +1,9 @@
-import BowSpleef from './BowSpleef.js';
-import PVPRun from './PVPRun.js';
-import TNTGames from './TNTGames.js';
-import TNTRun from './TNTRun.js';
-import TNTTag from './TNTTag.js';
-import TNTWizards from './TNTWizards.js';
+import BowSpleef from './BowSpleef.ts';
+import PVPRun from './PVPRun.ts';
+import TNTGames from './TNTGames.ts';
+import TNTRun from './TNTRun.ts';
+import TNTTag from './TNTTag.ts';
+import TNTWizards from './TNTWizards.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('TNTGames', () => {

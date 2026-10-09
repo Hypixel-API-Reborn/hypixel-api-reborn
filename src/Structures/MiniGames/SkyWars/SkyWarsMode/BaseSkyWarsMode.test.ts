@@ -1,6 +1,6 @@
-import BaseSkyWarsMode from './BaseSkyWarsMode.js';
-import SkyWarsHeads from '../SkyWarsHeads.js';
-import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.js';
+import BaseSkyWarsMode from './BaseSkyWarsMode.ts';
+import SkyWarsHeads from '../SkyWarsHeads.ts';
+import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BaseSkyWarsMode', () => {

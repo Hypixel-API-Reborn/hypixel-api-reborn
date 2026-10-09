@@ -1,4 +1,4 @@
-import DropperMap from './DropperMap.js';
+import DropperMap from './DropperMap.ts';
 
 class Dropper {
   fails: number;

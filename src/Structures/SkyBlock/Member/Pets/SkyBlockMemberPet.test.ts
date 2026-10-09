@@ -1,6 +1,6 @@
-import SkyBlockMemberPet from './SkyBlockMemberPet.js';
+import SkyBlockMemberPet from './SkyBlockMemberPet.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
+import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberPet', () => {
   const data = new SkyBlockMemberPet({ stats: 'meow' });

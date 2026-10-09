@@ -1,6 +1,6 @@
-import SkyBlockMemberQuests from './SkyBlockMemberQuests.js';
-import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.js';
-import SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.js';
+import SkyBlockMemberQuests from './SkyBlockMemberQuests.ts';
+import SkyBlockMemberQuestsHarp from './SkyBlockMemberQuestsHarp.ts';
+import SkyBlockMemberQuestsTrapper from './SkyBlockMemberQuestsTrapper.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberQuests', () => {

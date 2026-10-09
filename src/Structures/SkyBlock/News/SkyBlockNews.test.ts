@@ -1,4 +1,4 @@
-import SkyBlockNews from './SkyBlockNews.js';
+import SkyBlockNews from './SkyBlockNews.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockNews', () => {

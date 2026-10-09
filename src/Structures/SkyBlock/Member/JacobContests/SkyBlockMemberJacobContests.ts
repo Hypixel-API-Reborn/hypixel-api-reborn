@@ -1,8 +1,8 @@
-import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMedals.js';
-import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.js';
-import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.js';
-import type SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.js';
-import type { JacobCrop } from '../../../../Types/index.js';
+import SkyBlockMemberJacobContestsMedals from './SkyBlockMemberJacobContestsMedals.ts';
+import SkyBlockMemberJacobContestsPerks from './SkyBlockMemberJacobContestsPerks.ts';
+import SkyBlockMemberJacobContestsUniqueBrackets from './SkyBlockMemberJacobContestsUniqueBrackets.ts';
+import type SkyBlockMemberJacobContest from './SkyBlockMemberJacobContest.ts';
+import type { JacobCrop } from '../../../../Types/index.ts';
 
 class SkyBlockMemberJacobContests {
   perks: SkyBlockMemberJacobContestsPerks;

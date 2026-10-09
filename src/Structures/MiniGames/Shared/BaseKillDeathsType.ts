@@ -1,4 +1,4 @@
-import { Divide } from '../../../Utils/index.js';
+import { Divide } from '../../../Utils/index.ts';
 
 class BaseKillsDeathsType {
   kills: number;

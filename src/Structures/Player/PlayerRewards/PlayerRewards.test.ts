@@ -1,5 +1,5 @@
-import PlayerRewards from './PlayerRewards.js';
-import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.js';
+import PlayerRewards from './PlayerRewards.ts';
+import PlayerRewardsMonthlyCrate from './PlayerRewardsMonthlyCrate.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerRewards', () => {

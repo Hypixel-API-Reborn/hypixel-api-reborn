@@ -1,5 +1,5 @@
-import SkyBlockCollection from './SkyBlockCollection.js';
-import SkyBlockCollections from './SkyBlockCollections.js';
+import SkyBlockCollection from './SkyBlockCollection.ts';
+import SkyBlockCollections from './SkyBlockCollections.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockCollections', () => {

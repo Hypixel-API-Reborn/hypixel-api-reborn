@@ -1,8 +1,8 @@
-import SmashHeroes from './SmashHeroes.js';
-import SmashHeroesMode from './SmashHeroesMode.js';
-import SmashHerosHero from './SmashHerosHero.js';
+import SmashHeroes from './SmashHeroes.ts';
+import SmashHeroesMode from './SmashHeroesMode.ts';
+import SmashHerosHero from './SmashHerosHero.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SmashHerosHeroId } from '../../../Types/index.js';
+import type { SmashHerosHeroId } from '../../../Types/index.ts';
 
 test('SmashHeroes', () => {
   const data = new SmashHeroes({ stats: 'meow' });

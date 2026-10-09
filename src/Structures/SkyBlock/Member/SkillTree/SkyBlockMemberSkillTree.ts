@@ -1,9 +1,9 @@
-import { getLevelByXp } from '../../../../Utils/index.js';
+import { getLevelByXp } from '../../../../Utils/index.ts';
 import type {
   SkillLevelData,
   SkyBlockMemberSkillTreeName,
   SkyBlockMemberSkillTreeTokenName
-} from '../../../../Types/index.js';
+} from '../../../../Types/index.ts';
 
 class SkyBlockMemberSkillTree<Ability> {
   tree: SkyBlockMemberSkillTreeName;

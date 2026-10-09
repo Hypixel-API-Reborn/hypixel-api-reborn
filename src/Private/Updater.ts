@@ -1,7 +1,7 @@
-import Errors from '../Errors.js';
-import HypixelAPIRebornError from './HypixelAPIRebornError.js';
+import Errors from '../Errors.ts';
+import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 import packageJson from '../../package.json' with { type: 'json' };
-import type Client from '../Client.js';
+import type Client from '../Client.ts';
 
 class Updater {
   currentVersion: string;

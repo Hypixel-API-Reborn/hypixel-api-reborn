@@ -1,6 +1,6 @@
-import DuelsBlitz from './DuelsBlitz.js';
+import DuelsBlitz from './DuelsBlitz.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { DuelsModeBlitzKitId } from '../../../../Types/index.js';
+import type { DuelsModeBlitzKitId } from '../../../../Types/index.ts';
 
 test('DuelsBlitz', () => {
   const data = new DuelsBlitz({ stats: 'meow' });

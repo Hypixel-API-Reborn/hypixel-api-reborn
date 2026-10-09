@@ -1,4 +1,4 @@
-import PartyGamesGame from './PartyGamesGame.js';
+import PartyGamesGame from './PartyGamesGame.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PartyGamesGame', () => {

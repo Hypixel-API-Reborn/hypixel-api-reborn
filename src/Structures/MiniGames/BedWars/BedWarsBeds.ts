@@ -1,5 +1,5 @@
-import { Divide, ParseModeBefore } from '../../../Utils/index.js';
-import type { BedWarsModeId } from '../../../Types/index.js';
+import { Divide, ParseModeBefore } from '../../../Utils/index.ts';
+import type { BedWarsModeId } from '../../../Types/index.ts';
 
 class BedWarsBeds {
   broken: number;

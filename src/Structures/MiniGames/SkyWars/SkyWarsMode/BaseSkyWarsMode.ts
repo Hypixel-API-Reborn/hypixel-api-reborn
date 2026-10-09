@@ -1,7 +1,7 @@
-import SkyWarsHeads from '../SkyWarsHeads.js';
-import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.js';
-import { Divide, ParseModeAfter } from '../../../../Utils/index.js';
-import type { SkyWarsKitId, SkyWarsModeId } from '../../../../Types/index.js';
+import SkyWarsHeads from '../SkyWarsHeads.ts';
+import SkyWarsKillsDeaths from '../SkyWarsKillsDeaths.ts';
+import { Divide, ParseModeAfter } from '../../../../Utils/index.ts';
+import type { SkyWarsKitId, SkyWarsModeId } from '../../../../Types/index.ts';
 
 class BaseSkyWarsMode {
   kills: SkyWarsKillsDeaths;

@@ -1,9 +1,9 @@
-import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.js';
-import SkyWarsTeamsKits from './SkyWarsTeamsKits.js';
-import SkyWarsTeamsKitsAttacking from './SkyWarsTeamsKitsAttacking.js';
-import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.js';
-import SkyWarsTeamsKitsMining from './SkyWarsTeamsKitsMining.js';
-import SkyWarsTeamsKitsSupporting from './SkyWarsTeamsKitsSupporting.js';
+import BaseSkyWarsMode from '../../SkyWarsMode/BaseSkyWarsMode.ts';
+import SkyWarsTeamsKits from './SkyWarsTeamsKits.ts';
+import SkyWarsTeamsKitsAttacking from './SkyWarsTeamsKitsAttacking.ts';
+import SkyWarsTeamsKitsDefending from './SkyWarsTeamsKitsDefending.ts';
+import SkyWarsTeamsKitsMining from './SkyWarsTeamsKitsMining.ts';
+import SkyWarsTeamsKitsSupporting from './SkyWarsTeamsKitsSupporting.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsTeamsKits', () => {

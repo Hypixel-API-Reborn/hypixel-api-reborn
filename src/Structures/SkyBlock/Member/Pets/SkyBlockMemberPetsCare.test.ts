@@ -1,6 +1,6 @@
-import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.js';
+import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SacrificedPet } from '../../../../Types/index.js';
+import type { SacrificedPet } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberPetsCare', () => {
   const data = new SkyBlockMemberPetsCare({ stats: 'meow' });

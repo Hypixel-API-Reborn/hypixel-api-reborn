@@ -1,5 +1,5 @@
-import BedWarsEightTwo from './BedWarsEightTwo.js';
-import BedWarsMode from './BedWarsMode.js';
+import BedWarsEightTwo from './BedWarsEightTwo.ts';
+import BedWarsMode from './BedWarsMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsEightTwo', () => {

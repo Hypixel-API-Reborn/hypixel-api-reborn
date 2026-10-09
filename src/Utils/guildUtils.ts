@@ -1,4 +1,4 @@
-import type { ExpHistory } from '../Types/index.js';
+import type { ExpHistory } from '../Types/index.ts';
 
 export const guildDateRegex = /(\d{4})-(\d{2})-(\d{2})/;
 export function parseGuildHistoryDate(date: Record<string, any>) {

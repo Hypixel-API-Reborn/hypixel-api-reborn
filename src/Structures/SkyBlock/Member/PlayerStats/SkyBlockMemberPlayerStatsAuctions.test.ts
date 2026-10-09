@@ -1,5 +1,5 @@
-import SkyBlockMemberPlayerStatsAuctions from './SkyBlockMemberPlayerStatsAuctions.js';
-import SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.js';
+import SkyBlockMemberPlayerStatsAuctions from './SkyBlockMemberPlayerStatsAuctions.ts';
+import SkyBlockMemberPlayerStatsAuctionsStats from './SkyBlockMemberPlayerStatsAuctionsStats.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsAuctions', () => {

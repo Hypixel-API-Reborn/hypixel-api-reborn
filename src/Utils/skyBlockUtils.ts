@@ -38,9 +38,9 @@ import {
   type SkyBlockSlayer,
   type SkyBlockXPTable,
   type SkyblockProfileWithMe
-} from '../Types/index.js';
+} from '../Types/index.ts';
 import { parse, simplify } from 'prismarine-nbt';
-import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.js';
+import type SkyBlockProfile from '../Structures/SkyBlock/Profile/SkyBlockProfile.ts';
 
 export async function decode(base64: any, isBuffer: boolean = false): Promise<any[]> {
   // Credit: https://github.com/SkyCryptWebsite/SkyCryptv2/blob/3b5b3ae4fe77c60eff90691797f09024baf68872/src/lib/server/stats/items/processing.ts#L215-L218

@@ -1,6 +1,6 @@
-import PitInventoryItem from './PitInventoryItem.js';
-import { Divide, decode, pit } from '../../../Utils/index.js';
-import type { PitArmor } from '../../../Types/index.js';
+import PitInventoryItem from './PitInventoryItem.ts';
+import { Divide, decode, pit } from '../../../Utils/index.ts';
+import type { PitArmor } from '../../../Types/index.ts';
 
 class Pit {
   prestige: number;

@@ -1,6 +1,6 @@
-import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
+import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ForgeItemType, MiningForgeItemId, MiningForgeItemName } from '../../../../Types/index.js';
+import type { ForgeItemType, MiningForgeItemId, MiningForgeItemName } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberMiningHotmForgeItem', () => {
   const data = new SkyBlockMemberMiningHotmForgeItem({ stats: 'meow' });

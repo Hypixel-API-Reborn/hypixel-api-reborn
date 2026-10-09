@@ -1,4 +1,4 @@
-import Leaderboard from './Leaderboard.js';
+import Leaderboard from './Leaderboard.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Leaderboard', () => {

@@ -1,5 +1,5 @@
-import DuelsMode from './DuelsMode.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
+import DuelsMode from './DuelsMode.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsMode', () => {

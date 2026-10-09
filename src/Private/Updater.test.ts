@@ -1,8 +1,8 @@
-import Client from '../Client.js';
-import Errors from '../Errors.js';
-import Updater from './Updater.js';
+import Client from '../Client.ts';
+import Errors from '../Errors.ts';
+import Updater from './Updater.ts';
 import packageJSON from '../../package.json' with { type: 'json' };
-import { defaultRequestData } from '../../vitest.setup.js';
+import { defaultRequestData } from '../../vitest.setup.ts';
 import { expect, expectTypeOf, test, vi } from 'vitest';
 
 test('Updater', () => {

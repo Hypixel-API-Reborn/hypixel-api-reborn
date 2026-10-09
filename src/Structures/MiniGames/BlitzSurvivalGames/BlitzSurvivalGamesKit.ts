@@ -1,6 +1,6 @@
-import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
-import { ParseModeAfter } from '../../../Utils/index.js';
-import type { BlitzSurvivalGamesKitId } from '../../../Types/index.js';
+import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.ts';
+import { ParseModeAfter } from '../../../Utils/index.ts';
+import type { BlitzSurvivalGamesKitId } from '../../../Types/index.ts';
 
 class BlitzSurvivalGamesKit extends BlitzSurvivalGamesData {
   level: number;

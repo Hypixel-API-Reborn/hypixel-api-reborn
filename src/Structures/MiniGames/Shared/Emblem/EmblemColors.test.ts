@@ -1,4 +1,4 @@
-import EmblemColors from './EmblemColors.js';
+import EmblemColors from './EmblemColors.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('EmblemColors', () => {

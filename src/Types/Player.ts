@@ -1,7 +1,7 @@
 // Credits: Pixelic: https://github.com/pixelicc - Most types in player
 
-import PitInventoryItem from '../Structures/MiniGames/Pit/PitInventoryItem.js';
-import { SortNames } from './Global.js';
+import PitInventoryItem from '../Structures/MiniGames/Pit/PitInventoryItem.ts';
+import { SortNames } from './Global.ts';
 
 export type PlayerHousingSettingsTextInputType = 'CHAT';
 export const PlayerHousingPlotSizes = ['SMALL', 'MEDIUM', 'LARGE', 'MASSIVE', 'EXTREME'] as const;

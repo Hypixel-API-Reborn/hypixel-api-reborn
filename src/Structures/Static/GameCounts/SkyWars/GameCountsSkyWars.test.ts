@@ -1,5 +1,5 @@
-import GameCountsMCGOModes from './GameCountsSkyWarsModes.js';
-import GameCountsSkyWars from './GameCountsSkyWars.js';
+import GameCountsMCGOModes from './GameCountsSkyWarsModes.ts';
+import GameCountsSkyWars from './GameCountsSkyWars.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsSkyWars', () => {

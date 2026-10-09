@@ -1,6 +1,6 @@
-import CopsAndCrimsGun from './CopsAndCrimsGun.js';
+import CopsAndCrimsGun from './CopsAndCrimsGun.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CopsAndCrimsGunId } from '../../../Types/index.js';
+import type { CopsAndCrimsGunId } from '../../../Types/index.ts';
 
 test('CopsAndCrimsGun', () => {
   const data = new CopsAndCrimsGun({ stats: 'meow' }, 'auto_shotgun');

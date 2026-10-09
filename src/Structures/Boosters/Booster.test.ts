@@ -1,7 +1,7 @@
-import Booster from './Booster.js';
-import Game from '../Game.js';
+import Booster from './Booster.ts';
+import Game from '../Game.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BoosterType } from '../../Types/index.js';
+import type { BoosterType } from '../../Types/index.ts';
 
 test('Booster', () => {
   const data = new Booster({ stats: 'meow' });

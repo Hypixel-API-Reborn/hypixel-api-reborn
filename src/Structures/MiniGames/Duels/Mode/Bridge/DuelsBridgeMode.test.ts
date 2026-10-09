@@ -1,4 +1,4 @@
-import DuelsBridgeMode from './DuelsBridgeMode.js';
+import DuelsBridgeMode from './DuelsBridgeMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsBridgeMode', () => {

@@ -1,4 +1,4 @@
-import HalloweenSimulator from './HalloweenSimulator.js';
+import HalloweenSimulator from './HalloweenSimulator.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('HalloweenSimulator', () => {

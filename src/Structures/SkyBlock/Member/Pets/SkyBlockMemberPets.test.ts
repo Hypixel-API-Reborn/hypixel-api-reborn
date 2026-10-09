@@ -1,7 +1,7 @@
-import SkyBlockMemberPet from './SkyBlockMemberPet.js';
-import SkyBlockMemberPets from './SkyBlockMemberPets.js';
-import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.js';
-import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.js';
+import SkyBlockMemberPet from './SkyBlockMemberPet.ts';
+import SkyBlockMemberPets from './SkyBlockMemberPets.ts';
+import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.ts';
+import SkyBlockMemberPetsCare from './SkyBlockMemberPetsCare.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPets', () => {

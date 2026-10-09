@@ -1,4 +1,4 @@
-import SkyBlockBingoGoal from './SkyBlockBingoGoal.js';
+import SkyBlockBingoGoal from './SkyBlockBingoGoal.ts';
 
 class SkyBlockBingo {
   lastUpdatedTimestamp: number;

@@ -1,4 +1,4 @@
-import SkyBlockMemberInventoriesBackpack from './SkyBlockMemberInventoriesBackpack.js';
+import SkyBlockMemberInventoriesBackpack from './SkyBlockMemberInventoriesBackpack.ts';
 
 class SkyBlockMemberInventoriesBackpacks {
   backpack1: SkyBlockMemberInventoriesBackpack | null;

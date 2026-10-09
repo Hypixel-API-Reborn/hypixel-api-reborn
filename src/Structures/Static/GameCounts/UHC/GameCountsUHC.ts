@@ -1,5 +1,5 @@
-import GameCountsGeneric from '../GameCountsGeneric.js';
-import GameCountsUHCModes from './GameCountsUHCModes.js';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
+import GameCountsUHCModes from './GameCountsUHCModes.ts';
 
 class GameCountsUHC extends GameCountsGeneric {
   modes: GameCountsUHCModes;

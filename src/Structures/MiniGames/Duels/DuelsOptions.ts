@@ -1,4 +1,4 @@
-import type { DuelsRematchOption } from '../../../Types/index.js';
+import type { DuelsRematchOption } from '../../../Types/index.ts';
 
 class DuelsOptions {
   challengesEnabled: boolean;

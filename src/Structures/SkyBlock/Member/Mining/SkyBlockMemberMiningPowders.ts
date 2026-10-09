@@ -1,4 +1,4 @@
-import SkyBlockMemberMiningPowder from './SkyBlockMemberMiningPowder.js';
+import SkyBlockMemberMiningPowder from './SkyBlockMemberMiningPowder.ts';
 
 class SkyBlockMemberMiningPowders {
   mithril: SkyBlockMemberMiningPowder;

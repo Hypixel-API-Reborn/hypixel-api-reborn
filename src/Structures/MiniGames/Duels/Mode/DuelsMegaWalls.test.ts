@@ -1,5 +1,5 @@
-import DuelsMegaWalls from './DuelsMegaWalls.js';
-import DuelsMode from './DuelsMode.js';
+import DuelsMegaWalls from './DuelsMegaWalls.ts';
+import DuelsMode from './DuelsMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsMegaWalls', () => {

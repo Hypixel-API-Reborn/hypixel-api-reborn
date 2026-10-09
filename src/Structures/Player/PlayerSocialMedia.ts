@@ -1,4 +1,4 @@
-import type { UserInput } from '../../Types/index.js';
+import type { UserInput } from '../../Types/index.ts';
 
 class PlayerSocialMedia {
   discord: UserInput | null;

@@ -1,4 +1,4 @@
-import DuelsBow from './DuelsBow.js';
+import DuelsBow from './DuelsBow.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsBow', () => {

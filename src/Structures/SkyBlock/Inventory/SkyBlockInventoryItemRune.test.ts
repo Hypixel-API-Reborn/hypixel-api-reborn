@@ -1,4 +1,4 @@
-import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.js';
+import SkyBlockInventoryItemRune from './SkyBlockInventoryItemRune.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockInventoryItemRune', () => {

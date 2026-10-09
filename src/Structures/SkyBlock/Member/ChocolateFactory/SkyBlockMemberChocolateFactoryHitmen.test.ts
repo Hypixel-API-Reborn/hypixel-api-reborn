@@ -1,4 +1,4 @@
-import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.js';
+import SkyBlockMemberChocolateFactoryHitmen from './SkyBlockMemberChocolateFactoryHitmen.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberChocolateFactoryHitmen', () => {

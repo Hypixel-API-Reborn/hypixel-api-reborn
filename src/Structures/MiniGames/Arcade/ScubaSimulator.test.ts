@@ -1,4 +1,4 @@
-import ScubaSimulator from './ScubaSimulator.js';
+import ScubaSimulator from './ScubaSimulator.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('ScubaSimulator', () => {

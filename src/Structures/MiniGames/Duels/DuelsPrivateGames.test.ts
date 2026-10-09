@@ -1,4 +1,4 @@
-import DuelsPrivateGames from './DuelsPrivateGames.js';
+import DuelsPrivateGames from './DuelsPrivateGames.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BlitzSurvivalGamesPrivateGamesExtraStar,
@@ -16,7 +16,7 @@ import type {
   DuelsPrivateGameSettingsRoundTime,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('DuelsPrivateGames', () => {
   const data = new DuelsPrivateGames({ stats: 'meow' });

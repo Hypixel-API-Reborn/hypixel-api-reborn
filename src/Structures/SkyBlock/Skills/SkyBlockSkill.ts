@@ -1,4 +1,4 @@
-import SkyBlockSkillLevel from './SkyBlockSkillLevel.js';
+import SkyBlockSkillLevel from './SkyBlockSkillLevel.ts';
 
 class SkyBlockSkill {
   name: string;

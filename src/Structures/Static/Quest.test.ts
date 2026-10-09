@@ -1,7 +1,7 @@
-import Quest from './Quest.js';
-import QuestObjective from './QuestObjective.js';
+import Quest from './Quest.ts';
+import QuestObjective from './QuestObjective.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { QuestReward, QuestType } from '../../Types/index.js';
+import type { QuestReward, QuestType } from '../../Types/index.ts';
 
 test('Quest', () => {
   const data = new Quest({ stats: 'meow' });

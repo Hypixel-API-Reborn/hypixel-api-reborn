@@ -1,4 +1,4 @@
-import MegaWallsModeStats from './MegaWallsModeStats.js';
+import MegaWallsModeStats from './MegaWallsModeStats.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MegaWallsModeStats', () => {

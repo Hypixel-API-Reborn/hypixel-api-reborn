@@ -1,11 +1,11 @@
-import SkyBlockGarden from './SkyBlockGarden.js';
-import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.js';
-import SkyBlockGardenComposter from './SkyBlockGardenComposter.js';
-import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
-import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.js';
-import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.js';
+import SkyBlockGarden from './SkyBlockGarden.ts';
+import SkyBlockGardenActiveVisitor from './SkyBlockGardenActiveVisitor.ts';
+import SkyBlockGardenComposter from './SkyBlockGardenComposter.ts';
+import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.ts';
+import SkyBlockGardenCropsUpgrades from './SkyBlockGardenCropsUpgrades.ts';
+import SkyBlockGardenVisitors from './SkyBlockGardenVisitors.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/index.js';
+import type { BarnPlot, BarnSkin, SkillLevelData } from '../../../Types/index.ts';
 
 test('SkyBlockGarden', () => {
   const data = new SkyBlockGarden({ stats: 'meow' });

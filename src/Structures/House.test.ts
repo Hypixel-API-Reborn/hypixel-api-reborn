@@ -1,6 +1,6 @@
-import House from './House.js';
+import House from './House.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UUID } from '../Types/index.js';
+import type { UUID } from '../Types/index.ts';
 
 test('House', () => {
   const data = new House({ stats: 'meow' });

@@ -1,4 +1,4 @@
-import PitInventoryItem from './PitInventoryItem.js';
+import PitInventoryItem from './PitInventoryItem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PitInventoryItem', () => {

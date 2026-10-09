@@ -1,5 +1,5 @@
-import SkyBlockMuseumItem from './SkyBlockMuseumItem.js';
-import { decode } from '../../../Utils/index.js';
+import SkyBlockMuseumItem from './SkyBlockMuseumItem.ts';
+import { decode } from '../../../Utils/index.ts';
 
 class SkyBlockMuseumMember {
   value: number;

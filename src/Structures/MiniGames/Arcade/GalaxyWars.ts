@@ -1,4 +1,4 @@
-import { monthAB, weekAB } from '../../../Utils/index.js';
+import { monthAB, weekAB } from '../../../Utils/index.ts';
 
 class GalaxyWars {
   deaths: number;

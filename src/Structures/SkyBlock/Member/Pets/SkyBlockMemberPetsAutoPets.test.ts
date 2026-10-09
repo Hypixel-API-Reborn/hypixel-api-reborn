@@ -1,5 +1,5 @@
-import SkyBlockMemberPetsAutoPetRule from './SkyBlockMemberPetsAutoPetRule.js';
-import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.js';
+import SkyBlockMemberPetsAutoPetRule from './SkyBlockMemberPetsAutoPetRule.ts';
+import SkyBlockMemberPetsAutoPets from './SkyBlockMemberPetsAutoPets.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPetsAutoPets', () => {

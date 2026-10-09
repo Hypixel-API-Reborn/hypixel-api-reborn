@@ -1,7 +1,7 @@
-import SheepWars from './SheepWars.js';
-import SheepWarsLayout from './SheepWarsLayout.js';
+import SheepWars from './SheepWars.ts';
+import SheepWarsLayout from './SheepWarsLayout.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { WoolGamesSheepWarsClassName } from '../../../../Types/index.js';
+import type { WoolGamesSheepWarsClassName } from '../../../../Types/index.ts';
 
 test('SheepWars', () => {
   const data = new SheepWars({ stats: 'meow' });

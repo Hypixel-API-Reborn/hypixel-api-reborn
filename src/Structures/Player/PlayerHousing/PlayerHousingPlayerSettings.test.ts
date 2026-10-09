@@ -1,6 +1,6 @@
-import PlayerHousingPlayerSettings from './PlayerHousingPlayerSettings.js';
+import PlayerHousingPlayerSettings from './PlayerHousingPlayerSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerHousingSettingsTextInputType } from '../../../Types/index.js';
+import type { PlayerHousingSettingsTextInputType } from '../../../Types/index.ts';
 
 test('PlayerHousingPlayerSettings', () => {
   const data = new PlayerHousingPlayerSettings({ stats: 'meow' });

@@ -1,5 +1,5 @@
-import GameCountsArcadeModes from './GameCountsArcadeModes.js';
-import GameCountsGeneric from '../GameCountsGeneric.js';
+import GameCountsArcadeModes from './GameCountsArcadeModes.ts';
+import GameCountsGeneric from '../GameCountsGeneric.ts';
 
 class GameCountsArcade extends GameCountsGeneric {
   modes: GameCountsArcadeModes;

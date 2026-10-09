@@ -1,6 +1,6 @@
-import SkyBlockMemberInventoriesArmorDecoded from './SkyBlockMemberInventoriesArmorDecoded.js';
-import SkyBlockMemberInventoriesBaseInventory from '../SkyBlockMemberInventoriesBaseInventory.js';
-import { decode } from '../../../../../Utils/index.js';
+import SkyBlockMemberInventoriesArmorDecoded from './SkyBlockMemberInventoriesArmorDecoded.ts';
+import SkyBlockMemberInventoriesBaseInventory from '../SkyBlockMemberInventoriesBaseInventory.ts';
+import { decode } from '../../../../../Utils/index.ts';
 
 class SkyBlockMemberInventoriesArmor extends SkyBlockMemberInventoriesBaseInventory {
   override async decodeData(): Promise<SkyBlockMemberInventoriesArmorDecoded | null> {

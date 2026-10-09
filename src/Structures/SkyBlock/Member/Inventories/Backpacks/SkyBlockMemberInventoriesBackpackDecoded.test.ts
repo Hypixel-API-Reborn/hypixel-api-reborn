@@ -1,5 +1,5 @@
-import SkyBlockInventoryItem from '../../../Inventory/SkyBlockInventoryItem.js';
-import SkyBlockMemberInventoriesBackpackDecoded from './SkyBlockMemberInventoriesBackpackDecoded.js';
+import SkyBlockInventoryItem from '../../../Inventory/SkyBlockInventoryItem.ts';
+import SkyBlockMemberInventoriesBackpackDecoded from './SkyBlockMemberInventoriesBackpackDecoded.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesBackpackDecoded', () => {

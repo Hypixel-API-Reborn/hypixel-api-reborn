@@ -1,6 +1,6 @@
-import Paintball from './Paintball.js';
+import Paintball from './Paintball.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PaintballHat } from '../../Types/index.js';
+import type { PaintballHat } from '../../Types/index.ts';
 
 test('Paintball', () => {
   const data = new Paintball({ stats: 'meow' });

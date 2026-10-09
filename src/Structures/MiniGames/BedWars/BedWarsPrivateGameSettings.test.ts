@@ -1,11 +1,11 @@
-import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
+import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BedWarsPrivateGameSettingsRespawnTime,
   PrivateGameSettingsGameEventSpeed,
   PrivateGameSettingsHealthBuff,
   PrivateGameSettingsSpeed
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('BedWarsPrivateGameSettings', () => {
   const data = new BedWarsPrivateGameSettings({ stats: 'meow' });

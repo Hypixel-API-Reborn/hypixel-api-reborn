@@ -1,4 +1,4 @@
-import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.js';
+import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.ts';
 
 class SkyBlockBazaar {
   lastUpdated: number;

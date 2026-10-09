@@ -1,4 +1,4 @@
-import BaseAchievement from './BaseAchievement.js';
+import BaseAchievement from './BaseAchievement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BaseAchievement', () => {

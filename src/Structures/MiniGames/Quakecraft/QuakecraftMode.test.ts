@@ -1,4 +1,4 @@
-import QuakecraftMode from './QuakecraftMode.js';
+import QuakecraftMode from './QuakecraftMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('QuakecraftMode', () => {

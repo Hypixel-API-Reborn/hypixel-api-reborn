@@ -1,4 +1,4 @@
-import ArenaBrawlMode from './ArenaBrawlMode.js';
+import ArenaBrawlMode from './ArenaBrawlMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('ArenaBrawlMode', () => {

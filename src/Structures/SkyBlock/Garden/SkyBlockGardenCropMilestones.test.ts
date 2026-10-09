@@ -1,6 +1,6 @@
-import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.js';
+import SkyBlockGardenCropMilestones from './SkyBlockGardenCropMilestones.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkillLevelData } from '../../../Types/index.js';
+import type { SkillLevelData } from '../../../Types/index.ts';
 
 test('SkyBlockGardenCropMilestones', () => {
   const data = new SkyBlockGardenCropMilestones({ stats: 'meow' });

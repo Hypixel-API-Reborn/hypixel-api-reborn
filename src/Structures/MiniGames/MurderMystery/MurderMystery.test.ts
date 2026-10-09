@@ -1,11 +1,11 @@
-import Emblem from '../Shared/Emblem/Emblem.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
-import MurderMystery from './MurderMystery.js';
-import MurderMysteryDescent from './MurderMysteryDescent.js';
-import MurderMysteryFavorites from './MurderMysteryFavorites.js';
-import MurderMysteryGamemode from './MurderMysteryGamemode.js';
-import MurderMysteryKnifeSkinPrestige from './MurderMysteryKnifeSkinPrestige.js';
-import MurderMysteryMap from './MurderMysteryMap.js';
+import Emblem from '../Shared/Emblem/Emblem.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
+import MurderMystery from './MurderMystery.ts';
+import MurderMysteryDescent from './MurderMysteryDescent.ts';
+import MurderMysteryFavorites from './MurderMysteryFavorites.ts';
+import MurderMysteryGamemode from './MurderMysteryGamemode.ts';
+import MurderMysteryKnifeSkinPrestige from './MurderMysteryKnifeSkinPrestige.ts';
+import MurderMysteryMap from './MurderMysteryMap.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   MurderMysteryAnimatedHat,
@@ -23,7 +23,7 @@ import type {
   MurderMysteryRole,
   MurderMysteryVictoryDance,
   ShopSort
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('MurderMystery', () => {
   const data = new MurderMystery({ stats: 'meow' });

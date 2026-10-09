@@ -1,6 +1,6 @@
-import TieredAchievement from './TieredAchievement.js';
+import TieredAchievement from './TieredAchievement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { AchievementTier } from '../../../Types/index.js';
+import type { AchievementTier } from '../../../Types/index.ts';
 
 test('TieredAchievement', () => {
   const data = new TieredAchievement('mrrp', { stats: 'meow' });

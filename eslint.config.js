@@ -2,9 +2,9 @@
 import globals from 'globals';
 import importPlugin from 'eslint-plugin-import';
 import prettier from 'eslint-config-prettier';
+import stylistic from '@stylistic/eslint-plugin';
 import sortImports from '@j4cobi/eslint-plugin-sort-imports';
 import ts from 'typescript-eslint';
-import stylistic from '@stylistic/eslint-plugin';
 import { globalIgnores } from 'eslint/config';
 
 export default [
@@ -29,11 +29,12 @@ export default [
       ],
       '@stylistic/space-before-function-paren': ['error', { anonymous: 'never', named: 'never', catch: 'always' }],
       '@stylistic/function-call-argument-newline': ['error', 'consistent'],
+      'import/extensions': ['error', 'always', { ignorePackages: true }],
       '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
       '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
       '@stylistic/array-bracket-newline': ['error', 'consistent'],
+      '@stylistic/array-element-newline': ['warn', 'consistent'],
       'no-constant-condition': ['error', { checkLoops: false }],
-      'import/enforce-node-protocol-usage': ['error', 'always'],
       'no-extend-native': ['warn', { exceptions: ['Object'] }],
       '@stylistic/nonblock-statement-body-position': 'error',
       '@stylistic/object-curly-spacing': ['error', 'always'],
@@ -45,7 +46,7 @@ export default [
       '@stylistic/no-mixed-spaces-and-tabs': 'error',
       '@stylistic/type-named-tuple-spacing': 'error',
       'import/no-cycle': ['error', { maxDepth: 1 }],
-      curly: ['warn', 'multi-line', 'consistent'],
+      'curly': ['warn', 'multi-line', 'consistent'],
       '@stylistic/no-multiple-empty-lines': 'error',
       '@stylistic/max-statements-per-line': 'error',
       '@stylistic/type-annotation-spacing': 'error',
@@ -54,7 +55,7 @@ export default [
       '@stylistic/template-curly-spacing': 'error',
       'import/no-extraneous-dependencies': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@stylistic/line-comment-position': 'error',
+      '@stylistic/line-comment-position': 'warn',
       '@stylistic/object-curly-newline': 'error',
       '@stylistic/array-bracket-spacing': 'warn',
       'import/no-useless-path-segments': 'error',
@@ -65,7 +66,7 @@ export default [
       '@stylistic/space-before-blocks': 'error',
       '@stylistic/no-trailing-spaces': 'error',
       '@stylistic/no-confusing-arrow': 'error',
-      'import/prefer-default-export': 'error',
+      'import/prefer-default-export': 'warn',
       'logical-assignment-operators': 'warn',
       'no-template-curly-in-string': 'error',
       'quote-props': ['error', 'consistent'],
@@ -98,12 +99,12 @@ export default [
       'import/no-self-import': 'error',
       'no-implicit-coercion': 'error',
       'import/no-deprecated': 'error',
-      '@stylistic/eol-last': 'error',
       'import/no-namespace': 'error',
       'no-use-before-define': 'warn',
       'no-underscore-dangle': 'warn',
       'no-unneeded-ternary': 'error',
       'import/exports-last': 'warn',
+      '@stylistic/eol-last': 'warn',
       '@stylistic/no-tabs': 'error',
       'default-param-last': 'error',
       'import/no-commonjs': 'error',
@@ -130,9 +131,9 @@ export default [
       'no-multi-str': 'warn',
       'no-lonely-if': 'warn',
       'no-new-func': 'error',
-      camelcase: 'warn',
+      'camelcase': 'warn',
       'no-var': 'warn',
-      eqeqeq: 'warn'
+      'eqeqeq': 'warn'
     }
   }
 ];

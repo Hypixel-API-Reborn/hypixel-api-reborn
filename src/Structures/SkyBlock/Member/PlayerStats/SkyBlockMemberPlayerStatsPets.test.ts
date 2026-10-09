@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsPets from './SkyBlockMemberPlayerStatsPets.js';
+import SkyBlockMemberPlayerStatsPets from './SkyBlockMemberPlayerStatsPets.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberPlayerStatsPets', () => {

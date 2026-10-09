@@ -1,4 +1,4 @@
-import GameCountsWoolGamesModes from './GameCountsWoolGamesModes.js';
+import GameCountsWoolGamesModes from './GameCountsWoolGamesModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsWoolGamesModes', () => {

@@ -1,8 +1,8 @@
-import SkyBlockMemberDungeonsClasses from './SkyBlockMemberDungeonsClasses.js';
-import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.js';
-import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.js';
-import { getLevelByXp } from '../../../../Utils/index.js';
-import type { DungeonFloor, SkillLevelData } from '../../../../Types/index.js';
+import SkyBlockMemberDungeonsClasses from './SkyBlockMemberDungeonsClasses.ts';
+import SkyBlockMemberDungeonsMode from './SkyBlockMemberDungeonsMode.ts';
+import SkyBlockMemberDungeonsTreasureRun from './SkyBlockMemberDungeonsTreasureRun.ts';
+import { getLevelByXp } from '../../../../Utils/index.ts';
+import type { DungeonFloor, SkillLevelData } from '../../../../Types/index.ts';
 
 class SkyBlockMemberDungeons {
   catacombs: SkyBlockMemberDungeonsMode;

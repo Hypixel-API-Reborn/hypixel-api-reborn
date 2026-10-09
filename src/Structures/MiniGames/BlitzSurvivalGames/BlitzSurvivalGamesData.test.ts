@@ -1,4 +1,4 @@
-import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.js';
+import BlitzSurvivalGamesData from './BlitzSurvivalGamesData.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BlitzSurvivalGamesData', () => {

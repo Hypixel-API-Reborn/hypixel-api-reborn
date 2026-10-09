@@ -1,4 +1,4 @@
-import WoolGamesPrivateGames from './WoolGamesPrivateGames.js';
+import WoolGamesPrivateGames from './WoolGamesPrivateGames.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   PrivateGameSettingsGameEventSpeed,
@@ -7,7 +7,7 @@ import type {
   PrivateGameSettingsSpeed,
   WoolGamesPrivateGameSettingsMapDestructibility,
   WoolGamesPrivateGameSettingsSpawnRate
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('WoolGamesPrivateGames', () => {
   const data = new WoolGamesPrivateGames({ stats: 'meow' });

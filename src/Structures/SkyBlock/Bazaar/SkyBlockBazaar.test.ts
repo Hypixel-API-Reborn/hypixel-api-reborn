@@ -1,5 +1,5 @@
-import SkyBlockBazaar from './SkyBlockBazaar.js';
-import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.js';
+import SkyBlockBazaar from './SkyBlockBazaar.ts';
+import SkyBlockBazaarProduct from './SkyBlockBazaarProduct.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockBazaar', () => {

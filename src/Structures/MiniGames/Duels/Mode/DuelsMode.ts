@@ -1,7 +1,7 @@
-import GenericDuelsMode from './GenericDuelsMode.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
-import { ParseModeBeforeAfter } from '../../../../Utils/index.js';
-import type { DuelsModeId } from '../../../../Types/index.js';
+import GenericDuelsMode from './GenericDuelsMode.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import { ParseModeBeforeAfter } from '../../../../Utils/index.ts';
+import type { DuelsModeId } from '../../../../Types/index.ts';
 
 class DuelsMode extends GenericDuelsMode {
   duelEnabled: boolean;

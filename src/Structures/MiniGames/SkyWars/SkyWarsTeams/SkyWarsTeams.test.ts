@@ -1,7 +1,7 @@
-import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.js';
-import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.js';
-import SkyWarsTeams from './SkyWarsTeams.js';
-import SkyWarsTeamsKits from './SkyWarsTeamsKits/SkyWarsTeamsKits.js';
+import SkyWarsMode from '../SkyWarsMode/SkyWarsMode.ts';
+import SkyWarsModePerk from '../SkyWarsMode/SkyWarsModePerk.ts';
+import SkyWarsTeams from './SkyWarsTeams.ts';
+import SkyWarsTeamsKits from './SkyWarsTeamsKits/SkyWarsTeamsKits.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsTeams', () => {

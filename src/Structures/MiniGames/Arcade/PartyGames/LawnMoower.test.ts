@@ -1,4 +1,4 @@
-import LawnMoower from './LawnMoower.js';
+import LawnMoower from './LawnMoower.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('LawnMoower', () => {

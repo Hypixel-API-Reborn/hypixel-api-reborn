@@ -1,4 +1,4 @@
-import SkyWarsModePerk from './SkyWarsModePerk.js';
+import SkyWarsModePerk from './SkyWarsModePerk.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyWarsModePerk', () => {

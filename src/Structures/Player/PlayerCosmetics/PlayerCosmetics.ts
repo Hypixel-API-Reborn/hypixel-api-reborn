@@ -1,5 +1,5 @@
-import Color from '../../Color.js';
-import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.js';
+import Color from '../../Color.ts';
+import PlayerCosmeticsPets from './Pets/PlayerCosmeticsPets.ts';
 import type {
   PlayerCosmeticsClickEffect,
   PlayerCosmeticsCloak,
@@ -11,7 +11,7 @@ import type {
   PlayerCosmeticsSuit,
   PlayerCosmeticsTaunt,
   SortName
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 class PlayerCosmetics {
   menuSort: SortName | 'UNKNOWN';

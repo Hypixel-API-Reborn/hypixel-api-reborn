@@ -1,4 +1,4 @@
-import DrawTheirThing from './DrawTheirThing.js';
+import DrawTheirThing from './DrawTheirThing.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DrawTheirThing', () => {

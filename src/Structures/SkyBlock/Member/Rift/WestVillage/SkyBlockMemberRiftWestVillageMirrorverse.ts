@@ -1,4 +1,4 @@
-import type { MirrorverseChestItem, MirrorverseRoom } from '../../../../../Types/index.js';
+import type { MirrorverseChestItem, MirrorverseRoom } from '../../../../../Types/index.ts';
 
 class SkyBlockMemberRiftWestVillageMirrorverse {
   visitedRooms: MirrorverseRoom[];

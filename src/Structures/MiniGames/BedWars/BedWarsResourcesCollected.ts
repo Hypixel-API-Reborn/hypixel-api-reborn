@@ -1,6 +1,6 @@
-import BedWarsItemsPurchased from './BedWarsItemsPurchased.js';
-import { ParseModeBefore } from '../../../Utils/index.js';
-import type { BedWarsModeId } from '../../../Types/index.js';
+import BedWarsItemsPurchased from './BedWarsItemsPurchased.ts';
+import { ParseModeBefore } from '../../../Utils/index.ts';
+import type { BedWarsModeId } from '../../../Types/index.ts';
 
 class BedWarsResourcesCollected {
   total: number;

@@ -1,5 +1,5 @@
-import GameCountsBattleGround from './GameCountsBattleGround.js';
-import GameCountsBattleGroundModes from './GameCountsBattleGroundModes.js';
+import GameCountsBattleGround from './GameCountsBattleGround.ts';
+import GameCountsBattleGroundModes from './GameCountsBattleGroundModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsBattleGround', () => {

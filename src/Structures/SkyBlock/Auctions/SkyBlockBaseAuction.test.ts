@@ -1,5 +1,5 @@
-import ItemBytes from '../../ItemBytes.js';
-import SkyBlockBaseAuction from './SkyBlockBaseAuction.js';
+import ItemBytes from '../../ItemBytes.ts';
+import SkyBlockBaseAuction from './SkyBlockBaseAuction.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockBaseAuction', () => {

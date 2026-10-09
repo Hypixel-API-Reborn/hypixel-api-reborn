@@ -1,6 +1,6 @@
-import Color from './Color.js';
+import Color from './Color.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ColorCode, ColorHex, ColorString, InGameCode } from '../Types/index.js';
+import type { ColorCode, ColorHex, ColorString, InGameCode } from '../Types/index.ts';
 
 test('Color', () => {
   const data = new Color('BLACK');

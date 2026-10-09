@@ -1,5 +1,5 @@
-import { parseGuildHistory } from '../../Utils/index.js';
-import type { ExpHistory, UUID } from '../../Types/index.js';
+import { parseGuildHistory } from '../../Utils/index.ts';
+import type { ExpHistory, UUID } from '../../Types/index.ts';
 
 class GuildMember {
   uuid: UUID;

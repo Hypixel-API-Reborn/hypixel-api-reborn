@@ -1,4 +1,4 @@
-import { CalculateAverage, Divide, TicksToMilliseconds } from './index.js';
+import { CalculateAverage, Divide, TicksToMilliseconds } from './index.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Divide', () => {

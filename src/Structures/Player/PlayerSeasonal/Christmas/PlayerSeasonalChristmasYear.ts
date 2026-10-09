@@ -1,5 +1,5 @@
-import PlayerSeasonalChristmasYearAdventRewards from './PlayerSeasonalChristmasYearAdventRewards.js';
-import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.js';
+import PlayerSeasonalChristmasYearAdventRewards from './PlayerSeasonalChristmasYearAdventRewards.ts';
+import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.ts';
 
 class PlayerSeasonalChristmasYear {
   year: number;

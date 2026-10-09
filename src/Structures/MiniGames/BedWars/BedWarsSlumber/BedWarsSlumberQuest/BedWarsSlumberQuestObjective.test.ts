@@ -1,4 +1,4 @@
-import BedWarsSlumberQuestObjective from './BedWarsSlumberQuestObjective.js';
+import BedWarsSlumberQuestObjective from './BedWarsSlumberQuestObjective.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsSlumberQuestObjective', () => {

@@ -1,4 +1,4 @@
-import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.js';
+import SkyBlockProfileBankingTransaction from './SkyBlockProfileBankingTransaction.ts';
 
 class SkyBlockProfileBanking {
   balance: number;

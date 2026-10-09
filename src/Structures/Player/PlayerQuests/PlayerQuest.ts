@@ -1,4 +1,4 @@
-import PlayerQuestCompletions from './PlayerQuestCompletions.js';
+import PlayerQuestCompletions from './PlayerQuestCompletions.ts';
 
 class PlayerQuest {
   name: string;

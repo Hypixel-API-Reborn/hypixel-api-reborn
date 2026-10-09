@@ -1,5 +1,5 @@
-import MurderMysteryGamemode from './MurderMysteryGamemode.js';
-import MurderMysteryMap from './MurderMysteryMap.js';
+import MurderMysteryGamemode from './MurderMysteryGamemode.ts';
+import MurderMysteryMap from './MurderMysteryMap.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('MurderMysteryMap', () => {

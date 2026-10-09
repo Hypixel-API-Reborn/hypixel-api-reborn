@@ -1,4 +1,4 @@
-import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.js';
+import SkyBlockMemberCrimsonIsleMatriarch from './SkyBlockMemberCrimsonIsleMatriarch.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberCrimsonIsleMatriarch', () => {

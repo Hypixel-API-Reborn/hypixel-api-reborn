@@ -1,5 +1,5 @@
-import BedWarsPracticeBridgingRecords from './BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecords.js';
-import BedWarsPracticeMode from './BedWarsPracticeMode.js';
+import BedWarsPracticeBridgingRecords from './BedWarsPracticeBridgingRecords/BedWarsPracticeBridgingRecords.ts';
+import BedWarsPracticeMode from './BedWarsPracticeMode.ts';
 
 class BedWarsPracticeBridging extends BedWarsPracticeMode {
   records: BedWarsPracticeBridgingRecords;

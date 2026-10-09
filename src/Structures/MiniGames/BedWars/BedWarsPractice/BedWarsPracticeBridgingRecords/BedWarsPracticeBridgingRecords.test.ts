@@ -1,5 +1,5 @@
-import BedWarsPracticeBridgingRecords from './BedWarsPracticeBridgingRecords.js';
-import BedWarsPracticeBridgingRecordsDistance from './BedWarsPracticeBridgingRecordsDistance.js';
+import BedWarsPracticeBridgingRecords from './BedWarsPracticeBridgingRecords.ts';
+import BedWarsPracticeBridgingRecordsDistance from './BedWarsPracticeBridgingRecordsDistance.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsPracticeBridgingRecords', () => {

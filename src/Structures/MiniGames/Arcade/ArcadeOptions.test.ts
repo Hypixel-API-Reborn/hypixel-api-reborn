@@ -1,4 +1,4 @@
-import ArcadeOptions from './ArcadeOptions.js';
+import ArcadeOptions from './ArcadeOptions.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('ArcadeOptions', () => {

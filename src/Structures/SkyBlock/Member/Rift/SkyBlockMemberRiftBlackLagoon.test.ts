@@ -1,4 +1,4 @@
-import SkyBlockMemberRiftBlackLagoon from './SkyBlockMemberRiftBlackLagoon.js';
+import SkyBlockMemberRiftBlackLagoon from './SkyBlockMemberRiftBlackLagoon.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberRiftBlackLagoon', () => {

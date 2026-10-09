@@ -1,5 +1,5 @@
-import CacheHandler from './CacheHandler.js';
-import Client from '../Client.js';
+import CacheHandler from './CacheHandler.ts';
+import Client from '../Client.ts';
 import NodeCache from 'node-cache';
 import { expect, expectTypeOf, test } from 'vitest';
 

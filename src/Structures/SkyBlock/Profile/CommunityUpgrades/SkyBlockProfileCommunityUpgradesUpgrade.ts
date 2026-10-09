@@ -1,4 +1,4 @@
-import type { CommunityUpgradesUpgrade } from '../../../../Types/index.js';
+import type { CommunityUpgradesUpgrade } from '../../../../Types/index.ts';
 
 class SkyBlockProfileCommunityUpgradesUpgrade {
   upgrade: CommunityUpgradesUpgrade | 'UNKNOWN';

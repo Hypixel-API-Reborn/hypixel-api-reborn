@@ -1,6 +1,6 @@
-import SkyBlockMemberInventoriesBags from './SkyBlockMemberInventoriesBags.js';
-import SkyBlockMemberInventoriesBagsTalisman from './SkyBlockMemberInventoriesBagsTalisman.js';
-import SkyBlockMemberInventoriesInventory from '../Inventory/SkyBlockMemberInventoriesInventory.js';
+import SkyBlockMemberInventoriesBags from './SkyBlockMemberInventoriesBags.ts';
+import SkyBlockMemberInventoriesBagsTalisman from './SkyBlockMemberInventoriesBagsTalisman.ts';
+import SkyBlockMemberInventoriesInventory from '../Inventory/SkyBlockMemberInventoriesInventory.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesBags', () => {

@@ -1,7 +1,7 @@
-import SkyBlockMuseum from './SkyBlockMuseum.js';
-import SkyBlockMuseumMember from './SkyBlockMuseumMember.js';
+import SkyBlockMuseum from './SkyBlockMuseum.ts';
+import SkyBlockMuseumMember from './SkyBlockMuseumMember.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { UUID } from '../../../Types/index.js';
+import type { UUID } from '../../../Types/index.ts';
 
 test('SkyBlockMuseum', () => {
   const data = new SkyBlockMuseum({ stats: 'meow' });

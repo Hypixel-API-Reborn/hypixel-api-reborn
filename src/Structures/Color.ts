@@ -1,4 +1,4 @@
-import type { ColorCode, ColorHex, ColorString, InGameCode } from '../Types/index.js';
+import type { ColorCode, ColorHex, ColorString, InGameCode } from '../Types/index.ts';
 
 const ColorStrings: { [key: string]: ColorString } = {
   BLACK: 'Black',

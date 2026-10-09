@@ -1,4 +1,4 @@
-import SkyBlockCollection from './SkyBlockCollection.js';
+import SkyBlockCollection from './SkyBlockCollection.ts';
 
 class SkyBlockCollections {
   lastUpdated: number;

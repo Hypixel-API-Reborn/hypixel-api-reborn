@@ -1,5 +1,5 @@
-import InventoryLayout from '../../Shared/InventoryLayout.js';
-import WoolWarsClass from './WoolWarsClass.js';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import WoolWarsClass from './WoolWarsClass.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WoolWarsClass', () => {

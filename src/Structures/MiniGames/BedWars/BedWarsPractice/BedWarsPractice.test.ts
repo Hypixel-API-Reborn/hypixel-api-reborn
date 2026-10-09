@@ -1,8 +1,8 @@
-import BedWarsPractice from './BedWarsPractice.js';
-import BedWarsPracticeBridging from './BedWarsPracticeBridging.js';
-import BedWarsPracticeMode from './BedWarsPracticeMode.js';
+import BedWarsPractice from './BedWarsPractice.ts';
+import BedWarsPracticeBridging from './BedWarsPracticeBridging.ts';
+import BedWarsPracticeMode from './BedWarsPracticeMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsPracticeModeId } from '../../../../Types/index.js';
+import type { BedWarsPracticeModeId } from '../../../../Types/index.ts';
 
 test('BedWarsPractice', () => {
   const data = new BedWarsPractice({ stats: 'meow' });

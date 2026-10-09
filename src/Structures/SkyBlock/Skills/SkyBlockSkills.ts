@@ -1,4 +1,4 @@
-import SkyBlockSkill from './SkyBlockSkill.js';
+import SkyBlockSkill from './SkyBlockSkill.ts';
 
 class SkyBlockSkills {
   lastUpdated: number;

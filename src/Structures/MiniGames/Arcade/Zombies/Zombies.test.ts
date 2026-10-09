@@ -1,5 +1,5 @@
-import Zombies from './Zombies.js';
-import ZombiesMap from './ZombiesMap.js';
+import Zombies from './Zombies.ts';
+import ZombiesMap from './ZombiesMap.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Zombies', () => {

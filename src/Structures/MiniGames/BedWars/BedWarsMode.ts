@@ -1,8 +1,8 @@
-import BedWarsBeds from './BedWarsBeds.js';
-import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.js';
-import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
-import { Divide, ParseModeBefore } from '../../../Utils/index.js';
-import type { BedWarsModeId } from '../../../Types/index.js';
+import BedWarsBeds from './BedWarsBeds.ts';
+import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.ts';
+import BedWarsResourcesCollected from './BedWarsResourcesCollected.ts';
+import { Divide, ParseModeBefore } from '../../../Utils/index.ts';
+import type { BedWarsModeId } from '../../../Types/index.ts';
 
 class BedWarsMode {
   resourcesCollected: BedWarsResourcesCollected;

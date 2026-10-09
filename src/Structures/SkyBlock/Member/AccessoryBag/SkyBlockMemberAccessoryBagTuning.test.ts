@@ -1,5 +1,5 @@
-import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.js';
-import SkyBlockMemberAccessoryBagTuningSlot from './SkyBlockMemberAccessoryBagTuningSlot.js';
+import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.ts';
+import SkyBlockMemberAccessoryBagTuningSlot from './SkyBlockMemberAccessoryBagTuningSlot.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberAccessoryBagTuning', () => {

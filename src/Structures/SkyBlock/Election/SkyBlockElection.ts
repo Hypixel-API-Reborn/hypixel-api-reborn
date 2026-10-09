@@ -1,4 +1,4 @@
-import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.js';
+import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.ts';
 
 class SkyBlockElection {
   year: number;

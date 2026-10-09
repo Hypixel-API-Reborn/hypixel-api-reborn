@@ -1,5 +1,5 @@
-import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.js';
-import type { MurderMysteryKnifeSkinRaw } from '../../../Types/index.js';
+import MurderMysteryKnifeSkinPrestigeXp from './MurderMysteryKnifeSkinPrestigeXp.ts';
+import type { MurderMysteryKnifeSkinRaw } from '../../../Types/index.ts';
 
 class MurderMysteryKnifeSkinPrestige {
   usePrestige: MurderMysteryKnifeSkinRaw[];

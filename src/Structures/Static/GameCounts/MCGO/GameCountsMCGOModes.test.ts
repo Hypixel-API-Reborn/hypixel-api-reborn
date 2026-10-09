@@ -1,4 +1,4 @@
-import GameCountsMCGOModes from './GameCountsMCGOModes.js';
+import GameCountsMCGOModes from './GameCountsMCGOModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsMCGOModes', () => {

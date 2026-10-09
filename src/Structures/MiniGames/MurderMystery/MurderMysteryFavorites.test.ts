@@ -1,4 +1,4 @@
-import MurderMysteryFavorites from './MurderMysteryFavorites.js';
+import MurderMysteryFavorites from './MurderMysteryFavorites.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   MurderMysteryAnimatedHatRaw,
@@ -10,7 +10,7 @@ import type {
   MurderMysteryLastWordsRaw,
   MurderMysteryProjectileTrailRaw,
   MurderMysteryVictoryDanceRaw
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('MurderMysteryFavorites', () => {
   const data = new MurderMysteryFavorites({ stats: 'meow' });

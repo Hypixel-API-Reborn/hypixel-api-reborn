@@ -1,5 +1,5 @@
-import Quakecraft from './Quakecraft.js';
-import QuakecraftMode from './QuakecraftMode.js';
+import Quakecraft from './Quakecraft.ts';
+import QuakecraftMode from './QuakecraftMode.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   ColorCode,
@@ -9,7 +9,7 @@ import type {
   QuakecraftMuzzle,
   QuakecraftSight,
   QuakecraftTrigger
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('Quakecraft', () => {
   const data = new Quakecraft({ stats: 'meow' });

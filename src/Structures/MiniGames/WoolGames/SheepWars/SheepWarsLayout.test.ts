@@ -1,5 +1,5 @@
-import InventoryLayout from '../../Shared/InventoryLayout.js';
-import SheepWarsLayout from './SheepWarsLayout.js';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import SheepWarsLayout from './SheepWarsLayout.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SheepWarsLayout', () => {

@@ -1,4 +1,4 @@
-import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberCrimsonIsleTrophyFishFish', () => {

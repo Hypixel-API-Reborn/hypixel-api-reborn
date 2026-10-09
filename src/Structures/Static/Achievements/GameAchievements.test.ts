@@ -1,6 +1,6 @@
-import GameAchievements from './GameAchievements.js';
-import OneTimeAchievement from './OneTimeAchievement.js';
-import TieredAchievement from './TieredAchievement.js';
+import GameAchievements from './GameAchievements.ts';
+import OneTimeAchievement from './OneTimeAchievement.ts';
+import TieredAchievement from './TieredAchievement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameAchievements', () => {

@@ -1,4 +1,4 @@
-import type { TaskLevelingSort } from '../../../Types/index.js';
+import type { TaskLevelingSort } from '../../../Types/index.ts';
 
 class SkyBlockMemberLeveling {
   experience: number;

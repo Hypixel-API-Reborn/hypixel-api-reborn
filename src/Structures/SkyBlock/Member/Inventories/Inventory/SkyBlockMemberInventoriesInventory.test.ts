@@ -1,4 +1,4 @@
-import SkyBlockMemberInventoriesInventory from './SkyBlockMemberInventoriesInventory.js';
+import SkyBlockMemberInventoriesInventory from './SkyBlockMemberInventoriesInventory.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberInventoriesInventory', () => {

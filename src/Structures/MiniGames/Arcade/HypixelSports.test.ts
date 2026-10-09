@@ -1,4 +1,4 @@
-import HypixelSports from './HypixelSports.js';
+import HypixelSports from './HypixelSports.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('HypixelSports', () => {

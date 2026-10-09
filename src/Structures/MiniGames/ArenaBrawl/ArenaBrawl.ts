@@ -1,17 +1,17 @@
-import ArenaBrawlMode from './ArenaBrawlMode.js';
-import type { ArenaBrawlRune } from '../../../Types/index.js';
+import ArenaBrawlMode from './ArenaBrawlMode.ts';
+import type { ArenaBrawlRune } from '../../../Types/index.ts';
 
 class ArenaBrawl {
-  coins: number;
-  coinsSpent: number;
-  wins: number;
-  keys: number;
-  chests: number;
-  rune: ArenaBrawlRune | 'None';
+  'coins': number;
+  'coinsSpent': number;
+  'wins': number;
+  'keys': number;
+  'chests': number;
+  'rune': ArenaBrawlRune | 'None';
   '1v1': ArenaBrawlMode;
   '2v2': ArenaBrawlMode;
   '4v4': ArenaBrawlMode;
-  constructor(data: Record<string, any>) {
+  'constructor'(data: Record<string, any>) {
     this.coins = data?.coins ?? data?.tokens ?? 0;
     this.coinsSpent = data?.coins_spent ?? 0;
     this.wins = data?.wins ?? 0;

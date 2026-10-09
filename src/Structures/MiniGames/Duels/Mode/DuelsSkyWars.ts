@@ -1,8 +1,8 @@
-import DuelsMode from './DuelsMode.js';
-import DuelsModeFull from './DuelsModeFull.js';
-import InventoryLayout from '../../Shared/InventoryLayout.js';
-import { getDuelsTitle } from '../../../../Utils/index.js';
-import type { DuelsModeSkyWarsKitId } from '../../../../Types/index.js';
+import DuelsMode from './DuelsMode.ts';
+import DuelsModeFull from './DuelsModeFull.ts';
+import InventoryLayout from '../../Shared/InventoryLayout.ts';
+import { getDuelsTitle } from '../../../../Utils/index.ts';
+import type { DuelsModeSkyWarsKitId } from '../../../../Types/index.ts';
 
 class DuelsSkyWars extends DuelsModeFull {
   doubles: DuelsMode;

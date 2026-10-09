@@ -1,8 +1,8 @@
-import PlayerAchievements from './PlayerAchievements.js';
-import PlayerAchievementsRewards from './PlayerAchievementsRewards.js';
-import PlayerAchievementsTotem from './PlayerAchievementsTotem.js';
+import PlayerAchievements from './PlayerAchievements.ts';
+import PlayerAchievementsRewards from './PlayerAchievementsRewards.ts';
+import PlayerAchievementsTotem from './PlayerAchievementsTotem.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { PlayerAchievementsOneTimeSort } from '../../../Types/index.js';
+import type { PlayerAchievementsOneTimeSort } from '../../../Types/index.ts';
 
 test('PlayerAchievements', () => {
   const data = new PlayerAchievements({ stats: 'meow' });

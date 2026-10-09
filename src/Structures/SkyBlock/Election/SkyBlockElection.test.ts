@@ -1,5 +1,5 @@
-import SkyBlockElection from './SkyBlockElection.js';
-import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.js';
+import SkyBlockElection from './SkyBlockElection.ts';
+import SkyBlockElectionCandidate from './SkyBlockElectionCandidate.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockElection', () => {

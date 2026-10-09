@@ -3,7 +3,7 @@ import type {
   AbiphoneContactSort,
   CrimsonIsleRingtone,
   RawAbiphoneData
-} from '../../../../Types/index.js';
+} from '../../../../Types/index.ts';
 
 class SkyBlockMemberCrimsonIsleAbiphone {
   contactData: Record<string, RawAbiphoneData>;

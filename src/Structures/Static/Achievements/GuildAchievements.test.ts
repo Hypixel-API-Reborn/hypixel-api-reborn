@@ -1,6 +1,6 @@
-import GuildAchievements from './GuildAchievements.js';
-import OneTimeAchievement from './OneTimeAchievement.js';
-import TieredAchievement from './TieredAchievement.js';
+import GuildAchievements from './GuildAchievements.ts';
+import OneTimeAchievement from './OneTimeAchievement.ts';
+import TieredAchievement from './TieredAchievement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GuildAchievements', () => {

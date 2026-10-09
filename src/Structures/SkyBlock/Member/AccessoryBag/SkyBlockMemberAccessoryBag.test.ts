@@ -1,7 +1,7 @@
-import SkyBlockMemberAccessoryBag from './SkyBlockMemberAccessoryBag.js';
-import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.js';
+import SkyBlockMemberAccessoryBag from './SkyBlockMemberAccessoryBag.ts';
+import SkyBlockMemberAccessoryBagTuning from './SkyBlockMemberAccessoryBagTuning.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { SkyBlockMemberPower } from '../../../../Types/index.js';
+import type { SkyBlockMemberPower } from '../../../../Types/index.ts';
 
 test('SkyBlockMemberAccessoryBag', () => {
   const data = new SkyBlockMemberAccessoryBag({ stats: 'meow' });

@@ -1,19 +1,19 @@
-import Guild from '../Guild/Guild.js';
-import House from '../House.js';
-import PlayerAchievements from './PlayerAchievements/PlayerAchievements.js';
-import PlayerAdventRewards from './PlayerAdventRewards/PlayerAdventRewards.js';
-import PlayerCosmetics from './PlayerCosmetics/PlayerCosmetics.js';
-import PlayerGifting from './PlayerGifting.js';
-import PlayerHousing from './PlayerHousing/PlayerHousing.js';
-import PlayerParkour from './PlayerParkour.js';
-import PlayerQuests from './PlayerQuests/PlayerQuests.js';
-import PlayerRankPurchase from './PlayerRankPurchase.js';
-import PlayerRewards from './PlayerRewards/PlayerRewards.js';
-import PlayerScorpiusBribe from './PlayerScorpiusBribe.js';
-import PlayerSocialMedia from './PlayerSocialMedia.js';
-import PlayerStats from './PlayerStats.js';
-import RecentGame from '../RecentGame.js';
-import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/index.js';
+import Guild from '../Guild/Guild.ts';
+import House from '../House.ts';
+import PlayerAchievements from './PlayerAchievements/PlayerAchievements.ts';
+import PlayerAdventRewards from './PlayerAdventRewards/PlayerAdventRewards.ts';
+import PlayerCosmetics from './PlayerCosmetics/PlayerCosmetics.ts';
+import PlayerGifting from './PlayerGifting.ts';
+import PlayerHousing from './PlayerHousing/PlayerHousing.ts';
+import PlayerParkour from './PlayerParkour.ts';
+import PlayerQuests from './PlayerQuests/PlayerQuests.ts';
+import PlayerRankPurchase from './PlayerRankPurchase.ts';
+import PlayerRewards from './PlayerRewards/PlayerRewards.ts';
+import PlayerScorpiusBribe from './PlayerScorpiusBribe.ts';
+import PlayerSocialMedia from './PlayerSocialMedia.ts';
+import PlayerStats from './PlayerStats.ts';
+import RecentGame from '../RecentGame.ts';
+import type { ChatChannel, Language, LevelProgress, PlayerRank } from '../../Types/index.ts';
 
 class Player {
   nickname: string;

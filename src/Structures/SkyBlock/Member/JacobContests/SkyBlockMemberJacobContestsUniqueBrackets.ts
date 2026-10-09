@@ -1,4 +1,4 @@
-import type { JacobCrop } from '../../../../Types/index.js';
+import type { JacobCrop } from '../../../../Types/index.ts';
 
 class SkyBlockMemberJacobContestsUniqueBrackets {
   bronze: JacobCrop[];

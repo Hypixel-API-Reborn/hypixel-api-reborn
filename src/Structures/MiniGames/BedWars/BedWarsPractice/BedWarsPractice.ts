@@ -1,6 +1,6 @@
-import BedWarsPracticeBridging from './BedWarsPracticeBridging.js';
-import BedWarsPracticeMode from './BedWarsPracticeMode.js';
-import type { BedWarsPracticeModeId } from '../../../../Types/index.js';
+import BedWarsPracticeBridging from './BedWarsPracticeBridging.ts';
+import BedWarsPracticeMode from './BedWarsPracticeMode.ts';
+import type { BedWarsPracticeModeId } from '../../../../Types/index.ts';
 
 class BedWarsPractice {
   bridging: BedWarsPracticeBridging;

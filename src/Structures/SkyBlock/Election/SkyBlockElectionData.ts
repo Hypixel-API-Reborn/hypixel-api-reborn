@@ -1,4 +1,4 @@
-import SkyBlockElection from './SkyBlockElection.js';
+import SkyBlockElection from './SkyBlockElection.ts';
 
 class SkyBlockElectionData {
   lastUpdatedTimestamp: number;

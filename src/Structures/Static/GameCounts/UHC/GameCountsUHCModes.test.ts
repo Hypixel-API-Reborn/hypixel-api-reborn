@@ -1,4 +1,4 @@
-import GameCountsUHCModes from './GameCountsUHCModes.js';
+import GameCountsUHCModes from './GameCountsUHCModes.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsUHCModes', () => {

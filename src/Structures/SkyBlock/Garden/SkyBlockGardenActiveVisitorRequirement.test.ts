@@ -1,4 +1,4 @@
-import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.js';
+import SkyBlockGardenActiveVisitorRequirement from './SkyBlockGardenActiveVisitorRequirement.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockGardenActiveVisitorRequirement', () => {

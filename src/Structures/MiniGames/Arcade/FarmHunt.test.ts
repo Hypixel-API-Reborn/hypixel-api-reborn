@@ -1,4 +1,4 @@
-import FarmHunt from './FarmHunt.js';
+import FarmHunt from './FarmHunt.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('FarmHunt', () => {

@@ -1,5 +1,5 @@
-import GameCountsGameContsReplayModes from './GameCountsReplayModes.js';
-import GameCountsReplay from './GameCountsReplay.js';
+import GameCountsGameContsReplayModes from './GameCountsReplayModes.ts';
+import GameCountsReplay from './GameCountsReplay.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('GameCountsReplay', () => {

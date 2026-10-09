@@ -1,4 +1,4 @@
-import type { UUID } from '../../../Types/index.js';
+import type { UUID } from '../../../Types/index.ts';
 
 class SkyBlockAuctionBid {
   auctionId: UUID | 'UNKNOWN';

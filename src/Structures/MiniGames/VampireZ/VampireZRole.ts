@@ -1,5 +1,5 @@
-import { Divide } from '../../../Utils/index.js';
-import type { VampireZRoleId } from '../../../Types/index.js';
+import { Divide } from '../../../Utils/index.ts';
+import type { VampireZRoleId } from '../../../Types/index.ts';
 
 class VampireZRole {
   role: VampireZRoleId;

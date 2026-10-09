@@ -1,5 +1,5 @@
-import Achievements from './Achievements.js';
-import GameAchievements from './GameAchievements.js';
+import Achievements from './Achievements.ts';
+import GameAchievements from './GameAchievements.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Achievements', () => {

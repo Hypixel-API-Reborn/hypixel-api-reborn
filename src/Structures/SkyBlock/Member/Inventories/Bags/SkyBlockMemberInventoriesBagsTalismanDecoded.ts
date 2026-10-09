@@ -1,6 +1,6 @@
-import SkyBlockMemberInventoriesInventoryDecoded from '../Inventory/SkyBlockMemberInventoriesInventoryDecoded.js';
-import { magicalPowerValues } from '../../../../../Utils/index.js';
-import type { Rarity } from '../../../../../Types/index.js';
+import SkyBlockMemberInventoriesInventoryDecoded from '../Inventory/SkyBlockMemberInventoriesInventoryDecoded.ts';
+import { magicalPowerValues } from '../../../../../Utils/index.ts';
+import type { Rarity } from '../../../../../Types/index.ts';
 
 class SkyBlockMemberInventoriesBagsTalismanDecoded extends SkyBlockMemberInventoriesInventoryDecoded {
   magicalPower: number;

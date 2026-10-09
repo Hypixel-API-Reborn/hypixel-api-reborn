@@ -1,4 +1,4 @@
-import WarlordsClass from './WarlordsClass.js';
+import WarlordsClass from './WarlordsClass.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('WarlordsClass', () => {

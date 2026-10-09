@@ -1,4 +1,4 @@
-import SkyBlockMemberPlayerStatsSpookyFestival from './SkyBlockMemberPlayerStatsSpookyFestival.js';
+import SkyBlockMemberPlayerStatsSpookyFestival from './SkyBlockMemberPlayerStatsSpookyFestival.ts';
 
 class SkyBlockMemberPlayerStatsCandy {
   green: number;

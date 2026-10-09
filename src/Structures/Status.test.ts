@@ -1,5 +1,5 @@
-import Game from './Game.js';
-import Status from './Status.js';
+import Game from './Game.ts';
+import Status from './Status.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('Status', () => {

@@ -1,6 +1,6 @@
-import MegaWallsModeStats from './MegaWallsModeStats.js';
-import { Divide } from '../../../Utils/index.js';
-import type { MegaWallsKit } from '../../../Types/index.js';
+import MegaWallsModeStats from './MegaWallsModeStats.ts';
+import { Divide } from '../../../Utils/index.ts';
+import type { MegaWallsKit } from '../../../Types/index.ts';
 
 class MegaWallsKitStats {
   kills: number;

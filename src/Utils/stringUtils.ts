@@ -1,6 +1,6 @@
-import Errors from '../Errors.js';
-import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.js';
-import type { DuelsTitleName, DuelsTitleParsed } from '../Types/index.js';
+import Errors from '../Errors.ts';
+import HypixelAPIRebornError from '../Private/HypixelAPIRebornError.ts';
+import type { DuelsTitleName, DuelsTitleParsed } from '../Types/index.ts';
 
 export function Romanize(num: number | string): string {
   const digits = String(Number(num)).split('');

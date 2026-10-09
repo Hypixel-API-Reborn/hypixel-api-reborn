@@ -1,4 +1,4 @@
-import BlockingDead from './BlockingDead.js';
+import BlockingDead from './BlockingDead.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BlockingDead', () => {

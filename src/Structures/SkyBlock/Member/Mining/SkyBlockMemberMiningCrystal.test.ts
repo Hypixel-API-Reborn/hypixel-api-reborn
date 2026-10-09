@@ -1,4 +1,4 @@
-import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.js';
+import SkyBlockMemberMiningCrystal from './SkyBlockMemberMiningCrystal.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('SkyBlockMemberMiningCrystal', () => {

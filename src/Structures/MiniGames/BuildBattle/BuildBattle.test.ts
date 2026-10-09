@@ -1,8 +1,8 @@
-import BuildBattle from './BuildBattle.js';
-import BuildBattleLastWin from './BuildBattleLastWin.js';
-import BuildBattleVotes from './BuildBattleVotes.js';
-import Emblem from '../Shared/Emblem/Emblem.js';
-import LeaderboardSettings from '../Shared/LeaderboardSettings.js';
+import BuildBattle from './BuildBattle.ts';
+import BuildBattleLastWin from './BuildBattleLastWin.ts';
+import BuildBattleVotes from './BuildBattleVotes.ts';
+import Emblem from '../Shared/Emblem/Emblem.ts';
+import LeaderboardSettings from '../Shared/LeaderboardSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BuildBattleBackdrop,
@@ -17,7 +17,7 @@ import type {
   BuildBattleTitle,
   BuildBattleVictoryDance,
   ShopSort
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('BuildBattle', () => {
   const data = new BuildBattle({ stats: 'meow' });

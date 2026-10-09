@@ -1,8 +1,8 @@
-import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish.js';
-import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.js';
-import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.js';
+import SkyBlockMemberCrimsonIsleTrophyFish from './SkyBlockMemberCrimsonIsleTrophyFish.ts';
+import SkyBlockMemberCrimsonIsleTrophyFishCaught from './SkyBlockMemberCrimsonIsleTrophyFishCaught.ts';
+import SkyBlockMemberCrimsonIsleTrophyFishFish from './SkyBlockMemberCrimsonIsleTrophyFishFish.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/index.js';
+import type { CrimsonIsleTrophyFishRank } from '../../../../../Types/index.ts';
 
 test('SkyBlockMemberCrimsonIsleTrophyFish', () => {
   const data = new SkyBlockMemberCrimsonIsleTrophyFish({ stats: 'meow' });

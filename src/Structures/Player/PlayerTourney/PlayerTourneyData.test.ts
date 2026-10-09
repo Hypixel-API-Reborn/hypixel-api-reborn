@@ -1,4 +1,4 @@
-import PlayerTourneyData from './PlayerTourneyData.js';
+import PlayerTourneyData from './PlayerTourneyData.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerTourneyData', () => {

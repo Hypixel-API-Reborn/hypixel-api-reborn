@@ -1,4 +1,4 @@
-import FootBall from './FootBall.js';
+import FootBall from './FootBall.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('FootBall', () => {

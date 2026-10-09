@@ -1,4 +1,4 @@
-import DuelsCombo from './DuelsCombo.js';
+import DuelsCombo from './DuelsCombo.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('DuelsCombo', () => {

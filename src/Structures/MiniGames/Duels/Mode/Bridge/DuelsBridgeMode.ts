@@ -1,6 +1,6 @@
-import DuelsMode from '../DuelsMode.js';
-import { ParseModeBefore } from '../../../../../Utils/index.js';
-import type { DuelsModeBridgeId } from '../../../../../Types/index.js';
+import DuelsMode from '../DuelsMode.ts';
+import { ParseModeBefore } from '../../../../../Utils/index.ts';
+import type { DuelsModeBridgeId } from '../../../../../Types/index.ts';
 
 class DuelsBridgeMode extends DuelsMode {
   goals: number;

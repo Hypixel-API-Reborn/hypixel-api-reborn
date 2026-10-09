@@ -1,4 +1,4 @@
-import SkyBlockMemberPetsAutoPetRule from './SkyBlockMemberPetsAutoPetRule.js';
+import SkyBlockMemberPetsAutoPetRule from './SkyBlockMemberPetsAutoPetRule.ts';
 
 class SkyBlockMemberPetsAutoPets {
   rulesLimit: number;

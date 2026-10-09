@@ -1,5 +1,5 @@
-import { getPetLevel } from '../../../../Utils/index.js';
-import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.js';
+import { getPetLevel } from '../../../../Utils/index.ts';
+import type { PetLevelData, Rarity, SkyBlockPetId, UUID } from '../../../../Types/index.ts';
 
 class SkyBlockMemberPet {
   uuid: UUID;

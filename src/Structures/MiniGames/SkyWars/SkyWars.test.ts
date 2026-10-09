@@ -1,12 +1,12 @@
-import SkyWars from './SkyWars.js';
-import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.js';
-import SkyWarsMega from './SkyWarsMega/SkyWarsMega.js';
-import SkyWarsMini from './SkyWarsMini.js';
-import SkyWarsPrivateGames from './SkyWarsPrivateGames.js';
-import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.js';
-import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.js';
+import SkyWars from './SkyWars.ts';
+import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.ts';
+import SkyWarsMega from './SkyWarsMega/SkyWarsMega.ts';
+import SkyWarsMini from './SkyWarsMini.ts';
+import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
+import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.ts';
+import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { ShopSort } from '../../../Types/index.js';
+import type { ShopSort } from '../../../Types/index.ts';
 
 test('SkyWars', () => {
   const data = new SkyWars({ stats: 'meow' });

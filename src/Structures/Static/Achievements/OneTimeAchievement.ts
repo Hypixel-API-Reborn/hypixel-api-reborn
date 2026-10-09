@@ -1,4 +1,4 @@
-import BaseAchievement from './BaseAchievement.js';
+import BaseAchievement from './BaseAchievement.ts';
 
 class OneTimeAchievement extends BaseAchievement {
   points: number;

@@ -1,5 +1,5 @@
-import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.js';
-import type { BedWarsPracticeBridgingRecordsDistanceId } from '../../../../../Types/index.js';
+import BedWarsPracticeBridgingRecordsElevation from './BedWarsPracticeBridgingRecordsElevation.ts';
+import type { BedWarsPracticeBridgingRecordsDistanceId } from '../../../../../Types/index.ts';
 
 class BedWarsPracticeBridgingRecordsDistance {
   none: BedWarsPracticeBridgingRecordsElevation;

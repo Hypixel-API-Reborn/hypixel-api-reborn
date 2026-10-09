@@ -1,4 +1,4 @@
-import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.js';
+import SkyBlockMemberMiningHotmForgeItem from './SkyBlockMemberMiningHotmForgeItem.ts';
 
 class SkyBlockMemberMiningHotmForge {
   slot1: SkyBlockMemberMiningHotmForgeItem | null;

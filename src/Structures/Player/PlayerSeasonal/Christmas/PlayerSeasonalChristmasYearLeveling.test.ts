@@ -1,4 +1,4 @@
-import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.js';
+import PlayerSeasonalChristmasYearLeveling from './PlayerSeasonalChristmasYearLeveling.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('PlayerSeasonalChristmasYearLeveling', () => {

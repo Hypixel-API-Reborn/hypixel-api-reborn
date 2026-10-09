@@ -1,11 +1,11 @@
-import SkyBlockMemberCrimsonIsleAbiphone from './SkyBlockMemberCrimsonIsleAbiphone.js';
+import SkyBlockMemberCrimsonIsleAbiphone from './SkyBlockMemberCrimsonIsleAbiphone.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   AbiphoneContact,
   AbiphoneContactSort,
   CrimsonIsleRingtone,
   RawAbiphoneData
-} from '../../../../Types/index.js';
+} from '../../../../Types/index.ts';
 
 test('SkyBlockMemberCrimsonIsleAbiphone', () => {
   const data = new SkyBlockMemberCrimsonIsleAbiphone({ stats: 'meow' });

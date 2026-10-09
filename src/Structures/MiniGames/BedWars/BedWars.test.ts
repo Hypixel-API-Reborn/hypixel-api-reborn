@@ -1,9 +1,9 @@
-import BedWars from './BedWars.js';
-import BedWarsBoxes from './BedWarsBoxes.js';
-import BedWarsFavorites from './BedWarsFavorites.js';
-import BedWarsFigurines from './BedWarsFigurines.js';
-import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.js';
-import BedWarsSettings from './BedWarsSettings.js';
+import BedWars from './BedWars.ts';
+import BedWarsBoxes from './BedWarsBoxes.ts';
+import BedWarsFavorites from './BedWarsFavorites.ts';
+import BedWarsFigurines from './BedWarsFigurines.ts';
+import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.ts';
+import BedWarsSettings from './BedWarsSettings.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
   BedWarsBedDestroy,
@@ -23,7 +23,7 @@ import type {
   BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
-} from '../../../Types/index.js';
+} from '../../../Types/index.ts';
 
 test('BedWars', () => {
   const data = new BedWars({ stats: 'meow' });

@@ -1,7 +1,7 @@
-import BedWarsBeds from './BedWarsBeds.js';
-import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.js';
-import BedWarsMode from './BedWarsMode.js';
-import BedWarsResourcesCollected from './BedWarsResourcesCollected.js';
+import BedWarsBeds from './BedWarsBeds.ts';
+import BedWarsKillsDeaths from './BedWarsKillsDeaths/BedWarsKillsDeaths.ts';
+import BedWarsMode from './BedWarsMode.ts';
+import BedWarsResourcesCollected from './BedWarsResourcesCollected.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
 test('BedWarsMode', () => {

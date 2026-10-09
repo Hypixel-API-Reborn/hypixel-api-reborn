@@ -1,5 +1,5 @@
-import SkyBlockMuseumMember from './SkyBlockMuseumMember.js';
-import type { UUID } from '../../../Types/index.js';
+import SkyBlockMuseumMember from './SkyBlockMuseumMember.ts';
+import type { UUID } from '../../../Types/index.ts';
 
 class SkyBlockMuseum {
   members: Record<UUID, SkyBlockMuseumMember>;
