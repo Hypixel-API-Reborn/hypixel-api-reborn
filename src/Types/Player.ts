@@ -3127,7 +3127,7 @@ export const BedWarsUltimates = [
   'SWORDSMAN'
 ] as const;
 export type BedWarsUltimate = (typeof BedWarsUltimates)[number];
-export const BedWarsBedDestroys = [
+export const BedWarsPackageBedDestroys = [
   'beddestroy_bedbugs',
   'beddestroy_blizzard',
   'beddestroy_burned_up',
@@ -3149,9 +3149,10 @@ export const BedWarsBedDestroys = [
   'beddestroy_stormy',
   'beddestroy_thief',
   'beddestroy_tornado',
-  'beddestroy_water_spout'
+  'beddestroy_water_spout',
+  'beddestroy_uncraft'
 ] as const;
-export type BedWarsBedDestroy = (typeof BedWarsBedDestroys)[number];
+export type BedWarsPackageBedDestroy = (typeof BedWarsPackageBedDestroys)[number];
 export const BedWarsPackageChallenges = [
   'bw_challenge_archer_only_collected',
   'bw_challenge_assassin_collected',
@@ -3182,10 +3183,19 @@ export const BedWarsPackageChallenges = [
   'bw_challenge_stop_light_collected',
   'bw_challenge_toxic_rain_collected',
   'bw_challenge_weighted_items_collected',
-  'bw_challenge_woodworker_collected'
+  'bw_challenge_woodworker_collected',
+  'bw_challenge_anchor_collected',
+  'bw_challenge_beds_and_bloodlust_collected',
+  'bw_challenge_block_repellent_beds_collected',
+  'bw_challenge_midnight_collected',
+  'bw_challenge_no_dreaming_collected',
+  'bw_challenge_quick_maths_collected',
+  'bw_challenge_wool_warrior_collected',
+  'bw_challenge_beg_and_barter_collected',
+  'bw_challenge_halved_and_doubled_collected'
 ] as const;
 export type BedWarsPackageChallenge = (typeof BedWarsPackageChallenges)[number];
-export const BedWarsDeathCrys = [
+export const BedWarsPackageDeathCrys = [
   'deathcry_arcade',
   'deathcry_aww',
   'deathcry_bat',
@@ -3222,10 +3232,12 @@ export const BedWarsDeathCrys = [
   'deathcry_sniff',
   'deathcry_splash',
   'deathcry_squeak',
-  'deathcry_squeal'
+  'deathcry_squeal',
+  'deathcry_carol',
+  'deathcry_evil_laugh'
 ] as const;
-export type BedWarsDeathCry = (typeof BedWarsDeathCrys)[number];
-export const BedWarsFavoriteMaps = [
+export type BedWarsPackageDeathCry = (typeof BedWarsPackageDeathCrys)[number];
+export const BedWarsPackageFavoriteMaps = [
   'favoritemap_acropolis',
   'favoritemap_aetius',
   'favoritemap_airshow',
@@ -3421,10 +3433,27 @@ export const BedWarsFavoriteMaps = [
   'favoritemap_yandi',
   'favoritemap_yue',
   'favoritemap_zarzul',
-  'favoritemap_zen plaza'
+  'favoritemap_zen plaza',
+  'favoritemap_acropora',
+  'favoritemap_atlas prime',
+  'favoritemap_beldam',
+  'favoritemap_clutch',
+  'favoritemap_echo ruins',
+  'favoritemap_gingerbread town',
+  'favoritemap_gone fishing',
+  'favoritemap_haven',
+  'favoritemap_lasagne',
+  'favoritemap_manor royale',
+  'favoritemap_pantheon',
+  'favoritemap_shipment',
+  'favoritemap_shipwreck',
+  'favoritemap_slothmas',
+  'favoritemap_station',
+  'favoritemap_carrot patch',
+  "favoritemap_witch's bog"
 ] as const;
-export type BedWarsFavoriteMap = (typeof BedWarsFavoriteMaps)[number];
-export const BedwarsFigurines = [
+export type BedWarsPackageFavoriteMap = (typeof BedWarsPackageFavoriteMaps)[number];
+export const BedWarsPackageFigurines = [
   'figurine_alchemy',
   'figurine_alex',
   'figurine_blitz_star',
@@ -3479,8 +3508,8 @@ export const BedwarsFigurines = [
   'figurine_top_killer',
   'figurine_zombie'
 ] as const;
-export type BedwarsFigurine = (typeof BedwarsFigurines)[number];
-export const BedWarsGlyphs = [
+export type BedWarsPackageFigurine = (typeof BedWarsPackageFigurines)[number];
+export const BedWarsPackageGlyphs = [
   'glyph_angry_face',
   'glyph_bat',
   'glyph_bauble',
@@ -3594,10 +3623,13 @@ export const BedWarsGlyphs = [
   'glyph_winky_face',
   'glyph_witch_hat',
   'glyph_wreath',
-  'glyph_yes'
+  'glyph_yes',
+  'glyph_candy_cane_duo',
+  'glyph_diagonal_candy_cane',
+  'glyph_large_bow'
 ] as const;
-export type BedWarsGlyph = (typeof BedWarsGlyphs)[number];
-export const BedWarsIslandToppers = [
+export type BedWarsPackageGlyphe = (typeof BedWarsPackageGlyphs)[number];
+export const BedWarsPackageIslandToppers = [
   'islandtopper_angel',
   'islandtopper_assassin',
   'islandtopper_assassin_sword',
@@ -3761,10 +3793,24 @@ export const BedWarsIslandToppers = [
   'islandtopper_witch_house',
   'islandtopper_witchs_potion',
   'islandtopper_yin_and_yang',
-  'islandtopper_zombiehand'
+  'islandtopper_zombiehand',
+  'islandtopper_bigcarrot',
+  'islandtopper_candy_cane_factory',
+  'islandtopper_eggtower',
+  'islandtopper_firework_popsicle',
+  'islandtopper_holly_gingerbread_house',
+  'islandtopper_horse',
+  'islandtopper_killer',
+  'islandtopper_rainbow_popsicle',
+  'islandtopper_rudolph',
+  'islandtopper_skeleton_skull',
+  'islandtopper_slender',
+  'islandtopper_sloth_in_the_box',
+  'islandtopper_wither_skeleton_skull',
+  'islandtopper_yellow_popsicle'
 ] as const;
-export type BedWarsIslandTopper = (typeof BedWarsIslandToppers)[number];
-export const BedWarsKillEffects = [
+export type BedWarsPackageIslandTopper = (typeof BedWarsPackageIslandToppers)[number];
+export const BedWarsPackageKillEffects = [
   'killeffect_after_life',
   'killeffect_anvil_smash',
   'killeffect_balloons',
@@ -3835,8 +3881,8 @@ export const BedWarsKillEffects = [
   'killeffect_witch_ritual',
   'killeffect_xp_orb'
 ] as const;
-export type BedWarsKillEffect = (typeof BedWarsKillEffects)[number];
-export const BedWarsKillMessages = [
+export type BedWarsPackageKillEffect = (typeof BedWarsPackageKillEffects)[number];
+export const BedWarsPackageKillMessagese = [
   'killmessages_bbq',
   'killmessages_bridging_for_dummies',
   'killmessages_buzz',
@@ -3867,10 +3913,11 @@ export const BedWarsKillMessages = [
   'killmessages_to_the_moon',
   'killmessages_western',
   'killmessages_woof_woof',
-  'killmessages_wrapped_up'
+  'killmessages_wrapped_up',
+  'killmessages_lucid'
 ] as const;
-export type BedWarsKillMessage = (typeof BedWarsKillMessages)[number];
-export const BedWarsNPCSkins = [
+export type BedWarsPackageKillMessage = (typeof BedWarsPackageKillMessagese)[number];
+export const BedWarsPackageNPCSkins = [
   'npcskin_aqua_duck_pajamas',
   'npcskin_astronaut',
   'npcskin_bao',
@@ -3957,10 +4004,22 @@ export const BedWarsNPCSkins = [
   'npcskin_you',
   'npcskin_zhao',
   'npcskin_zombie',
-  'npcskin_zombie_pigman'
+  'npcskin_zombie_pigman',
+  'npcskin_clockbots',
+  'npcskin_cow_pyramid',
+  'npcskin_everyman',
+  'npcskin_ginger',
+  'npcskin_invisible',
+  'npcskin_red_presents_shopkeeper_skin',
+  'npcskin_skull_stack',
+  'npcskin_you_upside_down',
+  'npcskin_blaze_stack',
+  'npcskin_piglin',
+  'npcskin_strider',
+  'npcskin_yin_yang'
 ] as const;
-export type BedWarsNPCSkin = (typeof BedWarsNPCSkins)[number];
-export const BedWarsProjectileTrails = [
+export type BedWarsPackageNPCSkin = (typeof BedWarsPackageNPCSkins)[number];
+export const BedWarsPackageProjectileTrails = [
   'projectileTrail_Jack_O_Lantern_Trail',
   'projectileTrail_angry_villager',
   'projectileTrail_bee',
@@ -4076,10 +4135,12 @@ export const BedWarsProjectileTrails = [
   'projectiletrail_water',
   'projectiletrail_white_smoke',
   'projectiletrail_wingman',
-  'projectiletrail_wisp_whirlwind'
+  'projectiletrail_wisp_whirlwind',
+  'projectiletrail_arrow_spiral',
+  'projectiletrail_water_sprinkler'
 ] as const;
-export type BedWarsProjectileTrail = (typeof BedWarsProjectileTrails)[number];
-export const BedWarsSprays = [
+export type BedWarsPackageProjectileTrail = (typeof BedWarsPackageProjectileTrails)[number];
+export const BedWarsPackageSprays = [
   'sprays_angelic_jerry',
   'sprays_angry_cow',
   'sprays_angry_turkey',
@@ -4228,10 +4289,26 @@ export const BedWarsSprays = [
   'sprays_year_of_the_rabbit',
   'sprays_year_of_the_rat',
   'sprays_year_of_the_snake',
-  'sprays_year_of_the_tiger'
+  'sprays_year_of_the_tiger',
+  'sprays_bubblegum_jerry',
+  'sprays_candles',
+  'sprays_carrot_minion',
+  'sprays_deadly_sundae',
+  'sprays_dragon_trophy',
+  'sprays_golden_carrot_cake',
+  'sprays_jerrys_workshop',
+  'sprays_joyride',
+  'sprays_lei',
+  'sprays_naughty_list_certificate',
+  'sprays_skyblock_winter',
+  'sprays_sloth_santa',
+  'sprays_sparklers',
+  'sprays_ugly_easter_sweater',
+  'sprays_ugly_spooky_sweater',
+  'sprays_wither_spectre_bestiary'
 ] as const;
-export type BedWarsSpray = (typeof BedWarsSprays)[number];
-export const BedWarsVictoryDances = [
+export type BedWarsPackageSpray = (typeof BedWarsPackageSprays)[number];
+export const BedWarsPackageVictoryDances = [
   'victorydance_abominable_snowman',
   'victorydance_anvil_rain',
   'victorydance_aura',
@@ -4280,20 +4357,124 @@ export const BedWarsVictoryDances = [
   'victorydance_twerk_apocalypse',
   'victorydance_winter_twister',
   'victorydance_wither_rider',
-  'victorydance_yeehaw'
+  'victorydance_yeehaw',
+  'victorydance_anvil_ascension',
+  'victorydance_chicken_apocalypse',
+  'victorydance_insomnia',
+  'victorydance_woolnado'
 ] as const;
-export type BedWarsVictoryDance = (typeof BedWarsVictoryDances)[number];
-export const BedWarsWoodSkins = [
+export type BedWarsPackageVictoryDance = (typeof BedWarsPackageVictoryDances)[number];
+export const BedWarsPackageWoodSkins = [
   'woodskin_acacia_log',
   'woodskin_birch_log',
   'woodskin_dark_oak_log',
   'woodskin_jungle_log',
   'woodskin_oak_log',
-  'woodskin_spruce_log'
+  'woodskin_spruce_log',
+  'woodSkin_birch_log',
+  'woodSkin_jungle_log',
+  'woodSkin_oak_log'
 ] as const;
-export type BedWarsWoodSkin = (typeof BedWarsWoodSkins)[number];
-export const BedWarsStartingWeapons = ['starting_weapon_golden_sword', 'starting_weapon_wooden_sword'] as const;
-export type BedWarsStartingWeapon = (typeof BedWarsStartingWeapons)[number];
+export type BedWarsPackageWoodSkin = (typeof BedWarsPackageWoodSkins)[number];
+export const BedWarsPackageStartingWeapons = ['starting_weapon_golden_sword', 'starting_weapon_wooden_sword'] as const;
+export type BedWarsPackageStartingWeapon = (typeof BedWarsPackageStartingWeapons)[number];
+export const BedWarsPackagePrestigeBrackets = [
+  'prestige_bracket_double_angle_quotation_mark',
+  'prestige_bracket_parenthesis'
+] as const;
+export type BedWarsPackagePrestigeBracket = (typeof BedWarsPackagePrestigeBrackets)[number];
+export const BedWarsPackagePrestigeSchemes = [
+  'prestige_scheme_air',
+  'prestige_scheme_allay',
+  'prestige_scheme_amethyst',
+  'prestige_scheme_amethyst_prime',
+  'prestige_scheme_andesine',
+  'prestige_scheme_atomic',
+  'prestige_scheme_autumn',
+  'prestige_scheme_bittersweet',
+  'prestige_scheme_blaze',
+  'prestige_scheme_blended',
+  'prestige_scheme_brust',
+  'prestige_scheme_bubblegum',
+  'prestige_scheme_burnout',
+  'prestige_scheme_comical',
+  'prestige_scheme_contrast',
+  'prestige_scheme_cooldown',
+  'prestige_scheme_corn',
+  'prestige_scheme_creeper',
+  'prestige_scheme_crystal',
+  'prestige_scheme_crystal_prime',
+  'prestige_scheme_dawn',
+  'prestige_scheme_diamond',
+  'prestige_scheme_diamond_prime',
+  'prestige_scheme_drowned',
+  'prestige_scheme_dusk',
+  'prestige_scheme_earth',
+  'prestige_scheme_eclipse',
+  'prestige_scheme_element',
+  'prestige_scheme_emerald',
+  'prestige_scheme_emerald_prime',
+  'prestige_scheme_ender',
+  'prestige_scheme_enderman',
+  'prestige_scheme_eternal',
+  'prestige_scheme_fire',
+  'prestige_scheme_frog',
+  'prestige_scheme_galaxy',
+  'prestige_scheme_gamma',
+  'prestige_scheme_ghast',
+  'prestige_scheme_gold',
+  'prestige_scheme_gold_prime',
+  'prestige_scheme_ice',
+  'prestige_scheme_iron',
+  'prestige_scheme_iron_prime',
+  'prestige_scheme_light',
+  'prestige_scheme_luminous',
+  'prestige_scheme_lusterlost',
+  'prestige_scheme_maelstrom',
+  'prestige_scheme_majestic',
+  'prestige_scheme_marine',
+  'prestige_scheme_mirror',
+  'prestige_scheme_mystic',
+  'prestige_scheme_nebula',
+  'prestige_scheme_none',
+  'prestige_scheme_obliteration',
+  'prestige_scheme_obsidian',
+  'prestige_scheme_opal',
+  'prestige_scheme_opal_prime',
+  'prestige_scheme_pop',
+  'prestige_scheme_rainbow',
+  'prestige_scheme_ruby',
+  'prestige_scheme_ruby_prime',
+  'prestige_scheme_sapphire',
+  'prestige_scheme_sapphire_prime',
+  'prestige_scheme_spinel',
+  'prestige_scheme_spring',
+  'prestige_scheme_summer',
+  'prestige_scheme_sunrise',
+  'prestige_scheme_sunset',
+  'prestige_scheme_sweetsour',
+  'prestige_scheme_thunder',
+  'prestige_scheme_time',
+  'prestige_scheme_time_undone',
+  'prestige_scheme_tortilla',
+  'prestige_scheme_umbrella',
+  'prestige_scheme_water',
+  'prestige_scheme_wind',
+  'prestige_scheme_winter'
+] as const;
+export type BedWarsPackagePrestigeScheme = (typeof BedWarsPackagePrestigeSchemes)[number];
+export const BedWarsPackageStars = [
+  'star_black_open',
+  'star_black_outlined',
+  'star_four_clubs',
+  'star_four_pointed',
+  'star_hollow',
+  'star_nautical',
+  'star_pinwheel',
+  'star_white_circled',
+  'star_white_outlined'
+] as const;
+export type BedWarsPackageStar = (typeof BedWarsPackageStars)[number];
 export const BedWarsPackages = [
   '5_percent_multiplier_tournament',
   'capture_book_0',
@@ -4303,21 +4484,24 @@ export const BedWarsPackages = [
   'tiered_achievement_flag_3',
   'tiered_achievement_flag_4',
   'v14_book',
-  ...BedWarsBedDestroys,
+  ...BedWarsPackageBedDestroys,
   ...BedWarsPackageChallenges,
-  ...BedWarsDeathCrys,
-  ...BedWarsFavoriteMaps,
-  ...BedwarsFigurines,
-  ...BedWarsGlyphs,
-  ...BedWarsIslandToppers,
-  ...BedWarsKillEffects,
-  ...BedWarsKillMessages,
-  ...BedWarsNPCSkins,
-  ...BedWarsProjectileTrails,
-  ...BedWarsSprays,
-  ...BedWarsVictoryDances,
-  ...BedWarsWoodSkins,
-  ...BedWarsStartingWeapons
+  ...BedWarsPackageDeathCrys,
+  ...BedWarsPackageFavoriteMaps,
+  ...BedWarsPackageFigurines,
+  ...BedWarsPackageGlyphs,
+  ...BedWarsPackageIslandToppers,
+  ...BedWarsPackageKillEffects,
+  ...BedWarsPackageKillMessagese,
+  ...BedWarsPackageNPCSkins,
+  ...BedWarsPackageProjectileTrails,
+  ...BedWarsPackageSprays,
+  ...BedWarsPackageVictoryDances,
+  ...BedWarsPackageWoodSkins,
+  ...BedWarsPackageStartingWeapons,
+  ...BedWarsPackagePrestigeBrackets,
+  ...BedWarsPackagePrestigeSchemes,
+  ...BedWarsPackageStars
 ] as const;
 export type BedWarsPackage = (typeof BedWarsPackages)[number];
 export const PlayerGenericSelectedCosmetics = ['random_cosmetic', 'random_favorite_cosmetic'] as const;

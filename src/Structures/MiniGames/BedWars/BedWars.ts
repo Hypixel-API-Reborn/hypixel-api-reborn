@@ -12,21 +12,22 @@ import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.ts';
 import BedWarsTwoFour from './BedWarsTwoFour.ts';
 import { BedWarsPrestigeRequirements } from '../../../Utils/index.ts';
 import type {
-  BedWarsBedDestroy,
-  BedWarsDeathCry,
-  BedWarsGlyph,
-  BedWarsIslandTopper,
-  BedWarsKillEffect,
-  BedWarsKillMessage,
-  BedWarsNPCSkin,
+  BedWarsPackage,
+  BedWarsPackageBedDestroy,
+  BedWarsPackageDeathCry,
+  BedWarsPackageGlyphe,
+  BedWarsPackageIslandTopper,
+  BedWarsPackageKillEffect,
+  BedWarsPackageKillMessage,
+  BedWarsPackageNPCSkin,
+  BedWarsPackageProjectileTrail,
+  BedWarsPackageSpray,
+  BedWarsPackageStartingWeapon,
+  BedWarsPackageVictoryDance,
+  BedWarsPackageWoodSkin,
   BedWarsPrestige,
-  BedWarsProjectileTrail,
   BedWarsQuickbuyPrivacy,
-  BedWarsSpray,
-  BedWarsStartingWeapon,
   BedWarsUltimate,
-  BedWarsVictoryDance,
-  BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
 } from '../../../Types/index.ts';
@@ -35,22 +36,22 @@ class BedWars extends BedWarsMode {
   experience: number;
   level: number;
   prestige: BedWarsPrestige;
-  activeBedDestroy: BedWarsBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeDeathCry: BedWarsDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeGlyph: BedWarsGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeIslandTopper: BedWarsIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeKillEffect: BedWarsKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeKillMessages: BedWarsKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeNPCSkin: BedWarsNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeProjectileTrail: BedWarsProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeSprays: BedWarsSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeVictoryDance: BedWarsVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeWoodType: BedWarsWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
-  activeStartingWeapon: BedWarsStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeBedDestroy: BedWarsPackageBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeDeathCry: BedWarsPackageDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeGlyph: BedWarsPackageGlyphe | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeIslandTopper: BedWarsPackageIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeKillEffect: BedWarsPackageKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeKillMessages: BedWarsPackageKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeNPCSkin: BedWarsPackageNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeProjectileTrail: BedWarsPackageProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeSprays: BedWarsPackageSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeVictoryDance: BedWarsPackageVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeWoodType: BedWarsPackageWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN';
+  activeStartingWeapon: BedWarsPackageStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN';
   tokens: number;
   firstJoin7: boolean;
   glyphStorage: string[];
-  packages: string[];
+  packages: BedWarsPackage[];
   quickbuyPrivacy: BedWarsQuickbuyPrivacy;
   seenBetaMenu: boolean;
   selectedUltimate: BedWarsUltimate | 'UNKNOWN';
