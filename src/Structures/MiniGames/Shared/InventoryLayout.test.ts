@@ -3,7 +3,7 @@ import { expect, expectTypeOf, test } from 'vitest';
 
 test('InventoryLayout', () => {
   const data = new InventoryLayout({ stats: 'meow' });
-  expect(data).toBeUndefined();
+  expect(data).toBeDefined();
   expect(data).toBeInstanceOf(InventoryLayout);
   expectTypeOf(data).toEqualTypeOf<InventoryLayout>();
   expect(data.slot0).toBeUndefined();
