@@ -43,10 +43,10 @@ test('ZombiesMap', () => {
   expect(data.zombieKills).toBeDefined();
   expect(data.zombieKills).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.zombieKills).toEqualTypeOf<number>();
-  expect(data.normal).toBeDefined();
+  expect(data.normal).toBeUndefined();
   expectTypeOf(data.normal).toEqualTypeOf<ZombiesMapMode | undefined>();
-  expect(data.hard).toBeDefined();
+  expect(data.hard).toBeUndefined();
   expectTypeOf(data.hard).toEqualTypeOf<ZombiesMapMode | undefined>();
-  expect(data.rip).toBeDefined();
+  expect(data.rip).toBeUndefined();
   expectTypeOf(data.rip).toEqualTypeOf<ZombiesMapMode | undefined>();
 });
