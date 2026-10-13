@@ -46,8 +46,8 @@ import BedWarsSlumberQuest from './Structures/MiniGames/BedWars/BedWarsSlumber/B
 import BedWarsSlumberQuestGamblerGeorge from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestGamblerGeorge.ts';
 import BedWarsSlumberQuestItem from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestItem.ts';
 import BedWarsSlumberQuestNPC from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPC.ts';
-import BedWarsSlumberQuestNPCSBoolean from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCSBoolean.ts';
-import BedWarsSlumberQuestNPCSNumber from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCSNumber.ts';
+import BedWarsSlumberQuestNPCData from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCData.ts';
+import BedWarsSlumberQuestNPCTalked from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestNPCTalked.ts';
 import BedWarsSlumberQuestObjective from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberQuest/BedWarsSlumberQuestObjective.ts';
 import BedWarsSlumberRoom from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberRoom.ts';
 import BedWarsSlumberSandman from './Structures/MiniGames/BedWars/BedWarsSlumber/BedWarsSlumberSandman.ts';
@@ -502,8 +502,8 @@ export {
   BedWarsSlumberQuestGamblerGeorge,
   BedWarsSlumberQuestItem,
   BedWarsSlumberQuestNPC,
-  BedWarsSlumberQuestNPCSBoolean,
-  BedWarsSlumberQuestNPCSNumber,
+  BedWarsSlumberQuestNPCData,
+  BedWarsSlumberQuestNPCTalked,
   BedWarsSlumberQuestObjective,
   BedWarsSlumberRoom,
   BedWarsSlumberSandman,
@@ -956,8 +956,8 @@ export default {
   BedWarsSlumberQuestGamblerGeorge,
   BedWarsSlumberQuestItem,
   BedWarsSlumberQuestNPC,
-  BedWarsSlumberQuestNPCSBoolean,
-  BedWarsSlumberQuestNPCSNumber,
+  BedWarsSlumberQuestNPCData,
+  BedWarsSlumberQuestNPCTalked,
   BedWarsSlumberQuestObjective,
   BedWarsSlumberRoom,
   BedWarsSlumberSandman,

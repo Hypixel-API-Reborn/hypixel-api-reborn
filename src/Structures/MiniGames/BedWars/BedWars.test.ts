@@ -1,26 +1,34 @@
 import BedWars from './BedWars.ts';
 import BedWarsBoxes from './BedWarsBoxes.ts';
+import BedWarsEightOne from './BedWarsEightOne.ts';
+import BedWarsEightTwo from './BedWarsEightTwo.ts';
 import BedWarsFavorites from './BedWarsFavorites.ts';
 import BedWarsFigurines from './BedWarsFigurines.ts';
+import BedWarsFourFour from './BedWarsFourFour.ts';
+import BedWarsFourThree from './BedWarsFourThree.ts';
+import BedWarsMode from './BedWarsMode.ts';
 import BedWarsPrivateGameSettings from './BedWarsPrivateGameSettings.ts';
 import BedWarsSettings from './BedWarsSettings.ts';
+import BedWarsSlumber from './BedWarsSlumber/BedWarsSlumber.ts';
+import BedWarsTwoFour from './BedWarsTwoFour.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type {
-  BedWarsBedDestroy,
-  BedWarsDeathCry,
-  BedWarsGlyph,
-  BedWarsIslandTopper,
-  BedWarsKillEffect,
-  BedWarsKillMessage,
-  BedWarsNPCSkin,
+  BedWarsPackage,
+  BedWarsPackageBedDestroy,
+  BedWarsPackageDeathCry,
+  BedWarsPackageGlyphe,
+  BedWarsPackageIslandTopper,
+  BedWarsPackageKillEffect,
+  BedWarsPackageKillMessage,
+  BedWarsPackageNPCSkin,
+  BedWarsPackageProjectileTrail,
+  BedWarsPackageSpray,
+  BedWarsPackageStartingWeapon,
+  BedWarsPackageVictoryDance,
+  BedWarsPackageWoodSkin,
   BedWarsPrestige,
-  BedWarsProjectileTrail,
   BedWarsQuickbuyPrivacy,
-  BedWarsSpray,
-  BedWarsStartingWeapon,
   BedWarsUltimate,
-  BedWarsVictoryDance,
-  BedWarsWoodSkin,
   PlayerGenericSelectedCosmetic,
   ShopSort
 } from '../../../Types/index.ts';
@@ -39,36 +47,42 @@ test('BedWars', () => {
   expect(data.prestige).toBeDefined();
   expectTypeOf(data.prestige).toEqualTypeOf<BedWarsPrestige>();
   expect(data.activeBedDestroy).toBeDefined();
-  expectTypeOf(data.activeBedDestroy).toEqualTypeOf<BedWarsBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeBedDestroy).toEqualTypeOf<
+    BedWarsPackageBedDestroy | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.activeDeathCry).toBeDefined();
-  expectTypeOf(data.activeDeathCry).toEqualTypeOf<BedWarsDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeDeathCry).toEqualTypeOf<BedWarsPackageDeathCry | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeGlyph).toBeDefined();
-  expectTypeOf(data.activeGlyph).toEqualTypeOf<BedWarsGlyph | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeGlyph).toEqualTypeOf<BedWarsPackageGlyphe | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeIslandTopper).toBeDefined();
   expectTypeOf(data.activeIslandTopper).toEqualTypeOf<
-    BedWarsIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+    BedWarsPackageIslandTopper | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeKillEffect).toBeDefined();
-  expectTypeOf(data.activeKillEffect).toEqualTypeOf<BedWarsKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeKillEffect).toEqualTypeOf<
+    BedWarsPackageKillEffect | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.activeKillMessages).toBeDefined();
-  expectTypeOf(data.activeKillMessages).toEqualTypeOf<BedWarsKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeKillMessages).toEqualTypeOf<
+    BedWarsPackageKillMessage | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+  >();
   expect(data.activeNPCSkin).toBeDefined();
-  expectTypeOf(data.activeNPCSkin).toEqualTypeOf<BedWarsNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeNPCSkin).toEqualTypeOf<BedWarsPackageNPCSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeProjectileTrail).toBeDefined();
   expectTypeOf(data.activeProjectileTrail).toEqualTypeOf<
-    BedWarsProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+    BedWarsPackageProjectileTrail | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeSprays).toBeDefined();
-  expectTypeOf(data.activeSprays).toEqualTypeOf<BedWarsSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeSprays).toEqualTypeOf<BedWarsPackageSpray | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeVictoryDance).toBeDefined();
   expectTypeOf(data.activeVictoryDance).toEqualTypeOf<
-    BedWarsVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+    BedWarsPackageVictoryDance | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.activeWoodType).toBeDefined();
-  expectTypeOf(data.activeWoodType).toEqualTypeOf<BedWarsWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
+  expectTypeOf(data.activeWoodType).toEqualTypeOf<BedWarsPackageWoodSkin | PlayerGenericSelectedCosmetic | 'UNKNOWN'>();
   expect(data.activeStartingWeapon).toBeDefined();
   expectTypeOf(data.activeStartingWeapon).toEqualTypeOf<
-    BedWarsStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN'
+    BedWarsPackageStartingWeapon | PlayerGenericSelectedCosmetic | 'UNKNOWN'
   >();
   expect(data.tokens).toBeDefined();
   expect(data.tokens).toBeGreaterThanOrEqual(0);
@@ -78,7 +92,7 @@ test('BedWars', () => {
   expect(data.glyphStorage).toBeDefined();
   expectTypeOf(data.glyphStorage).toEqualTypeOf<string[]>();
   expect(data.packages).toBeDefined();
-  expectTypeOf(data.packages).toEqualTypeOf<string[]>();
+  expectTypeOf(data.packages).toEqualTypeOf<BedWarsPackage[]>();
   expect(data.quickbuyPrivacy).toBeDefined();
   expectTypeOf(data.quickbuyPrivacy).toEqualTypeOf<BedWarsQuickbuyPrivacy>();
   expect(data.seenBetaMenu).toBeDefined();
@@ -117,4 +131,25 @@ test('BedWars', () => {
   expect(data.settings).toBeDefined();
   expect(data.settings).toBeInstanceOf(BedWarsSettings);
   expectTypeOf(data.settings).toEqualTypeOf<BedWarsSettings>();
+  expect(data.eightOne).toBeDefined();
+  expect(data.eightOne).toBeInstanceOf(BedWarsEightOne);
+  expectTypeOf(data.eightOne).toEqualTypeOf<BedWarsEightOne>();
+  expect(data.eightTwo).toBeDefined();
+  expect(data.eightTwo).toBeInstanceOf(BedWarsEightTwo);
+  expectTypeOf(data.eightTwo).toEqualTypeOf<BedWarsEightTwo>();
+  expect(data.fourThree).toBeDefined();
+  expect(data.fourThree).toBeInstanceOf(BedWarsFourThree);
+  expectTypeOf(data.fourThree).toEqualTypeOf<BedWarsFourThree>();
+  expect(data.fourFour).toBeDefined();
+  expect(data.fourFour).toBeInstanceOf(BedWarsFourFour);
+  expectTypeOf(data.fourFour).toEqualTypeOf<BedWarsFourFour>();
+  expect(data.twoFour).toBeDefined();
+  expect(data.twoFour).toBeInstanceOf(BedWarsTwoFour);
+  expectTypeOf(data.twoFour).toEqualTypeOf<BedWarsTwoFour>();
+  expect(data.castle).toBeDefined();
+  expect(data.castle).toBeInstanceOf(BedWarsMode);
+  expectTypeOf(data.castle).toEqualTypeOf<BedWarsMode>();
+  expect(data.slumber).toBeDefined();
+  expect(data.slumber).toBeInstanceOf(BedWarsSlumber);
+  expectTypeOf(data.slumber).toEqualTypeOf<BedWarsSlumber>();
 });

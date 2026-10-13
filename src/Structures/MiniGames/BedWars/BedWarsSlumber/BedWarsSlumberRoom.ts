@@ -1,4 +1,20 @@
 class BedWarsSlumberRoom {
+  oasis: boolean;
+  pyramid: boolean;
+  hammer: boolean;
+  housing: boolean;
+  executives: boolean;
+  rooftop: boolean;
+  arcade: boolean;
+  skyblock: boolean;
+  quiz: boolean;
+  moon: boolean;
+  limbo: boolean;
+  garage: boolean;
+  blitz: boolean;
+  concert: boolean;
+  inspector: boolean;
+  intricate: boolean;
   ownersOffice: boolean;
   room1: boolean;
   room2: boolean;
@@ -13,6 +29,22 @@ class BedWarsSlumberRoom {
   room11: boolean;
   room12: boolean;
   constructor(data: Record<string, any>) {
+    this.oasis = data?.room_oasis ?? false;
+    this.pyramid = data?.room_pyramid ?? false;
+    this.hammer = data?.room_hammer ?? false;
+    this.housing = data?.room_housing ?? false;
+    this.executives = data?.room_executives ?? false;
+    this.rooftop = data?.room_rooftop ?? false;
+    this.arcade = data?.room_arcade ?? false;
+    this.skyblock = data?.room_skyblock ?? false;
+    this.quiz = data?.room_quiz ?? false;
+    this.moon = data?.room_moon ?? false;
+    this.limbo = data?.room_limbo ?? false;
+    this.garage = data?.room_garage ?? false;
+    this.blitz = data?.room_blitz ?? false;
+    this.concert = data?.room_concert ?? false;
+    this.inspector = data?.room_inspector ?? false;
+    this.intricate = data?.room_intricate ?? false;
     this.ownersOffice = data?.owners_office ?? false;
     this.room1 = data?.room_1 ?? false;
     this.room2 = data?.room_2 ?? false;

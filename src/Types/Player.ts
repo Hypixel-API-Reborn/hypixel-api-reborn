@@ -3114,6 +3114,57 @@ export const BedWarsSlumberBags = [
   'PLATINUM_MEMBERSHIP_WALLET'
 ] as const;
 export type BedWarsSlumberBag = (typeof BedWarsSlumberBags)[number];
+export const BedWarsSlumberShopSorts = ['OWNED', ...SortNames] as const;
+export type BedWarsSlumberShopSort = (typeof BedWarsSlumberShopSorts)[number];
+export const BedWarsSlumberNPCNames = [
+  'dreamfeast_appetizers',
+  'npc_arcade_player',
+  'npc_bill_starr',
+  'npc_blacksmith',
+  'npc_blacksmith_apprentice',
+  'npc_bucky',
+  'npc_combat_artist_sally',
+  'npc_don_espresso',
+  'npc_electrician_russel',
+  'npc_executives',
+  'npc_gambler_george',
+  'npc_general_daku',
+  'npc_gizzy_moonpowder',
+  'npc_hammer',
+  'npc_hammer_part_two',
+  'npc_hermes',
+  'npc_inspector',
+  'npc_jeremy_jagger',
+  'npc_jets_mcturbo',
+  'npc_jimmy_bimmy',
+  'npc_john_indigos_hammer',
+  'npc_john_pireso',
+  'npc_king_flut',
+  'npc_lady_saichi',
+  'npc_laundry',
+  'npc_laundry_gal',
+  'npc_lester_brody',
+  'npc_master_meyer',
+  'npc_meet_the_sandman',
+  'npc_oasis',
+  'npc_peter',
+  'npc_quiz_show_host',
+  'npc_reception_start',
+  'npc_skyblock_player',
+  'npc_spaceman',
+  'npc_the_ratman',
+  'npc_wally',
+  'phase_four_ascension_q1',
+  'phase_four_ascension_q2',
+  'phase_four_ascension_q3',
+  'phase_four_ascension_q4',
+  'phase_four_ascension_q5',
+  'phase_four_ascension_wallet_q',
+  'phase_three_asc',
+  'phase_two_asc',
+  'staff_wallet_upgrade'
+] as const;
+export type BedWarsSlumberNPCName = (typeof BedWarsSlumberNPCNames)[number];
 export const BedWarsQuickbuyPrivacys = ['MAX', 'HIGH', 'MEDIUM', 'NONE'] as const;
 export type BedWarsQuickbuyPrivacy = (typeof BedWarsQuickbuyPrivacys)[number];
 export const BedWarsUltimates = [

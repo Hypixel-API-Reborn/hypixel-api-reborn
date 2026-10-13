@@ -21,4 +21,6 @@ test('BedWarsSlumberQuestGamblerGeorge', () => {
   expectTypeOf(data.shouldReward).toEqualTypeOf<boolean>();
   expect(data.wonLastGame).toBeDefined();
   expectTypeOf(data.wonLastGame).toEqualTypeOf<boolean>();
+  expect(data.betCooldownTime).toBeDefined();
+  expectTypeOf(data.betCooldownTime).toEqualTypeOf<boolean>();
 });

@@ -6,7 +6,7 @@ import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.ts';
 import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.ts';
 import BedWarsSlumberRoom from './BedWarsSlumberRoom.ts';
 import { expect, expectTypeOf, test } from 'vitest';
-import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.ts';
+import type { BedWarsSlumberBag, BedWarsSlumberShopSort } from '../../../../Types/index.ts';
 
 test('BedWarsSlumber', () => {
   const data = new BedWarsSlumber({ stats: 'meow' });
@@ -19,7 +19,7 @@ test('BedWarsSlumber', () => {
   expect(data.boonMultiplier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.boonMultiplier).toEqualTypeOf<number>();
   expect(data.currentCosmeticSorting).toBeDefined();
-  expectTypeOf(data.currentCosmeticSorting).toEqualTypeOf<ShopSort | 'UNKNOWN'>();
+  expectTypeOf(data.currentCosmeticSorting).toEqualTypeOf<BedWarsSlumberShopSort | 'UNKNOWN'>();
   expect(data.doublers).toBeDefined();
   expect(data.doublers).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.doublers).toEqualTypeOf<number>();

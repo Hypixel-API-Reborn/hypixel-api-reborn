@@ -230,13 +230,11 @@ async function parseFile(filePath: string, ignoredTypes: string[]) {
   if (types === null) return;
   const imports: string[] = [
     '/* eslint-disable @stylistic/max-len */',
-    `import ${types.className} from './${types.className}.js';`
+    `import ${types.className} from './${types.className}.ts';`
   ];
   const typedImports: string[] = [];
   types.imports.forEach((fileImport) => {
-    fileImport.module = fileImport.module.replaceAll('.js', '.ts');
     if (ignoredImportsFolders.includes(getParentDirName(fileImport.module))) return;
-    fileImport.module = fileImport.module.replaceAll('.ts', '.js');
     if (types.extending !== '' && types.extending === fileImport.default) return;
     if (fileImport.default) imports.push(`import ${fileImport.default} from '${fileImport.module}'`);
     if (fileImport.named) typedImports.push(`import type {${fileImport.named.join(', ')}} from '${fileImport.module}'`);

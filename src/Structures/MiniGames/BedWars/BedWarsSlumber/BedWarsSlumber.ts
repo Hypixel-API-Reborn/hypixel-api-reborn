@@ -4,12 +4,12 @@ import BedWarsSlumberPhase from './BedWarsSlumberPhase.ts';
 import BedWarsSlumberPhaseThree from './BedWarsSlumberPhaseThree.ts';
 import BedWarsSlumberQuest from './BedWarsSlumberQuest/BedWarsSlumberQuest.ts';
 import BedWarsSlumberRoom from './BedWarsSlumberRoom.ts';
-import type { BedWarsSlumberBag, ShopSort } from '../../../../Types/index.ts';
+import type { BedWarsSlumberBag, BedWarsSlumberShopSort } from '../../../../Types/index.ts';
 
 class BedWarsSlumber {
   bagType: BedWarsSlumberBag | 'UNKNOWN';
   boonMultiplier: number;
-  currentCosmeticSorting: ShopSort | 'UNKNOWN';
+  currentCosmeticSorting: BedWarsSlumberShopSort | 'UNKNOWN';
   doublers: number;
   minion: BedWarsSlumberMinion;
   phase: BedWarsSlumberPhase;
