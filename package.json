@@ -25,7 +25,7 @@
     "test": "pnpm exec vitest run",
     "test:generate": "pnpm exec tsx scripts/generateBasicTests.ts",
     "test:coverage": "pnpm exec vitest run --coverage",
-    "test:coverage:check": "pnpm exec tsx scripts/checkCoverage.ts",
+    "test:coverage:check": "pnpm exec tsx scripts/checkTestCoverage.ts",
     "test:ui": "pnpm exec vitest --ui --coverage",
     "scripts:generate:index": "pnpm scripts:generate:index:src && pnpm scripts:generate:index:types && pnpm scripts:generate:index:utils",
     "scripts:generate:index:src": "pnpm exec tsx scripts/generateSrcIndexFile.ts",
