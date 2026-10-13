@@ -14,7 +14,7 @@ class BedWarsSlumberQuest {
     this.item = new BedWarsSlumberQuestItem(data?.item ?? {});
     this.npc = new BedWarsSlumberQuestNPC(data);
     this.objective = new BedWarsSlumberQuestObjective(data?.objective ?? {});
-    this.lastTraded = data?.lastTraded ?? -1;
+    this.lastTraded = data?.lastTraded ?? 0;
   }
 }
 

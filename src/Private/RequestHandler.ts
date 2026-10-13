@@ -1,7 +1,7 @@
 import Errors from '../Errors.ts';
 import HypixelAPIRebornError from './HypixelAPIRebornError.ts';
 import RawRequestData from './RawRequestData.ts';
-import { isUUID } from '../Utils/validationUtils.ts';
+import { isUUID } from '../Utils/index.ts';
 import type Client from '../Client.ts';
 import type { RequestOptions } from '../Types/index.ts';
 

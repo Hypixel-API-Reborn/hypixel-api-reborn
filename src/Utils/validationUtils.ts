@@ -1,4 +1,4 @@
-import type { UUID } from '../Types/Global.ts';
+import type { UUID } from '../Types/index.ts';
 
 export function removeDashesFromUUID(uuid: UUID): UUID {
   return uuid.replace(/-/g, '').toLowerCase();

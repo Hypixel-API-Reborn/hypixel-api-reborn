@@ -2,6 +2,7 @@ import SkyWars from './SkyWars.ts';
 import SkyWarsKitsMythics from './SkyWarsKitsMythics/SkyWarsKitsMythics.ts';
 import SkyWarsMega from './SkyWarsMega/SkyWarsMega.ts';
 import SkyWarsMini from './SkyWarsMini.ts';
+import SkyWarsMode from './SkyWarsMode/SkyWarsMode.ts';
 import SkyWarsPrivateGames from './SkyWarsPrivateGames.ts';
 import SkyWarsSolo from './SkyWarsSolo/SkyWarsSolo.ts';
 import SkyWarsTeams from './SkyWarsTeams/SkyWarsTeams.ts';
@@ -135,6 +136,9 @@ test('SkyWars', () => {
   expect(data.beastChance).toBeDefined();
   expect(data.beastChance).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.beastChance).toEqualTypeOf<number>();
+  expect(data.opals).toBeDefined();
+  expect(data.opals).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.opals).toEqualTypeOf<number>();
   expect(data.privateGamesSettings).toBeDefined();
   expect(data.privateGamesSettings).toBeInstanceOf(SkyWarsPrivateGames);
   expectTypeOf(data.privateGamesSettings).toEqualTypeOf<SkyWarsPrivateGames>();
@@ -150,4 +154,7 @@ test('SkyWars', () => {
   expect(data.mini).toBeDefined();
   expect(data.mini).toBeInstanceOf(SkyWarsMini);
   expectTypeOf(data.mini).toEqualTypeOf<SkyWarsMini>();
+  expect(data.ranked).toBeDefined();
+  expect(data.ranked).toBeInstanceOf(SkyWarsMode);
+  expectTypeOf(data.ranked).toEqualTypeOf<SkyWarsMode>();
 });

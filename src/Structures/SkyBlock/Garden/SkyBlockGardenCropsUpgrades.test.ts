@@ -12,15 +12,15 @@ test('SkyBlockGardenCropsUpgrades', () => {
   expect(data.carrot).toBeDefined();
   expect(data.carrot).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.carrot).toEqualTypeOf<number>();
-  expect(data.sugarCane).toBeDefined();
-  expect(data.sugarCane).toBeGreaterThanOrEqual(0);
-  expectTypeOf(data.sugarCane).toEqualTypeOf<number>();
   expect(data.potato).toBeDefined();
   expect(data.potato).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.potato).toEqualTypeOf<number>();
   expect(data.pumpkin).toBeDefined();
   expect(data.pumpkin).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.pumpkin).toEqualTypeOf<number>();
+  expect(data.sugarCane).toBeDefined();
+  expect(data.sugarCane).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.sugarCane).toEqualTypeOf<number>();
   expect(data.melon).toBeDefined();
   expect(data.melon).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.melon).toEqualTypeOf<number>();

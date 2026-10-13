@@ -5,6 +5,8 @@ import SkyBlockMemberPlayerStatsEndIsland from './SkyBlockMemberPlayerStatsEndIs
 import SkyBlockMemberPlayerStatsFishing from './SkyBlockMemberPlayerStatsFishing.ts';
 import SkyBlockMemberPlayerStatsGifts from './SkyBlockMemberPlayerStatsGifts.ts';
 import SkyBlockMemberPlayerStatsMythos from './SkyBlockMemberPlayerStatsMythos.ts';
+import SkyBlockMemberPlayerStatsPets from './SkyBlockMemberPlayerStatsPets.ts';
+import SkyBlockMemberPlayerStatsRift from './SkyBlockMemberPlayerStatsRift.ts';
 import SkyBlockMemberPlayerStatsWinter from './SkyBlockMemberPlayerStatsWinter.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 
@@ -47,6 +49,27 @@ test('SkyBlockMemberPlayerStats', () => {
   expect(data.endIsland).toBeDefined();
   expect(data.endIsland).toBeInstanceOf(SkyBlockMemberPlayerStatsEndIsland);
   expectTypeOf(data.endIsland).toEqualTypeOf<SkyBlockMemberPlayerStatsEndIsland>();
+  expect(data.rift).toBeDefined();
+  expect(data.rift).toBeInstanceOf(SkyBlockMemberPlayerStatsRift);
+  expectTypeOf(data.rift).toEqualTypeOf<SkyBlockMemberPlayerStatsRift>();
+  expect(data.pets).toBeDefined();
+  expect(data.pets).toBeInstanceOf(SkyBlockMemberPlayerStatsPets);
+  expectTypeOf(data.pets).toEqualTypeOf<SkyBlockMemberPlayerStatsPets>();
+  expect(data.shardCombatHunts).toBeDefined();
+  expect(data.shardCombatHunts).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.shardCombatHunts).toEqualTypeOf<number>();
+  expect(data.uniqueShards).toBeDefined();
+  expect(data.uniqueShards).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.uniqueShards).toEqualTypeOf<number>();
+  expect(data.shardFishingHunts).toBeDefined();
+  expect(data.shardFishingHunts).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.shardFishingHunts).toEqualTypeOf<number>();
+  expect(data.shardForestHunts).toBeDefined();
+  expect(data.shardForestHunts).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.shardForestHunts).toEqualTypeOf<number>();
+  expect(data.shardTrapHunts).toBeDefined();
+  expect(data.shardTrapHunts).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.shardTrapHunts).toEqualTypeOf<number>();
   expect(data.races).toBeDefined();
   expectTypeOf(data.races).toEqualTypeOf<Record<string, number | Record<string, number>>>();
 });

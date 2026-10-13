@@ -32,6 +32,8 @@ test('SkyBlockMemberLeveling', () => {
   expectTypeOf(data.fishingFestivalSharksKilled).toEqualTypeOf<number>();
   expect(data.taskSort).toBeDefined();
   expectTypeOf(data.taskSort).toEqualTypeOf<TaskLevelingSort | 'UNKNOWN'>();
+  expect(data.selectedSymbol).toBeDefined();
+  expectTypeOf(data.selectedSymbol).toEqualTypeOf<string | 'UNKNOWN'>();
   expect(data.claimedTalisman).toBeDefined();
   expectTypeOf(data.claimedTalisman).toEqualTypeOf<boolean>();
   expect(data.emblemUnlocks).toBeDefined();

@@ -10,6 +10,7 @@ test('GuildMember', () => {
   expect(data.uuid).toBeDefined();
   expectTypeOf(data.uuid).toEqualTypeOf<UUID>();
   expect(data.joinedAt).toBeDefined();
+  expect(data.joinedAt).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.joinedAt).toEqualTypeOf<number>();
   expect(data.questParticipation).toBeDefined();
   expect(data.questParticipation).toBeGreaterThanOrEqual(0);

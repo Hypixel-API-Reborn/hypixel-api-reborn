@@ -1,4 +1,4 @@
-import { CalculateAverage } from '../../../Utils/numberUtils.ts';
+import { CalculateAverage } from '../../../Utils/index.ts';
 
 class SkyBlockGardenCropsUpgrades {
   wheat: number;

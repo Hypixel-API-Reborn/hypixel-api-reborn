@@ -2,7 +2,7 @@ import SkyBlockMemberSlayersQuest from './SkyBlockMemberSlayersQuest.ts';
 import { expect, expectTypeOf, test } from 'vitest';
 import type { SkyBlockArea, SkyBlockSlayer } from '../../../../Types/index.ts';
 
-test('SkyBlockMemberSlayerQuest', () => {
+test('SkyBlockMemberSlayersQuest', () => {
   const data = new SkyBlockMemberSlayersQuest({ stats: 'meow' });
   expect(data).toBeDefined();
   expect(data).toBeInstanceOf(SkyBlockMemberSlayersQuest);

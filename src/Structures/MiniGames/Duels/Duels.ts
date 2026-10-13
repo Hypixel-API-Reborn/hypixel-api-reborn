@@ -46,7 +46,7 @@ import type {
   DuelsStatus,
   DuelsTitleParsed,
   PlayerGenericSelectedCosmetic
-} from '../../../Types/Player.ts';
+} from '../../../Types/index.ts';
 
 class Duels extends GenericDuelsMode {
   title: DuelsTitleParsed;

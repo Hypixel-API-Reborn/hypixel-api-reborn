@@ -7,9 +7,9 @@ class BedWarsSlumberQuestNPCData {
   lastCompleted: number;
   constructor(data: Record<string, any>, npcName: BedWarsSlumberNPCName) {
     this.started = data?.started?.[npcName] ?? false;
-    this.lastStarted = data?.lastStarted?.[npcName] ?? -1;
+    this.lastStarted = data?.lastStarted?.[npcName] ?? 0;
     this.completed = data?.completed?.[npcName] ?? false;
-    this.lastCompleted = data?.lastCompleted?.[npcName] ?? -1;
+    this.lastCompleted = data?.lastCompleted?.[npcName] ?? 0;
   }
 }
 

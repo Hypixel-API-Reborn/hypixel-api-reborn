@@ -1,12 +1,13 @@
-/* eslint-disable */
 import globals from 'globals';
 import importPlugin from 'eslint-plugin-import';
+import plugin from './scripts/eslint/plugin.js';
 import prettier from 'eslint-config-prettier';
-import stylistic from '@stylistic/eslint-plugin';
 import sortImports from '@j4cobi/eslint-plugin-sort-imports';
+import stylistic from '@stylistic/eslint-plugin';
 import ts from 'typescript-eslint';
 import { globalIgnores } from 'eslint/config';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   ...ts.configs.recommended,
   importPlugin.flatConfigs.recommended,
@@ -16,11 +17,11 @@ export default [
   {
     files: ['**/*.ts', '**/*.js'],
     languageOptions: { ecmaVersion: 2022, sourceType: 'module', globals: { ...globals.es2022, ...globals.node } },
-    plugins: { '@stylistic': stylistic, 'sort-imports': sortImports },
+    plugins: { '@stylistic': stylistic, 'sort-imports': sortImports, 'Hypixel-API-Reborn': plugin },
     settings: { 'import/resolver': { typescript: true, node: true } },
     rules: {
       'sort-imports/sort-imports': [
-        'error',
+        'warn',
         { ignoreCase: false, ignoreMemberSort: false, memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'] }
       ],
       '@stylistic/max-len': [
@@ -29,14 +30,18 @@ export default [
       ],
       '@stylistic/space-before-function-paren': ['error', { anonymous: 'never', named: 'never', catch: 'always' }],
       '@stylistic/function-call-argument-newline': ['error', 'consistent'],
-      'import/extensions': ['error', 'always', { ignorePackages: true }],
+      'import/extensions': ['warn', 'always', { ignorePackages: true }],
+      '@stylistic/line-comment-position': ['warn', { position: 'above' }],
       '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
       '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
       '@stylistic/array-bracket-newline': ['error', 'consistent'],
       '@stylistic/array-element-newline': ['warn', 'consistent'],
       'no-constant-condition': ['error', { checkLoops: false }],
+      'import/enforce-node-protocol-usage': ['error', 'always'],
       'no-extend-native': ['warn', { exceptions: ['Object'] }],
+      'Hypixel-API-Reborn/enforce-utils-imports-path': 'warn',
       '@stylistic/nonblock-statement-body-position': 'error',
+      'Hypixel-API-Reborn/enforce-type-imports-path': 'warn',
       '@stylistic/object-curly-spacing': ['error', 'always'],
       '@stylistic/no-whitespace-before-property': 'error',
       '@stylistic/one-var-declaration-per-line': 'error',
@@ -54,8 +59,8 @@ export default [
       '@stylistic/member-delimiter-style': 'error',
       '@stylistic/template-curly-spacing': 'error',
       'import/no-extraneous-dependencies': 'error',
+      '@stylistic/multiline-comment-style': 'warn',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@stylistic/line-comment-position': 'warn',
       '@stylistic/object-curly-newline': 'error',
       '@stylistic/array-bracket-spacing': 'warn',
       'import/no-useless-path-segments': 'error',
@@ -83,6 +88,8 @@ export default [
       '@stylistic/comma-spacing': 'error',
       '@stylistic/curly-newline': 'error',
       'import/no-dynamic-require': 'warn',
+      '@stylistic/spaced-comment': 'warn',
+      '@stylistic/spaced-comment': 'warn',
       '@stylistic/semi-spacing': 'error',
       '@stylistic/arrow-parens': 'error',
       'import/no-absolute-path': 'error',
@@ -92,19 +99,21 @@ export default [
       '@stylistic/key-spacing': 'error',
       '@stylistic/comma-style': 'error',
       'no-useless-constructor': 'error',
+      'import/no-absolute-path': 'warn',
       '@stylistic/semi-style': 'error',
       '@stylistic/new-parens': 'error',
       'no-useless-assignment': 'error',
       'no-inner-declarations': 'error',
       'import/no-self-import': 'error',
+      'import/no-unresolved': 'error',
       'no-implicit-coercion': 'error',
       'import/no-deprecated': 'error',
-      'import/no-namespace': 'error',
+      '@stylistic/eol-last': 'error',
       'no-use-before-define': 'warn',
       'no-underscore-dangle': 'warn',
       'no-unneeded-ternary': 'error',
-      'import/exports-last': 'warn',
-      '@stylistic/eol-last': 'warn',
+      'import/exports-last': 'error',
+      'import/no-namespace': 'warn',
       '@stylistic/no-tabs': 'error',
       'default-param-last': 'error',
       'import/no-commonjs': 'error',

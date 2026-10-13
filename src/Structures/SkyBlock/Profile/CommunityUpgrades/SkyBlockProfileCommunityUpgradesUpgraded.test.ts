@@ -10,7 +10,6 @@ test('SkyBlockProfileCommunityUpgradesUpgraded', () => {
   expect(data.tier).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.tier).toEqualTypeOf<number>();
   expect(data.startedBy).toBeDefined();
-  expect(data.startedBy).toBeTypeOf('string');
   expectTypeOf(data.startedBy).toEqualTypeOf<string>();
   expect(data.claimedTimestamp).toBeDefined();
   expect(data.claimedTimestamp).toBeGreaterThanOrEqual(0);
@@ -19,7 +18,6 @@ test('SkyBlockProfileCommunityUpgradesUpgraded', () => {
   expect(data.claimedAt).toBeInstanceOf(Date);
   expectTypeOf(data.claimedAt).toEqualTypeOf<Date>();
   expect(data.claimedBy).toBeDefined();
-  expect(data.claimedBy).toBeTypeOf('string');
   expectTypeOf(data.claimedBy).toEqualTypeOf<string>();
   expect(data.fasttracked).toBeDefined();
   expectTypeOf(data.fasttracked).toEqualTypeOf<boolean>();

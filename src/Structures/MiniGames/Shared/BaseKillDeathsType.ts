@@ -1,6 +1,6 @@
 import { Divide } from '../../../Utils/index.ts';
 
-class BaseKillsDeathsType {
+class BaseKillDeathsType {
   kills: number;
   deaths: number;
   ratio: number;
@@ -11,4 +11,4 @@ class BaseKillsDeathsType {
   }
 }
 
-export default BaseKillsDeathsType;
+export default BaseKillDeathsType;

@@ -1,6 +1,7 @@
-/* v8 ignore next 10000 */
-/* eslint-disable @stylistic/max-len  */
 /* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable sort-imports/sort-imports */
+/* eslint-disable @stylistic/max-len */
+/* v8 ignore next 10000 */
 
 import Client from './Client.ts';
 import Errors from './Errors.ts';
@@ -86,8 +87,8 @@ import DuelsCombo from './Structures/MiniGames/Duels/Mode/DuelsCombo.ts';
 import DuelsMegaWalls from './Structures/MiniGames/Duels/Mode/DuelsMegaWalls.ts';
 import DuelsMode from './Structures/MiniGames/Duels/Mode/DuelsMode.ts';
 import DuelsModeFull from './Structures/MiniGames/Duels/Mode/DuelsModeFull.ts';
-import DuelsOP from './Structures/MiniGames/Duels/Mode/DuelsOP.ts';
 import DuelsOdyssey from './Structures/MiniGames/Duels/DuelsOdyssey.ts';
+import DuelsOP from './Structures/MiniGames/Duels/Mode/DuelsOP.ts';
 import DuelsOptions from './Structures/MiniGames/Duels/DuelsOptions.ts';
 import DuelsPotion from './Structures/MiniGames/Duels/Mode/DuelsPotion.ts';
 import DuelsPrivateGames from './Structures/MiniGames/Duels/DuelsPrivateGames.ts';
@@ -175,7 +176,6 @@ import MurderMysteryKnifeSkinPrestigeXp from './Structures/MiniGames/MurderMyste
 import MurderMysteryMap from './Structures/MiniGames/MurderMystery/MurderMysteryMap.ts';
 import OneInTheQuiver from './Structures/MiniGames/Arcade/OneInTheQuiver.ts';
 import OneTimeAchievement from './Structures/Static/Achievements/OneTimeAchievement.ts';
-import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.ts';
 import Paintball from './Structures/MiniGames/Paintball.ts';
 import PartyGames from './Structures/MiniGames/Arcade/PartyGames/PartyGames.ts';
 import PartyGamesGame from './Structures/MiniGames/Arcade/PartyGames/PartyGamesGame.ts';
@@ -211,14 +211,15 @@ import PlayerSocialMedia from './Structures/Player/PlayerSocialMedia.ts';
 import PlayerStats from './Structures/Player/PlayerStats.ts';
 import PlayerTourney from './Structures/Player/PlayerTourney/PlayerTourney.ts';
 import PlayerTourneyData from './Structures/Player/PlayerTourney/PlayerTourneyData.ts';
+import PVPRun from './Structures/MiniGames/TNTGames/PVPRun.ts';
 import Quakecraft from './Structures/MiniGames/Quakecraft/Quakecraft.ts';
 import QuakecraftMode from './Structures/MiniGames/Quakecraft/QuakecraftMode.ts';
 import Quest from './Structures/Static/Quest.ts';
 import QuestObjective from './Structures/Static/QuestObjective.ts';
 import Quests from './Structures/Static/Quests.ts';
-import RPG16 from './Structures/MiniGames/Arcade/PartyGames/RPG16.ts';
 import RawSkyBlockInventoryItem from './Structures/SkyBlock/Inventory/RawSkyBlockInventoryItem.ts';
 import RecentGame from './Structures/RecentGame.ts';
+import RPG16 from './Structures/MiniGames/Arcade/PartyGames/RPG16.ts';
 import SantaSays from './Structures/MiniGames/Arcade/SantaSays.ts';
 import SantaSimulator from './Structures/MiniGames/Arcade/SantaSimulator.ts';
 import ScubaSimulator from './Structures/MiniGames/Arcade/ScubaSimulator.ts';
@@ -237,8 +238,8 @@ import SkyBlockBazaarQuickStatus from './Structures/SkyBlock/Bazaar/SkyBlockBaza
 import SkyBlockBingo from './Structures/SkyBlock/Bingo/SkyBlockBingo.ts';
 import SkyBlockBingoGoal from './Structures/SkyBlock/Bingo/SkyBlockBingoGoal.ts';
 import SkyBlockCollection from './Structures/SkyBlock/Collections/SkyBlockCollection.ts';
-import SkyBlockCollectionTier from './Structures/SkyBlock/Collections/SkyBlockCollectionTier.ts';
 import SkyBlockCollections from './Structures/SkyBlock/Collections/SkyBlockCollections.ts';
+import SkyBlockCollectionTier from './Structures/SkyBlock/Collections/SkyBlockCollectionTier.ts';
 import SkyBlockElection from './Structures/SkyBlock/Election/SkyBlockElection.ts';
 import SkyBlockElectionCandidate from './Structures/SkyBlock/Election/SkyBlockElectionCandidate.ts';
 import SkyBlockElectionCandidatePerk from './Structures/SkyBlock/Election/SkyBlockElectionCandidatePerk.ts';
@@ -428,12 +429,12 @@ import Soccer from './Structures/MiniGames/Arcade/Soccer.ts';
 import SpeedUHC from './Structures/MiniGames/SpeedUHC/SpeedUHC.ts';
 import SpeedUHCMode from './Structures/MiniGames/SpeedUHC/SpeedUHCMode.ts';
 import Status from './Structures/Status.ts';
+import ThrowOut from './Structures/MiniGames/Arcade/ThrowOut.ts';
+import TieredAchievement from './Structures/Static/Achievements/TieredAchievement.ts';
 import TNTGames from './Structures/MiniGames/TNTGames/TNTGames.ts';
 import TNTRun from './Structures/MiniGames/TNTGames/TNTRun.ts';
 import TNTTag from './Structures/MiniGames/TNTGames/TNTTag.ts';
 import TNTWizards from './Structures/MiniGames/TNTGames/TNTWizards.ts';
-import ThrowOut from './Structures/MiniGames/Arcade/ThrowOut.ts';
-import TieredAchievement from './Structures/Static/Achievements/TieredAchievement.ts';
 import TurboKartRacers from './Structures/MiniGames/TurboKartRacers/TurboKartRacers.ts';
 import TurboKartRacersMap from './Structures/MiniGames/TurboKartRacers/TurboKartRacersMap.ts';
 import UHC from './Structures/MiniGames/UHC/UHC.ts';
@@ -542,8 +543,8 @@ export {
   DuelsMegaWalls,
   DuelsMode,
   DuelsModeFull,
-  DuelsOP,
   DuelsOdyssey,
+  DuelsOP,
   DuelsOptions,
   DuelsPotion,
   DuelsPrivateGames,
@@ -631,7 +632,6 @@ export {
   MurderMysteryMap,
   OneInTheQuiver,
   OneTimeAchievement,
-  PVPRun,
   Paintball,
   PartyGames,
   PartyGamesGame,
@@ -667,14 +667,15 @@ export {
   PlayerStats,
   PlayerTourney,
   PlayerTourneyData,
+  PVPRun,
   Quakecraft,
   QuakecraftMode,
   Quest,
   QuestObjective,
   Quests,
-  RPG16,
   RawSkyBlockInventoryItem,
   RecentGame,
+  RPG16,
   SantaSays,
   SantaSimulator,
   ScubaSimulator,
@@ -693,8 +694,8 @@ export {
   SkyBlockBingo,
   SkyBlockBingoGoal,
   SkyBlockCollection,
-  SkyBlockCollectionTier,
   SkyBlockCollections,
+  SkyBlockCollectionTier,
   SkyBlockElection,
   SkyBlockElectionCandidate,
   SkyBlockElectionCandidatePerk,
@@ -884,12 +885,12 @@ export {
   SpeedUHC,
   SpeedUHCMode,
   Status,
+  ThrowOut,
+  TieredAchievement,
   TNTGames,
   TNTRun,
   TNTTag,
   TNTWizards,
-  ThrowOut,
-  TieredAchievement,
   TurboKartRacers,
   TurboKartRacersMap,
   UHC,
@@ -996,8 +997,8 @@ export default {
   DuelsMegaWalls,
   DuelsMode,
   DuelsModeFull,
-  DuelsOP,
   DuelsOdyssey,
+  DuelsOP,
   DuelsOptions,
   DuelsPotion,
   DuelsPrivateGames,
@@ -1085,7 +1086,6 @@ export default {
   MurderMysteryMap,
   OneInTheQuiver,
   OneTimeAchievement,
-  PVPRun,
   Paintball,
   PartyGames,
   PartyGamesGame,
@@ -1121,14 +1121,15 @@ export default {
   PlayerStats,
   PlayerTourney,
   PlayerTourneyData,
+  PVPRun,
   Quakecraft,
   QuakecraftMode,
   Quest,
   QuestObjective,
   Quests,
-  RPG16,
   RawSkyBlockInventoryItem,
   RecentGame,
+  RPG16,
   SantaSays,
   SantaSimulator,
   ScubaSimulator,
@@ -1147,8 +1148,8 @@ export default {
   SkyBlockBingo,
   SkyBlockBingoGoal,
   SkyBlockCollection,
-  SkyBlockCollectionTier,
   SkyBlockCollections,
+  SkyBlockCollectionTier,
   SkyBlockElection,
   SkyBlockElectionCandidate,
   SkyBlockElectionCandidatePerk,
@@ -1338,12 +1339,12 @@ export default {
   SpeedUHC,
   SpeedUHCMode,
   Status,
+  ThrowOut,
+  TieredAchievement,
   TNTGames,
   TNTRun,
   TNTTag,
   TNTWizards,
-  ThrowOut,
-  TieredAchievement,
   TurboKartRacers,
   TurboKartRacersMap,
   UHC,

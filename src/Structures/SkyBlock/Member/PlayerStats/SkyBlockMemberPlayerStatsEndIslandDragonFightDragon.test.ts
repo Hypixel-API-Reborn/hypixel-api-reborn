@@ -1,6 +1,7 @@
 /* eslint-disable @stylistic/max-len */
 import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.ts';
 import { expect, expectTypeOf, test } from 'vitest';
+/* eslint-enable @stylistic/max-len */
 
 test('SkyBlockMemberPlayerStatsEndIslandDragonFightDragon', () => {
   const data = new SkyBlockMemberPlayerStatsEndIslandDragonFightDragon({ stats: 'meow' }, 'old');

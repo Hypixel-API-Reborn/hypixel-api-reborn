@@ -168,8 +168,10 @@ export const pit: { Prestiges: PitPrestigeData[]; Levels: PitLevelData[] } = {
   ]
 };
 
-// credit: https://github.com/SkyCryptWebsite/SkyCrypt/blob/b9842bea6f1494fa2d2fd005b64f57d84646c188/src/constants/forge.js#L1 (Modified)
-// Times in milliseconds
+/*
+ * credit: https://github.com/SkyCryptWebsite/SkyCrypt/blob/b9842bea6f1494fa2d2fd005b64f57d84646c188/src/constants/forge.js#L1 (Modified)
+ * Times in milliseconds
+ */
 export const MiningForgeItems: { [key in MiningForgeItemId | 'UNKNOWN']: MiningForgeItemData } = {
   REFINED_DIAMOND: { name: 'Refined Diamond', duration: 28800000 },
   REFINED_MITHRIL: { name: 'Refined Mithril', duration: 21600000 },

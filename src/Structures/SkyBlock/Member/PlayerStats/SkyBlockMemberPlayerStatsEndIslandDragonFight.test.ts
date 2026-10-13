@@ -2,6 +2,7 @@
 import SkyBlockMemberPlayerStatsEndIslandDragonFight from './SkyBlockMemberPlayerStatsEndIslandDragonFight.ts';
 import SkyBlockMemberPlayerStatsEndIslandDragonFightDragon from './SkyBlockMemberPlayerStatsEndIslandDragonFightDragon.ts';
 import { expect, expectTypeOf, test } from 'vitest';
+/* eslint-enable @stylistic/max-len */
 
 test('SkyBlockMemberPlayerStatsEndIslandDragonFight', () => {
   const data = new SkyBlockMemberPlayerStatsEndIslandDragonFight({ stats: 'meow' });

@@ -1,8 +1,8 @@
-import BaseKillsDeathsType from '../../Shared/BaseKillDeathsType.ts';
+import BaseKillDeathsType from '../../Shared/BaseKillDeathsType.ts';
 import { Divide, ParseModeBefore } from '../../../../Utils/index.ts';
 import type { BedWarsFinalType, BedWarsModeId } from '../../../../Types/index.ts';
 
-class BedWarsKillsDeathsType extends BaseKillsDeathsType {
+class BedWarsKillsDeathsType extends BaseKillDeathsType {
   constructor(data: Record<string, any>, type?: BedWarsFinalType, mode?: BedWarsModeId, finals: boolean = false) {
     type = ParseModeBefore(type) as BedWarsFinalType;
     mode = ParseModeBefore(mode) as BedWarsModeId;

@@ -27,6 +27,9 @@ test('SkyBlockMemberPlayerStatsAuctionsStats', () => {
   expect(data.mythic).toBeDefined();
   expect(data.mythic).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.mythic).toEqualTypeOf<number>();
+  expect(data.ultimate).toBeDefined();
+  expect(data.ultimate).toBeGreaterThanOrEqual(0);
+  expectTypeOf(data.ultimate).toEqualTypeOf<number>();
   expect(data.total).toBeDefined();
   expect(data.total).toBeGreaterThanOrEqual(0);
   expectTypeOf(data.total).toEqualTypeOf<number>();

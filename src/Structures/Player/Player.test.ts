@@ -28,6 +28,8 @@ test('Player', () => {
   expectTypeOf(data.uuid).toEqualTypeOf<string>();
   expect(data.rank).toBeDefined();
   expectTypeOf(data.rank).toEqualTypeOf<PlayerRank>();
+  expect(data.formattedNickname).toBeDefined();
+  expectTypeOf(data.formattedNickname).toEqualTypeOf<string>();
   expect(data.firstLoginAt).toBeDefined();
   expectTypeOf(data.firstLoginAt).toEqualTypeOf<Date | null>();
   expect(data.lastLoginAt).toBeDefined();
