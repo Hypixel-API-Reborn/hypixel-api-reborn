@@ -11,6 +11,7 @@ class BedWarsFourFour extends BedWarsMode {
   ultimate: BedWarsMode;
   underworld: BedWarsMode;
   voidless: BedWarsMode;
+  totallyNormal: BedWarsMode;
   constructor(data: Record<string, any>) {
     super(data, 'four_four');
     this.tourney1 = new BedWarsMode(data, 'tourney_bedwars4s_1');
@@ -23,6 +24,7 @@ class BedWarsFourFour extends BedWarsMode {
     this.ultimate = new BedWarsMode(data, 'four_four_ultimate');
     this.underworld = new BedWarsMode(data, 'four_four_underworld');
     this.voidless = new BedWarsMode(data, 'four_four_voidless');
+    this.totallyNormal = new BedWarsMode(data, 'four_four_totallynormal');
   }
 }
 

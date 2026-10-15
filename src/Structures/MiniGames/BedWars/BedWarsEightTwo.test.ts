@@ -37,4 +37,7 @@ test('BedWarsEightTwo', () => {
   expect(data.voidless).toBeDefined();
   expect(data.voidless).toBeInstanceOf(BedWarsMode);
   expectTypeOf(data.voidless).toEqualTypeOf<BedWarsMode>();
+  expect(data.totallyNormal).toBeDefined();
+  expect(data.totallyNormal).toBeInstanceOf(BedWarsMode);
+  expectTypeOf(data.totallyNormal).toEqualTypeOf<BedWarsMode>();
 });

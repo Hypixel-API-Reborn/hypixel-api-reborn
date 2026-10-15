@@ -3013,6 +3013,7 @@ export const BedWarsModesEightTwos = [
   'eight_two_ultimate',
   'eight_two_underworld',
   'eight_two_voidless',
+  'eight_two_totallynormal',
   'eight_two'
 ] as const;
 export type BedWarsModesEightTwo = (typeof BedWarsModesEightTwos)[number];
@@ -3029,6 +3030,7 @@ export const BedWarsModesFourFours = [
   'four_four_ultimate',
   'four_four_underworld',
   'four_four_voidless',
+  'four_four_totallynormal',
   'four_four'
 ] as const;
 export type BedWarsModesFourFour = (typeof BedWarsModesFourFours)[number];
