@@ -45,7 +45,15 @@ class RequestHandler {
         Errors.ERROR_CODE_CAUSE.replace(/{code}/, '400 Bad Request').replace(/{cause}/, parsedRes.cause || 'UNKNOWN')
       );
     }
-    if (res.status === 403) throw new HypixelAPIRebornError(Errors.INVALID_API_KEY);
+    if (res.status === 403) {
+      if (parsedRes.cause === "Target is outside this key's guild") {
+        throw new HypixelAPIRebornError(Errors.INVALID_TARGET);
+      }
+      if (parsedRes.cause === 'This endpoint is not available to guild keys') {
+        throw new HypixelAPIRebornError(Errors.ENDPOINT_OUT_OF_SCOPE);
+      }
+      throw new HypixelAPIRebornError(Errors.INVALID_API_KEY);
+    }
     if (res.status === 422) throw new HypixelAPIRebornError(Errors.UNEXPECTED_ERROR);
     if (
       res.status === 429 &&

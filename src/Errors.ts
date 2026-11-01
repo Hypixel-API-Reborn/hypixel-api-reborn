@@ -39,6 +39,9 @@ class Errors {
     '[Hypixel-API-Reborn] Something went wrong while geting the requirement and it returns empty ';
   static INVALID_MOWOJANG_VERSION: string =
     '[Hypixel-API-Reborn] Invalid mowojang client version. Please use v{mowojangVersion} of mowojang instead of the current v{currentMowojangVersion} version so that the Client has the correct data. Spawning a new instance of mowojang';
+  static INVALID_TARGET: string =
+    "This target is outside of the key's guild. You can only fetch guild members using an Guild API Key.";
+  static ENDPOINT_OUT_OF_SCOPE: string = 'This endpoint is unavailable to Guild API Keys.';
 }
 
 export default Errors;
